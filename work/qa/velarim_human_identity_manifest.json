@@ -1,0 +1,75 @@
+{
+  "raw_human_entries_count": 226,
+  "unique_human_entries_declared": 225,
+  "unique_human_entries_calculated": 225,
+  "total_duplicate_excess": 1,
+  "gate_equation_raw_to_unique": "226 - 1 = 225",
+  "duplicate_groups": [
+    {
+      "unique_human_entry_id": 149,
+      "forma": "ravun",
+      "raw_entry_ids": [
+        149,
+        207
+      ],
+      "raw_occurrence_count": 2,
+      "group_excess": 1,
+      "classes": [
+        "ferida, dano, perigo; ferido, perigoso",
+        "perigoso, ferido; dano, perigo"
+      ],
+      "sentidos": [
+        "rav + -un",
+        "perigoso, ferido; dano, perigo"
+      ],
+      "source_lines": [
+        1226,
+        1299
+      ],
+      "source_texts": [
+        "| `ravun` | ferida, dano, perigo; ferido, perigoso | `rav + -un` |",
+        "| `ravun` | perigoso, ferido; dano, perigo |"
+      ],
+      "source_hashes": [
+        "74d13ceecaa81da31a728555bb8ed49025d5dfe29c14936e08be60f7bd5fb597",
+        "2c0a751795344d6b15e7b8c229d70a399c01e2f0685b87fefb3a9ebf26004e71"
+      ],
+      "deduplication_reason": "Consolidated 2 raw table occurrences into 1 unique human verbete"
+    }
+  ],
+  "set_metrics": {
+    "H_total": 225,
+    "E_total": 202,
+    "C_total": 23,
+    "E_inter_C_count": 0,
+    "E_inter_C_items": [],
+    "E_minus_C_count": 202,
+    "C_minus_E_count": 23,
+    "E_cup_C_count": 225,
+    "H_minus_E_cup_C_count": 0,
+    "invariant_E_cup_C_subset_H": true
+  },
+  "ravun_detail": {
+    "forma": "ravun",
+    "raw_occurrences_count": 2,
+    "raw_entry_ids": [
+      149,
+      207
+    ],
+    "source_lines": [
+      1226,
+      1299
+    ],
+    "unique_human_entry_id": 149,
+    "executable_id": 129,
+    "group_excess": 1,
+    "deduplication_reason": "Ocorrência secundária da Seção 17.5 (Linha 1299) consolidada no mesmo verbete único humano de ravun (Linha 1226 / Raw ID #149)."
+  },
+  "partition_categories": {
+    "expansion_only": 202,
+    "core_only": 23,
+    "core_and_expansion": 0,
+    "variant_without_record": 0,
+    "unresolved": 0
+  }
+}
