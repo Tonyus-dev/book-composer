@@ -1,0 +1,38 @@
+10. Atributos, Perícias e Recursos
+Atributos
+Todos os personagens possuem seis Atributos.
+Valores iniciais variam de 0 a 4.
+Escala:
+Perícias
+Perícias variam de 0 a 5.
+Recursos derivados
+Vitalidade
+Vitalidade = 10 + (Corpo × 3)
+Representa capacidade de permanecer ativo.
+Lucidez
+Lucidez = 8 + (Vontade × 3)
+Representa estabilidade mental, emocional e identitária.
+Fluxo
+Fluxo = 3 + Sintonia + metade do Marco, arredondada para cima
+Fluxo alimenta:
+magias; evocações; algumas técnicas; interação com Fendas; efeitos de artefatos. ### Guarda Guarda = 10 + Agilidade + proteção
+É a Dificuldade para atingir fisicamente o personagem.
+Fortitude
+Fortitude = 10 + Corpo + Vontade
+Resiste a:
+veneno; exaustão; deslocamento; dor; efeitos corporais. ### Integridade Integridade = 10 + Vontade + Sintonia
+Resiste a:
+medo; coerção; corrupção; invasão de memória; Merge forçado. ### Movimento
+Um personagem move-se:
+2 zonas por ação de movimento; 6 quadrados em mapa tático; 1 zona em terreno severo.
+Reservas
+Fôlego
+Cada personagem possui 3 pontos de Fôlego.
+Gaste 1 para:
+realizar uma reação adicional; levantar-se sem gastar movimento; ignorar Pressão de uma condição por um teste; mover 1 zona após uma ação; converter 1 dano sofrido em Lucidez perdida.
+Fôlego retorna após pausa segura.
+Determinação
+Cada personagem começa uma sessão com 1 Determinação.
+Gaste para:
+repetir os dois dados de um teste; permanecer com 1 Vitalidade ao cair a 0; recusar um efeito que controlaria sua personagem; declarar um vínculo ou preparação plausível.
+A nova rolagem deve ser aceita.
