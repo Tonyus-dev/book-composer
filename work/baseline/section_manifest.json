@@ -1,0 +1,292 @@
+[
+  {
+    "tipo": "prólogo",
+    "numero": 0,
+    "titulo": "Prólogo — O nome que atravessa a Fratura",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 15,
+    "paragrafo_final": 27,
+    "parte_pai": null,
+    "paragrafo_count": 13
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 1,
+    "titulo": "1. O que é KALLISTIS",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 28,
+    "paragrafo_final": 70,
+    "parte_pai": "PARTE I — O CRISTAL PARTIDO",
+    "paragrafo_count": 43
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 2,
+    "titulo": "2. Luz, Escuridão, Sombra e Fratura",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 71,
+    "paragrafo_final": 81,
+    "parte_pai": "PARTE I — O CRISTAL PARTIDO",
+    "paragrafo_count": 11
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 3,
+    "titulo": "3. História do mundo partido",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 82,
+    "paragrafo_final": 754,
+    "parte_pai": "PARTE I — O CRISTAL PARTIDO",
+    "paragrafo_count": 673
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 4,
+    "titulo": "4. O Cinturão das Frestas",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 755,
+    "paragrafo_final": 1431,
+    "parte_pai": "PARTE I — O CRISTAL PARTIDO",
+    "paragrafo_count": 677
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 5,
+    "titulo": "5. Criação de personagem",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 1432,
+    "paragrafo_final": 1468,
+    "parte_pai": "PARTE II — PESSOAS, POVOS E CAMINHOS",
+    "paragrafo_count": 37
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 6,
+    "titulo": "6. Povos — nove maneiras de existir",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 1469,
+    "paragrafo_final": 1820,
+    "parte_pai": "PARTE II — PESSOAS, POVOS E CAMINHOS",
+    "paragrafo_count": 352
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 7,
+    "titulo": "7. Ofícios, Trilhas e Chaves",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 1821,
+    "paragrafo_final": 2106,
+    "parte_pai": "PARTE II — PESSOAS, POVOS E CAMINHOS",
+    "paragrafo_count": 286
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 8,
+    "titulo": "8. Os Dados da Luz e da Escuridão",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 2107,
+    "paragrafo_final": 2140,
+    "parte_pai": "PARTE III — REGRAS DE JOGO",
+    "paragrafo_count": 34
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 9,
+    "titulo": "9. Predominância e Ressonância",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 2141,
+    "paragrafo_final": 2214,
+    "parte_pai": "PARTE III — REGRAS DE JOGO",
+    "paragrafo_count": 74
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 10,
+    "titulo": "10. Atributos, Perícias e Recursos",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 2215,
+    "paragrafo_final": 2252,
+    "parte_pai": "PARTE III — REGRAS DE JOGO",
+    "paragrafo_count": 38
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 11,
+    "titulo": "11. Consequências, condições e testes prolongados",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 2253,
+    "paragrafo_final": 2292,
+    "parte_pai": "PARTE III — REGRAS DE JOGO",
+    "paragrafo_count": 40
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 12,
+    "titulo": "12. Combate na grade ortogonal",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 2293,
+    "paragrafo_final": 2340,
+    "parte_pai": "PARTE III — REGRAS DE JOGO",
+    "paragrafo_count": 48
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 13,
+    "titulo": "13. Magia",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 2341,
+    "paragrafo_final": 2359,
+    "parte_pai": "PARTE III — REGRAS DE JOGO",
+    "paragrafo_count": 19
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 14,
+    "titulo": "14. Evocações",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 2360,
+    "paragrafo_final": 2407,
+    "parte_pai": "PARTE III — REGRAS DE JOGO",
+    "paragrafo_count": 48
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 15,
+    "titulo": "15. Velarim, Merge e Coro",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 2408,
+    "paragrafo_final": 2569,
+    "parte_pai": "PARTE III — REGRAS DE JOGO",
+    "paragrafo_count": 162
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 16,
+    "titulo": "16. Equipamentos",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 2570,
+    "paragrafo_final": 2580,
+    "parte_pai": "PARTE IV — EQUIPAMENTO, ARTEFATO E TRANSFORMAÇÃO",
+    "paragrafo_count": 11
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 17,
+    "titulo": "17. Artefatos, progressão e Legado",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 2581,
+    "paragrafo_final": 2686,
+    "parte_pai": "PARTE IV — EQUIPAMENTO, ARTEFATO E TRANSFORMAÇÃO",
+    "paragrafo_count": 106
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 18,
+    "titulo": "18. Sombra e corrupção",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 2687,
+    "paragrafo_final": 2721,
+    "parte_pai": "PARTE IV — EQUIPAMENTO, ARTEFATO E TRANSFORMAÇÃO",
+    "paragrafo_count": 35
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 19,
+    "titulo": "19. Fendas e travessias",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 2722,
+    "paragrafo_final": 2741,
+    "parte_pai": "PARTE IV — EQUIPAMENTO, ARTEFATO E TRANSFORMAÇÃO",
+    "paragrafo_count": 20
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 20,
+    "titulo": "20. Princípios de mestragem",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 2742,
+    "paragrafo_final": 2841,
+    "parte_pai": "PARTE V — CONDUZIR KALLISTIS",
+    "paragrafo_count": 100
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 21,
+    "titulo": "21. Adversários e encontros",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 2842,
+    "paragrafo_final": 4147,
+    "parte_pai": "PARTE V — CONDUZIR KALLISTIS",
+    "paragrafo_count": 1306
+  },
+  {
+    "tipo": "capítulo",
+    "numero": 22,
+    "titulo": "22. Começar uma campanha",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 4148,
+    "paragrafo_final": 4159,
+    "parte_pai": "PARTE V — CONDUZIR KALLISTIS",
+    "paragrafo_count": 12
+  },
+  {
+    "tipo": "apêndice",
+    "numero": "A",
+    "titulo": "Apêndice A — Referência rápida",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 4160,
+    "paragrafo_final": 4191,
+    "parte_pai": "APÊNDICES",
+    "paragrafo_count": 32
+  },
+  {
+    "tipo": "apêndice",
+    "numero": "B",
+    "titulo": "Apêndice B — Velarim Conversacional v2.0",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 4192,
+    "paragrafo_final": 4299,
+    "parte_pai": "APÊNDICES",
+    "paragrafo_count": 108
+  },
+  {
+    "tipo": "apêndice",
+    "numero": "C",
+    "titulo": "Apêndice C — Setenta e dois encontros entre Povo e Ofício",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 4300,
+    "paragrafo_final": 4383,
+    "parte_pai": "APÊNDICES",
+    "paragrafo_count": 84
+  },
+  {
+    "tipo": "apêndice",
+    "numero": "D",
+    "titulo": "Apêndice D — Mapas táticos do Cinturão",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 4384,
+    "paragrafo_final": 4402,
+    "parte_pai": "APÊNDICES",
+    "paragrafo_count": 19
+  },
+  {
+    "tipo": "apêndice",
+    "numero": "E",
+    "titulo": "Apêndice E — Glossário essencial",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 4403,
+    "paragrafo_final": 4405,
+    "parte_pai": "APÊNDICES",
+    "paragrafo_count": 3
+  },
+  {
+    "tipo": "apêndice",
+    "numero": "F",
+    "titulo": "Apêndice F — Fundamentos que não podem ser revertidos silenciosamente",
+    "estilo_word": "Kallistis Chapter",
+    "paragrafo_inicial": 4406,
+    "paragrafo_final": 4414,
+    "parte_pai": "APÊNDICES",
+    "paragrafo_count": 9
+  }
+]

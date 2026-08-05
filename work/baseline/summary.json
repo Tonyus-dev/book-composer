@@ -31,6 +31,38 @@
     "adversario": 25
   },
   "level1_headings_count": 5,
-  "detected_partes": 0,
-  "detected_appendices": 2
+  "detected_partes": 5,
+  "detected_appendices": 6,
+  "section_manifest_count": 29,
+  "canonical_catalog_count": 235,
+  "canonical_definitions_in_mechanical_values": 434,
+  "canonical_catalog_by_category": {
+    "povo": 9,
+    "oficio": 8,
+    "tecnica": 53,
+    "magia": 28,
+    "evocacao": 24,
+    "arma": 24,
+    "armadura": 5,
+    "encontro_povo_oficio": 72,
+    "velarim": 12
+  },
+  "image_classification": {
+    "capa": 1,
+    "fundo_decorativo": 1,
+    "icone": 8,
+    "conteudo": 42
+  },
+  "mechanical_classification": {
+    "regra_derivada": 1193,
+    "menção_narrativa": 57,
+    "definição_canônica": 434,
+    "referência": 4
+  },
+  "detected_chapters": 22,
+  "detected_prologue": 1,
+  "detected_total_sections": 29,
+  "velarim_paragraph_hits": 80,
+  "velarim_table_hits": 12,
+  "total_encounters_appendix_c": 72
 }
