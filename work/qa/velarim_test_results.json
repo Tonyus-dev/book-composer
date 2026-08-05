@@ -1,21 +1,23 @@
 {
-  "suite": "Velarim Veth & Vethari Cardinality Verification",
-  "total_tests": 12,
-  "passed_tests": 12,
+  "suite": "Velarim Consolidation & Coverage Closure Verification",
+  "total_tests": 14,
+  "passed_tests": 14,
   "failed_tests": 0,
   "test_names": [
-    "Total de verbetes humanos é igual a 223",
-    "Total de registros executáveis de expansão é igual a 202",
-    "Total de registros do Núcleo 1.0 é igual a 48",
-    "Partição mutuamente exclusiva dos verbetes humanos soma 223",
-    "veth possui classificação única como maps_to_core_only",
-    "vethari possui classificação única como maps_to_core_only",
-    "executable_id de veth é comprovado como null",
-    "executable_id de vethari é comprovado como null",
-    "Contagem maps_to_core_only contém exatamente 23 itens",
-    "Contagem maps_to_core_and_expansion contém 0 itens",
-    "Métrica 48 possui universo explícito indicado no JSON",
-    "work/working_copy.docx permanece 100% intocado"
+    "Existem exatamente 202 executable_id únicos na expansão",
+    "Todos os 202 executable_id possuem mapeamento no crosswalk",
+    "Nenhum executable_id está órfão (count == 0)",
+    "Existem exatamente 200 human_entry_id únicos usados pela expansão",
+    "Dois grupos muitos-para-um identificados nominalmente (ravun e les)",
+    "Os grupos explicam exatamente a diferença 202 - 200 = 2",
+    "Cada grupo de consolidação possui mais de um executable_id",
+    "Nenhum executable_id é duplicado entre grupos de consolidação",
+    "veth possui extensão semântica registrada (additional_sense_without_independent_record == true)",
+    "veth não possui executable_id independente na camada de expansão (executable_id == null)",
+    "vethari é tratado segundo seus dados reais (executable_id == null)",
+    "Partição humana soma exatamente 223 (200 expansão + 23 núcleo)",
+    "work/working_copy.docx permanece 100% intocado",
+    "Mapeamento e extração operam de forma dinâmica sem listas hardcoded"
   ],
   "verdict": "EXIT 0 (ALL PASS)"
 }
