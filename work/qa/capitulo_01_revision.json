@@ -12,5 +12,13 @@
   ],
   "tabelas_no_intervalo": 0,
   "imagens_no_intervalo": 0,
-  "paginas_correspondentes_na_fonte": [7, 8]
+  "paginas_correspondentes_na_fonte": [
+    7,
+    8
+  ],
+  "revisado": true,
+  "cânone_aprovado": true,
+  "técnica_aprovada": true,
+  "voz_autoral_aprovada": true,
+  "aprovado_pelo_autor": true
 }

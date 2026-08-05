@@ -1,0 +1,9 @@
+# Decisões Editoriais — KALLISTIS
+
+## DECISÃO E-001 — Gênero gramatical de “personagem”
+
+KALLISTIS usa preferencialmente “a personagem”, “as personagens” e construções equivalentes quando se refere genericamente às pessoas jogadoras ou protagonistas.
+
+Isso é uma convenção editorial de consistência, não uma alteração de regra ou cânone.
+
+Não execute substituição global automática. Cada ocorrência deve ser avaliada no contexto gramatical.
