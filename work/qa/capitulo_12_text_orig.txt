@@ -1,0 +1,57 @@
+12. Combate na grade ortogonal
+O combate usa células quadradas ou retangulares para compatibilidade com o Cauldron. A grade é instrumento de posição, não prisão da ficção. Toda cena de combate deve possuir objetivo, terreno e possibilidade de encerramento além da eliminação total.
+Escala
+O jogo funciona por zonas narrativas ou mapa tático ortogonal.
+1 célula = 1,5 metro
+6 células = 9 metros
+1 zona ≈ 6 células ≈ área funcional de combate
+A grade usa células quadradas ou retangulares. Hexágonos, coordenadas axiais e distância hexagonal não pertencem à regra vigente.
+Movimento e ocupação
+Uma ação de Movimento permite deslocar até 6 pontos.
+célula que compartilha lado: custo 1;
+diagonal: custo 2, como regra provisória de playtest;
+terreno difícil: +1 por célula;
+terreno severo pode limitar o deslocamento a 1 zona;
+não se atravessa célula ocupada por inimigo sem capacidade específica.
+Duas criaturas são adjacentes quando suas células compartilham um lado. Contato apenas pelo vértice não conta para engajamento, proteção ou reação.
+Criatura comum ocupa 1 célula; Grande, normalmente 2x2; Enorme, 3x3 ou mais. Montarias, veículos e Evocações usam a base registrada.
+Rodada
+Cada personagem possui 1 Movimento, 1 Ação, 1 Reação e ações livres breves.
+Iniciativa por lados
+Cada lado escolhe representante e rola:
+2d10 + Agilidade + Percepção
+O lado vencedor escolhe agir primeiro ou segundo. Depois, os lados alternam uma ativação. Ninguém age duas vezes antes que todos do mesmo lado tenham oportunidade, salvo técnica.
+Ações
+Ações comuns: atacar, lançar magia, convocar, comandar Evocação, ajudar, correr, defender, usar item, preparar, interagir, recuperar ou realizar objetivo da cena.
+Ataque
+Corpo a corpo
+2d10 + Corpo ou Agilidade + Combate
+contra Guarda
+Distância
+2d10 + Agilidade + Pontaria
+contra Guarda
+Magia
+Conforme a magia, normalmente Sintonia + Magia contra Guarda, Fortitude ou Integridade.
+Dano e potência
+Armas possuem dano-base fixo. Ataques comuns usam ×1. Técnicas e magias usam a escala de potência.
+Dano final =
+(dano-base x multiplicador do nível)
++ bônus de margem
++ modificadores fixos
++ Corpo, quando Potente
+- Proteção
+Nível I: ×2;
+Nível II: ×3;
+Nível III: ×4;
+Nível IV: ×5;
+sucesso forte: +2;
+sucesso extraordinário: +4;
+dano mínimo após Proteção: 1.
+Dano verdadeiro ignora Proteção comum e não recebe multiplicador, salvo texto explícito.
+Cobertura, linha de efeito e áreas
+Trace a linha entre centros das células. Quando parede, objeto ou criatura bloquear parte relevante, aplique cobertura. Linha de efeito bloqueada impede o ataque.
+Áreas usam modelos visuais da grade: linha, explosão, cone, aura ou parede. Quando a geometria ficar ambígua, priorize clareza visual e decisão consistente, não vantagem retroativa.
+Engajamento e objetivo da cena
+Sair de célula adjacente a inimigo sem Recuar provoca reação. Recuar usa o Movimento para sair sem provocar. A diagonal não cria engajamento por si mesma.
+Nem todo combate termina com morte. Objetivos incluem proteger, atravessar, impedir ritual, obter prova, resgatar, convencer, atrasar, sobreviver, fechar passagem ou estabilizar Fenda. O Mestre declara o objetivo visível da cena.
+Nota de playtest: diagonal custa 2 pontos e não cria adjacência. Esta decisão permanece provisória até ser testada em mapas reais do Cauldron.
