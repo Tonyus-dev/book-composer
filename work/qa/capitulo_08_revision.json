@@ -1,0 +1,14 @@
+{
+  "revisado": true,
+  "cânone_aprovado": true,
+  "técnica_aprovada": true,
+  "voz_autoral_aprovada": true,
+  "preservado_literalmente": true,
+  "tabelas_aprovadas": true,
+  "alteracoes_aplicadas": 0,
+  "alteracoes_rejeitadas": 0,
+  "paragrafos_preservados": 34,
+  "tabelas_no_intervalo": 2,
+  "imagens_no_intervalo": 0,
+  "justificativa": "O Capítulo 8 foi integralmente lido e avaliado. As regras dos Dados da Luz e da Escuridão, dificuldades e margens possuem 0 alertas do linter e 0 alterações mecânicas. Suas 2 tabelas foram formatadas de acordo com o padrão técnico oficial sem alterar uma única célula de conteúdo."
+}

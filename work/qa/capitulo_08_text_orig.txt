@@ -1,0 +1,34 @@
+8. Os Dados da Luz e da Escuridão
+Os dois dados
+Todo teste utiliza dois dados de dez faces:
+d10 da Luz
+d10 da Escuridão
+Role os dois e some um Atributo e uma Perícia:
+Dado da Luz + Dado da Escuridão + Atributo + Perícia
+Compare o total à Dificuldade.
+Os dados precisam ser distinguíveis por cor, símbolo ou posição. Nenhum representa bem ou mal.
+Luz: ação, forma, exposição, presença, impacto, manifestação e consequência visível.
+Escuridão: contexto, profundidade, memória, relação, silêncio, possibilidade e consequência oculta.
+O total determina se a ação alcança o objetivo. Os valores naturais determinam como o resultado entra no mundo.
+Dificuldades
+Não role quando:
+o resultado não altera a situação;
+a ação é impossível pelas regras do mundo;
+não existe pressão ou custo;
+a personagem possui tempo e recursos suficientes.
+Graus de resultado
+Calcule a diferença entre o total e a Dificuldade.
+Impulso e Pressão
+Circunstâncias favoráveis concedem Impulso. Circunstâncias desfavoráveis impõem Pressão.
+Cada ponto modifica o resultado em 2. Eles se anulam. O limite normal é +4 por Impulso e -4 por Pressão.
+Exemplos de Impulso: ferramenta adequada, ajuda, posição elevada, pesquisa anterior, vínculo relevante ou fraqueza conhecida.
+Exemplos de Pressão: ferimento, escuridão física sem adaptação, terreno hostil, ferramenta ausente, urgência ou interferência da Fenda.
+Ajudar
+Uma personagem pode usar sua ação para ajudar e deve descrever como sua capacidade altera a tentativa.
+A personagem principal recebe +2 por ajuda competente. No máximo dois aliados ajudam no mesmo teste, salvo cenas coletivas. Ajudar exige risco compartilhado.
+Testes opostos
+Quando duas partes agem diretamente uma contra a outra, ambas rolam:
+2d10 + Atributo + Perícia
+O maior resultado vence. Empate favorece quem defendia posição estabelecida, quem possuía relação mais específica com o objeto da disputa ou cria impasse quando os critérios são iguais.
+Quando não rolar
+Não faça um teste quando o resultado não altera a situação, quando a ação é impossível pelas regras do mundo, quando não existe pressão ou custo ou quando tempo e recursos suficientes tornam o resultado seguro. A rolagem existe para resolver incerteza relevante, não para substituir descrição.
