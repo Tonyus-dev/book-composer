@@ -1,0 +1,47 @@
+{
+  "characters": 39638,
+  "words": 5660,
+  "sentences": 497,
+  "paragraphs": 672,
+  "avg_sentence_words": 11.39,
+  "avg_paragraph_words": 8.42,
+  "short_sentences_le_5": 100,
+  "long_sentences_ge_35": 9,
+  "pattern_counts": {
+    "nao_apenas_mas": 1,
+    "mais_do_que": 0,
+    "em_sua_essencia": 0,
+    "em_ultima_analise": 0,
+    "vale_destacar": 0,
+    "importante_notar": 0,
+    "nesse_contexto": 0,
+    "rica_tapecaria": 0,
+    "jornada": 0,
+    "serve_como_lembrete": 0,
+    "em_um_mundo_onde": 0,
+    "desde_os_primordios": 0,
+    "neste_capitulo": 0
+  },
+  "generic_word_counts": {
+    "profundamente": 0,
+    "essencialmente": 0,
+    "fundamentalmente": 0,
+    "intrinsecamente": 0,
+    "significativamente": 0,
+    "dinâmico": 0,
+    "complexo": 0,
+    "transformador": 0,
+    "impactante": 0
+  },
+  "repeated_sentence_starts": {
+    "a tradição da": 5,
+    "o mundo da": 4,
+    "a escuridão não": 3,
+    "não aprendiam que": 3
+  },
+  "alerts": [
+    "início repetido 'a tradição da': 5",
+    "início repetido 'o mundo da': 4"
+  ],
+  "status": "REVISAR"
+}
