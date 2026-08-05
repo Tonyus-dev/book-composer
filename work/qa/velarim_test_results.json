@@ -1,0 +1,7 @@
+{
+  "suite": "Velarim Canonical Baseline Verification",
+  "total_tests": 25,
+  "passed_tests": 25,
+  "failed_tests": 0,
+  "verdict": "EXIT 0 (25/25 PASS)"
+}

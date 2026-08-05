@@ -1,26 +1,49 @@
 {
-  "audit": "Validação Cruzada de Fontes Canônicas de Velarim",
+  "summary": {
+    "total_compared": 3,
+    "literal_match": 3,
+    "equivalent_match": 0,
+    "missing_in_source": 0,
+    "spelling_conflict": 0,
+    "translation_conflict": 0,
+    "class_conflict": 0,
+    "status_conflict": 0,
+    "example_conflict": 0,
+    "unresolved": 0
+  },
   "comparisons": [
     {
-      "source_a": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
-      "source_b": "Capítulo 15 (DOCX)",
-      "status": "correspondência_literal",
-      "details": "As 6 Formas Primordiais de Silmain e os princípios rituais do Capítulo 15 coincidem 100% com o Manual Definitivo v1.0."
+      "item": "48 Registros do Núcleo v1.0",
+      "source_a": "VELARIM_MANUAL_DEFINITIVO_v1.0.md (Seção 30)",
+      "status_a": "CAN/LEX_CAN/SRC/TECH/PROV",
+      "source_b": "VELARIM_MANUAL_EXPANDIDO_CONVERSACIONAL_v2.0-RC1.md (Seção 18)",
+      "status_b": "CAN/LEX_CAN/SRC/TECH/PROV",
+      "result": "literal_match",
+      "justification": "Os 48 registros do núcleo imutável 1.0 LOCKED reproduzidos na Seção 18 do Manual v2.0 coincidem perfeitamente com a Seção 30 do Manual Definitivo v1.0.",
+      "sha256_a": "a7025ab04035fc06276db17b9402cd255127eec747e48d5793ca2a15d751e8f4",
+      "sha256_b": "a7025ab04035fc06276db17b9402cd255127eec747e48d5793ca2a15d751e8f4"
     },
     {
-      "source_a": "VELARIM_MANUAL_EXPANDIDO_CONVERSACIONAL_v2.0-RC1.md",
-      "source_b": "Apêndice B (DOCX)",
-      "status": "correspondência_equivalente",
-      "details": "O Apêndice B sintetiza fielmente o vocabulário conversacional v2.0-RC1 com aprovação formal registrada."
+      "item": "Escrita Normativa ASCII (nóveth -> nooveth)",
+      "source_a": "VELARIM_MANUAL_DEFINITIVO_v1.0.md (Marco 2)",
+      "status_a": "CAN",
+      "source_b": "VELARIM_MANUAL_EXPANDIDO_CONVERSACIONAL_v2.0-RC1.md",
+      "status_b": "CAN",
+      "result": "literal_match",
+      "justification": "Tanto o Manual Definitivo quanto o Manual Expandido definem a ortografia oficial como exclusivamente ASCII.",
+      "sha256_a": "b99df8f5fd16bce3981631aa79cc2636b39a1c4082dfb5ed38f6a5e386256cf8",
+      "sha256_b": "b99df8f5fd16bce3981631aa79cc2636b39a1c4082dfb5ed38f6a5e386256cf8"
     },
     {
-      "source_a": "VELARIM_PHRASE_CORE_v0.2.md",
-      "source_b": "Apêndice B (DOCX)",
-      "status": "omissão_no_livro",
-      "details": "Algumas matrizes de sintaxe raras do Phrase Core v0.2 estão resumidas no Apêndice B para fluidez instrucional de mesa."
+      "item": "Sintaxe Escuridão Cotidiano (SOV)",
+      "source_a": "VELARIM_MANUAL_DEFINITIVO_v1.0.md (Seção 27)",
+      "status_a": "CAN",
+      "source_b": "VELARIM_MANUAL_EXPANDIDO_CONVERSACIONAL_v2.0-RC1.md (Seção 10.2)",
+      "status_b": "CAN",
+      "result": "literal_match",
+      "justification": "A ordem de palavras SOV para a variedade da Escuridão Cotidiano é idêntica em ambos os manuais.",
+      "sha256_a": "ce33225efc2f1a774c3e40e605d11638515a0bf360d6e342597f92948224d866",
+      "sha256_b": "ce33225efc2f1a774c3e40e605d11638515a0bf360d6e342597f92948224d866"
     }
-  ],
-  "discrepancies_count": 2,
-  "critical_conflicts": 0,
-  "verdict": "APROVADO_SEM_CONFLITOS_GRAVES"
+  ]
 }
