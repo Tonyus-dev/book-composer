@@ -1,0 +1,38 @@
+[
+  {
+    "caminho": "/home/tonyus-dev/Projetos/RPG/kallistis/docs/canon/source/VELARIM_MANUAL_EXPANDIDO_CONVERSACIONAL_v2.0-RC1.md",
+    "título": "Velarim Manual Expandido Conversacional v2.0-RC1",
+    "versão": "v2.0-RC1",
+    "status": "HUMAN_APPROVED",
+    "tamanho_bytes": 62901,
+    "sha256": "e583ab95e6123519997ed006eb53ae655a316ad73311b879b33d272f5a4f8145",
+    "quantidade_registros_declarada": 202,
+    "formato": "Markdown Table",
+    "possibilidade_extracao_automatica": true,
+    "autoridade_documental": "Grau 2 - Fonte Conversacional Oficial"
+  },
+  {
+    "caminho": "/home/tonyus-dev/Projetos/RPG/kallistis/docs/canon/decisions/VELARIM_CONVERSACIONAL_V2_APPROVAL_2026-08-01.md",
+    "título": "Aprovação Canônica: Velarim Conversacional v2.0",
+    "versão": "v2.0",
+    "status": "HUMAN_APPROVED",
+    "tamanho_bytes": 1409,
+    "sha256": "afb07ec8fe444ed1f8b9ca38df1f6896dfb75e84758077b76c03e765f37e5291",
+    "quantidade_registros_declarada": 250,
+    "formato": "Markdown Decision Document",
+    "possibilidade_extracao_automatica": true,
+    "autoridade_documental": "Grau 2 - Decisão Editorial v2.0"
+  },
+  {
+    "caminho": "/home/tonyus-dev/Projetos/RPG/kallistis/docs/canon/decisions/VELARIM_PHRASE_CORE_v0.2.md",
+    "título": "Velarim Phrase Core v0.2",
+    "versão": "v0.2",
+    "status": "EXPERIMENTAL",
+    "tamanho_bytes": 5838,
+    "sha256": "08236be45647969770861a28293950c0103c49d53937d274d7d5575e440adb77",
+    "quantidade_registros_declarada": 48,
+    "formato": "Markdown Table",
+    "possibilidade_extracao_automatica": true,
+    "autoridade_documental": "Grau 3 - Fonte Auxiliar"
+  }
+]
