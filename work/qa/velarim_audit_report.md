@@ -1,27 +1,31 @@
-# Relatório Definitivo de Auditoria e Resolução de Sobreposição — Velarim v2.0
+# Relatório Definitivo de Auditoria e Cardinalidade de Conjuntos — Velarim v2.0
 
-## 1. Síntese Executiva da Auditoria de Sobreposição de `les`
-A auditoria e validação da sobreposição de `les` no crosswalk bidirecional foram concluídas com sucesso:
-- **`les` (Núcleo 1.0, L793):** Classificado unicamente como `derived_expansion_under_core_lemma` (lema nuclear que hospeda a entrada derivada de expansão `lesan` Executable ID #109).
-- **Natureza do ID 103:** Declarado como `raw_index` de linha de tabela na Seção 17.3; `les` não possui `executable_id` na expansão final (`executable_id_les = null`).
-- **`lesan` (Expansão, ID #109):** Classificado unicamente como `expansion_only`.
-- **Partição Humana Exata (223 Verbetes):** $200 \text{ expansion\_only} + 22 \text{ core\_only} + 1 \text{ derived\_expansion\_under\_core\_lemma} = \mathbf{223 \text{ verbetes humanos}}$.
-- **Interseção Núcleo/Expansão:** `0` (nenhuma sobreposição não tratada).
-- **Cobertura Executável (202 Registros):** $202/202$ mapeados (`0` órfãos).
-- **Suíte de Testes:** **14/14 PASS (EXIT 0)**.
+## 1. Síntese Executiva das Métricas e Equações de Conjunto
+A auditoria final e o fechamento matemático do crosswalk entre o **Corpus Executável de Expansão (202 Registros)** e o **Dicionário Conversacional 2.0 (223 Verbetes Humanos)** foram concluídos com precisão:
+
+- **Partição Exclusiva:** $\mathbf{223 \text{ verbetes humanos}} = \mathbf{200 \text{ expansion\_only}} + \mathbf{22 \text{ core\_only}} + \mathbf{1 \text{ derived\_expansion\_under\_core\_lemma}}$.
+- **`human_used_by_expansion`:** **201 verbetes humanos** ($200 + 1$).
+- **`human_used_by_core`:** **23 verbetes humanos** ($22 + 1$).
+- **Interseção ($\text{human\_expansion} \cap \text{human\_core}$):** Exactly **1 verbete** (`{"les"}`).
+- **União ($|\text{human\_expansion} \cup \text{human\_core}|$):** $201 + 23 - 1 = \mathbf{223 \text{ verbetes humanos}}$.
+- **Cobertura Executável:** $\mathbf{202 \text{ registros executáveis}} \longrightarrow \mathbf{201 \text{ verbetes humanos utilizados pela expansão}}$.
+- **Excesso Muitos-para-Um:** $202 - 201 = \mathbf{1 \text{ excesso}}$, representado pela lema `les` (Human Entry ID #106) que atrai `lesan` (Executable ID #109).
+- **Testes Automáticos:** **24/24 PASS (EXIT 0)** em `work/qa/scripts/test_velarim_final_set_cardinality.py`.
 
 ---
 
-## 2. Partição Mutuamente Exclusiva dos 223 Verbetes Humanos
+## 2. Resumo da Partição e Conjuntos de Uso
 
-| Categoria | Verbetes | Descrição |
-|-----------|----------|-----------|
-| `expansion_only` | **200** | Exclusivos da camada de expansão v2.0 |
-| `core_only` | **22** | Exclusivos do Núcleo 1.0 (excluindo `les`) |
-| `derived_expansion_under_core_lemma` | **1** | `les` (Lema nuclear hospedando `lesan` #109) |
-| `core_and_expansion` | **0** | Interseção tratada e zerada |
-| `outras_categorias` | **0** | Nenhuma entrada não alocada |
-| **TOTAL HUMANO** | **223** | **Soma exata dos 223 verbetes humanos** |
+| Categoria / Conjunto | Tamanho | Itens / Mapeamento |
+|----------------------|---------|--------------------|
+| `expansion_only` | **200** | Verbetes humanos exclusivos da expansão |
+| `core_only` | **22** | Verbetes humanos exclusivos do Núcleo 1.0 (excluindo `les`) |
+| `derived_expansion_under_core_lemma` | **1** | `les` (Human Entry ID #106, Core L793) |
+| **PARTIÇÃO EXCLUSIVA TOTAL** | **223** | **Soma exata dos 223 verbetes humanos** |
+| `human_used_by_expansion` | **201** | 200 expansion_only + 1 les |
+| `human_used_by_core` | **23** | 22 core_only + 1 les |
+| `intersection` | **1** | `{"les"}` (Human Entry ID #106) |
+| `union` | **223** | $201 + 23 - 1 = 223$ |
 
 ---
 

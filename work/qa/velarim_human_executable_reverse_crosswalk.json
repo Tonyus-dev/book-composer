@@ -4,22 +4,30 @@
     "expansion_only_count": 200,
     "core_only_count": 22,
     "derived_expansion_under_core_lemma_count": 1,
-    "core_and_expansion_count": 0,
-    "unresolved_count": 0,
+    "human_used_by_expansion_count": 201,
+    "human_used_by_core_count": 23,
+    "intersection_count": 1,
+    "intersection_forms": [
+      "les"
+    ],
+    "union_count": 223,
+    "equation_union": "201 + 23 - 1 = 223",
     "equation_human_partition": "223 verbetes humanos = 200 expansion_only + 22 core_only + 1 derived_expansion_under_core_lemma"
   },
   "les_detail": {
     "forma": "les",
     "core_id": 793,
     "executable_id": null,
-    "natureza_id_103": "O número 103 na Seção 17.3 é um raw_index de tabela que foi filtrado por ser sobreposição com o Núcleo 1.0 L793; les não possui executable_id independente na expansão final.",
+    "natureza_id_103": "O número 103 na Seção 17.3 é um raw_index de tabela que foi filtrado por ser sobreposição com o Núcleo 1.0 L793; les não possui executable_id próprio na expansão final.",
     "human_entry_id": 106,
     "classe_humana": "TRANS",
     "classe_nucleo": "verbo transitivo",
     "significado_humano": "reconhecer, nomear com precisão",
     "significado_nucleo": "reconhecer; nomear com precisão",
     "status_nucleo": "PROV",
-    "classificação_final": "derived_expansion_under_core_lemma",
+    "classificação_principal": "derived_expansion_under_core_lemma",
+    "pertence_a_human_used_by_core": true,
+    "pertence_a_human_used_by_expansion": true,
     "hospeda_forma_derivada": "lesan (Executable ID #109)",
     "source_text": "| `les` | TRANS | reconhecer, nomear com precisão | V1-PROV |",
     "source_sha256": "ab74bdd7eb012f01a9ccc8be0420ba90657475df33b8a7c4106b9c556c432150"
@@ -28,7 +36,7 @@
     "forma": "lesan",
     "core_id": null,
     "executable_id": 109,
-    "human_entry_id": 123,
+    "human_entry_id_mapeado": 106,
     "classe": "testemunha, nomeador preciso",
     "significado": "depende de `les`; V1-PROV",
     "status": "HUMAN_APPROVED",
@@ -40,17 +48,27 @@
   "ravun_detail": {
     "forma": "ravun",
     "executable_id": 129,
+    "registros_executáveis_finais_count": 1,
     "ocorrências_tabela_bruta_seção_17": [
       1226,
       1299
     ],
-    "registros_executáveis_finais_count": 1,
     "formas_ortográficas_únicas": 1,
     "textos_literais": [
       "| `ravun` | ferida, dano, perigo; ferido, perigoso | `rav + -un` |",
       "| `ravun` | perigoso, ferido; dano, perigo |"
     ],
-    "mapeamento_humano": "A forma ravun possui Executable ID #129 e mapeia para o verbete humano ravun (Human Entry ID #149)."
+    "mapeamento_humano": "A forma ravun possui exatamente 1 registro executável final (ID #129) que mapeia para o verbete humano ravun (Human Entry ID #149)."
+  },
+  "many_to_one_group": {
+    "group_id": 1,
+    "human_entry_id": 106,
+    "human_entry_forma": "les",
+    "executable_ids": [
+      109
+    ],
+    "excesso_muitos_para_um": 1,
+    "razão_documental": "lesan (Executable ID #109) é uma forma derivada nominal ('testemunha, nomeador preciso') que depende e se consolida sob a lema verbal nuclear les (Core L793 / Human Entry ID #106) no Dicionário Conversacional."
   },
   "partition_categories": {
     "expansion_only": [
@@ -487,10 +505,6 @@
         "forma": "ralenan"
       },
       {
-        "human_entry_id": 123,
-        "forma": "lesan"
-      },
-      {
         "human_entry_id": 127,
         "forma": "lesun"
       },
@@ -787,10 +801,6 @@
         "forma": "varun"
       },
       {
-        "human_entry_id": 207,
-        "forma": "ravun"
-      },
-      {
         "human_entry_id": 208,
         "forma": "silven"
       },
@@ -853,6 +863,14 @@
       {
         "human_entry_id": 223,
         "forma": "nareven"
+      },
+      {
+        "human_entry_id": 224,
+        "forma": "sileven"
+      },
+      {
+        "human_entry_id": 225,
+        "forma": "vesilven"
       }
     ],
     "core_only": [
@@ -959,6 +977,260 @@
   },
   "reverse_crosswalk": [
     {
+      "human_entry_index": 106,
+      "forma": "les",
+      "classe": "TRANS",
+      "significado": "reconhecer, nomear com precisão",
+      "classification": "derived_expansion_under_core_lemma",
+      "matched_executable_id": null,
+      "matched_core_id": 793,
+      "derived_expansion_executable_id": 109,
+      "source_text": "| `les` | TRANS | reconhecer, nomear com precisão | V1-PROV |",
+      "source_sha256": "ab74bdd7eb012f01a9ccc8be0420ba90657475df33b8a7c4106b9c556c432150"
+    },
+    {
+      "human_entry_index": 3,
+      "forma": "ve",
+      "classe": "negação",
+      "significado": "não; prefixo negativo — V1-CAN",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 806,
+      "source_text": "| `ve` | negação | não; prefixo negativo — V1-CAN |",
+      "source_sha256": "924ac3956e52a3839d343a3300a7eedd25aa988a48c53c4770b7fd482101b604"
+    },
+    {
+      "human_entry_index": 7,
+      "forma": "ol",
+      "classe": "relacional",
+      "significado": "a, para, em direção a — V1-TECH",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 810,
+      "source_text": "| `ol` | relacional | a, para, em direção a — V1-TECH |",
+      "source_sha256": "0d0f2603795e811bc17e72f2c461c1bac11044b90552f456cc494a8a01886ef3"
+    },
+    {
+      "human_entry_index": 45,
+      "forma": "nam",
+      "classe": "REL/INTR",
+      "significado": "ser, estar, existir, permanecer em presença",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 791,
+      "source_text": "| `nam` | REL/INTR | ser, estar, existir, permanecer em presença | V1-TECH |",
+      "source_sha256": "9d5c9385cd6e8be56335db3d95180c44bbcf6fed852f72b88675f5af42fa0a12"
+    },
+    {
+      "human_entry_index": 46,
+      "forma": "namath",
+      "classe": "REL",
+      "significado": "coexistir sem submissão",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 792,
+      "source_text": "| `namath` | REL | coexistir sem submissão | V1-TECH |",
+      "source_sha256": "51517fef368bacdb433c1172bd5bfcce69e381f3e9679f3bbdd52925d334d330"
+    },
+    {
+      "human_entry_index": 90,
+      "forma": "veth",
+      "classe": "REL",
+      "significado": "vincular-se, cuidar, amar sem posse",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 779,
+      "source_text": "| `veth` | REL | vincular-se, cuidar, amar sem posse | V2-OP como verbo; raiz nominal V1-CAN |",
+      "source_sha256": "964723a192e7dab7ebfec6a77721bb2a1fc761f4f9fdd7e4a94c0251ffbca595"
+    },
+    {
+      "human_entry_index": 102,
+      "forma": "velar",
+      "classe": "INTR",
+      "significado": "voar, transcender espaço",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 771,
+      "source_text": "| `velar` | INTR | voar, transcender espaço | V1-CAN |",
+      "source_sha256": "d604d0090fbc763d54f6bf1dcc6fd1f95576d7a9a8765e2cbc5e146a3e294bd4"
+    },
+    {
+      "human_entry_index": 103,
+      "forma": "silar",
+      "classe": "INTR",
+      "significado": "brilhar, emitir luz própria",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 797,
+      "source_text": "| `silar` | INTR | brilhar, emitir luz própria | V1-SRC |",
+      "source_sha256": "acbf63c9d1fc00a60ad11f74bf5758da3e23a08ae161b8d9cf21c46ab9d1cdef"
+    },
+    {
+      "human_entry_index": 104,
+      "forma": "nooveth",
+      "classe": "TRANS",
+      "significado": "tecer magia",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 775,
+      "source_text": "| `nooveth` | TRANS | tecer magia | V1-CAN |",
+      "source_sha256": "f915eeba47ec4d6e12d646579c5a4372c0cfe3433b17a60fb576e4b479c5ce0f"
+    },
+    {
+      "human_entry_index": 105,
+      "forma": "vethari",
+      "classe": "REL",
+      "significado": "realizar Merge legítimo",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 783,
+      "source_text": "| `vethari` | REL | realizar Merge legítimo | V1-CAN |",
+      "source_sha256": "23c6eec387bbafbacd922c6cd7a12bdc123d2dbfd50500bc58eb33e136128f87"
+    },
+    {
+      "human_entry_index": 107,
+      "forma": "tav",
+      "classe": "TRANS",
+      "significado": "tocar física ou magicamente",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 802,
+      "source_text": "| `tav` | TRANS | tocar física ou magicamente | V1-PROV |",
+      "source_sha256": "e55f17011919274ce8672bbb3ebea060f0f3ae5c8370f57a75347035b13e565a"
+    },
+    {
+      "human_entry_index": 108,
+      "forma": "dur",
+      "classe": "TRANS",
+      "significado": "comandar/submeter pela força",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 801,
+      "source_text": "| `dur` | TRANS | comandar/submeter pela força | V1-PROV |",
+      "source_sha256": "653aecc4bd9d86ca121ecde83556f5d13d9cd35042f1514c345cc086f9ae2d28"
+    },
+    {
+      "human_entry_index": 109,
+      "forma": "sib",
+      "classe": "TRANS",
+      "significado": "consumir identidade alheia",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 800,
+      "source_text": "| `sib` | TRANS | consumir identidade alheia | V1-PROV |",
+      "source_sha256": "a4ca9f22a1c0f405e8e5d2ee1764e6030b75d2dcfc89a95df8434ab6e12ac182"
+    },
+    {
+      "human_entry_index": 122,
+      "forma": "noovethan",
+      "classe": "tecelão ou tecelã de magia",
+      "significado": "V1-TECH",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 776,
+      "source_text": "| `noovethan` | tecelão ou tecelã de magia | V1-TECH |",
+      "source_sha256": "22f361436bb51454a41bce7995ecdd908ac61fa99763b190e0e51f12366169c2"
+    },
+    {
+      "human_entry_index": 124,
+      "forma": "mirveth",
+      "classe": "contraparte cosmológica integral",
+      "significado": "V1-LEX",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 780,
+      "source_text": "| `mirveth` | contraparte cosmológica integral | V1-LEX |",
+      "source_sha256": "8964d88a79da3bce06e3bf57ee2f289aa7e802bb079e81b7daa331f5c134e8cd"
+    },
+    {
+      "human_entry_index": 125,
+      "forma": "mirvethin",
+      "classe": "contrapartes autônomas",
+      "significado": "V1-CAN",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 781,
+      "source_text": "| `mirvethin` | contrapartes autônomas | V1-CAN |",
+      "source_sha256": "c83ec0706fd245e48d8e4beb88b6da6d65325e697228cd34a0dc98cde6d6291b"
+    },
+    {
+      "human_entry_index": 126,
+      "forma": "mirvethari",
+      "classe": "relação viva entre contrapartes",
+      "significado": "V1-CAN",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 782,
+      "source_text": "| `mirvethari` | relação viva entre contrapartes | V1-CAN |",
+      "source_sha256": "7785523845d4f5691dfc6217152c18f0e17340338f85f561b515ea772315d210"
+    },
+    {
+      "human_entry_index": 136,
+      "forma": "anir",
+      "classe": "começo, origem temporal — V1-CAN",
+      "significado": "começo, origem temporal — V1-CAN",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 788,
+      "source_text": "| `anir` | começo, origem temporal — V1-CAN |",
+      "source_sha256": "f57cd70ba549be05d16fdc3e1567dffdcfe72b728f896f0e791b78848c014f1d"
+    },
+    {
+      "human_entry_index": 138,
+      "forma": "luumeh",
+      "classe": "tempo fluido, era — V1-SRC",
+      "significado": "tempo fluido, era — V1-SRC",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 790,
+      "source_text": "| `luumeh` | tempo fluido, era — V1-SRC |",
+      "source_sha256": "76660e75fe54b6284d3ec5f545ad4790cfa27309831ed8af545cb8b4ad88835c"
+    },
+    {
+      "human_entry_index": 140,
+      "forma": "manuv",
+      "classe": "mão, instrumento de toque",
+      "significado": "V1-SRC",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 796,
+      "source_text": "| `manuv` | mão, instrumento de toque | V1-SRC |",
+      "source_sha256": "22b66b44b15bfac26f34d13d8d0e973a49778505d71c89f1664328c99bfd6e87"
+    },
+    {
+      "human_entry_index": 154,
+      "forma": "tharen",
+      "classe": "caminho, passagem",
+      "significado": "V1-SRC",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 789,
+      "source_text": "| `tharen` | caminho, passagem | V1-SRC |",
+      "source_sha256": "7333c6bd86f327d8212f1c71311875d9886a5f0062cc6427392553509c92b945"
+    },
+    {
+      "human_entry_index": 167,
+      "forma": "krav",
+      "classe": "pedra ou rocha da Escuridão",
+      "significado": "V1-SRC",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 795,
+      "source_text": "| `krav` | pedra ou rocha da Escuridão | V1-SRC |",
+      "source_sha256": "c0785fd9013bff2ad6fe685adfc6c79bd7337b344f66198e3f06656c50a0a0c6"
+    },
+    {
+      "human_entry_index": 188,
+      "forma": "kavesh",
+      "classe": "falsificação ou instrumento da Sombra",
+      "significado": "V1-PROV",
+      "classification": "core_only",
+      "matched_executable_id": null,
+      "matched_core_id": 799,
+      "source_text": "| `kavesh` | falsificação ou instrumento da Sombra | V1-PROV |",
+      "source_sha256": "c1e16ab020e94bc1a932ef37a6d0f1f724805ebb86762cceeeefb33461920a6f"
+    },
+    {
       "human_entry_index": 1,
       "forma": "ai",
       "classe": "interrogativa",
@@ -979,17 +1251,6 @@
       "matched_core_id": null,
       "source_text": "| `nai` | resposta | sim; confirmação |",
       "source_sha256": "c7e8cc40ba17e6829945fa3c92af96536889612a22f942c48041dd92392be1b0"
-    },
-    {
-      "human_entry_index": 3,
-      "forma": "ve",
-      "classe": "negação",
-      "significado": "não; prefixo negativo — V1-CAN",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 806,
-      "source_text": "| `ve` | negação | não; prefixo negativo — V1-CAN |",
-      "source_sha256": "924ac3956e52a3839d343a3300a7eedd25aa988a48c53c4770b7fd482101b604"
     },
     {
       "human_entry_index": 4,
@@ -1023,17 +1284,6 @@
       "matched_core_id": null,
       "source_text": "| `en` | relacional | em, no, na, sobre |",
       "source_sha256": "5033b0f221554e8865053275081cbbd5a97e438fc0554c6840b8d1c4636f1b20"
-    },
-    {
-      "human_entry_index": 7,
-      "forma": "ol",
-      "classe": "relacional",
-      "significado": "a, para, em direção a — V1-TECH",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 810,
-      "source_text": "| `ol` | relacional | a, para, em direção a — V1-TECH |",
-      "source_sha256": "0d0f2603795e811bc17e72f2c461c1bac11044b90552f456cc494a8a01886ef3"
     },
     {
       "human_entry_index": 8,
@@ -1441,28 +1691,6 @@
       "matched_core_id": null,
       "source_text": "| `maari` | quanto, quantos |",
       "source_sha256": "a9b762014c29b4c834dad6b03c391dfad8cf088f66b9905cd8046f9fe2d78699"
-    },
-    {
-      "human_entry_index": 45,
-      "forma": "nam",
-      "classe": "REL/INTR",
-      "significado": "ser, estar, existir, permanecer em presença",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 791,
-      "source_text": "| `nam` | REL/INTR | ser, estar, existir, permanecer em presença | V1-TECH |",
-      "source_sha256": "9d5c9385cd6e8be56335db3d95180c44bbcf6fed852f72b88675f5af42fa0a12"
-    },
-    {
-      "human_entry_index": 46,
-      "forma": "namath",
-      "classe": "REL",
-      "significado": "coexistir sem submissão",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 792,
-      "source_text": "| `namath` | REL | coexistir sem submissão | V1-TECH |",
-      "source_sha256": "51517fef368bacdb433c1172bd5bfcce69e381f3e9679f3bbdd52925d334d330"
     },
     {
       "human_entry_index": 47,
@@ -1938,17 +2166,6 @@
       "source_sha256": "f159e8c6639af6507a029d76fba96a6c7060f42cbeaf678b7d60bae4685e2112"
     },
     {
-      "human_entry_index": 90,
-      "forma": "veth",
-      "classe": "REL",
-      "significado": "vincular-se, cuidar, amar sem posse",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 779,
-      "source_text": "| `veth` | REL | vincular-se, cuidar, amar sem posse | V2-OP como verbo; raiz nominal V1-CAN |",
-      "source_sha256": "964723a192e7dab7ebfec6a77721bb2a1fc761f4f9fdd7e4a94c0251ffbca595"
-    },
-    {
       "human_entry_index": 91,
       "forma": "vethim",
       "classe": "REL",
@@ -2068,95 +2285,6 @@
       "matched_core_id": null,
       "source_text": "| `zherel` | TRANS/INTR | mudar, transformar | V2-OP |",
       "source_sha256": "9b2befb2e9ced63fbd7986486799685ef17a096a5502d0865f97f8b9a63ee2f4"
-    },
-    {
-      "human_entry_index": 102,
-      "forma": "velar",
-      "classe": "INTR",
-      "significado": "voar, transcender espaço",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 771,
-      "source_text": "| `velar` | INTR | voar, transcender espaço | V1-CAN |",
-      "source_sha256": "d604d0090fbc763d54f6bf1dcc6fd1f95576d7a9a8765e2cbc5e146a3e294bd4"
-    },
-    {
-      "human_entry_index": 103,
-      "forma": "silar",
-      "classe": "INTR",
-      "significado": "brilhar, emitir luz própria",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 797,
-      "source_text": "| `silar` | INTR | brilhar, emitir luz própria | V1-SRC |",
-      "source_sha256": "acbf63c9d1fc00a60ad11f74bf5758da3e23a08ae161b8d9cf21c46ab9d1cdef"
-    },
-    {
-      "human_entry_index": 104,
-      "forma": "nooveth",
-      "classe": "TRANS",
-      "significado": "tecer magia",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 775,
-      "source_text": "| `nooveth` | TRANS | tecer magia | V1-CAN |",
-      "source_sha256": "f915eeba47ec4d6e12d646579c5a4372c0cfe3433b17a60fb576e4b479c5ce0f"
-    },
-    {
-      "human_entry_index": 105,
-      "forma": "vethari",
-      "classe": "REL",
-      "significado": "realizar Merge legítimo",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 783,
-      "source_text": "| `vethari` | REL | realizar Merge legítimo | V1-CAN |",
-      "source_sha256": "23c6eec387bbafbacd922c6cd7a12bdc123d2dbfd50500bc58eb33e136128f87"
-    },
-    {
-      "human_entry_index": 106,
-      "forma": "les",
-      "classe": "TRANS",
-      "significado": "reconhecer, nomear com precisão",
-      "classification": "derived_expansion_under_core_lemma",
-      "matched_executable_id": null,
-      "matched_core_id": 793,
-      "derived_expansion_executable_id": 109,
-      "source_text": "| `les` | TRANS | reconhecer, nomear com precisão | V1-PROV |",
-      "source_sha256": "ab74bdd7eb012f01a9ccc8be0420ba90657475df33b8a7c4106b9c556c432150"
-    },
-    {
-      "human_entry_index": 107,
-      "forma": "tav",
-      "classe": "TRANS",
-      "significado": "tocar física ou magicamente",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 802,
-      "source_text": "| `tav` | TRANS | tocar física ou magicamente | V1-PROV |",
-      "source_sha256": "e55f17011919274ce8672bbb3ebea060f0f3ae5c8370f57a75347035b13e565a"
-    },
-    {
-      "human_entry_index": 108,
-      "forma": "dur",
-      "classe": "TRANS",
-      "significado": "comandar/submeter pela força",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 801,
-      "source_text": "| `dur` | TRANS | comandar/submeter pela força | V1-PROV |",
-      "source_sha256": "653aecc4bd9d86ca121ecde83556f5d13d9cd35042f1514c345cc086f9ae2d28"
-    },
-    {
-      "human_entry_index": 109,
-      "forma": "sib",
-      "classe": "TRANS",
-      "significado": "consumir identidade alheia",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 800,
-      "source_text": "| `sib` | TRANS | consumir identidade alheia | V1-PROV |",
-      "source_sha256": "a4ca9f22a1c0f405e8e5d2ee1764e6030b75d2dcfc89a95df8434ab6e12ac182"
     },
     {
       "human_entry_index": 110,
@@ -2291,61 +2419,6 @@
       "source_sha256": "41daef8abbe17dc8d12e15c78e40687305499e235f808201fdef049a0a666f6e"
     },
     {
-      "human_entry_index": 122,
-      "forma": "noovethan",
-      "classe": "tecelão ou tecelã de magia",
-      "significado": "V1-TECH",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 776,
-      "source_text": "| `noovethan` | tecelão ou tecelã de magia | V1-TECH |",
-      "source_sha256": "22f361436bb51454a41bce7995ecdd908ac61fa99763b190e0e51f12366169c2"
-    },
-    {
-      "human_entry_index": 123,
-      "forma": "lesan",
-      "classe": "testemunha, nomeador preciso",
-      "significado": "depende de `les`; V1-PROV",
-      "classification": "expansion_only",
-      "matched_executable_id": 109,
-      "matched_core_id": null,
-      "source_text": "| `lesan` | testemunha, nomeador preciso | depende de `les`; V1-PROV |",
-      "source_sha256": "60c8894704863618da9c58b86b4ed8c9ab556f1d013ed40810e2d95f8ddccca0"
-    },
-    {
-      "human_entry_index": 124,
-      "forma": "mirveth",
-      "classe": "contraparte cosmológica integral",
-      "significado": "V1-LEX",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 780,
-      "source_text": "| `mirveth` | contraparte cosmológica integral | V1-LEX |",
-      "source_sha256": "8964d88a79da3bce06e3bf57ee2f289aa7e802bb079e81b7daa331f5c134e8cd"
-    },
-    {
-      "human_entry_index": 125,
-      "forma": "mirvethin",
-      "classe": "contrapartes autônomas",
-      "significado": "V1-CAN",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 781,
-      "source_text": "| `mirvethin` | contrapartes autônomas | V1-CAN |",
-      "source_sha256": "c83ec0706fd245e48d8e4beb88b6da6d65325e697228cd34a0dc98cde6d6291b"
-    },
-    {
-      "human_entry_index": 126,
-      "forma": "mirvethari",
-      "classe": "relação viva entre contrapartes",
-      "significado": "V1-CAN",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 782,
-      "source_text": "| `mirvethari` | relação viva entre contrapartes | V1-CAN |",
-      "source_sha256": "7785523845d4f5691dfc6217152c18f0e17340338f85f561b515ea772315d210"
-    },
-    {
       "human_entry_index": 127,
       "forma": "lesun",
       "classe": "nome reconhecido; identidade nomeável",
@@ -2445,17 +2518,6 @@
       "source_sha256": "c44cd1dc687477170e910f4fb61dd18266843acfcde3e4af01819308d68e13e9"
     },
     {
-      "human_entry_index": 136,
-      "forma": "anir",
-      "classe": "começo, origem temporal — V1-CAN",
-      "significado": "começo, origem temporal — V1-CAN",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 788,
-      "source_text": "| `anir` | começo, origem temporal — V1-CAN |",
-      "source_sha256": "f57cd70ba549be05d16fdc3e1567dffdcfe72b728f896f0e791b78848c014f1d"
-    },
-    {
       "human_entry_index": 137,
       "forma": "selun",
       "classe": "fim, cessação, morte como estado",
@@ -2467,17 +2529,6 @@
       "source_sha256": "f0689aa1343c77ffd6f34eb0ea6ae746e4b4fe2b160b286d20b943d3a6a48b76"
     },
     {
-      "human_entry_index": 138,
-      "forma": "luumeh",
-      "classe": "tempo fluido, era — V1-SRC",
-      "significado": "tempo fluido, era — V1-SRC",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 790,
-      "source_text": "| `luumeh` | tempo fluido, era — V1-SRC |",
-      "source_sha256": "76660e75fe54b6284d3ec5f545ad4790cfa27309831ed8af545cb8b4ad88835c"
-    },
-    {
       "human_entry_index": 139,
       "forma": "narim",
       "classe": "corpo, forma viva individual",
@@ -2487,17 +2538,6 @@
       "matched_core_id": null,
       "source_text": "| `narim` | corpo, forma viva individual | forma lexical V2-OP |",
       "source_sha256": "466c0803770ea59d407b2cef9ec8500d176aafe0313cdbc1d8f66dbc187e5f2f"
-    },
-    {
-      "human_entry_index": 140,
-      "forma": "manuv",
-      "classe": "mão, instrumento de toque",
-      "significado": "V1-SRC",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 796,
-      "source_text": "| `manuv` | mão, instrumento de toque | V1-SRC |",
-      "source_sha256": "22b66b44b15bfac26f34d13d8d0e973a49778505d71c89f1664328c99bfd6e87"
     },
     {
       "human_entry_index": 141,
@@ -2643,17 +2683,6 @@
       "source_sha256": "062c421cad5af38a4d92d2d136af3dfc2573df5c71ed594f2df915b13608e154"
     },
     {
-      "human_entry_index": 154,
-      "forma": "tharen",
-      "classe": "caminho, passagem",
-      "significado": "V1-SRC",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 789,
-      "source_text": "| `tharen` | caminho, passagem | V1-SRC |",
-      "source_sha256": "7333c6bd86f327d8212f1c71311875d9886a5f0062cc6427392553509c92b945"
-    },
-    {
       "human_entry_index": 155,
       "forma": "tharol",
       "classe": "portal, portão, lugar de passagem",
@@ -2784,17 +2813,6 @@
       "matched_core_id": null,
       "source_text": "| `rava` | solo, terra, matéria terrosa | forma lexical V2-OP |",
       "source_sha256": "8f4a75c5dcd2916b979873e4f477557c9801a2e69941f9a26e5197d5d41bbc59"
-    },
-    {
-      "human_entry_index": 167,
-      "forma": "krav",
-      "classe": "pedra ou rocha da Escuridão",
-      "significado": "V1-SRC",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 795,
-      "source_text": "| `krav` | pedra ou rocha da Escuridão | V1-SRC |",
-      "source_sha256": "c0785fd9013bff2ad6fe685adfc6c79bd7337b344f66198e3f06656c50a0a0c6"
     },
     {
       "human_entry_index": 168,
@@ -3017,17 +3035,6 @@
       "source_sha256": "5294e4624d5ab3c01f899a97ae9fc36f707be4c617c3778872674d5fdb589736"
     },
     {
-      "human_entry_index": 188,
-      "forma": "kavesh",
-      "classe": "falsificação ou instrumento da Sombra",
-      "significado": "V1-PROV",
-      "classification": "core_only",
-      "matched_executable_id": null,
-      "matched_core_id": 799,
-      "source_text": "| `kavesh` | falsificação ou instrumento da Sombra | V1-PROV |",
-      "source_sha256": "c1e16ab020e94bc1a932ef37a6d0f1f724805ebb86762cceeeefb33461920a6f"
-    },
-    {
       "human_entry_index": 189,
       "forma": "saren",
       "classe": "bom, correto, saudável; bem",
@@ -3226,17 +3233,6 @@
       "source_sha256": "1268fe94abcef041e8dec5dfdd7e18f074ab01a80f62bb97463d84247feafd31"
     },
     {
-      "human_entry_index": 207,
-      "forma": "ravun",
-      "classe": "perigoso, ferido; dano, perigo",
-      "significado": "perigoso, ferido; dano, perigo",
-      "classification": "expansion_only",
-      "matched_executable_id": 129,
-      "matched_core_id": null,
-      "source_text": "| `ravun` | perigoso, ferido; dano, perigo |",
-      "source_sha256": "2c0a751795344d6b15e7b8c229d70a399c01e2f0685b87fefb3a9ebf26004e71"
-    },
-    {
       "human_entry_index": 208,
       "forma": "silven",
       "classe": "brilhante, dourado ou amarelo",
@@ -3411,6 +3407,28 @@
       "matched_core_id": null,
       "source_text": "| `nareven` | verde |",
       "source_sha256": "d3e69cceab43a441e48d240a608fd0c299feb955a284eb9f3f7be57d4f8eeacc"
+    },
+    {
+      "human_entry_index": 224,
+      "forma": "sileven",
+      "classe": "branco, claro",
+      "significado": "branco, claro",
+      "classification": "expansion_only",
+      "matched_executable_id": 200,
+      "matched_core_id": null,
+      "source_text": "| `sileven` | branco, claro |",
+      "source_sha256": "ee0e626a0e1192f93313373e80feab1f07b7816861ae7e01b95e83e1057f0023"
+    },
+    {
+      "human_entry_index": 225,
+      "forma": "vesilven",
+      "classe": "preto, escuro material",
+      "significado": "preto, escuro material",
+      "classification": "expansion_only",
+      "matched_executable_id": 201,
+      "matched_core_id": null,
+      "source_text": "| `vesilven` | preto, escuro material |",
+      "source_sha256": "23be5e61d4484f410f188ecb9655451777f9e84e6752b796bdc05079489b47a9"
     }
   ]
 }
