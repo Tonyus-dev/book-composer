@@ -1,0 +1,13 @@
+{
+  "revisado": true,
+  "cânone_aprovado": true,
+  "técnica_aprovada": true,
+  "voz_autoral_aprovada": true,
+  "preservado_literalmente": true,
+  "alteracoes_aplicadas": 0,
+  "alteracoes_rejeitadas": 1,
+  "paragrafos_preservados": 672,
+  "tabelas_no_intervalo": 3,
+  "imagens_no_intervalo": 3,
+  "justificativa": "O Capítulo 4 foi integralmente analisado. A repetição detectada pelo linter corresponde ao rótulo estrutural canônico Gancho regional nas entradas dos assentamentos. Todas as correspondências geográficas, Fendas, tabelas (3), imagens (3) e ganchos foram mantidos 100% literalmente para preservar a utilidade de mesa e a integridade de cenário."
+}

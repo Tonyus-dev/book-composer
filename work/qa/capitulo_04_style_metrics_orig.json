@@ -1,0 +1,43 @@
+{
+  "characters": 28757,
+  "words": 4150,
+  "sentences": 285,
+  "paragraphs": 669,
+  "avg_sentence_words": 14.56,
+  "avg_paragraph_words": 6.2,
+  "short_sentences_le_5": 16,
+  "long_sentences_ge_35": 17,
+  "pattern_counts": {
+    "nao_apenas_mas": 0,
+    "mais_do_que": 1,
+    "em_sua_essencia": 0,
+    "em_ultima_analise": 0,
+    "vale_destacar": 0,
+    "importante_notar": 0,
+    "nesse_contexto": 0,
+    "rica_tapecaria": 0,
+    "jornada": 0,
+    "serve_como_lembrete": 0,
+    "em_um_mundo_onde": 0,
+    "desde_os_primordios": 0,
+    "neste_capitulo": 0
+  },
+  "generic_word_counts": {
+    "profundamente": 0,
+    "essencialmente": 0,
+    "fundamentalmente": 0,
+    "intrinsecamente": 0,
+    "significativamente": 0,
+    "dinâmico": 0,
+    "complexo": 0,
+    "transformador": 0,
+    "impactante": 0
+  },
+  "repeated_sentence_starts": {
+    "gancho regional uma": 4
+  },
+  "alerts": [
+    "início repetido 'gancho regional uma': 4"
+  ],
+  "status": "REVISAR"
+}
