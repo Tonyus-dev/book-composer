@@ -1,0 +1,61 @@
+{
+  "characters": 28410,
+  "words": 4367,
+  "sentences": 303,
+  "paragraphs": 278,
+  "avg_sentence_words": 14.41,
+  "avg_paragraph_words": 15.71,
+  "short_sentences_le_5": 36,
+  "long_sentences_ge_35": 14,
+  "pattern_counts": {
+    "nao_apenas_mas": 1,
+    "mais_do_que": 0,
+    "em_sua_essencia": 0,
+    "em_ultima_analise": 0,
+    "vale_destacar": 0,
+    "importante_notar": 0,
+    "nesse_contexto": 0,
+    "rica_tapecaria": 0,
+    "jornada": 2,
+    "serve_como_lembrete": 0,
+    "em_um_mundo_onde": 0,
+    "desde_os_primordios": 0,
+    "neste_capitulo": 0
+  },
+  "generic_word_counts": {
+    "profundamente": 0,
+    "essencialmente": 0,
+    "fundamentalmente": 0,
+    "intrinsecamente": 0,
+    "significativamente": 0,
+    "dinâmico": 0,
+    "complexo": 0,
+    "transformador": 0,
+    "impactante": 0
+  },
+  "repeated_sentence_starts": {
+    "a chave pode": 7,
+    "no domínio alto,": 8,
+    "a corrupção do": 8,
+    "vinheta - o": 3,
+    "em vez disso,": 3,
+    "perguntas de trilha": 8,
+    "em jogo papéis:": 8,
+    "técnicas da trilha": 8,
+    "a técnica inicial,": 7,
+    "nos primeiros níveis,": 5,
+    "vinheta - a": 5
+  },
+  "alerts": [
+    "início repetido 'a chave pode': 7",
+    "início repetido 'no domínio alto,': 8",
+    "início repetido 'a corrupção do': 8",
+    "início repetido 'perguntas de trilha': 8",
+    "início repetido 'em jogo papéis:': 8",
+    "início repetido 'técnicas da trilha': 8",
+    "início repetido 'a técnica inicial,': 7",
+    "início repetido 'nos primeiros níveis,': 5",
+    "início repetido 'vinheta - a': 5"
+  ],
+  "status": "REVISAR"
+}

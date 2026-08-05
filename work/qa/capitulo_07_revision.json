@@ -1,0 +1,13 @@
+{
+  "revisado": true,
+  "cânone_aprovado": true,
+  "técnica_aprovada": true,
+  "voz_autoral_aprovada": true,
+  "preservado_literalmente": true,
+  "alteracoes_aplicadas": 0,
+  "alteracoes_rejeitadas": 9,
+  "paragrafos_preservados": 281,
+  "tabelas_no_intervalo": 14,
+  "imagens_no_intervalo": 8,
+  "justificativa": "O Capítulo 7 foi integralmente analisado. As repetições detectadas pelo linter correspondem aos rótulos e subcabeçalhos estruturais dos 8 Ofícios (ex: No domínio alto, A corrupção do..., Perguntas de trilha, Técnicas da trilha). Todas as 14 tabelas, 8 ilustrações, 61 técnicas e 8 Chaves foram preservadas 100% literalmente para manter a precisão de regras e o equilíbrio de jogo."
+}

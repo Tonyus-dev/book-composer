@@ -1,0 +1,278 @@
+7. Ofícios, Trilhas e Chaves
+Ofício é prática aprendida. Ele descreve como uma personagem age sob pressão, quais responsabilidades assume e que tipo de Chave sustenta sua técnica. Uma mesma pessoa pode aprender diferentes Ofícios ao longo da campanha; apenas uma Trilha fica ativa por vez, mas a memória das anteriores permanece.
+O que é um Ofício
+Ofício é uma prática aprendida. Não é espécie, destino ou personalidade. Cada Ofício define Papéis possíveis, duas Perícias treinadas, proficiências, uma Chave vinculada, técnica inicial e catálogo próprio de técnicas.
+Na criação, as duas Perícias do Ofício recebem +1, até o máximo inicial 3. Quando uma opção manda escolher uma Perícia, a escolha é registrada na Trilha.
+Faixas de técnica
+Técnicas sem dano convertem o Nível em alcance, duração, número de alvos, proteção, cura ou autoridade sobre a cena. Apenas efeitos que declaram um ataque multiplicam dano-base.
+Chaves e Trilhas de Ofício
+Cada Ofício aprendido forma uma Trilha separada. A personagem preserva o Núcleo permanente, mas apenas uma Trilha produz benefícios mecânicos por vez.
+Regra da Chave
+Uma Chave de Ofício é arma, ferramenta, foco, kit, dispositivo ou símbolo vinculado ao treinamento da personagem. Pegar um objeto semelhante não ensina o Ofício. A Chave ativa uma Trilha já aprendida.
+A Chave pode cumprir simultaneamente função de arma, ferramenta, foco ou artefato. Qualidade e tags do objeto continuam valendo. A Chave comum não concede bônus por si só.
+Catálogo completo de Chaves
+Vincular, perder e substituir
+Vincular uma Chave exige treino conhecido e uma pausa segura.
+A personagem pode possuir várias Chaves vinculadas, mas apenas a Chave da Trilha ativa conduz a Ressonância.
+Trocar de Trilha exige declarar a nova Chave em descanso completo, pausa segura ou preparação de jornada.
+A troca não ocorre livremente durante combate.
+Ser desarmado não apaga a Trilha, mas impede capacidades que exijam a Chave ausente.
+Uma Chave perdida pode ser substituída por objeto compatível após cena de reparação, juramento, treino ou reconhecimento narrativo.
+Duas Chaves podem formar um único conjunto, como espada e escudo ou duas lâminas, desde que registradas como uma Chave composta.
+Progressão separada
+O Marco conquistado pertence à Trilha ativa na jornada responsável pelo avanço. Técnicas, especializações, ganhos de atributo, ganhos de Perícia, magia, Evocação e Legado pertencem à Trilha que os concedeu.
+Memória permanece. Progressão ativa muda.
+Papéis de Ressonância
+O Papel ativo pertence à Trilha ativa e determina a manifestação do Coro.
+Guardião
+Referência visual do Ofício Guardião; não fixa Povo, gênero ou equipamento obrigatório
+A distância entre o golpe e quem não pode recebê-lo
+Proteger não é decidir pelo outro. É tornar possível que ele continue decidindo.
+O Guardião aprende a ocupar espaço de maneira responsável. Antes de dominar armas ou armaduras, precisa compreender distância: quantos passos existem entre um perigo e uma pessoa; quanto tempo resta antes de uma estrutura cair; onde um corpo pode permanecer sem transformar proteção em bloqueio.
+Sua técnica inicial, Interpor, contém todo o Ofício. O Guardião não anula o ataque por decreto. Move-se, torna-se alvo e aceita que proteção possui custo corporal. A Proteção da armadura reduz dano, mas não elimina a escolha de estar ali.
+A Chave do Guardião pode ser escudo, martelo, lança ou insígnia. O objeto importa menos pela forma que pela promessa vinculada. Um escudo tomado ao acaso é defesa; um Escudo de Juramento é memória de treino, pessoas protegidas, erros cometidos e limites reconhecidos. Perder a Chave não apaga o Ofício, mas pode obrigar o Guardião a recordar que nenhuma ferramenta substitui relação.
+No início da Trilha, o Guardião aprende postura e marca de proteção: sustentar o próprio corpo e estender cuidado a um alvo específico. Nos níveis seguintes, aprende a definir linhas que inimigos não atravessam e responder quando um juramento é ferido. No domínio alto, a proteção deixa de ser apenas individual e cria espaço coletivo: círculos seguros, redução de dano, resistência a deslocamento. O Último Escudo é a forma extrema da ética do Ofício: receber o impacto sem transformar o sacrifício em espetáculo ou obrigação permanente para os protegidos.
+A corrupção do Guardião começa quando proteção vira posse. “Eu sei o que é seguro” pode tornar-se “você não tem permissão para arriscar”. O Ofício exige perguntar não apenas quem precisa ser protegido, mas de que modo essa pessoa deseja ser protegida.
+Vinheta - O escudo aberto
+A criança queria atravessar a praça para buscar o irmão. O Guardião podia impedi-la facilmente.
+Em vez disso, ajoelhou-se.
+Posso abrir caminho. Não posso escolher por você.
+Ela assentiu.
+O Guardião levantou o escudo, não como parede diante da criança, mas como teto móvel sobre a decisão dela.
+Perguntas de Trilha
+Quem ensinou sua personagem a diferença entre proteger e controlar?
+Que promessa está inscrita em sua Chave?
+Qual pessoa ela não conseguiu proteger, e que erro aprendeu a não repetir?
+Quando precisa aceitar que alguém protegido escolha um risco real?
+Em jogo
+Papéis: Bastião ou Amparo Perícias: Combate, Cuidado Proficiências: armaduras médias e pesadas, escudos, armas militares Chaves usuais: Escudo de Juramento; Martelo de Vigília; Lança de Interposição; Insígnia de Guarda
+Técnica inicial - Interpor
+Reação; mova até 2 células, torne-se alvo do ataque contra um aliado e reduza o dano pela sua Proteção.
+Técnicas da Trilha
+Duelista
+Referência visual do Ofício Duelista; não fixa Povo, gênero ou equipamento obrigatório
+A lâmina como pergunta
+Uma abertura não é apenas onde o inimigo falhou. É onde a situação ainda pode mudar.
+O Duelista treina leitura de conflito. A lâmina é ferramenta visível, mas o Ofício acontece no intervalo entre intenção e movimento. Peso deslocado, respiração presa, olhar que acompanha a saída errada, certeza excessiva: tudo isso forma aberturas.
+Por essa razão, Duelista não significa assassino elegante. Alguns praticam para vencer sem matar, desarmar autoridades, proteger ritos, resolver disputas ou demonstrar que uma defesa considerada perfeita contém escolha. Outros tornam-se combatentes letais. A ética não vem da arma; precisa ser construída pela pessoa.
+A técnica inicial, Abertura, recompensa isolamento e movimento. Literariamente, isso significa que o Duelista reorganiza a cena até que o alvo precise responder sozinho. O ataque causa mais dano não porque a lâmina ficou magicamente pesada, mas porque chegou no ponto em que defesa, intenção e posição deixaram de concordar.
+A Chave pode ser sabre, florete, lâmina ritual ou par de armas. Algumas Chaves guardam marcas de duelos anteriores; outras são mantidas sem ornamentação para lembrar que reputação não vence confronto. Vincular uma lâmina é aceitar que cada vez que ela for desembainhada o Ofício será reconhecido, mesmo por quem não conhece o nome da técnica.
+No início da Trilha, o Duelista aprende Passo Cortante e Contra-ataque: mover-se sem oferecer reação e transformar o erro adversário em resposta. Depois surgem precisão e quebra de guarda. No domínio alto, a pessoa consegue fazer a própria movimentação parecer múltipla ou tornar um duelo inevitável por alguns instantes. O multiplicador de dano representa concentração de oportunidade, não energia abstrata desconectada da ficção.
+A corrupção do Duelista é confundir compreensão com superioridade. Ler alguém não concede direito sobre essa pessoa. A busca por confronto perfeito pode produzir violência desnecessária, transformar todo desacordo em duelo e toda relação em disputa por domínio.
+Vinheta - O golpe que terminou antes de tocar
+O oficial ergueu a espada diante da multidão. Queria uma execução exemplar.
+A Duelista avançou, girou o punho e parou a lâmina a um dedo do pescoço dele.
+O oficial percebeu que sua guarda havia sido quebrada. A multidão também.
+Ela recuou sem cortar.
+O duelo acabou quando todos viram que você podia ser interrompido.
+Perguntas de Trilha
+O que sua personagem procura numa abertura além de dano?
+Quem lhe ensinou a aceitar derrota sem perder identidade?
+Que duelo ela venceu e ainda considera um fracasso?
+Quando guardar a lâmina exige mais precisão que usá-la?
+Em jogo
+Papéis: Vanguarda Perícias: Combate; escolha Atletismo ou Furtividade Proficiências: armas corpo a corpo leves e militares Chaves usuais: Sabre de Fresta; Florete de Espelho; Lâmina Ritual; Par de Lâminas Gêmeas
+Técnica inicial - Abertura
+Quando acerta um alvo isolado, cause +2 dano. Se moveu até ele no mesmo turno, também o deixe Exposto.
+Técnicas da Trilha
+Atirador
+Referência visual do Ofício Atirador; não fixa Povo, gênero ou equipamento obrigatório
+O mundo entre o olho e o alvo
+Distância não reduz responsabilidade. Apenas cria tempo para fingir que ela não existe.
+O Atirador aprende a construir uma linha entre percepção, decisão e consequência. A arma pode ser arco, besta, dispositivo de disparo ou foco de mira; o verdadeiro treinamento consiste em reconhecer tudo que existe ao redor do alvo: cobertura, pessoas, vento, estrutura, rota de fuga e motivo para apertar ou não o mecanismo.
+A técnica inicial, Linha Clara, não significa visão sobrenatural. É a capacidade de ler cobertura como relação espacial e de perceber quando um disparo atravessa uma situação maior que o primeiro alvo. Em sucesso forte, outro inimigo na mesma linha pode sofrer parte do efeito - lembrança mecânica de que projéteis continuam existindo depois do impacto principal.
+A Chave do Atirador registra hábitos de postura, respiração, manutenção e distância. Um Arco de Quartzo pode responder a tensão específica; uma Besta de Trilho carrega marcas de recarga; uma Carabina Nomos exige entendimento técnico; um Foco de Mira alinha percepção e Ressonância. A Chave não torna o disparo justo. Apenas torna a prática reconhecível.
+Nos primeiros níveis, o Atirador aprende paciência e supressão: esperar a linha correta ou transformar uma área em ameaça sem necessariamente atingir alguém. Depois, ricochete e marca de caça demonstram controle de trajetória e continuidade. No domínio alto, Chuva de Projéteis e Horizonte Perfurado transformam geometria do campo inteiro. Quanto maior o alcance, maior a obrigação de responder pelo que não estava próximo o bastante para gritar.
+A corrupção do Atirador aparece quando distância transforma pessoas em formas. Um alvo marcado pode deixar de ser percebido como alguém com contexto; cobertura pode ser tratada como inconveniente moral; precisão pode produzir a ilusão de que um acerto correto é sempre uma decisão correta.
+Vinheta - A mira deslocada
+Do alto da torre, o Atirador tinha o comandante inimigo na linha. O disparo terminaria a batalha.
+Atrás do alvo, uma janela refletia o interior de uma sala: trabalhadores presos, amontoados junto à parede.
+O vento favorecia o tiro.
+O Atirador deslocou a mira dois palmos e atingiu o mecanismo que mantinha a porta selada.
+A guerra durou mais uma hora. Cento e três pessoas saíram vivas.
+Perguntas de Trilha
+O que sua personagem sempre verifica antes de escolher um alvo?
+Que disparo não realizado definiu sua reputação?
+Quem faz manutenção em sua Chave e o que essa confiança significa?
+Quando distância torna mais fácil obedecer a uma ordem injusta?
+Em jogo
+Papéis: Artilharia Perícias: Pontaria, Percepção Proficiências: arcos, bestas, armas de disparo e dispositivos de alcance Chaves usuais: Arco de Quartzo; Besta de Trilho; Carabina Nomos; Foco de Mira
+Técnica inicial - Linha Clara
+Ignore 1 ponto de cobertura. Em sucesso forte, escolha outro alvo na mesma linha e cause metade do dano final.
+Técnicas da Trilha
+Tecelão
+Referência visual do Ofício Tecelão; não fixa Povo, gênero ou equipamento obrigatório
+Fazer forma sem chamar de prisão
+Toda forma resolve algumas possibilidades e encerra outras. A magia começa quando o Tecelão assume responsabilidade por ambas.
+O Tecelão trabalha com Fluxo, tradição, geometria e significado. A imagem popular é a de alguém que move as mãos e obriga a realidade a obedecer. O Ofício verdadeiro é mais humilde e mais perigoso: reconhecer relações suficientes para propor uma forma estável sem fingir que a forma é a única possível.
+A técnica inicial, Forma Estável, reduz o primeiro custo mágico da cena. Isso representa preparação interior, não privilégio gratuito. O Tecelão chega com fórmulas revisadas, foco alinhado, intenção definida e consciência do ambiente. A primeira magia encontra um caminho já cuidado.
+A Chave pode ser bastão, grimório, tear ritual ou prisma. Um grimório não contém apenas receitas; registra erros, contextos e razões para não repetir certas formas. Um Tear Ritual lembra que magia é relação entre fios. Um Prisma de Fórmulas demonstra que o mesmo Fluxo pode revelar efeitos diferentes conforme o ângulo.
+No início, o Tecelão aprende Contrafluxo e Geometria de Área: responder a outra magia e alterar o modo como uma forma ocupa espaço. Depois surgem Palavra Preparada e Dupla Tradição, que exigem armazenar potência e reconhecer que um efeito pode participar de mais de uma linguagem. No domínio alto, Forma Persistente e Convergência permitem sustentar complexidade sem perder controle.
+A corrupção do Tecelão ocorre quando estabilidade vira imposição. Uma fórmula pode ser tão elegante que o praticante passa a considerar qualquer resistência um erro do mundo. A Sombra adora formas perfeitas que eliminam pessoas incompatíveis com elas.
+Vinheta - A fórmula incompleta
+A Tecelã poderia fechar a Fenda usando uma inscrição antiga. Faltava apenas um nome.
+A Facção ofereceu um nome retirado de arquivos de Trocados.
+Ela percebeu que a fórmula funcionaria porque tratava a pessoa nomeada como peça de ancoragem.
+Deixou o círculo incompleto.
+A Fenda permaneceu aberta. A pessoa permaneceu inteira.
+Perguntas de Trilha
+Qual forma sua personagem se recusa a usar mesmo sendo eficiente?
+Que erro está registrado em sua Chave para nunca ser apagado?
+Quando estabilidade é cuidado e quando é prisão?
+Que tradição mágica ela aprendeu a escutar sem apropriar-se dela?
+Em jogo
+Papéis: Artilharia ou Amparo Perícias: Magia, Conhecimento Proficiências: focos, grimórios, bastões e ferramentas rituais Chaves usuais: Bastão de Convergência; Grimório Estratificado; Tear Ritual; Prisma de Fórmulas
+Técnica inicial - Forma Estável
+A primeira magia de cada cena custa 1 Fluxo a menos, mínimo 0.
+Técnicas da Trilha
+Curador
+Referência visual do Ofício Curador; não fixa Povo, gênero ou equipamento obrigatório
+O corpo recorda caminhos de volta
+Curar não é devolver alguém ao estado que você prefere. É ajudar a pessoa a reconhecer quais partes de si deseja recuperar.
+O Curador trabalha com Vitalidade, Lucidez, vínculo e tempo. Nem toda ferida deve ser fechada do mesmo modo; nem toda dor é sinal de dano; nem toda recuperação significa retorno ao estado anterior. O Ofício começa quando alguém aprende a observar sem reduzir a pessoa ao problema mais urgente.
+A técnica inicial, Estabilizar Relação, demonstra que cuidado físico e contexto não se separam. Restaurar Vitalidade ou Lucidez também pode remover Pressão ou criar Guarda. A pessoa curada não recebe apenas tecido reparado; recebe tempo, confiança ou espaço para voltar a agir.
+A Chave pode ser kit, foco, sino ou símbolo. Um Kit de Retorno carrega instrumentos e a memória de mãos treinadas. Um Sino de Lucidez organiza respiração e atenção. Um Símbolo de Cuidado não possui poder porque representa instituição; possui poder quando a pessoa reconhece ali uma promessa legítima de amparo.
+Nos primeiros níveis, o Curador aprende Triagem e Pulso Restaurador. Triagem não é decidir quem merece viver; é reconhecer risco e usar recursos de forma consciente. Depois surgem Partilha de Dor e Memória do Corpo. Compartilhar dano exige consentimento e limite; lembrar o corpo não significa apagar cicatrizes. No domínio alto, Retorno e Círculo de Vida podem erguer Caídos e restaurar grupos, mas não eliminam consequências nem tornam morte irrelevante.
+A corrupção do Curador é transformar necessidade em autoridade. Quem conhece o corpo pode controlar acesso, desacreditar dor ou definir recuperação sem ouvir. A Sombra chama isso de cuidado total: ninguém escolhe, ninguém se arrisca, ninguém sai do tratamento.
+Vinheta - A cicatriz preservada
+A magia podia apagar completamente a marca no rosto da guerreira.
+Faça - ordenou o comandante. - Ela precisa parecer inteira diante do Conselho.
+O Curador perguntou à guerreira o que desejava.
+Quero que a dor pare. A marca fica.
+O Curador reparou nervos, fechou tecido e preservou a linha exata que ela escolhera carregar.
+Perguntas de Trilha
+Que diferença sua personagem reconhece entre cura e restauração?
+Qual limite de cuidado ela precisou aprender depois de ultrapassá-lo?
+Quem pode cuidar dela quando o Ofício se torna peso?
+Que cicatriz não deveria ser removida sem consentimento?
+Em jogo
+Papéis: Amparo Perícias: Cuidado, Empatia Proficiências: kits médicos, focos de cuidado e armas simples Chaves usuais: Kit de Retorno; Foco de Amparo; Sino de Lucidez; Símbolo de Cuidado
+Técnica inicial - Estabilizar Relação
+Ao curar Vitalidade ou Lucidez, remova 1 Pressão ou conceda +1 Guarda até o próximo turno.
+Técnicas da Trilha
+Evocador
+Referência visual do Ofício Evocador; não fixa Povo, gênero ou equipamento obrigatório
+Não se chama aquilo que não pode responder
+Uma Evocação não é poder esperando proprietário. É presença cuja relação precisa ser sustentada.
+O Evocador pratica vínculo. Âncora, Forma, Impulso e Pacto organizam uma relação capaz de manifestar presença sem reduzi-la a ferramenta. A diferença entre convocar e possuir é central: uma Evocação legítima responde porque existe relação adequada, não porque foi aprisionada por uma palavra mais forte.
+A técnica inicial, Vínculo Manifesto, permite sustentar uma Evocação menor sem manutenção inicial e escolher seu Papel. Isso representa reconhecimento mútuo. A presença chega já compreendendo, dentro de limites, se será Guardião, Predador, Oráculo, Tempestade, Artífice ou Limiar.
+A Chave pode ser Âncora de Pacto, Máscara, Totem ou símbolo de vínculo. Ela não é coleira. Uma âncora localiza a relação; uma máscara pode oferecer forma sem afirmar identidade total; um totem recorda contexto; uma Chave de Vínculo conserva sinais de consentimento e encerramento.
+Nos primeiros níveis, o Evocador fortalece a Âncora e aprende Comando Duplo. O termo “comando” só é legítimo dentro do Pacto: instrução reconhecida, não obediência absoluta. Depois, Forma Adaptável e Partilha de Sentidos aprofundam cooperação. No domínio alto, Evocação Maior e Presença Convergente ampliam a escala, exigindo ainda mais cuidado com identidade e retorno.
+A corrupção do Evocador começa quando resposta é confundida com submissão. Uma presença eficiente pode ser usada repetidamente até que sua vontade desapareça do vocabulário. A Sombra oferece pactos perfeitos porque apenas uma parte continua capaz de falar.
+Vinheta - A âncora devolvida
+A Evocação havia protegido o grupo por três noites. Na quarta, recusou o chamado.
+O Evocador poderia reforçar o símbolo e obrigar a manifestação.
+Em vez disso, colocou a Âncora no chão e desfez o nó central.
+A presença surgiu por um instante, não como serva, mas como testemunha.
+Obrigado - disse ele. - O pacto termina aqui.
+Só depois de ser liberada, a Evocação escolheu permanecer.
+Perguntas de Trilha
+Como sua personagem sabe que a Evocação consentiu?
+O que o Pacto proíbe mesmo em situação desesperada?
+Que presença ela libertou e ainda assim voltou?
+Quando a necessidade do grupo ameaça transformar vínculo em posse?
+Em jogo
+Papéis: Artilharia, Amparo ou Bastião Perícias: Evocação; escolha Magia ou Empatia Proficiências: focos de vínculo e armas simples Chaves usuais: Âncora de Pacto; Máscara de Convocação; Totem de Presença; Chave de Vínculo
+Técnica inicial - Vínculo Manifesto
+Mantenha uma Evocação menor sem pagar manutenção na primeira rodada e escolha seu Papel ao convocá-la.
+Técnicas da Trilha
+Artífice
+Referência visual do Ofício Artífice; não fixa Povo, gênero ou equipamento obrigatório
+Toda ferramenta é uma promessa provisória
+Inventar é decidir quais consequências ainda não existem e aceitar que um dia alguém lhe perguntará por elas.
+O Artífice prepara o mundo antes que a ação comece. Observa terreno, recursos, falhas, tempo disponível e necessidades prováveis. Enquanto outras pessoas veem objetos separados, ele percebe sistemas: onde uma barreira sustentará carga, como uma sonda poderá retornar, que material aceita reparo e qual dispositivo falhará de maneira menos cruel.
+A técnica inicial, Preparação de Campo, cria recursos temporários. Essa temporariedade é importante. Nem toda solução precisa tornar-se instituição. Uma carga, barreira ou munição especial pode existir para uma cena e depois ser desmontada, evitando que resposta emergencial se transforme em estrutura permanente sem debate.
+A Chave pode ser conjunto de ferramentas, luva de inscrição, dispositivo ou obra modular. Ferramentas Modulares carregam marcas de adaptação; a Luva de Inscrição aproxima mão e matéria; o Dispositivo de Campo registra leituras; a Obra Modular lembra que construção também pode aceitar mudança.
+Nos primeiros níveis, o Artífice improvisa ferramentas e instala armadilhas. Depois cria autômatos auxiliares e pratica Sobrecarga Segura, fazendo sistemas ultrapassarem sua função sem fingir que continuarão intactos. No domínio alto, Oficina Portátil e Obra Magistral permitem reparar e construir em escala de cena ou operação. A grandeza da obra aumenta a responsabilidade por manutenção e desmonte.
+A corrupção do Artífice aparece quando tudo se torna material disponível. Pessoas viram operadores, comunidades viram requisitos, ruínas viram peças, e o sucesso técnico apaga perguntas políticas. A Sombra não precisa sabotar a máquina; basta garantir que ela funcione perfeitamente para um propósito que ninguém mais pode contestar.
+Vinheta - O botão que todos podiam alcançar
+O Artífice construiu a barreira capaz de selar o distrito inteiro. A administração pediu um único controle na torre central.
+Ele instalou também alavancas manuais em cada bairro.
+Isso permite que civis desfaçam o bloqueio - protestaram.
+Exatamente.
+A obra ficou menos eficiente como instrumento de comando e muito mais segura como proteção coletiva.
+Perguntas de Trilha
+Quem pode desligar ou desmontar aquilo que sua personagem constrói?
+Que invenção funcionou e ainda assim foi um erro?
+Que material ela se recusa a tratar como recurso neutro?
+Como sua Chave registra manutenção, autoria e responsabilidade?
+Em jogo
+Papéis: Bastião ou Artilharia Perícias: Ofício, Investigação Proficiências: ferramentas, dispositivos, armaduras leves e armas técnicas Chaves usuais: Ferramentas Modulares; Luva de Inscrição; Dispositivo de Campo; Obra Modular
+Técnica inicial - Preparação de Campo
+Durante uma pausa curta, crie dois recursos: carga, barreira, reparo, sonda, neutralizador ou munição especial. Recursos expiram após a cena seguinte.
+Técnicas da Trilha
+Batedor
+Referência visual do Ofício Batedor; não fixa Povo, gênero ou equipamento obrigatório
+Chegar primeiro para que outros cheguem vivos
+Conhecer a rota não dá direito de escolher o destino do grupo. Dá responsabilidade por revelar riscos que outros ainda não conseguem ver.
+O Batedor trabalha com antecipação. Não é apenas explorador solitário nem assassino de emboscada. Sua função é transformar desconhecido em escolha: reconhecer terreno, ameaça, oportunidade, clima, sinais de passagem e rotas de retirada antes que a cena retire do grupo a possibilidade de decidir.
+A técnica inicial, Primeiro a Ver, altera iniciativa e posição porque informação chega antes do choque. O Batedor não acelera o tempo; evita que o grupo o desperdice descobrindo tarde demais aquilo que poderia ter sido percebido.
+A Chave pode ser faca, arco, bússola ou kit de rastreamento. Uma Faca de Trilha abre passagem e marca direção; um Arco de Exploração protege à distância; uma Bússola de Frestas reconhece correspondências; um kit conserva sinais que olhos apressados destruiriam.
+Nos primeiros níveis, Rota Segura e Emboscada mostram as duas faces do Ofício: proteger deslocamento e usar surpresa. Depois, Passo Sem Marca e Guia de Frestas permitem atravessar perigo e reorganizar aliados. No domínio alto, Caçador de Anomalias e Ninguém Fica Para Trás transformam percepção em resposta contra fenômenos e colapso coletivo.
+A corrupção do Batedor é confundir visão antecipada com autoridade. Quem percebe o perigo primeiro pode começar a decidir por todos, esconder informações “para evitar pânico” ou considerar pessoas lentas como peso. A Sombra oferece a rota perfeita desde que alguém seja abandonado.
+Vinheta - A marca voltada para trás
+O Batedor chegou à saída horas antes do grupo. Poderia atravessar a passagem e garantir a própria sobrevivência.
+Em vez disso, marcou as pedras com sinais visíveis apenas de quem vinha na direção oposta.
+Depois retornou para buscar os feridos.
+Quando perguntaram por que desperdiçara a vantagem, respondeu:
+Uma rota só é segura quando continua existindo para quem chegou depois.
+Perguntas de Trilha
+Que sinal sua personagem sempre deixa para quem vem atrás?
+Qual perigo ela percebeu cedo e não conseguiu explicar a tempo?
+Quando esconder-se protege o grupo e quando o abandona?
+Quem ela se recusa a deixar para trás, mesmo contra cálculo racional?
+Em jogo
+Papéis: Vanguarda ou Artilharia Perícias: Sobrevivência, Furtividade Proficiências: armas leves, arcos e ferramentas de exploração Chaves usuais: Faca de Trilha; Arco de Exploração; Bússola de Frestas; Kit de Rastreamento
+Técnica inicial - Primeiro a Ver
+Ao detectar ameaça antes do combate, o grupo recebe +2 na iniciativa e um aliado move até 3 células gratuitamente.
+Técnicas da Trilha
+Técnicas e progressão
+Uso de técnicas
+Técnicas são capacidades treinadas. Podem ser passivas, ações, reações, posturas, preparações ou técnicas de cena.
+Custos possíveis incluem ação, Fôlego, Fluxo, condição, posição, Chave ou preparação.
+Níveis de potência
+Ataques e efeitos ofensivos usam uma escala comum. O nível da técnica não é o Marco da personagem: é a potência específica daquele uso.
+Fórmula
+Dano final =
+(dano-base x multiplicador)
++ bônus de margem
++ modificadores fixos
++ Corpo, quando a arma for Potente
+- Proteção
+Somente o dano-base é multiplicado. Não multiplique Corpo, bônus de margem, bônus de artefato, Sangramento, dano ambiental, dano verdadeiro ou dano do Coro.
+A Proteção é aplicada depois de todos os acréscimos. O dano mínimo após Proteção é 1, salvo imunidade ou bloqueio completo.
+Margem ofensiva
+Sucesso comum: sem bônus adicional.
+Sucesso forte: +2 de dano.
+Sucesso extraordinário: +4 de dano.
+Custos-padrão de design
+A descrição específica da técnica prevalece. Uma técnica defensiva, social ou de controle pode usar o nível para medir alcance, duração, quantidade de alvos ou intensidade, sem causar dano.
+Limites
+Uma personagem não pode usar mais de:
+uma postura por vez;
+uma reação por rodada, salvo gasto de Fôlego;
+uma técnica marcada como uma vez por cena por ocorrência;
+uma técnica de Trilha inativa sem exceção explícita;
+uma técnica ofensiva multiplicada mais de uma vez pelo mesmo gatilho.
+Multiplicadores não se acumulam. Quando dois efeitos indicarem níveis diferentes, use o maior e aplique os demais apenas como efeitos secundários permitidos.
+Técnicas universais
+Avanço
+Gaste 1 Fôlego para mover 1 zona antes ou depois da ação.
+Aparar
+Reação com arma adequada: +2 Guarda contra um ataque.
+Cobrir
+Use ação para conceder cobertura a um aliado.
+Preparar
+Declare ação e gatilho. Quando o gatilho ocorrer, execute como reação.
+Recuperar
+Use ação para recuperar 1 Fôlego, remover Abalado, levantar-se ou estabilizar uma Evocação.
+Marcos
+Personagens avançam por Marcos narrativos, de 1 a 10.
+Não recebem experiência por matar.
+Ganham Marco quando:
+alteram situação regional; descobrem verdade relevante; transformam vínculo; encerram missão; enfrentam consequência; fazem escolha que muda campanha.
+Ganhos por Marco
+Legado
+No Marco 10, escolha:
+tornar-se referência de um Ofício; fundar ordem ou comunidade; restaurar artefato maior; estabelecer nova relação entre mundos; dominar forma única de magia; criar pacto de evocação; transformar sua relação com mirveth; enfrentar manifestação extrema da Sombra.
+Legado não encerra obrigatoriamente a personagem.
