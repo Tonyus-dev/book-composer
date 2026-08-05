@@ -1,0 +1,14 @@
+{
+  "revisado": true,
+  "cânone_aprovado": true,
+  "técnica_aprovada": true,
+  "voz_autoral_aprovada": true,
+  "preservado_literalmente": true,
+  "tabelas_aprovadas": true,
+  "alteracoes_aplicadas": 0,
+  "alteracoes_rejeitadas": 0,
+  "paragrafos_preservados": 74,
+  "tabelas_no_intervalo": 5,
+  "imagens_no_intervalo": 0,
+  "justificativa": "O Capítulo 9 foi integralmente lido e avaliado. A mecânica de Predominância e Ressonância e os pares conceituais possuem 0 alertas do linter e 0 alterações numéricas. Suas 5 tabelas foram formatadas de acordo com o padrão técnico oficial sem alterar uma única célula de conteúdo."
+}
