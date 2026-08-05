@@ -1,0 +1,90 @@
+{
+  "total_examples": 17,
+  "examples": [
+    {
+      "raw_line": "### F1 — Estudo `velarm - codex(1).pdf`",
+      "fonte": "Manual Definitivo v1.0",
+      "hash": "7bc80bbbb987332cbe765d8fb48ae5aba60ab72a7f0040d342504e76198ec6bd"
+    },
+    {
+      "raw_line": "- `velareth` — voou; ação selada;",
+      "fonte": "Manual Definitivo v1.0",
+      "hash": "e8781048843265d7355f419e3e3efbf917715cedc8dc260d98f55ab78c94b305"
+    },
+    {
+      "raw_line": "- `velaril` — voará; ação possível ou desejada;",
+      "fonte": "Manual Definitivo v1.0",
+      "hash": "4f1c1baeed080f8f82c946327b1a026f2f42825ec090ca76604e88ea3252672b"
+    },
+    {
+      "raw_line": "- `velarvar` — está voando.",
+      "fonte": "Manual Definitivo v1.0",
+      "hash": "df6e766565c14756a1e448b34485734df0125bb70c13a06db481c591667e6f08"
+    },
+    {
+      "raw_line": "| `nar` | entre, no meio de | `nar miranin` — entre pessoas |",
+      "fonte": "Manual Expandido v2.0-RC1",
+      "hash": "ea8e21c4036b8cebdd44f4e07393bacc2f94c6d2fef390d0246acdcd9121f54d"
+    },
+    {
+      "raw_line": "| `ru` | sobre, a respeito de | `ru mirveth` — sobre a contraparte |",
+      "fonte": "Manual Expandido v2.0-RC1",
+      "hash": "80a2f5f414b41ef5cf4696f2993f8ec14cf98831aac25107539c0f8188b76c8f"
+    },
+    {
+      "raw_line": "| `-in` | plural disperso | `miranin` — pessoas separadamente |",
+      "fonte": "Manual Expandido v2.0-RC1",
+      "hash": "511253759d93ae9bffbbd7edcf69aa1e7793b4094561ad693722ba1efe804609"
+    },
+    {
+      "raw_line": "| `-ari` | coletivo vivo | `mirari` — comunidade viva |",
+      "fonte": "Manual Expandido v2.0-RC1",
+      "hash": "999ef159fc2bf969cad99082428096b0e6cbc4b32f69ddc907c9a95fd750bc16"
+    },
+    {
+      "raw_line": "1. `Mi nam miran.` — Eu sou uma pessoa.",
+      "fonte": "Manual Expandido v2.0-RC1",
+      "hash": "ed000aff10c000c56db4b4f9a995c6855caf7706e673f7b5d578c63c70e207ef"
+    },
+    {
+      "raw_line": "25. `Vethari na mirveth.` — Que realizemos Merge, contraparte.",
+      "fonte": "Manual Expandido v2.0-RC1",
+      "hash": "7d6de5e69474931c627cf6cb4d6d6c4264472da3cfca7bbe3f05a50445102599"
+    },
+    {
+      "raw_line": "27. `Vethari ve mar miran.` — Merge não possui uma pessoa.",
+      "fonte": "Manual Expandido v2.0-RC1",
+      "hash": "688b2d04d3211265cc6092008c464442ec7b3921c3a6d5495a545be5dd4aa6cd"
+    },
+    {
+      "raw_line": "28. `Mirveth nam miran saarun.` — A contraparte é uma pessoa inteira.",
+      "fonte": "Manual Expandido v2.0-RC1",
+      "hash": "b3e6786394d1898a60827926b5c82da993e8de1dc019b42dbc80164667b90a71"
+    },
+    {
+      "raw_line": "47. `Nen miran nam en tharol.` — Ninguém está no portal.",
+      "fonte": "Manual Expandido v2.0-RC1",
+      "hash": "42c66f8d215469ce42e70836d8118b8c6bfb6650a289e724bc22cd14bc61ff80"
+    },
+    {
+      "raw_line": "48. `Marin miranin narelil.` — Muitas pessoas virão.",
+      "fonte": "Manual Expandido v2.0-RC1",
+      "hash": "eef5316806bfed109d3cee722d93d9428f70c2299fa1e394cda0d9c0fcf5919b"
+    },
+    {
+      "raw_line": "51. `Kav sib mirun.` — A Sombra consome identidade.",
+      "fonte": "Manual Expandido v2.0-RC1",
+      "hash": "98e7c11228cdf352478e0d59dc6936bbd005e62545615b050ef39722ef1fe5e9"
+    },
+    {
+      "raw_line": "53. `Siremesh nam mareveth ra miran vemarenun.` — O registro foi levado por pessoa desconhecida.",
+      "fonte": "Manual Expandido v2.0-RC1",
+      "hash": "9063c75ef9aba4c0e6f5474edcf0620237a5119ef9a03b38f89671b8ef337bdf"
+    },
+    {
+      "raw_line": "62. `Nam mirunin saarun.` — Que as identidades permaneçam inteiras.",
+      "fonte": "Manual Expandido v2.0-RC1",
+      "hash": "218b49abf64d13a6eec402deab46913703fd96de7f2ee7fe7a7d9812de5a6822"
+    }
+  ]
+}

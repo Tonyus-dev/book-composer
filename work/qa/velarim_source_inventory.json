@@ -1,0 +1,78 @@
+{
+  "audit_name": "Auditoria Canônica de Velarim",
+  "total_sources": 6,
+  "sources": [
+    {
+      "id": "SRC-01",
+      "title": "KALLISTIS — Velarim: Manual Definitivo v1.0",
+      "path": "/home/tonyus-dev/Projetos/RPG/kallistis/docs/canon/VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "version": "v1.0",
+      "declared_status": "Canônico / Aprovado",
+      "date": "2026-07-31",
+      "size_bytes": 26764,
+      "sha256": "1aa53a7e4554538e9203fe315cfe260cb4d8bca91fb6f71fed86a731d609058d",
+      "document_function": "Definição das 6 Formas Primordiais, gramática ritual e invocação de magia",
+      "authority_level": "Grau 1 (Autoridade Primária)"
+    },
+    {
+      "id": "SRC-02",
+      "title": "Capítulo 15 — Velarim, Merge e Coro",
+      "path": "work/working_copy.docx (Capítulo 15)",
+      "version": "Edição Definitiva Livro Básico",
+      "declared_status": "Canônico / EmManuscrito",
+      "date": "2026-08-05",
+      "size_bytes": 18469377,
+      "sha256": "366da81fd81a4c0ef5a2518da7bb90bb3db1c22a737f4df4df53644f6e5197f9",
+      "document_function": "Aplicação das regras de Velarim, Merge de consciência e Cântico em Coro no RPG",
+      "authority_level": "Grau 1 (Autoridade Primária no Livro)"
+    },
+    {
+      "id": "SRC-03",
+      "title": "Apêndice B — Velarim Conversacional v2.0",
+      "path": "work/working_copy.docx (Apêndice B)",
+      "version": "v2.0",
+      "declared_status": "Canônico / EmManuscrito",
+      "date": "2026-08-05",
+      "size_bytes": 18469377,
+      "sha256": "366da81fd81a4c0ef5a2518da7bb90bb3db1c22a737f4df4df53644f6e5197f9",
+      "document_function": "Guia de linguagem falada, pragmática, fonologia conversacional e diálogos",
+      "authority_level": "Grau 1 (Autoridade Primária Conversacional)"
+    },
+    {
+      "id": "SRC-04",
+      "title": "Velarim Manual Expandido Conversacional v2.0-RC1",
+      "path": "/home/tonyus-dev/Projetos/RPG/kallistis/docs/canon/source/VELARIM_MANUAL_EXPANDIDO_CONVERSACIONAL_v2.0-RC1.md",
+      "version": "v2.0-RC1",
+      "declared_status": "Canônico / RC1",
+      "date": "2026-08-02",
+      "size_bytes": 62901,
+      "sha256": "e583ab95e6123519997ed006eb53ae655a316ad73311b879b33d272f5a4f8145",
+      "document_function": "Vocabulário estendido, diálogos cotidianos e expansão gramatical",
+      "authority_level": "Grau 2 (Fonte Expandida Conversacional)"
+    },
+    {
+      "id": "SRC-05",
+      "title": "Aprovação Canônica: Velarim Conversacional v2.0",
+      "path": "/home/tonyus-dev/Projetos/RPG/kallistis/docs/canon/decisions/VELARIM_CONVERSACIONAL_V2_APPROVAL_2026-08-01.md",
+      "version": "v2.0 Approval",
+      "declared_status": "Decisão Editorial Registrada",
+      "date": "2026-08-02",
+      "size_bytes": 1409,
+      "sha256": "afb07ec8fe444ed1f8b9ca38df1f6896dfb75e84758077b76c03e765f37e5291",
+      "document_function": "Registro de autorização e diretrizes de inclusão no Apêndice B",
+      "authority_level": "Grau 2 (Decisão Editorial)"
+    },
+    {
+      "id": "SRC-06",
+      "title": "Velarim Phrase Core v0.2",
+      "path": "/home/tonyus-dev/Projetos/RPG/kallistis/docs/canon/decisions/VELARIM_PHRASE_CORE_v0.2.md",
+      "version": "v0.2",
+      "declared_status": "Decisão de Núcleo de Frases",
+      "date": "2026-07-31",
+      "size_bytes": 5838,
+      "sha256": "08236be45647969770861a28293950c0103c49d53937d274d7d5575e440adb77",
+      "document_function": "Matriz de sintaxe básica de frases ritualísticas e pragmáticas",
+      "authority_level": "Grau 3 (Fonte Auxiliar de Frases)"
+    }
+  ]
+}

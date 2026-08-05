@@ -1,0 +1,36 @@
+{
+  "language": "Velarim",
+  "categories": {
+    "fonologia": {
+      "regra": "Estrutura silábica primária CV / CVC. Uso de vogais puras (a, e, i, o, u) e encontros consonantais suaves (kh, th, rh, vael).",
+      "fonte": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "hash": "3b26b6611411a8f42c9ab096e43cbfbf749f77586fbec341839a66da6abf6dd1"
+    },
+    "ortografia_e_diacriticos": {
+      "regra": "Uso de hífen em prefixos rituais de Silmain (Sil-Vael, Sil-Khor). Diacríticos mantidos estritamente sem normalização ASCII.",
+      "fonte": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "hash": "dc6eebf4ee2e13cceaa271db88c2ab745357358b3a4c77d08586adba3568d168"
+    },
+    "sintaxe_e_ordem": {
+      "regra": "Ordem padrão Sujeito-Verbo-Objeto (SVO) na fala conversacional; ordem Verbo-Sujeito-Objeto (VSO) ou Forma-Verbo em frases rituais de Cântico.",
+      "fonte": "VELARIM_PHRASE_CORE_v0.2.md",
+      "hash": "6b934abb0c446022cadcafaaa636def0415a2dcbb5d0063d0ee82e4a2feb05b9"
+    },
+    "silmain_e_formas_primordiais": {
+      "regra": "6 Formas Primordiais (Sil-Vael, Sil-Khor, Sil-Aet, Sil-Nox, Sil-Mir, Sil-Zul) regem os princípios mágicos e rituais de invocação e Merge.",
+      "fonte": "Capítulo 15 & Manual v1.0",
+      "hash": "c97202b453494c3549d24d9ef6612146f09669be7a47db95bd2c65282b00a385"
+    },
+    "diferencas_luz_e_escuridao": {
+      "regra": "Dialeto da Luz prioriza ressonância clara e formas Vael/Aet; Dialeto da Escuridão prioriza densidade e formas Khor/Nox.",
+      "fonte": "VELARIM_MANUAL_EXPANDIDO_CONVERSACIONAL_v2.0-RC1.md",
+      "hash": "583d87422e8542e399b112547b18a6c8b05afb2b5340d6ca7458d465eec11f39"
+    },
+    "aspectos_nao_especificados": {
+      "flexao_de_genero": null,
+      "source_status_flexao_genero": "não especificado nas fontes canônicas",
+      "declinacao_caso": null,
+      "source_status_declinacao_caso": "não especificado nas fontes canônicas"
+    }
+  }
+}

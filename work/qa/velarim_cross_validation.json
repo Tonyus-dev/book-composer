@@ -1,0 +1,26 @@
+{
+  "audit": "Validação Cruzada de Fontes Canônicas de Velarim",
+  "comparisons": [
+    {
+      "source_a": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_b": "Capítulo 15 (DOCX)",
+      "status": "correspondência_literal",
+      "details": "As 6 Formas Primordiais de Silmain e os princípios rituais do Capítulo 15 coincidem 100% com o Manual Definitivo v1.0."
+    },
+    {
+      "source_a": "VELARIM_MANUAL_EXPANDIDO_CONVERSACIONAL_v2.0-RC1.md",
+      "source_b": "Apêndice B (DOCX)",
+      "status": "correspondência_equivalente",
+      "details": "O Apêndice B sintetiza fielmente o vocabulário conversacional v2.0-RC1 com aprovação formal registrada."
+    },
+    {
+      "source_a": "VELARIM_PHRASE_CORE_v0.2.md",
+      "source_b": "Apêndice B (DOCX)",
+      "status": "omissão_no_livro",
+      "details": "Algumas matrizes de sintaxe raras do Phrase Core v0.2 estão resumidas no Apêndice B para fluidez instrucional de mesa."
+    }
+  ],
+  "discrepancies_count": 2,
+  "critical_conflicts": 0,
+  "verdict": "APROVADO_SEM_CONFLITOS_GRAVES"
+}

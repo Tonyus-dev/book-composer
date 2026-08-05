@@ -1,0 +1,4174 @@
+{
+  "total_entries": 388,
+  "entries": {
+    "registro": {
+      "forma": "Registro",
+      "tradução_principal": "Ordem",
+      "traduções_alternativas": [
+        "“Você entende Velarim?”",
+        "“Quem nos protege?”"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "f2608648da9b17ba732969203b21a543bcb53822cdcb3a9d71fd78da8ff428c2"
+    },
+    "proto‑velarim": {
+      "forma": "Proto‑Velarim",
+      "tradução_principal": "reconstruída",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "65270110da6e90eaadcc3ea3803e2f239ed14f46c2a9ee03d9978f852be5ca87"
+    },
+    "luz cotidiano": {
+      "forma": "Luz Cotidiano",
+      "tradução_principal": "SVO",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "76b9bed60e199b93987142c35e0042751b99c6dfd12992f50aeb6d0c1c7fef8f"
+    },
+    "escuridão cotidiano": {
+      "forma": "Escuridão Cotidiano",
+      "tradução_principal": "SOV",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "4a9c27b2aef0aa0fbfeea7c53a1509c2d26c07ccc2edf26d7615231c3b451169"
+    },
+    "ritual comum": {
+      "forma": "Ritual Comum",
+      "tradução_principal": "VSO",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "d7bc37429ad8b884716f0bdffcf959d7353bdbac75d601f879a5b09c1f1e27ce"
+    },
+    "científico secreto": {
+      "forma": "Científico Secreto",
+      "tradução_principal": "variável",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "b3c8a3e5ebf11a3a246b56399f6be66c2e504a86c381c21bb3445934d8b996dc"
+    },
+    "conceito": {
+      "forma": "Conceito",
+      "tradução_principal": "Velarim",
+      "traduções_alternativas": [
+        "Forma"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "fbf15604d85e5d82a3e83b5c8cd544e1b599d1ee2be5a577d6980e827202fc37"
+    },
+    "luz física": {
+      "forma": "Luz física",
+      "tradução_principal": "silma",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "a0279759811f251dab820e659a39132c02e1c0dbe69803c7124b7d8ccc187395"
+    },
+    "luz cosmológica": {
+      "forma": "Luz cosmológica",
+      "tradução_principal": "manesh",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "7a5bb9e0138897f9f9d42b9871da378e809aa1ac5749d581d0998fab422d9505"
+    },
+    "escuridão": {
+      "forma": "Escuridão",
+      "tradução_principal": "thuvel",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "59d28dd4f2f37f711e768b824342d038826d54f9ac63f936dd999c4cbfe537b8"
+    },
+    "sombra": {
+      "forma": "Sombra",
+      "tradução_principal": "kav",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "18f4789005efbae2f06426677932aefbaeee5ecaac817ca123ced2c7abbfa73d"
+    },
+    "ausência de luz": {
+      "forma": "Ausência de luz",
+      "tradução_principal": "vesilma",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "bbce7468c7ad8ccfbe0dc4fc9c9fc4c99f1593b47dca807ef2aaecd63ff431bb"
+    },
+    "mira": {
+      "forma": "mira",
+      "tradução_principal": "fonte ou alma primordial",
+      "traduções_alternativas": [
+        "/ˈmi.ɾa/",
+        "substantivo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "ae8918b71aa73c8539ad98a4d276a3dee1869e41f7904adce906af17b16c86fd"
+    },
+    "mirveth": {
+      "forma": "mirveth",
+      "tradução_principal": "contraparte cosmológica integral",
+      "traduções_alternativas": [
+        "/miɾ.ˈveð/",
+        "lexical"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "5bb2b7c7922b4a59c79f060b4424233a152264a1103afa87b8f9edb8e36ce27d"
+    },
+    "mirvethin": {
+      "forma": "mirvethin",
+      "tradução_principal": "contrapartes consideradas como pessoas autônomas",
+      "traduções_alternativas": [
+        "/miɾ.ˈve.ðin/",
+        "contrapartes autônomas",
+        "substantivo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "ab9c1e9a4f55009380e913255658ffac611826c6ff923bf32993233db27c5fe6"
+    },
+    "mirvethari": {
+      "forma": "mirvethari",
+      "tradução_principal": "relação viva e recíproca entre contrapartes",
+      "traduções_alternativas": [
+        "/miɾ.ve.ˈða.ɾi/",
+        "relação viva entre contrapartes",
+        "substantivo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "0ff133319b074699c4207d04aa4311a25e0324cc8ae0d720fb7baca8d3ac6695"
+    },
+    "vethari": {
+      "forma": "vethari",
+      "tradução_principal": "Merge legítimo com identidade e consentimento preservados",
+      "traduções_alternativas": [
+        "/ve.ˈða.ɾi/",
+        "REL",
+        "relacional"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "bf043682b542aae065462d08af18f71ba788ffcb9108107dd15569fc45db91c7"
+    },
+    "legado": {
+      "forma": "Legado",
+      "tradução_principal": "Oficial",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "31d67e69b5975fd0007f2cbd76a926679170ce5ecc0ce729379806195fbd6b59"
+    },
+    "nóveth": {
+      "forma": "nóveth",
+      "tradução_principal": "nooveth",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "1a23bafb5534d48ffa6e2face91afd9415476b14d2d0d1f1b5aaa0e7388f0727"
+    },
+    "lúmë": {
+      "forma": "lúmë",
+      "tradução_principal": "luumeh",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "37f5dab6daf2b8ce81de0aabc7c362a44091516c1474c028eb9bd6bc4ebf8cce"
+    },
+    "krávira": {
+      "forma": "Krávira",
+      "tradução_principal": "Kraavira",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "057dff20ed338a78708d064a43cea2ad7fcac1ace5ea291114e6e1a0209e5178"
+    },
+    "ipa": {
+      "forma": "IPA",
+      "tradução_principal": "ASCII",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "c7ac46b163ca73167f9443a552f3dbdadd117f55a3cfdb0d8d1cbe05905e5598"
+    },
+    "/l/": {
+      "forma": "/l/",
+      "tradução_principal": "l",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "e68e6377a5a92e2f4391cd7f91c8afe015893c1032c66569881b1df46685ae00"
+    },
+    "/ɾ/": {
+      "forma": "/ɾ/",
+      "tradução_principal": "r",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "5d38d68cb6b8cc56e6cef51e039bc03e34a67c9be325310038ff056248082176"
+    },
+    "/v/": {
+      "forma": "/v/",
+      "tradução_principal": "v",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "8b57622b1edf910167d8d2e7356d3ee313c54d461f9b56148eb2c20a686071d9"
+    },
+    "/ð/": {
+      "forma": "/ð/",
+      "tradução_principal": "th",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "eab4bc3da6ace1cf472cf7fc2a8cb0225c48b298959f450f5a8d7b4d66041872"
+    },
+    "/s/": {
+      "forma": "/s/",
+      "tradução_principal": "s",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "9ffdd45eee561383bc86fe2d91a0b12564f81653a858c9ec93967db2a8eb764d"
+    },
+    "/ʃ/": {
+      "forma": "/ʃ/",
+      "tradução_principal": "sh",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "cc20fce88868e01672623abe0c10add558ab127a626ba7e3df29a6555cf7146e"
+    },
+    "/ʒ/": {
+      "forma": "/ʒ/",
+      "tradução_principal": "zh",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "85986ada1e1599fa079dd05a5909ca3c3219157d401d949f45cceb862b6074ba"
+    },
+    "/n/": {
+      "forma": "/n/",
+      "tradução_principal": "n",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "b73baeaa8afae1c1c891fc9f0be30e1668cb059265baad7b7914476a536865fb"
+    },
+    "/m/": {
+      "forma": "/m/",
+      "tradução_principal": "m",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "ccaf520e7b6870dca534b393f6fda9a4964c5a33bdfe14aaeafda20e5164b082"
+    },
+    "/ɲ/": {
+      "forma": "/ɲ/",
+      "tradução_principal": "nh",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "736e6e8d5003059c186d6662797f05d480bf777b919081d73e9f9a3733dfeb37"
+    },
+    "/j/": {
+      "forma": "/j/",
+      "tradução_principal": "y",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "d52ada7f615880d000cd5369d764a6ab9137fc7142928cfb9c8ff02cedeefa4d"
+    },
+    "/b/": {
+      "forma": "/b/",
+      "tradução_principal": "b",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "2469e668d1bf513a93500ecfe223d5d7a859fecc229c635e4cab62b4809189e7"
+    },
+    "/d/": {
+      "forma": "/d/",
+      "tradução_principal": "d",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "47fffb1be84f582a211b1ddf296f9beeab0d70a556c34a30ab9f854cebeb85bf"
+    },
+    "/t/": {
+      "forma": "/t/",
+      "tradução_principal": "t",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "000e2443911f09f4f4ac479c03ae8fc59b5d380c24ca0d0d64cb36414ad64295"
+    },
+    "/k/": {
+      "forma": "/k/",
+      "tradução_principal": "k",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "78bfdef1d780e90189a6b2b6c7dd495c06b28ad55760f19412d44b9a749e53c6"
+    },
+    "qualidade": {
+      "forma": "Qualidade",
+      "tradução_principal": "Curta",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "4343c1eb444fecef02ac1da599ca9ee312aca6497da1fcef8d289b6e1d78fbc3"
+    },
+    "aberta central": {
+      "forma": "aberta central",
+      "tradução_principal": "a",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "7dfbaa2b0ea63030a88c09b39b1960297165f57ab432eb37dd9d3b102102f153"
+    },
+    "média anterior": {
+      "forma": "média anterior",
+      "tradução_principal": "e",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "f7d39b37da5d7fdf8708689277f8da9c62f07b590c336893a118f082dfa225c5"
+    },
+    "fechada anterior": {
+      "forma": "fechada anterior",
+      "tradução_principal": "i",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "b417f97577e66a4cb72cbd5007ed28e65c9349017616a2b4844e1532c5f1acbb"
+    },
+    "média posterior": {
+      "forma": "média posterior",
+      "tradução_principal": "o",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "26696deefb9f8f8a8157d52babfa3b5e09474becf9a32725202b1d9fb58c3606"
+    },
+    "fechada posterior": {
+      "forma": "fechada posterior",
+      "tradução_principal": "u",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "583bf68ab05bb349016f35331b055a08abbf20ebf1ef0023920eebccb3b9fc14"
+    },
+    "central átona": {
+      "forma": "central átona",
+      "tradução_principal": "eh",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "4700830786f69b421b73196cc5429e64e0a69dd66aa543cc018b9db1758f2e79"
+    },
+    "sufixo": {
+      "forma": "Sufixo",
+      "tradução_principal": "Função",
+      "traduções_alternativas": [
+        "Valor"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "a6d838e29cd24b8b18dd9075b0e17d7ca7bf8c11a7cd4fb6cd930f23a4d28e2d"
+    },
+    "-an": {
+      "forma": "-an",
+      "tradução_principal": "agente",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "89c62a30489f9451209054c18018ed5cbcbbdfb4e867cbe545f22e3a056ea8b0"
+    },
+    "-ol": {
+      "forma": "-ol",
+      "tradução_principal": "lugar",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "42880d6ad3cf393778c71c4a11602f4081445203dbf33f0bf147490b68de2a85"
+    },
+    "-esh": {
+      "forma": "-esh",
+      "tradução_principal": "instrumento ou meio",
+      "traduções_alternativas": [
+        "instrumento/meio"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "9eb9182fefe9cf7a5075887e083ba2f0247bcc8c15b87f945fe4c402675a80e4"
+    },
+    "-un": {
+      "forma": "-un",
+      "tradução_principal": "qualidade abstrata",
+      "traduções_alternativas": [
+        "qualidade/abstração"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "11b4918b9db58d62db3841f3caf99a41828cf2037aa5baccffc221fc0f20a63c"
+    },
+    "-eth": {
+      "forma": "-eth",
+      "tradução_principal": "concluído, selado",
+      "traduções_alternativas": [
+        "concluído, selado, realizado",
+        "aspecto concluído"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "fa88de74526445b24ceb4ad18e48e1a656777cbd9abdfc2fd4086773fa43227d"
+    },
+    "-il": {
+      "forma": "-il",
+      "tradução_principal": "possível, desejado ou futuro",
+      "traduções_alternativas": [
+        "possível, prospectivo, desejado ou futuro",
+        "aspecto prospectivo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "9b1b4bf4f13fc30cbafd26ed62282714d8e164dee305828bbe9c964ed1bd8481"
+    },
+    "-ar": {
+      "forma": "-ar",
+      "tradução_principal": "contínuo, durativo",
+      "traduções_alternativas": [
+        "contínuo, durativo, em curso",
+        "aspecto contínuo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "11fb1f8e4b856850e65272b8a4b27e15cdd9af6df14b45ceb49ad125c1d106c6"
+    },
+    "partícula": {
+      "forma": "Partícula",
+      "tradução_principal": "Valor",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "27eb5d15f48636f28f7920b74eef3d15978390cafdacfa4e47cdd0d0ddef3a65"
+    },
+    "kir": {
+      "forma": "kir",
+      "tradução_principal": "poder, capacidade ou permissão",
+      "traduções_alternativas": [
+        "/kiɾ/",
+        "capacidade ou permissão",
+        "modal"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "b1ac6fdfdc42ecee5d3bfb67f12959756117fe34e4304eeb7ee923084dde7835"
+    },
+    "van": {
+      "forma": "van",
+      "tradução_principal": "dever ou obrigação",
+      "traduções_alternativas": [
+        "/van/",
+        "dever, necessidade ou obrigação",
+        "modal"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "980b99f154597b1e3cf57e1acc95e5fb380f8a1e8998ad629b873770aaed5563"
+    },
+    "sen": {
+      "forma": "sen",
+      "tradução_principal": "querer ou desejo intencional",
+      "traduções_alternativas": [
+        "/sen/",
+        "desejo ou intenção consciente",
+        "modal"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "f6b16870170450e77ea2b5539dcb36120e3d6d41a81130ae15aa589ae744c892"
+    },
+    "marcador": {
+      "forma": "Marcador",
+      "tradução_principal": "Relação",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "00a09dfa50d6ffb9bd12bd94a0217ac0055c1704eff2c9516cb7f4b2fd589d52"
+    },
+    "an-": {
+      "forma": "an-",
+      "tradução_principal": "ação unilateral controlada",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "7d6a7fd9c243257847391518d6aa2f63d1d8267735e580d7c317c789f00bdbfa"
+    },
+    "-im": {
+      "forma": "-im",
+      "tradução_principal": "reciprocidade",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "ad7482023437bdd16656442048499ec70cde6bbe161615f91c6dc1b25912c18c"
+    },
+    "-ath": {
+      "forma": "-ath",
+      "tradução_principal": "coexistência",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "08f78f20cd42913f8e7624439a013489ab785e3727878e219ec4d24e648191c6"
+    },
+    "-oi": {
+      "forma": "-oi",
+      "tradução_principal": "ressonância",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "61b99201c18c4e4a4a832a8e4e88c2015d4fe0acaf67dc7561c29958d09bfda8"
+    },
+    "-av": {
+      "forma": "-av",
+      "tradução_principal": "domínio ou submissão",
+      "traduções_alternativas": [
+        "domínio/submissão"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "89f21850ce27c8b0493e1bd89191ec5f16044ba2f0570c1a03c4dfc09ff9215f"
+    },
+    "silma": {
+      "forma": "silma",
+      "tradução_principal": "/ˈsil.ma/",
+      "traduções_alternativas": [
+        "substantivo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "7175f4919f46fa4d2d503bff4eb8301893476be4cc06416962f49602e606861f"
+    },
+    "manesh": {
+      "forma": "manesh",
+      "tradução_principal": "/ˈma.neʃ/",
+      "traduções_alternativas": [
+        "substantivo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "a378971fe586610c42021d2f8b86d8f2bfaab7ebf10fed233686f2bddf024514"
+    },
+    "silmari": {
+      "forma": "silmari",
+      "tradução_principal": "/sil.ˈma.ɾi/",
+      "traduções_alternativas": [
+        "derivado"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "fed2e6569c1d4c3e443e39c908097de146d91dfb89f3115e67d2a4deb0b5a532"
+    },
+    "silmain": {
+      "forma": "silmain",
+      "tradução_principal": "/sil.ˈmajn/",
+      "traduções_alternativas": [
+        "derivado",
+        "lexical"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "7c890db90261b8dad55bb79bf539d0066c34f7f8ba884d29063b41554762d0b8"
+    },
+    "vesilma": {
+      "forma": "vesilma",
+      "tradução_principal": "/ve.ˈsil.ma/",
+      "traduções_alternativas": [
+        "substantivo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "79f54ae1feec39309ea068d56cdcc1feb84ddabd4756af93172775035380ceae"
+    },
+    "silmol": {
+      "forma": "silmol",
+      "tradução_principal": "/ˈsil.mol/",
+      "traduções_alternativas": [
+        "lexical"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "f4e93ac5b01dbc5a2516ca7498608840c110d81c6604a3d6ef9d606505382bb3"
+    },
+    "silmov": {
+      "forma": "silmov",
+      "tradução_principal": "/ˈsil.mov/",
+      "traduções_alternativas": [
+        "lexical"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "83f873b6ea4564ca6049728d7f6fa8ae68794dae9cb4f4554f62f2e153efd6a8"
+    },
+    "velar": {
+      "forma": "velar",
+      "tradução_principal": "/ve.ˈlaɾ/",
+      "traduções_alternativas": [
+        "INTR",
+        "verbo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "ac6b0365eccaf792c6f2ad03bdc5518fcd4eed39fad7cebcac50f4681caaf7c3"
+    },
+    "velareth": {
+      "forma": "velareth",
+      "tradução_principal": "/ve.la.ˈɾeð/",
+      "traduções_alternativas": [
+        "verbo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "646e290e8ea6bac3e6991c55cef4ebae966a8d044beeac74e2c8a198208d3040"
+    },
+    "velaril": {
+      "forma": "velaril",
+      "tradução_principal": "/ve.la.ˈɾil/",
+      "traduções_alternativas": [
+        "verbo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "4cc40445ff35cf8d516c024f159e710eece037502559e4ddd4c39105cd4fb4c6"
+    },
+    "velarvar": {
+      "forma": "velarvar",
+      "tradução_principal": "/ve.laɾ.ˈvaɾ/",
+      "traduções_alternativas": [
+        "verbo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "76b46bda9f8b03474e537bb686d6354612ce0f415c4cb87a21cefb8d8bd0d5df"
+    },
+    "nooveth": {
+      "forma": "nooveth",
+      "tradução_principal": "/ˈnoː.veð/",
+      "traduções_alternativas": [
+        "TRANS",
+        "verbo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "290831e71e5cd0ad60732fb5d3d9faaaa58e01b23e61599126aa69c568dc9463"
+    },
+    "noovethan": {
+      "forma": "noovethan",
+      "tradução_principal": "/ˈnoː.ve.ðan/",
+      "traduções_alternativas": [
+        "tecelão ou tecelã de magia",
+        "substantivo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "4979c03e70771a8083e5b3c591874e75450031f847ad55b6d769285546f44dfe"
+    },
+    "annooveth": {
+      "forma": "annooveth",
+      "tradução_principal": "/an.ˈnoː.veð/",
+      "traduções_alternativas": [
+        "verbo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "ee53334ea14705c54ae5ffd89361c62f866bd3905099a0eb41ba567c415a759c"
+    },
+    "veth": {
+      "forma": "veth",
+      "tradução_principal": "/veð/",
+      "traduções_alternativas": [
+        "REL",
+        "relacional"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "892a95d67869c68b07dc8d7b062cd2ef0eef15bdda0138dd87829d7b24d9bb7f"
+    },
+    "mirin": {
+      "forma": "mirin",
+      "tradução_principal": "/ˈmi.ɾin/",
+      "traduções_alternativas": [
+        "lexical"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "f7259489368cc0147f7d7c1c116a925f710580757b36f7e76a98dbb0731756f9"
+    },
+    "mirim": {
+      "forma": "mirim",
+      "tradução_principal": "/ˈmi.ɾim/",
+      "traduções_alternativas": [
+        "lexical"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "504a246525a5b1d7896f7069d94a81473b56dc134b87043fa61cff42bb87c5df"
+    },
+    "thuvel": {
+      "forma": "thuvel",
+      "tradução_principal": "/ˈðu.vel/",
+      "traduções_alternativas": [
+        "substantivo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "f41c7a6a2e88deffa6541c38e67d5653344d9be59e34d5e7ae5ef8851bf1a231"
+    },
+    "kav": {
+      "forma": "kav",
+      "tradução_principal": "/kav/",
+      "traduções_alternativas": [
+        "substantivo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "0b635579f672713ca760d53cf26f390fbacdc6488eb06e9225cc17e1650fa0d0"
+    },
+    "anir": {
+      "forma": "anir",
+      "tradução_principal": "/a.ˈniɾ/",
+      "traduções_alternativas": [
+        "começo, origem temporal — V1-CAN",
+        "substantivo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "a3ec288b44c625db87f5d1000e2e6fb05119f3be1f81d7a74e8b0beb736268d7"
+    },
+    "tharen": {
+      "forma": "tharen",
+      "tradução_principal": "/ˈða.ɾen/",
+      "traduções_alternativas": [
+        "caminho, passagem",
+        "substantivo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "e10c1ecf41e98d726f92796093d50631f147ba9170f0c6c4a7cadd8109cbbdb5"
+    },
+    "luumeh": {
+      "forma": "luumeh",
+      "tradução_principal": "/ˈluː.mə/",
+      "traduções_alternativas": [
+        "tempo fluido, era — V1-SRC",
+        "substantivo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "a7105b85aef4255a77468e7ebff49cdb60f81910bf7ae918992e44d4b6c6ac43"
+    },
+    "nam": {
+      "forma": "nam",
+      "tradução_principal": "/nam/",
+      "traduções_alternativas": [
+        "REL/INTR",
+        "verbo relacional"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "a6829f812c621fe3bef15344a2981022790630043dd6e199b464b7014a82f3f2"
+    },
+    "namath": {
+      "forma": "namath",
+      "tradução_principal": "/ˈna.mað/",
+      "traduções_alternativas": [
+        "REL",
+        "verbo relacional"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "3c622030811abc95fd08ef1396158aec7d14ec1cf261b61158866dc9d81a3306"
+    },
+    "les": {
+      "forma": "les",
+      "tradução_principal": "/les/",
+      "traduções_alternativas": [
+        "TRANS",
+        "verbo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "ba7064a80fb4b19d0259114203ac046a59144fab966551a5dce12b7e014114b3"
+    },
+    "velesov": {
+      "forma": "velesov",
+      "tradução_principal": "/ve.le.ˈsov/",
+      "traduções_alternativas": [
+        "verbo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "93bd744b567ab3af1bed995154b637fc7f8062380cc5e6d53a6fca6e61c32938"
+    },
+    "krav": {
+      "forma": "krav",
+      "tradução_principal": "/kɾav/",
+      "traduções_alternativas": [
+        "pedra ou rocha da Escuridão",
+        "substantivo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "9a708d86fd153a24e95c8a03ca98521a2d1b5d23fd072fe7817a6ef44a92ea16"
+    },
+    "manuv": {
+      "forma": "manuv",
+      "tradução_principal": "/ˈma.nuv/",
+      "traduções_alternativas": [
+        "mão, instrumento de toque",
+        "substantivo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "2a3a1ffe97c0d0094e99aebd39168ab28d92717b3ccab6c13750728ac96e5198"
+    },
+    "silar": {
+      "forma": "silar",
+      "tradução_principal": "/si.ˈlaɾ/",
+      "traduções_alternativas": [
+        "INTR",
+        "verbo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "002df6f27272afca70f579f734ea221d787b9103e3566fb72f4834d1adc2b1d9"
+    },
+    "silarun": {
+      "forma": "silarun",
+      "tradução_principal": "/si.ˈla.ɾun/",
+      "traduções_alternativas": [
+        "substantivo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "1e997dd2042833815af3249f8e4155def81490e15b7f2956d1833f91246d3fcc"
+    },
+    "kavesh": {
+      "forma": "kavesh",
+      "tradução_principal": "/ˈka.veʃ/",
+      "traduções_alternativas": [
+        "falsificação ou instrumento da Sombra",
+        "substantivo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "00d9c1259fb20c13072c5ce723d323f8dd0262192dc106c3fbe22a6ef2d020c0"
+    },
+    "sib": {
+      "forma": "sib",
+      "tradução_principal": "/sib/",
+      "traduções_alternativas": [
+        "TRANS",
+        "verbo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "8629a04d3ad85187d1f9b6910034461898ba47a4703ccd5d35a44f92e1d3cee2"
+    },
+    "dur": {
+      "forma": "dur",
+      "tradução_principal": "/duɾ/",
+      "traduções_alternativas": [
+        "TRANS",
+        "verbo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "6bf60c12399930acf446bc66076f5180c11af73a2e8d54d58e3302046f66e37d"
+    },
+    "tav": {
+      "forma": "tav",
+      "tradução_principal": "/tav/",
+      "traduções_alternativas": [
+        "TRANS",
+        "verbo"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "6e58d411df85615201f87b1f53ac791337ea3e4cae32508ed0559530214334df"
+    },
+    "mi": {
+      "forma": "mi",
+      "tradução_principal": "/mi/",
+      "traduções_alternativas": [
+        "1ª singular",
+        "pronome"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "2f8cbaa441533d3fad41ca609651ec491af5c228a57605ee8e29c11085224cd8"
+    },
+    "si": {
+      "forma": "si",
+      "tradução_principal": "/si/",
+      "traduções_alternativas": [
+        "3ª singular",
+        "pronome"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "334ce1c89e59fb3c9af51f812c86e24f9d4faee6559acfe5abe083dbceae2aaf"
+    },
+    "na": {
+      "forma": "na",
+      "tradução_principal": "/na/",
+      "traduções_alternativas": [
+        "1ª plural",
+        "pronome"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "fe84cf22bc1782d970dc8e7e4d0dcc9fb6da4c8a849763283e7b88484ea67090"
+    },
+    "ve": {
+      "forma": "ve",
+      "tradução_principal": "/ve/",
+      "traduções_alternativas": [
+        "negação",
+        "partícula"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "7bec0594990a2ae6635e81cb889d5ae02c1bf684d004cabef94da7f45e6a7680"
+    },
+    "ol": {
+      "forma": "ol",
+      "tradução_principal": "/ol/",
+      "traduções_alternativas": [
+        "a, para, em direção a, em favor de",
+        "relacional"
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "f6981b322c27dbd2184680c9ccdc071a7f82baec5c51603c772d643b812abbb7"
+    },
+    "status": {
+      "forma": "Status",
+      "tradução_principal": "Quantidade",
+      "traduções_alternativas": [
+        "Sempre `experimental-local` para o Phrase Core."
+      ],
+      "fontes": [
+        "Manual Definitivo v1.0",
+        "Phrase Core v0.2"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "5fac5091c041915efb65fcb8fdebff525f25bbbb14e767282a87bdca79f9f2ed"
+    },
+    "canonical": {
+      "forma": "CANONICAL",
+      "tradução_principal": "17",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "3beb0edca8a775fea0e4961b0661fce5fd823b25f57b971f23f98bff5f5cebbd"
+    },
+    "lexicalized_canonical": {
+      "forma": "LEXICALIZED_CANONICAL",
+      "tradução_principal": "6",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "a93cb5621f503fcace2193c150466a6ed87f14e7de8b275d9b0bc7ca46d2bc6f"
+    },
+    "source_attested": {
+      "forma": "SOURCE_ATTESTED",
+      "tradução_principal": "6",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "3f99572db5cac52a8d11670ba620450f4f01780bb71d9083143777ff8ad0a985"
+    },
+    "technical_recommendation": {
+      "forma": "TECHNICAL_RECOMMENDATION",
+      "tradução_principal": "13",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "c864ab64a7e2c6e677a06db7bde0d9c98abfdbeb7543af188936687f6079799a"
+    },
+    "provisional": {
+      "forma": "PROVISIONAL",
+      "tradução_principal": "6",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "1bf84c9b911e12552986d17a813d9d550f3ad49fe836ebd552cd7a3bad464fc6"
+    },
+    "total": {
+      "forma": "Total",
+      "tradução_principal": "48",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "72b9c234dc2d2200b4db5779c63f3ab766a8363f7dfa642678a7509dd4520f50"
+    },
+    "nome": {
+      "forma": "Nome",
+      "tradução_principal": "IPA",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "e397223218c9a9718238041bfdf00675d9e7cbd00419d3fc4eda5443afd99fe3"
+    },
+    "miranov": {
+      "forma": "Miranov",
+      "tradução_principal": "/mi.ˈɾa.nov/",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "df8a3981f89d838fd69e3cade7cb73c4c55086c22f40c0f7e44797896f3b8f1c"
+    },
+    "kraavira": {
+      "forma": "Kraavira",
+      "tradução_principal": "/ˈkɾaː.vi.ɾa/",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "223165a65b2f37a440da3f059d8464a6d5db836faec651efc00efb6419fd0007"
+    },
+    "silmaarien": {
+      "forma": "Silmaarien",
+      "tradução_principal": "/sil.ˈmaː.ɾi.en/",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "acfad8690877740609034b03404b943191ea2502970e1f414cee30882086cab4"
+    },
+    "povo": {
+      "forma": "Povo",
+      "tradução_principal": "Canal predominante",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "b6fa28d514896363c1741da6a127f3f3de57a71995605da8324dffdaba464706"
+    },
+    "aelvari": {
+      "forma": "Aelvari",
+      "tradução_principal": "canto e memória",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "f5954402020f88d875b7f042c1dfb9bd19b43af64bf12788d2b0c338a9ff3224"
+    },
+    "kragor": {
+      "forma": "Kragor",
+      "tradução_principal": "voz ritual e sangue",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "de79acce2a3e247ec33cd9e5aa623d603929e90bb6318aa4a78d75a07b61c87b"
+    },
+    "draken": {
+      "forma": "Draken",
+      "tradução_principal": "rugido e frequência",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "5cef27c0b5abec4ea7cbf85b25fb60067c913ba006bd858714ce9bcd9c4c1059"
+    },
+    "nomos": {
+      "forma": "Nomos",
+      "tradução_principal": "dados e sintaxe lógica",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "7b6768a4f7a8e09f4fc2cdf23319059957d91dfe63982a571db507ad18cf1538"
+    },
+    "livres": {
+      "forma": "Livres",
+      "tradução_principal": "fala híbrida",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "3918fb4261796817427a718a263ed97824930649c85e76f57d40352adffc811d"
+    },
+    "dóreos": {
+      "forma": "Dóreos",
+      "tradução_principal": "toque e inscrição",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "863c1a2c8a5214842794b9c8ed9cdb8a4f585c9a5a47e2bd9cf271a31923aec0"
+    },
+    "teriantes": {
+      "forma": "Teriantes",
+      "tradução_principal": "corpo, som e cheiro",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "c03ace7188acc0c59df4179f30e3495f1dc77fc4b6e7bfe339c98f2863c1e223"
+    },
+    "nimari": {
+      "forma": "Nimari",
+      "tradução_principal": "gesto, erro e probabilidade",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "4cfacb2c01398691f1835f18e20c05768f48f2290da6b0597bc1ca58fb816620"
+    },
+    "vitrálios": {
+      "forma": "Vitrálios",
+      "tradução_principal": "luz e vibração",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Definitivo v1.0"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "14b774aacf9f7c4bca4ac6efe298ecfd97ec12b4e2f8851fb395d3a332325628"
+    },
+    "escuridão legítima": {
+      "forma": "Escuridão legítima",
+      "tradução_principal": "thuvel",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "7d9a9658319c7a7c6e2197fa5ac10127a29e37065aa62f00b6de9023821f46f5"
+    },
+    "alma primordial": {
+      "forma": "alma primordial",
+      "tradução_principal": "mira",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "593bdf8093e6e1768fd83afac7259335b4d8b5a942624973d196aee858875982"
+    },
+    "contraparte": {
+      "forma": "contraparte",
+      "tradução_principal": "mirveth",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "cd233bb2a0584cb8cea7f389a127ad6ca6046c68c00d946d932b6c49bc49bf74"
+    },
+    "merge legítimo": {
+      "forma": "Merge legítimo",
+      "tradução_principal": "vethari",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "1267a19a2e0eb5c8ce62fdc3ae88568c32872575d8874ca005c9074c0bc18f66"
+    },
+    "vi": {
+      "forma": "vi",
+      "tradução_principal": "2ª singular",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "bb441006ba5336fefd44a801a9375d6a836d914e02541487fd3eab5bfb41f03a"
+    },
+    "viin": {
+      "forma": "viin",
+      "tradução_principal": "2ª plural",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "5aa98d0a25ca9911517204225246eef3959eaaddb8daa70ac62cf47f80114afb"
+    },
+    "siin": {
+      "forma": "siin",
+      "tradução_principal": "3ª plural",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "c847be22641fe94f134ff18e90e1f197d7f33530fa954beb845a201160f3ccbb"
+    },
+    "mir": {
+      "forma": "mir",
+      "tradução_principal": "reflexivo",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "8834b4a10b2ef555031899c6af8d1b08079f8cd259118015b91b5a9b38bb639b"
+    },
+    "ei": {
+      "forma": "ei",
+      "tradução_principal": "este, esta, isto; próximo do falante",
+      "traduções_alternativas": [
+        "demonstrativo"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "29ebc17f01356422a8e219b77d53962dbd04c7ec54fd7056944555fe30fd03e4"
+    },
+    "au": {
+      "forma": "au",
+      "tradução_principal": "esse, essa, isso, aquele, aquela; afastado",
+      "traduções_alternativas": [
+        "demonstrativo"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "7667d9ba335d87e9e38a953d59f4b9bd7b0afc8c0260923f90f93ee59e763668"
+    },
+    "saa": {
+      "forma": "saa",
+      "tradução_principal": "todo, toda, todos",
+      "traduções_alternativas": [
+        "quantificador"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "4701f378c6f60c90f2a775f08c9e9e904d0b76a2dd5ce6963efe62105b9d9812"
+    },
+    "nari": {
+      "forma": "nari",
+      "tradução_principal": "cada",
+      "traduções_alternativas": [
+        "quantificador"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "805f29d3b9f8cf8d9d9a5b94ab4f2bcb409f3e4f354814d19f9406fc30f937f7"
+    },
+    "sari": {
+      "forma": "sari",
+      "tradução_principal": "algum, alguma, alguns",
+      "traduções_alternativas": [
+        "quantificador"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "a2b45e820af2ae6b12d7970db27579c65a1b5c819c16ab8ab6a66513688f2439"
+    },
+    "nen": {
+      "forma": "nen",
+      "tradução_principal": "nenhum, nenhuma",
+      "traduções_alternativas": [
+        "quantificador"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "a20fb9e7f4caf8177ea00177c945c90893f6cb90724a82a420735a18bfe12114"
+    },
+    "marin": {
+      "forma": "marin",
+      "tradução_principal": "muitos, muitas",
+      "traduções_alternativas": [
+        "quantificador"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "0437e3f4759ab76de2a7d5f695202f83b20554b1af5a13388c9c04e3d95aa6fe"
+    },
+    "lirin": {
+      "forma": "lirin",
+      "tradução_principal": "poucos, poucas",
+      "traduções_alternativas": [
+        "quantificador"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "9b2fc7520c0951c7c754cd1a54e755e256330b7d49a10f7c79ad0f69c99e7185"
+    },
+    "número": {
+      "forma": "Número",
+      "tradução_principal": "Velarim",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "6c6b61ffb528ed4913800a3321a20aa1c507df7498964a533a0b8330622c0a9d"
+    },
+    "1.000": {
+      "forma": "1.000",
+      "tradução_principal": "luur",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "e48289bd8c750246615c7eec52243dd7c3a6368c5dd76431e7d77bdd29835749"
+    },
+    "en": {
+      "forma": "en",
+      "tradução_principal": "em, no, na, sobre",
+      "traduções_alternativas": [
+        "relacional"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "dece98dcaa0f1e8218ef330b266b5e45d676bec47c8594a5066ab8617b1f4873"
+    },
+    "ra": {
+      "forma": "ra",
+      "tradução_principal": "de, desde, vindo de",
+      "traduções_alternativas": [
+        "relacional"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "9c5e60042516ea2fc9af62d42d7bfbe93af955e00908196be7540a202755f847"
+    },
+    "ma": {
+      "forma": "ma",
+      "tradução_principal": "com, por meio de; e",
+      "traduções_alternativas": [
+        "e; com",
+        "relacional/conector"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "8782b0d0398b320c43ec45434e109d06e99eeaa65dd8c3f55eaa41c74307322c"
+    },
+    "sul": {
+      "forma": "sul",
+      "tradução_principal": "sem",
+      "traduções_alternativas": [
+        "relacional"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "c825ac67ab9efdcb6220bccee67f7af48ef61f9e54d6681753333bcc49ebc42e"
+    },
+    "nar": {
+      "forma": "nar",
+      "tradução_principal": "entre, no meio de",
+      "traduções_alternativas": [
+        "relacional"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "aba6e9f543bf1236cb58f06bc49692d47ceb3e2548d06ff422c4541dc5c72971"
+    },
+    "ther": {
+      "forma": "ther",
+      "tradução_principal": "através de, cruzando",
+      "traduções_alternativas": [
+        "relacional"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "c5c76f37568e1625ff84ba49ea0947be9b6d9755c41ec87d186a90c6eb8f0550"
+    },
+    "sur": {
+      "forma": "sur",
+      "tradução_principal": "acima de, sobre",
+      "traduções_alternativas": [
+        "relacional"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "6e0e79d2863be9e7050c3e0ae02b1e10c201d66631ba5f8bb87cd39ab592efc5"
+    },
+    "nuur": {
+      "forma": "nuur",
+      "tradução_principal": "abaixo de, sob",
+      "traduções_alternativas": [
+        "relacional"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "a5c0c15c9285a78a92481ee64e2168d079fe1bd4119b01f42795e65edbbea8d0"
+    },
+    "ru": {
+      "forma": "ru",
+      "tradução_principal": "sobre, a respeito de",
+      "traduções_alternativas": [
+        "relacional"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "8ea7f7e92373e319101f6a7bd7caf85912f3e8c43d5f3ed5d9aa56fcaa1ef3f3"
+    },
+    "luz — svo": {
+      "forma": "Luz — SVO",
+      "tradução_principal": "Ai vi maren Velarim?",
+      "traduções_alternativas": [
+        "Mai var na?"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "8866974a9fbf66a547502b8c18e07ca57da7230b2461fd92f4e9965bf36caa3b"
+    },
+    "escuridão — sov": {
+      "forma": "Escuridão — SOV",
+      "tradução_principal": "Ai vi Velarim maren?",
+      "traduções_alternativas": [
+        "Mai na var?"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "18af816d9383b6de642ad3cfe36dd5ad54db794d7f7be6d686b29aefe99ea3ee"
+    },
+    "ritual — vso": {
+      "forma": "Ritual — VSO",
+      "tradução_principal": "Ai maren vi Velarim?",
+      "traduções_alternativas": [
+        "Mai var na?"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "1f9abc281aebe9069b8402fcdad505374d2225479778ceec3634ffa9a64670f4"
+    },
+    "mai": {
+      "forma": "mai",
+      "tradução_principal": "quem",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "56e25231b257f3c48716496ffe3a938c3299a48c0015dd5ec14fe5154104912e"
+    },
+    "sai": {
+      "forma": "sai",
+      "tradução_principal": "o que, que coisa",
+      "traduções_alternativas": [
+        "o que"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "96098ce3ca69ac0c1cc5b80407fe4dbf6721dfb9a6548d3f7797e507357e7843"
+    },
+    "rei": {
+      "forma": "rei",
+      "tradução_principal": "onde",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "3d65ae9d759c0ed31f4657efe3bf96e3e466e9f18d78ca761b3664c85aefe065"
+    },
+    "luurai": {
+      "forma": "luurai",
+      "tradução_principal": "quando",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "358113887937bf82f144ad6cb823355b19a4d774603ee341d4f4d75164193587"
+    },
+    "nhei": {
+      "forma": "nhei",
+      "tradução_principal": "por quê",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "6bb509c25c76d0eeb95b288c91b1b8aba479412780b069d76d166d2674c211d9"
+    },
+    "vai": {
+      "forma": "vai",
+      "tradução_principal": "como, de que modo",
+      "traduções_alternativas": [
+        "como"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "a089aed83ceaa9de7a9ce50886ce9719985a05b2d337738eb824ef42ec9013b1"
+    },
+    "seri": {
+      "forma": "seri",
+      "tradução_principal": "qual",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "6676d7c0685837dc75f022d5b70a36ad03e880ca20f528bddcdf2ac1ec73dfbb"
+    },
+    "maari": {
+      "forma": "maari",
+      "tradução_principal": "quanto, quantos",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "f701f4dc6d15496b0587860811568c86d82e15e07d657675e106ec43b07c4555"
+    },
+    "sha": {
+      "forma": "sha",
+      "tradução_principal": "mas, porém, ainda assim",
+      "traduções_alternativas": [
+        "conector"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "02a8c9bc78314d5be3641c1edcb932c8537d54667548572501acb781fb1bfead"
+    },
+    "vei": {
+      "forma": "vei",
+      "tradução_principal": "ou",
+      "traduções_alternativas": [
+        "conector"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "33bd6062d4520d502546aff33d5e20d2730feea97268a1504640b9c0cd05b2ea"
+    },
+    "ren": {
+      "forma": "ren",
+      "tradução_principal": "porque, pois",
+      "traduções_alternativas": [
+        "conector"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "261aaa34c0b143dcc51f2c63661962a1dfcd4f3d799d890ef4667017a94fc48a"
+    },
+    "ira": {
+      "forma": "ira",
+      "tradução_principal": "se, caso",
+      "traduções_alternativas": [
+        "conector"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "21b76f1173be94376ce7f7c346fe63497f7de0800820f6ca3fec5bf89da884c6"
+    },
+    "thei": {
+      "forma": "thei",
+      "tradução_principal": "que; quem; o qual",
+      "traduções_alternativas": [
+        "conector/relativo"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "0a6b3a9cf17b9730e30b2c3e34a55617dccbc38237ae47c19ccf446f26208e0f"
+    },
+    "luu": {
+      "forma": "luu",
+      "tradução_principal": "enquanto, durante",
+      "traduções_alternativas": [
+        "conector temporal"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "e310820b8e576ec535c07433b33548549ceb056bc9113890d077a92b15cad3ca"
+    },
+    "aresh": {
+      "forma": "aresh",
+      "tradução_principal": "antes de, anteriormente",
+      "traduções_alternativas": [
+        "temporal"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "92948b042ee4298e92b865cb3d0d040ec23afb822eff1464af384c5ea99ec843"
+    },
+    "ilash": {
+      "forma": "ilash",
+      "tradução_principal": "depois de, posteriormente",
+      "traduções_alternativas": [
+        "temporal"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "daf8386b5f749b1707d0cdaeca8ce33fa8f8f48986bef78de8f360a2b279ec0b"
+    },
+    "-in": {
+      "forma": "-in",
+      "tradução_principal": "plural disperso",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "e3770faa503b978c99d867746b855418adfb8b7680289d06fe008c7be78b055b"
+    },
+    "-ari": {
+      "forma": "-ari",
+      "tradução_principal": "coletivo vivo",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "c2b415592978101896ecd09f4a7ac94be2178680fe077c06b2d8ce2b348fd406"
+    },
+    "-ov": {
+      "forma": "-ov",
+      "tradução_principal": "corrupção/perda de fronteiras",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "ddb1d1bb8d8cf4e86bbae2da38d068d46921ae2470df996a67a79f231072333b"
+    },
+    "ai": {
+      "forma": "ai",
+      "tradução_principal": "interrogativa",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "5a042e239891ec2229ab4b78f60938aa8f33d5b108df84936df57d046a0ea68d"
+    },
+    "nai": {
+      "forma": "nai",
+      "tradução_principal": "resposta",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "0a24f5b9a4042b6d2dbe67a97e2ec41a62fa1635a5b5489a015e31a374fb9f88"
+    },
+    "li": {
+      "forma": "li",
+      "tradução_principal": "pragmática",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "4325aa882aedf2380bb836133a35b38365c95ed7a978ad202541d5bf25367b98"
+    },
+    "le": {
+      "forma": "le",
+      "tradução_principal": "discursiva",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "51689c4063fcc24cba901148517f4601841eb9f75ae48148789ec176066252a6"
+    },
+    "nu": {
+      "forma": "nu",
+      "tradução_principal": "temporal",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "d0da930c2fce49a7e58de57a16d046b020b62b1d0c2374ec1b2113d1dcd4132e"
+    },
+    "eri": {
+      "forma": "eri",
+      "tradução_principal": "temporal",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "18882fd474dc2fc94ad9c4f49c1df9f479aca80966b561f265226a4dd7e63268"
+    },
+    "maa": {
+      "forma": "maa",
+      "tradução_principal": "grau",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "62622351b8176d334780e764f64408525e4680df1ad4cc088b5e4815c5116363"
+    },
+    "lii": {
+      "forma": "lii",
+      "tradução_principal": "grau",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "54b8299888d6408abd4d80ac2ead880fd5693c97684886b35d5ae0dc4cc6f78b"
+    },
+    "rin": {
+      "forma": "rin",
+      "tradução_principal": "ordinal",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "96fd23fd34ba30e672c454d6d21ad6a3677a8a4ab335ebc3ae762fe35685a620"
+    },
+    "mar": {
+      "forma": "mar",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "a345501c1d96e8c76753685d2166f7946fb4d56b13dd1d7e3b1d3413298e4ecb"
+    },
+    "ralen": {
+      "forma": "ralen",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "4a5c07fd1ce7c44f9db06b1e8b816f3099e3e892439ebd81c4a69806fecec43d"
+    },
+    "ravel": {
+      "forma": "ravel",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "d90cf349e4be489b2e7f0f28b0744ea71fa65aa774c46a33500f50bd55b13943"
+    },
+    "savel": {
+      "forma": "savel",
+      "tradução_principal": "TRANS/INTR",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "183322bc6aaa7a2ebf77042f447e8296b0efa6a5c321701a2c230935f5acfb81"
+    },
+    "norel": {
+      "forma": "norel",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "0790203e5298f78cb7b22db95ccccdee47cf8e6a5acdfd1ac3ff1b564d341753"
+    },
+    "resen": {
+      "forma": "resen",
+      "tradução_principal": "TRANS/INTR",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "ee08b798e81d5ea5d6fbb219c5628c8c2a6eb6dd86f21ab91fb0b5b4e1a17ceb"
+    },
+    "maren": {
+      "forma": "maren",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "ded66d3a8f9281c4cd6d68de2927c255b2d637318b07b17c811927ab021dbb25"
+    },
+    "mirem": {
+      "forma": "mirem",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "ae3efec3d92def7e0adf4b8d405ee81bf2c7fa36dc9b4b631006e06afb708f7b"
+    },
+    "sirem": {
+      "forma": "sirem",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "a5db9833bda4963bce2b6e1029344960b66cac6ef8850e420b38ed45cf285d42"
+    },
+    "serem": {
+      "forma": "serem",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "dd4baddbf263bfe72d932a177d7a19e71b20dbdf78f22c9057160125e9145e44"
+    },
+    "silen": {
+      "forma": "silen",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "57be471f936d17f520ff1871f9295ce883c86a93ed4bc97faeee9ba90960422b"
+    },
+    "virel": {
+      "forma": "virel",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "125a170babd7d3d47b21fa8aa04c3c339452135ea3f19cc88fe39c7818b5f16a"
+    },
+    "nher": {
+      "forma": "nher",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "bebce4efcf44d8bf6902fee244d1601e8f8744c6de41840507fb9196151d774e"
+    },
+    "annher": {
+      "forma": "annher",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "42ac6b81c980180b6c322735973a97d47499ec7a511c703f9c91de6cea5d600b"
+    },
+    "mirel": {
+      "forma": "mirel",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "8e74becde256612896cc86dd4972536d2722cfddbee65ee77efa858e169859d3"
+    },
+    "nharem": {
+      "forma": "nharem",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "9f939119f25b71283f1b32f37f820200deb3a1372c8bd0610cc145027c11fe7d"
+    },
+    "laren": {
+      "forma": "laren",
+      "tradução_principal": "INTR",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "421c5fb30fd8b79b667f0f83d797deafc6356da51c4a58d7d90262a62c45cb29"
+    },
+    "narel": {
+      "forma": "narel",
+      "tradução_principal": "INTR",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "e3164260d6ffc5a585569545e8407c26c78671496426f4bde4c156fe51c82513"
+    },
+    "tharel": {
+      "forma": "tharel",
+      "tradução_principal": "TRANS/INTR",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "f9dad7f6230c9cd91eec337964fafef5c1df4ff39303ff5f7f3f9cb04eab9358"
+    },
+    "resh": {
+      "forma": "resh",
+      "tradução_principal": "TRANS/INTR",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "496994b0e60e0800194e0f589070491ed270c122a404e02a6d57f3620153abaf"
+    },
+    "sesh": {
+      "forma": "sesh",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "f71ea8f4c29162ce459ba36f4b524480a595956206c50cb293b9084cdd17ba64"
+    },
+    "varem": {
+      "forma": "varem",
+      "tradução_principal": "DITRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "177526277d8d9fc26bd72b54110cc3f4bc02edc91e612b7228bc15b3a8615cef"
+    },
+    "naver": {
+      "forma": "naver",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "ef6eb2d3834678d6d0ecd2720242613933edd5c7f2faee4c83dd0b43898ef6a5"
+    },
+    "marev": {
+      "forma": "marev",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "747e8cc5195e838493bf27caa0db4733ac2492b5bcfcd9d7533faf6f9b844907"
+    },
+    "nash": {
+      "forma": "nash",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "797df08b1075dc5a2d15d6b66ab18cdd71e79143f61a6d2e2bddb77bb399421b"
+    },
+    "selem": {
+      "forma": "selem",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "9ae81df38c8fa68ed70c3ac050f7836ea230664f288c4891b67ed3b30bf400b8"
+    },
+    "nel": {
+      "forma": "nel",
+      "tradução_principal": "TRANS/INTR",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "3f9ea80bd8e8343fa83f88c481d6263433afefb94757488a7be4dfa715237aa8"
+    },
+    "suv": {
+      "forma": "suv",
+      "tradução_principal": "TRANS/INTR",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "701f514db0606b4407fade16276f71ecd370c7837d58f62ef510a0f51dc7f182"
+    },
+    "naram": {
+      "forma": "naram",
+      "tradução_principal": "INTR",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "77f70de8af11a462abec80ab2696974f1601bbf50662f5c4fcb4b5113ce790d9"
+    },
+    "anaram": {
+      "forma": "anaram",
+      "tradução_principal": "INTR",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "d4f9144405170f20130ab19386ac3fc530372b50b1b158922b9b144922086f9f"
+    },
+    "zhar": {
+      "forma": "zhar",
+      "tradução_principal": "INTR",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "bf6608f65fa5f164e9b52b5ae11b87017f1082d09b42371e6edef7bb80288af5"
+    },
+    "sel": {
+      "forma": "sel",
+      "tradução_principal": "INTR",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "b3f9d3c76e41c76276056df6719553d7dd34034e708f3a6f805fea0a5342182c"
+    },
+    "ansel": {
+      "forma": "ansel",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "4cdbd105780e1fb0ec60e12a920d42806fac084134e2d0f537361e2ea8e96295"
+    },
+    "var": {
+      "forma": "var",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "f550d7299f3aad581eb78df22d0297d6beab522baab6e5ac5e64e468c7997cb3"
+    },
+    "rav": {
+      "forma": "rav",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "456a366f70ec25694e363257cc582a9f692b73f5e9a8837c40f17f55c994bd89"
+    },
+    "raav": {
+      "forma": "raav",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "c5d98043f8838f1fe0634e7252387278ace096e70188aa60588b3bacaee58862"
+    },
+    "shar": {
+      "forma": "shar",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "97b9a5489721cb7f1af1a5c788cf00183dd8cd48ee06474ac3d631d29f07ae8c"
+    },
+    "miral": {
+      "forma": "miral",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "2a111313c3e6412173934f30af4aa29b672a0e4860c9a3f69566601bd6b06ae1"
+    },
+    "lurem": {
+      "forma": "lurem",
+      "tradução_principal": "INTR",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "d5d68a5430dbc8a41f4d42c67677463ca740ce466458d004d66e302c65c7713a"
+    },
+    "surel": {
+      "forma": "surel",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "f78187996f86f1f91532245de24fd661b2978024552962a7ca0414690cb67edf"
+    },
+    "valen": {
+      "forma": "valen",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "9cc4e407942144ef53b8e16d417f1e46a501e1049a419fd631d732d81456440b"
+    },
+    "lerem": {
+      "forma": "lerem",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "1314fa9a2e86fbc5152d2f11393bd1e57afc692eb682a6a921904960dceb13c6"
+    },
+    "anlerem": {
+      "forma": "anlerem",
+      "tradução_principal": "DITRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "4f2ce5fdbef53c691ba819c6cacf3cdce73cbb2cd6cdb44b659662c75ffba2ac"
+    },
+    "vethim": {
+      "forma": "vethim",
+      "tradução_principal": "REL",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "25a703064d668ec3bb9402808ffc4249d1e539d8b66280e99198e4367bf6d565"
+    },
+    "senveth": {
+      "forma": "senveth",
+      "tradução_principal": "REL",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "38770b020fad0d7255fe5fd2c4cd07a639b81f445f3ef970d518b4d73766e10e"
+    },
+    "senel": {
+      "forma": "senel",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "973b5085ed8b5acc5d90e16637d13efdf7a88b72ecfbd55c2d60cd6a8ca29f7a"
+    },
+    "nhevar": {
+      "forma": "nhevar",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "e570e50cdad55c7eb82cdff1630962a8bf4562202ce4ed115ccd5805291c971c"
+    },
+    "veran": {
+      "forma": "veran",
+      "tradução_principal": "INTR/TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "2c4f3bcbdd4c2eca75d7117c6b092f14d49940669d07b9d18f101d376f0fb2f1"
+    },
+    "nuvel": {
+      "forma": "nuvel",
+      "tradução_principal": "TRANS/INTR",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "101676832b943fc6ccfff78cadedc1721f399dc947cba12d9c8fa88165e8707d"
+    },
+    "anmanesh": {
+      "forma": "anmanesh",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "4bf7823e3d2c6f47663c8af815d55430afbbb6a39a960cbb057395cf21234ff1"
+    },
+    "rilen": {
+      "forma": "rilen",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "71b7db600a24ed138fb0af7c836327b456a523902697cb52a2440d6b4d57b97f"
+    },
+    "vilen": {
+      "forma": "vilen",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "33a9dc12d9b10bdb5353c2f35a5a90b352b55003ee6dc11f83d703a042dbccd5"
+    },
+    "sharem": {
+      "forma": "sharem",
+      "tradução_principal": "TRANS",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "1ed8922112a02a6a342158dfd029eec5f8ef60418152f34c9f9d01f5fd66d009"
+    },
+    "zherel": {
+      "forma": "zherel",
+      "tradução_principal": "TRANS/INTR",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "fa725cac5e0e4811aa060b449282e8721e6b0595446738947e5ddc6c5cdd58c7"
+    },
+    "miran": {
+      "forma": "miran",
+      "tradução_principal": "pessoa, indivíduo dotado de identidade",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "60c5e542b792778f67ab00a19b73ea082704fef3f0b483706c536e39b7e2ecd2"
+    },
+    "miranin": {
+      "forma": "miranin",
+      "tradução_principal": "pessoas consideradas separadamente",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "dbc384e6e308063fe04cc91bc9c2787dfb8d0f561e13ff05f04f08be320be174"
+    },
+    "mirari": {
+      "forma": "mirari",
+      "tradução_principal": "comunidade viva de pessoas",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "6794df0ff5984366d7b2da9664113c63b8f02c5dc193a3c547bff07c8bf92936"
+    },
+    "niran": {
+      "forma": "niran",
+      "tradução_principal": "criança, jovem dependente",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "b7f08012804325a385986ae083b11f24b8ca89a0797c29e3382dff4933c67837"
+    },
+    "luuran": {
+      "forma": "luuran",
+      "tradução_principal": "ancião, pessoa de longa memória",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "d2ea4ef9ff154519e843d67ac23e4bfa9dfc84df39123313c69f1df7a79038b9"
+    },
+    "vethan": {
+      "forma": "vethan",
+      "tradução_principal": "companheiro, aliado, pessoa vinculada",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "e402274700d429bc176c51fa0e1d61907a78a0ca4d6e891f39ef59d0808376b0"
+    },
+    "varan": {
+      "forma": "varan",
+      "tradução_principal": "guardião, protetor",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "04e98aa128ce2628c0c600ed9d46ae09efe35571c402479a893543463e4798f1"
+    },
+    "ravan": {
+      "forma": "ravan",
+      "tradução_principal": "atacante, adversário",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "03ec34c230021abba6f2785ab08487bd3a3204a3fde8b5ced7ff498100fb80aa"
+    },
+    "lereman": {
+      "forma": "lereman",
+      "tradução_principal": "aprendiz, estudante",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "ee064cdf741ccaab1c9344f0478f4bbf67e07756ef3228f67567c23839e2530e"
+    },
+    "anlereman": {
+      "forma": "anlereman",
+      "tradução_principal": "professor, mestre de aprendizagem",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "2c03c8c36b84b4e4b274b28fbc10bc7dbfee0706ddc6b5636d7a864a1c9ece9b"
+    },
+    "sireman": {
+      "forma": "sireman",
+      "tradução_principal": "guardião de memória, arquivista",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "cbcf2689c643c6c1d8e8874166f64aeb7fb98f32f9b0aee1b69e236a85355fd7"
+    },
+    "ralenan": {
+      "forma": "ralenan",
+      "tradução_principal": "criador, artesão",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "14712648d7d394cc565c7adc838c0523db0cdbecb53b8721fdd3ec6fc36ef393"
+    },
+    "lesan": {
+      "forma": "lesan",
+      "tradução_principal": "testemunha, nomeador preciso",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "127e8d5eb06a7d482316a3b8b92dc423cfd55c69a87ad87cea2ab961339700ba"
+    },
+    "lesun": {
+      "forma": "lesun",
+      "tradução_principal": "nome reconhecido; identidade nomeável",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "d6d5864089df413b4b25214b479a225484f93d4bdade10e49b875ed5b6ee76e8"
+    },
+    "mirun": {
+      "forma": "mirun",
+      "tradução_principal": "individualidade, self, identidade própria",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "3fdbeb1497d7409622094878e3d4edd2106662763f18a8c3f1a5b42e05235090"
+    },
+    "siremun": {
+      "forma": "siremun",
+      "tradução_principal": "memória, lembrança preservada",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "96de2a3fd3fcd5cbba6adee9be9366f132c8dcc5d0b37a91ae4349c960f1e578"
+    },
+    "miremun": {
+      "forma": "miremun",
+      "tradução_principal": "pensamento, ideia",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "3ae795f24a2fe279ba85bbfba2b805a092c364d255f1cf2e18387529e3bfb226"
+    },
+    "leremun": {
+      "forma": "leremun",
+      "tradução_principal": "conhecimento aprendido",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "c9f16ad6b104a30aea6505fdb9420ba3dcb34245d8a43f903bf35bc5302775e2"
+    },
+    "vethun": {
+      "forma": "vethun",
+      "tradução_principal": "compromisso, qualidade de vínculo",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "6e5b9b16a9391a7d744ebeb56e2a78b2349d066787503083523c8c0bb11be585"
+    },
+    "rimen": {
+      "forma": "rimen",
+      "tradução_principal": "limite, fronteira pessoal que preserva identidade",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "451aab0bd05eb9310aa19d7bed70fb50f0e86af4b0e651473ddd4577f0bb0742"
+    },
+    "seneth": {
+      "forma": "seneth",
+      "tradução_principal": "promessa intencional e selada",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "a341b42ba84614d4090c583411d069c793bd352210e064076d93ed2439ec5846"
+    },
+    "vaneth": {
+      "forma": "vaneth",
+      "tradução_principal": "dever aceito e selado",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "6e3c31986a030c0afdcf06c08dced2407302a0eb2b077d7314992a075b834626"
+    },
+    "selun": {
+      "forma": "selun",
+      "tradução_principal": "fim, cessação, morte como estado",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "98007817e8d2b6e8c736db28b8ebc4fe5f75a808c51fb05cafa6042ddb7bdcec"
+    },
+    "narim": {
+      "forma": "narim",
+      "tradução_principal": "corpo, forma viva individual",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "af267b0e1fbdc6a3a3efbd63e62ea8d67ccd494f68dfd5731f701ef6bddb0a2d"
+    },
+    "lesha": {
+      "forma": "lesha",
+      "tradução_principal": "rosto, face reconhecível",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "de55154d7c5db07e5cef85602ccb4742798092d965984012fbe5e7f4c73dce2d"
+    },
+    "silei": {
+      "forma": "silei",
+      "tradução_principal": "olho",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "86ee80a24f5612b09a15522bdead99008d0a36b34b606de5c11e09af4bd8ba76"
+    },
+    "nheri": {
+      "forma": "nheri",
+      "tradução_principal": "ouvido, orelha",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "3eda6d1ee4bcdecf43bb9d43b8ae0bd31b195424a61fbb6a58f6ee73a85b2c88"
+    },
+    "savelesh": {
+      "forma": "savelesh",
+      "tradução_principal": "boca, aparelho da fala",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "4491cd2a94265be132afa730e7c1772630e1e2ce8ed5e6173c28902500093292"
+    },
+    "mireth": {
+      "forma": "mireth",
+      "tradução_principal": "coração, núcleo vital ou afetivo",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "3bcab9c9a9fc54b9ad79c38823857660565bcf04dbd79297b34cfd688b45c717"
+    },
+    "raush": {
+      "forma": "raush",
+      "tradução_principal": "sangue",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "ba1e393e15b600c00959253ebd925b3777da2a74f40994c698ea04975d0f1e6d"
+    },
+    "nhavel": {
+      "forma": "nhavel",
+      "tradução_principal": "respiração, sopro vital",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "7de2b363955abcd8a3e5200b5cdaddccf2543871ec9695be343cf5bab4323635"
+    },
+    "zhal": {
+      "forma": "zhal",
+      "tradução_principal": "sussurro, voz baixa",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "749ce399631f3f8247aec1af2f4ff980429119ab6a9c2b1686fe567b074ac12e"
+    },
+    "ravun": {
+      "forma": "ravun",
+      "tradução_principal": "ferida, dano, perigo; ferido, perigoso",
+      "traduções_alternativas": [
+        "perigoso, ferido; dano, perigo"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "440a666bc1072598281a74c7e5ebcce455d93b53c08c8858c6f98055b139ec7e"
+    },
+    "varam": {
+      "forma": "varam",
+      "tradução_principal": "mundo, realidade habitável",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "5f44b6feb317614621d0db6dc18c51f6be909b6a7a372145ee16b3af99400b44"
+    },
+    "namol": {
+      "forma": "namol",
+      "tradução_principal": "casa, lar, morada",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "24b29b46904023d671e38ec364c8d8735121a1602d80f7fcbb11042119b3d7d6"
+    },
+    "sair": {
+      "forma": "sair",
+      "tradução_principal": "cidade, assentamento",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "f709dc609919d3ab8a8e16c2cb1fbd4efa725242b2f4b163791c8804e54eb8e3"
+    },
+    "varol": {
+      "forma": "varol",
+      "tradução_principal": "refúgio, fortaleza, lugar protegido",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "4289eb9bbf93b0994dd6aa53a269682922cfc5440c355ec183fee2d938e54118"
+    },
+    "tharol": {
+      "forma": "tharol",
+      "tradução_principal": "portal, portão, lugar de passagem",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "aa1c33f7559766f050d5e51d8211b94ac847b577e0704a45e5ef2b809ce3d2e8"
+    },
+    "tharvesh": {
+      "forma": "tharvesh",
+      "tradução_principal": "Fresta, fissura transitável ou instável",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "225324d288d460f62f3894560e4d18c89e6bfe33d149b238b87dd1eaad4fa8a7"
+    },
+    "siremol": {
+      "forma": "siremol",
+      "tradução_principal": "arquivo, biblioteca, lugar de memória",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "877644a846da7e14c9a187afa5a236ed34163e83afb7a362694fb481cd853341"
+    },
+    "noovethol": {
+      "forma": "noovethol",
+      "tradução_principal": "oficina ou câmara de magia",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "ced7deb3df9cf47c7d6d7947644db33a0896f9d6cbc13803883c48b6f5b3b436"
+    },
+    "ravem": {
+      "forma": "ravem",
+      "tradução_principal": "terra firme, chão",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "97afaaaeeb46b5a66f8dced7c271993d3368a4eb7731b74e5505528db6070797"
+    },
+    "velol": {
+      "forma": "velol",
+      "tradução_principal": "céu, espaço de voo",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "802b7caa2310675b035fcb1b464d2f09249db152dab4d95e018a4635d1275994"
+    },
+    "niva": {
+      "forma": "niva",
+      "tradução_principal": "água",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "09a92ba53c10b9635cdc0a5fac20d90642358188e0737c4b73ad6e9a8c7a4aea"
+    },
+    "nivaren": {
+      "forma": "nivaren",
+      "tradução_principal": "rio, água em curso",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "239f0036bde5ac577e447090b7c78a05339332f59af4ae2860ec28e0a83de82f"
+    },
+    "nivaar": {
+      "forma": "nivaar",
+      "tradução_principal": "mar, grande extensão de água",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "246d5130d0734c05708d8b05d669fe1cf7b40493929531cbd1a82cfe00090927"
+    },
+    "shara": {
+      "forma": "shara",
+      "tradução_principal": "fogo, chama material",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "ba411613d4d4e8038569f21c860199345d72221c683264556513038eaf41c5a4"
+    },
+    "velai": {
+      "forma": "velai",
+      "tradução_principal": "ar, vento",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "c3816d17cc1d200a6e4f4c4607bb7b287aa66fd458d22a6395af6e357e15ecad"
+    },
+    "rava": {
+      "forma": "rava",
+      "tradução_principal": "solo, terra, matéria terrosa",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "64d85f5a2a38912f5f910c09c032cc0921a2cf0e9d00919eb63991a75bf932e2"
+    },
+    "vithra": {
+      "forma": "vithra",
+      "tradução_principal": "cristal, matéria cristalina",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "d1fdb3e2d46c518cd592a0f702ed930af9e4a464c0b6d3ade1eed6aae2261a0b"
+    },
+    "narem": {
+      "forma": "narem",
+      "tradução_principal": "árvore, planta de grande porte",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "cec3c8ba5f55bdd47d44d980bdb7355503f88350b0bd8ce6230f350b38fcddc2"
+    },
+    "naremari": {
+      "forma": "naremari",
+      "tradução_principal": "bosque, floresta como coletivo vivo",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "15a37ad97deba064906058ec0a8fefb80f79c20dc75aba08722b2379acd2a682"
+    },
+    "silmi": {
+      "forma": "silmi",
+      "tradução_principal": "estrela, ponto material de luz",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "e8304d00e21299244522329ee20076d37e67f36d5921f071b3509ad37164c0d3"
+    },
+    "silmeh": {
+      "forma": "silmeh",
+      "tradução_principal": "dia, período de luz física",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "2535ef35096ef5c9f8223538213b515437a4c35e15f305111fbfe9bd92a8b32f"
+    },
+    "luumeh vesilma": {
+      "forma": "luumeh vesilma",
+      "tradução_principal": "noite, período de ausência de luz física",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "7944fe4cc42388177bd8a10f4017f6bc904a3284d3b0454757e89d4f535de983"
+    },
+    "siremesh": {
+      "forma": "siremesh",
+      "tradução_principal": "livro, registro, suporte de memória",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "fed2852cd7c38fe8584ac358a0b574923356ffbe14656e5d3be0be7515569cfa"
+    },
+    "silmainesh": {
+      "forma": "silmainesh",
+      "tradução_principal": "estilete, pena ou instrumento de escrita",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "42df8d91c3eec1bbe25e740b5004ad863993a8e986cf4c0299a883057b2553db"
+    },
+    "tharenesh": {
+      "forma": "tharenesh",
+      "tradução_principal": "mapa, bússola ou instrumento de navegação",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "82ecb8b6427f1a6545758db2259f69ca6f8b582403915bfd91f6bce291920989"
+    },
+    "reshesh": {
+      "forma": "reshesh",
+      "tradução_principal": "chave, mecanismo de abertura",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "ffc1a0f69c5d97796bb116bcaf6a66bac7e58279927400558324ce8b49c7561f"
+    },
+    "vethesh": {
+      "forma": "vethesh",
+      "tradução_principal": "corda, elo ou instrumento de ligação",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "1b2cb56248d008f38fc3337870756f6e30d62b4a4c05c8f87735b85157040857"
+    },
+    "varesh": {
+      "forma": "varesh",
+      "tradução_principal": "escudo, instrumento de proteção",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "bf6b9711346c3ee8ababdd4610e3708d5dcd2ff5e46e1d086fea486a9eec207c"
+    },
+    "ravesh": {
+      "forma": "ravesh",
+      "tradução_principal": "arma, instrumento de ataque",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "1376efe0a5479bf773e225663cf07c1f59a3933606bb2ab28eb8e723ed9d51a4"
+    },
+    "raavesh": {
+      "forma": "raavesh",
+      "tradução_principal": "lâmina, espada, instrumento de corte",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "fc12ef80c729129678b97885385f34965a3d70ce604f6a5563b3b743a42ff3cb"
+    },
+    "varunesh": {
+      "forma": "varunesh",
+      "tradução_principal": "armadura, cobertura protetora",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "48daa927e809e5b29e19ffda69cb490628292d0a11b0132909e8f0ae67288c77"
+    },
+    "nelun": {
+      "forma": "nelun",
+      "tradução_principal": "alimento, refeição",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "3e9d8a84064f1619cdd8369efad5be46c77bd3e5640a873bea921bad516c7ee0"
+    },
+    "suvun": {
+      "forma": "suvun",
+      "tradução_principal": "bebida",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "2bbffd3f4fcd6eead7104537d0bdd87ee9331f405daa3e9f24f0a452fa5ce1ba"
+    },
+    "navir": {
+      "forma": "navir",
+      "tradução_principal": "moeda, marcador de valor",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "9135aaa401e5845332b1b65819a149e01e72985073f4f92e173fb2a40d21d097"
+    },
+    "suval": {
+      "forma": "suval",
+      "tradução_principal": "tecido, pano",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "1d41354d8e3fbf8de0b57c5197e072d32e44acecf0028794d57929be4d42b740"
+    },
+    "noovethesh": {
+      "forma": "noovethesh",
+      "tradução_principal": "feitiço, fórmula ou foco de tecelagem mágica",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "79a9975ab53d19ec6bf206d5cc15d75b33f0a6e4e88613b7e0171fb8571029f8"
+    },
+    "saren": {
+      "forma": "saren",
+      "tradução_principal": "bom, correto, saudável; bem",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "7bd192de3593829ccc8af1c9965b102a315be8522cebb7912341780122a28c11"
+    },
+    "vesaren": {
+      "forma": "vesaren",
+      "tradução_principal": "ruim, incorreto, doente; mal, sem implicar Sombra",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "c23d9ad0b8e952a57dc188fb01baf8adb975b453703651470725dd05b23905fe"
+    },
+    "zharen": {
+      "forma": "zharen",
+      "tradução_principal": "verdadeiro, real; verdade",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "42de2b6da2018df05211991500fbaaf0d52df9d3a1c74041819308ed19f12f82"
+    },
+    "vezharen": {
+      "forma": "vezharen",
+      "tradução_principal": "falso, irreal; falsidade comum, não necessariamente Sombra",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "f216047971a963f5dc39112fd5627df950e005fa16100cee72bc7c2253103fe0"
+    },
+    "maaren": {
+      "forma": "maaren",
+      "tradução_principal": "grande, amplo, importante",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "8df236957c7d8426e0ac6fea6fdb1d82647bc206738621b2cb2aa9c860be1138"
+    },
+    "simin": {
+      "forma": "simin",
+      "tradução_principal": "pequeno, reduzido",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "49ee2fc269c2e3cdaf1118d26753326f2c681e00110268f7bf335e50dad65db3"
+    },
+    "varen": {
+      "forma": "varen",
+      "tradução_principal": "novo, recente",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "979f6ba8d5622d0b75a2ca61c7cb30645bb03302c8f9bde860ab57f9ab6cf156"
+    },
+    "luuren": {
+      "forma": "luuren",
+      "tradução_principal": "velho, antigo",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "6b103da76ea69a10f5f8ecad8dd307df8f11277e0afaf59b61825402286b3032"
+    },
+    "niren": {
+      "forma": "niren",
+      "tradução_principal": "jovem, recente em vida",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "ec30dbf301f2504dfad38143347ef6921186ee879879dc6e2679ba03991a57cc"
+    },
+    "liven": {
+      "forma": "liven",
+      "tradução_principal": "rápido",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "da02780b6bdf4a5e83fc729ae3c89d88ad02501bf5717265adf5dcc4133abb86"
+    },
+    "luren": {
+      "forma": "luren",
+      "tradução_principal": "lento",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "14605a78f0035eeaee60117e3bcb7a7d28bc2a5d60616a5dbfc9a4a11e0edce6"
+    },
+    "liren": {
+      "forma": "liren",
+      "tradução_principal": "próximo, perto",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "07337002692c7c240232c20b5231c322e96184ef1beb54f71f3105a14042cbc1"
+    },
+    "suren": {
+      "forma": "suren",
+      "tradução_principal": "distante, longe",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "28158fb80346538ee7c582435b93be0771bb147df44ca0c587e863c42c8b509f"
+    },
+    "mauren": {
+      "forma": "mauren",
+      "tradução_principal": "quente, morno",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "df7e6701ad51bed6ff0d066b5bc7562e4c923733331586f464bb61c7825b2078"
+    },
+    "shuren": {
+      "forma": "shuren",
+      "tradução_principal": "frio",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "6046f43bdc49902f5adaca4eba79dd56ace7f4dc536a34084e8cba5f75b96655"
+    },
+    "reshen": {
+      "forma": "reshen",
+      "tradução_principal": "aberto",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "12802055dcd65080df86f45af5766717a0fec28edfa027210a780c40d6dc6a69"
+    },
+    "seshen": {
+      "forma": "seshen",
+      "tradução_principal": "fechado, selado",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "a09f9749c61b71b5e87f277e75d679bb480332abed19bf00da1642a648b74fc6"
+    },
+    "varun": {
+      "forma": "varun",
+      "tradução_principal": "seguro, protegido; segurança",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "eb2c5b99c4a9578b6116110c54556f0e2cfbf68d534fe61ede844e4f1cf50937"
+    },
+    "silven": {
+      "forma": "silven",
+      "tradução_principal": "brilhante, dourado ou amarelo",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "a5c1bce7b4e9b938f11e0ca3978e05b70837b4a95510d1ee06bb1d50f6297431"
+    },
+    "vethen": {
+      "forma": "vethen",
+      "tradução_principal": "relacionado, aliado",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "c0ee5072e8f9b4f438140e2b9d8a634f81b39ca8be1ed4480823a884b04c858b"
+    },
+    "meren": {
+      "forma": "meren",
+      "tradução_principal": "calmo, quieto",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "2a94f2b1f66a0723ac4dfef26cfacda03143ea63ca631044743778005a89c804"
+    },
+    "nhevaren": {
+      "forma": "nhevaren",
+      "tradução_principal": "temeroso, com medo",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "f94c57e946f3d4af1559462dd340287bae63a7e312e096cc6dd9e2bd4b01f812"
+    },
+    "lirun": {
+      "forma": "lirun",
+      "tradução_principal": "belo, harmonioso",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "96b2e5c96ff2c5c3176bd6f2e4c5700ba83a032b75c53da563fb8fbee64a2122"
+    },
+    "velun": {
+      "forma": "velun",
+      "tradução_principal": "livre, não submetido",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "e346ef6fee53d59b1f8190e71111317a18681d907fadbed1dd16bda49ca2783c"
+    },
+    "vanun": {
+      "forma": "vanun",
+      "tradução_principal": "necessário, obrigatório",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "71b8f4b9b8f266f9f768f2105893db1f51c0e779ce8fc8732878253355d26889"
+    },
+    "senun": {
+      "forma": "senun",
+      "tradução_principal": "desejado, querido",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "e61c4fe82d15b17d77f7f217d83044f55a89d1eb7966d2c23bc99b7623c46be5"
+    },
+    "marenun": {
+      "forma": "marenun",
+      "tradução_principal": "conhecido, compreendido",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "789d65affe266010260b9a997cc5a1937db044c8bb5915b774853a80882d9f69"
+    },
+    "vemarenun": {
+      "forma": "vemarenun",
+      "tradução_principal": "desconhecido, não compreendido",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "8df6c52377848d8b8b91ba89cbfd41907a2caee3452709e47a22669358f4901e"
+    },
+    "saarun": {
+      "forma": "saarun",
+      "tradução_principal": "inteiro, completo",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "b76c4841847f143ea57aea823bd64aa0b0c27ecb41bdc930688c22054500bc0c"
+    },
+    "vesaarun": {
+      "forma": "vesaarun",
+      "tradução_principal": "incompleto, partido; não significa inferior",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "a709ef900a22e3a61f0826ef078ebeae4f11f3df753b625ab1730daab52b78f0"
+    },
+    "raaven": {
+      "forma": "raaven",
+      "tradução_principal": "vermelho, carmesim",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "8dcddcefb6ae1acd90c46c12a09de5a1c8fb27501fde7159756ec6892ce0fbeb"
+    },
+    "silvaren": {
+      "forma": "silvaren",
+      "tradução_principal": "amarelo, dourado",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "287b75aee10955e2961488238ab48362e5870ad6e96d5d4aeb23681ce0454302"
+    },
+    "niven": {
+      "forma": "niven",
+      "tradução_principal": "azul",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "03dc58bcaac3a6534b05c89da73ebad2b6abb90eb0081a4a1a2ac193929c3430"
+    },
+    "nareven": {
+      "forma": "nareven",
+      "tradução_principal": "verde",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "3a3705f2721ec046728b00350ed6b45c2d2944c8aabd0c7cf5c6dd0322fd8129"
+    },
+    "sileven": {
+      "forma": "sileven",
+      "tradução_principal": "branco, claro",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "3cc61f4938df0767ab19e2e517fa222aeadf44f0faac3f1195d0bd5501abdb81"
+    },
+    "vesilven": {
+      "forma": "vesilven",
+      "tradução_principal": "preto, escuro material",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "9a42e5bd55376dac4a8962321feed2b361f989b9495e2924f246307fc9e9dc26"
+    },
+    "zhuren": {
+      "forma": "zhuren",
+      "tradução_principal": "violeta, púrpura",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "2b56cd0ae7d913e3698c85028ed835459bcaca985de3a0747951448f4d067d76"
+    },
+    "português": {
+      "forma": "Português",
+      "tradução_principal": "Luz — SVO",
+      "traduções_alternativas": [
+        "Resultado esperado do protótipo"
+      ],
+      "fontes": [
+        "Manual Expandido v2.0-RC1",
+        "Phrase Core v0.2"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "914d2c19a26ec11fa4edcc352185a6a78e412cd5594b6c6e37314d1fc30873b6"
+    },
+    "eu vejo você.": {
+      "forma": "Eu vejo você.",
+      "tradução_principal": "Mi virel vi.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "fba2436556436ddc7ca1bff08c4d3494d39b14cc9870143b6066e6a36f5f87bc"
+    },
+    "nós protegemos a criança.": {
+      "forma": "Nós protegemos a criança.",
+      "tradução_principal": "Na var ei niran.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "74f568d39c12844856bbb5e94523477566ef7c655b7e787a0a5fbd3d6e8be16a"
+    },
+    "ela fechou o portal.": {
+      "forma": "Ela fechou o portal.",
+      "tradução_principal": "Si sesheth tharol.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "fe6ea68a3d4150fc2a349f2ef10bae82b05ab4738765a2eae816ca463d976513"
+    },
+    "eles ouvirão a escuridão.": {
+      "forma": "Eles ouvirão a Escuridão.",
+      "tradução_principal": "Siin nheril thuvel.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "4ce8adbd8337b4884ba07b60625ee35906200d1241c0e30ab33e82129a0ab5a9"
+    },
+    "você não conhece meu nome.": {
+      "forma": "Você não conhece meu nome.",
+      "tradução_principal": "Vi ve maren lesun ra mi.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "f94a034bd87e62d9df4e0747bdc9c7bc22958aa7fb16b6a0513bf7e9b7e01889"
+    },
+    "nós podemos atravessar a fresta.": {
+      "forma": "Nós podemos atravessar a Fresta.",
+      "tradução_principal": "Na kir tharel tharvesh.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "809b004d7686816eea9c7ac2874f71ff5b6579d348e53ca81f2836d09643027d"
+    },
+    "a comunidade lembra a promessa.": {
+      "forma": "A comunidade lembra a promessa.",
+      "tradução_principal": "Mirari sirem seneth.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "57d2dbfb3793a40a281c0e0016517360807d67ee0e5b4a4669caf267e384bf51"
+    },
+    "a sombra consome identidades.": {
+      "forma": "A Sombra consome identidades.",
+      "tradução_principal": "Kav sib mirunin.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "25b6c5d67f72b6250c49ed437e9902f767da053968bcee15a88cac26ebdafc6e"
+    },
+    "fractar": {
+      "forma": "fractar",
+      "tradução_principal": "legado narrativo; contém fonemas/grafia fora do inventário produtivo atual",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "83b6d1ae417f95e1ec433343e1fad4c756ea778ded702c368fbb943afdcaebe2"
+    },
+    "kan": {
+      "forma": "kan",
+      "tradução_principal": "forma histórica não resolvida; `k` não recebe uso cotidiano automático",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "0968b4ca5f44f3580b54301d1d89c144639b67ef60e05151aa6e52c3cfc44520"
+    },
+    "mirov": {
+      "forma": "mirov",
+      "tradução_principal": "sugere apagamento de fronteira aplicado à identidade; semanticamente inaceitável para coletivo legítimo",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "d0bf4e58b243593d5f2e58d90e237f50d70939670e518dd6b112c512587df1f5"
+    },
+    "vethariov": {
+      "forma": "vethariov",
+      "tradução_principal": "contradiz a definição de Merge legítimo",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "c28705f98366bf4b31fc870f0a30653ee81ebf1148fb115f54cb115ead964627"
+    },
+    "thuvel = mal": {
+      "forma": "thuvel = mal",
+      "tradução_principal": "confusão cosmológica proibida",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "3d8103e09896f06b9c6c8e4ca6c2ecc015f2d3e4c746d4fcb47e1e1e4cb15fb3"
+    },
+    "vesilma = sombra": {
+      "forma": "vesilma = Sombra",
+      "tradução_principal": "confusão física/cosmológica proibida",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "1458216bdd9d59dc2df8aada6df9c61ba39d8f754b84c69cd2e06970c32c6541"
+    },
+    "mar + pessoa": {
+      "forma": "mar + pessoa",
+      "tradução_principal": "posse de pessoa; inadequado para relação legítima",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "292c026154e3b57852d0c6a6613b1192f2b9fbc52503758c6320497727a5890a"
+    },
+    "raiz nova improvisada": {
+      "forma": "raiz nova improvisada",
+      "tradução_principal": "não possui proposta, valência, reversão nem decisão humana",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "3f19b34953a7cea7e9444908acff7ca33a1879cbd13c205fc9bad05e47f3f28a"
+    },
+    "id": {
+      "forma": "ID",
+      "tradução_principal": "Decisão proposta",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "d2d758ba44e9c13117aec900a88fdeaeba6d238423fb28505bcf35ef96f63949"
+    },
+    "vel-exp-01": {
+      "forma": "VEL-EXP-01",
+      "tradução_principal": "Velarim conversacional não possui artigos nem gênero gramatical obrigatório.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "d6e884a78d2b28e7d1d3b8028ab78bf2f3ac7ec93a5b73db8cccfca6177096e7"
+    },
+    "vel-exp-02": {
+      "forma": "VEL-EXP-02",
+      "tradução_principal": "O paradigma pronominal passa a incluir `vi`, `viin`, `siin` e `mir`.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "7bccdbe7faa800b8267fc09c86672e6daa3cc7d4661ff87fe5c68f9c44451faa"
+    },
+    "vel-exp-03": {
+      "forma": "VEL-EXP-03",
+      "tradução_principal": "Posse e origem usam `ra`; localização usa `en`; destino usa `ol`.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "ce914db839121d21f878279eceb689170320eb29f701d45991643c6848895554"
+    },
+    "vel-exp-04": {
+      "forma": "VEL-EXP-04",
+      "tradução_principal": "Demonstrativos são `ei` e `au`; modificadores seguem o nome.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "a375ae982bb087764b063e9dbb601026e0a31102a70023edcc28077dcdcecb96"
+    },
+    "vel-exp-05": {
+      "forma": "VEL-EXP-05",
+      "tradução_principal": "Perguntas fechadas usam `ai`; interrogativos abertos são frontados por padrão.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "c0ee0de9005ac7caa158e96c6332620867cd3216a8b344a1738958eb7548c825"
+    },
+    "vel-exp-06": {
+      "forma": "VEL-EXP-06",
+      "tradução_principal": "Imperativos usam VSO com sujeito omitido; `li` marca pedido e `ve`, proibição.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "eb42642ddce278ccfa325da6d10b3373201741d681e8a77f7e98227cb591f79c"
+    },
+    "vel-exp-07": {
+      "forma": "VEL-EXP-07",
+      "tradução_principal": "Coordenação e subordinação usam o conjunto fechado da seção 13.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "5b36d6563bc75a15e58e10a7f37c3924d025a03e5e1ce405447b7f8c3a0a02bf"
+    },
+    "vel-exp-08": {
+      "forma": "VEL-EXP-08",
+      "tradução_principal": "A forma não marcada do verbo é geral/contextual; os três sufixos continuam aspectuais.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "2572a25c60aeb7836f241e45ab21f99fd9eed311bbfccd94f79461e9442833b5"
+    },
+    "vel-exp-09": {
+      "forma": "VEL-EXP-09",
+      "tradução_principal": "Numerais seguem composição decimal analítica.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "f19c25fabadedeab2cedb38c20f6a3475f4f75a3ee021be79862d39a542b3b5f"
+    },
+    "vel-exp-10": {
+      "forma": "VEL-EXP-10",
+      "tradução_principal": "O léxico `V2-OP` pode ser usado imediatamente, mas não é retroativamente V1-CAN.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "df9fa468591b9674c014f9b7afd70e426cc431226388729ba670848eca8a59f0"
+    },
+    "vel-exp-11": {
+      "forma": "VEL-EXP-11",
+      "tradução_principal": "Empréstimo explícito é preferível a raiz improvisada.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "810f8d1a8958104a47ee8d9a239f530cb9fb9094203245895f926f903786ddb5"
+    },
+    "vel-exp-12": {
+      "forma": "VEL-EXP-12",
+      "tradução_principal": "Tradução reversa e preservação de agente são testes obrigatórios de novas frases.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Manual Expandido v2.0-RC1"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "2ad9e2f1cfd500d5b3dbc21ec0569a1571970c8c3857d644768ca3a11010bf8e"
+    },
+    "campo": {
+      "forma": "Campo",
+      "tradução_principal": "Regra",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Phrase Core v0.2"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "e1d405d7ec5f743bf3590528679d0d0c18694f9d760e255258d3c4f4cb827258"
+    },
+    "concept": {
+      "forma": "concept",
+      "tradução_principal": "Conceito em português; não é uma definição canônica.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Phrase Core v0.2"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "c7ee2e3a4874836ac62d7cf75d59116ea60b4ece72aca2f5eb803648fe4c64e9"
+    },
+    "proposedform": {
+      "forma": "proposedForm",
+      "tradução_principal": "Forma proposta ou forma existente reutilizada.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Phrase Core v0.2"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "56ec75adfde2e3cf507b882f2324a303e4fdb85d016c5579de3f911a4fb47a12"
+    },
+    "classname": {
+      "forma": "className",
+      "tradução_principal": "Classe gramatical ainda sujeita a revisão.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Phrase Core v0.2"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "1c2d294a78807d8a8f9690f4541fbba021bbd77b137f74c3c83cde2b9733cd43"
+    },
+    "centralmeaning": {
+      "forma": "centralMeaning",
+      "tradução_principal": "Significado central mínimo.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Phrase Core v0.2"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "1c9ace84f1ca1f68f65dfb6556d1a54b9bc33f3420ccdc3c0961c8b08c80a39c"
+    },
+    "forbiddenmeanings": {
+      "forma": "forbiddenMeanings",
+      "tradução_principal": "Leituras que não podem ser colapsadas em sinônimos.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Phrase Core v0.2"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "e08c8b71bd1354aae58696e4e9b4d5eca384dbed55b74506f9075d3b3c7340c0"
+    },
+    "aliases": {
+      "forma": "aliases",
+      "tradução_principal": "Consultas em português aceitas pelo protótipo.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Phrase Core v0.2"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "30b1bc2a6aa9607015628bcee7b9f3d60d93992d7b5f0ab4c8be7de351146111"
+    },
+    "existingform": {
+      "forma": "existingForm",
+      "tradução_principal": "Só aparece quando há reutilização de forma já documentada.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Phrase Core v0.2"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "49233a32612cacb3fc0b62fc1a70e5240cfe7a05c1c097f5803ff0d94b34a872"
+    },
+    "eu vou à cidade amanhã.": {
+      "forma": "Eu vou à cidade amanhã.",
+      "tradução_principal": "Cobertura lexical experimental; `cidade` e `amanhã` são propostas. A ordem só é apresentada como SVO do registro escolhido.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Phrase Core v0.2"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "a3374c3666ecaf6b95cdf653175531a9f4958c3f91e76baa1e4a3e97df3afd56"
+    },
+    "nós chegamos antes da noite.": {
+      "forma": "Nós chegamos antes da noite.",
+      "tradução_principal": "Gloss preserva `na`, `arran`, `pren` e `thuvela`; “noite” não é `kav`.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Phrase Core v0.2"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "077255b144b2bde0a2048960d309d6a78a183f23b3a6b7eeb8b4524e00ac803d"
+    },
+    "onde está a chave?": {
+      "forma": "Onde está a Chave?",
+      "tradução_principal": "vaya` e `kavira` podem ser encontrados no perfil de pesquisa; a pergunta recebe aviso experimental.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Phrase Core v0.2"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "50882666948de3f56434affa58bfac955a299cfb758d1f41787292ca28f715b4"
+    },
+    "a criatura está dentro da ruína.": {
+      "forma": "A criatura está dentro da ruína.",
+      "tradução_principal": "creta`, `stara`, `inra` e `ruina` são glossados; sem regra de artigo, o resultado declara a lacuna.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Phrase Core v0.2"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "325b27d08a2f8ab94902cd5e1bb3170c36d281fa85fa682ac6eb5c7152e62e3d"
+    },
+    "o aliado não morreu.": {
+      "forma": "O aliado não morreu.",
+      "tradução_principal": "alli`, `ve` e `morth` permanecem distinguíveis; negação não é apagamento de identidade.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Phrase Core v0.2"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "acb94f0d6aefec64c168828166384499f08f8e6d4712b9f47f11695beafa0cba"
+    },
+    "a memória permanece depois da morte.": {
+      "forma": "A memória permanece depois da morte.",
+      "tradução_principal": "A composição sinaliza que “memória” e a ordenação temporal precisam de forma/regra adicional se não houver token resolvido.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Phrase Core v0.2"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "d5a8606f64808c4e618bdcc6fe2847ab423faa98dd3d53d84866f5ee9a54ab7d"
+    },
+    "você quer seguir este caminho?": {
+      "forma": "Você quer seguir este caminho?",
+      "tradução_principal": "ti`, `sen`, `sega`, `ira` e `tharen` são pesquisáveis; a construção completa continua experimental.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Phrase Core v0.2"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "569ea4609c65c42884abbfc7b07b4aeef0ad27612e66d9150db0cad79e4dda2f"
+    },
+    "hoje há perigo perto da fresta.": {
+      "forma": "Hoje há perigo perto da Fresta.",
+      "tradução_principal": "seda`, `periga`, `nira` e `vethra` recebem gloss e aviso de status.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Phrase Core v0.2"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "74ab9ab33b4d9681267c49c7748a30ce0197d8786fbeb3866f3ea23b13095ba8"
+    },
+    "nós precisamos proteger a cidade.": {
+      "forma": "Nós precisamos proteger a cidade.",
+      "tradução_principal": "na`, `nerva`, `kethra` e `civara` recebem gloss; sem flexão documentada, o tradutor não inventa concordância.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Phrase Core v0.2"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "bb29ca31935f701f5e000a5795077f0efd9e88f9be01d826377549b43ede8dae"
+    },
+    "quem conhece este segredo?": {
+      "forma": "Quem conhece este segredo?",
+      "tradução_principal": "sha`, `siva/luma` e `secreta` preservam ambiguidade quando aplicável.",
+      "traduções_alternativas": [],
+      "fontes": [
+        "Phrase Core v0.2"
+      ],
+      "classe_gramatical": "substantivo/termo",
+      "hash": "b543f1658c126232dcc6efda8449e9e5f01e2fa782ffa16dc802c9d7083947aa"
+    }
+  }
+}
