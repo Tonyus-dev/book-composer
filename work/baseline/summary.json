@@ -34,18 +34,21 @@
   "detected_partes": 5,
   "detected_appendices": 6,
   "section_manifest_count": 29,
-  "canonical_catalog_count": 235,
+  "canonical_catalog_count": 253,
   "canonical_definitions_in_mechanical_values": 434,
   "canonical_catalog_by_category": {
     "povo": 9,
     "oficio": 8,
-    "tecnica": 53,
+    "tecnica_inicial": 8,
+    "tecnica_trilha": 48,
+    "tecnica_universal": 5,
     "magia": 28,
     "evocacao": 24,
     "arma": 24,
     "armadura": 5,
     "encontro_povo_oficio": 72,
-    "velarim": 12
+    "velarim": 10,
+    "artefato": 12
   },
   "image_classification": {
     "capa": 1,

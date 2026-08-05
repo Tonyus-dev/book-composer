@@ -218,7 +218,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "A história de KALLISTIS sobrevive em arquivos, testemunhos e versões disputadas",
     "capítulo": "Sumário",
     "seção": "Merge legítimo",
@@ -231,7 +231,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Cada povo possui uma forma diferente de percebê-la. Os Aelvari a reconhecem como",
     "capítulo": "Sumário",
     "seção": "PREÂMBULO",
@@ -268,7 +268,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Não existe testemunho direto da realidade anterior à Fratura.",
     "capítulo": "Sumário",
     "seção": "MARCO ZERO — A ERA DA UNIÃO",
@@ -389,7 +389,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Algumas inscrições Dóreas falam de uma pressão estrangeira, uma força que teria",
     "capítulo": "Sumário",
     "seção": "MARCO ZERO — A ERA DA UNIÃO",
@@ -450,7 +450,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "manesh encontra expressão intensa.",
     "capítulo": "Sumário",
     "seção": "MARCO UM — A FRATURA",
@@ -463,7 +463,7 @@
     "categoria_refinada": "impulso_pressao"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "thuvel encontra expressão intensa.",
     "capítulo": "Sumário",
     "seção": "MARCO UM — A FRATURA",
@@ -620,7 +620,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Na Escuridão, muitos desenvolveram tradições voltadas à memória potencial: aquil",
     "capítulo": "Sumário",
     "seção": "MARCO DOIS — A ERA DA DUPLA HERANÇA",
@@ -693,7 +693,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Para um Dóreo, destruir uma estrutura podia significar apagar uma testemunha.",
     "capítulo": "Sumário",
     "seção": "MARCO DOIS — A ERA DA DUPLA HERANÇA",
@@ -718,7 +718,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Ainda assim, sua ressonância tornou-os testemunhas únicas. Eles sentiam alteraçõ",
     "capítulo": "Sumário",
     "seção": "MARCO DOIS — A ERA DA DUPLA HERANÇA",
@@ -839,7 +839,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Outros transformaram memória em vigilância, tradição em imobilidade e harmonia e",
     "capítulo": "Sumário",
     "seção": "MARCO TRÊS — A ERA DOS POVOS E DOS REINOS",
@@ -1128,7 +1128,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "testemunhas.",
     "capítulo": "Sumário",
     "seção": "MARCO SETE — O TEMPO DA ESCOLHA",
@@ -1513,7 +1513,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "A pressão da Fenda altera correntes de ar e afinidades elementais.",
     "capítulo": "Sumário",
     "seção": "GEOGRAFIA DA LUZ",
@@ -1766,7 +1766,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "A única testemunha capaz de provar a fraude é um Dóreo cuja consciência permanec",
     "capítulo": "Sumário",
     "seção": "CIDADES E ASSENTAMENTOS",
@@ -1815,7 +1815,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "A causa pode ser ressonância com sua mirveth, pressão ambiental ou experiência c",
     "capítulo": "Sumário",
     "seção": "DISTRIBUIÇÃO DOS POVOS",
@@ -2364,7 +2364,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Aelvari - memória, testemunho e possibilidades sobrepostas.",
     "capítulo": "Sumário",
     "seção": "Aelvari",
@@ -2377,7 +2377,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Uma memória não é uma ordem. É uma testemunha esperando que alguém decida o que",
     "capítulo": "Sumário",
     "seção": "Aelvari",
@@ -2390,7 +2390,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Na Luz, comunidades Aelvari foram frequentemente atraídas para arquivos, observa",
     "capítulo": "Sumário",
     "seção": "Aelvari",
@@ -2427,7 +2427,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "O esquecimento voluntário também possui dignidade. Há lembranças que devem ser p",
     "capítulo": "Sumário",
     "seção": "Aelvari",
@@ -2440,7 +2440,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Para o testemunho que ainda não chegou - explicou.",
     "capítulo": "Sumário",
     "seção": "Aelvari",
@@ -2465,7 +2465,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Depois, sofra 1 Pressão no próximo teste de Intelecto ou Vontade.",
     "capítulo": "Sumário",
     "seção": "Aelvari",
@@ -2506,7 +2506,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Os Kragor percebem a Fratura como ferida comunitária. Para eles, a separação pri",
     "capítulo": "Sumário",
     "seção": "Kragor",
@@ -2519,7 +2519,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "A Força de Comunidade não é sentimentalismo. É uma percepção corporal de posição",
     "capítulo": "Sumário",
     "seção": "Kragor",
@@ -2681,7 +2681,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Um Draken raramente atravessa um espaço sem que o espaço responda. A temperatura",
     "capítulo": "Sumário",
     "seção": "Draken",
@@ -2730,7 +2730,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "A Hýbris começa quando potência é apresentada como prova de direito. A Sombra nã",
     "capítulo": "Sumário",
     "seção": "Draken",
@@ -2743,7 +2743,7 @@
     "categoria_refinada": "impulso_pressao"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "A disciplina Draken não deve ser tratada como repressão obrigatória. Algumas pes",
     "capítulo": "Sumário",
     "seção": "Draken",
@@ -2768,7 +2768,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Quando a contenção se torna covardia e quando a expressão se torna Hýbris?",
     "capítulo": "Sumário",
     "seção": "Draken",
@@ -2874,7 +2874,7 @@
     "classificacao": "menção_narrativa"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "+4 Integridade no teste",
     "capítulo": "Sumário",
     "seção": "Nomos",
@@ -3039,7 +3039,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "A Memória da Matéria não transforma objetos em testemunhas perfeitas. Toda obra",
     "capítulo": "Sumário",
     "seção": "Dóreos",
@@ -3166,7 +3166,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "A Dissonância da Redução ao Impulso ocorre quando o instinto deixa de informar a",
     "capítulo": "Sumário",
     "seção": "Teriantes",
@@ -3215,7 +3215,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Quem pode chamá-la de volta quando o impulso estreita o mundo?",
     "capítulo": "Sumário",
     "seção": "Teriantes",
@@ -3252,7 +3252,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Heranças Caçador: +1 dano contra alvo rastreado. Protetor de Bando: aliados próx",
     "capítulo": "Sumário",
     "seção": "Teriantes",
@@ -3342,7 +3342,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Escolheu a rota longa. Pela primeira vez, a dificuldade do caminho era a prova d",
     "capítulo": "Sumário",
     "seção": "Nimari",
@@ -3367,7 +3367,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Heranças Cartógrafo de Frestas: +2 em Sobrevivência para rotas, portais e saídas",
     "capítulo": "Sumário",
     "seção": "Nimari",
@@ -3432,7 +3432,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "No Ressonário de Vael, frequências são estudadas como arquivo, arte e responsabi",
     "capítulo": "Sumário",
     "seção": "Vitrálios",
@@ -3445,7 +3445,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "A Dissonância da Quebra Frequencial ocorre quando dor de Lucidez desorganiza a r",
     "capítulo": "Sumário",
     "seção": "Vitrálios",
@@ -3470,7 +3470,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Reparos no corpo não apagam biografia. Uma fratura selada pode permanecer visíve",
     "capítulo": "Sumário",
     "seção": "Vitrálios",
@@ -3495,7 +3495,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Perceba mudanças relevantes nessa frequência sem teste, quando próximas.",
     "capítulo": "Sumário",
     "seção": "Vitrálios",
@@ -3520,7 +3520,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "refletir uma magia de alvo único com redução de efeito; emitir luz ou som estrut",
     "capítulo": "Sumário",
     "seção": "Vitrálios",
@@ -3560,7 +3560,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Ofício é prática aprendida. Ele descreve como uma personagem age sob pressão, qu",
     "capítulo": "Sumário",
     "seção": "Vitrálios",
@@ -4144,7 +4144,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Nos primeiros níveis, o Atirador aprende paciência e supressão: esperar a linha",
     "capítulo": "Sumário",
     "seção": "Atirador",
@@ -4390,7 +4390,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "A técnica inicial, Estabilizar Relação, demonstra que cuidado físico e contexto",
     "capítulo": "Sumário",
     "seção": "Curador",
@@ -4463,7 +4463,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Ao curar Vitalidade ou Lucidez, remova 1 Pressão ou conceda +1 Guarda até o próx",
     "capítulo": "Sumário",
     "seção": "Curador",
@@ -4564,7 +4564,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "A presença surgiu por um instante, não como serva, mas como testemunha.",
     "capítulo": "Sumário",
     "seção": "Evocador",
@@ -4892,7 +4892,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Dano final =\n(dano-base x multiplicador)\n+ bônus de margem\n+ modificadores fixos",
     "capítulo": "Sumário",
     "seção": "Técnicas e progressão",
@@ -4905,7 +4905,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Somente o dano-base é multiplicado. Não multiplique Corpo, bônus de margem, bônu",
     "capítulo": "Sumário",
     "seção": "Técnicas e progressão",
@@ -4932,7 +4932,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "resultado",
     "nome": "Sucesso comum: sem bônus adicional.",
     "capítulo": "Sumário",
     "seção": "Técnicas e progressão",
@@ -5172,7 +5172,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Todo teste utiliza dois dados de dez faces:",
     "capítulo": "Sumário",
     "seção": "Os dois dados",
@@ -5237,7 +5237,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Compare o total à Dificuldade.",
     "capítulo": "Sumário",
     "seção": "Os dois dados",
@@ -5274,7 +5274,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Dificuldades",
     "capítulo": "Sumário",
     "seção": "Dificuldades",
@@ -5299,7 +5299,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "não existe pressão ou custo;",
     "capítulo": "Sumário",
     "seção": "Dificuldades",
@@ -5312,7 +5312,7 @@
     "categoria_refinada": "impulso_pressao"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "resultado",
     "nome": "Graus de resultado",
     "capítulo": "Sumário",
     "seção": "Graus de resultado",
@@ -5325,7 +5325,7 @@
     "categoria_refinada": "resultado"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Calcule a diferença entre o total e a Dificuldade.",
     "capítulo": "Sumário",
     "seção": "Graus de resultado",
@@ -5338,7 +5338,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Impulso e Pressão",
     "capítulo": "Sumário",
     "seção": "Impulso e Pressão",
@@ -5351,7 +5351,7 @@
     "categoria_refinada": "impulso_pressao"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Circunstâncias favoráveis concedem Impulso. Circunstâncias desfavoráveis impõem",
     "capítulo": "Sumário",
     "seção": "Impulso e Pressão",
@@ -5364,7 +5364,7 @@
     "categoria_refinada": "impulso_pressao"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Cada ponto modifica o resultado em 2. Eles se anulam. O limite normal é +4 por I",
     "capítulo": "Sumário",
     "seção": "Impulso e Pressão",
@@ -5381,7 +5381,7 @@
     "categoria_refinada": "impulso_pressao"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Exemplos de Impulso: ferramenta adequada, ajuda, posição elevada, pesquisa anter",
     "capítulo": "Sumário",
     "seção": "Impulso e Pressão",
@@ -5394,7 +5394,7 @@
     "categoria_refinada": "impulso_pressao"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Exemplos de Pressão: ferimento, escuridão física sem adaptação, terreno hostil,",
     "capítulo": "Sumário",
     "seção": "Impulso e Pressão",
@@ -5431,7 +5431,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "A personagem principal recebe +2 por ajuda competente. No máximo dois aliados aj",
     "capítulo": "Sumário",
     "seção": "Ajudar",
@@ -5446,7 +5446,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Testes opostos",
     "capítulo": "Sumário",
     "seção": "Testes opostos",
@@ -5459,7 +5459,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "2d10 + Atributo + Perícia",
     "capítulo": "Sumário",
     "seção": "Testes opostos",
@@ -5487,7 +5487,7 @@
     "classificacao": "menção_narrativa"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Não faça um teste quando o resultado não altera a situação, quando a ação é impo",
     "capítulo": "Sumário",
     "seção": "Quando não rolar",
@@ -5574,7 +5574,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Exemplos possíveis incluem: abrir uma fresta, deixar assinatura mágica, erguer c",
     "capítulo": "Sumário",
     "seção": "Predominância",
@@ -5911,7 +5911,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "É a Dificuldade para atingir fisicamente o personagem.",
     "capítulo": "Sumário",
     "seção": "Recursos derivados",
@@ -5966,7 +5966,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "realizar uma reação adicional; levantar-se sem gastar movimento; ignorar Pressão",
     "capítulo": "Sumário",
     "seção": "Reservas",
@@ -5982,7 +5982,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "repetir os dois dados de um teste; permanecer com 1 Vitalidade ao cair a 0; recu",
     "capítulo": "Sumário",
     "seção": "Reservas",
@@ -5998,7 +5998,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "11. Consequências, condições e testes prolongados",
     "capítulo": "Sumário",
     "seção": "Reservas",
@@ -6013,7 +6013,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "-2 no próximo teste.",
     "capítulo": "Sumário",
     "seção": "Condições",
@@ -6106,7 +6106,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "fica Caído; perde concentração; não realiza ações comuns; pode falar brevemente;",
     "capítulo": "Sumário",
     "seção": "Cair a zero",
@@ -6145,7 +6145,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Testes prolongados",
     "capítulo": "Sumário",
     "seção": "Testes prolongados",
@@ -6484,7 +6484,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Dano final =\n(dano-base x multiplicador do nível)\n+ bônus de margem\n+ modificado",
     "capítulo": "Sumário",
     "seção": "Dano e potência",
@@ -6703,7 +6703,7 @@
     "classificacao": "menção_narrativa"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Apenas o dano-base é multiplicado. Sintonia, margem, bônus fixos e efeitos de té",
     "capítulo": "Sumário",
     "seção": "Graus e potência ofensiva",
@@ -6718,7 +6718,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Testes mágicos",
     "capítulo": "Sumário",
     "seção": "Testes mágicos",
@@ -6731,7 +6731,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Quando houver oposição, role Luz + Escuridão + Sintonia + Magia contra Guarda pa",
     "capítulo": "Sumário",
     "seção": "Testes mágicos",
@@ -6875,7 +6875,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Impulso: o que tende a fazer espontaneamente.",
     "capítulo": "Sumário",
     "seção": "Os quatro elementos do vínculo",
@@ -6983,7 +6983,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "As 18 presenças abaixo são modelos prontos. Jogadores podem criar outra aparênci",
     "capítulo": "Sumário",
     "seção": "Catálogo completo de Evocações-modelo",
@@ -7010,7 +7010,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "defina Âncora, aparência, Impulso e Pacto;",
     "capítulo": "Sumário",
     "seção": "Criação de Evocação própria",
@@ -7047,7 +7047,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Escolha ou role: forma incompleta; Impulso domina um turno; custo +1 Fluxo; Ânco",
     "capítulo": "Sumário",
     "seção": "Falha de evocação",
@@ -7136,7 +7136,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Teste prolongado.",
     "capítulo": "Sumário",
     "seção": "Usos permitidos",
@@ -7175,7 +7175,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "efeito parcial; relação errada; alvo incorreto; significado institucional falso;",
     "capítulo": "Sumário",
     "seção": "Erro e corrupção",
@@ -7272,7 +7272,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Todos os participantes consentem. Definem o que será compartilhado. Definem o qu",
     "capítulo": "Sumário",
     "seção": "Procedimento de Merge legítimo",
@@ -7287,7 +7287,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Teste:",
     "capítulo": "Sumário",
     "seção": "Procedimento de Merge legítimo",
@@ -7312,7 +7312,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Dificuldade base 15.",
     "capítulo": "Sumário",
     "seção": "Procedimento de Merge legítimo",
@@ -7353,7 +7353,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Encerrar sob pressão pode causar:",
     "capítulo": "Sumário",
     "seção": "Encerramento",
@@ -8040,7 +8040,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Uma personagem carrega sem Pressão 6 + Corpo espaços. Itens leves podem comparti",
     "capítulo": "Sumário",
     "seção": "Carga",
@@ -8056,7 +8056,7 @@
     "categoria_refinada": "impulso_pressao"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Os valores a seguir são dano-base. Ataque comum usa ×1; técnicas multiplicam o d",
     "capítulo": "Sumário",
     "seção": "Qualidade",
@@ -8162,7 +8162,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Poder profundo: testemunha autoridade legítima em juramentos.",
     "capítulo": "Sumário",
     "seção": "Catálogo completo de artefatos desta edição",
@@ -8333,7 +8333,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Ruptura: reparar instrumento de opressão sem transformá-lo.",
     "capítulo": "Sumário",
     "seção": "Catálogo completo de artefatos desta edição",
@@ -8358,7 +8358,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Poder profundo: permite refazer um teste aceitando consequência diferente.",
     "capítulo": "Sumário",
     "seção": "Catálogo completo de artefatos desta edição",
@@ -8646,7 +8646,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "destino correspondente; âncora; estado adequado; teste coletivo; custo.",
     "capítulo": "Sumário",
     "seção": "Travessia",
@@ -8719,7 +8719,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Testes prolongados",
     "capítulo": "Sumário",
     "seção": "Testes prolongados",
@@ -8905,7 +8905,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Um adversário é uma função na cena, não uma natureza moral. O Bestiário organiza",
     "capítulo": "Sumário",
     "seção": "ORIENTAÇÃO PARA O MESTRE",
@@ -8987,7 +8987,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Somente o dano-base é multiplicado. Bônus de margem, modificadores fixos e Prote",
     "capítulo": "Sumário",
     "seção": "ORIENTAÇÃO PARA O MESTRE",
@@ -9012,7 +9012,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Escuridão costuma revelar contexto, impulso, memória, vínculo e alternativa.",
     "capítulo": "Sumário",
     "seção": "ORIENTAÇÃO PARA O MESTRE",
@@ -9142,7 +9142,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Lacaio Natureza: Livre ou Nomos a serviço da Facção Científica Porte:",
     "capítulo": "Sumário",
     "seção": "PARTE III - LACAIOS",
@@ -9219,7 +9219,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Lacaio Natureza: funcionário técnico da Facção Porte: Comum Papel tát",
     "capítulo": "Sumário",
     "seção": "PARTE III - LACAIOS",
@@ -9298,7 +9298,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Lacaio Natureza: construto sem Lei Interior reconhecida Porte: Pequen",
     "capítulo": "Sumário",
     "seção": "PARTE III - LACAIOS",
@@ -9364,7 +9364,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Lacaio Natureza: Kragor sob influência da Sombra Porte: Comum Papel t",
     "capítulo": "Sumário",
     "seção": "PARTE III - LACAIOS",
@@ -9391,7 +9391,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Nome suspenso. Testes de Integridade contra ordens da Colmeia sofrem -2.",
     "capítulo": "Sumário",
     "seção": "PARTE III - LACAIOS",
@@ -9459,7 +9459,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Lacaio Natureza: manifestação da Sombra Porte: Pequeno Papel tático:",
     "capítulo": "Sumário",
     "seção": "PARTE III - LACAIOS",
@@ -9522,7 +9522,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Lacaio Natureza: resíduo de Fenda corrompido Porte: Pequeno Papel tát",
     "capítulo": "Sumário",
     "seção": "PARTE III - LACAIOS",
@@ -9547,7 +9547,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Enxame sonoro. Três ou mais Ecos na mesma zona impõem Pressão 1 em comunicação v",
     "capítulo": "Sumário",
     "seção": "PARTE III - LACAIOS",
@@ -9614,7 +9614,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Lacaio Natureza: crescimento fúngico afetado pela Sombra Porte: Minús",
     "capítulo": "Sumário",
     "seção": "PARTE III - LACAIOS",
@@ -9701,7 +9701,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Lacaio Natureza: fragmento cristalino sem consciência integral Porte:",
     "capítulo": "Sumário",
     "seção": "PARTE III - LACAIOS",
@@ -9779,7 +9779,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Lacaio Natureza: fauna do Mundo da Escuridão Porte: Pequeno Papel tát",
     "capítulo": "Sumário",
     "seção": "PARTE III - LACAIOS",
@@ -9845,7 +9845,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Lacaio Natureza: fauna liminar Porte: Pequeno Papel tático: Mensageir",
     "capítulo": "Sumário",
     "seção": "PARTE III - LACAIOS",
@@ -9908,7 +9908,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Lacaio Natureza: presença elemental jovem Porte: Pequeno Papel tático",
     "capítulo": "Sumário",
     "seção": "PARTE III - LACAIOS",
@@ -9972,7 +9972,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Lacaio Natureza: construto Dóreo-Nomos Porte: Comum Papel tático: Blo",
     "capítulo": "Sumário",
     "seção": "PARTE III - LACAIOS",
@@ -10036,7 +10036,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Comum Natureza: membro da Facção Científica Porte: Comum Papel tático",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -10117,7 +10117,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Outra saída: isolar o agente da instituição, oferecer testemunho protegido ou to",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -10130,7 +10130,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Comum Natureza: especialista da Facção ou dissidente técnico Porte: C",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -10252,7 +10252,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Comum Natureza: agente de campo da Facção Porte: Comum Papel tático:",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -10335,7 +10335,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Categoria: Comum Natureza: especialista jurídico e informacional da Facção Porte",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -10348,7 +10348,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Autoridade reconhecida. Em espaço institucional, começa com cobertura social for",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -10361,7 +10361,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Selo de silêncio. Personagens que aceitam sua premissa sofrem Pressão 1 para con",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -10407,7 +10407,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Confiscar registro. Remove um documento, gravação ou testemunho da cena se ningu",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -10444,7 +10444,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Outra saída: criar testemunho coletivo, preservar cópias, deslocar a disputa par",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -10457,7 +10457,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Comum Natureza: Lightbringer em início de carreira Porte: Comum Papel",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -10482,7 +10482,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Dúvida reprimida. Ao testemunhar prova de que a Escuridão é legítima, sofre Abal",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -10586,7 +10586,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Comum Natureza: Nimari independente, contrabandista ou guia rival Por",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -10691,7 +10691,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Comum Natureza: Kragor cumprindo pacto legítimo ou contestável Porte:",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -10760,7 +10760,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Exigir testemunho. Suspende hostilidade por um momento para ouvir prova, se a Pr",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -10797,7 +10797,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Outra saída: apresentar testemunha, cumprir cláusula esquecida ou provar que pro",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -10810,7 +10810,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Comum Natureza: Teriante protegendo bando ou ecossistema Porte: Comum",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -10904,7 +10904,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Comum Natureza: Dóreo ou equipe vinculada a uma obra Porte: Comum Pap",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -10999,7 +10999,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Comum Natureza: Aelvari em conflito de preservação Porte: Comum Papel",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -11012,7 +11012,7 @@
     "categoria_refinada": "impulso_pressao"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Ecos paralelos. Uma vez por cena, repete um teste de Investigação, História ou I",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -11056,7 +11056,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Citar testemunho. Produz detalhe histórico relevante, mesmo quando isso complica",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -11093,7 +11093,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Outra saída: oferecer cópia consentida, registrar a divergência ou encontrar tes",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -11106,7 +11106,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Comum Natureza: Draken rastreador de presenças elementais Porte: Comu",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -11146,7 +11146,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Presença de pressão. Adjacentes sofrem -1 em Furtividade.",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -11243,7 +11243,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Comum Natureza: manifestação da Sombra Porte: Comum Papel tático: Dan",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -11325,7 +11325,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Outra saída: reunir testemunhas, aceitar uma verdade dolorosa ou devolver autori",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -11350,7 +11350,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Comum Natureza: predador da Sombra Porte: Grande Papel tático: Assimi",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -11461,7 +11461,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Comum Natureza: manifestação relacional da Sombra Porte: Pequeno Pape",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -11555,7 +11555,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Ressonância: o hospedeiro pode reformular a Promessa com testemunha e expulsá-lo",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -11568,7 +11568,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Outra saída: reparação voluntária, devolução de autonomia, testemunho comunitári",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -11593,7 +11593,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Comum Natureza: simulacro da Sombra Porte: Comum Papel tático: Duelo",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -11685,7 +11685,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Comum Natureza: fauna do Mundo da Escuridão Porte: Grande Papel tátic",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -11780,7 +11780,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Comum Natureza: fauna do Mundo da Luz Porte: Grande Papel tático: Mob",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -11877,7 +11877,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Comum Natureza: fauna anfíbia ligada a inscrições Dóreas Porte: Grand",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -11974,7 +11974,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Comum Natureza: fauna de correspondência Porte: Grande Papel tático:",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -12092,7 +12092,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Comum Natureza: sobrevivente de experimento ou corrupção Porte: Comum",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -12186,7 +12186,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Ressonância: uma testemunha pode devolver presença por meio de nome e vínculo",
     "capítulo": "Sumário",
     "seção": "PARTE IV - ADVERSÁRIOS COMUNS",
@@ -12199,7 +12199,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Elite Natureza: Lightbringer com Trilha de Guardião Porte: Comum Pape",
     "capítulo": "Sumário",
     "seção": "PARTE V - ELITES",
@@ -12322,7 +12322,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Elite Natureza: Lightbringer com Trilha de Duelista Porte: Comum Pape",
     "capítulo": "Sumário",
     "seção": "PARTE V - ELITES",
@@ -12471,7 +12471,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Elite Natureza: Lightbringer com Trilha de Atirador Porte: Comum Pape",
     "capítulo": "Sumário",
     "seção": "PARTE V - ELITES",
@@ -12585,7 +12585,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Elite Natureza: Lightbringer com Trilha de Tecelão Porte: Comum Papel",
     "capítulo": "Sumário",
     "seção": "PARTE V - ELITES",
@@ -12723,7 +12723,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Elite Natureza: Lightbringer com Trilha de Curador Porte: Comum Papel",
     "capítulo": "Sumário",
     "seção": "PARTE V - ELITES",
@@ -13006,7 +13006,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Elite Natureza: Lightbringer com Trilha de Artífice Porte: Comum Pape",
     "capítulo": "Sumário",
     "seção": "PARTE V - ELITES",
@@ -13156,7 +13156,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Elite Natureza: Lightbringer com Trilha de Batedor Porte: Comum Papel",
     "capítulo": "Sumário",
     "seção": "PARTE V - ELITES",
@@ -13258,7 +13258,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Ressonância: o caderno revela testemunho suficiente para mudar de lado",
     "capítulo": "Sumário",
     "seção": "PARTE V - ELITES",
@@ -13271,7 +13271,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Outra saída: oferecer rota de retirada para todos, proteger testemunhas ou usar",
     "capítulo": "Sumário",
     "seção": "PARTE V - ELITES",
@@ -13284,7 +13284,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Elite Natureza: Nomos ou construto capturado pela Sombra Porte: Grand",
     "capítulo": "Sumário",
     "seção": "PARTE V - ELITES",
@@ -13434,7 +13434,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Elite Natureza: Vitrálio em Quebra Frequencial Porte: Comum Papel tát",
     "capítulo": "Sumário",
     "seção": "PARTE V - ELITES",
@@ -13548,7 +13548,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "A testemunha que edita pessoas até caberem no arquivo",
     "capítulo": "Sumário",
     "seção": "PARTE V - ELITES",
@@ -13561,7 +13561,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Elite Natureza: Aelvari ou agente alterado pela Sombra Porte: Comum P",
     "capítulo": "Sumário",
     "seção": "PARTE V - ELITES",
@@ -13647,7 +13647,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Inserir dúvida. Força repetição de um teste de conhecimento bem-sucedido; o novo",
     "capítulo": "Sumário",
     "seção": "PARTE V - ELITES",
@@ -13684,7 +13684,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Outra saída: devolver autoria, reunir múltiplos testemunhos ou destruir o privil",
     "capítulo": "Sumário",
     "seção": "PARTE V - ELITES",
@@ -13697,7 +13697,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Categoria: Elite Natureza: Teriante corrompido ou manifestação da Sombra Porte:",
     "capítulo": "Sumário",
     "seção": "PARTE V - ELITES",
@@ -13948,7 +13948,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Categoria: Chefe Natureza: célula dirigente da Facção Científica Porte: Comum e",
     "capítulo": "Sumário",
     "seção": "PARTE VI - CHEFES E AMEAÇAS SINGULARES",
@@ -13973,7 +13973,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Os dirigentes possuem cobertura forte e usam subordinados. Provas apresentadas r",
     "capítulo": "Sumário",
     "seção": "PARTE VI - CHEFES E AMEAÇAS SINGULARES",
@@ -14035,7 +14035,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Purga de todos os nomes. Um relógio de 4 segmentos começa. Ao completar, arquivo",
     "capítulo": "Sumário",
     "seção": "PARTE VI - CHEFES E AMEAÇAS SINGULARES",
@@ -14063,7 +14063,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Amparo protege testemunhas e recupera memórias.",
     "capítulo": "Sumário",
     "seção": "PARTE VI - CHEFES E AMEAÇAS SINGULARES",
@@ -14076,7 +14076,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Vitória além do dano: preservar prova, garantir testemunho e desmontar capacidad",
     "capítulo": "Sumário",
     "seção": "PARTE VI - CHEFES E AMEAÇAS SINGULARES",
@@ -14241,7 +14241,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Vitória além do dano: quebrar o símbolo sem apagar a pessoa, converter a vitória",
     "capítulo": "Sumário",
     "seção": "PARTE VI - CHEFES E AMEAÇAS SINGULARES",
@@ -14300,7 +14300,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "A memória original aparece. O núcleo pode ser destruído, mas isso apagaria regis",
     "capítulo": "Sumário",
     "seção": "PARTE VI - CHEFES E AMEAÇAS SINGULARES",
@@ -14399,7 +14399,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Fase 1 - Salão do testemunho",
     "capítulo": "Sumário",
     "seção": "PARTE VI - CHEFES E AMEAÇAS SINGULARES",
@@ -14414,7 +14414,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Cada personagem que recusa revelar algo sofre Pressão 1; revelar voluntariamente",
     "capítulo": "Sumário",
     "seção": "PARTE VI - CHEFES E AMEAÇAS SINGULARES",
@@ -14500,7 +14500,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Vitória além do dano: transformar a Catedral em lugar de testemunho voluntário e",
     "capítulo": "Sumário",
     "seção": "PARTE VI - CHEFES E AMEAÇAS SINGULARES",
@@ -15015,7 +15015,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "usar mapa e testemunho dos dois mundos",
     "capítulo": "Sumário",
     "seção": "PARTE VII - FENÔMENOS E PERIGOS",
@@ -15028,7 +15028,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "realizar teste coletivo de travessia",
     "capítulo": "Sumário",
     "seção": "PARTE VII - FENÔMENOS E PERIGOS",
@@ -15157,7 +15157,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "1-2: comunicação sofre Pressão 1.",
     "capítulo": "Sumário",
     "seção": "PARTE VII - FENÔMENOS E PERIGOS",
@@ -15296,7 +15296,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "reivindicar nome e vínculo com testemunha",
     "capítulo": "Sumário",
     "seção": "PARTE VII - FENÔMENOS E PERIGOS",
@@ -15347,7 +15347,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Resolução: desmontar quatro emissores ou concluir teste coletivo de Integridade",
     "capítulo": "Sumário",
     "seção": "PARTE VII - FENÔMENOS E PERIGOS",
@@ -15399,7 +15399,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "5: testemunhas são classificadas como inválidas.",
     "capítulo": "Sumário",
     "seção": "PARTE VII - FENÔMENOS E PERIGOS",
@@ -15414,7 +15414,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "usar testemunho vivo",
     "capítulo": "Sumário",
     "seção": "PARTE VII - FENÔMENOS E PERIGOS",
@@ -15478,7 +15478,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "reformular promessa com testemunhas legítimas",
     "capítulo": "Sumário",
     "seção": "PARTE VII - FENÔMENOS E PERIGOS",
@@ -15912,7 +15912,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "no início da rodada, teste Integridade 15: em falha, o Impulso escolhe a ação;",
     "capítulo": "Sumário",
     "seção": "PARTE VIII - MODELOS DE ADAPTAÇÃO",
@@ -16016,7 +16016,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Intensidade: severo social/tático Composição: Inquisidor de Registro, Redator de",
     "capítulo": "Sumário",
     "seção": "PARTE IX - ENCONTROS PRONTOS",
@@ -16057,7 +16057,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Intensidade: difícil Composição: Guardião Kragor, 4 Soldados de Juramento Quebra",
     "capítulo": "Sumário",
     "seção": "PARTE IX - ENCONTROS PRONTOS",
@@ -16073,7 +16073,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Intensidade: difícil Composição: Lightbringer Batedor, Lightbringer Atirador, 2",
     "capítulo": "Sumário",
     "seção": "PARTE IX - ENCONTROS PRONTOS",
@@ -16353,7 +16353,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Teste",
     "capítulo": "Sumário",
     "seção": "Teste",
@@ -16366,7 +16366,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Luz + Escuridão + Atributo + Perícia contra Dificuldade",
     "capítulo": "Sumário",
     "seção": "Teste",
@@ -16391,7 +16391,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Dificuldades e margem",
     "capítulo": "Sumário",
     "seção": "Dificuldades e margem",
@@ -16500,7 +16500,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Fôlego: reação adicional, levantar, ignorar Pressão, mover depois da ação ou con",
     "capítulo": "Sumário",
     "seção": "Turno, recursos e Trilhas",
@@ -16685,7 +16685,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Esta seção reúne 223 verbetes humanos diretamente atestados na expansão e em seu",
     "capítulo": "Sumário",
     "seção": "DICIONÁRIO CONVERSACIONAL 2.0",
@@ -16737,7 +16737,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Os casos abaixo são exercícios editoriais construídos apenas com gramática e léx",
     "capítulo": "Sumário",
     "seção": "CORPUS DE VALIDAÇÃO HUMANA",
@@ -16752,7 +16752,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Teste negativo deliberado",
     "capítulo": "Sumário",
     "seção": "CORPUS DE VALIDAÇÃO HUMANA",
@@ -16827,7 +16827,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Atirador: Recorda trajetórias antigas inscritas em ruínas e se recusa a disparar",
     "capítulo": "Sumário",
     "seção": "CONCLUSÃO",
@@ -16888,7 +16888,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Atirador: Faz vento, calor ou pressão participarem da trajetória e assume respon",
     "capítulo": "Sumário",
     "seção": "CONCLUSÃO",
@@ -16913,7 +16913,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Curador: Reconhece como temperatura, pressão e matéria registram trauma e devolv",
     "capítulo": "Sumário",
     "seção": "CONCLUSÃO",
@@ -17046,7 +17046,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Batedor: Lê pontes, muros e estradas como testemunhas, descobrindo rotas pela me",
     "capítulo": "Sumário",
     "seção": "CONCLUSÃO",
@@ -17179,7 +17179,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Chave: objeto, gesto, relação ou símbolo que sustenta uma Trilha de Ofício.\nCoro",
     "capítulo": "Sumário",
     "seção": "CONCLUSÃO",
@@ -17192,7 +17192,7 @@
     "categoria_refinada": "impulso_pressao"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "O passado de KALLISTIS possui fatos, testemunhos e disputas. Sua geografia possu",
     "capítulo": "Sumário",
     "seção": "Encerramento",
@@ -17283,7 +17283,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "11. Consequências, condições e testes prolongados",
     "capítulo": "",
     "seção": "",
@@ -17642,7 +17642,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "pressão corpo a corpo e dano concentrado",
     "capítulo": "",
     "seção": "",
@@ -17901,7 +17901,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Disparo de Supressão",
     "capítulo": "",
     "seção": "",
@@ -17914,7 +17914,7 @@
     "categoria_refinada": "impulso_pressao"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Escolha uma área 3 x 3 a até o alcance da arma. Inimigos que agirem fora de cobe",
     "capítulo": "",
     "seção": "",
@@ -17995,7 +17995,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Faça teste oposto de Sintonia + Magia contra uma magia visível. Em sucesso, canc",
     "capítulo": "",
     "seção": "",
@@ -18039,7 +18039,7 @@
     "classificacao": "menção_narrativa"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Uma magia recebe uma segunda Tradição e um efeito secundário coerente: mover 1 c",
     "capítulo": "",
     "seção": "",
@@ -18055,7 +18055,7 @@
     "categoria_refinada": "impulso_pressao"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Sustente duas magias ao mesmo tempo e ignore o primeiro teste de Concentração pr",
     "capítulo": "",
     "seção": "",
@@ -18084,7 +18084,7 @@
     "classificacao": "menção_narrativa"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Examine até três criaturas próximas. Saiba quem está em maior risco e conceda +2",
     "capítulo": "",
     "seção": "",
@@ -18282,7 +18282,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Um recurso conta como qualquer ferramenta adequada e concede +2 ao teste corresp",
     "capítulo": "",
     "seção": "",
@@ -18384,7 +18384,7 @@
     "classificacao": "menção_narrativa"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Você e aliados próximos ignoram o primeiro trecho de terreno difícil e recebem +",
     "capítulo": "",
     "seção": "",
@@ -18681,7 +18681,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "não há pressão relevante",
     "capítulo": "",
     "seção": "",
@@ -18778,7 +18778,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Testemunho",
     "capítulo": "",
     "seção": "",
@@ -18803,7 +18803,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "a cena atrai autoridade, testemunhas ou julgamento",
     "capítulo": "",
     "seção": "",
@@ -19020,7 +19020,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "influência, liderança, expressão, intimidação",
     "capítulo": "",
     "seção": "",
@@ -19225,7 +19225,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Teste",
     "capítulo": "",
     "seção": "",
@@ -19238,7 +19238,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Guarda, Fortitude, Integridade ou Dificuldade",
     "capítulo": "",
     "seção": "",
@@ -19338,7 +19338,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Mão de Pressão",
     "capítulo": "",
     "seção": "",
@@ -19631,7 +19631,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Você recebe 1 Pressão em Sintonia.",
     "capítulo": "",
     "seção": "",
@@ -19646,7 +19646,7 @@
     "categoria_refinada": "impulso_pressao"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Veja impressão emocional recente de objeto ou lugar; não revela verdade total.",
     "capítulo": "",
     "seção": "",
@@ -19659,7 +19659,7 @@
     "categoria_refinada": "impulso_pressao"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Protege objeto ou passagem por condição declarada; avisa e impõe Pressão 2 ao vi",
     "capítulo": "",
     "seção": "",
@@ -19710,7 +19710,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Teste Integridade; base 3 ×2 de Lucidez ou condição Abalado.",
     "capítulo": "",
     "seção": "",
@@ -20032,7 +20032,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Abre passagem entre posições correspondentes. Exige Âncora, destino, teste e cus",
     "capítulo": "",
     "seção": "",
@@ -20116,7 +20116,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Inscreva promessa que concede +3 a ações coerentes e impõe Pressão 3 a violações",
     "capítulo": "",
     "seção": "",
@@ -20132,7 +20132,7 @@
     "categoria_refinada": "impulso_pressao"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Inclua testemunha, condição de encerramento ou proteção material.",
     "capítulo": "",
     "seção": "",
@@ -20145,7 +20145,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "Impulso pode dominar",
     "capítulo": "",
     "seção": "",
@@ -20268,7 +20268,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "pedra de pacto testemunhado",
     "capítulo": "",
     "seção": "",
@@ -20310,7 +20310,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "testemunhar sem impor uma versão",
     "capítulo": "",
     "seção": "",
@@ -20624,7 +20624,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "+1 em um teste mágico específico uma vez por cena",
     "capítulo": "",
     "seção": "",
@@ -20782,7 +20782,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "recupera 2 Fluxo; depois Pressão 2 em Sintonia até pausa",
     "capítulo": "",
     "seção": "",
@@ -20975,7 +20975,7 @@
     "classificacao": "definição_canônica"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "pressão numérica, alarme, terreno",
     "capítulo": "",
     "seção": "",
@@ -21024,7 +21024,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "redução a impulso",
     "capítulo": "",
     "seção": "",
@@ -21037,7 +21037,7 @@
     "categoria_refinada": "impulso_pressao"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "Patrulheiro Lightbringer escolta uma testemunha",
     "capítulo": "",
     "seção": "",
@@ -21050,7 +21050,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "grupo Aelvari busca testemunha perdida",
     "capítulo": "",
     "seção": "",
@@ -21135,7 +21135,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "testemunho, acesso, divisão interna",
     "capítulo": "",
     "seção": "",
@@ -21148,7 +21148,7 @@
     "categoria_refinada": "teste_central"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "mudança política, segurança de testemunhas",
     "capítulo": "",
     "seção": "",
@@ -21413,7 +21413,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "testemunha, nomeador preciso",
     "capítulo": "",
     "seção": "",
@@ -21450,7 +21450,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "impulso_pressao",
     "nome": "expressão",
     "capítulo": "",
     "seção": "",
@@ -21739,7 +21739,7 @@
     "classificacao": "regra_derivada"
   },
   {
-    "categoria": "formula_central",
+    "categoria": "teste_central",
     "nome": "O teste usa Dado da Luz + Dado da Escuridão + Atributo + Perícia.",
     "capítulo": "",
     "seção": "",
