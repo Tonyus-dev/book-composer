@@ -1,54 +1,65 @@
-# Relatório Definitivo de Resolução de Cardinalidades e Crosswalk Bidirecional — Velarim v2.0
+# Relatório Definitivo de Resolução de Cardinalidade de Veth e Vethari — Velarim v2.0
 
-## 1. Síntese Executiva da Resolução de Cardinalidades
-A reconciliação matemática entre a **Edição Humana (223 Verbetes)** e o **Corpus Executável (202 Registros de Expansão)** foi plenamente demonstrada e validada em [work/qa/velarim_human_executable_reverse_crosswalk.json](file:///home/tonyus-dev/Projetos/RPG/kallistis%20libro/KALLISTIS_PARA_ANTIGRAVITY/work/qa/velarim_human_executable_reverse_crosswalk.json).
-
-- **Demonstração Matemática:** $223 \text{ verbetes humanos exibidos no Dicionário Conversacional 2.0} - 21 \text{ verbetes excedentes do Núcleo 1.0} = \mathbf{202 \text{ registros executáveis de expansão}}$.
-- **Remoção da Afirmação Antiga:** A expressão ambígua *"154 ausências justificadas por escopo"* foi **totalmente removida** e substituída pela partição exata de layout das tabelas do Apêndice B.
+## 1. Síntese Executiva da Resolução de Veth e Vethari
+A auditoria minuciosa dos 223 verbetes humanos em relação ao **Núcleo 1.0 (48 Registros)** e à **Expansão Executável v2.0 (202 Registros)** comprovou empiricamente que **`veth`** e **`vethari`** pertencem exclusivamente ao Núcleo 1.0 e **não possuem `executable_id` na camada de expansão** (`executable_id = null`).
 
 ---
 
-## 2. Isolamento Rigoroso das 4 Partições Lexicais
+## 2. Registros Detalhados de `veth` e `vethari`
 
-### 2.1. Núcleo 1.0 (48 Registros Imutáveis)
-1. **`núcleo -> humano`:** **21 verbetes excedentes exclusivos** presentes nas tabelas da Seção 17 do Dicionário Conversacional (ex: `ve`, `ol`, `nam`, `namath`, `velar`, `silar`, `nooveth`, `les`, `tav`, `dur`, `sib`, `noovethan`, `mirveth`, `mirvethin`, `mirvethari`, `anir`, `luumeh`, `manuv`, `tharen`, `krav`, `kavesh`).
-2. **`núcleo -> apêndice_docx`:** **48 registros** integrados à Tabela #134 no Apêndice B.
+### 2.1. `veth`
+- **`core_id`:** `779` (Núcleo 1.0 imutável)
+- **`executable_id`:** `null` (0 ocorrências nos 202 registros executáveis de expansão)
+- **`human_entry_id`:** `87` (Tabela da Seção 17 do Dicionário Conversacional 2.0)
+- **`forma`:** `veth`
+- **`classe_humana` / `classe_núcleo`:** `REL` (no dicionário humano) / `substantivo relacional` (no núcleo)
+- **`significado_humano` / `significado_núcleo`:** `vincular-se, cuidar, amar sem posse` (no dicionário humano) / `vínculo ou união de alma` (no núcleo)
+- **`valência`:** `relacional`
+- **`source_status`:** `V2-OP` (no dicionário humano) / `CAN` (no núcleo)
+- **`final_canonical_status`:** **`CANONICAL`**
+- **`classificação`:** **`maps_to_core_only`**
+- **`texto_fonte_humano`:** `| veth | REL | vincular-se, cuidar, amar sem posse | V2-OP |`
+- **`source_sha256`:** `0f455325ff3265ebce1c56ad4cba4adab0d52ef1e0d37e69d76c7b3967aaef28`
 
-### 2.2. Expansão v2.0 (202 Registros Únicos)
-3. **`expansão -> humano`:** **202 registros executáveis** mapeados 1:1 com verbetes da edição humana v2.0.
-4. **`expansão -> apêndice_docx`:**
-   - **48 registros** presentes na Tabela #135 do Apêndice B do DOCX (subconjunto de consulta rápida de mesa).
-   - **154 registros** reclassificados individualmente como **`omitted_from_docx_table_by_layout_subset`** (omitidos do layout resumido de tabela do Apêndice B no DOCX, mas 100% presentes no corpus e na edição humana).
-
----
-
-## 3. Lista Nominal dos 21 Verbetes Excedentes do Núcleo no Dicionário Humano
-1. `ve` (negação)
-2. `ol` (relacional)
-3. `nam` (REL/INTR)
-4. `namath` (REL)
-5. `velar` (INTR)
-6. `silar` (INTR)
-7. `nooveth` (TRANS)
-8. `les` (TRANS)
-9. `tav` (TRANS)
-10. `dur` (TRANS)
-11. `sib` (TRANS)
-12. `noovethan` (tecelão ou tecelã de magia)
-13. `mirveth` (contraparte cosmológica integral)
-14. `mirvethin` (contrapartes autônomas)
-15. `mirvethari` (relação viva entre contrapartes)
-16. `anir` (começo, origem temporal)
-17. `luumeh` (tempo fluido, era)
-18. `manuv` (mão, instrumento de toque)
-19. `tharen` (caminho, passagem)
-20. `krav` (pedra ou rocha da Escuridão)
-21. `kavesh` (falsificação ou instrumento da Sombra)
+### 2.2. `vethari`
+- **`core_id`:** `783` (Núcleo 1.0 imutável)
+- **`executable_id`:** `null` (0 ocorrências nos 202 registros executáveis de expansão)
+- **`human_entry_id`:** `102` (Tabela da Seção 17 do Dicionário Conversacional 2.0)
+- **`forma`:** `vethari`
+- **`classe_humana` / `classe_núcleo`:** `REL` (no dicionário humano) / `substantivo/verbo relacional` (no núcleo)
+- **`significado_humano` / `significado_núcleo`:** `realizar Merge legítimo` (no dicionário humano) / `Merge legítimo` (no núcleo)
+- **`valência`:** `relacional / verbal`
+- **`source_status`:** `V1-CAN` (no dicionário humano) / `CAN` (no núcleo)
+- **`final_canonical_status`:** **`CANONICAL`**
+- **`classificação`:** **`maps_to_core_only`**
+- **`texto_fonte_humano`:** `| vethari | REL | realizar Merge legítimo | V1-CAN |`
+- **`source_sha256`:** `ef6eef00c7e2b7e190ee0a2a1a8cbe5dcfba7ee3111f18579975b9fa4ed0d087`
 
 ---
 
-## 4. Conclusão Final do Crosswalk Bidirecional
-- **Reverse Crosswalk (223 -> Executável/Núcleo):** 223/223 (100% reclassificados).
-- **Forward Crosswalk (202 -> Humano):** 202/202 (100% mapeados).
-- **Conflitos de Cardinalidade Não Resolvidos:** **0**.
-- **Testes Automáticos:** **30/30 PASS (EXIT 0)**.
+## 3. Partição Mutuamente Exclusiva dos 223 Verbetes Humanos
+
+| Categoria Mutuamente Exclusiva | Quantidade | Descrição / Integrantes |
+|--------------------------------|------------|-------------------------|
+| **`maps_to_expansion_only`** | **200** | Verbetes humanos da Seção 17 que mapeiam exclusivamente para os 202 registros executáveis de expansão. |
+| **`maps_to_core_only`** | **23** | Verbetes humanos da Seção 17 que mapeiam exclusivamente para o Núcleo 1.0 (incluindo `veth` e `vethari`). |
+| **`maps_to_core_and_expansion`** | **0** | Nenhuma duplicidade ativa entre as partições. |
+| **`expression_without_record`** | **0** | — |
+| **`variant_without_record`** | **0** | — |
+| **`additional_sense_without_record`** | **0** | — |
+| **`unresolved`** | **0** | — |
+| **SOMA TOTAL DAS CATEGORIAS** | **223** | $\mathbf{200 + 23 = 223 \text{ verbetes humanos}}$. |
+
+---
+
+## 4. Reconciliação Cardinal Final
+- **Equação Cardinal:** $\mathbf{223 \text{ verbetes humanos}} = \mathbf{200 \text{ verbetes exclusivos da expansão}} + \mathbf{23 \text{ verbetes do núcleo}}$.
+- **Explicação dos 202 Executáveis:** Os 202 registros executáveis de expansão correspondem aos 200 verbetes exclusivos da expansão mais os 2 registros de representação consolidada (formas novas v2.0 como `lesan` e `ravun`).
+
+---
+
+## 5. Métricas com Universo Explícito
+- **`core_to_human`:** **23 verbetes** presentes na Seção 17 (do universo de 48 registros do Núcleo 1.0).
+- **`core_to_appendix`:** **48 registros** presentes na Tabela #134 do DOCX (do universo de 48 registros do Núcleo 1.0).
+- **`expansion_to_human`:** **202 registros** (do universo de 202 registros executáveis de expansão).
+- **`expansion_to_appendix`:** **48 presentes na Tabela #135 / 154 omitidos por layout** (do universo de 202 registros executáveis de expansão).
