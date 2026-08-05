@@ -353,6 +353,65 @@ Um capítulo só está estilisticamente aprovado quando:
 - foi comparado ao texto-fonte;
 - foi renderizado e lido em contexto.
 
+## O linter é apenas diagnóstico
+
+Um padrão identificado pelo linter não deve ser removido automaticamente.
+
+A presença de:
+- “não apenas”;
+- “mais do que”;
+- paralelismo;
+- tríade;
+- frase longa;
+- repetição deliberada;
+
+não constitui erro por si só.
+
+Antes de alterar um padrão, o agente deve demonstrar que a nova versão melhora simultaneamente:
+- precisão;
+- naturalidade;
+- ritmo;
+- sentido;
+- voz autoral.
+
+Se a nova frase apenas reduz um alerta, preserve o original.
+
+## Regra de superioridade demonstrável
+
+Uma alteração literária só pode ser aplicada quando a versão revisada for claramente superior à original.
+
+Compare obrigatoriamente:
+1. força da imagem;
+2. precisão semântica;
+3. naturalidade;
+4. ritmo em leitura oral;
+5. coerência com o parágrafo;
+6. coerência com o capítulo;
+7. fidelidade à voz do autor.
+
+Em caso de empate, preserve o original.
+
+## Proibição de escrita para métricas
+
+Não altere texto para:
+- reduzir contagem de padrões;
+- diminuir número de palavras;
+- variar sintaxe artificialmente;
+- produzir diferença visível;
+- provar que houve revisão;
+- satisfazer o linter.
+
+Um capítulo pode ser aprovado com zero alterações.
+
+## Teste de reversão
+
+Depois de cada alteração, compare:
+- original;
+- revisado;
+- original novamente.
+
+Caso o retorno ao original produza mais força, naturalidade ou precisão, rejeite a alteração.
+
 ## Uso de ferramentas
 
 Execute:

@@ -29,3 +29,9 @@
 - [ ] A prosa não soa publicitária.
 - [ ] O encerramento não repete a abertura.
 - [ ] Nenhum placeholder permanece.
+- [ ] A alteração melhora o texto, e não apenas o relatório do linter.
+- [ ] A frase revisada soa natural quando lida em voz alta.
+- [ ] Nenhuma inversão artificial foi criada para evitar um padrão.
+- [ ] Comparei a versão revisada novamente com o original.
+- [ ] Em caso de ganho duvidoso, preservei o original.
+- [ ] Aceitei que revisão integral não significa alteração integral.
