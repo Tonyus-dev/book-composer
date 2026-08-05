@@ -3,10 +3,22 @@
     "source_extraction_matches": 202,
     "human_dictionary_crosswalk_matches": 202,
     "appendix_literal_matches": 48,
-    "appendix_consolidated_matches": 154,
-    "appendix_layout_scope_missing": 154,
+    "appendix_table_matches": 48,
+    "appendix_layout_omitted_items": 154,
     "approval_scope_covered": 202,
+    "excess_human_core_verbetes": 21,
     "unresolved": 0
   },
-  "crosswalk_reference": "work/qa/velarim_executable_human_crosswalk.json"
+  "partitions": {
+    "nucleo_total": 48,
+    "nucleo_para_humano_raw_count": 23,
+    "nucleo_para_humano_exclusive_count": 21,
+    "nucleo_para_apendice_docx_count": 48,
+    "expansao_total": 202,
+    "expansao_para_humano_count": 202,
+    "expansao_para_apendice_docx_present_count": 48,
+    "expansao_para_apendice_docx_omitted_count": 154
+  },
+  "crosswalk_reference": "work/qa/velarim_executable_human_crosswalk.json",
+  "reverse_crosswalk_reference": "work/qa/velarim_human_executable_reverse_crosswalk.json"
 }

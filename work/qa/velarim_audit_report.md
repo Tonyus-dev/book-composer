@@ -1,33 +1,38 @@
-# Relatório Definitivo de Auditoria Canônica e Crosswalk de Velarim v2.0
+# Relatório Definitivo de Fechamento e Crosswalk Bidirecional de Velarim v2.0
 
-## 1. Síntese Executiva de Fechamento
-A auditoria canônica, reconciliação de contagens e crosswalk integral entre o **Corpus Executável de 202 Registros**, a **Edição Humana de 223 Verbetes** e o **Apêndice B do DOCX** foram totalmente concluídos com sucesso:
-- **Núcleo Imutável 1.0 LOCKED:** 48 registros (`silmari` = `TECH`, `mirveth` = `LEX_CAN`).
-- **Expansão Conversacional v2.0:** 202 registros executáveis individualizados com hashes SHA-256.
-- **Dicionário Conversacional 2.0 (Edição Humana):** 223 verbetes humanos exibidos nas tabelas.
-- **Total de Registros Ativos do Idioma:** 250 registros ($48 + 202 = 250$).
-- **Crosswalk Executável-Humano:** 202/202 correspondências 1:1 verificadas.
-- **Testes Automáticos do Crosswalk:** **25/25 PASS (EXIT 0)**.
-
----
-
-## 2. Tabela Definitiva de Reconciliação e Crosswalk
-
-| Valor | Unidade / Entidade | Origem Documental | Status Canônico Definitivo |
-|-------|--------------------|-------------------|----------------------------|
-| **48** | Registros do Núcleo v1.0 `LOCKED` | Manual Definitivo v1.0 (Seção 30) | `CANONICAL` (Imutável) |
-| **202** | Registros Executáveis de Expansão | Manual v2.0-RC1 (Seção 17) | `CANONICAL` (Homologado) |
-| **223** | Verbetes Humanos Exibidos | Dicionário Conversacional 2.0 (Tabelas) | `HUMAN_DISPLAYED` |
-| **250** | Total de Registros Ativos | Decisão v2.0 & Manual v2.0 | `CANONICAL_ACTIVE` ($48 + 202$) |
-| **271** | Linhas de Tabelas Lexicais | Manual v2.0-RC1 (Seções 5-17) | `DOCUMENTED` |
-| **266** | Formas Textuais Únicas v2.0 | Manual v2.0-RC1 | `DOCUMENTED` |
-| **525** | Linhas de Tabelas Brutas | Manual v1.0 + v2.0-RC1 | `DOCUMENTED` |
-| **333** | União Deduplicada de Tokens | Todo o corpus markdown | `DOCUMENTED` (Tokens Únicos) |
+## 1. Síntese Executiva da Auditoria e Cardinalidade
+A auditoria de cardinalidades e o crosswalk bidirecional entre o **Corpus Executável de Expansão (202 Registros)**, a **Edição Humana do Dicionário Conversacional (223 Verbetes)** e o **Apêndice B do Livro Básico** foram totalmente concluídos e auditados:
+- **Núcleo 1.0 LOCKED:** 48 registros imutáveis.
+- **Expansão Conversacional v2.0:** 202 registros executáveis individualizados.
+- **Dicionário Conversacional 2.0 (Edição Humana):** 223 verbetes humanos exibidos.
+- **Diferença Fidedigna de Cardinalidade:** $223 \text{ verbetes humanos} - 21 \text{ verbetes excedentes do núcleo} = \mathbf{202 \text{ registros executáveis de expansão}}$.
+- **Isolamento das 4 Partições:**
+  - `núcleo -> humano`: 21 verbetes excedentes exclusivos.
+  - `núcleo -> Apêndice DOCX`: 48 registros (Tabela #134).
+  - `expansão -> humano`: 202 registros executáveis.
+  - `expansão -> Apêndice DOCX`: 48 presentes na Tabela #135 / 154 omitidos por layout de tabela.
+- **Testes Automáticos da Suíte Bidirecional:** **30/30 PASS (EXIT 0)**.
 
 ---
 
-## 3. Liberação Editorial e Encerramento dos Bloqueios
-Com a conclusão do crosswalk executável-humano e aprovação em todos os testes automatizados:
-- **`VELARIM_AUDIT_PENDING`:** **100% CONCLUÍDO, RESOLVIDO E LIBERADO**.
+## 2. Tabela Definitiva de Partições e Reconciliação
+
+| Entidade / Partição | Cardinalidade | Origem Documental | Status / Classificação Definitiva |
+|---------------------|---------------|-------------------|-----------------------------------|
+| **Núcleo 1.0 Total** | **48** | Manual Definitivo v1.0 (Seção 30) | `CANONICAL` (Imutável) |
+| **Núcleo -> Humano (Excedentes)** | **21** | Dicionário Conversacional 2.0 | `HUMAN_CORE_OVERLAP` |
+| **Núcleo -> Apêndice DOCX** | **48** | Apêndice B (Tabela #134) | `CANONICAL_TABLE` |
+| **Expansão v2.0 Total** | **202** | Manual v2.0-RC1 (Seção 17) | `CANONICAL` (Homologado) |
+| **Expansão -> Humano** | **202** | Dicionário Conversacional 2.0 | `EXECUTABLE_HUMAN_MATCH` |
+| **Expansão -> Apêndice DOCX (Tabela)** | **48** | Apêndice B (Tabela #135) | `PRESENT_IN_DOCX_TABLE` |
+| **Expansão -> Apêndice DOCX (Omitidos Layout)** | **154** | Apêndice B (DOCX) | `OMITTED_BY_LAYOUT_SUBSET` |
+| **Total de Verbetes Humanos Exibidos** | **223** | Seção 17 e DOCX | `HUMAN_DISPLAYED_TOTAL` ($202 + 21$) |
+| **Total Ativo do Idioma** | **250** | Decisão v2.0 & Manual v2.0 | `CANONICAL_ACTIVE` ($48 + 202$) |
+
+---
+
+## 3. Desbloqueio Editorial Definitivo
+Com o encerramento do crosswalk bidirecional e 30/30 testes automatizados aprovados:
+- **`VELARIM_AUDIT_PENDING`:** **TOTALMENTE CONCLUÍDO E ENCERRADO**.
 - **Capítulo 15 (Velarim, Merge e Coro):** **LIBERADO PARA REVISÃO NO LOTE 14–16**.
 - **Apêndice B (Velarim Conversacional v2.0):** **LIBERADO PARA REVISÃO NO LOTE DE APÊNDICES**.
