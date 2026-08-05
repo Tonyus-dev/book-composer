@@ -1,0 +1,12 @@
+{
+  "chapter": "Capítulo 12",
+  "docx_paragraphs_count": 48,
+  "text_identical": true,
+  "words_diff": 0,
+  "sentences_diff": 0,
+  "blocks_diff": 0,
+  "alerts_diff": 0,
+  "explanation": "Prosa mantida 100% idêntica ao original. Diferenças de contagem entre parágrafos Word e blocos de linter decorrem de separações por quebras de linha em estilo_lint.py.",
+  "linter_text_blocks_count": 57,
+  "discrepancy_explanation": "Os 48 parágrafos do Word representam os elementos <w:p> do XML do DOCX no intervalo. Ao extrair o texto para análise do linter, a presença de marcadores de lista e quebras manuais resulta em 57 blocos de texto divididos por \\n+."
+}

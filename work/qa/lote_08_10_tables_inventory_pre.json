@@ -1,0 +1,578 @@
+[
+  {
+    "global_idx": 18,
+    "chapter": "Capítulo 8",
+    "rows": 8,
+    "cols": 3,
+    "headers": [
+      "Dificuldade",
+      "Valor",
+      "Situação"
+    ],
+    "content_sha256": "2f4ca4caf38ac904ff46b10191755dd2dd1690aaf74cf04c95a9ab5ccb29ba0a",
+    "full_rows": [
+      [
+        "Dificuldade",
+        "Valor",
+        "Situação"
+      ],
+      [
+        "Simples",
+        "10",
+        "não há pressão relevante"
+      ],
+      [
+        "Favorável",
+        "12",
+        "tarefa treinada em boas condições"
+      ],
+      [
+        "Incerta",
+        "15",
+        "risco real"
+      ],
+      [
+        "Difícil",
+        "18",
+        "oposição competente"
+      ],
+      [
+        "Severa",
+        "21",
+        "circunstância extraordinária"
+      ],
+      [
+        "Extrema",
+        "24",
+        "feito excepcional"
+      ],
+      [
+        "Lendária",
+        "27",
+        "limite humano ou cosmológico"
+      ]
+    ]
+  },
+  {
+    "global_idx": 19,
+    "chapter": "Capítulo 8",
+    "rows": 6,
+    "cols": 3,
+    "headers": [
+      "Resultado",
+      "Margem",
+      "Efeito"
+    ],
+    "content_sha256": "9dd62884341c0d78704711f9864042d9ef8f1dfd2eb435865d1dbcfbae43a71f",
+    "full_rows": [
+      [
+        "Resultado",
+        "Margem",
+        "Efeito"
+      ],
+      [
+        "Falha severa",
+        "-5 ou menos",
+        "a situação piora de forma significativa"
+      ],
+      [
+        "Falha",
+        "-1 a -4",
+        "não consegue ou consegue pagando custo alto"
+      ],
+      [
+        "Sucesso",
+        "0 a +4",
+        "realiza o objetivo"
+      ],
+      [
+        "Sucesso forte",
+        "+5 a +9",
+        "realiza e obtém benefício"
+      ],
+      [
+        "Sucesso extraordinário",
+        "+10 ou mais",
+        "altera a situação além do esperado"
+      ]
+    ]
+  },
+  {
+    "global_idx": 20,
+    "chapter": "Capítulo 9",
+    "rows": 6,
+    "cols": 3,
+    "headers": [
+      "Diferença entre os dados",
+      "Intensidade",
+      "Uso sugerido"
+    ],
+    "content_sha256": "822698bdc33878be7c17d15c781190fff30e286233ae6b6b27c962b3664e11cf",
+    "full_rows": [
+      [
+        "Diferença entre os dados",
+        "Intensidade",
+        "Uso sugerido"
+      ],
+      [
+        "0",
+        "Ressonância",
+        "as duas forças encontram a mesma frequência"
+      ],
+      [
+        "1-2",
+        "Sutil",
+        "acrescente uma nuance"
+      ],
+      [
+        "3-5",
+        "Clara",
+        "aplique um efeito principal evidente"
+      ],
+      [
+        "6-8",
+        "Intensa",
+        "altere significativamente a cena"
+      ],
+      [
+        "9",
+        "Absoluta",
+        "deixe uma marca difícil de ignorar"
+      ]
+    ]
+  },
+  {
+    "global_idx": 21,
+    "chapter": "Capítulo 9",
+    "rows": 11,
+    "cols": 4,
+    "headers": [
+      "Luz",
+      "Princípio",
+      "Em sucesso",
+      "Em falha ou custo"
+    ],
+    "content_sha256": "a2941ea5a38ffbde5552084401f081350183f34d25cb3281e031d548fbd71293",
+    "full_rows": [
+      [
+        "Luz",
+        "Princípio",
+        "Em sucesso",
+        "Em falha ou custo"
+      ],
+      [
+        "1",
+        "Centelha",
+        "o efeito começa, ainda que pequeno ou incompleto",
+        "a tentativa revela intenção, esforço ou hesitação"
+      ],
+      [
+        "2",
+        "Vestígio",
+        "a ação deixa pista, marca ou evidência útil",
+        "você deixa rastros, provas ou sinais indesejados"
+      ],
+      [
+        "3",
+        "Forma",
+        "algo ganha contorno, função, posição ou definição",
+        "a forma criada é instável, inadequada ou limitada"
+      ],
+      [
+        "4",
+        "Movimento",
+        "alguém ou algo muda de posição, ritmo ou direção",
+        "o movimento cria posição desfavorável"
+      ],
+      [
+        "5",
+        "Exposição",
+        "alvo, fraqueza, mentira ou passagem fica visível",
+        "você, aliado ou recurso fica exposto"
+      ],
+      [
+        "6",
+        "Abertura",
+        "surge oportunidade imediata",
+        "a oposição recebe abertura ou iniciativa"
+      ],
+      [
+        "7",
+        "Impacto",
+        "algo é interrompido, quebrado, deslocado ou forçado",
+        "há recuo, dano colateral ou reação"
+      ],
+      [
+        "8",
+        "Testemunho",
+        "a ação é reconhecida, vista ou registrada",
+        "a cena atrai autoridade, testemunhas ou julgamento"
+      ],
+      [
+        "9",
+        "Transformação",
+        "ambiente ou situação sofre mudança duradoura",
+        "alteração permanente ocorre de modo indesejado"
+      ],
+      [
+        "10",
+        "Manifestação plena",
+        "o efeito se torna incontestável e domina a cena",
+        "a consequência aparece imediatamente e não pode ser ocultada"
+      ]
+    ]
+  },
+  {
+    "global_idx": 22,
+    "chapter": "Capítulo 9",
+    "rows": 11,
+    "cols": 4,
+    "headers": [
+      "Escuridão",
+      "Princípio",
+      "Em sucesso",
+      "Em falha ou custo"
+    ],
+    "content_sha256": "b8c2f50dffe20dab167d1988dea705e24a464c5637cf115c70f15eff8dcf8bd0",
+    "full_rows": [
+      [
+        "Escuridão",
+        "Princípio",
+        "Em sucesso",
+        "Em falha ou custo"
+      ],
+      [
+        "1",
+        "Sussurro",
+        "intuição ou sinal quase imperceptível aparece",
+        "algo importante permanece ambíguo"
+      ],
+      [
+        "2",
+        "Eco",
+        "detalhe do passado ou de outra cena retorna",
+        "eco falso, incompleto ou perturbador interfere"
+      ],
+      [
+        "3",
+        "Contexto",
+        "surge conexão com história, lugar ou instituição",
+        "falta uma peça e cresce o risco de interpretação errada"
+      ],
+      [
+        "4",
+        "Caminho",
+        "aparece rota alternativa ou solução indireta",
+        "a única rota exige custo, atraso ou desvio"
+      ],
+      [
+        "5",
+        "Vínculo",
+        "relação é fortalecida, compreendida ou transformada",
+        "surge tensão, dívida, dependência ou distância"
+      ],
+      [
+        "6",
+        "Segredo",
+        "algo oculto se torna acessível",
+        "o segredo é parcial, perigoso ou também percebe você"
+      ],
+      [
+        "7",
+        "Memória",
+        "o passado retorna de forma útil e atuante",
+        "lembrança dolorosa, distorcida ou indesejada emerge"
+      ],
+      [
+        "8",
+        "Possibilidade",
+        "nova opção futura se torna real",
+        "oportunidade surge para a oposição ou cobra preço"
+      ],
+      [
+        "9",
+        "Profundidade",
+        "causa verdadeira, estrutura ou identidade é revelada",
+        "a revelação desestabiliza crenças, vínculos ou segurança"
+      ],
+      [
+        "10",
+        "Origem",
+        "a ação toca a raiz de relação, fenômeno ou verdade",
+        "dívida profunda, eco ou consequência duradoura desperta"
+      ]
+    ]
+  },
+  {
+    "global_idx": 23,
+    "chapter": "Capítulo 9",
+    "rows": 6,
+    "cols": 3,
+    "headers": [
+      "Grau de resultado",
+      "Luz predomina",
+      "Escuridão predomina"
+    ],
+    "content_sha256": "6934126bde6b6c1f4357416c9ef276f35398f8a653ad35024ffdb4231ed481ef",
+    "full_rows": [
+      [
+        "Grau de resultado",
+        "Luz predomina",
+        "Escuridão predomina"
+      ],
+      [
+        "Falha severa",
+        "desastre visível, quebra, exposição ou reação imediata",
+        "custo profundo, dívida, memória perigosa ou consequência futura"
+      ],
+      [
+        "Falha",
+        "obstáculo material ou público",
+        "complicação contextual ou relacional"
+      ],
+      [
+        "Sucesso",
+        "efeito direto e evidente",
+        "efeito discreto e significativo"
+      ],
+      [
+        "Sucesso forte",
+        "impacto, abertura ou transformação adicional",
+        "segredo, vínculo, oportunidade ou memória adicional"
+      ],
+      [
+        "Sucesso extraordinário",
+        "mudança estrutural ou pública duradoura",
+        "revelação profunda ou possibilidade que altera a campanha"
+      ]
+    ]
+  },
+  {
+    "global_idx": 24,
+    "chapter": "Capítulo 9",
+    "rows": 11,
+    "cols": 3,
+    "headers": [
+      "Dupla",
+      "Nome",
+      "Tema e abertura criativa"
+    ],
+    "content_sha256": "b38ad607c656528383e9b8462cb6ba6accbc6a6ce2dc33a180de5723f7691bac",
+    "full_rows": [
+      [
+        "Dupla",
+        "Nome",
+        "Tema e abertura criativa"
+      ],
+      [
+        "1-1",
+        "Ressonância Frágil",
+        "algo pequeno sobrevive, começa ou recusa desaparecer"
+      ],
+      [
+        "2-2",
+        "Ressonância do Eco",
+        "pista, som, memória ou padrão retorna"
+      ],
+      [
+        "3-3",
+        "Ressonância da Forma",
+        "algo recebe estrutura estável ou significado definido"
+      ],
+      [
+        "4-4",
+        "Ressonância da Passagem",
+        "rota, deslocamento ou transição torna-se possível"
+      ],
+      [
+        "5-5",
+        "Ressonância do Espelho",
+        "relação, correspondência ou identidade é revelada"
+      ],
+      [
+        "6-6",
+        "Ressonância do Acorde",
+        "aliados, forças ou intenções entram em coordenação"
+      ],
+      [
+        "7-7",
+        "Ressonância da Fratura",
+        "defesa, mentira, barreira ou padrão é rompido"
+      ],
+      [
+        "8-8",
+        "Ressonância do Vínculo",
+        "relação é restaurada, transformada ou posta à prova"
+      ],
+      [
+        "9-9",
+        "Ressonância da Convergência",
+        "várias contribuições produzem mudança coletiva"
+      ],
+      [
+        "10-10",
+        "Ressonância Plena",
+        "Luz e Escuridão alteram a cena em escala excepcional"
+      ]
+    ]
+  },
+  {
+    "global_idx": 25,
+    "chapter": "Capítulo 10",
+    "rows": 7,
+    "cols": 2,
+    "headers": [
+      "Atributo",
+      "Função"
+    ],
+    "content_sha256": "d16b70928972473d8c8458abca6143b711e68634ca8d9bd3daa3c9ce31bc34ae",
+    "full_rows": [
+      [
+        "Atributo",
+        "Função"
+      ],
+      [
+        "Corpo",
+        "força, resistência, vigor, impacto"
+      ],
+      [
+        "Agilidade",
+        "precisão, velocidade, equilíbrio, reflexo"
+      ],
+      [
+        "Intelecto",
+        "análise, conhecimento, técnica, planejamento"
+      ],
+      [
+        "Presença",
+        "influência, liderança, expressão, intimidação"
+      ],
+      [
+        "Vontade",
+        "disciplina, coragem, identidade, resistência mental"
+      ],
+      [
+        "Sintonia",
+        "magia, ressonância, Fendas, Velarim e evocações"
+      ]
+    ]
+  },
+  {
+    "global_idx": 26,
+    "chapter": "Capítulo 10",
+    "rows": 7,
+    "cols": 2,
+    "headers": [
+      "Valor",
+      "Significado"
+    ],
+    "content_sha256": "36ab561b584e30107e26fe13fe0d7fac85d8b0beb11de53e9af0cb048967b52a",
+    "full_rows": [
+      [
+        "Valor",
+        "Significado"
+      ],
+      [
+        "0",
+        "comum ou não treinado"
+      ],
+      [
+        "1",
+        "capaz"
+      ],
+      [
+        "2",
+        "competente"
+      ],
+      [
+        "3",
+        "excepcional"
+      ],
+      [
+        "4",
+        "extraordinário"
+      ],
+      [
+        "5",
+        "limite de personagem experiente"
+      ]
+    ]
+  },
+  {
+    "global_idx": 27,
+    "chapter": "Capítulo 10",
+    "rows": 16,
+    "cols": 2,
+    "headers": [
+      "Perícia",
+      "Usos comuns"
+    ],
+    "content_sha256": "f4cb2b0c9e22d320f198bb8a04ee04d733fdbffd0f85e198d921d19238602280",
+    "full_rows": [
+      [
+        "Perícia",
+        "Usos comuns"
+      ],
+      [
+        "Atletismo",
+        "correr, escalar, saltar, quebrar"
+      ],
+      [
+        "Combate",
+        "armas corpo a corpo, agarrar, aparar"
+      ],
+      [
+        "Pontaria",
+        "armas à distância, arremesso, precisão"
+      ],
+      [
+        "Furtividade",
+        "ocultar-se, infiltrar-se, disfarçar movimento"
+      ],
+      [
+        "Percepção",
+        "notar ameaças, rastros, detalhes sensoriais"
+      ],
+      [
+        "Sobrevivência",
+        "orientação, clima, caça, terreno"
+      ],
+      [
+        "Investigação",
+        "conectar pistas, examinar cenas, reconstruir eventos"
+      ],
+      [
+        "Conhecimento",
+        "história, política, povos, ciência, cosmologia"
+      ],
+      [
+        "Ofício",
+        "fabricar, reparar, operar ferramentas e dispositivos"
+      ],
+      [
+        "Influência",
+        "negociar, liderar, enganar, intimidar"
+      ],
+      [
+        "Empatia",
+        "compreender emoções, vínculos e motivações"
+      ],
+      [
+        "Cuidado",
+        "medicina, estabilização, suporte físico e emocional"
+      ],
+      [
+        "Magia",
+        "executar fórmulas e controlar efeitos mágicos"
+      ],
+      [
+        "Evocação",
+        "estabelecer, sustentar e comandar vínculos evocados"
+      ],
+      [
+        "Velarim",
+        "analisar e usar formas linguísticas reconhecidas"
+      ]
+    ]
+  }
+]

@@ -1,386 +1,228 @@
 {
   "chapter": "Capítulo 12 — Combate na grade ortogonal",
-  "total_rules_paragraphs": 48,
-  "rules": [
+  "round_and_turn": [
     {
-      "para_index": 2293,
-      "style": "Kallistis Chapter",
-      "text_literal": "12. Combate na grade ortogonal",
-      "numbers": [
-        12
-      ],
-      "hash": "36102d5937a1d8b57a0e87a460cabde57dbc1a262ffc8ce3af8369a5b0ca9e6f"
-    },
-    {
-      "para_index": 2294,
-      "style": "Kallistis Body Justify",
-      "text_literal": "O combate usa células quadradas ou retangulares para compatibilidade com o Cauldron. A grade é instrumento de posição, não prisão da ficção. Toda cena de combate deve possuir objetivo, terreno e possibilidade de encerramento além da eliminação total.",
-      "numbers": [],
-      "hash": "28ef75d4ee1811093262ab67c4e449d851d20c9bdaf25f2518ae32df74fb84db"
-    },
-    {
-      "para_index": 2295,
-      "style": "Heading 2",
-      "text_literal": "Escala",
-      "numbers": [],
-      "hash": "6432ba75d2571b124db2d0e07d279a0e3528888e0ede4296394175de4377a049"
-    },
-    {
-      "para_index": 2296,
-      "style": "Kallistis Body Justify",
-      "text_literal": "O jogo funciona por zonas narrativas ou mapa tático ortogonal.",
-      "numbers": [],
-      "hash": "f4fec50d87406385a8ed2da10073272f760219e05543f9fc669bde3e64c94d7b"
-    },
-    {
-      "para_index": 2297,
-      "style": "Kallistis Velarim",
-      "text_literal": "1 célula = 1,5 metro\n6 células = 9 metros\n1 zona ≈ 6 células ≈ área funcional de combate",
-      "numbers": [
-        1,
-        1,
-        5,
-        6,
-        9,
-        1,
-        6
-      ],
-      "hash": "c232c00f046ae43ba7c47c7f93bdb06aef4532e606afa07f04ec6d81954273a1"
-    },
-    {
-      "para_index": 2298,
-      "style": "Kallistis Body Justify",
-      "text_literal": "A grade usa células quadradas ou retangulares. Hexágonos, coordenadas axiais e distância hexagonal não pertencem à regra vigente.",
-      "numbers": [],
-      "hash": "bac91887b132ea590d10f9b6f4ee2dad611e2fd84e55a7f74dc8b24467d6d095"
-    },
-    {
-      "para_index": 2299,
-      "style": "Heading 2",
-      "text_literal": "Movimento e ocupação",
-      "numbers": [],
-      "hash": "c32647c1a9a511791683f1c97692938b743c22f97adbf777313bb1a57dbe57d4"
-    },
-    {
-      "para_index": 2300,
-      "style": "Kallistis Body Justify",
-      "text_literal": "Uma ação de Movimento permite deslocar até 6 pontos.",
-      "numbers": [
-        6
-      ],
-      "hash": "1bccd646fbedaa5d2179b446f7af4352e06c836e317d125919b71462df53b60c"
-    },
-    {
-      "para_index": 2301,
-      "style": "Kallistis Body Justify",
-      "text_literal": "célula que compartilha lado: custo 1;",
-      "numbers": [
-        1
-      ],
-      "hash": "9a962dca97c8c1d9648253e2f5f7b0e297102ed28b4172efd387f68962115183"
-    },
-    {
-      "para_index": 2302,
-      "style": "Kallistis Body Justify",
-      "text_literal": "diagonal: custo 2, como regra provisória de playtest;",
-      "numbers": [
-        2
-      ],
-      "hash": "1cfd6ec0b0a8cc036a779a830db0c2a993c57e19da0c03b94c4e09ee3938d96c"
-    },
-    {
-      "para_index": 2303,
-      "style": "Kallistis Body Justify",
-      "text_literal": "terreno difícil: +1 por célula;",
-      "numbers": [
-        1
-      ],
-      "hash": "e042e637f4519aa8c4b2b9af7e8dddd16074856531b16bfb5e4b8845ad28932e"
-    },
-    {
-      "para_index": 2304,
-      "style": "Kallistis Body Justify",
-      "text_literal": "terreno severo pode limitar o deslocamento a 1 zona;",
-      "numbers": [
-        1
-      ],
-      "hash": "c5397f7488c37e8bd4b0d1ea421b26db4149ac7db3588f081955407245c09b18"
-    },
-    {
-      "para_index": 2305,
-      "style": "Kallistis Body Justify",
-      "text_literal": "não se atravessa célula ocupada por inimigo sem capacidade específica.",
-      "numbers": [],
-      "hash": "6472eae7cb596236690a034093d2ebd5a7bee98912b5061977bc496dbe17e0bb"
-    },
-    {
-      "para_index": 2306,
-      "style": "Kallistis Body Justify",
-      "text_literal": "Duas criaturas são adjacentes quando suas células compartilham um lado. Contato apenas pelo vértice não conta para engajamento, proteção ou reação.",
-      "numbers": [],
-      "hash": "1596770fa756fe328db5a6bb1eb869fa1b8a8aa311b016084c199f980a02efd7"
-    },
-    {
-      "para_index": 2307,
-      "style": "Kallistis Body Justify",
-      "text_literal": "Criatura comum ocupa 1 célula; Grande, normalmente 2x2; Enorme, 3x3 ou mais. Montarias, veículos e Evocações usam a base registrada.",
-      "numbers": [
-        1
-      ],
-      "hash": "9b9d109814d65065716cdea0320ed69e82a155025351a5d73f58cfeaf2d072f1"
-    },
-    {
-      "para_index": 2308,
-      "style": "Heading 2",
-      "text_literal": "Rodada",
-      "numbers": [],
-      "hash": "d25fb53eaf4133bf40a7a112a1194b348963b2fad94ee7a0695d0f3d4e5d3d1e"
-    },
-    {
-      "para_index": 2309,
-      "style": "Kallistis Body Justify",
+      "rule": "Rodada e orçamento de ações",
+      "effect": "Cada personagem possui 1 Movimento, 1 Ação, 1 Reação e ações livres breves por rodada.",
+      "formula": null,
+      "values": {
+        "movimento": 1,
+        "acao": 1,
+        "reacao": 1
+      },
+      "costs": null,
+      "limits": "1 ativação por rodada salvo técnica",
+      "exceptions": null,
+      "paragraph_index": 2309,
       "text_literal": "Cada personagem possui 1 Movimento, 1 Ação, 1 Reação e ações livres breves.",
-      "numbers": [
-        1,
-        1,
-        1
-      ],
-      "hash": "840a75b98041dd1c917536dd48c4187946662899fcf5ea607e4bcf7949a4b00f"
-    },
+      "hash": "93458a9dd1b7bbf63c802d037989ab048f448bcdde1eb8e1510c309c390e4000"
+    }
+  ],
+  "initiative": [
     {
-      "para_index": 2310,
-      "style": "Heading 2",
-      "text_literal": "Iniciativa por lados",
-      "numbers": [],
+      "rule": "Iniciativa por lados",
+      "category": "Iniciativa",
+      "formula": "2d10 + Agilidade + Percepção",
+      "values": {
+        "dice": "2d10",
+        "attributes": [
+          "Agilidade",
+          "Percepção"
+        ]
+      },
+      "costs": null,
+      "limits": "Lado vencedor escolhe agir primeiro ou segundo; alternância de ativação",
+      "exceptions": null,
+      "paragraph_indices": [
+        2310,
+        2311,
+        2312,
+        2313
+      ],
+      "text_literal": "Cada lado escolhe representante e rola: 2d10 + Agilidade + Percepção. O lado vencedor escolhe agir primeiro ou segundo.",
       "hash": "d6558ebc52a6e4754fca6c00046bdbd9e78e26e9372c5f1f547de5cf3a5bcbb2"
-    },
+    }
+  ],
+  "actions": [
     {
-      "para_index": 2311,
-      "style": "Kallistis Body Justify",
-      "text_literal": "Cada lado escolhe representante e rola:",
-      "numbers": [],
-      "hash": "889044764df69a657dcca5f52439e9759182479450d99e17b58e8bb449139815"
-    },
-    {
-      "para_index": 2312,
-      "style": "Kallistis Velarim",
-      "text_literal": "2d10 + Agilidade + Percepção",
-      "numbers": [],
-      "hash": "d6f3817df0e7df4b9bed2b73576940953840825578e380491d0f428ef8d3de29"
-    },
-    {
-      "para_index": 2313,
-      "style": "Kallistis Body Justify",
-      "text_literal": "O lado vencedor escolhe agir primeiro ou segundo. Depois, os lados alternam uma ativação. Ninguém age duas vezes antes que todos do mesmo lado tenham oportunidade, salvo técnica.",
-      "numbers": [],
-      "hash": "a402a2c24dfd9f4bc5f09dd1605f04920f6efe2a7a62b57f7ce0c794d29590e3"
-    },
-    {
-      "para_index": 2314,
-      "style": "Heading 2",
-      "text_literal": "Ações",
-      "numbers": [],
-      "hash": "7d3e4d6dc900b59b5d600fbc42b3f95677a8fc35db350267b64a22648b07b00c"
-    },
-    {
-      "para_index": 2315,
-      "style": "Kallistis Body Justify",
+      "rule": "Lista de Ações Comuns",
+      "effect": "atacar, lançar magia, convocar, comandar Evocação, ajudar, correr, defender, usar item, preparar, interagir, recuperar ou realizar objetivo da cena.",
+      "paragraph_index": 2315,
       "text_literal": "Ações comuns: atacar, lançar magia, convocar, comandar Evocação, ajudar, correr, defender, usar item, preparar, interagir, recuperar ou realizar objetivo da cena.",
-      "numbers": [],
-      "hash": "ba9ddfdd80843e0cef9b4253e5f1b3bccb42b51febd5d985552332dc29938b94"
-    },
+      "hash": "f8de69805be2bb481a92bd13a604eabc0d03ec797eebf4a7d1e39198c3e9e747"
+    }
+  ],
+  "reactions": [
     {
-      "para_index": 2316,
-      "style": "Heading 2",
-      "text_literal": "Ataque",
-      "numbers": [],
-      "hash": "ec090a775820f48694a506726c4ebcffea4955179486f6f71da679add14a5418"
-    },
-    {
-      "para_index": 2317,
-      "style": "Heading 3",
-      "text_literal": "Corpo a corpo",
-      "numbers": [],
-      "hash": "fc0c258288401c6f0a93954d00a538e58cf7bf1344522012b25507dc2f8b98ca"
-    },
-    {
-      "para_index": 2318,
-      "style": "Kallistis Velarim",
-      "text_literal": "2d10 + Corpo ou Agilidade + Combate\ncontra Guarda",
-      "numbers": [],
-      "hash": "b0b6e648856c94ad014dcab0206fa9d1f4d84895a8976776a32fc8600735fc2f"
-    },
-    {
-      "para_index": 2319,
-      "style": "Heading 3",
-      "text_literal": "Distância",
-      "numbers": [],
-      "hash": "dfea8d0b070064dc7287c62b2ec4a68a1e5fd1f7b404d7f966214e625bae8b55"
-    },
-    {
-      "para_index": 2320,
-      "style": "Kallistis Velarim",
-      "text_literal": "2d10 + Agilidade + Pontaria\ncontra Guarda",
-      "numbers": [],
-      "hash": "ca9246efac2b405f1e912ec5bd9bc466f9b498e6fb4d0776048781c92c86acfe"
-    },
-    {
-      "para_index": 2321,
-      "style": "Heading 3",
-      "text_literal": "Magia",
-      "numbers": [],
-      "hash": "c9a0af6626c0498343b0d6e8e4e6d9e1454188e8e8b0423bd77d0a1f6ce8a65b"
-    },
-    {
-      "para_index": 2322,
-      "style": "Kallistis Body Justify",
-      "text_literal": "Conforme a magia, normalmente Sintonia + Magia contra Guarda, Fortitude ou Integridade.",
-      "numbers": [],
-      "hash": "ecbd2b97325e20c67269d6f12cff4c66639eb2f2f305c1503b12c4c47994f8a9"
-    },
-    {
-      "para_index": 2323,
-      "style": "Heading 2",
-      "text_literal": "Dano e potência",
-      "numbers": [],
-      "hash": "f380db4b2fe3518e9a6d4f26b79292821554ac64d954c6728fcd698434a5915a"
-    },
-    {
-      "para_index": 2324,
-      "style": "Kallistis Body Justify",
-      "text_literal": "Armas possuem dano-base fixo. Ataques comuns usam ×1. Técnicas e magias usam a escala de potência.",
-      "numbers": [
-        1
-      ],
-      "hash": "464616167adcf3a389a24b4b41bf3a8d965310e9a388a8900d6f8b58fabd30f3"
-    },
-    {
-      "para_index": 2325,
-      "style": "Kallistis Velarim",
-      "text_literal": "Dano final =\n(dano-base x multiplicador do nível)\n+ bônus de margem\n+ modificadores fixos\n+ Corpo, quando Potente\n- Proteção",
-      "numbers": [],
-      "hash": "f1052c1bd94649d8395a3338e2452ccddf237d304eba389f7088228605328cb7"
-    },
-    {
-      "para_index": 2326,
-      "style": "Kallistis Body Justify",
-      "text_literal": "Nível I: ×2;",
-      "numbers": [
-        2
-      ],
-      "hash": "4842bdd2ef7299257134ae7acc07fcf5dfe1777467692754926d0a8bb6ae79f0"
-    },
-    {
-      "para_index": 2327,
-      "style": "Kallistis Body Justify",
-      "text_literal": "Nível II: ×3;",
-      "numbers": [
-        3
-      ],
-      "hash": "562903ad2222fbd7d400282ef94c52e8366adc8f9b7c05d66dcad038b34c2106"
-    },
-    {
-      "para_index": 2328,
-      "style": "Kallistis Body Justify",
-      "text_literal": "Nível III: ×4;",
-      "numbers": [
-        4
-      ],
-      "hash": "eeb3800533cf7d49332661744ff2e97ad35e98ea2123cf07e191996c01210316"
-    },
-    {
-      "para_index": 2329,
-      "style": "Kallistis Body Justify",
-      "text_literal": "Nível IV: ×5;",
-      "numbers": [
-        5
-      ],
-      "hash": "ee9e03f7ec31d774f52191116f409b711cbeccf91cdfc7fe59610c10b921e5c6"
-    },
-    {
-      "para_index": 2330,
-      "style": "Kallistis Body Justify",
-      "text_literal": "sucesso forte: +2;",
-      "numbers": [
-        2
-      ],
-      "hash": "7a55b586db4bbed5a43aaf2865b5405102976bf83882b6ae573bc65997347355"
-    },
-    {
-      "para_index": 2331,
-      "style": "Kallistis Body Justify",
-      "text_literal": "sucesso extraordinário: +4;",
-      "numbers": [
-        4
-      ],
-      "hash": "13c2df541eb968e63c58409d5532cd312289126a12b2714e3f943dea8cf9053b"
-    },
-    {
-      "para_index": 2332,
-      "style": "Kallistis Body Justify",
-      "text_literal": "dano mínimo após Proteção: 1.",
-      "numbers": [
-        1
-      ],
-      "hash": "3c32cd0392bfb04095ff30506872b6fa46ff6bcd31f28eb7dfc15ed292ede00e"
-    },
-    {
-      "para_index": 2333,
-      "style": "Kallistis Body Justify",
-      "text_literal": "Dano verdadeiro ignora Proteção comum e não recebe multiplicador, salvo texto explícito.",
-      "numbers": [],
-      "hash": "262d0058bf9472ae656070d2baed6aad15816e3ff1a4bb5aaa3ee2e38b39e9b3"
-    },
-    {
-      "para_index": 2334,
-      "style": "Heading 2",
-      "text_literal": "Cobertura, linha de efeito e áreas",
-      "numbers": [],
-      "hash": "a5989e25d1bd8898432a31bd463af3f60f066a768c63e11db4d0a47bd0f59f99"
-    },
-    {
-      "para_index": 2335,
-      "style": "Kallistis Body Justify",
-      "text_literal": "Trace a linha entre centros das células. Quando parede, objeto ou criatura bloquear parte relevante, aplique cobertura. Linha de efeito bloqueada impede o ataque.",
-      "numbers": [],
-      "hash": "fd1f8df60e87c942f8a09b88ff2175ed872469252a0c2213c1480cccf5aefc10"
-    },
-    {
-      "para_index": 2336,
-      "style": "Kallistis Body Justify",
-      "text_literal": "Áreas usam modelos visuais da grade: linha, explosão, cone, aura ou parede. Quando a geometria ficar ambígua, priorize clareza visual e decisão consistente, não vantagem retroativa.",
-      "numbers": [],
-      "hash": "bf848d2ecb9b6aa93118665dec1796ab40346cdfd0c872ba08ebe924e17b6160"
-    },
-    {
-      "para_index": 2337,
-      "style": "Heading 2",
-      "text_literal": "Engajamento e objetivo da cena",
-      "numbers": [],
-      "hash": "bfbe62a67352c3a830ffc4a739381a9a570d0eaa81cf505b54e9568a862d08ca"
-    },
-    {
-      "para_index": 2338,
-      "style": "Kallistis Body Justify",
+      "rule": "Ataque de Reação por desengajamento",
+      "effect": "Sair de célula adjacente a inimigo sem Recuar provoca reação. Recuar usa o Movimento para sair sem provocar.",
+      "paragraph_index": 2338,
       "text_literal": "Sair de célula adjacente a inimigo sem Recuar provoca reação. Recuar usa o Movimento para sair sem provocar. A diagonal não cria engajamento por si mesma.",
-      "numbers": [],
-      "hash": "1a4ce579624eaef9a5a1da291f1b9359107b12f0e05d6f7bdb9f0aa284f2f18c"
-    },
+      "hash": "51fec87135c05093ae7533a286b750285de0f2ddbc1860f57a6a622a7971f530"
+    }
+  ],
+  "movement": [
     {
-      "para_index": 2339,
-      "style": "Kallistis Body Justify",
-      "text_literal": "Nem todo combate termina com morte. Objetivos incluem proteger, atravessar, impedir ritual, obter prova, resgatar, convencer, atrasar, sobreviver, fechar passagem ou estabilizar Fenda. O Mestre declara o objetivo visível da cena.",
-      "numbers": [],
-      "hash": "6e720428d4932e8a06a4efad71dc95843dcae89bd8a7cb4c8c690b61f4443ba2"
-    },
-    {
-      "para_index": 2340,
-      "style": "Kallistis Box Playtest",
-      "text_literal": "Nota de playtest: diagonal custa 2 pontos e não cria adjacência. Esta decisão permanece provisória até ser testada em mapas reais do Cauldron.",
-      "numbers": [
-        2
+      "rule": "Deslocamento e Escala da Grade Ortogonal",
+      "scale": "1 célula = 1,5m; 6 células = 9m; 1 zona ≈ 6 células",
+      "movement_budget": "6 pontos por ação de Movimento",
+      "costs": {
+        "lado": 1,
+        "diagonal": 2,
+        "terreno_dificil": "+1 por célula",
+        "terreno_severo": "limita a 1 zona"
+      },
+      "adjacency": "Compartilhar um lado. Contato apenas pelo vértice não conta para adjacência.",
+      "sizes": {
+        "comum": "1 célula",
+        "grande": "2x2",
+        "enorme": "3x3 ou mais"
+      },
+      "paragraph_indices": [
+        2296,
+        2297,
+        2298,
+        2300,
+        2301,
+        2302,
+        2303,
+        2304,
+        2305,
+        2306,
+        2307,
+        2340
       ],
-      "hash": "4e9dc062af36539acd7f7b30268ce27964b3b9edad81f1439fe3ad46eecc65d2"
+      "text_literal": "1 célula = 1,5m... Ação de Movimento permite deslocar até 6 pontos. Célula com lado=1, diagonal=2, terreno difícil=+1.",
+      "hash": "0f992a88c6c9bb48723f4924180601ed8364cc1ca65608b101b68aa11c38d0ef"
+    }
+  ],
+  "attacks": [
+    {
+      "type": "Corpo a corpo",
+      "formula": "2d10 + Corpo ou Agilidade + Combate contra Guarda",
+      "paragraph_indices": [
+        2317,
+        2318
+      ]
+    },
+    {
+      "type": "Distância",
+      "formula": "2d10 + Agilidade + Pontaria contra Guarda",
+      "paragraph_indices": [
+        2319,
+        2320
+      ]
+    },
+    {
+      "type": "Magia",
+      "formula": "Sintonia + Magia contra Guarda, Fortitude ou Integridade",
+      "paragraph_indices": [
+        2321,
+        2322
+      ]
+    }
+  ],
+  "defenses": [],
+  "guard": [
+    {
+      "rule": "Guarda é a defesa-base contra ataques",
+      "paragraph_index": 2318
+    }
+  ],
+  "vitality": [
+    {
+      "rule": "Reduzida pelo dano final sofrido",
+      "paragraph_index": 2325
+    }
+  ],
+  "protection": [
+    {
+      "rule": "Subtraída do dano final; dano mínimo após Proteção = 1",
+      "paragraph_index": 2325,
+      "dano_minimo": 1
+    }
+  ],
+  "range_and_area": [
+    {
+      "rule": "Linha de efeito e áreas visuais (linha, explosão, cone, aura, parede)",
+      "paragraph_indices": [
+        2335,
+        2336
+      ]
+    }
+  ],
+  "cover": [
+    {
+      "structured_table_index": 28,
+      "title": "Tabela de Cobertura",
+      "rows": [
+        {
+          "cover_type": "Parcial",
+          "effect": "+2 na Guarda contra ataques à distância",
+          "numbers": [
+            2
+          ],
+          "row_hash": "acb42bed900842b50a77890a077b035ede2b8dc841bcf8d601dcdaf963bf5fbf"
+        },
+        {
+          "cover_type": "Superior",
+          "effect": "+4 na Guarda e +2 em testes de resistência contra efeitos em área",
+          "numbers": [
+            4,
+            2
+          ],
+          "row_hash": "e3ec8fbb86e1f53b06538e4b70dd9e43dcacb766a552aa02ec56da7ce8e77add"
+        },
+        {
+          "cover_type": "Total",
+          "effect": "Não pode ser alvo direto de ataque ou efeito que exija linha de visão",
+          "numbers": [],
+          "row_hash": "61f1ca8640d0fdf9d9d1f7a782ece2eb4cc091c8d196643d60ee34f203212acb"
+        }
+      ]
+    }
+  ],
+  "line_of_sight": [
+    {
+      "rule": "Linha entre centros de células. Se bloqueada por parede/objeto/criatura, aplica cobertura ou bloqueia ataque.",
+      "paragraph_index": 2335
+    }
+  ],
+  "damage": [
+    {
+      "formula": "Dano final = (dano-base x multiplicador do nível) + bônus de margem + modificadores fixos + Corpo (se Potente) - Proteção",
+      "multipliers": {
+        "Nível I": "x2",
+        "Nível II": "x3",
+        "Nível III": "x4",
+        "Nível IV": "x5"
+      },
+      "margin_bonus": {
+        "sucesso_forte": "+2",
+        "sucesso_extraordinario": "+4"
+      },
+      "true_damage": "Ignora Proteção comum e não recebe multiplicador salvo texto explícito",
+      "paragraph_indices": [
+        2323,
+        2324,
+        2325,
+        2326,
+        2327,
+        2328,
+        2329,
+        2330,
+        2331,
+        2332,
+        2333
+      ]
+    }
+  ],
+  "recovery": [],
+  "conditions": [],
+  "exceptions": [
+    {
+      "rule": "Regra provisória de playtest: diagonal custa 2 e não gera adjacência",
+      "paragraph_index": 2340
     }
   ]
 }

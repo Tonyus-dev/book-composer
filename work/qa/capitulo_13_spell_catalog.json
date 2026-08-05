@@ -7,398 +7,720 @@
     "Grau 2": 8,
     "Grau 3": 6
   },
+  "table_headers_real": [
+    "Magia",
+    "Tradição",
+    "Ação",
+    "Alcance",
+    "Duração",
+    "Efeito / Função",
+    "Custo / Limite"
+  ],
+  "null_counts_by_field": {
+    "custo": 0,
+    "alcance": 0,
+    "alvo": 28,
+    "area": 28,
+    "duracao": 0,
+    "efeito": 0,
+    "resistencia_ou_teste": 28,
+    "limitacoes": 28,
+    "condicao": 28,
+    "ampliacao": 28
+  },
   "spells": [
     {
       "name": "Centelha Orientada",
       "grau": "Grau 0",
-      "raw_row": [
-        "Centelha Orientada",
-        "Manifestação",
-        "Ação",
-        "6 células",
-        "Cria chama, luz ou calor breve. Como ataque, base 2 ×1; não produz Luz cosmológica.",
-        "Aumente duração ou ilumine área 3 x 3.",
-        "Pode revelar posição ou inflamar material vulnerável."
+      "tradicao": "Manifestação",
+      "acao": "Ação",
+      "custo": "Pode revelar posição ou inflamar material vulnerável.",
+      "alcance": "6 células",
+      "alvo": null,
+      "area": null,
+      "duracao": "Cria chama, luz ou calor breve. Como ataque, base 2 ×1; não produz Luz cosmológica.",
+      "efeito": "Aumente duração ou ilumine área 3 x 3.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Centelha Orientada | Manifestação | Ação | 6 células | Cria chama, luz ou calor breve. Como ataque, base 2 ×1; não produz Luz cosmológica. | Aumente duração ou ilumine área 3 x 3. | Pode revelar posição ou inflamar material vulnerável.",
+      "indice_global_da_tabela": 32,
+      "linha_da_tabela": 1,
+      "numeros": [
+        6,
+        2,
+        1,
+        3,
+        3
       ],
-      "hash": "00ebb3954efca01f65469947595154ee2dd6d2e1cdd44d118595ef137bb16afc"
+      "hash": "e8204f1d7ddfc72021c9213c386d1a74c7069a0cdc4ccaab9eead97229250f62"
     },
     {
       "name": "Mão de Pressão",
       "grau": "Grau 0",
-      "raw_row": [
-        "Mão de Pressão",
-        "Limiar",
-        "Ação",
-        "6 células",
-        "Move objeto leve, abre mecanismo simples ou empurra criatura voluntária 1 célula; alvo hostil testa Fortitude.",
-        "Mova +1 célula ou objeto maior.",
-        "O objeto escapa, cai ou produz ruído."
+      "tradicao": "Limiar",
+      "acao": "Ação",
+      "custo": "O objeto escapa, cai ou produz ruído.",
+      "alcance": "6 células",
+      "alvo": null,
+      "area": null,
+      "duracao": "Move objeto leve, abre mecanismo simples ou empurra criatura voluntária 1 célula; alvo hostil testa Fortitude.",
+      "efeito": "Mova +1 célula ou objeto maior.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Mão de Pressão | Limiar | Ação | 6 células | Move objeto leve, abre mecanismo simples ou empurra criatura voluntária 1 célula; alvo hostil testa Fortitude. | Mova +1 célula ou objeto maior. | O objeto escapa, cai ou produz ruído.",
+      "indice_global_da_tabela": 32,
+      "linha_da_tabela": 2,
+      "numeros": [
+        6,
+        1,
+        1
       ],
-      "hash": "207adecd3120339b215d4817853f39030737f284f3ca05900104887008a60561"
+      "hash": "d84dfd506d16ce61023410d33ce89e9ad88350b6765361ee195fe8fc362570d4"
     },
     {
       "name": "Véu de Silêncio",
       "grau": "Grau 0",
-      "raw_row": [
-        "Véu de Silêncio",
-        "Profundidade",
-        "Ação",
-        "área 2 x 2",
-        "Abafa som comum até o próximo turno; não apaga memória nem identidade.",
-        "Aumente a área em 1 célula.",
-        "O silêncio também impede aviso ou palavra aliada."
+      "tradicao": "Profundidade",
+      "acao": "Ação",
+      "custo": "O silêncio também impede aviso ou palavra aliada.",
+      "alcance": "área 2 x 2",
+      "alvo": null,
+      "area": null,
+      "duracao": "Abafa som comum até o próximo turno; não apaga memória nem identidade.",
+      "efeito": "Aumente a área em 1 célula.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Véu de Silêncio | Profundidade | Ação | área 2 x 2 | Abafa som comum até o próximo turno; não apaga memória nem identidade. | Aumente a área em 1 célula. | O silêncio também impede aviso ou palavra aliada.",
+      "indice_global_da_tabela": 32,
+      "linha_da_tabela": 3,
+      "numeros": [
+        2,
+        2,
+        1
       ],
-      "hash": "dcfba996ac48555b0408282deaca24826ecaf731abc42eeb99adc589a810a818"
+      "hash": "ec9b18fcf9dc738e1250cc58b741e412488277a1b934ffa7997f7ffab3ccd767"
     },
     {
       "name": "Marca de Frequência",
       "grau": "Grau 0",
-      "raw_row": [
-        "Marca de Frequência",
-        "Ressonância",
-        "Ação",
-        "toque ou 6 células",
-        "Identifica assinatura mágica, emocional ou harmônica recente.",
-        "Acompanhe a assinatura pela cena.",
-        "Detecta eco semelhante, não necessariamente a fonte correta."
+      "tradicao": "Ressonância",
+      "acao": "Ação",
+      "custo": "Detecta eco semelhante, não necessariamente a fonte correta.",
+      "alcance": "toque ou 6 células",
+      "alvo": null,
+      "area": null,
+      "duracao": "Identifica assinatura mágica, emocional ou harmônica recente.",
+      "efeito": "Acompanhe a assinatura pela cena.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Marca de Frequência | Ressonância | Ação | toque ou 6 células | Identifica assinatura mágica, emocional ou harmônica recente. | Acompanhe a assinatura pela cena. | Detecta eco semelhante, não necessariamente a fonte correta.",
+      "indice_global_da_tabela": 32,
+      "linha_da_tabela": 4,
+      "numeros": [
+        6
       ],
-      "hash": "b238dd0ec2e35d55a007a32e14461367df90c82fbe469ff20ae47da5c675c2a9"
+      "hash": "f3b235593277c5444125da46e6d510b3110c54353d6a6223057bbcf5fe05c334"
     },
     {
       "name": "Selo Transitório",
       "grau": "Grau 0",
-      "raw_row": [
-        "Selo Transitório",
-        "Inscrição",
-        "Ação",
-        "toque",
-        "Inscreve aviso, nome funcional ou condição simples que dura a cena.",
-        "Acrescente gatilho ou duração até pausa.",
-        "A marca fica visível ou registra o usuário."
-      ],
-      "hash": "54d271030763bc34ba63696db74951ad2477425f1d24dd84cc745276b392df92"
+      "tradicao": "Inscrição",
+      "acao": "Ação",
+      "custo": "A marca fica visível ou registra o usuário.",
+      "alcance": "toque",
+      "alvo": null,
+      "area": null,
+      "duracao": "Inscreve aviso, nome funcional ou condição simples que dura a cena.",
+      "efeito": "Acrescente gatilho ou duração até pausa.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Selo Transitório | Inscrição | Ação | toque | Inscreve aviso, nome funcional ou condição simples que dura a cena. | Acrescente gatilho ou duração até pausa. | A marca fica visível ou registra o usuário.",
+      "indice_global_da_tabela": 32,
+      "linha_da_tabela": 5,
+      "numeros": [],
+      "hash": "667b9a5b526856a9193ac47023ba8eb0a030de425a8cea9cfcaac2a79883a796"
     },
     {
       "name": "Sopro Elemental",
       "grau": "Grau 0",
-      "raw_row": [
-        "Sopro Elemental",
-        "Elemental",
-        "Ação",
-        "cone de 2 células",
-        "Manipula pequena quantidade de elemento conhecido. Como ataque, base 2 ×1 e efeito ambiental menor.",
-        "Amplie cone ou intensidade.",
-        "O elemento se espalha para alvo ou objeto próximo."
+      "tradicao": "Elemental",
+      "acao": "Ação",
+      "custo": "O elemento se espalha para alvo ou objeto próximo.",
+      "alcance": "cone de 2 células",
+      "alvo": null,
+      "area": null,
+      "duracao": "Manipula pequena quantidade de elemento conhecido. Como ataque, base 2 ×1 e efeito ambiental menor.",
+      "efeito": "Amplie cone ou intensidade.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Sopro Elemental | Elemental | Ação | cone de 2 células | Manipula pequena quantidade de elemento conhecido. Como ataque, base 2 ×1 e efeito ambiental menor. | Amplie cone ou intensidade. | O elemento se espalha para alvo ou objeto próximo.",
+      "indice_global_da_tabela": 32,
+      "linha_da_tabela": 6,
+      "numeros": [
+        2,
+        2,
+        1
       ],
-      "hash": "931bfde6d0fd174b8bbce27be9665003eae2feb021bb5afd55aa07c40c929056"
+      "hash": "64d59a0884a37e5d90d827619fa9865526b8093739390f13494d0e8436240f43"
     },
     {
       "name": "Lança Elemental",
       "grau": "Grau 1",
-      "raw_row": [
-        "Lança Elemental",
-        "Elemental",
-        "Ação",
-        "12 células",
-        "Ataque contra Guarda; base 5 ×2 + Sintonia. Escolha elemento conhecido.",
-        "+1 alvo adjacente usando base 3.",
-        "O elemento altera terreno ou atinge objeto vulnerável."
+      "tradicao": "Elemental",
+      "acao": "Ação",
+      "custo": "O elemento altera terreno ou atinge objeto vulnerável.",
+      "alcance": "12 células",
+      "alvo": null,
+      "area": null,
+      "duracao": "Ataque contra Guarda; base 5 ×2 + Sintonia. Escolha elemento conhecido.",
+      "efeito": "+1 alvo adjacente usando base 3.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Lança Elemental | Elemental | Ação | 12 células | Ataque contra Guarda; base 5 ×2 + Sintonia. Escolha elemento conhecido. | +1 alvo adjacente usando base 3. | O elemento altera terreno ou atinge objeto vulnerável.",
+      "indice_global_da_tabela": 33,
+      "linha_da_tabela": 1,
+      "numeros": [
+        12,
+        5,
+        2,
+        1,
+        3
       ],
-      "hash": "f707b4977f4673149d2cfac3b204f606a2b58596fa4d10babcdfcf5b6f89b0ea"
+      "hash": "5fde07c94e011471e25cf205e4a064c94032f869ca3be82a10df643e7390acbc"
     },
     {
       "name": "Barreira Manifestada",
       "grau": "Grau 1",
-      "raw_row": [
-        "Barreira Manifestada",
-        "Manifestação",
-        "Ação",
-        "6 células",
-        "Cria cobertura com Integridade estrutural 8 em até 2 células contíguas.",
-        "+4 Integridade ou +1 célula.",
-        "A barreira bloqueia também uma rota aliada."
+      "tradicao": "Manifestação",
+      "acao": "Ação",
+      "custo": "A barreira bloqueia também uma rota aliada.",
+      "alcance": "6 células",
+      "alvo": null,
+      "area": null,
+      "duracao": "Cria cobertura com Integridade estrutural 8 em até 2 células contíguas.",
+      "efeito": "+4 Integridade ou +1 célula.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Barreira Manifestada | Manifestação | Ação | 6 células | Cria cobertura com Integridade estrutural 8 em até 2 células contíguas. | +4 Integridade ou +1 célula. | A barreira bloqueia também uma rota aliada.",
+      "indice_global_da_tabela": 33,
+      "linha_da_tabela": 2,
+      "numeros": [
+        6,
+        8,
+        2,
+        4,
+        1
       ],
-      "hash": "649ef441a75b6c6715c0c587475455478ba4ea432bef8a4c8f3a5dfc4947ca80"
+      "hash": "4dc556c0f3d8622304925aa05b5463eac9b407af936df3d888a56c2ff9e5d958"
     },
     {
       "name": "Passo Velado",
       "grau": "Grau 1",
-      "raw_row": [
-        "Passo Velado",
-        "Limiar",
-        "Ação",
-        "pessoal",
-        "Mova até 6 células sem provocar Reação e receba +2 Furtividade até o fim do turno.",
-        "Leve um aliado voluntário adjacente.",
-        "Chegue em posição visível ou deixe rastro liminar."
+      "tradicao": "Limiar",
+      "acao": "Ação",
+      "custo": "Chegue em posição visível ou deixe rastro liminar.",
+      "alcance": "pessoal",
+      "alvo": null,
+      "area": null,
+      "duracao": "Mova até 6 células sem provocar Reação e receba +2 Furtividade até o fim do turno.",
+      "efeito": "Leve um aliado voluntário adjacente.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Passo Velado | Limiar | Ação | pessoal | Mova até 6 células sem provocar Reação e receba +2 Furtividade até o fim do turno. | Leve um aliado voluntário adjacente. | Chegue em posição visível ou deixe rastro liminar.",
+      "indice_global_da_tabela": 33,
+      "linha_da_tabela": 3,
+      "numeros": [
+        6,
+        2
       ],
-      "hash": "69aed8e84e0be6dc6d1224a28ab9d51db7d191cfa357cca5b693ae27f8c16abe"
+      "hash": "e6dfee87c5cb1de888c17500dde102006ac182ad70ad7e23a3ee1d8b2ac5b8cd"
     },
     {
       "name": "Pulso Restaurador",
       "grau": "Grau 1",
-      "raw_row": [
-        "Pulso Restaurador",
-        "Ressonância",
-        "Ação",
-        "6 células",
-        "Cure base 3 ×2 + Sintonia de Vitalidade ou 4 Lucidez.",
-        "+1 alvo adjacente com metade da cura.",
-        "Você recebe 1 Pressão em Sintonia."
+      "tradicao": "Ressonância",
+      "acao": "Ação",
+      "custo": "Você recebe 1 Pressão em Sintonia.",
+      "alcance": "6 células",
+      "alvo": null,
+      "area": null,
+      "duracao": "Cure base 3 ×2 + Sintonia de Vitalidade ou 4 Lucidez.",
+      "efeito": "+1 alvo adjacente com metade da cura.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Pulso Restaurador | Ressonância | Ação | 6 células | Cure base 3 ×2 + Sintonia de Vitalidade ou 4 Lucidez. | +1 alvo adjacente com metade da cura. | Você recebe 1 Pressão em Sintonia.",
+      "indice_global_da_tabela": 33,
+      "linha_da_tabela": 4,
+      "numeros": [
+        6,
+        3,
+        2,
+        4,
+        1,
+        1
       ],
-      "hash": "5072595f0f3b8412572a43b48f921f0b6906358d85f179ea0ca389cfb9b02a4c"
+      "hash": "bfd5b118cdc23c175362b6e97f7416b202ca85c94d3ff3ea28b6fa11749915b4"
     },
     {
       "name": "Eco de Memória",
       "grau": "Grau 1",
-      "raw_row": [
-        "Eco de Memória",
-        "Profundidade",
-        "ritual breve",
-        "toque",
-        "Veja impressão emocional recente de objeto ou lugar; não revela verdade total.",
-        "Alcance uma memória mais antiga ou faça uma pergunta adicional.",
-        "Uma memória dolorosa acompanha a revelação."
-      ],
-      "hash": "3abfa2461e5abfd8f03cc9b045af4a5be9df71cf7d1c0fb3656342beb09992f3"
+      "tradicao": "Profundidade",
+      "acao": "ritual breve",
+      "custo": "Uma memória dolorosa acompanha a revelação.",
+      "alcance": "toque",
+      "alvo": null,
+      "area": null,
+      "duracao": "Veja impressão emocional recente de objeto ou lugar; não revela verdade total.",
+      "efeito": "Alcance uma memória mais antiga ou faça uma pergunta adicional.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Eco de Memória | Profundidade | ritual breve | toque | Veja impressão emocional recente de objeto ou lugar; não revela verdade total. | Alcance uma memória mais antiga ou faça uma pergunta adicional. | Uma memória dolorosa acompanha a revelação.",
+      "indice_global_da_tabela": 33,
+      "linha_da_tabela": 5,
+      "numeros": [],
+      "hash": "f6e98bf7b026d2e1ffcd136f068a8ddebc4462bc6c7e36e92b4cd12a76c7964d"
     },
     {
       "name": "Trava de Juramento",
       "grau": "Grau 1",
-      "raw_row": [
-        "Trava de Juramento",
-        "Inscrição",
-        "ritual breve",
-        "toque",
-        "Protege objeto ou passagem por condição declarada; avisa e impõe Pressão 2 ao violador.",
-        "Aumente duração ou inclua segundo gatilho.",
-        "A condição ambígua também pode atingir aliado."
+      "tradicao": "Inscrição",
+      "acao": "ritual breve",
+      "custo": "A condição ambígua também pode atingir aliado.",
+      "alcance": "toque",
+      "alvo": null,
+      "area": null,
+      "duracao": "Protege objeto ou passagem por condição declarada; avisa e impõe Pressão 2 ao violador.",
+      "efeito": "Aumente duração ou inclua segundo gatilho.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Trava de Juramento | Inscrição | ritual breve | toque | Protege objeto ou passagem por condição declarada; avisa e impõe Pressão 2 ao violador. | Aumente duração ou inclua segundo gatilho. | A condição ambígua também pode atingir aliado.",
+      "indice_global_da_tabela": 33,
+      "linha_da_tabela": 6,
+      "numeros": [
+        2
       ],
-      "hash": "4f0ca6cd19081d6d0b6794bc8dc921fd3434e950a4d0bc976147e96435b093c4"
+      "hash": "dba816e0bb23275928d2b38dc03df0d69b050eb9d170a3570b1a4f077dde6b7b"
     },
     {
       "name": "Voz Harmônica",
       "grau": "Grau 1",
-      "raw_row": [
-        "Voz Harmônica",
-        "Ressonância",
-        "Ação",
-        "cone de 3 células",
-        "Teste Integridade; base 3 ×2 de Lucidez ou condição Abalado.",
-        "Empurre 1 célula ou afete +1 linha.",
-        "Sua emoção verdadeira se torna perceptível."
+      "tradicao": "Ressonância",
+      "acao": "Ação",
+      "custo": "Sua emoção verdadeira se torna perceptível.",
+      "alcance": "cone de 3 células",
+      "alvo": null,
+      "area": null,
+      "duracao": "Teste Integridade; base 3 ×2 de Lucidez ou condição Abalado.",
+      "efeito": "Empurre 1 célula ou afete +1 linha.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Voz Harmônica | Ressonância | Ação | cone de 3 células | Teste Integridade; base 3 ×2 de Lucidez ou condição Abalado. | Empurre 1 célula ou afete +1 linha. | Sua emoção verdadeira se torna perceptível.",
+      "indice_global_da_tabela": 33,
+      "linha_da_tabela": 7,
+      "numeros": [
+        3,
+        3,
+        2,
+        1,
+        1
       ],
-      "hash": "dc0aa68c9c6bb72ec74a341fe2415541f569a0f33837b266070e558cc74b0737"
+      "hash": "67ddab5aca70fa3ff819751457b84b11b42d2443856498c72024debeea29bc41"
     },
     {
       "name": "Selo de Reparo",
       "grau": "Grau 1",
-      "raw_row": [
-        "Selo de Reparo",
-        "Inscrição",
-        "Ação",
-        "toque",
-        "Repare base 4 ×2 de Integridade estrutural ou Vitalidade de construto.",
-        "Restaure função simples quebrada.",
-        "O reparo exige peça, promessa ou material depois da cena."
+      "tradicao": "Inscrição",
+      "acao": "Ação",
+      "custo": "O reparo exige peça, promessa ou material depois da cena.",
+      "alcance": "toque",
+      "alvo": null,
+      "area": null,
+      "duracao": "Repare base 4 ×2 de Integridade estrutural ou Vitalidade de construto.",
+      "efeito": "Restaure função simples quebrada.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Selo de Reparo | Inscrição | Ação | toque | Repare base 4 ×2 de Integridade estrutural ou Vitalidade de construto. | Restaure função simples quebrada. | O reparo exige peça, promessa ou material depois da cena.",
+      "indice_global_da_tabela": 33,
+      "linha_da_tabela": 8,
+      "numeros": [
+        4,
+        2
       ],
-      "hash": "486ee72c3e85f615b389ab9c3b3a548103cbb750443bef55c4a570d89d183a57"
+      "hash": "033868cd71dbd0bbf75a5dede80d3fe5b7baf6f86f12b7ac028b3e45a49e0538"
     },
     {
       "name": "Tempestade Local",
       "grau": "Grau 2",
-      "raw_row": [
-        "Tempestade Local",
-        "Elemental",
-        "Ação",
-        "área 3 x 3 a 12 células",
-        "Ataque contra Guarda ou Fortitude; base de área 4 ×3 e condição coerente.",
-        "Aumente área ou intensidade da condição.",
-        "Terreno permanece perigoso por uma rodada."
+      "tradicao": "Elemental",
+      "acao": "Ação",
+      "custo": "Terreno permanece perigoso por uma rodada.",
+      "alcance": "área 3 x 3 a 12 células",
+      "alvo": null,
+      "area": null,
+      "duracao": "Ataque contra Guarda ou Fortitude; base de área 4 ×3 e condição coerente.",
+      "efeito": "Aumente área ou intensidade da condição.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Tempestade Local | Elemental | Ação | área 3 x 3 a 12 células | Ataque contra Guarda ou Fortitude; base de área 4 ×3 e condição coerente. | Aumente área ou intensidade da condição. | Terreno permanece perigoso por uma rodada.",
+      "indice_global_da_tabela": 34,
+      "linha_da_tabela": 1,
+      "numeros": [
+        3,
+        3,
+        12,
+        4,
+        3
       ],
-      "hash": "550113e746b0563c3171feaa153c49d0cd7a87e49b7c5c243176c1aec02ede12"
+      "hash": "9ed552b2e784399546d2aa4493af9a73ea806b81359409b3029f3c61cdd3566b"
     },
     {
       "name": "Círculo de Repouso",
       "grau": "Grau 2",
-      "raw_row": [
-        "Círculo de Repouso",
-        "Profundidade",
-        "Ação",
-        "área 3 x 3",
-        "Aliados recuperam 4 Lucidez e ignoram medo até o próximo turno.",
-        "Remova Abalado ou Dissonante de um alvo.",
-        "Todos ouvem um eco de memória compartilhada."
+      "tradicao": "Profundidade",
+      "acao": "Ação",
+      "custo": "Todos ouvem um eco de memória compartilhada.",
+      "alcance": "área 3 x 3",
+      "alvo": null,
+      "area": null,
+      "duracao": "Aliados recuperam 4 Lucidez e ignoram medo até o próximo turno.",
+      "efeito": "Remova Abalado ou Dissonante de um alvo.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Círculo de Repouso | Profundidade | Ação | área 3 x 3 | Aliados recuperam 4 Lucidez e ignoram medo até o próximo turno. | Remova Abalado ou Dissonante de um alvo. | Todos ouvem um eco de memória compartilhada.",
+      "indice_global_da_tabela": 34,
+      "linha_da_tabela": 2,
+      "numeros": [
+        3,
+        3,
+        4
       ],
-      "hash": "c4c0e294e4fb4bec5848064699e72f410659f76aaa1fe54531f6471a830168a0"
+      "hash": "f27fbd225ae0cd3bd9af779cb210a105831684a328b731586622e612bcb35be1"
     },
     {
       "name": "Ponte Breve",
       "grau": "Grau 2",
-      "raw_row": [
-        "Ponte Breve",
-        "Limiar",
-        "Ação",
-        "dois pontos visíveis até 12 células",
-        "Cria passagem instantânea entre pontos da mesma camada até o fim do turno.",
-        "Mantenha por uma rodada adicional.",
-        "A rota desloca chegada em 1 célula ou deixa assinatura."
+      "tradicao": "Limiar",
+      "acao": "Ação",
+      "custo": "A rota desloca chegada em 1 célula ou deixa assinatura.",
+      "alcance": "dois pontos visíveis até 12 células",
+      "alvo": null,
+      "area": null,
+      "duracao": "Cria passagem instantânea entre pontos da mesma camada até o fim do turno.",
+      "efeito": "Mantenha por uma rodada adicional.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Ponte Breve | Limiar | Ação | dois pontos visíveis até 12 células | Cria passagem instantânea entre pontos da mesma camada até o fim do turno. | Mantenha por uma rodada adicional. | A rota desloca chegada em 1 célula ou deixa assinatura.",
+      "indice_global_da_tabela": 34,
+      "linha_da_tabela": 3,
+      "numeros": [
+        12,
+        1
       ],
-      "hash": "d8def97c1114ddce43b0c2b264e941325fda2bef953bba4553b15af7dba9cad7"
+      "hash": "15b39200db7ca7926e5e8dbc3624b0ce01b2547a30d1d56ea571209c2d15ea79"
     },
     {
       "name": "Dissolver Forma",
       "grau": "Grau 2",
-      "raw_row": [
-        "Dissolver Forma",
-        "Manifestação",
-        "Ação",
-        "8 células",
-        "Contra barreira, armadura ou construto: base estrutural 4 ×3 ou reduza Proteção em 3 até reparação.",
-        "Afete +1 objeto adjacente.",
-        "Uma forma aliada próxima também perde estabilidade."
+      "tradicao": "Manifestação",
+      "acao": "Ação",
+      "custo": "Uma forma aliada próxima também perde estabilidade.",
+      "alcance": "8 células",
+      "alvo": null,
+      "area": null,
+      "duracao": "Contra barreira, armadura ou construto: base estrutural 4 ×3 ou reduza Proteção em 3 até reparação.",
+      "efeito": "Afete +1 objeto adjacente.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Dissolver Forma | Manifestação | Ação | 8 células | Contra barreira, armadura ou construto: base estrutural 4 ×3 ou reduza Proteção em 3 até reparação. | Afete +1 objeto adjacente. | Uma forma aliada próxima também perde estabilidade.",
+      "indice_global_da_tabela": 34,
+      "linha_da_tabela": 4,
+      "numeros": [
+        8,
+        4,
+        3,
+        3,
+        1
       ],
-      "hash": "e07f0b432bdf9e3701607b26314f314c17c8541fb27ca82e2d2b2218076a7b80"
+      "hash": "c30d20f4918ba15c9a7736f3b2e662e680679c4db1db40e588592320755603d4"
     },
     {
       "name": "Memória Compartilhada",
       "grau": "Grau 2",
-      "raw_row": [
-        "Memória Compartilhada",
-        "Ressonância",
-        "ritual",
-        "toque; até 3 pessoas",
-        "Com consentimento, compartilha lembrança escolhida; cada participante mantém interpretação própria.",
-        "Inclua +2 participantes ou duração maior.",
-        "Emoção associada causa 2 Lucidez se não preparada."
+      "tradicao": "Ressonância",
+      "acao": "ritual",
+      "custo": "Emoção associada causa 2 Lucidez se não preparada.",
+      "alcance": "toque; até 3 pessoas",
+      "alvo": null,
+      "area": null,
+      "duracao": "Com consentimento, compartilha lembrança escolhida; cada participante mantém interpretação própria.",
+      "efeito": "Inclua +2 participantes ou duração maior.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Memória Compartilhada | Ressonância | ritual | toque; até 3 pessoas | Com consentimento, compartilha lembrança escolhida; cada participante mantém interpretação própria. | Inclua +2 participantes ou duração maior. | Emoção associada causa 2 Lucidez se não preparada.",
+      "indice_global_da_tabela": 34,
+      "linha_da_tabela": 5,
+      "numeros": [
+        3,
+        2,
+        2
       ],
-      "hash": "fe507924c10f9f93c58072a022e92f961bad58e6c7ffbc18fbddf83b37b47190"
+      "hash": "acfd15302da58062cb94636a69abeb3d6335431368940a4dd7209a0e6fe8bdbd"
     },
     {
       "name": "Prisma Defletor",
       "grau": "Grau 2",
-      "raw_row": [
-        "Prisma Defletor",
-        "Manifestação",
-        "Reação",
-        "pessoal ou aliado a 3 células",
-        "Reduza dano mágico em base 4 ×3. Se chegar a zero, redirecione efeito visual inofensivo.",
-        "Redirecione o efeito contra barreira ou espaço vazio.",
-        "O prisma registra a assinatura do ataque e do defensor."
+      "tradicao": "Manifestação",
+      "acao": "Reação",
+      "custo": "O prisma registra a assinatura do ataque e do defensor.",
+      "alcance": "pessoal ou aliado a 3 células",
+      "alvo": null,
+      "area": null,
+      "duracao": "Reduza dano mágico em base 4 ×3. Se chegar a zero, redirecione efeito visual inofensivo.",
+      "efeito": "Redirecione o efeito contra barreira ou espaço vazio.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Prisma Defletor | Manifestação | Reação | pessoal ou aliado a 3 células | Reduza dano mágico em base 4 ×3. Se chegar a zero, redirecione efeito visual inofensivo. | Redirecione o efeito contra barreira ou espaço vazio. | O prisma registra a assinatura do ataque e do defensor.",
+      "indice_global_da_tabela": 34,
+      "linha_da_tabela": 6,
+      "numeros": [
+        3,
+        4,
+        3
       ],
-      "hash": "17a3caa3b27021d42c4f441d9b20d225c91f083abca9c429d4743e1349e85f5f"
+      "hash": "5eadf8968e900ef4f3249f5301fa6f1be898fd36a16a3dc5e75615d2d6638465"
     },
     {
       "name": "Âncora de Área",
       "grau": "Grau 2",
-      "raw_row": [
-        "Âncora de Área",
-        "Inscrição",
-        "ritual breve",
-        "área 3 x 3",
-        "Impede teleporte, deslocamento liminar e abertura espontânea de Fenda na área pela cena.",
-        "Aumente área ou duração até pausa.",
-        "Você também não pode usar efeitos de Limiar dentro dela."
+      "tradicao": "Inscrição",
+      "acao": "ritual breve",
+      "custo": "Você também não pode usar efeitos de Limiar dentro dela.",
+      "alcance": "área 3 x 3",
+      "alvo": null,
+      "area": null,
+      "duracao": "Impede teleporte, deslocamento liminar e abertura espontânea de Fenda na área pela cena.",
+      "efeito": "Aumente área ou duração até pausa.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Âncora de Área | Inscrição | ritual breve | área 3 x 3 | Impede teleporte, deslocamento liminar e abertura espontânea de Fenda na área pela cena. | Aumente área ou duração até pausa. | Você também não pode usar efeitos de Limiar dentro dela.",
+      "indice_global_da_tabela": 34,
+      "linha_da_tabela": 7,
+      "numeros": [
+        3,
+        3
       ],
-      "hash": "452d95257faff013cd4fa6d22fc6404bc6e4085d0858908dcd90597e411d70a4"
+      "hash": "c6a65a652dc4332a709284740c3fb7faab9629d30d4d8f7b39ca7cc6e2a2c2ec"
     },
     {
       "name": "Salto de Possibilidade",
       "grau": "Grau 2",
-      "raw_row": [
-        "Salto de Possibilidade",
-        "Limiar",
-        "Reação",
-        "6 células",
-        "Depois de rolagem visível, rerrole um dos dois dados e escolha qual resultado manter.",
-        "Aplique a um aliado.",
-        "A possibilidade rejeitada cria custo, atraso ou atenção futura."
+      "tradicao": "Limiar",
+      "acao": "Reação",
+      "custo": "A possibilidade rejeitada cria custo, atraso ou atenção futura.",
+      "alcance": "6 células",
+      "alvo": null,
+      "area": null,
+      "duracao": "Depois de rolagem visível, rerrole um dos dois dados e escolha qual resultado manter.",
+      "efeito": "Aplique a um aliado.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Salto de Possibilidade | Limiar | Reação | 6 células | Depois de rolagem visível, rerrole um dos dois dados e escolha qual resultado manter. | Aplique a um aliado. | A possibilidade rejeitada cria custo, atraso ou atenção futura.",
+      "indice_global_da_tabela": 34,
+      "linha_da_tabela": 8,
+      "numeros": [
+        6
       ],
-      "hash": "759b437c01df96562260f03377bd302133cd2e15243b1b9bae92108fcf4cda4f"
+      "hash": "f183abcd7da72d5bd8e27ac3c04499dc10e1171bbbc7164eb09108162957d03e"
     },
     {
       "name": "Horizonte Partilhado",
       "grau": "Grau 3",
-      "raw_row": [
-        "Horizonte Partilhado",
-        "Ressonância",
-        "Ação",
-        "aliados em uma zona funcional",
-        "Por uma rodada, aliados compartilham ameaças percebidas, recebem +3 Percepção e não podem ser surpreendidos.",
-        "Inclua uma informação ou abertura coletiva.",
-        "Todos percebem também uma dor ou medo relevante."
+      "tradicao": "Ressonância",
+      "acao": "Ação",
+      "custo": "Todos percebem também uma dor ou medo relevante.",
+      "alcance": "aliados em uma zona funcional",
+      "alvo": null,
+      "area": null,
+      "duracao": "Por uma rodada, aliados compartilham ameaças percebidas, recebem +3 Percepção e não podem ser surpreendidos.",
+      "efeito": "Inclua uma informação ou abertura coletiva.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Horizonte Partilhado | Ressonância | Ação | aliados em uma zona funcional | Por uma rodada, aliados compartilham ameaças percebidas, recebem +3 Percepção e não podem ser surpreendidos. | Inclua uma informação ou abertura coletiva. | Todos percebem também uma dor ou medo relevante.",
+      "indice_global_da_tabela": 35,
+      "linha_da_tabela": 1,
+      "numeros": [
+        3
       ],
-      "hash": "9c136ff0019f2a1a61e20ea8e6d1be793334140dd2b9a7b577c970710c4b84eb"
+      "hash": "7c58509375be2e0b002f52f7a0466cf34128ef4bafdb88b70548c2db2e2f5850"
     },
     {
       "name": "Prisão de Forma",
       "grau": "Grau 3",
-      "raw_row": [
-        "Prisão de Forma",
-        "Manifestação",
-        "Ação",
-        "8 células",
-        "Imobiliza criatura ou fenômeno; alvo testa Fortitude ou Integridade a cada turno. A prisão possui Integridade 18.",
-        "Aumente Integridade ou inclua segundo alvo adjacente.",
-        "A prisão manifesta parte da identidade do conjurador."
+      "tradicao": "Manifestação",
+      "acao": "Ação",
+      "custo": "A prisão manifesta parte da identidade do conjurador.",
+      "alcance": "8 células",
+      "alvo": null,
+      "area": null,
+      "duracao": "Imobiliza criatura ou fenômeno; alvo testa Fortitude ou Integridade a cada turno. A prisão possui Integridade 18.",
+      "efeito": "Aumente Integridade ou inclua segundo alvo adjacente.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Prisão de Forma | Manifestação | Ação | 8 células | Imobiliza criatura ou fenômeno; alvo testa Fortitude ou Integridade a cada turno. A prisão possui Integridade 18. | Aumente Integridade ou inclua segundo alvo adjacente. | A prisão manifesta parte da identidade do conjurador.",
+      "indice_global_da_tabela": 35,
+      "linha_da_tabela": 2,
+      "numeros": [
+        8,
+        18
       ],
-      "hash": "9442204750109503f0b5d994a1d378f3b076e091077ab2ed5bf8e035a5041903"
+      "hash": "e9ddf4998b092f5556e6d8a98aeaf555bc2bed8ba4de0f1bbd01cb9a3038502d"
     },
     {
       "name": "Travessia Fratal",
       "grau": "Grau 3",
-      "raw_row": [
-        "Travessia Fratal",
-        "Limiar",
-        "ritual",
-        "Fenda identificada",
-        "Abre passagem entre posições correspondentes. Exige Âncora, destino, teste e custo definido pela Fenda; não garante retorno.",
-        "Estabilize chegada ou leve grupo maior.",
-        "Chegada deslocada, eco de memória ou atenção da Sombra."
-      ],
-      "hash": "ce2220ba2ff114b2f7a29de26811c62610935427db8f23ab6466132904681c59"
+      "tradicao": "Limiar",
+      "acao": "ritual",
+      "custo": "Chegada deslocada, eco de memória ou atenção da Sombra.",
+      "alcance": "Fenda identificada",
+      "alvo": null,
+      "area": null,
+      "duracao": "Abre passagem entre posições correspondentes. Exige Âncora, destino, teste e custo definido pela Fenda; não garante retorno.",
+      "efeito": "Estabilize chegada ou leve grupo maior.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Travessia Fratal | Limiar | ritual | Fenda identificada | Abre passagem entre posições correspondentes. Exige Âncora, destino, teste e custo definido pela Fenda; não garante retorno. | Estabilize chegada ou leve grupo maior. | Chegada deslocada, eco de memória ou atenção da Sombra.",
+      "indice_global_da_tabela": 35,
+      "linha_da_tabela": 3,
+      "numeros": [],
+      "hash": "7ebed24a946a407c4eb6925934f8ed4d24db838f258a801097c5f871e972da11"
     },
     {
       "name": "Restauração de Nome",
       "grau": "Grau 3",
-      "raw_row": [
-        "Restauração de Nome",
-        "Profundidade",
-        "ritual de uma cena",
-        "toque e vínculo",
-        "Com consentimento e memória reconhecida, remova até 3 Sombra temporária ou condição de assimilação. Não ressuscita.",
-        "Restaure vínculo ou memória danificada relacionada.",
-        "O ritual revela o preço ou a origem da corrupção."
+      "tradicao": "Profundidade",
+      "acao": "ritual de uma cena",
+      "custo": "O ritual revela o preço ou a origem da corrupção.",
+      "alcance": "toque e vínculo",
+      "alvo": null,
+      "area": null,
+      "duracao": "Com consentimento e memória reconhecida, remova até 3 Sombra temporária ou condição de assimilação. Não ressuscita.",
+      "efeito": "Restaure vínculo ou memória danificada relacionada.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Restauração de Nome | Profundidade | ritual de uma cena | toque e vínculo | Com consentimento e memória reconhecida, remova até 3 Sombra temporária ou condição de assimilação. Não ressuscita. | Restaure vínculo ou memória danificada relacionada. | O ritual revela o preço ou a origem da corrupção.",
+      "indice_global_da_tabela": 35,
+      "linha_da_tabela": 4,
+      "numeros": [
+        3
       ],
-      "hash": "d22d3ef15d6179cd2647d58db3c99120d84c41cf072afc0e33e83c372dcb9b07"
+      "hash": "da33c6f4a5299516ae538b54289c8b0b9578282bf0b55a9c3a1d4a0dc67ded18"
     },
     {
       "name": "Cataclismo Contido",
       "grau": "Grau 3",
-      "raw_row": [
-        "Cataclismo Contido",
-        "Elemental",
-        "Ação; 1/cena",
-        "área 5 x 5 a 12 células",
-        "Ataque de área base 5 ×4. Escolha elemento e altere o terreno de forma severa.",
-        "Concentre em área 3 x 3 para +2 dano final.",
-        "O conjurador fica Fraturado e o ambiente permanece instável."
+      "tradicao": "Elemental",
+      "acao": "Ação; 1/cena",
+      "custo": "O conjurador fica Fraturado e o ambiente permanece instável.",
+      "alcance": "área 5 x 5 a 12 células",
+      "alvo": null,
+      "area": null,
+      "duracao": "Ataque de área base 5 ×4. Escolha elemento e altere o terreno de forma severa.",
+      "efeito": "Concentre em área 3 x 3 para +2 dano final.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Cataclismo Contido | Elemental | Ação; 1/cena | área 5 x 5 a 12 células | Ataque de área base 5 ×4. Escolha elemento e altere o terreno de forma severa. | Concentre em área 3 x 3 para +2 dano final. | O conjurador fica Fraturado e o ambiente permanece instável.",
+      "indice_global_da_tabela": 35,
+      "linha_da_tabela": 5,
+      "numeros": [
+        1,
+        5,
+        5,
+        12,
+        5,
+        4,
+        3,
+        3,
+        2
       ],
-      "hash": "bc9a5b2f88292a7046172d2349024f84d00f7b1639a5015254d5d7b38b4978f7"
+      "hash": "9989ed3f012d666e6fb0b9393e61e2a56174f479cbb8c01b642216896147a972"
     },
     {
       "name": "Pacto Vivo",
       "grau": "Grau 3",
-      "raw_row": [
-        "Pacto Vivo",
-        "Inscrição",
-        "ritual de uma cena",
-        "lugar, objeto ou grupo consentido",
-        "Inscreva promessa que concede +3 a ações coerentes e impõe Pressão 3 a violações conscientes durante o arco.",
-        "Inclua testemunha, condição de encerramento ou proteção material.",
-        "Ambiguidade cria Ruptura no pacto e consequência institucional."
+      "tradicao": "Inscrição",
+      "acao": "ritual de uma cena",
+      "custo": "Ambiguidade cria Ruptura no pacto e consequência institucional.",
+      "alcance": "lugar, objeto ou grupo consentido",
+      "alvo": null,
+      "area": null,
+      "duracao": "Inscreva promessa que concede +3 a ações coerentes e impõe Pressão 3 a violações conscientes durante o arco.",
+      "efeito": "Inclua testemunha, condição de encerramento ou proteção material.",
+      "resistencia_ou_teste": null,
+      "limitacoes": null,
+      "condicao": null,
+      "ampliacao": null,
+      "texto_integral_da_linha": "Pacto Vivo | Inscrição | ritual de uma cena | lugar, objeto ou grupo consentido | Inscreva promessa que concede +3 a ações coerentes e impõe Pressão 3 a violações conscientes durante o arco. | Inclua testemunha, condição de encerramento ou proteção material. | Ambiguidade cria Ruptura no pacto e consequência institucional.",
+      "indice_global_da_tabela": 35,
+      "linha_da_tabela": 6,
+      "numeros": [
+        3,
+        3
       ],
-      "hash": "5380ef09be4a77cb3826bb9898d44f0807a39730cdcc72391308bdad802c3416"
+      "hash": "1d18f18cca50092314c43d800da00cd093ffba8570c3d6a19a96f1873f554092"
     }
   ]
 }

@@ -1,0 +1,10 @@
+{
+  "chapter": "Capítulo 11",
+  "docx_paragraphs_count": 40,
+  "text_identical": true,
+  "words_diff": 0,
+  "sentences_diff": 0,
+  "blocks_diff": 0,
+  "alerts_diff": 0,
+  "explanation": "Prosa mantida 100% idêntica ao original. Diferenças de contagem entre parágrafos Word e blocos de linter decorrem de separações por quebras de linha em estilo_lint.py."
+}
