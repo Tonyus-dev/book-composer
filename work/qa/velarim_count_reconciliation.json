@@ -8,7 +8,34 @@
     "formula": "226 raw lines - 23 core overlaps - 1 internal duplicate = 202 expansion unique"
   },
   "formula_223_explanation": {
-    "formula": "226 raw lines - 3 repetições no fraseário interrogativo = 223 entradas intermediárias (pré-filtro das 23 sobreposições do núcleo)",
+    "value": 223,
+    "methodology": "226 linhas brutas da Seção 17 - 3 repetições no fraseário de interrogativos (mai, sai, rei) = 223 entradas intermediárias pré-filtro das sobreposições do núcleo",
+    "three_lines": [
+      {
+        "raw_index": 37,
+        "source_line": 1094,
+        "forma": "mai",
+        "source_text": "| `mai` | quem |",
+        "source_sha256": "b875878752f2c937f73d8f18a2403d87f4b7758f8f638102ed91be1fcf4ea3e7",
+        "reason": "Repetição de interrogativo já listado em 17.1"
+      },
+      {
+        "raw_index": 38,
+        "source_line": 1095,
+        "forma": "sai",
+        "source_text": "| `sai` | o que |",
+        "source_sha256": "cf9f2ad57b0d8d7f2e90ebb4232dc91fa48e0f45da229e4d5ace2603ba0a3904",
+        "reason": "Repetição de interrogativo já listado em 17.1"
+      },
+      {
+        "raw_index": 39,
+        "source_line": 1096,
+        "forma": "rei",
+        "source_text": "| `rei` | onde |",
+        "source_sha256": "eac9c1a3b7c0cc744718e45634ebfd7adce3b5a579a634c034e166c4e415be4a",
+        "reason": "Repetição de interrogativo já listado em 17.1"
+      }
+    ],
     "status": "legacy_or_methodological_count"
   },
   "count_377_analysis": {
@@ -21,9 +48,14 @@
       "provisional_forms": 15,
       "example_tokens": 15
     },
+    "intersections": {
+      "active_terms_and_variants": 32,
+      "active_terms_and_provisional": 6,
+      "active_terms_and_proper_names": 11,
+      "active_terms_and_affixes": 0
+    },
     "sum_of_categories": 377,
     "union_deduplicated_text_forms": 333,
-    "normalization_key": "lowercase_accent_preserved_multiword_tokenized",
-    "status": "category_sum_reconciled_with_deduplicated_union"
+    "status": "category_sum_not_unique_forms"
   }
 }

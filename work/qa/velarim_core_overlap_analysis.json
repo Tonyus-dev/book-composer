@@ -1,5 +1,57 @@
 {
   "total_overlaps": 23,
+  "same_form_new_class_count": 2,
+  "same_form_new_class_entries": [
+    {
+      "expansion_form": "veth",
+      "expansion_raw_index": 90,
+      "core_form": "veth",
+      "core_line": 779,
+      "class_expansion": "REL",
+      "class_core": "substantivo relacional",
+      "meaning_expansion": "vincular-se, cuidar, amar sem posse",
+      "meaning_core": "vínculo ou união de alma",
+      "status_expansion": "V2-OP como verbo; raiz nominal V1-CAN",
+      "status_core": "CAN",
+      "source_text": "| `veth` | REL | vincular-se, cuidar, amar sem posse | V2-OP como verbo; raiz nominal V1-CAN |",
+      "source_sha256": "964723a192e7dab7ebfec6a77721bb2a1fc761f4f9fdd7e4a94c0251ffbca595",
+      "overlap_type": "same_form_new_class",
+      "decision": "excluído_da_expansão_mantido_no_núcleo"
+    },
+    {
+      "expansion_form": "vethari",
+      "expansion_raw_index": 105,
+      "core_form": "vethari",
+      "core_line": 783,
+      "class_expansion": "REL",
+      "class_core": "substantivo/verbo relacional",
+      "meaning_expansion": "realizar Merge legítimo",
+      "meaning_core": "Merge legítimo",
+      "status_expansion": "V1-CAN",
+      "status_core": "CAN",
+      "source_text": "| `vethari` | REL | realizar Merge legítimo | V1-CAN |",
+      "source_sha256": "23c6eec387bbafbacd922c6cd7a12bdc123d2dbfd50500bc58eb33e136128f87",
+      "overlap_type": "same_form_new_class",
+      "decision": "excluído_da_expansão_mantido_no_núcleo"
+    }
+  ],
+  "silmain_polysemy": {
+    "core_entry_1": {
+      "forma": "silmain",
+      "classe": "substantivo derivado",
+      "significado": "luzes dispersas e autônomas",
+      "status": "TECH",
+      "line": 766
+    },
+    "core_entry_2": {
+      "forma": "silmain",
+      "classe": "substantivo lexical",
+      "significado": "sistema de escrita contínua",
+      "status": "LEX_CAN",
+      "line": 767
+    },
+    "treatment": "Ambos os sentidos de silmain são preservados como registros distintos no Núcleo 1.0."
+  },
   "overlaps": [
     {
       "expansion_form": "ve",
@@ -14,7 +66,7 @@
       "status_core": "CAN",
       "source_text": "| `ve` | negação | não; prefixo negativo — V1-CAN |",
       "source_sha256": "924ac3956e52a3839d343a3300a7eedd25aa988a48c53c4770b7fd482101b604",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     },
     {
@@ -30,7 +82,7 @@
       "status_core": "TECH",
       "source_text": "| `ol` | relacional | a, para, em direção a — V1-TECH |",
       "source_sha256": "0d0f2603795e811bc17e72f2c461c1bac11044b90552f456cc494a8a01886ef3",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     },
     {
@@ -46,7 +98,7 @@
       "status_core": "TECH",
       "source_text": "| `nam` | REL/INTR | ser, estar, existir, permanecer em presença | V1-TECH |",
       "source_sha256": "9d5c9385cd6e8be56335db3d95180c44bbcf6fed852f72b88675f5af42fa0a12",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     },
     {
@@ -62,7 +114,7 @@
       "status_core": "TECH",
       "source_text": "| `namath` | REL | coexistir sem submissão | V1-TECH |",
       "source_sha256": "51517fef368bacdb433c1172bd5bfcce69e381f3e9679f3bbdd52925d334d330",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     },
     {
@@ -94,7 +146,7 @@
       "status_core": "CAN",
       "source_text": "| `velar` | INTR | voar, transcender espaço | V1-CAN |",
       "source_sha256": "d604d0090fbc763d54f6bf1dcc6fd1f95576d7a9a8765e2cbc5e146a3e294bd4",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     },
     {
@@ -110,7 +162,7 @@
       "status_core": "SRC",
       "source_text": "| `silar` | INTR | brilhar, emitir luz própria | V1-SRC |",
       "source_sha256": "acbf63c9d1fc00a60ad11f74bf5758da3e23a08ae161b8d9cf21c46ab9d1cdef",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     },
     {
@@ -126,7 +178,7 @@
       "status_core": "CAN",
       "source_text": "| `nooveth` | TRANS | tecer magia | V1-CAN |",
       "source_sha256": "f915eeba47ec4d6e12d646579c5a4372c0cfe3433b17a60fb576e4b479c5ce0f",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     },
     {
@@ -158,7 +210,7 @@
       "status_core": "PROV",
       "source_text": "| `les` | TRANS | reconhecer, nomear com precisão | V1-PROV |",
       "source_sha256": "ab74bdd7eb012f01a9ccc8be0420ba90657475df33b8a7c4106b9c556c432150",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     },
     {
@@ -174,7 +226,7 @@
       "status_core": "PROV",
       "source_text": "| `tav` | TRANS | tocar física ou magicamente | V1-PROV |",
       "source_sha256": "e55f17011919274ce8672bbb3ebea060f0f3ae5c8370f57a75347035b13e565a",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     },
     {
@@ -190,7 +242,7 @@
       "status_core": "PROV",
       "source_text": "| `dur` | TRANS | comandar/submeter pela força | V1-PROV |",
       "source_sha256": "653aecc4bd9d86ca121ecde83556f5d13d9cd35042f1514c345cc086f9ae2d28",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     },
     {
@@ -206,7 +258,7 @@
       "status_core": "PROV",
       "source_text": "| `sib` | TRANS | consumir identidade alheia | V1-PROV |",
       "source_sha256": "a4ca9f22a1c0f405e8e5d2ee1764e6030b75d2dcfc89a95df8434ab6e12ac182",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     },
     {
@@ -222,7 +274,7 @@
       "status_core": "TECH",
       "source_text": "| `noovethan` | tecelão ou tecelã de magia | V1-TECH |",
       "source_sha256": "22f361436bb51454a41bce7995ecdd908ac61fa99763b190e0e51f12366169c2",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     },
     {
@@ -238,7 +290,7 @@
       "status_core": "LEX_CAN",
       "source_text": "| `mirveth` | contraparte cosmológica integral | V1-LEX |",
       "source_sha256": "8964d88a79da3bce06e3bf57ee2f289aa7e802bb079e81b7daa331f5c134e8cd",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     },
     {
@@ -254,7 +306,7 @@
       "status_core": "CAN",
       "source_text": "| `mirvethin` | contrapartes autônomas | V1-CAN |",
       "source_sha256": "c83ec0706fd245e48d8e4beb88b6da6d65325e697228cd34a0dc98cde6d6291b",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     },
     {
@@ -270,7 +322,7 @@
       "status_core": "CAN",
       "source_text": "| `mirvethari` | relação viva entre contrapartes | V1-CAN |",
       "source_sha256": "7785523845d4f5691dfc6217152c18f0e17340338f85f561b515ea772315d210",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     },
     {
@@ -286,7 +338,7 @@
       "status_core": "CAN",
       "source_text": "| `anir` | começo, origem temporal — V1-CAN |",
       "source_sha256": "f57cd70ba549be05d16fdc3e1567dffdcfe72b728f896f0e791b78848c014f1d",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     },
     {
@@ -302,7 +354,7 @@
       "status_core": "SRC",
       "source_text": "| `luumeh` | tempo fluido, era — V1-SRC |",
       "source_sha256": "76660e75fe54b6284d3ec5f545ad4790cfa27309831ed8af545cb8b4ad88835c",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     },
     {
@@ -318,7 +370,7 @@
       "status_core": "SRC",
       "source_text": "| `manuv` | mão, instrumento de toque | V1-SRC |",
       "source_sha256": "22b66b44b15bfac26f34d13d8d0e973a49778505d71c89f1664328c99bfd6e87",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     },
     {
@@ -334,7 +386,7 @@
       "status_core": "SRC",
       "source_text": "| `tharen` | caminho, passagem | V1-SRC |",
       "source_sha256": "7333c6bd86f327d8212f1c71311875d9886a5f0062cc6427392553509c92b945",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     },
     {
@@ -350,7 +402,7 @@
       "status_core": "SRC",
       "source_text": "| `krav` | pedra ou rocha da Escuridão | V1-SRC |",
       "source_sha256": "c0785fd9013bff2ad6fe685adfc6c79bd7337b344f66198e3f06656c50a0a0c6",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     },
     {
@@ -366,7 +418,7 @@
       "status_core": "PROV",
       "source_text": "| `kavesh` | falsificação ou instrumento da Sombra | V1-PROV |",
       "source_sha256": "c1e16ab020e94bc1a932ef37a6d0f1f724805ebb86762cceeeefb33461920a6f",
-      "overlap_type": "same_form_new_class",
+      "overlap_type": "literal_duplicate",
       "decision": "excluído_da_expansão_mantido_no_núcleo"
     }
   ]
