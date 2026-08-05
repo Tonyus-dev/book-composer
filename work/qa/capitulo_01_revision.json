@@ -1,0 +1,16 @@
+{
+  "hash_fonte": "ba57e0dc87ec74d99e2d7398aa4c8bc93e0e77576ca8f58f4d795f36aac200b5",
+  "hash_checkpoint": "ba57e0dc87ec74d99e2d7398aa4c8bc93e0e77576ca8f58f4d795f36aac200b5",
+  "hash_copia_trabalho_pre_edicao": "ba57e0dc87ec74d99e2d7398aa4c8bc93e0e77576ca8f58f4d795f36aac200b5",
+  "indice_inicial_paragrafo": 28,
+  "indice_final_paragrafo": 70,
+  "estilos_envolvidos": [
+    "Heading 2",
+    "Heading 4",
+    "Kallistis Body Justify",
+    "Kallistis Chapter"
+  ],
+  "tabelas_no_intervalo": 0,
+  "imagens_no_intervalo": 0,
+  "paginas_correspondentes_na_fonte": [7, 8]
+}
