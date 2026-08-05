@@ -1,11 +1,14 @@
 {
   "summary": {
     "total_executable_records": 202,
+    "distinct_executable_ids": 202,
     "mapped_executable_ids_count": 202,
     "orphan_executable_ids_count": 0,
-    "human_entry_ids_used_by_expansion": 201,
+    "unresolved_executable_ids_count": 0,
+    "human_entry_ids_used_by_expansion": 202,
     "unique_orthographic_expansion_forms": 202,
-    "many_to_one_difference": "202 - 201 = 1 excesso muitos-para-um"
+    "caso_declarado": "CASO_B",
+    "equation": "202 distinct_executable_ids -> 202 distinct_human_entry_ids (excesso relacional = 0)"
   },
   "les_detail": {
     "forma": "les",
@@ -19,9 +22,6 @@
     "significado_nucleo": "reconhecer; nomear com precisão",
     "status_nucleo": "PROV",
     "classificação_principal": "derived_expansion_under_core_lemma",
-    "pertence_a_human_used_by_core": true,
-    "pertence_a_human_used_by_expansion": true,
-    "hospeda_forma_derivada": "lesan (Executable ID #109)",
     "source_text": "| `les` | TRANS | reconhecer, nomear com precisão | V1-PROV |",
     "source_sha256": "ab74bdd7eb012f01a9ccc8be0420ba90657475df33b8a7c4106b9c556c432150"
   },
@@ -29,7 +29,7 @@
     "forma": "lesan",
     "core_id": null,
     "executable_id": 109,
-    "human_entry_id_mapeado": 106,
+    "human_entry_id": 123,
     "classe": "testemunha, nomeador preciso",
     "significado": "depende de `les`; V1-PROV",
     "status": "HUMAN_APPROVED",
@@ -47,21 +47,7 @@
       1299
     ],
     "formas_ortográficas_únicas": 1,
-    "textos_literais": [
-      "| `ravun` | ferida, dano, perigo; ferido, perigoso | `rav + -un` |",
-      "| `ravun` | perigoso, ferido; dano, perigo |"
-    ],
     "mapeamento_humano": "A forma ravun possui exatamente 1 registro executável final (ID #129) que mapeia para o verbete humano ravun (Human Entry ID #149)."
-  },
-  "many_to_one_group": {
-    "group_id": 1,
-    "human_entry_id": 106,
-    "human_entry_forma": "les",
-    "executable_ids": [
-      109
-    ],
-    "excesso_muitos_para_um": 1,
-    "razão_documental": "lesan (Executable ID #109) é uma forma derivada nominal ('testemunha, nomeador preciso') que depende e se consolida sob a lema verbal nuclear les (Core L793 / Human Entry ID #106) no Dicionário Conversacional."
   },
   "executable_crosswalk": [
     {
@@ -1257,9 +1243,9 @@
       "forma": "lesan",
       "classe": "testemunha, nomeador preciso",
       "significado": "depende de `les`; V1-PROV",
-      "human_entry_id": 106,
-      "human_entry_forma": "les",
-      "match_type": "derived_expansion_under_core_lemma",
+      "human_entry_id": 123,
+      "human_entry_forma": "lesan",
+      "match_type": "one_to_one_literal",
       "source_text": "| `lesan` | testemunha, nomeador preciso | depende de `les`; V1-PROV |",
       "source_sha256": "60c8894704863618da9c58b86b4ed8c9ab556f1d013ed40810e2d95f8ddccca0"
     },

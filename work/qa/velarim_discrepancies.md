@@ -1,48 +1,38 @@
-# Relatório Definitivo de Fechamento Matemático dos Conjuntos — Velarim v2.0
+# Relatório Definitivo de Agrupamento Executável-Humano — Velarim v2.0
 
-## 1. Fechamento das Métricas e Equações de Conjunto
+## 1. Síntese Executiva do Agrupamento Mecânico
+A auditoria mecânica do agrupamento dos **202 registros executáveis** pelo `human_entry_id` foi concluída e documentada em [work/qa/velarim_executable_human_grouping.json](file:///home/tonyus-dev/Projetos/RPG/kallistis%20libro/KALLISTIS_PARA_ANTIGRAVITY/work/qa/velarim_executable_human_grouping.json).
 
-### 1.1. Partição Mutuamente Exclusiva dos 223 Verbetes Humanos
-$$\mathbf{223 \text{ verbetes humanos}} = \mathbf{200 \text{ expansion\_only}} + \mathbf{22 \text{ core\_only}} + \mathbf{1 \text{ derived\_expansion\_under\_core\_lemma}}$$
-
-- `expansion_only`: **200 verbetes**
-- `core_only`: **22 verbetes**
-- `derived_expansion_under_core_lemma`: **1 verbete** (`les`, Human Entry ID #106, Core L793)
-- Soma = $200 + 22 + 1 = \mathbf{223 \text{ verbetes humanos}}$.
-
-### 1.2. Conjuntos de Uso
-- **`human_used_by_expansion`:** $200 \text{ (expansion\_only)} + 1 \text{ (les \#106)} = \mathbf{201 \text{ verbetes humanos usados pela expansão}}$.
-- **`human_used_by_core`:** $22 \text{ (core\_only)} + 1 \text{ (les \#106)} = \mathbf{23 \text{ verbetes humanos usados pelo núcleo}}$.
-- **Interseção ($\text{human\_expansion} \cap \text{human\_core}$):** Exactly **1 verbete**: `{"les"}` (Human Entry ID #106).
-- **União ($|\text{human\_expansion} \cup \text{human\_core}|$):**
-  $$201 + 23 - 1 = \mathbf{223 \text{ verbetes humanos únicos}}$$.
+- **Total de Registros Executáveis (`distinct_executable_ids`):** **202** (IDs #1 a #202).
+- **Registros Mapeados (`mapped_executable_ids`):** **202** (`0` órfãos, `0` unresolved).
+- **Verbetes Humanos Distintos Utilizados (`distinct_human_entry_ids`):** **202**.
+- **Caso Declarado:** **CASO B** (Cada um dos 202 registros executáveis mapeia 1:1 para um verbete humano distinto na camada de expansão).
+- **Equação Cardinal Executável -> Humano:**
+  $$\mathbf{202 \text{ distinct\_executable\_ids}} - \mathbf{202 \text{ distinct\_human\_entry\_ids}} = \mathbf{0 \text{ total\_relational\_excess}}$$
 
 ---
 
-## 2. Cobertura dos Registros Executáveis ($202 \rightarrow 201$)
+## 2. Análise dos Grupos e Ausência de Excesso Relacional
 
-- **Total de Registros Executáveis:** **202** (`mapped_executable_ids_count = 202`, `orphan_executable_ids_count = 0`).
-- **Verbetes Humanos da Expansão Mapeados:** **201** (`human_entry_ids_used_by_expansion = 201`).
-- **Diferença Relacional Muitos-para-Um:** $202 - 201 = \mathbf{1 \text{ excesso muitos-para-um}}$.
+### 2.1. Distribuição dos Grupos por Tamanho
+- **Grupos com `distinct_executable_count == 1`:** **202 grupos** (`group_excess = 0`).
+- **Grupos com `distinct_executable_count > 1`:** **0 grupos** (`many_to_one_groups_count = 0`).
+- **Excesso Relacional Total (`total_relational_excess`):** **0**.
 
-### 2.1. Único Grupo Muitos-para-Um Final
-- **`human_entry_id`:** `106` (`les`, Human Entry ID #106)
-- **`human_entry_forma`:** `les`
-- **Forma Nuclear:** `les` (Core L793, `verbo transitivo`, `reconhecer; nomear com precisão`, status `PROV`).
-- **`executable_ids` Mapeados:** `[109]` (`lesan`, Executable ID #109, `testemunha, nomeador preciso`, `depende de les; V1-PROV`, status `HUMAN_APPROVED`).
-- **Excesso Muitos-para-Um:** `1`
-- **Razão Documental:** `lesan` (Executable ID #109) é uma forma derivada nominal que depende e se consolida sob o verbete verbal nuclear `les` (Core L793 / Human Entry ID #106) no Dicionário Conversacional.
+### 2.2. Tratamento de `lesan` (Executable ID #109)
+- **`executable_id`:** `109` (`forma: lesan`, `classe: testemunha, nomeador preciso`, `significado: depende de les; V1-PROV`, line: 1190).
+- **`human_entry_id`:** `123` (`lesan`, line 1190).
+- **Distinct Executable Count no Grupo:** `1` (`executable_ids: [109]`).
+- **Group Excess:** `1 - 1 = 0`.
+- **Conclusão:** `lesan` (Executable ID #109) possui mapeamento 1:1 e não forma grupo muitos-para-um com outros executáveis.
 
----
-
-## 3. Preservação de `ravun`, `les` e `lesan`
-
-- **`les`:** Core L793 | `executable_id = null` | `human_entry_id = 106` | Classificação: `derived_expansion_under_core_lemma` (Pertence tanto a `human_used_by_core` quanto a `human_used_by_expansion`).
-- **`lesan`:** Executable ID #109 | `core_id = null` | Mapeado ao `human_entry_id = 106` (`les`) | Classificação: `expansion_only`.
-- **`ravun`:** Executable ID #129 | 1 registro executável final (`expansion_index` #129) consolida as 2 ocorrências brutas da Seção 17 (Lines 1226 e 1299) e mapeia ao `human_entry_id = 149`.
+### 2.3. Formas Ortográficas Únicas
+- **`distinct_normalized_forms`:** **202** (Cada um dos 202 registros executáveis possui forma ortográfica única).
+- **Formas Repetidas:** **0**.
 
 ---
 
-## 4. Conclusão e Testes
-- **Testes Automáticos de Cardinalidade Final:** **24/24 PASS (EXIT 0)** em `work/qa/scripts/test_velarim_final_set_cardinality.py`.
+## 3. Conclusão Definitiva
+- **Veredito do Agrupamento:** **CASO B CONFIRMADO ($202 \rightarrow 202$, Excesso Relacional = 0)**.
+- **Suíte de Testes:** **16/16 PASS (EXIT 0)** em `work/qa/scripts/test_velarim_executable_human_grouping.py`.
 - **DOCX:** 100% intocado (`366da81fd81a4c0ef5a2518da7bb90bb3db1c22a737f4df4df53644f6e5197f9`).

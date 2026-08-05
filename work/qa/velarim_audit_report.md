@@ -1,31 +1,31 @@
-# Relatório Definitivo de Auditoria e Cardinalidade de Conjuntos — Velarim v2.0
+# Relatório Definitivo de Auditoria de Agrupamento Executável-Humano — Velarim v2.0
 
-## 1. Síntese Executiva das Métricas e Equações de Conjunto
-A auditoria final e o fechamento matemático do crosswalk entre o **Corpus Executável de Expansão (202 Registros)** e o **Dicionário Conversacional 2.0 (223 Verbetes Humanos)** foram concluídos com precisão:
+## 1. Síntese Executiva da Auditoria do Agrupamento Executável-Humano
+A auditoria mecânica do agrupamento dos **202 registros executáveis** pelo `human_entry_id` confirmou o **CASO B**:
 
-- **Partição Exclusiva:** $\mathbf{223 \text{ verbetes humanos}} = \mathbf{200 \text{ expansion\_only}} + \mathbf{22 \text{ core\_only}} + \mathbf{1 \text{ derived\_expansion\_under\_core\_lemma}}$.
-- **`human_used_by_expansion`:** **201 verbetes humanos** ($200 + 1$).
-- **`human_used_by_core`:** **23 verbetes humanos** ($22 + 1$).
-- **Interseção ($\text{human\_expansion} \cap \text{human\_core}$):** Exactly **1 verbete** (`{"les"}`).
-- **União ($|\text{human\_expansion} \cup \text{human\_core}|$):** $201 + 23 - 1 = \mathbf{223 \text{ verbetes humanos}}$.
-- **Cobertura Executável:** $\mathbf{202 \text{ registros executáveis}} \longrightarrow \mathbf{201 \text{ verbetes humanos utilizados pela expansão}}$.
-- **Excesso Muitos-para-Um:** $202 - 201 = \mathbf{1 \text{ excesso}}$, representado pela lema `les` (Human Entry ID #106) que atrai `lesan` (Executable ID #109).
-- **Testes Automáticos:** **24/24 PASS (EXIT 0)** em `work/qa/scripts/test_velarim_final_set_cardinality.py`.
+- **Total de Registros Executáveis (`distinct_executable_ids`):** **202**.
+- **Registros Mapeados (`mapped_executable_ids`):** **202** (`0` órfãos, `0` unresolved).
+- **Verbetes Humanos Distintos Utilizados (`distinct_human_entry_ids`):** **202**.
+- **Grupos Muitos-para-Um (`distinct_executable_count > 1`):** **0**.
+- **Excesso Relacional Total (`total_relational_excess`):** **0**.
+- **Equação Cardinal:**
+  $$\mathbf{202 \text{ distinct\_executable\_ids}} - \mathbf{202 \text{ distinct\_human\_entry\_ids}} = \mathbf{0 \text{ total\_relational\_excess}}$$
+- **Testes Automáticos:** **16/16 PASS (EXIT 0)** em `work/qa/scripts/test_velarim_executable_human_grouping.py`.
 
 ---
 
-## 2. Resumo da Partição e Conjuntos de Uso
+## 2. Resumo da Distribuição do Agrupamento (CASO B)
 
-| Categoria / Conjunto | Tamanho | Itens / Mapeamento |
-|----------------------|---------|--------------------|
-| `expansion_only` | **200** | Verbetes humanos exclusivos da expansão |
-| `core_only` | **22** | Verbetes humanos exclusivos do Núcleo 1.0 (excluindo `les`) |
-| `derived_expansion_under_core_lemma` | **1** | `les` (Human Entry ID #106, Core L793) |
-| **PARTIÇÃO EXCLUSIVA TOTAL** | **223** | **Soma exata dos 223 verbetes humanos** |
-| `human_used_by_expansion` | **201** | 200 expansion_only + 1 les |
-| `human_used_by_core` | **23** | 22 core_only + 1 les |
-| `intersection` | **1** | `{"les"}` (Human Entry ID #106) |
-| `union` | **223** | $201 + 23 - 1 = 223$ |
+| Métrica | Valor | Validação |
+|---------|-------|-----------|
+| `distinct_executable_ids` | **202** | 100% dos registros executáveis da expansão |
+| `mapped_executable_ids` | **202** | Todos os registros possuem mapeamento |
+| `orphan_executable_ids` | **0** | Nenhum registro desconectado |
+| `unresolved_executable_ids` | **0** | Nenhum registro pendente |
+| `distinct_human_entry_ids` | **202** | Verbetes humanos mapeados 1:1 |
+| `many_to_one_groups_count` | **0** | Nenhum grupo com >1 executável |
+| `total_relational_excess` | **0** | Diferença $202 - 202 = 0$ |
+| `caso_declarado` | **CASO B** | Mapeamento 1:1 integral |
 
 ---
 
