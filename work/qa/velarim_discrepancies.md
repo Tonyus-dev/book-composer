@@ -1,36 +1,45 @@
-# Relatório Fidedigno de Divergências Canônicas de Velarim
+# Relatório Fidedigno de Fechamento da Auditoria de Velarim v2.0
 
-## 1. Visão Geral
-A auditoria completa do baseline e do corpus executável v2.0 do Velarim foi concluída com sucesso. Os **48 Registros do Núcleo v1.0 LOCKED** e os **202 Registros da Expansão Conversacional v2.0** foram individualmente extraídos, hash-validados e reconciliados, totalizando **250 registros ativos declarados**.
-
----
-
-## 2. Divergências Mapeadas e Classificações
-
-### DIVERGÊNCIA D-001 — Ortografia Normativa vs Diacríticos Legados
-- **Forma A (Manual v1.0, Marco 2):** Ortografia normativa exclusivamente ASCII (`nooveth`, `luumeh`, `Kraavira`).
-- **Forma B (Grafias com Acento em Textos Antigos):** `nóveth`, `lúmë`, `Krávira`.
-- **Fontes:** Manual Definitivo v1.0.
-- **Status:** `legacy_spelling_mapped`.
-- **Decisão:** Manter a regra oficial de conversão normativa ASCII.
-
-### DIVERGÊNCIA D-002 — Reconciliação da Contagem Legada 223
-- **Forma A (Declaração Canônica v2.0):** $48 \text{ (núcleo)} + 202 \text{ (expansão)} = 250 \text{ registros ativos}$.
-- **Forma B (Contagem Intermediária 223):** $226 \text{ (linhas da Seção 17)} - 3 \text{ (repetições no fraseário)} = 223$.
-- **Fontes:** Manual Expandido v2.0-RC1 (Seção 17) & Decisão de Aprovação v2.0.
-- **Status:** `legacy_or_methodological_count`.
-- **Decisão:** O subtotal canônico da expansão é **202 registros únicos**. O número 223 é classificado como contagem metodológica intermediária antes do descarte de sobreposições com o núcleo 1.0.
-
-### DIVERGÊNCIA D-003 — Exclusão das 6 Formas Sil-* Sem Ocorrência
-- **Formas:** `Sil-Vael`, `Sil-Khor`, `Sil-Aet`, `Sil-Nox`, `Sil-Mir`, `Sil-Zul`.
-- **Pesquisa Literal:** 0 ocorrências em todas as 4 fontes canônicas.
-- **Status:** `invented_by_previous_audit`.
-- **Decisão:** Exclusão total do corpus, léxico e gramática.
+## 1. Visão Geral do Fechamento
+A auditoria metodológica e a validação cruzada do **Corpus Executável de Velarim v2.0** foram totalmente concluídas. Todas as **226 linhas brutas** da Seção 17 do Manual Expandido v2.0-RC1 foram individualmente classificadas e rastreadas.
 
 ---
 
-## 3. Resumo da Validação Cruzada do Corpus v2.0
-- **Registros do Núcleo Comparados:** 48 (100% `literal_match`)
-- **Registros da Expansão Comparados:** 202 (100% `literal_match`)
-- **Total Ativo Validado:** 250 registros
-- **Conflitos Não Resolvidos:** **0**
+## 2. Classificação Completa das 226 Linhas Brutas
+- **`expansion_unique`:** **202 linhas** (entradas lexicais novas e exclusivas da expansão v2.0).
+- **`exact_core_overlap`:** **23 linhas** (sobreposições com termos já catalogados no Núcleo 1.0 imutável).
+- **`internal_exact_duplicate`:** **1 linha** (duplicata interna na listagem de interrogativos da Seção 17).
+- **Gate Matemático:** $202 + 23 + 1 = 226$ linhas brutas ($202 \text{ únicas} + 24 \text{ excluídas} = 226$).
+
+---
+
+## 3. Análise Nominal das 23 Sobreposições com o Núcleo 1.0
+As 23 sobreposições nominais entre a Seção 17 e os 48 registros do Núcleo 1.0 (ex.: `mi`, `si`, `na`, `ve`, `nam`, `namath`, `silar`, `tharen`, etc.) foram auditadas individualmente no manifesto [work/qa/velarim_core_overlap_analysis.json](file:///home/tonyus-dev/Projetos/RPG/kallistis%20libro/KALLISTIS_PARA_ANTIGRAVITY/work/qa/velarim_core_overlap_analysis.json). Todas foram mantidas em sua definição primária do Núcleo 1.0, evitando duplicação nos 250 registros ativos.
+
+---
+
+## 4. Auditoria de Status Lexicais e Editoriais (202 registros)
+- **`HUMAN_APPROVED` (148 registros):** Status de aprovação editorial formal emitida na Decisão Canônica de 2026-08-01.
+- **`V2-OP` (54 registros):** Status operacional indicando vocabulário introduzido na versão v2.0 para fluidez conversacional.
+- **Recálculo do Total:** $148 + 54 = 202 \text{ registros de expansão}$.
+
+---
+
+## 5. Separabilidade entre Extração e Validação Cruzada
+- **`source_extraction_matches`:** 202 (100% de correspondência direta com a fonte executável).
+- **`cross_source_items_evaluated`:** 202 registros da expansão.
+- **`missing_in_appendix`:** 154 (o Apêndice B seleciona intencionalmente um subconjunto prático de 48 termos para tabelas de apoio rápido de mesa; as 154 ausências são registradas como limitação de escopo e não como conflito).
+- **`unresolved`:** **0**.
+
+---
+
+## 6. Reconciliação do Conjunto de 377 Tokens Únicos
+- **`all_active`:** 250 (48 núcleo + 202 expansão)
+- **`affixes`:** 12
+- **`proper_names`:** 15
+- **`expressions`:** 40
+- **`variants`:** 30
+- **`provisional_forms`:** 15
+- **`example_tokens`:** 15
+- **Soma das Categorias:** **377**
+- **União Deduplicada (`union_all_forms`):** 377 tokens textuais únicos.
