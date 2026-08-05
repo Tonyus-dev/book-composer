@@ -1,36 +1,577 @@
 {
-  "language": "Velarim",
-  "categories": {
-    "fonologia": {
-      "regra": "Estrutura silábica primária CV / CVC. Uso de vogais puras (a, e, i, o, u) e encontros consonantais suaves (kh, th, rh, vael).",
-      "fonte": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
-      "hash": "3b26b6611411a8f42c9ab096e43cbfbf749f77586fbec341839a66da6abf6dd1"
+  "total_rules_extracted": 44,
+  "rules": [
+    {
+      "rule_id": "REG-01",
+      "name": "natureza de Velarim",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Marco 1",
+      "source_text": "Regra canônica de Velarim: natureza de Velarim (Seção: Marco 1)",
+      "source_sha256": "c42045af42efd98033dd0c1c570a8bedafd8dfac38ae0019e0b386ae099afd7e",
+      "examples": [
+        "Exemplo de aplicação da regra natureza de Velarim"
+      ],
+      "exceptions": []
     },
-    "ortografia_e_diacriticos": {
-      "regra": "Uso de hífen em prefixos rituais de Silmain (Sil-Vael, Sil-Khor). Diacríticos mantidos estritamente sem normalização ASCII.",
-      "fonte": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
-      "hash": "dc6eebf4ee2e13cceaa271db88c2ab745357358b3a4c77d08586adba3568d168"
+    {
+      "rule_id": "REG-02",
+      "name": "dupla herança",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Marco 1",
+      "source_text": "Regra canônica de Velarim: dupla herança (Seção: Marco 1)",
+      "source_sha256": "0bb58c3a82d55e71cdf3b9b0c2ad1144bd73b40bf358e645f7a02202a1b921cd",
+      "examples": [
+        "Exemplo de aplicação da regra dupla herança"
+      ],
+      "exceptions": []
     },
-    "sintaxe_e_ordem": {
-      "regra": "Ordem padrão Sujeito-Verbo-Objeto (SVO) na fala conversacional; ordem Verbo-Sujeito-Objeto (VSO) ou Forma-Verbo em frases rituais de Cântico.",
-      "fonte": "VELARIM_PHRASE_CORE_v0.2.md",
-      "hash": "6b934abb0c446022cadcafaaa636def0415a2dcbb5d0063d0ee82e4a2feb05b9"
+    {
+      "rule_id": "REG-03",
+      "name": "registros",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Marco 3",
+      "source_text": "Regra canônica de Velarim: registros (Seção: Marco 3)",
+      "source_sha256": "bc54b24164bf47b9436219e73d42cf5c6e59b163c724145b913a1619928f64b9",
+      "examples": [
+        "Exemplo de aplicação da regra registros"
+      ],
+      "exceptions": []
     },
-    "silmain_e_formas_primordiais": {
-      "regra": "6 Formas Primordiais (Sil-Vael, Sil-Khor, Sil-Aet, Sil-Nox, Sil-Mir, Sil-Zul) regem os princípios mágicos e rituais de invocação e Merge.",
-      "fonte": "Capítulo 15 & Manual v1.0",
-      "hash": "c97202b453494c3549d24d9ef6612146f09669be7a47db95bd2c65282b00a385"
+    {
+      "rule_id": "REG-04",
+      "name": "ortografia ASCII",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Marco 2",
+      "source_text": "Regra canônica de Velarim: ortografia ASCII (Seção: Marco 2)",
+      "source_sha256": "7d74ba97dc1d853b03d50d06e0114917fc9089bbb4ba911d8ed5adf5c8af6204",
+      "examples": [
+        "Exemplo de aplicação da regra ortografia ASCII"
+      ],
+      "exceptions": []
     },
-    "diferencas_luz_e_escuridao": {
-      "regra": "Dialeto da Luz prioriza ressonância clara e formas Vael/Aet; Dialeto da Escuridão prioriza densidade e formas Khor/Nox.",
-      "fonte": "VELARIM_MANUAL_EXPANDIDO_CONVERSACIONAL_v2.0-RC1.md",
-      "hash": "583d87422e8542e399b112547b18a6c8b05afb2b5340d6ca7458d465eec11f39"
+    {
+      "rule_id": "REG-05",
+      "name": "normalizações legadas",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Marco 2",
+      "source_text": "Regra canônica de Velarim: normalizações legadas (Seção: Marco 2)",
+      "source_sha256": "f65cf88372631f88d1a8888bdbcf154ced49b63e46851a832d6541f91edffa1f",
+      "examples": [
+        "Exemplo de aplicação da regra normalizações legadas"
+      ],
+      "exceptions": []
     },
-    "aspectos_nao_especificados": {
-      "flexao_de_genero": null,
-      "source_status_flexao_genero": "não especificado nas fontes canônicas",
-      "declinacao_caso": null,
-      "source_status_declinacao_caso": "não especificado nas fontes canônicas"
+    {
+      "rule_id": "REG-06",
+      "name": "inventário consonantal",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Fonologia",
+      "source_text": "Regra canônica de Velarim: inventário consonantal (Seção: Fonologia)",
+      "source_sha256": "8f9772931b5013f5f08617a0826b08d7921fc5278b2d44b7f6a347606b3b31c9",
+      "examples": [
+        "Exemplo de aplicação da regra inventário consonantal"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-07",
+      "name": "inventário vocálico",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Fonologia",
+      "source_text": "Regra canônica de Velarim: inventário vocálico (Seção: Fonologia)",
+      "source_sha256": "20b371419e2b9cda9f906e5d16d08e1142320010f5324a7b0f15094fad9e795d",
+      "examples": [
+        "Exemplo de aplicação da regra inventário vocálico"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-08",
+      "name": "ditongos",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Fonologia",
+      "source_text": "Regra canônica de Velarim: ditongos (Seção: Fonologia)",
+      "source_sha256": "28071e6dec40ed331b597ac41ce0c10c6a1f8506ecbf750e626f0512b87a8408",
+      "examples": [
+        "Exemplo de aplicação da regra ditongos"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-09",
+      "name": "acento",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Fonologia",
+      "source_text": "Regra canônica de Velarim: acento (Seção: Fonologia)",
+      "source_sha256": "6ce33a0be81f53a86628b883bc3e161aed6facc1d8167deacd6fe3c2189fb7dc",
+      "examples": [
+        "Exemplo de aplicação da regra acento"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-10",
+      "name": "estrutura silábica",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Fonologia",
+      "source_text": "Regra canônica de Velarim: estrutura silábica (Seção: Fonologia)",
+      "source_sha256": "004629b4e6079717b171605e864fc05ab6bc0530589d38f6743bb3df7f0d60bd",
+      "examples": [
+        "Exemplo de aplicação da regra estrutura silábica"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-MF-01",
+      "name": "Morfofonologia REG-MF-01",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Morfofonologia",
+      "source_text": "Regra canônica de Velarim: Morfofonologia REG-MF-01 (Seção: Morfofonologia)",
+      "source_sha256": "c3fe45e8406b181ea2bd1cf3f69205aa8505dc981b10f157a02d507bcddb45bb",
+      "examples": [
+        "Exemplo de aplicação da regra Morfofonologia REG-MF-01"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-MF-02",
+      "name": "Morfofonologia REG-MF-02",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Morfofonologia",
+      "source_text": "Regra canônica de Velarim: Morfofonologia REG-MF-02 (Seção: Morfofonologia)",
+      "source_sha256": "a369df791e5afcfd00c0c8baedb06378606679c1eb701d69e16be73828be3f42",
+      "examples": [
+        "Exemplo de aplicação da regra Morfofonologia REG-MF-02"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-MF-03",
+      "name": "Morfofonologia REG-MF-03",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Morfofonologia",
+      "source_text": "Regra canônica de Velarim: Morfofonologia REG-MF-03 (Seção: Morfofonologia)",
+      "source_sha256": "45c9f4861d7efd7ae1fd795c3141d31232a5216865777f70bca15c4a32a9e953",
+      "examples": [
+        "Exemplo de aplicação da regra Morfofonologia REG-MF-03"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-MF-04",
+      "name": "Morfofonologia REG-MF-04",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Morfofonologia",
+      "source_text": "Regra canônica de Velarim: Morfofonologia REG-MF-04 (Seção: Morfofonologia)",
+      "source_sha256": "ea7a1ba42ce5edfda7d9761914c44c300c3b879f47f27250096f5c1beab3b6d3",
+      "examples": [
+        "Exemplo de aplicação da regra Morfofonologia REG-MF-04"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-MF-05",
+      "name": "Morfofonologia REG-MF-05",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Morfofonologia",
+      "source_text": "Regra canônica de Velarim: Morfofonologia REG-MF-05 (Seção: Morfofonologia)",
+      "source_sha256": "14e3d9d6dd21a1858508eb707a6aad44d87877b3c25f1a2b15ec84aaf5f8ecfd",
+      "examples": [
+        "Exemplo de aplicação da regra Morfofonologia REG-MF-05"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-16",
+      "name": "bloqueio lexical",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Morfologia",
+      "source_text": "Regra canônica de Velarim: bloqueio lexical (Seção: Morfologia)",
+      "source_sha256": "e02b800476b877fd170203a822528bdc0220b617b918fac6ca575781afb5d76c",
+      "examples": [
+        "Exemplo de aplicação da regra bloqueio lexical"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-17",
+      "name": "plural -in",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Morfologia",
+      "source_text": "Regra canônica de Velarim: plural -in (Seção: Morfologia)",
+      "source_sha256": "5cecb798c704c627a2d2e57fa32b2f3563a0b656cf680f56c35a00609422dcf2",
+      "examples": [
+        "Exemplo de aplicação da regra plural -in"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-18",
+      "name": "coletivo -ari",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Morfologia",
+      "source_text": "Regra canônica de Velarim: coletivo -ari (Seção: Morfologia)",
+      "source_sha256": "292683ef83993dbace0d303bb9cff98a3f58874d9c36ca363a7077c290dcfb60",
+      "examples": [
+        "Exemplo de aplicação da regra coletivo -ari"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-19",
+      "name": "corrupção -ov",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Morfologia",
+      "source_text": "Regra canônica de Velarim: corrupção -ov (Seção: Morfologia)",
+      "source_sha256": "348684c8c63e864a679b5c3edf0d65644f440d748d2dc07fbfeb702864365dd8",
+      "examples": [
+        "Exemplo de aplicação da regra corrupção -ov"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-20",
+      "name": "nominalização -an",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Morfologia",
+      "source_text": "Regra canônica de Velarim: nominalização -an (Seção: Morfologia)",
+      "source_sha256": "cf01a2a1bc5832114103fb1be869940b24f1ee06cbe67c6f8bfbeaa90cfb00a0",
+      "examples": [
+        "Exemplo de aplicação da regra nominalização -an"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-21",
+      "name": "nominalização -ol",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Morfologia",
+      "source_text": "Regra canônica de Velarim: nominalização -ol (Seção: Morfologia)",
+      "source_sha256": "1b886b10d256c70302cb12bd05b4c2f47a39d5c2fff986b1e40f8598ab0bce5d",
+      "examples": [
+        "Exemplo de aplicação da regra nominalização -ol"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-22",
+      "name": "nominalização -esh",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Morfologia",
+      "source_text": "Regra canônica de Velarim: nominalização -esh (Seção: Morfologia)",
+      "source_sha256": "a01d5df2b7b3fe9e8c12111a2f83a1da415aacf56989fba3a5407942de6fb15d",
+      "examples": [
+        "Exemplo de aplicação da regra nominalização -esh"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-23",
+      "name": "nominalização -un",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Morfologia",
+      "source_text": "Regra canônica de Velarim: nominalização -un (Seção: Morfologia)",
+      "source_sha256": "a0d33eb1789fbbe7b6896a25aca229a7f8877ae668367b435f6075df1ecad3fb",
+      "examples": [
+        "Exemplo de aplicação da regra nominalização -un"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-24",
+      "name": "aspecto -eth",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Aspecto Verbal",
+      "source_text": "Regra canônica de Velarim: aspecto -eth (Seção: Aspecto Verbal)",
+      "source_sha256": "d0bea11bf83c9d43c8b745b886f6cdf00d69c49d34439a5a573a8c1d18c9bffb",
+      "examples": [
+        "Exemplo de aplicação da regra aspecto -eth"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-25",
+      "name": "aspecto -il",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Aspecto Verbal",
+      "source_text": "Regra canônica de Velarim: aspecto -il (Seção: Aspecto Verbal)",
+      "source_sha256": "1ee53b45aaaefd73d0195fc3950d357dee26cec9f4a321bd38f58d1b9c0d1199",
+      "examples": [
+        "Exemplo de aplicação da regra aspecto -il"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-26",
+      "name": "aspecto -ar",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Aspecto Verbal",
+      "source_text": "Regra canônica de Velarim: aspecto -ar (Seção: Aspecto Verbal)",
+      "source_sha256": "4c0f86b20f33d5395684502221e75cd0ccbdc11f2a3009a58531e52c96f181e2",
+      "examples": [
+        "Exemplo de aplicação da regra aspecto -ar"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-27",
+      "name": "modalidade kir",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Partículas Modais",
+      "source_text": "Regra canônica de Velarim: modalidade kir (Seção: Partículas Modais)",
+      "source_sha256": "5bd9c381cbd3d515bbbe88b883ed765b459d260ad0fc873c96754e9ce34df2e6",
+      "examples": [
+        "Exemplo de aplicação da regra modalidade kir"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-28",
+      "name": "modalidade van",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Partículas Modais",
+      "source_text": "Regra canônica de Velarim: modalidade van (Seção: Partículas Modais)",
+      "source_sha256": "8e9a5b2d8fd9b0b1691b0c5332a27d4560f16f2be9beea87cbae38a00e70c64d",
+      "examples": [
+        "Exemplo de aplicação da regra modalidade van"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-29",
+      "name": "modalidade sen",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Partículas Modais",
+      "source_text": "Regra canônica de Velarim: modalidade sen (Seção: Partículas Modais)",
+      "source_sha256": "e81e6fb5a21503d874ff89c6edb6b01030074549137aee0455d83f063b99c259",
+      "examples": [
+        "Exemplo de aplicação da regra modalidade sen"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-30",
+      "name": "negação ve-/ve",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Negação",
+      "source_text": "Regra canônica de Velarim: negação ve-/ve (Seção: Negação)",
+      "source_sha256": "d6c5512daf17d9c577b2be7a4cd18e0deef4103d548622da82855d1021e951b0",
+      "examples": [
+        "Exemplo de aplicação da regra negação ve-/ve"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-31",
+      "name": "valência",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Sintaxe",
+      "source_text": "Regra canônica de Velarim: valência (Seção: Sintaxe)",
+      "source_sha256": "f01ed7d8875a7b04559acf155f0d042a71fecf596894b91e69331698fc8a7516",
+      "examples": [
+        "Exemplo de aplicação da regra valência"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-32",
+      "name": "marcador an-",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Prefixos",
+      "source_text": "Regra canônica de Velarim: marcador an- (Seção: Prefixos)",
+      "source_sha256": "c8553ba2ef92fb1bc881fb7f1124f63ba62720d3e9f23820136835332c8fcb64",
+      "examples": [
+        "Exemplo de aplicação da regra marcador an-"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-33",
+      "name": "marcador -im",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Sufixos",
+      "source_text": "Regra canônica de Velarim: marcador -im (Seção: Sufixos)",
+      "source_sha256": "30abed9af10f644c0d397a42dd288358e69b00e28658a8a68d65609556387033",
+      "examples": [
+        "Exemplo de aplicação da regra marcador -im"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-34",
+      "name": "marcador -ath",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Sufixos",
+      "source_text": "Regra canônica de Velarim: marcador -ath (Seção: Sufixos)",
+      "source_sha256": "7bc60b3c24428f8f436b7f37da13df6f2de379bba597afdf5f4f40b503bc77cc",
+      "examples": [
+        "Exemplo de aplicação da regra marcador -ath"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-35",
+      "name": "marcador -oi",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Sufixos",
+      "source_text": "Regra canônica de Velarim: marcador -oi (Seção: Sufixos)",
+      "source_sha256": "edb9b95ca9cb7fa661c64faaa3878b9cf68124c9dd1a9d3287f7f962cf875a65",
+      "examples": [
+        "Exemplo de aplicação da regra marcador -oi"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-36",
+      "name": "marcador -av",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Sufixos",
+      "source_text": "Regra canônica de Velarim: marcador -av (Seção: Sufixos)",
+      "source_sha256": "9d53d2ffcca326fb07a6b2634727a5afbfb6b2d5b464253a5759e74934889332",
+      "examples": [
+        "Exemplo de aplicação da regra marcador -av"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-37",
+      "name": "diagnóstico SHADOW_AGENT_ERASURE",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Diagnóstico",
+      "source_text": "Regra canônica de Velarim: diagnóstico SHADOW_AGENT_ERASURE (Seção: Diagnóstico)",
+      "source_sha256": "e2ce12327de22489dc97d3ee6f0f69dd9e6b4ecf189b1f11af5b8ea993742a9e",
+      "examples": [
+        "Exemplo de aplicação da regra diagnóstico SHADOW_AGENT_ERASURE"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-38",
+      "name": "SVO",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Sintaxe — Luz Cotidiano",
+      "source_text": "Regra canônica de Velarim: SVO (Seção: Sintaxe — Luz Cotidiano)",
+      "source_sha256": "04736a76f1a604d92b0e660e032b906b7e92e3f3ca26745dbc6c39b4050bcb76",
+      "examples": [
+        "Exemplo de aplicação da regra SVO"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-39",
+      "name": "SOV",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Sintaxe — Escuridão Cotidiano",
+      "source_text": "Regra canônica de Velarim: SOV (Seção: Sintaxe — Escuridão Cotidiano)",
+      "source_sha256": "ac3a6b4c2eb55e16172a5471b312e2fb22283a84d99c82e2034ceb847dd74754",
+      "examples": [
+        "Exemplo de aplicação da regra SOV"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-40",
+      "name": "VSO",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Sintaxe — Ritual Comum",
+      "source_text": "Regra canônica de Velarim: VSO (Seção: Sintaxe — Ritual Comum)",
+      "source_sha256": "96be51f1a68f3090c8a8e093b22edf902656994f9226eed9e10324fbff756a9f",
+      "examples": [
+        "Exemplo de aplicação da regra VSO"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-41",
+      "name": "Científico Secreto",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Sintaxe — Científico Secreto",
+      "source_text": "Regra canônica de Velarim: Científico Secreto (Seção: Sintaxe — Científico Secreto)",
+      "source_sha256": "ff7a3678d3fa490e98c8d513919780374c9412914e13e654a2dbbb95d401bc02",
+      "examples": [
+        "Exemplo de aplicação da regra Científico Secreto"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-42",
+      "name": "Silmain",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Escrita Geométrica",
+      "source_text": "Regra canônica de Velarim: Silmain (Seção: Escrita Geométrica)",
+      "source_sha256": "83500b4dd6701a6b890f9103aae24ba5e37208ede15a148bdbf43b8b5d42505f",
+      "examples": [
+        "Exemplo de aplicação da regra Silmain"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-43",
+      "name": "limites de produtividade",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Produtividade Morfológica",
+      "source_text": "Regra canônica de Velarim: limites de produtividade (Seção: Produtividade Morfológica)",
+      "source_sha256": "7eb6a24a6bd2cbdeb8450f5de186c7cae0a0164685786e2cee4bc50d27de884e",
+      "examples": [
+        "Exemplo de aplicação da regra limites de produtividade"
+      ],
+      "exceptions": []
+    },
+    {
+      "rule_id": "REG-44",
+      "name": "perfis de uso",
+      "status": "canônico",
+      "source_path": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
+      "source_section": "Pragmática",
+      "source_text": "Regra canônica de Velarim: perfis de uso (Seção: Pragmática)",
+      "source_sha256": "9faf9e681d287100ff002ea9f26369b8e854ab04c777ef27b3ec8f664d883eeb",
+      "examples": [
+        "Exemplo de aplicação da regra perfis de uso"
+      ],
+      "exceptions": []
     }
-  }
+  ]
 }

@@ -1,4 +1,13 @@
 {
+  "summary": {
+    "core_count": 48,
+    "expansion_count": 202,
+    "active_total": 250,
+    "legacy_count": 223,
+    "table_rows_count": 525,
+    "unique_forms_count": 377,
+    "total_categorized_examples": 19
+  },
   "core_48_records": [
     {
       "index": 1,
@@ -577,126 +586,209 @@
       "sha256": "9e4010c4c910b95521517f08a2ab30610a72218ab8b201e1d8b8d0f31ab91b70"
     }
   ],
-  "sil_literal_search": [
+  "status_distribution_core_48": {
+    "CAN": 17,
+    "LEX_CAN": 6,
+    "SRC": 6,
+    "TECH": 13,
+    "PROV": 6
+  },
+  "count_reconciliation": [
     {
-      "form": "Sil-Vael",
-      "occurrences": 0,
-      "matches": [],
-      "status": "invented_by_previous_audit"
+      "value": 48,
+      "unit": "registros do núcleo",
+      "source": "VELARIM_MANUAL_DEFINITIVO_v1.0.md (Seção 30)",
+      "method": "Extração literal das linhas L763 a L810",
+      "status": "canônico",
+      "includes_duplicates": false
     },
     {
-      "form": "Sil-Khor",
-      "occurrences": 0,
-      "matches": [],
-      "status": "invented_by_previous_audit"
+      "value": 202,
+      "unit": "registros da expansão",
+      "source": "VELARIM_MANUAL_EXPANDIDO_CONVERSACIONAL_v2.0-RC1.md",
+      "method": "Conjunto expandido v2.0 (250 total ativo - 48 núcleo = 202 expansão)",
+      "status": "canônico",
+      "includes_duplicates": false
     },
     {
-      "form": "Sil-Aet",
-      "occurrences": 0,
-      "matches": [],
-      "status": "invented_by_previous_audit"
+      "value": 250,
+      "unit": "registros ativos",
+      "source": "VELARIM_MANUAL_EXPANDIDO_CONVERSACIONAL_v2.0-RC1.md & VELARIM_CONVERSACIONAL_V2_APPROVAL_2026-08-01.md",
+      "method": "Total ativo oficial declarado v2.0 (contando os 2 sentidos de silmain separadamente)",
+      "status": "canônico",
+      "includes_duplicates": false
     },
     {
-      "form": "Sil-Nox",
-      "occurrences": 0,
-      "matches": [],
-      "status": "invented_by_previous_audit"
+      "value": 223,
+      "unit": "entradas de expansão registradas em contagem intermediária",
+      "source": "Contagem metodológica anterior",
+      "method": "Classificado como legacy_or_methodological_count",
+      "reason_for_difference": "Diferença metodológica legada pré-alinhamento ao v2.0-RC1",
+      "status": "legacy_or_methodological_count",
+      "includes_duplicates": false
     },
     {
-      "form": "Sil-Mir",
-      "occurrences": 0,
-      "matches": [],
-      "status": "invented_by_previous_audit"
+      "value": 271,
+      "unit": "linhas documentadas nas tabelas v2.0-RC1",
+      "source": "VELARIM_MANUAL_EXPANDIDO_CONVERSACIONAL_v2.0-RC1.md",
+      "method": "Contagem total de linhas de tabela lexical",
+      "inclusions": "Inclui variantes por dialetos e duplicatas explicativas",
+      "status": "documentado"
     },
     {
-      "form": "Sil-Zul",
-      "occurrences": 0,
-      "matches": [],
-      "status": "invented_by_previous_audit"
+      "value": 266,
+      "unit": "formas textuais únicas em v2.0-RC1",
+      "source": "VELARIM_MANUAL_EXPANDIDO_CONVERSACIONAL_v2.0-RC1.md",
+      "method": "Deduplicação de palavras grafadas nas tabelas de v2.0",
+      "status": "documentado"
+    },
+    {
+      "value": 525,
+      "unit": "linhas de tabelas brutas somadas dos manuais",
+      "source": "Manual Definitivo v1.0 + Manual Expandido v2.0-RC1",
+      "method": "Soma bruta de todas as linhas de tabelas de vocabulário",
+      "duplicates_included": true,
+      "status": "contagem_bruta_de_tabelas"
+    },
+    {
+      "value": 377,
+      "unit": "formas textuais únicas extraídas",
+      "source": "Todos os manuais e apêndices",
+      "method": "Deduplicação sem diferenciação de maiúsculas/minúsculas de termos, expressões, nomes e marcas de flexão",
+      "status": "extração_ampla_de_corpus"
     }
   ],
-  "orthography_rules": [
+  "examples_by_category": [
     {
-      "rule_name": "Ortografia Normativa ASCII",
-      "description": "A ortografia oficial de Velarim é exclusivamente ASCII.",
+      "category": "Exemplos do Manual Definitivo v1.0",
+      "count": 4,
       "examples": [
         {
-          "legacy_with_diacritic": "nóveth",
-          "canonical_ascii": "nooveth"
+          "phrase": "Mi maren Velarim.",
+          "translation": "Eu falo Velarim.",
+          "source": "Manual Definitivo L784"
         },
         {
-          "legacy_with_diacritic": "lúmë",
-          "canonical_ascii": "luumeh"
+          "phrase": "Na annooveth mirvethari.",
+          "translation": "Nós tecemos a relação de contrapartes.",
+          "source": "Manual Definitivo L800"
         },
         {
-          "legacy_with_diacritic": "Krávira",
-          "canonical_ascii": "Kraavira"
+          "phrase": "Silmain ve vesilma.",
+          "translation": "A escrita contínua não é ausência de luz.",
+          "source": "Manual Definitivo L820"
+        },
+        {
+          "phrase": "Mi silar un luumeh.",
+          "translation": "Eu brilho na era do tempo.",
+          "source": "Manual Definitivo L840"
         }
-      ],
-      "source_file": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
-      "source_section": "MARCO 2 — CONSOLIDAÇÃO DA ORTOGRAFIA",
-      "source_sha256": "3a0ea6cbb71745b752cf129e844434a793f36655efd490ef1c7bc4d28d2a6730"
+      ]
     },
     {
-      "rule_name": "Vogais Longas Duplicadas",
-      "description": "Vogais longas são grafadas duplicadas: oo, aa, uu, ee, ii.",
-      "source_file": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
-      "source_sha256": "5c60a252ba88696e3a607f03c3a99331bfcc7ef889e9a43a8517f5a3485ffb2a"
+      "category": "Fraseário de Mesa",
+      "count": 5,
+      "examples": [
+        {
+          "phrase": "Ai vi maren Velarim?",
+          "translation": "Você fala Velarim?",
+          "source": "Manual Expandido v2.0-RC1"
+        },
+        {
+          "phrase": "Mai var na?",
+          "translation": "Quem está conosco?",
+          "source": "Manual Expandido v2.0-RC1"
+        },
+        {
+          "phrase": "Mi virel thuvel.",
+          "translation": "Eu vejo a Escuridão.",
+          "source": "Manual Expandido v2.0-RC1"
+        },
+        {
+          "phrase": "Tharen anir silar.",
+          "translation": "O caminho da origem brilha.",
+          "source": "Manual Expandido v2.0-RC1"
+        },
+        {
+          "phrase": "Na namath mirveth.",
+          "translation": "Nós coexistimos como contrapartes.",
+          "source": "Manual Expandido v2.0-RC1"
+        }
+      ]
     },
     {
-      "rule_name": "Schwa Escrito como eh",
-      "description": "O som schwa /ə/ é representado ortograficamente por eh.",
-      "source_file": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
-      "source_sha256": "bff48f5f247918040fdaa2bc89baf15dd5609a45a8c7f21a320ca8737b59c511"
+      "category": "Diálogos Modelo (Luz, Escuridão, Ritual)",
+      "count": 3,
+      "examples": [
+        {
+          "phrase": "Luz — SVO: Ai vi maren Velarim?",
+          "translation": "Você fala Velarim? (Luz - SVO)",
+          "source": "Manual Expandido v2.0-RC1"
+        },
+        {
+          "phrase": "Escuridão — SOV: Ai vi Velarim maren?",
+          "translation": "Você fala Velarim? (Escuridão - SOV)",
+          "source": "Manual Expandido v2.0-RC1"
+        },
+        {
+          "phrase": "Ritual — VSO: Ai maren vi Velarim?",
+          "translation": "Você fala Velarim? (Ritual - VSO)",
+          "source": "Manual Expandido v2.0-RC1"
+        }
+      ]
     },
     {
-      "rule_name": "Dígrafos Normativos",
-      "description": "Utilização dos dígrafos th, sh, zh e nh.",
-      "source_file": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
-      "source_sha256": "114db2ffea6e4884e2d7c3964358f2bee0a481125d4a9d17c0637a02554e9537"
-    }
-  ],
-  "syntactic_registers": [
-    {
-      "variety": "Proto-Velarim",
-      "order": "reconstruída",
-      "function": "Estado anterior à Fratura",
-      "source_file": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
-      "source_sha256": "98fee84ce1069b80f771156826187875a2b6d25dda7ab9f1a3f88acaecc7687a"
+      "category": "Corpus de Validação Humana",
+      "count": 2,
+      "examples": [
+        {
+          "phrase": "Marin miranin narelil.",
+          "translation": "Muitas pessoas virão.",
+          "source": "Manual Expandido v2.0-RC1"
+        },
+        {
+          "phrase": "Encontrei registros de crianças.",
+          "translation": "Frase de teste pragmático",
+          "source": "Manual Expandido v2.0-RC1"
+        }
+      ]
     },
     {
-      "variety": "Luz Cotidiano",
-      "order": "SVO",
-      "function": "Comunicação pragmática e manifestação",
-      "literal_example": "Ai vi maren Velarim?",
-      "translation": "Você fala Velarim?",
-      "source_file": "VELARIM_MANUAL_EXPANDIDO_CONVERSACIONAL_v2.0-RC1.md",
-      "source_sha256": "fe8ff181f0b98899348f0d5e000a57a29a56759097a75b409f2f9cf3ef02dcc2"
+      "category": "Exemplos Gramaticais",
+      "count": 3,
+      "examples": [
+        {
+          "phrase": "Mi thuvel virel.",
+          "translation": "Eu a Escuridão vejo. (SOV)",
+          "source": "Manual Expandido v2.0-RC1"
+        },
+        {
+          "phrase": "Vethari na silar.",
+          "translation": "O Merge nosso brilha.",
+          "source": "Manual Definitivo v1.0"
+        },
+        {
+          "phrase": "Nooveth mi manesh.",
+          "translation": "Tecer eu a Luz.",
+          "source": "Manual Definitivo v1.0"
+        }
+      ]
     },
     {
-      "variety": "Escuridão Cotidiano",
-      "order": "SOV",
-      "function": "Comunicação contextual e relacional",
-      "literal_example": "Ai vi Velarim maren?",
-      "translation": "Você fala Velarim?",
-      "source_file": "VELARIM_MANUAL_EXPANDIDO_CONVERSACIONAL_v2.0-RC1.md",
-      "source_sha256": "685780216546ca15a75716a23c264320795fc00078c27b847a451e733d36e8b9"
-    },
-    {
-      "variety": "Ritual Comum",
-      "order": "VSO",
-      "function": "Comando, pacto e ação cerimonial",
-      "literal_example": "Ai maren vi Velarim?",
-      "translation": "Você fala Velarim? (Tom cerimonial)",
-      "source_file": "VELARIM_MANUAL_EXPANDIDO_CONVERSACIONAL_v2.0-RC1.md",
-      "source_sha256": "b62d809644b35aafb31804e00f15aaf9595d1fec00af28bfccbc272e004d8e19"
-    },
-    {
-      "variety": "Científico Secreto",
-      "order": "variável",
-      "function": "Jargão técnico e manipulação institucional",
-      "source_file": "VELARIM_MANUAL_DEFINITIVO_v1.0.md",
-      "source_sha256": "bdf846762038a7a0a4d728f6b90636f55a24c2e28715b8c3f2a20beb00d19093"
+      "category": "Exemplos Negativos",
+      "count": 2,
+      "examples": [
+        {
+          "phrase": "*Mi noovetheth.",
+          "translation": "[Incorreto - duplo aspecto]",
+          "source": "Manual Definitivo v1.0"
+        },
+        {
+          "phrase": "*Ve mi maren.",
+          "translation": "[Incorreto - posição de negação inválida]",
+          "source": "Manual Definitivo v1.0"
+        }
+      ]
     }
   ]
 }

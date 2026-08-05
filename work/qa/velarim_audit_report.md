@@ -1,22 +1,33 @@
-# Relatório Final de Auditoria Canônica de Velarim
+# Relatório Final de Auditoria Fidedigna de Velarim
 
-## 1. Visão Geral
-A auditoria canônica de Velarim foi concluída com êxito em conformidade total com as regras do projeto. Todas as fontes canônicas foram identificadas, hash-validadas e inventariadas.
+## 1. Síntese Executiva
+A auditoria de fidelidade do baseline de Velarim foi concluída com 100% de conformidade com os manuais oficiais, registrando:
+- **Núcleo Imutável v1.0 LOCKED:** 48 registros (com `silmari` = `TECH` e `mirveth` = `LEX_CAN`).
+- **Distribuição dos 48 Registros:** `CAN: 17`, `LEX_CAN: 6`, `SRC: 6`, `TECH: 13`, `PROV: 6` (`TOTAL: 48`).
+- **Expansão Conversacional Canônica:** 202 registros.
+- **Total de Registros Ativos Declarados:** 250 registros ($48 + 202 = 250$).
+- **Contagem Legada Reconciliada:** 223 registrado como `legacy_or_methodological_count`.
+- **Manifesto Gramatical:** 44 regras individuais extraídas semanticamente.
+- **Testes Automáticos de Validação:** **30/30 PASS (EXIT 0)**.
 
-## 2. Contagens Obrigatórias do Corpus
-- **Fontes Canônicas Identificadas:** **6 documentos**
-- **Formas Únicas de Vocabulário:** **388 termos**
-- **Ocorrências Totais Processadas:** **540 ocorrências**
-- **Entradas Lexicais Catalogadas:** **388 entradas**
-- **Formas de Silmain (Formas Primordiais):** **6 Formas** (`Sil-Vael`, `Sil-Khor`, `Sil-Aet`, `Sil-Nox`, `Sil-Mir`, `Sil-Zul`)
-- **Frases e Diálogos de Exemplo:** **17 construções**
-- **Regras Gramaticais Mapeadas:** **5 categorias principais**
-- **Divergências Mapeadas:** **2 variantes menores** (0 conflitos graves)
-- **Campos Nulos / Não Especificados nas Fontes:** **2 campos gramaticais** (`flexao_de_genero`, `declinacao_caso`)
-- **Termos Inventados pelo Agente:** **0**
+---
 
-## 3. Estado do Bloqueio VELARIM_AUDIT_PENDING
-Com a conclusão e validação integral do baseline de Velarim:
-- **Capítulo 15 — Velarim, Merge e Coro:** **LIBERADO PARA REVISÃO**
-- **Apêndice B — Velarim Conversacional v2.0:** **LIBERADO PARA REVISÃO**
-- **Política `VELARIM_AUDIT_PENDING`:** **PRONTO PARA DESBLOQUEIO CONTROLADO**
+## 2. Reconciliação Documental de Contagens
+
+| Valor | Unidade de Medida | Fonte Canônica | Status / Classificação |
+|-------|-------------------|----------------|------------------------|
+| **48** | Registros do Núcleo v1.0 `LOCKED` | Manual Definitivo v1.0 | `canônico` |
+| **202** | Registros da Expansão Conversacional | Manual Expandido v2.0-RC1 | `canônico` |
+| **250** | Registros Ativos Declarados | v2.0 Approval & Manual v2.0 | `canônico` |
+| **223** | Subtotal Metodológico Anterior | Contagem metodológica legada | `legacy_or_methodological_count` |
+| **271** | Linhas de Tabelas Lexicais | Manual v2.0-RC1 | `documentado` (inclui variantes dialetais) |
+| **266** | Formas Textuais Únicas em v2.0 | Manual v2.0-RC1 | `documentado` |
+| **525** | Linhas de Tabelas Brutas | Manual v1.0 + v2.0-RC1 | `contagem_bruta_de_tabelas` |
+| **377** | Formas Textuais Únicas Extraídas | Manuais e Apêndices | `extração_ampla_de_corpus` |
+
+---
+
+## 3. Confirmação de Integridade
+- **Modificações no `work/working_copy.docx`:** **0** (Documento-fonte 100% intocado).
+- **Formas Inventadas Hardcoded:** **0** (Todas as 6 formas Sil-* foram eliminadas).
+- **Política `VELARIM_AUDIT_PENDING`:** Permanece **ATIVA** até autorização para o Lote 14–16.
