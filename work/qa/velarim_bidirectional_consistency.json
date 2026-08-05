@@ -1,0 +1,249 @@
+{
+  "H_total": 226,
+  "E_total": 202,
+  "C_total": 23,
+  "E_inter_C_count": 0,
+  "E_inter_C_items": [],
+  "E_minus_C_count": 202,
+  "C_minus_E_count": 23,
+  "H_minus_E_cup_C_count": 1,
+  "E_cup_C_count": 225,
+  "les_detail": {
+    "forma": "les",
+    "human_entry_id": 106,
+    "core_id": 793,
+    "executable_id": null,
+    "classificação_final": "core_only",
+    "contem_executable_id_109": false,
+    "source_text": "| `les` | TRANS | reconhecer, nomear com precisão | V1-PROV |",
+    "source_sha256": "ab74bdd7eb012f01a9ccc8be0420ba90657475df33b8a7c4106b9c556c432150"
+  },
+  "lesan_detail": {
+    "forma": "lesan",
+    "executable_id": 109,
+    "human_entry_id": 123,
+    "forward_mapping": "109 -> 123",
+    "reverse_mapping_contains_109": true,
+    "classificação_final": "expansion_only",
+    "source_text": "| `lesan` | testemunha, nomeador preciso | depende de `les`; V1-PROV |",
+    "source_sha256": "60c8894704863618da9c58b86b4ed8c9ab556f1d013ed40810e2d95f8ddccca0"
+  },
+  "evaluated_23_core": [
+    {
+      "human_entry_id": 3,
+      "forma": "ve",
+      "core_id": 806,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 7,
+      "forma": "ol",
+      "core_id": 810,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 45,
+      "forma": "nam",
+      "core_id": 791,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 46,
+      "forma": "namath",
+      "core_id": 792,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 90,
+      "forma": "veth",
+      "core_id": 779,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 102,
+      "forma": "velar",
+      "core_id": 771,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 103,
+      "forma": "silar",
+      "core_id": 797,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 104,
+      "forma": "nooveth",
+      "core_id": 775,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 105,
+      "forma": "vethari",
+      "core_id": 783,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 106,
+      "forma": "les",
+      "core_id": 793,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 107,
+      "forma": "tav",
+      "core_id": 802,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 108,
+      "forma": "dur",
+      "core_id": 801,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 109,
+      "forma": "sib",
+      "core_id": 800,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 122,
+      "forma": "noovethan",
+      "core_id": 776,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 124,
+      "forma": "mirveth",
+      "core_id": 780,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 125,
+      "forma": "mirvethin",
+      "core_id": 781,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 126,
+      "forma": "mirvethari",
+      "core_id": 782,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 136,
+      "forma": "anir",
+      "core_id": 788,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 138,
+      "forma": "luumeh",
+      "core_id": 790,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 140,
+      "forma": "manuv",
+      "core_id": 796,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 154,
+      "forma": "tharen",
+      "core_id": 789,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 167,
+      "forma": "krav",
+      "core_id": 795,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    },
+    {
+      "human_entry_id": 188,
+      "forma": "kavesh",
+      "core_id": 799,
+      "executable_ids": [],
+      "pertence_a_E": false,
+      "pertence_a_C": true,
+      "classificação_final": "core_only"
+    }
+  ],
+  "partition_categories": {
+    "expansion_only": 202,
+    "core_only": 23,
+    "core_and_expansion": 0,
+    "variant_without_record": 1,
+    "unresolved": 0
+  },
+  "inconsistencies_found": 0,
+  "inconsistencies_remaining": 0
+}

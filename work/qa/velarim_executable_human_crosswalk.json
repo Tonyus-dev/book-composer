@@ -1,53 +1,33 @@
 {
   "summary": {
     "total_executable_records": 202,
-    "distinct_executable_ids": 202,
     "mapped_executable_ids_count": 202,
     "orphan_executable_ids_count": 0,
     "unresolved_executable_ids_count": 0,
     "human_entry_ids_used_by_expansion": 202,
     "unique_orthographic_expansion_forms": 202,
     "caso_declarado": "CASO_B",
-    "equation": "202 distinct_executable_ids -> 202 distinct_human_entry_ids (excesso relacional = 0)"
+    "equation": "202 distinct_executable_ids -> 202 distinct_human_entry_ids"
   },
   "les_detail": {
     "forma": "les",
+    "human_entry_id": 106,
     "core_id": 793,
     "executable_id": null,
-    "natureza_id_103": "O número 103 na Seção 17.3 é um raw_index de tabela que foi filtrado por ser sobreposição com o Núcleo 1.0 L793; les não possui executable_id próprio na expansão final.",
-    "human_entry_id": 106,
-    "classe_humana": "TRANS",
-    "classe_nucleo": "verbo transitivo",
-    "significado_humano": "reconhecer, nomear com precisão",
-    "significado_nucleo": "reconhecer; nomear com precisão",
-    "status_nucleo": "PROV",
-    "classificação_principal": "derived_expansion_under_core_lemma",
+    "classificação_final": "core_only",
+    "contem_executable_id_109": false,
     "source_text": "| `les` | TRANS | reconhecer, nomear com precisão | V1-PROV |",
     "source_sha256": "ab74bdd7eb012f01a9ccc8be0420ba90657475df33b8a7c4106b9c556c432150"
   },
   "lesan_detail": {
     "forma": "lesan",
-    "core_id": null,
     "executable_id": 109,
     "human_entry_id": 123,
-    "classe": "testemunha, nomeador preciso",
-    "significado": "depende de `les`; V1-PROV",
-    "status": "HUMAN_APPROVED",
+    "forward_mapping": "109 -> 123",
+    "reverse_mapping_contains_109": true,
     "classificação_final": "expansion_only",
-    "depende_de_lema": "les (Core L793)",
     "source_text": "| `lesan` | testemunha, nomeador preciso | depende de `les`; V1-PROV |",
     "source_sha256": "60c8894704863618da9c58b86b4ed8c9ab556f1d013ed40810e2d95f8ddccca0"
-  },
-  "ravun_detail": {
-    "forma": "ravun",
-    "executable_id": 129,
-    "registros_executáveis_finais_count": 1,
-    "ocorrências_tabela_bruta_seção_17": [
-      1226,
-      1299
-    ],
-    "formas_ortográficas_únicas": 1,
-    "mapeamento_humano": "A forma ravun possui exatamente 1 registro executável final (ID #129) que mapeia para o verbete humano ravun (Human Entry ID #149)."
   },
   "executable_crosswalk": [
     {
