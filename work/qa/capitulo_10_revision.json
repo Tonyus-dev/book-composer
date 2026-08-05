@@ -10,5 +10,6 @@
   "paragrafos_preservados": 38,
   "tabelas_no_intervalo": 3,
   "imagens_no_intervalo": 0,
-  "justificativa": "O Capítulo 10 foi integralmente lido e avaliado. A definição dos 6 Atributos, escala de valores e 15 Perícias possui 0 alertas do linter e 0 alterações mecânicas. Suas 3 tabelas foram formatadas de acordo com o padrão técnico oficial sem alterar uma única célula de conteúdo."
+  "justificativa": "O Capítulo 10 foi integralmente lido e avaliado. A definição dos 6 Atributos, escala de valores e 15 Perícias possui 0 alertas do linter e 0 alterações mecânicas. Suas 3 tabelas foram formatadas de acordo com o padrão técnico oficial sem alterar uma única célula de conteúdo.",
+  "aprovado_pelo_autor": true
 }
