@@ -3,113 +3,53 @@
     "total_executable_records": 202,
     "mapped_executable_ids_count": 202,
     "orphan_executable_ids_count": 0,
-    "human_entry_ids_used_by_expansion": 200,
-    "consolidation_groups_count": 2,
-    "equation": "202 registros executáveis - 2 consolidações muitos-para-um = 200 verbetes humanos da expansão"
+    "human_entry_ids_used_by_expansion": 202,
+    "unique_orthographic_expansion_forms": 202,
+    "equation_executable_to_human": "202 registros executáveis -> 200 verbetes humanos da expansão"
   },
-  "consolidation_groups": [
-    {
-      "group_id": 1,
-      "human_entry_id": 149,
-      "human_forma": "ravun",
-      "executable_ids": [
-        129,
-        207
-      ],
-      "formas_executáveis": [
-        "ravun",
-        "ravun"
-      ],
-      "classes": [
-        "ferida, dano, perigo; ferido, perigoso",
-        "perigoso, ferido; dano, perigo"
-      ],
-      "sentidos": [
-        "dano, ferida, perigo (Seção 17.4)",
-        "descritor de perigo e combate (Seção 17.5)"
-      ],
-      "motivo_documental": "Reocorrência do descritor de combate na Seção 17.5 após sua introdução nominal na Seção 17.4.",
-      "textos_literais": [
-        "| `ravun` | ferida, dano, perigo; ferido, perigoso | `rav + -un` |",
-        "| `ravun` | perigoso, ferido; dano, perigo |"
-      ],
-      "hashes": [
-        "74d13ceecaa81da31a728555bb8ed49025d5dfe29c14936e08be60f7bd5fb597",
-        "2c0a751795344d6b15e7b8c229d70a399c01e2f0685b87fefb3a9ebf26004e71"
-      ]
-    },
-    {
-      "group_id": 2,
-      "human_entry_id": 103,
-      "human_forma": "les",
-      "executable_ids": [
-        103,
-        195
-      ],
-      "formas_executáveis": [
-        "les",
-        "lesan"
-      ],
-      "classes": [
-        "TRANS",
-        "depende de les"
-      ],
-      "sentidos": [
-        "reconhecer, nomear com precisão (V1-PROV)",
-        "testemunha, nomeador preciso (V1-PROV)"
-      ],
-      "motivo_documental": "Consolidação da forma derivada nominal `lesan` sob o verbete verbal primário `les` (Human ID #103) no Dicionário Conversacional.",
-      "textos_literais": [
-        "| `les` | TRANS | reconhecer, nomear com precisão | V1-PROV |",
-        "| `lesan` | testemunha, nomeador preciso | depende de `les`; V1-PROV |"
-      ],
-      "hashes": [
-        "ab74bdd7eb012f01a9ccc8be0420ba90657475df33b8a7c4106b9c556c432150",
-        "60c8894704863618da9c58b86b4ed8c9ab556f1d013ed40810e2d95f8ddccca0"
-      ]
-    }
-  ],
-  "veth_detail": {
-    "forma": "veth",
-    "core_id": 779,
+  "les_detail": {
+    "forma": "les",
+    "core_id": 793,
     "executable_id": null,
-    "human_entry_id": 90,
-    "classe_humana": "REL",
-    "classe_nucleo": "substantivo relacional",
-    "diferença_de_classe": "REL (humano) vs substantivo relacional (núcleo)",
-    "significado_humano": "vincular-se, cuidar, amar sem posse",
-    "significado_nucleo": "vínculo ou união de alma",
-    "diferença_de_sentido": "vincular-se, cuidar, amar sem posse (humano) vs vínculo ou união de alma (núcleo)",
-    "extensão_verbal": true,
-    "ausência_de_executable_id_independente": true,
-    "additional_sense_without_independent_record": true,
-    "valência": "relacional",
-    "source_status": "V2-OP",
-    "final_canonical_status": "CANONICAL",
-    "classificação": "maps_to_core_only",
-    "texto_fonte_humano": "| `veth` | REL | vincular-se, cuidar, amar sem posse | V2-OP como verbo; raiz nominal V1-CAN |",
-    "source_sha256": "964723a192e7dab7ebfec6a77721bb2a1fc761f4f9fdd7e4a94c0251ffbca595"
+    "natureza_id_103": "O número 103 na Seção 17.3 é um raw_index de tabela que foi filtrado por ser sobreposição com o Núcleo 1.0 L793; les não possui executable_id independente na expansão final.",
+    "human_entry_id": 106,
+    "classe_humana": "TRANS",
+    "classe_nucleo": "verbo transitivo",
+    "significado_humano": "reconhecer, nomear com precisão",
+    "significado_nucleo": "reconhecer; nomear com precisão",
+    "status_nucleo": "PROV",
+    "classificação_final": "derived_expansion_under_core_lemma",
+    "hospeda_forma_derivada": "lesan (Executable ID #109)",
+    "source_text": "| `les` | TRANS | reconhecer, nomear com precisão | V1-PROV |",
+    "source_sha256": "ab74bdd7eb012f01a9ccc8be0420ba90657475df33b8a7c4106b9c556c432150"
   },
-  "vethari_detail": {
-    "forma": "vethari",
-    "core_id": 783,
-    "executable_id": null,
-    "human_entry_id": 105,
-    "classe_humana": "REL",
-    "classe_nucleo": "substantivo/verbo relacional",
-    "diferença_de_classe": "REL (humano) vs substantivo/verbo relacional (núcleo)",
-    "significado_humano": "realizar Merge legítimo",
-    "significado_nucleo": "Merge legítimo",
-    "diferença_de_sentido": "realizar Merge legítimo (humano) vs Merge legítimo (núcleo)",
-    "extensão_verbal": false,
-    "ausência_de_executable_id_independente": true,
-    "additional_sense_without_independent_record": false,
-    "valência": "relacional / verbal",
-    "source_status": "V1-CAN",
-    "final_canonical_status": "CANONICAL",
-    "classificação": "maps_to_core_only",
-    "texto_fonte_humano": "| `vethari` | REL | realizar Merge legítimo | V1-CAN |",
-    "source_sha256": "23c6eec387bbafbacd922c6cd7a12bdc123d2dbfd50500bc58eb33e136128f87"
+  "lesan_detail": {
+    "forma": "lesan",
+    "core_id": null,
+    "executable_id": 109,
+    "human_entry_id": 123,
+    "classe": "testemunha, nomeador preciso",
+    "significado": "depende de `les`; V1-PROV",
+    "status": "HUMAN_APPROVED",
+    "classificação_final": "expansion_only",
+    "depende_de_lema": "les (Core L793)",
+    "source_text": "| `lesan` | testemunha, nomeador preciso | depende de `les`; V1-PROV |",
+    "source_sha256": "60c8894704863618da9c58b86b4ed8c9ab556f1d013ed40810e2d95f8ddccca0"
+  },
+  "ravun_detail": {
+    "forma": "ravun",
+    "executable_id": 129,
+    "ocorrências_tabela_bruta_seção_17": [
+      1226,
+      1299
+    ],
+    "registros_executáveis_finais_count": 1,
+    "formas_ortográficas_únicas": 1,
+    "textos_literais": [
+      "| `ravun` | ferida, dano, perigo; ferido, perigoso | `rav + -un` |",
+      "| `ravun` | perigoso, ferido; dano, perigo |"
+    ],
+    "mapeamento_humano": "A forma ravun possui Executable ID #129 e mapeia para o verbete humano ravun (Human Entry ID #149)."
   },
   "executable_crosswalk": [
     {
@@ -1239,8 +1179,8 @@
       "forma": "varan",
       "classe": "guardião, protetor",
       "significado": "var + -an",
-      "human_entry_id": 106,
-      "human_entry_forma": "les",
+      "human_entry_id": 116,
+      "human_entry_forma": "varan",
       "match_type": "one_to_one_literal",
       "source_text": "| `varan` | guardião, protetor | `var + -an` |",
       "source_sha256": "333cf5c328ec8c65d390aaf7af86a39cb55dccce3e9ee30514f332d2e41b7bee"
@@ -1305,9 +1245,9 @@
       "forma": "lesan",
       "classe": "testemunha, nomeador preciso",
       "significado": "depende de `les`; V1-PROV",
-      "human_entry_id": 106,
-      "human_entry_forma": "les",
-      "match_type": "many_executable_to_one_human",
+      "human_entry_id": 123,
+      "human_entry_forma": "lesan",
+      "match_type": "one_to_one_literal",
       "source_text": "| `lesan` | testemunha, nomeador preciso | depende de `les`; V1-PROV |",
       "source_sha256": "60c8894704863618da9c58b86b4ed8c9ab556f1d013ed40810e2d95f8ddccca0"
     },
@@ -2251,9 +2191,9 @@
       "forma": "vesaarun",
       "classe": "incompleto, partido; não significa inferior",
       "significado": "incompleto, partido; não significa inferior",
-      "human_entry_id": 106,
-      "human_entry_forma": "les",
-      "match_type": "many_executable_to_one_human",
+      "human_entry_id": 219,
+      "human_entry_forma": "vesaarun",
+      "match_type": "one_to_one_literal",
       "source_text": "| `vesaarun` | incompleto, partido; não significa inferior |",
       "source_sha256": "ffebb65c037d4bfc8e1d3e813fceee518230779c099a6323c095577310475f60"
     },

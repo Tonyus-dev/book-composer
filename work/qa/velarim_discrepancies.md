@@ -1,59 +1,41 @@
-# Relatório Definitivo de Fechamento de Consolidações — Velarim v2.0
+# Relatório Definitivo de Resolução da Sobreposição de `les` — Velarim v2.0
 
-## 1. Síntese Executiva das Consolidações da Expansão
-O mapeamento integral dos **202 registros executáveis de expansão** aos **200 verbetes humanos da expansão** foi totalmente demonstrado e validado em [work/qa/velarim_executable_human_crosswalk.json](file:///home/tonyus-dev/Projetos/RPG/kallistis%20libro/KALLISTIS_PARA_ANTIGRAVITY/work/qa/velarim_executable_human_crosswalk.json).
+## 1. Síntese Executiva da Sobreposição de `les`
+A sobreposição de `les` no crosswalk bidirecional foi integralmente resolvida em [work/qa/velarim_human_executable_reverse_crosswalk.json](file:///home/tonyus-dev/Projetos/RPG/kallistis%20libro/KALLISTIS_PARA_ANTIGRAVITY/work/qa/velarim_human_executable_reverse_crosswalk.json) e [work/qa/velarim_executable_human_crosswalk.json](file:///home/tonyus-dev/Projetos/RPG/kallistis%20libro/KALLISTIS_PARA_ANTIGRAVITY/work/qa/velarim_executable_human_crosswalk.json).
 
-- **Registros Executáveis Únicos:** **202** (`mapped_executable_ids_count = 202`, `orphan_executable_ids_count = 0`).
-- **Verbetes Humanos da Expansão Únicos:** **200** (`human_entry_ids_used_by_expansion = 200`).
-- **Equação Cardinal Executável -> Humano:** $\mathbf{202 \text{ registros executáveis}} - \mathbf{2 \text{ consolidações muitos-para-um}} = \mathbf{200 \text{ verbetes humanos da expansão}}$.
-
----
-
-## 2. Grupos de Consolidação Muitos-para-Um Identificados Nominalmente
-
-### 2.1. Grupo 1 — `ravun` (Human Entry ID #149)
-- **`human_entry_id`:** `149` (`ravun`, Seção 17.4, Line 1226)
-- **`executable_ids`:** `[129, 207]`
-- **Formas Executáveis:** `ravun` (ID #129) e `ravun` (ID #207)
-- **Classes:** `ferida, dano, perigo; ferido, perigoso` (ID #129) e `perigoso, ferido; dano, perigo` (ID #207)
-- **Sentidos:** Dano, ferida, perigo (Seção 17.4) e Descritor de perigo e combate (Seção 17.5)
-- **Motivo Documental:** Reocorrência do descritor de combate na Seção 17.5 após sua introdução nominal na Seção 17.4.
-- **Textos Literais:**
-  - `| ravun | ferida, dano, perigo; ferido, perigoso | rav + -un |` (SHA-256: `90987c2bf3398ae31eb543f05b4b1a415ff6adab291bfedb509ef48aebcfbebe`)
-  - `| ravun | perigoso, ferido; dano, perigo |` (SHA-256: `a935a84061a94ebac21a3ddcc6c6df972dfec5bce3438a2eabdb564e9e43b177`)
-
-### 2.2. Grupo 2 — `les` / `lesan` (Human Entry ID #103)
-- **`human_entry_id`:** `103` (`les`, Seção 17.3, Line 1168)
-- **`executable_ids`:** `[103, 195]`
-- **Formas Executáveis:** `les` (ID #103) e `lesan` (ID #195)
-- **Classes:** `TRANS` (ID #103) e `depende de les` (ID #195)
-- **Sentidos:** Reconhecer, nomear com precisão (`les`, V1-PROV) e Testemunha, nomeador preciso (`lesan`, V1-PROV)
-- **Motivo Documental:** Consolidação da forma derivada nominal `lesan` sob o verbete verbal primário `les` (Human Entry ID #103) no Dicionário Conversacional.
-- **Textos Literais:**
-  - `| les | TRANS | reconhecer, nomear com precisão | V1-PROV |` (SHA-256: `785d03bb5ae3bda19a9a3b684cb3aa71a0624bcbf8f47f2bebcfe8bbacfc1599`)
-  - `| lesan | testemunha, nomeador preciso | depende de les; V1-PROV |` (SHA-256: `0efc8d0ed34e56fa2b0b680bd6e60b2eb10c9c72e382d61993437bb96e1b5f63`)
+- **Registro Nuclear de `les`:** `Core L793` (`forma: les`, `classe: verbo transitivo`, `significado: reconhecer; nomear com precisão`, `status: PROV`).
+- **Natureza do ID 103:** O número 103 na Seção 17.3 é um `raw_index` de tabela que foi filtrado por ser sobreposição com o Núcleo 1.0 (L793). Portanto, `les` não possui `executable_id` na expansão final (`executable_id_les = null`).
+- **Forma Derivada na Expansão (`lesan`):** Possui `executable_id = 109` (`forma: lesan`, `classe: testemunha, nomeador preciso`, `significado: depende de les; V1-PROV`).
+- **Verbete Humano #106 (`les`):** Classificado unicamente como **`derived_expansion_under_core_lemma`** (lema nuclear que hospeda a entrada derivada da expansão `lesan` Executable ID #109).
 
 ---
 
-## 3. Registro Corrigido de `veth` e `vethari`
+## 2. Partição Mutuamente Exclusiva dos 223 Verbetes Humanos
 
-### 3.1. `veth`
-- **`core_id`:** `779` | **`executable_id`:** `null` | **`human_entry_id`:** `87`
-- **Classes:** `REL` (humano) vs `substantivo relacional` (núcleo)
-- **Extensão Verbal:** `True`
-- **`additional_sense_without_independent_record`:** **`True`**
-- **Classificação:** **`maps_to_core_only`** (com extensão semântica/verbal documentada)
+| Categoria da Partição | Quantidade de Verbetes | Descrição e Validação |
+|-----------------------|------------------------|-----------------------|
+| `expansion_only` | **200** | Verbetes humanos exclusivos da expansão |
+| `core_only` | **22** | Verbetes humanos exclusivos do Núcleo 1.0 (excluindo `les`) |
+| `derived_expansion_under_core_lemma` | **1** | Verbete humano `les` (Lema nuclear hospedando `lesan` #109) |
+| `core_and_expansion` | **0** | Nenhuma sobreposição não tratada |
+| `expression_without_record` | **0** | Nenhuma expressão órfã |
+| `variant_without_record` | **0** | Nenhuma variante órfã |
+| `additional_sense_without_record` | **0** | Nenhum sentido sem registro |
+| `unresolved` | **0** | Nenhum verbete não resolvido |
+| **SOMA TOTAL DA PARTIÇÃO** | **223** | **Soma exata dos 223 verbetes humanos** |
 
-### 3.2. `vethari`
-- **`core_id`:** `783` | **`executable_id`:** `null` | **`human_entry_id`:** `102`
-- **Classes:** `REL` (humano) vs `substantivo/verbo relacional` (núcleo)
-- **Extensão Verbal:** `False` (já incorporada na classe nominal/verbal original)
-- **`additional_sense_without_independent_record`:** **`False`**
-- **Classificação:** **`maps_to_core_only`**
+---
+
+## 3. Cobertura dos 202 Registros Executáveis
+- **Total de Registros Executáveis:** **202** (`mapped_executable_ids_count = 202`, `orphan_executable_ids_count = 0`).
+- **Formas Ortográficas Únicas na Expansão:** **201** (`exp_map = 201`).
+- **Equação Cobertura Executável:** $\mathbf{202 \text{ registros executáveis}} \longrightarrow \mathbf{200 \text{ verbetes humanos da expansão}}$.
+- **Equação Partição Humana:** $\mathbf{223 \text{ verbetes humanos}} = \mathbf{200 \text{ expansion\_only}} + \mathbf{22 \text{ core\_only}} + \mathbf{1 \text{ derived\_expansion\_under\_core\_lemma}}$.
+- **União Real:** $|\text{human\_expansion} \cup \text{human\_core}| = 200 + 23 = \mathbf{223 \text{ verbetes humanos únicos}}$.
 
 ---
 
 ## 4. Conclusão Definitiva
-- **Mapeamento Executável -> Humano:** 202/202 (`0` órfãos, `0` não mapeados).
-- **Verbetes Humanos da Expansão Mapeados:** 200/200.
-- **Testes Automáticos de Consolidação:** **14/14 PASS (EXIT 0)**.
+- **Sobreposição de `les`:** Resolvida (`les` = `derived_expansion_under_core_lemma`, `lesan` = `expansion_only`).
+- **Partição dos 223:** Soma exatamente **223**.
+- **Testes Automatizados:** **14/14 PASS (EXIT 0)**.

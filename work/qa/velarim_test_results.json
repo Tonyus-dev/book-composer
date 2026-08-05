@@ -1,23 +1,23 @@
 {
-  "suite": "Velarim Consolidation & Coverage Closure Verification",
+  "suite": "Velarim Les Overlap & Partition Closure Verification",
   "total_tests": 14,
   "passed_tests": 14,
   "failed_tests": 0,
   "test_names": [
-    "Existem exatamente 202 executable_id únicos na expansão",
-    "Todos os 202 executable_id possuem mapeamento no crosswalk",
-    "Nenhum executable_id está órfão (count == 0)",
-    "Existem exatamente 200 human_entry_id únicos usados pela expansão",
-    "Dois grupos muitos-para-um identificados nominalmente (ravun e les)",
-    "Os grupos explicam exatamente a diferença 202 - 200 = 2",
-    "Cada grupo de consolidação possui mais de um executable_id",
-    "Nenhum executable_id é duplicado entre grupos de consolidação",
-    "veth possui extensão semântica registrada (additional_sense_without_independent_record == true)",
-    "veth não possui executable_id independente na camada de expansão (executable_id == null)",
-    "vethari é tratado segundo seus dados reais (executable_id == null)",
-    "Partição humana soma exatamente 223 (200 expansão + 23 núcleo)",
-    "work/working_copy.docx permanece 100% intocado",
-    "Mapeamento e extração operam de forma dinâmica sem listas hardcoded"
+    "Total de verbetes humanos é igual a 223",
+    "Total de registros executáveis de expansão é igual a 202",
+    "les possui executable_id == null e natureza do ID 103 declarada como raw_index",
+    "lesan possui executable_id válido registrado",
+    "les possui human_entry_id válido registrado",
+    "les possui classificação única como derived_expansion_under_core_lemma",
+    "lesan possui classificação única como expansion_only",
+    "Verbete les não aparece simultaneamente em core_only e expansion_only",
+    "Partição mutuamente exclusiva dos verbetes humanos soma 223",
+    "Interseção entre núcleo e expansão é igual a 0",
+    "Cobertura executável mapeia 202 registros com 0 órfãos",
+    "ravun preserva 2 ocorrências brutas na Seção 17 e 1 registro executável final",
+    "202 é explicitamente denominado registros executáveis e 201 formas ortográficas únicas",
+    "work/working_copy.docx permanece 100% intocado"
   ],
   "verdict": "EXIT 0 (ALL PASS)"
 }
