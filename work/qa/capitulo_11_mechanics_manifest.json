@@ -1,0 +1,311 @@
+{
+  "chapter": "Capítulo 11 — Consequências, condições e testes prolongados",
+  "total_rules_paragraphs": 40,
+  "rules": [
+    {
+      "para_index": 2253,
+      "style": "Kallistis Chapter",
+      "text_literal": "11. Consequências, condições e testes prolongados",
+      "numbers": [
+        11
+      ],
+      "hash": "0d7e404579a962724fb06d8418d34d036f49f3e00d600adef84cb7810917882c"
+    },
+    {
+      "para_index": 2254,
+      "style": "Heading 2",
+      "text_literal": "Condições",
+      "numbers": [],
+      "hash": "c395cbc2ad429686bd281eed6d3485d327d5182e163c9890e853fd66393bb189"
+    },
+    {
+      "para_index": 2255,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Abalado",
+      "numbers": [],
+      "hash": "9143962d745138d24039063eeb7fc7dfae54e7e0137cf3441da50f3f64a61283"
+    },
+    {
+      "para_index": 2256,
+      "style": "Kallistis Body Justify",
+      "text_literal": "-2 no próximo teste.",
+      "numbers": [
+        2
+      ],
+      "hash": "ff410210c516d5371848c364fa251beb788eb32ba2bcf78ce2a3ab0815167245"
+    },
+    {
+      "para_index": 2257,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Exposto",
+      "numbers": [],
+      "hash": "e91e9c42fae85cfda45588939cda7d8fd20325953763512ac2e4897093cae30b"
+    },
+    {
+      "para_index": 2258,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Ataques contra você recebem +2.",
+      "numbers": [
+        2
+      ],
+      "hash": "058a13b40c77f7b41b318da965c8ff27a7d00145a2e24e324364b1869da8209b"
+    },
+    {
+      "para_index": 2259,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Imobilizado",
+      "numbers": [],
+      "hash": "128b688f32b3592af21d315e1f2aa918ec9b4511d1a3d41a14257dc77faaa040"
+    },
+    {
+      "para_index": 2260,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Não se move até gastar ação ou superar efeito.",
+      "numbers": [],
+      "hash": "8ecd207d1c94b12f7a3527e27b147c4cd4c05ad4289de1f6feab6961b3ddb33c"
+    },
+    {
+      "para_index": 2261,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Sangrando",
+      "numbers": [],
+      "hash": "d56a285d05ba96cf696df08dc59a2185d3ebf16a97476e09386b114d3297a8cd"
+    },
+    {
+      "para_index": 2262,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Perde 2 Vitalidade ao fim do turno até receber Cuidado.",
+      "numbers": [
+        2
+      ],
+      "hash": "12dbb381ee1dc08c8104e194fd7b21835f03d7adfaafec92877e8244c16d3291"
+    },
+    {
+      "para_index": 2263,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Silenciado",
+      "numbers": [],
+      "hash": "17e0223363b20f3a16ec4ddbf0ade065e25ea099a8d1a918f416f867f4e348a5"
+    },
+    {
+      "para_index": 2264,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Não usa magia que exija voz.",
+      "numbers": [],
+      "hash": "01a29c078dc59de0bd99b40f5efa6f36d0808a1aa130bc8cfde6b6b10e3d0509"
+    },
+    {
+      "para_index": 2265,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Dissonante",
+      "numbers": [],
+      "hash": "a0f115eb5ef2e05f53c341e06ee9d9b82d7f89687d16410c82ebe45509b5a758"
+    },
+    {
+      "para_index": 2266,
+      "style": "Kallistis Body Justify",
+      "text_literal": "-2 em Sintonia, Velarim, Merge e Evocação.",
+      "numbers": [
+        2
+      ],
+      "hash": "9f1df38ef301e29b9759a271997614d71c86aef6772217d61e57e0eab44e2ac5"
+    },
+    {
+      "para_index": 2267,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Fraturado",
+      "numbers": [],
+      "hash": "bce84e339548e00ff4de0199413af9a924b24f017535df6a8c5c74630f0652ed"
+    },
+    {
+      "para_index": 2268,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Não recupera Fluxo e sofre +1 Lucidez de efeitos de Fenda.",
+      "numbers": [
+        1
+      ],
+      "hash": "4871a67f6a151720f643d86bddaf07893f64f92695eaa423a6ca8bf81ed0905e"
+    },
+    {
+      "para_index": 2269,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Corrompido",
+      "numbers": [],
+      "hash": "c262f2a0bc18a49e522284e3bbe34119c0ccf2c8daa470731eee4aca8ad5a105"
+    },
+    {
+      "para_index": 2270,
+      "style": "Kallistis Body Justify",
+      "text_literal": "A Sombra possui acesso temporário a uma relação ou virtude específica.",
+      "numbers": [],
+      "hash": "3d1a239251695938d54b021c311ba3cb366e8145abec9eebfd7ed0a9f4549d4f"
+    },
+    {
+      "para_index": 2271,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Caído",
+      "numbers": [],
+      "hash": "f8de8c5ef00c18f6a772c7b7582ed7de6af656d5a81d9c4b3b1bd7221c6d4c8d"
+    },
+    {
+      "para_index": 2272,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Vitalidade 0.",
+      "numbers": [
+        0
+      ],
+      "hash": "ee0358ebfee436db72819eb5bd852af4a7597d00cb183fb4d73fd04033ea1daa"
+    },
+    {
+      "para_index": 2273,
+      "style": "Heading 2",
+      "text_literal": "Cair a zero",
+      "numbers": [],
+      "hash": "b8fff745bbc2bfb31b387c59deb45570e8f386df117d91ae0feb9964efab0259"
+    },
+    {
+      "para_index": 2274,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Ao chegar a 0 Vitalidade:",
+      "numbers": [
+        0
+      ],
+      "hash": "3bfd595b1ff48f685c2273355d713c9c2d3fe9f40baafbd2cf71c334b154eff7"
+    },
+    {
+      "para_index": 2275,
+      "style": "Kallistis Body Justify",
+      "text_literal": "fica Caído; perde concentração; não realiza ações comuns; pode falar brevemente; no início do turno, realiza Teste de Sobrevivência. Corpo + Vontade contra 15",
+      "numbers": [
+        15
+      ],
+      "hash": "9ddb98c1064007cadfaacf36c38685cb7400854d7a36dad7105f7432a120e99f"
+    },
+    {
+      "para_index": 2276,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Três sucessos estabilizam.",
+      "numbers": [],
+      "hash": "9588f26b93f6933a2bbf0bbb6bc824cbf1e12c26c00599a3a06a3b85c95aeb81"
+    },
+    {
+      "para_index": 2277,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Três falhas produzem morte ou consequência terminal escolhida conforme o tom da campanha.",
+      "numbers": [],
+      "hash": "0acb55f94c94e088f9b7646f2efaedad57929e391183e4391c738bca5c1f928b"
+    },
+    {
+      "para_index": 2278,
+      "style": "Heading 2",
+      "text_literal": "Dano excedente",
+      "numbers": [],
+      "hash": "3eb091a62c8224964c9adf6a32f919e0b6e9beee979e5f7ee59addd03f4e66ee"
+    },
+    {
+      "para_index": 2279,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Se um golpe causa dano excedente igual ou superior à Fortitude:",
+      "numbers": [],
+      "hash": "a3a8699fdc6db904f443fd7619b8cf8d237c9052841de80550b9363d0cfdfcd9"
+    },
+    {
+      "para_index": 2280,
+      "style": "Kallistis Body Justify",
+      "text_literal": "marque Ferimento Grave; mesmo que estabilizado.",
+      "numbers": [],
+      "hash": "7661aed2425c079572fd80551d3cf273338f5caab36f5eb8a336df1636d0ebc2"
+    },
+    {
+      "para_index": 2281,
+      "style": "Heading 2",
+      "text_literal": "Morte",
+      "numbers": [],
+      "hash": "4504851608cd0d026d582c16f13124dee6c8794cf67f928437ff3ef2a0e21b54"
+    },
+    {
+      "para_index": 2282,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Morte não deve ser casualmente revertida.",
+      "numbers": [],
+      "hash": "975d325236758224ea2b091f4df616d677b552580af2c42c22f72e399775fe22"
+    },
+    {
+      "para_index": 2283,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Efeitos podem recuperar alguém Caído, mas não alguém cuja morte já foi estabelecida após a cena.",
+      "numbers": [],
+      "hash": "32b1ce2361053fb87ceb25debabb62188a50d5f6421f0bb467114166ed49e633"
+    },
+    {
+      "para_index": 2284,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Artefatos ou eventos excepcionais podem desafiar isso apenas com custo de campanha.",
+      "numbers": [],
+      "hash": "2f74776a5df08ea9f6ccc276053711e8bf96ae8a06e7c090b4fd9c5b85b06430"
+    },
+    {
+      "para_index": 2285,
+      "style": "Heading 2",
+      "text_literal": "Lucidez zero",
+      "numbers": [],
+      "hash": "ac9790d0b7502ac0e930e8aff2a42c88c0148e765386264f590c4b1b08f5321c"
+    },
+    {
+      "para_index": 2286,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Ao chegar a 0 Lucidez:",
+      "numbers": [
+        0
+      ],
+      "hash": "ef049bcffe3f5c77c44348195073d26e5981914e1cd5255c62762ac04a4b6dd7"
+    },
+    {
+      "para_index": 2287,
+      "style": "Kallistis Body Justify",
+      "text_literal": "sofre Ruptura; não perde automaticamente o controle; escolhe uma reação: fuga, congelamento, confissão, isolamento ou pedido de ajuda; recebe uma Cicatriz; volta com 1 Lucidez após a cena.",
+      "numbers": [
+        1
+      ],
+      "hash": "2cce432f3d8c1617ffb3f4d155478b89eff4368ddcbca2ecdc1bca8bdfc2d96e"
+    },
+    {
+      "para_index": 2288,
+      "style": "Heading 2",
+      "text_literal": "Testes prolongados",
+      "numbers": [],
+      "hash": "2aa8016fe326b9c0ec00d31b4603857179f0aeeaabe35436358a3b1c62504b57"
+    },
+    {
+      "para_index": 2289,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Para tarefas complexas:",
+      "numbers": [],
+      "hash": "924e3130c63b690e28c33eca29464687ce3aa64e10aea0bc526ec228ecc3c93b"
+    },
+    {
+      "para_index": 2290,
+      "style": "Kallistis Body Justify",
+      "text_literal": "3 sucessos antes de 2 falhas",
+      "numbers": [
+        3,
+        2
+      ],
+      "hash": "b9df19280be6a567f02d5136deb177a71e8ea83180d80c777ec5543870ade089"
+    },
+    {
+      "para_index": 2291,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Ou use relógio.",
+      "numbers": [],
+      "hash": "b43c99f151e39fd2155003220f62b589570c6d382d7f5293406d4ad60fdfdf71"
+    },
+    {
+      "para_index": 2292,
+      "style": "Kallistis Body Justify",
+      "text_literal": "Cada rolagem deve mudar abordagem ou situação.",
+      "numbers": [],
+      "hash": "6537edf7d58ab2a744cce394ba90d93bc14b6c5a756c8f9dab8030a320900735"
+    }
+  ]
+}

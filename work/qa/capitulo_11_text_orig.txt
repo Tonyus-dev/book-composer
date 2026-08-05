@@ -1,0 +1,40 @@
+11. Consequências, condições e testes prolongados
+Condições
+Abalado
+-2 no próximo teste.
+Exposto
+Ataques contra você recebem +2.
+Imobilizado
+Não se move até gastar ação ou superar efeito.
+Sangrando
+Perde 2 Vitalidade ao fim do turno até receber Cuidado.
+Silenciado
+Não usa magia que exija voz.
+Dissonante
+-2 em Sintonia, Velarim, Merge e Evocação.
+Fraturado
+Não recupera Fluxo e sofre +1 Lucidez de efeitos de Fenda.
+Corrompido
+A Sombra possui acesso temporário a uma relação ou virtude específica.
+Caído
+Vitalidade 0.
+Cair a zero
+Ao chegar a 0 Vitalidade:
+fica Caído; perde concentração; não realiza ações comuns; pode falar brevemente; no início do turno, realiza Teste de Sobrevivência. Corpo + Vontade contra 15
+Três sucessos estabilizam.
+Três falhas produzem morte ou consequência terminal escolhida conforme o tom da campanha.
+Dano excedente
+Se um golpe causa dano excedente igual ou superior à Fortitude:
+marque Ferimento Grave; mesmo que estabilizado.
+Morte
+Morte não deve ser casualmente revertida.
+Efeitos podem recuperar alguém Caído, mas não alguém cuja morte já foi estabelecida após a cena.
+Artefatos ou eventos excepcionais podem desafiar isso apenas com custo de campanha.
+Lucidez zero
+Ao chegar a 0 Lucidez:
+sofre Ruptura; não perde automaticamente o controle; escolhe uma reação: fuga, congelamento, confissão, isolamento ou pedido de ajuda; recebe uma Cicatriz; volta com 1 Lucidez após a cena.
+Testes prolongados
+Para tarefas complexas:
+3 sucessos antes de 2 falhas
+Ou use relógio.
+Cada rolagem deve mudar abordagem ou situação.
