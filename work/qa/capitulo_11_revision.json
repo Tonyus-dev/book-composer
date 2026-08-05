@@ -10,5 +10,6 @@
   "paragrafos_preservados": 40,
   "tabelas_no_intervalo": 0,
   "imagens_no_intervalo": 0,
-  "justificativa": "O Capítulo 11 foi integralmente lido e avaliado. As regras de consequências, condições e testes prolongados possuem 0 alertas do linter e 0 alterações mecânicas."
+  "justificativa": "O Capítulo 11 foi integralmente lido e avaliado. As regras de consequências, condições e testes prolongados possuem 0 alertas do linter e 0 alterações mecânicas.",
+  "aprovado_pelo_autor": true
 }
