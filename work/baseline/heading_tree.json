@@ -1,0 +1,4914 @@
+[
+  {
+    "level": 1,
+    "text": "Ficha Técnica",
+    "children": []
+  },
+  {
+    "level": 1,
+    "text": "Créditos",
+    "children": []
+  },
+  {
+    "level": 1,
+    "text": "Nota Editorial",
+    "children": []
+  },
+  {
+    "level": 1,
+    "text": "Nota de Autoridade",
+    "children": []
+  },
+  {
+    "level": 1,
+    "text": "Sumário",
+    "children": [
+      {
+        "level": 2,
+        "text": "O que as personagens fazem",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Três compromissos do jogo",
+        "children": [
+          {
+            "level": 4,
+            "text": "Diferença gera possibilidade",
+            "children": []
+          },
+          {
+            "level": 4,
+            "text": "Poder exige relação",
+            "children": []
+          },
+          {
+            "level": 4,
+            "text": "Consequência não é punição automática",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "O que KALLISTIS não exige",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "O Grande Cristal",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Mirveth e integridade",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Merge legítimo",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "PREÂMBULO",
+        "children": [
+          {
+            "level": 3,
+            "text": "Toda história é uma cicatriz",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "MARCO ZERO — A ERA DA UNIÃO",
+        "children": [
+          {
+            "level": 3,
+            "text": "Antes que houvesse dois mundos",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Velarim antes da Fratura",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Os seres da União",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "A causa impossível",
+            "children": [
+              {
+                "level": 4,
+                "text": "A tradição da saturação",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "A tradição da escolha",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "A tradição da agressão",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "A tradição do mito",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "MARCO UM — A FRATURA",
+        "children": [
+          {
+            "level": 3,
+            "text": "O momento em que a realidade aprendeu a separar",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "O Mundo da Luz",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "O Mundo da Escuridão",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "A entrada da Sombra",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "A divisão das almas",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "A divisão de Velarim",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "A primeira mensagem",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "MARCO DOIS — A ERA DA DUPLA HERANÇA",
+        "children": [
+          {
+            "level": 3,
+            "text": "Quando os mundos aprenderam a respirar separados",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "O nascimento das tradições",
+            "children": [
+              {
+                "level": 4,
+                "text": "Aelvari",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Kragor",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Draken",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Nomos",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Livres",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Dóreos",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Teriantes",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Nimari",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Vitrálios",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "O nascimento das sociedades",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "As primeiras guerras",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "MARCO TRÊS — A ERA DOS POVOS E DOS REINOS",
+        "children": [
+          {
+            "level": 3,
+            "text": "A civilização depois da perda",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Os grandes ciclos da Luz",
+            "children": [
+              {
+                "level": 4,
+                "text": "A Hierarquia de Kravor",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "A Confederação das Cidades Livres",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "O domínio de Ashvaar",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "As redes da Escuridão",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "O Primeiro Conselho de Sábios",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "O debate da restauração",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "MARCO QUATRO — A ERA DE SILMAIN E DAS FRESTAS",
+        "children": [
+          {
+            "level": 3,
+            "text": "Quando a palavra pôde atravessar séculos",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "A escrita contínua",
+            "children": [
+              {
+                "level": 4,
+                "text": "O que foi preservado",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "O que foi perdido",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "As primeiras frestas controladas",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "O primeiro contato",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "A ruptura do Conselho",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "MARCO CINCO — A ERA DA RESTAURAÇÃO CIENTÍFICA",
+        "children": [
+          {
+            "level": 3,
+            "text": "Quando a cura se transformou em domínio",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Kethrell e a doutrina da recomposição",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "A descoberta dos nascimentos correspondentes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "O Programa de Substituição",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Os Trocados",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Os Outros",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Os Lightbringers",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "A corrupção da linguagem",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Os experimentos fracassados",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Da pesquisa à invasão",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "MARCO SEIS — A ERA DAS REVELAÇÕES",
+        "children": [
+          {
+            "level": 3,
+            "text": "Quando o segredo começou a falhar",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Daeren",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Thavin",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "A resposta da Escuridão",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Isenna e a cisão interna",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "A profecia de Thaeraen",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "MARCO SETE — O TEMPO DA ESCOLHA",
+        "children": [
+          {
+            "level": 3,
+            "text": "O presente da campanha",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "O Mundo da Luz",
+            "children": [
+              {
+                "level": 4,
+                "text": "Os restauradores",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Os dissidentes",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "O Mundo da Escuridão",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Os Outros",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Os Lightbringers",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Velarim no presente",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "A pergunta histórica",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "EPÍLOGO",
+        "children": [
+          {
+            "level": 3,
+            "text": "A história começa onde a certeza termina",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "VISÃO GERAL DA REGIÃO",
+        "children": [
+          {
+            "level": 3,
+            "text": "A pergunta regional",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "O MAPA EM DUAS CAMADAS",
+        "children": [
+          {
+            "level": 3,
+            "text": "Correspondências aproximadas",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "A FENDA DE KETHRELL",
+        "children": [
+          {
+            "level": 3,
+            "text": "Natureza",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Quatro fatores de instabilidade",
+            "children": [
+              {
+                "level": 4,
+                "text": "Velarim",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Mirveth",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Trocados",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Violência e Merge",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Estados da Fenda",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "O que a Fenda não faz",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "GEOGRAFIA DA LUZ",
+        "children": [
+          {
+            "level": 3,
+            "text": "Planalto de Silmari",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Bosque dos Ecos",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Rio do Leito Escrito",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Montes do Norte",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Estrada do Quartzo",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "GEOGRAFIA DA ESCURIDÃO",
+        "children": [
+          {
+            "level": 3,
+            "text": "Vale de Thur-Daer",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Krav-Nam",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Baixio da Névoa Ferida",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Veios do Juramento",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Jardins de Memória",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "CIDADES E ASSENTAMENTOS",
+        "children": [
+          {
+            "level": 3,
+            "text": "Silmari",
+            "children": [
+              {
+                "level": 4,
+                "text": "Origem do nome",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Aparência",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "O Olho de Kethrell",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Conflitos internos",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Gancho regional",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Fortaleza de Kravor",
+            "children": [
+              {
+                "level": 4,
+                "text": "Autoridade",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Dilema",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Gancho regional",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Refúgio dos Outros",
+            "children": [
+              {
+                "level": 4,
+                "text": "Estrutura",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Correntes políticas",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Retorno",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Permanência",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Reparação",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ruptura",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Cura oferecida pela Sombra",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Gancho regional",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Nimaris",
+            "children": [
+              {
+                "level": 4,
+                "text": "Como chegar",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Dívidas de sorte",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Gancho regional",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Thur-Daer",
+            "children": [
+              {
+                "level": 4,
+                "text": "Arquitetura",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Governo",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Vigília defensiva",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Intervenção preventiva",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Relação com a Luz",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Gancho regional",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Krav-Nam",
+            "children": [
+              {
+                "level": 4,
+                "text": "O juramento violado",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Gancho regional",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Ressonário de Vael",
+            "children": [
+              {
+                "level": 4,
+                "text": "Gancho regional",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "DISTRIBUIÇÃO DOS POVOS",
+        "children": [
+          {
+            "level": 3,
+            "text": "Ganchos revisados",
+            "children": [
+              {
+                "level": 4,
+                "text": "Aelvari",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Kragor",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Draken",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Nomos",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Livres",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Dóreos",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Teriantes",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Nimari",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Vitrálios",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "ROTAS, COMÉRCIO E FRONTEIRAS",
+        "children": [
+          {
+            "level": 3,
+            "text": "Rotas oficiais",
+            "children": [
+              {
+                "level": 4,
+                "text": "Estrada do Quartzo",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Via da Fenda",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Caminho dos Arquivos",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Rotas clandestinas",
+            "children": [
+              {
+                "level": 4,
+                "text": "Três Ancoragens de Nimaris",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Galerias dos Outros",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Passagens Kragor",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Microfrestas",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Comércio",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "FORÇAS POLÍTICAS",
+        "children": [
+          {
+            "level": 3,
+            "text": "Diretoria Regional da Facção Científica",
+            "children": [
+              {
+                "level": 4,
+                "text": "Divisões internas",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Confederação Tácita",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Conselho de Memória e Vigília",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Assembleias dos Outros",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Clãs do Juramento",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "A Sombra",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "ESTADO POLÍTICO ATUAL",
+        "children": [
+          {
+            "level": 3,
+            "text": "O que aconteceu recentemente",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "O que está prestes a acontecer",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "O que pode impedir a travessia",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "SEGREDOS REGIONAIS",
+        "children": [
+          {
+            "level": 3,
+            "text": "Segredo 1 — As trocas são recentes e antigas",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Segredo 2 — O pacto foi manipulado",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Segredo 3 — A Fenda não exige invasão",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Segredo 4 — O arquivo Nomos está incompleto de propósito",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Segredo 5 — O Baixio é um experimento",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Segredo 6 — A ancoragem perdida de Nimaris foi deslocada",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Segredo 7 — A profecia não escolhe lado",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "ORIENTAÇÃO PARA O MESTRE",
+        "children": [
+          {
+            "level": 3,
+            "text": "Use a Fenda como sistema",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Não transforme a Fenda em oráculo",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Nenhum povo representa uma resposta moral",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "A Facção acredita no próprio projeto",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Os Outros não são uma facção uniforme",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "O primeiro arco da campanha",
+            "children": [
+              {
+                "level": 4,
+                "text": "Sessões 1-2 — O vazamento",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Sessões 3-4 — O juramento",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Sessões 5-6 — Nimaris",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Sessões 7-8 — A outra camada",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Sessões 9-10 — O Baixio",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Sessões 11-12 — A travessia",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "O QUE OS PERSONAGENS SABEM",
+        "children": [
+          {
+            "level": 3,
+            "text": "Conhecimento público na Luz",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Conhecimento público na Escuridão",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Conhecimento clandestino",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "IDENTIDADE DO CINTURÃO",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Mapas regionais",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Etapas",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Conceito",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Atributos iniciais",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Perícias iniciais",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Vínculos",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Promessa",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Ferida",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Pergunta pessoal",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "A ficha como memória",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Aelvari",
+        "children": [
+          {
+            "level": 3,
+            "text": "Aqueles que lembram o que ainda não aconteceu",
+            "children": [
+              {
+                "level": 4,
+                "text": "No convívio",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Vinheta - O jardim que recusou uma única versão",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Perguntas para interpretar",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Não reduza os Aelvari a",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Em jogo",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Kragor",
+        "children": [
+          {
+            "level": 3,
+            "text": "Ninguém se sustenta sozinho",
+            "children": [
+              {
+                "level": 4,
+                "text": "No convívio",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Vinheta - A abertura na linha",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Perguntas para interpretar",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Não reduza os Kragor a",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Em jogo",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Draken",
+        "children": [
+          {
+            "level": 3,
+            "text": "O mundo percebe quando entram",
+            "children": [
+              {
+                "level": 4,
+                "text": "No convívio",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Vinheta - A tempestade que escolheu passar ao lado",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Perguntas para interpretar",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Não reduza os Draken a",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Em jogo",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Nomos",
+        "children": [
+          {
+            "level": 3,
+            "text": "A primeira lei é a que escolhem",
+            "children": [
+              {
+                "level": 4,
+                "text": "No convívio",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Vinheta - O módulo recusado",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Perguntas para interpretar",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Não reduza os Nomos a",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Em jogo",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Livres",
+        "children": [
+          {
+            "level": 3,
+            "text": "A tradição que se inventa em movimento",
+            "children": [
+              {
+                "level": 4,
+                "text": "No convívio",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Vinheta - O rito que ainda não existia",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Perguntas para interpretar",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Não reduza os Livres a",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Em jogo",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Dóreos",
+        "children": [
+          {
+            "level": 3,
+            "text": "Toda obra se lembra das mãos",
+            "children": [
+              {
+                "level": 4,
+                "text": "No convívio",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Vinheta - O martelo contra a própria ponte",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Perguntas para interpretar",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Não reduza os Dóreos a",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Em jogo",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Teriantes",
+        "children": [
+          {
+            "level": 3,
+            "text": "O instinto também conhece nomes",
+            "children": [
+              {
+                "level": 4,
+                "text": "No convívio",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Vinheta - O nome acima do sangue",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Perguntas para interpretar",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Não reduza os Teriantes a",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Em jogo",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Nimari",
+        "children": [
+          {
+            "level": 3,
+            "text": "As rotas que recusam ser retas",
+            "children": [
+              {
+                "level": 4,
+                "text": "No convívio",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Vinheta - A rota mais longa",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Perguntas para interpretar",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Não reduza os Nimari a",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Em jogo",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Vitrálios",
+        "children": [
+          {
+            "level": 3,
+            "text": "Corpos que não sabem mentir completamente",
+            "children": [
+              {
+                "level": 4,
+                "text": "No convívio",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Vinheta - A luz diminuída",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Perguntas para interpretar",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Não reduza os Vitrálios a",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Em jogo",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "O que é um Ofício",
+        "children": [
+          {
+            "level": 3,
+            "text": "Faixas de técnica",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Chaves e Trilhas de Ofício",
+        "children": [
+          {
+            "level": 3,
+            "text": "Regra da Chave",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Catálogo completo de Chaves",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Vincular, perder e substituir",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Progressão separada",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Papéis de Ressonância",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Guardião",
+        "children": [
+          {
+            "level": 3,
+            "text": "A distância entre o golpe e quem não pode recebê-lo",
+            "children": [
+              {
+                "level": 4,
+                "text": "Vinheta - O escudo aberto",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Perguntas de Trilha",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Em jogo",
+            "children": [
+              {
+                "level": 4,
+                "text": "Técnica inicial - Interpor",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Técnicas da Trilha",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Duelista",
+        "children": [
+          {
+            "level": 3,
+            "text": "A lâmina como pergunta",
+            "children": [
+              {
+                "level": 4,
+                "text": "Vinheta - O golpe que terminou antes de tocar",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Perguntas de Trilha",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Em jogo",
+            "children": [
+              {
+                "level": 4,
+                "text": "Técnica inicial - Abertura",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Técnicas da Trilha",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Atirador",
+        "children": [
+          {
+            "level": 3,
+            "text": "O mundo entre o olho e o alvo",
+            "children": [
+              {
+                "level": 4,
+                "text": "Vinheta - A mira deslocada",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Perguntas de Trilha",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Em jogo",
+            "children": [
+              {
+                "level": 4,
+                "text": "Técnica inicial - Linha Clara",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Técnicas da Trilha",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Tecelão",
+        "children": [
+          {
+            "level": 3,
+            "text": "Fazer forma sem chamar de prisão",
+            "children": [
+              {
+                "level": 4,
+                "text": "Vinheta - A fórmula incompleta",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Perguntas de Trilha",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Em jogo",
+            "children": [
+              {
+                "level": 4,
+                "text": "Técnica inicial - Forma Estável",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Técnicas da Trilha",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Curador",
+        "children": [
+          {
+            "level": 3,
+            "text": "O corpo recorda caminhos de volta",
+            "children": [
+              {
+                "level": 4,
+                "text": "Vinheta - A cicatriz preservada",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Perguntas de Trilha",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Em jogo",
+            "children": [
+              {
+                "level": 4,
+                "text": "Técnica inicial - Estabilizar Relação",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Técnicas da Trilha",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Evocador",
+        "children": [
+          {
+            "level": 3,
+            "text": "Não se chama aquilo que não pode responder",
+            "children": [
+              {
+                "level": 4,
+                "text": "Vinheta - A âncora devolvida",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Perguntas de Trilha",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Em jogo",
+            "children": [
+              {
+                "level": 4,
+                "text": "Técnica inicial - Vínculo Manifesto",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Técnicas da Trilha",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Artífice",
+        "children": [
+          {
+            "level": 3,
+            "text": "Toda ferramenta é uma promessa provisória",
+            "children": [
+              {
+                "level": 4,
+                "text": "Vinheta - O botão que todos podiam alcançar",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Perguntas de Trilha",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Em jogo",
+            "children": [
+              {
+                "level": 4,
+                "text": "Técnica inicial - Preparação de Campo",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Técnicas da Trilha",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Batedor",
+        "children": [
+          {
+            "level": 3,
+            "text": "Chegar primeiro para que outros cheguem vivos",
+            "children": [
+              {
+                "level": 4,
+                "text": "Vinheta - A marca voltada para trás",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Perguntas de Trilha",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Em jogo",
+            "children": [
+              {
+                "level": 4,
+                "text": "Técnica inicial - Primeiro a Ver",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Técnicas da Trilha",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Técnicas e progressão",
+        "children": [
+          {
+            "level": 3,
+            "text": "Uso de técnicas",
+            "children": [
+              {
+                "level": 4,
+                "text": "Níveis de potência",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fórmula",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Margem ofensiva",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Custos-padrão de design",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Limites",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Técnicas universais",
+            "children": [
+              {
+                "level": 4,
+                "text": "Avanço",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Aparar",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Cobrir",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Preparar",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Recuperar",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Marcos",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Ganhos por Marco",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Legado",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Os dois dados",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Dificuldades",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Graus de resultado",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Impulso e Pressão",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Ajudar",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Testes opostos",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Quando não rolar",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Predominância",
+        "children": [
+          {
+            "level": 3,
+            "text": "Intensidade da Predominância",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Tabela do Dado da Luz",
+            "children": [
+              {
+                "level": 4,
+                "text": "Perguntas criativas da Luz",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Tabela do Dado da Escuridão",
+            "children": [
+              {
+                "level": 4,
+                "text": "Perguntas criativas da Escuridão",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Matriz rápida",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Ressonância",
+        "children": [
+          {
+            "level": 3,
+            "text": "Benefícios básicos",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Ressonâncias de 1-1 a 10-10",
+            "children": [
+              {
+                "level": 4,
+                "text": "1-1 - Ressonância Frágil",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "2-2 - Ressonância do Eco",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "3-3 - Ressonância da Forma",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "4-4 - Ressonância da Passagem",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "5-5 - Ressonância do Espelho",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "6-6 - Ressonância do Acorde",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "7-7 - Ressonância da Fratura",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "8-8 - Ressonância do Vínculo",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "9-9 - Ressonância da Convergência",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "10-10 - Ressonância Plena",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Formulação aberta",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Atributos",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Perícias",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Recursos derivados",
+        "children": [
+          {
+            "level": 3,
+            "text": "Vitalidade",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Lucidez",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Fluxo",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Fortitude",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Reservas",
+        "children": [
+          {
+            "level": 3,
+            "text": "Fôlego",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Determinação",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Condições",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Cair a zero",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Dano excedente",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Morte",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Lucidez zero",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Testes prolongados",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Escala",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Movimento e ocupação",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Rodada",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Iniciativa por lados",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Ações",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Ataque",
+        "children": [
+          {
+            "level": 3,
+            "text": "Corpo a corpo",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Distância",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Magia",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Dano e potência",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Cobertura, linha de efeito e áreas",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Engajamento e objetivo da cena",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "O que é magia",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Estrutura de uma magia",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Graus e potência ofensiva",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Tradições mecânicas",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Testes mágicos",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Concentração",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Catálogo completo de magias desta edição",
+        "children": [
+          {
+            "level": 3,
+            "text": "Grau 0",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Grau 1",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Grau 2",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Grau 3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "O que é uma Evocação",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Os quatro elementos do vínculo",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Vínculos disponíveis",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Convocar e modelos por porte",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Manutenção",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Comandos",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Formas de evocação",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Catálogo completo de Evocações-modelo",
+        "children": [
+          {
+            "level": 3,
+            "text": "Forma Guardião",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Forma Predador",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Forma Oráculo",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Forma Tempestade",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Forma Artífice",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Forma Limiar",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Criação de Evocação própria",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Falha de evocação",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Galeria de formas",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Regra fundamental",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Usos permitidos",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Efeito de forma correta",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Erro e corrupção",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Formas de Merge",
+        "children": [
+          {
+            "level": 3,
+            "text": "Ressonância",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Procedimento de Merge legítimo",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Benefícios",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Limites",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Encerramento",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Conceito",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Medidor compartilhado",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Como preencher",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "O que não preenche",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Persistência",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Ativação",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Níveis",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Vanguarda - golpe concentrado",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Artilharia - efeito de área",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Amparo - restauração coletiva",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Bastião - proteção absoluta",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Evocador e Ressonância",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Ressonância narrativa",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Carga",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Qualidade",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Catálogo completo de armas desta edição",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Tags de arma",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Armaduras",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Ferramentas e Chaves utilitárias",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Consumíveis",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Artefato não é equipamento superior",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Vínculo",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Despertar",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Ruptura",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Catálogo completo de artefatos desta edição",
+        "children": [
+          {
+            "level": 3,
+            "text": "Ponte que Recorda",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Prisma de Vael",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Página Nomos Incompleta",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Bússola de Nimaris",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Lâmina de Kravor",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Semente do Jardim de Memória",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Escudo da Assembleia Quebrada",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Máscara dos Nomes Não Ditos",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Martelo do Primeiro Reparo",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Ampulheta de Ecos Paralelos",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Coração de Tempestade Draken",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Espelho Vitrálio de Duas Frequências",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Criando outro artefato",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Marcos",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Ganhos por Marco",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Legado",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Princípio",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Marcas de Sombra",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Ganho",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Tentação",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Efeitos",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Recuperação",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Estados",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Fatores",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Travessia",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Consequências",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Estrutura de cena",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Relógios",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Testes prolongados",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Dano e técnicas de adversários",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Vitalidade de adversários",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Orçamento de encontro",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Chefes",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Informação",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Consentimento temático",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "ORIENTAÇÃO PARA O MESTRE",
+        "children": [
+          {
+            "level": 3,
+            "text": "Use a Fenda como sistema",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Não transforme a Fenda em oráculo",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Nenhum povo representa uma resposta moral",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "A Facção acredita no próprio projeto",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Os Outros não são uma facção uniforme",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "O primeiro arco da campanha",
+            "children": [
+              {
+                "level": 4,
+                "text": "Sessões 1-2 — O vazamento",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Sessões 3-4 — O juramento",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Sessões 5-6 — Nimaris",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Sessões 7-8 — A outra camada",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Sessões 9-10 — O Baixio",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Sessões 11-12 — A travessia",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Bestiário completo",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "PARTE III - LACAIOS",
+        "children": [
+          {
+            "level": 3,
+            "text": "Vigia de Quartzo",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Reação",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Assistente de Contenção",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Drone Nomos de Varredura",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Soldado de Juramento Quebrado",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Fragmento de Nome",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Eco Faminto",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Esporo de Memória Rígida",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Estilhaço Vitrálio Instável",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Rastejante do Baixio",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Corvo de Fresta",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Filhote de Tormenta",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Autômato de Ponte Descontrolado",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "PARTE IV - ADVERSÁRIOS COMUNS",
+        "children": [
+          {
+            "level": 3,
+            "text": "Agente Científico",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Reação",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Operador de Portal",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Rastreador de Correspondência",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Inquisidor de Registro",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Patrulheiro Lightbringer",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Mercador de Rotas Nimari",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Guardião Kragor Juramentado",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Batedor Teriante Territorial",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Sentinela Dórea de Obra",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Arquivista Aelvari Inflexível",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Caçador Draken de Tempestade",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Eco Corrompido",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Devorador de Diferença",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Parasita de Promessa",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Imitação de Mirveth",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Lobo da Névoa Ferida",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Cervo de Quartzo",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Serpente do Leito Escrito",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Caranguejo de Duas Margens",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Andarilho sem Sombra",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "PARTE V - ELITES",
+        "children": [
+          {
+            "level": 3,
+            "text": "Lightbringer Guardião",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Reação",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Lightbringer Duelista",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Reação",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Lightbringer Atirador",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Reação",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Lightbringer Tecelão",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Reação",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Lightbringer Curador",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Reação",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Lightbringer Evocador",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Reação",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Lightbringer Artífice",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Reação",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Lightbringer Batedor",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Reação",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Erradicador Nomos",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Reação",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Vitrálio Opaco",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Reação",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Redator de Memória",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Reação",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Predador sem Aspecto",
+            "children": [
+              {
+                "level": 4,
+                "text": "Traços",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ações",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Reação",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "PARTE VI - CHEFES E AMEAÇAS SINGULARES",
+        "children": [
+          {
+            "level": 3,
+            "text": "Colmeia de Ferro",
+            "children": [
+              {
+                "level": 4,
+                "text": "Padrão reconhecível",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fases",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 1 - Comunidade fechada",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 2 - Comando único",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 3 - Núcleo de juramento",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ação catastrófica anunciada",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Resposta à Ressonância Coletiva",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Diretoria do Programa de Substituição",
+            "children": [
+              {
+                "level": 4,
+                "text": "Padrão reconhecível",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fases",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 1 - Negação procedimental",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 2 - Transferência de responsabilidade",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 3 - Purga e fuga",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ação catastrófica anunciada",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Resposta à Ressonância Coletiva",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Comandante do Horizonte Branco",
+            "children": [
+              {
+                "level": 4,
+                "text": "Padrão reconhecível",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fases",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 1 - Herói da formação",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 2 - Arma da doutrina",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 3 - Pessoa sob o símbolo",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ação catastrófica anunciada",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Resposta à Ressonância Coletiva",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Jardim de Uma Só Memória",
+            "children": [
+              {
+                "level": 4,
+                "text": "Padrão reconhecível",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fases",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 1 - Recordação acolhedora",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 2 - Elenco imutável",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 3 - Raiz da lembrança",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ação catastrófica anunciada",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Resposta à Ressonância Coletiva",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Catedral da Transparência",
+            "children": [
+              {
+                "level": 4,
+                "text": "Padrão reconhecível",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fases",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 1 - Salão do testemunho",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 2 - Câmara sem sombra",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 3 - Núcleo de pureza",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ação catastrófica anunciada",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Resposta à Ressonância Coletiva",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Senhor da Tempestade Cativa",
+            "children": [
+              {
+                "level": 4,
+                "text": "Padrão reconhecível",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fases",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 1 - Energia acorrentada",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 2 - Céu reivindicado",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 3 - Escolha do elemento",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ação catastrófica anunciada",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Resposta à Ressonância Coletiva",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Navegante de Kethrell Corrompido",
+            "children": [
+              {
+                "level": 4,
+                "text": "Padrão reconhecível",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fases",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 1 - Guia inevitável",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 2 - Mapa sem retorno",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 3 - Âncora dupla corrompida",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ação catastrófica anunciada",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Resposta à Ressonância Coletiva",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "O Nome que Quer Ser Todos",
+            "children": [
+              {
+                "level": 4,
+                "text": "Padrão reconhecível",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fases",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 1 - A solução perfeita",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 2 - Virtudes devoradas",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Fase 3 - Muitos nomes, nenhuma pessoa",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Ação catastrófica anunciada",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Resposta à Ressonância Coletiva",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "PARTE VII - FENÔMENOS E PERIGOS",
+        "children": [
+          {
+            "level": 3,
+            "text": "Ruptura Frequencial",
+            "children": [
+              {
+                "level": 4,
+                "text": "Progressão do fenômeno",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Interações possíveis",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Fenda Fraturada",
+            "children": [
+              {
+                "level": 4,
+                "text": "Progressão do fenômeno",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Interações possíveis",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Névoa Ferida",
+            "children": [
+              {
+                "level": 4,
+                "text": "Progressão do fenômeno",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Interações possíveis",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Tempestade de Ecos",
+            "children": [
+              {
+                "level": 4,
+                "text": "Progressão do fenômeno",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Interações possíveis",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Campo de Substituição",
+            "children": [
+              {
+                "level": 4,
+                "text": "Progressão do fenômeno",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Interações possíveis",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Registro que Reescreve",
+            "children": [
+              {
+                "level": 4,
+                "text": "Progressão do fenômeno",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Interações possíveis",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Veio de Juramento Partido",
+            "children": [
+              {
+                "level": 4,
+                "text": "Progressão do fenômeno",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Interações possíveis",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Jardim de Memória Repetida",
+            "children": [
+              {
+                "level": 4,
+                "text": "Progressão do fenômeno",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Interações possíveis",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Zona de Velarim Corrompido",
+            "children": [
+              {
+                "level": 4,
+                "text": "Progressão do fenômeno",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Interações possíveis",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 3,
+            "text": "Colapso de Correspondência",
+            "children": [
+              {
+                "level": 4,
+                "text": "Progressão do fenômeno",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Interações possíveis",
+                "children": []
+              },
+              {
+                "level": 4,
+                "text": "Predominância e Ressonância",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "PARTE VIII - MODELOS DE ADAPTAÇÃO",
+        "children": [
+          {
+            "level": 3,
+            "text": "Corrompido pela Sombra",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Ligado à Fenda",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Veterano Lightbringer",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Evocação Rompida",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Mirveth em Conflito",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Elite Regional",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "PARTE IX - ENCONTROS PRONTOS",
+        "children": [
+          {
+            "level": 3,
+            "text": "Posto da Estrada do Quartzo",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Caçada no Baixio",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Arquivo sob revisão",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "A ponte que não deixa passar",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Captura Lightbringer",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "O Ressonário opaco",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "A rota de preço impossível",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Juramento no Veio",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "A patrulha que viu demais",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Colapso em duas camadas",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "O chefe sem combate obrigatório",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "PARTE X - TABELAS REGIONAIS",
+        "children": [
+          {
+            "level": 3,
+            "text": "Planalto de Silmari e Estrada do Quartzo - d10",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Bosque dos Ecos e Jardins de Memória - d10",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Nimaris e rotas liminares - d10",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Baixio da Névoa Ferida - d10",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Fenda de Kethrell - d10",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "PARTE XI - RECOMPENSAS E CONSEQUÊNCIAS",
+        "children": [
+          {
+            "level": 3,
+            "text": "Recompensas por tipo de resolução",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Materiais raros",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Captura e contenção",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "APÊNDICE A - CRIAÇÃO RÁPIDA DE ADVERSÁRIO",
+        "children": [
+          {
+            "level": 3,
+            "text": "Valores rápidos",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "APÊNDICE B - CHECKLIST DE PLAYTEST",
+        "children": [
+          {
+            "level": 3,
+            "text": "Metas de observação",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Ciclo básico",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Arco inicial sugerido",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Os Nomes Roubados",
+        "children": [
+          {
+            "level": 3,
+            "text": "Quatro arcos",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Teste",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Dificuldades e margem",
+        "children": [
+          {
+            "level": 3,
+            "text": "Margem",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Predominância",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Dano",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "Turno, recursos e Trilhas",
+        "children": [
+          {
+            "level": 3,
+            "text": "Recursos",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Chaves e Trilhas",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Coro e regras invioláveis",
+        "children": [
+          {
+            "level": 3,
+            "text": "Regras invioláveis",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "O QUE É VELARIM",
+        "children": [
+          {
+            "level": 3,
+            "text": "Princípios invioláveis",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "VELARIM EM DEZ REGRAS",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "SOM E ESCRITA",
+        "children": [
+          {
+            "level": 3,
+            "text": "Ortografia romana",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Silmain",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "A ambiguidade obrigatória de silmain",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "NOMES, PRONOMES E GRUPOS NOMINAIS",
+        "children": [
+          {
+            "level": 3,
+            "text": "Pronomes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Ordem do grupo nominal",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Plural e coletivo",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "NÚMEROS E QUANTIDADE",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "RELAÇÕES E PREPOSIÇÕES",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "VERBOS, ASPECTO E MODALIDADE",
+        "children": [
+          {
+            "level": 3,
+            "text": "Valência",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Aspecto",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Modalidade e desejo",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Negação",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "AS TRÊS ORDENS",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "PERGUNTAS, PEDIDOS E COMANDOS",
+        "children": [
+          {
+            "level": 3,
+            "text": "Interrogativos",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Pedidos",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Proibição",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "CONECTORES E FRASES COMPLEXAS",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "MORFOLOGIA PRODUTIVA",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "AGÊNCIA, CONSENTIMENTO E SOMBRA",
+        "children": [
+          {
+            "level": 3,
+            "text": "Diagnóstico de apagamento",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "PROCEDIMENTO DE TRADUÇÃO",
+        "children": [
+          {
+            "level": 3,
+            "text": "Empréstimo honesto",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "DICIONÁRIO DO NÚCLEO 1.0",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "DICIONÁRIO CONVERSACIONAL 2.0",
+        "children": [
+          {
+            "level": 3,
+            "text": "Partículas e conectores",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Interrogativos",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Verbos essenciais",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Pessoas e relações",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Identidade, memória e compromisso",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Corpo e percepção",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Mundo e lugares",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Objetos e recursos",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Qualidades e estados",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Cores",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Pronomes e números",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "FRASEÁRIO DE MESA",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "DIÁLOGOS MODELO",
+        "children": [
+          {
+            "level": 3,
+            "text": "Primeiro encontro",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Limite e consentimento",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Travessia",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "CORPUS DE VALIDAÇÃO HUMANA",
+        "children": [
+          {
+            "level": 3,
+            "text": "Teste negativo deliberado",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "GUIA PARA DICIONÁRIO E TRADUTOR",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "REFERÊNCIA RÁPIDA",
+        "children": []
+      },
+      {
+        "level": 2,
+        "text": "CONCLUSÃO",
+        "children": [
+          {
+            "level": 3,
+            "text": "Aelvari",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Kragor",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Draken",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Nomos",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Livres",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Dóreos",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Teriantes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Nimari",
+            "children": []
+          },
+          {
+            "level": 3,
+            "text": "Vitrálios",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Encerramento",
+        "children": []
+      }
+    ]
+  }
+]

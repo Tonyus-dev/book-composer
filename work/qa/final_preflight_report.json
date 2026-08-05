@@ -1,0 +1,66 @@
+{
+  "preflight_at": "2026-08-05T00:29:31.015621Z",
+  "all_passed": true,
+  "checks": [
+    {
+      "check": "docx_hashes_identical",
+      "passed": true,
+      "source_hash": "ba57e0dc87ec74d99e2d7398aa4c8bc93e0e77576ca8f58f4d795f36aac200b5",
+      "working_hash": "ba57e0dc87ec74d99e2d7398aa4c8bc93e0e77576ca8f58f4d795f36aac200b5"
+    },
+    {
+      "check": "manifest_document_inventory.json",
+      "passed": true,
+      "exists": true,
+      "record_count": 4415,
+      "error": null
+    },
+    {
+      "check": "manifest_heading_tree.json",
+      "passed": true,
+      "exists": true,
+      "record_count": 5,
+      "error": null
+    },
+    {
+      "check": "manifest_table_manifest.json",
+      "passed": true,
+      "exists": true,
+      "record_count": 148,
+      "error": null
+    },
+    {
+      "check": "manifest_image_manifest.json",
+      "passed": true,
+      "exists": true,
+      "record_count": 52,
+      "error": null
+    },
+    {
+      "check": "manifest_mechanical_values.json",
+      "passed": true,
+      "exists": true,
+      "record_count": 1688,
+      "error": null
+    },
+    {
+      "check": "manifest_source_text_hashes.json",
+      "passed": true,
+      "exists": true,
+      "record_count": 4366,
+      "error": null
+    },
+    {
+      "check": "manifest_summary.json",
+      "passed": true,
+      "exists": true,
+      "record_count": 13,
+      "error": null
+    },
+    {
+      "check": "mechanical_values_non_empty",
+      "passed": true,
+      "count": 1688
+    }
+  ]
+}

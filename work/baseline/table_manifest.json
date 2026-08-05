@@ -1,0 +1,8939 @@
+[
+  {
+    "table_index": 0,
+    "headers": [
+      "Prólogo - O nome que atravessa a Fratura",
+      "5"
+    ],
+    "row_count": 35,
+    "col_count": 2,
+    "rows": [
+      [
+        "Prólogo - O nome que atravessa a Fratura",
+        "5"
+      ],
+      [
+        "PARTE I - O CRISTAL PARTIDO",
+        "PARTE I - O CRISTAL PARTIDO"
+      ],
+      [
+        "1. O que é KALLISTIS",
+        "7"
+      ],
+      [
+        "2. Luz, Escuridão, Sombra e Fratura",
+        "9"
+      ],
+      [
+        "3. História do mundo partido",
+        "10"
+      ],
+      [
+        "4. O Cinturão das Frestas",
+        "30"
+      ],
+      [
+        "PARTE II - PESSOAS, POVOS E CAMINHOS",
+        "PARTE II - PESSOAS, POVOS E CAMINHOS"
+      ],
+      [
+        "5. Criação de personagem",
+        "53"
+      ],
+      [
+        "6. Povos - nove maneiras de existir",
+        "55"
+      ],
+      [
+        "7. Ofícios, Trilhas e Chaves",
+        "75"
+      ],
+      [
+        "PARTE III - REGRAS DE JOGO",
+        "PARTE III - REGRAS DE JOGO"
+      ],
+      [
+        "8. Os Dados da Luz e da Escuridão",
+        "97"
+      ],
+      [
+        "9. Predominância e Ressonância",
+        "99"
+      ],
+      [
+        "10. Atributos, Perícias e Recursos",
+        "103"
+      ],
+      [
+        "11. Consequências, condições e testes prolongados",
+        "105"
+      ],
+      [
+        "12. Combate na grade ortogonal",
+        "107"
+      ],
+      [
+        "13. Magia",
+        "109"
+      ],
+      [
+        "14. Evocações",
+        "113"
+      ],
+      [
+        "15. Velarim, Merge e Coro",
+        "122"
+      ],
+      [
+        "PARTE IV - EQUIPAMENTO, ARTEFATO E TRANSFORMAÇÃO",
+        "PARTE IV - EQUIPAMENTO, ARTEFATO E TRANSFORMAÇÃO"
+      ],
+      [
+        "16. Equipamentos",
+        "129"
+      ],
+      [
+        "17. Artefatos, progressão e Legado",
+        "132"
+      ],
+      [
+        "18. Sombra e corrupção",
+        "136"
+      ],
+      [
+        "19. Fendas e travessias",
+        "138"
+      ],
+      [
+        "PARTE V - CONDUZIR KALLISTIS",
+        "PARTE V - CONDUZIR KALLISTIS"
+      ],
+      [
+        "20. Princípios de mestragem",
+        "140"
+      ],
+      [
+        "21. Adversários e encontros",
+        "144"
+      ],
+      [
+        "22. Começar uma campanha",
+        "191"
+      ],
+      [
+        "APÊNDICES",
+        "APÊNDICES"
+      ],
+      [
+        "Apêndice A - Referência rápida",
+        "193"
+      ],
+      [
+        "Apêndice B - Velarim Conversacional v2.0",
+        "195"
+      ],
+      [
+        "Apêndice C - Setenta e dois encontros entre Povo e Ofício",
+        "212"
+      ],
+      [
+        "Apêndice D - Mapas táticos do Cinturão",
+        "216"
+      ],
+      [
+        "Apêndice E - Glossário essencial",
+        "221"
+      ],
+      [
+        "Apêndice F - Fundamentos que não podem ser revertidos silenciosamente",
+        "222"
+      ]
+    ],
+    "hash": "7242cf36f9103a81a78162263e99531297fc763a2f93185cffb54278d05b99f0",
+    "chapter": "Sumário",
+    "section": ""
+  },
+  {
+    "table_index": 1,
+    "headers": [
+      "Camada da Luz",
+      "Camada da Escuridão",
+      "Natureza da correspondência"
+    ],
+    "row_count": 8,
+    "col_count": 3,
+    "rows": [
+      [
+        "Camada da Luz",
+        "Camada da Escuridão",
+        "Natureza da correspondência"
+      ],
+      [
+        "Silmari",
+        "Thur-Daer",
+        "Centros políticos e arquivísticos"
+      ],
+      [
+        "Fortaleza de Kravor",
+        "Krav-Nam",
+        "Juramento Kragor anterior aos contatos oficiais"
+      ],
+      [
+        "Refúgio dos Outros",
+        "Bairros de acolhimento de Thur-Daer",
+        "Pessoas deslocadas e Trocados"
+      ],
+      [
+        "Bosque dos Ecos",
+        "Jardins de Memória de Thur-Daer",
+        "Anomalias Aelvari"
+      ],
+      [
+        "Rio do Leito Escrito",
+        "Veios minerais sob Krav-Nam",
+        "Inscrições e estruturas Dóreas"
+      ],
+      [
+        "Nimaris",
+        "Rotas liminares próximas ao Baixio",
+        "Caminhos Nimari não lineares"
+      ],
+      [
+        "Fenda de Kethrell",
+        "Fenda de Kethrell",
+        "A mesma ferida manifestada nos dois mundos"
+      ]
+    ],
+    "hash": "2da6d589e47900d16005c1ef51493cf74cc4302d66a78ccd1c04f5322f3bf6e5",
+    "chapter": "Sumário",
+    "section": "O MAPA EM DUAS CAMADAS"
+  },
+  {
+    "table_index": 2,
+    "headers": [
+      "Estado",
+      "Aparência",
+      "Efeito"
+    ],
+    "row_count": 6,
+    "col_count": 3,
+    "rows": [
+      [
+        "Estado",
+        "Aparência",
+        "Efeito"
+      ],
+      [
+        "Latente",
+        "pulsação baixa e regular",
+        "comunicação e observação limitadas"
+      ],
+      [
+        "Ressonante",
+        "duplicação de luz, som ou memória",
+        "objetos e mensagens podem atravessar"
+      ],
+      [
+        "Aberta",
+        "passagem espacial definida",
+        "pessoas podem atravessar"
+      ],
+      [
+        "Fraturada",
+        "múltiplas aberturas instáveis",
+        "deslocamentos imprevisíveis"
+      ],
+      [
+        "Corrompida",
+        "perda de contraste e ruído sem origem",
+        "identidade, memória e direção tornam-se vulneráveis"
+      ]
+    ],
+    "hash": "573a5491537917f918b5516f8318f273802e95bac88f934363fbc2a62bccc4a5",
+    "chapter": "Sumário",
+    "section": "A FENDA DE KETHRELL"
+  },
+  {
+    "table_index": 3,
+    "headers": [
+      "Povo",
+      "Presença",
+      "Núcleos principais",
+      "Tensão regional"
+    ],
+    "row_count": 10,
+    "col_count": 4,
+    "rows": [
+      [
+        "Povo",
+        "Presença",
+        "Núcleos principais",
+        "Tensão regional"
+      ],
+      [
+        "Aelvari",
+        "moderada",
+        "Bosque dos Ecos, Thur-Daer, Jardins de Memória",
+        "distinguir memória, possibilidade e propaganda"
+      ],
+      [
+        "Kragor",
+        "alta",
+        "Fortaleza de Kravor e Krav-Nam",
+        "interpretar o juramento sem servir à manipulação"
+      ],
+      [
+        "Draken",
+        "baixa a moderada",
+        "Montes do Norte e forças militares",
+        "controlar instabilidade elemental próxima à Fenda"
+      ],
+      [
+        "Nomos",
+        "moderada",
+        "Silmari, Thur-Daer e ruínas",
+        "recuperar registros sem transformar dados em destino"
+      ],
+      [
+        "Livres",
+        "alta",
+        "Silmari, Refúgio e rotas comerciais",
+        "escolher entre comércio, resistência e oportunismo"
+      ],
+      [
+        "Dóreos",
+        "moderada",
+        "Rio do Leito Escrito, Krav-Nam e fortaleza",
+        "proteger matéria memorial da extração científica"
+      ],
+      [
+        "Teriantes",
+        "moderada",
+        "Bosque, jardins e túneis",
+        "defender território sem reduzir conflito a guerra de espécies"
+      ],
+      [
+        "Nimari",
+        "alta e dispersa",
+        "Nimaris, mercados e rotas",
+        "manter autonomia enquanto todos desejam seus caminhos"
+      ],
+      [
+        "Vitrálios",
+        "rara",
+        "Ressonário de Vael e Thur-Daer",
+        "impedir que quebra frequencial se torne arma"
+      ]
+    ],
+    "hash": "eb99000fa9e04ad70bf91966409a42f1ed4d143a79d4226d8965858a72995f0f",
+    "chapter": "Sumário",
+    "section": "DISTRIBUIÇÃO DOS POVOS"
+  },
+  {
+    "table_index": 4,
+    "headers": [
+      "Faixa",
+      "Disponibilidade sugerida",
+      "Potência ofensiva",
+      "Limite normal"
+    ],
+    "row_count": 6,
+    "col_count": 4,
+    "rows": [
+      [
+        "Faixa",
+        "Disponibilidade sugerida",
+        "Potência ofensiva",
+        "Limite normal"
+      ],
+      [
+        "Inicial",
+        "Marco 1 da Trilha",
+        "conforme texto",
+        "sempre disponível"
+      ],
+      [
+        "Nível I",
+        "Marcos 2-3",
+        "dano-base ×2",
+        "uma vez por rodada"
+      ],
+      [
+        "Nível II",
+        "Marcos 4-6",
+        "dano-base ×3",
+        "custo 2 ou condição"
+      ],
+      [
+        "Nível III",
+        "Marcos 7-9",
+        "dano-base ×4",
+        "normalmente 1/cena"
+      ],
+      [
+        "Legado",
+        "Marco 10",
+        "até ×5",
+        "efeito de campanha"
+      ]
+    ],
+    "hash": "fd97e0836fce0ed0d9c87c80f6fbf56cdbb8fcad29bde3f034a796e60ec957fb",
+    "chapter": "Sumário",
+    "section": "O que é um Ofício"
+  },
+  {
+    "table_index": 5,
+    "headers": [
+      "Ofício",
+      "Chaves exemplares"
+    ],
+    "row_count": 9,
+    "col_count": 2,
+    "rows": [
+      [
+        "Ofício",
+        "Chaves exemplares"
+      ],
+      [
+        "Guardião",
+        "Escudo de Juramento; Martelo de Vigília; Lança de Interposição; Insígnia de Guarda"
+      ],
+      [
+        "Duelista",
+        "Sabre de Fresta; Florete de Espelho; Lâmina Ritual; Par de Lâminas Gêmeas"
+      ],
+      [
+        "Atirador",
+        "Arco de Quartzo; Besta de Trilho; Carabina Nomos; Foco de Mira"
+      ],
+      [
+        "Tecelão",
+        "Bastão de Convergência; Grimório Estratificado; Tear Ritual; Prisma de Fórmulas"
+      ],
+      [
+        "Curador",
+        "Kit de Retorno; Foco de Amparo; Sino de Lucidez; Símbolo de Cuidado"
+      ],
+      [
+        "Evocador",
+        "Âncora de Pacto; Máscara de Convocação; Totem de Presença; Chave de Vínculo"
+      ],
+      [
+        "Artífice",
+        "Ferramentas Modulares; Luva de Inscrição; Dispositivo de Campo; Obra Modular"
+      ],
+      [
+        "Batedor",
+        "Faca de Trilha; Arco de Exploração; Bússola de Frestas; Kit de Rastreamento"
+      ]
+    ],
+    "hash": "4ef3b5994e58084a112df8d1e2b13a4cf4fd60d83f026fb11029253e11428d83",
+    "chapter": "Sumário",
+    "section": "Chaves e Trilhas de Ofício"
+  },
+  {
+    "table_index": 6,
+    "headers": [
+      "Papel",
+      "Função"
+    ],
+    "row_count": 5,
+    "col_count": 2,
+    "rows": [
+      [
+        "Papel",
+        "Função"
+      ],
+      [
+        "Vanguarda",
+        "pressão corpo a corpo e dano concentrado"
+      ],
+      [
+        "Artilharia",
+        "dano à distância, magia ofensiva e área"
+      ],
+      [
+        "Amparo",
+        "cura, remoção de condições e recuperação"
+      ],
+      [
+        "Bastião",
+        "proteção, mitigação e controle de ameaça"
+      ]
+    ],
+    "hash": "45d603282be9c00467bdec721654023ac9090f1b24080c6eeda72b3d278be4fd",
+    "chapter": "Sumário",
+    "section": "Papéis de Ressonância"
+  },
+  {
+    "table_index": 7,
+    "headers": [
+      "Técnica",
+      "Nível",
+      "Custo e limite",
+      "Efeito"
+    ],
+    "row_count": 7,
+    "col_count": 4,
+    "rows": [
+      [
+        "Técnica",
+        "Nível",
+        "Custo e limite",
+        "Efeito"
+      ],
+      [
+        "Postura Inabalável",
+        "I",
+        "1 Fôlego",
+        "Receba +2 Guarda e não possa ser deslocado à força até o início do próximo turno."
+      ],
+      [
+        "Marca de Proteção",
+        "I",
+        "1 Fôlego",
+        "Marque um aliado ou objetivo a até 6 células. Uma vez antes do próximo turno, reduza em 2 o dano que ele sofreria."
+      ],
+      [
+        "Linha que Não Cede",
+        "II",
+        "2 Fôlego",
+        "Defina uma linha de até 3 células adjacentes. Inimigos que tentem atravessá-la testam Fortitude 15; em falha, param e ficam Expostos."
+      ],
+      [
+        "Guarda de Juramento",
+        "II",
+        "2 Fôlego",
+        "Quando o protegido for ferido, mova até 4 células e faça um ataque de Nível II, dano-base ×3, contra o agressor."
+      ],
+      [
+        "Círculo Seguro",
+        "III",
+        "3 Fôlego; 1/cena",
+        "Até seu próximo turno, aliados a até 3 células reduzem todo dano em 4 e não podem ser deslocados contra a vontade."
+      ],
+      [
+        "Último Escudo",
+        "III",
+        "todo Fôlego restante; 1/sessão",
+        "Redirecione para você um ataque ou evento que atingiria aliados próximos. Depois da Proteção, reduza o dano pela metade e permaneça com ao menos 1 Vitalidade."
+      ]
+    ],
+    "hash": "386dc719a5b2471c02007e8ca01652335173f2986116dae2781b86760f43770c",
+    "chapter": "Sumário",
+    "section": "Guardião"
+  },
+  {
+    "table_index": 8,
+    "headers": [
+      "Técnica",
+      "Nível",
+      "Custo e limite",
+      "Efeito"
+    ],
+    "row_count": 7,
+    "col_count": 4,
+    "rows": [
+      [
+        "Técnica",
+        "Nível",
+        "Custo e limite",
+        "Efeito"
+      ],
+      [
+        "Passo Cortante",
+        "I",
+        "1 Fôlego",
+        "Mova até 3 células sem provocar reação e faça um ataque de Nível I, dano-base ×2."
+      ],
+      [
+        "Contra-ataque",
+        "I",
+        "1 Fôlego; reação",
+        "Quando um inimigo corpo a corpo errar você, realize imediatamente um ataque de Nível I, dano-base ×2."
+      ],
+      [
+        "Golpe de Precisão",
+        "II",
+        "2 Fôlego",
+        "Faça um ataque de Nível II, dano-base ×3, ignorando até 2 pontos de Proteção."
+      ],
+      [
+        "Quebra de Guarda",
+        "II",
+        "2 Fôlego",
+        "Faça um ataque de Nível II, dano-base ×3. Em acerto, o alvo fica Exposto até o fim do próximo turno."
+      ],
+      [
+        "Dança de Lâminas",
+        "III",
+        "3 Fôlego; 1/cena",
+        "Ataque até três alvos adjacentes. Use dano-base de 4 ×4 para cada acerto, em vez do dano-base da arma."
+      ],
+      [
+        "Duelo Inevitável",
+        "III",
+        "2 Fôlego e 1 Determinação; 1/cena",
+        "Contra alvo isolado, faça um ataque de Nível III, dano-base ×4. O alvo não usa Reação e você ignora Proteção comum."
+      ]
+    ],
+    "hash": "68eb3e80979cc2c7e15de7a3c2c1f942040855e6e71efae478da0687b8ce2d11",
+    "chapter": "Sumário",
+    "section": "Duelista"
+  },
+  {
+    "table_index": 9,
+    "headers": [
+      "Técnica",
+      "Nível",
+      "Custo e limite",
+      "Efeito"
+    ],
+    "row_count": 7,
+    "col_count": 4,
+    "rows": [
+      [
+        "Técnica",
+        "Nível",
+        "Custo e limite",
+        "Efeito"
+      ],
+      [
+        "Mira Paciente",
+        "I",
+        "1 Fôlego",
+        "Se não se moveu neste turno, faça um ataque de Nível I, dano-base ×2, ignorando cobertura parcial e forte."
+      ],
+      [
+        "Disparo de Supressão",
+        "I",
+        "1 Fôlego",
+        "Escolha uma área 3 x 3 a até o alcance da arma. Inimigos que agirem fora de cobertura recebem Pressão 2 no próximo teste."
+      ],
+      [
+        "Ricochete",
+        "II",
+        "2 Fôlego",
+        "Faça um ataque de Nível II, dano-base ×3, dividido entre dois alvos separados por no máximo 2 células."
+      ],
+      [
+        "Marca de Caça",
+        "II",
+        "2 Fôlego",
+        "Marque um alvo visível pela cena. Seu primeiro acerto contra ele é Nível II, dano-base ×3, e você ignora 2 pontos de cobertura contra ele."
+      ],
+      [
+        "Chuva de Projéteis",
+        "III",
+        "3 Fôlego; 1/cena",
+        "Ataque cada inimigo em área 3 x 3. Cada acerto causa dano-base de área 3 ×4 e pode empurrar 1 célula."
+      ],
+      [
+        "Horizonte Perfurado",
+        "III",
+        "3 Fôlego; 1/cena",
+        "Trace uma linha de até 18 células. Faça um ataque de Nível III, dano-base ×4, contra todos os alvos na linha; ignore cobertura e até 3 Proteção."
+      ]
+    ],
+    "hash": "e732628b97155ea5eb44364d016933bf142c5508df9ade69caa6d64d86a06c40",
+    "chapter": "Sumário",
+    "section": "Atirador"
+  },
+  {
+    "table_index": 10,
+    "headers": [
+      "Técnica",
+      "Nível",
+      "Custo e limite",
+      "Efeito"
+    ],
+    "row_count": 7,
+    "col_count": 4,
+    "rows": [
+      [
+        "Técnica",
+        "Nível",
+        "Custo e limite",
+        "Efeito"
+      ],
+      [
+        "Contrafluxo",
+        "I",
+        "1 Fluxo; reação",
+        "Faça teste oposto de Sintonia + Magia contra uma magia visível. Em sucesso, cancele um efeito de Grau 0 ou reduza pela metade um efeito maior."
+      ],
+      [
+        "Geometria de Área",
+        "I",
+        "1 Fluxo",
+        "Ao lançar magia de área, aumente uma dimensão em 1 célula ou converta linha, cone e quadrado entre formas equivalentes."
+      ],
+      [
+        "Palavra Preparada",
+        "II",
+        "2 Fluxos; preparação",
+        "Armazene uma magia de Grau 0 ou 1 em uma Chave. Libere-a depois como Reação, pagando o custo normal da magia."
+      ],
+      [
+        "Dupla Tradição",
+        "II",
+        "2 Fluxos",
+        "Uma magia recebe uma segunda Tradição e um efeito secundário coerente: mover 1 célula, conceder +2, remover Pressão ou deixar marca detectável."
+      ],
+      [
+        "Forma Persistente",
+        "III",
+        "3 Fluxos; 1/cena",
+        "Sustente duas magias ao mesmo tempo e ignore o primeiro teste de Concentração provocado durante a duração."
+      ],
+      [
+        "Convergência",
+        "III",
+        "3 Fluxos; 1/cena",
+        "Lance duas magias de Grau 0 a 2 como uma Ação. Pague os custos individuais; danos contra o mesmo alvo não ultrapassam a potência ×4 de um único efeito."
+      ]
+    ],
+    "hash": "7c069c317e904dc99b38476d3c215ecc4bd28274c8953fcdcd9f4f3673b83684",
+    "chapter": "Sumário",
+    "section": "Tecelão"
+  },
+  {
+    "table_index": 11,
+    "headers": [
+      "Técnica",
+      "Nível",
+      "Custo e limite",
+      "Efeito"
+    ],
+    "row_count": 7,
+    "col_count": 4,
+    "rows": [
+      [
+        "Técnica",
+        "Nível",
+        "Custo e limite",
+        "Efeito"
+      ],
+      [
+        "Triagem",
+        "I",
+        "1 Fôlego",
+        "Examine até três criaturas próximas. Saiba quem está em maior risco e conceda +2 ao próximo teste de Cuidado contra cada uma."
+      ],
+      [
+        "Pulso Restaurador",
+        "I",
+        "1 Fluxo",
+        "Uma criatura a até 6 células recupera cura-base 3 ×2 + Sintonia de Vitalidade, ou 4 Lucidez."
+      ],
+      [
+        "Partilha de Dor",
+        "II",
+        "2 Fluxos; reação",
+        "Quando um aliado a até 6 células sofre dano, divida o dano restante igualmente entre vocês depois da Proteção."
+      ],
+      [
+        "Memória do Corpo",
+        "II",
+        "2 Fluxos",
+        "Cure base 4 ×3 de Vitalidade ou remova uma condição comum. Cada alvo só recebe este efeito uma vez por cena."
+      ],
+      [
+        "Retorno",
+        "III",
+        "3 Fluxos; 1/cena",
+        "Uma criatura Caída volta com 1 Vitalidade e recebe cura-base 3 ×4 + Sintonia. Ela fica Fraturada até uma pausa segura."
+      ],
+      [
+        "Círculo de Vida",
+        "III",
+        "3 Fluxos; 1/cena",
+        "Aliados em área 3 x 3 recuperam cura-base 3 ×4 de Vitalidade ou 6 Lucidez e removem uma condição comum."
+      ]
+    ],
+    "hash": "f63d1cba2ad342e549c8ba406df02a4b79b67a08c1f2bfd61a85b9d49e9cbe13",
+    "chapter": "Sumário",
+    "section": "Curador"
+  },
+  {
+    "table_index": 12,
+    "headers": [
+      "Técnica",
+      "Nível",
+      "Custo e limite",
+      "Efeito"
+    ],
+    "row_count": 7,
+    "col_count": 4,
+    "rows": [
+      [
+        "Técnica",
+        "Nível",
+        "Custo e limite",
+        "Efeito"
+      ],
+      [
+        "Âncora Reforçada",
+        "I",
+        "1 Fluxo",
+        "Uma Evocação recebe +4 Vitalidade e +2 Integridade até o fim da cena."
+      ],
+      [
+        "Comando Duplo",
+        "I",
+        "1 Fluxo",
+        "Com uma Ação, conceda duas ações simples a uma Evocação ou uma ação simples a cada uma de duas Evocações menores."
+      ],
+      [
+        "Forma Adaptável",
+        "II",
+        "2 Fluxos",
+        "Troque a Forma funcional de uma Evocação por outra até o fim da cena e substitua uma capacidade por capacidade equivalente."
+      ],
+      [
+        "Partilha de Sentidos",
+        "II",
+        "2 Fluxos",
+        "Compartilhe sentidos com a Evocação pela cena. Receba +2 Percepção e possa usar a posição dela como origem de um efeito não ofensivo."
+      ],
+      [
+        "Evocação Maior",
+        "III",
+        "requisito de Marco 6",
+        "Você pode formar Vínculo maior e convocar Evocações Maiores. A primeira manutenção da cena é gratuita."
+      ],
+      [
+        "Presença Convergente",
+        "III",
+        "3 Fluxos; 1/cena",
+        "Una temporariamente duas Evocações menores ou padrão consentidas em uma presença Maior até o fim da cena; depois ambas ficam indisponíveis até pausa."
+      ]
+    ],
+    "hash": "2f1b34cc50b4c5bb417b30c24c43f7522c2927030fab72783ba792938bb7ca04",
+    "chapter": "Sumário",
+    "section": "Evocador"
+  },
+  {
+    "table_index": 13,
+    "headers": [
+      "Técnica",
+      "Nível",
+      "Custo e limite",
+      "Efeito"
+    ],
+    "row_count": 7,
+    "col_count": 4,
+    "rows": [
+      [
+        "Técnica",
+        "Nível",
+        "Custo e limite",
+        "Efeito"
+      ],
+      [
+        "Ferramenta Modular",
+        "I",
+        "1 recurso preparado",
+        "Um recurso conta como qualquer ferramenta adequada e concede +2 ao teste correspondente."
+      ],
+      [
+        "Armadilha",
+        "I",
+        "1 recurso preparado",
+        "Instale em uma célula. Quando acionada, causa dano-base 4 ×2 e aplica Abalado, Imobilizado ou Exposto, conforme construção."
+      ],
+      [
+        "Autômato Auxiliar",
+        "II",
+        "2 recursos preparados",
+        "Crie um construto menor: Guarda 13, Vitalidade 8, movimento 5 e uma ação simples de reparo, ajuda ou ataque base 3."
+      ],
+      [
+        "Sobrecarga Segura",
+        "II",
+        "2 recursos preparados",
+        "Um dispositivo ou arma técnica realiza efeito de Nível II, dano-base ×3, e fica indisponível até uma pausa."
+      ],
+      [
+        "Oficina Portátil",
+        "III",
+        "3 recursos; 1/cena",
+        "Realize reparo complexo como Ação, produza três recursos imediatos ou restaure equipamento Magistral danificado."
+      ],
+      [
+        "Obra Magistral",
+        "III",
+        "ritual de operação",
+        "Construa uma obra temporária com um efeito ×4: ataque de área, barreira 20, ponte móvel, contenção ou autômato padrão. Dura a operação e exige manutenção narrativa."
+      ]
+    ],
+    "hash": "407d4fbef548d74e15dcb09d081175c012e47c1ebe51e1d8e054063593e559d7",
+    "chapter": "Sumário",
+    "section": "Artífice"
+  },
+  {
+    "table_index": 14,
+    "headers": [
+      "Técnica",
+      "Nível",
+      "Custo e limite",
+      "Efeito"
+    ],
+    "row_count": 7,
+    "col_count": 4,
+    "rows": [
+      [
+        "Técnica",
+        "Nível",
+        "Custo e limite",
+        "Efeito"
+      ],
+      [
+        "Rota Segura",
+        "I",
+        "1 Fôlego",
+        "Você e aliados próximos ignoram o primeiro trecho de terreno difícil e recebem +2 no próximo teste de viagem ou fuga."
+      ],
+      [
+        "Emboscada",
+        "I",
+        "1 Fôlego",
+        "Seu primeiro ataque contra alvo que ainda não agiu é Nível I, dano-base ×2, e deixa o alvo Exposto."
+      ],
+      [
+        "Passo Sem Marca",
+        "II",
+        "2 Fôlego",
+        "Mova seu deslocamento completo sem provocar Reações, atravesse terreno difícil sem custo e receba +4 Furtividade até o fim do turno."
+      ],
+      [
+        "Guia de Frestas",
+        "II",
+        "2 Fôlego",
+        "Após a iniciativa, reposicione até quatro aliados em até 3 células cada, desde que você tenha reconhecido uma rota plausível."
+      ],
+      [
+        "Caçador de Anomalias",
+        "III",
+        "3 Fôlego; 1/cena",
+        "Contra Evocação, fenômeno, criatura da Fenda ou manifestação da Sombra, faça ataque de Nível III, dano-base ×4, e revele uma fraqueza."
+      ],
+      [
+        "Ninguém Fica Para Trás",
+        "III",
+        "3 Fôlego; reação; 1/cena",
+        "Quando a cena colapsa ou um aliado cai, todos os aliados conscientes movem metade do deslocamento sem Reações; você pode carregar um Caído sem penalidade."
+      ]
+    ],
+    "hash": "393e10c84ff59fd7d934c8bede07201bca84ff25002c407702216c50f49c7e3e",
+    "chapter": "Sumário",
+    "section": "Batedor"
+  },
+  {
+    "table_index": 15,
+    "headers": [
+      "Uso",
+      "Multiplicador do dano-base"
+    ],
+    "row_count": 6,
+    "col_count": 2,
+    "rows": [
+      [
+        "Uso",
+        "Multiplicador do dano-base"
+      ],
+      [
+        "Ataque comum",
+        "×1"
+      ],
+      [
+        "Nível I",
+        "×2"
+      ],
+      [
+        "Nível II",
+        "×3"
+      ],
+      [
+        "Nível III",
+        "×4"
+      ],
+      [
+        "Nível IV",
+        "×5"
+      ]
+    ],
+    "hash": "126f4835589fd2981a837f41290db48512a13d41339c5d84343f63d68d1ff4b0",
+    "chapter": "Sumário",
+    "section": "Técnicas e progressão"
+  },
+  {
+    "table_index": 16,
+    "headers": [
+      "Nível",
+      "Uso esperado",
+      "Custo ou limite recomendado"
+    ],
+    "row_count": 5,
+    "col_count": 3,
+    "rows": [
+      [
+        "Nível",
+        "Uso esperado",
+        "Custo ou limite recomendado"
+      ],
+      [
+        "I",
+        "frequente, técnica inicial",
+        "1 recurso; máximo uma vez por rodada"
+      ],
+      [
+        "II",
+        "mudança relevante",
+        "2 recursos, condição ou preparação; normalmente uma vez por cena"
+      ],
+      [
+        "III",
+        "efeito decisivo",
+        "3 recursos e preparação; normalmente uma vez por cena"
+      ],
+      [
+        "IV",
+        "Legado, artefato maior ou catástrofe",
+        "condição excepcional; normalmente uma vez por sessão ou arco"
+      ]
+    ],
+    "hash": "a596417d76d4401902c89d990e2ef575a4307365e9d63fe3aaf361f434d9523d",
+    "chapter": "Sumário",
+    "section": "Técnicas e progressão"
+  },
+  {
+    "table_index": 17,
+    "headers": [
+      "Marco",
+      "Ganho"
+    ],
+    "row_count": 11,
+    "col_count": 2,
+    "rows": [
+      [
+        "Marco",
+        "Ganho"
+      ],
+      [
+        "1",
+        "criação completa"
+      ],
+      [
+        "2",
+        "técnica ou magia"
+      ],
+      [
+        "3",
+        "especialização de Ofício"
+      ],
+      [
+        "4",
+        "+1 perícia e técnica"
+      ],
+      [
+        "5",
+        "+1 atributo, máximo 4"
+      ],
+      [
+        "6",
+        "técnica avançada ou evocação maior"
+      ],
+      [
+        "7",
+        "acesso a magia Grau 3"
+      ],
+      [
+        "8",
+        "+1 perícia e vínculo adicional"
+      ],
+      [
+        "9",
+        "segunda especialização ou técnica de outro Ofício"
+      ],
+      [
+        "10",
+        "Legado"
+      ]
+    ],
+    "hash": "52d62d03d6175fcec43a8745ef0a81ede979b0ad238ce7b871cb897a044b3682",
+    "chapter": "Sumário",
+    "section": "Técnicas e progressão"
+  },
+  {
+    "table_index": 18,
+    "headers": [
+      "Dificuldade",
+      "Valor",
+      "Situação"
+    ],
+    "row_count": 8,
+    "col_count": 3,
+    "rows": [
+      [
+        "Dificuldade",
+        "Valor",
+        "Situação"
+      ],
+      [
+        "Simples",
+        "10",
+        "não há pressão relevante"
+      ],
+      [
+        "Favorável",
+        "12",
+        "tarefa treinada em boas condições"
+      ],
+      [
+        "Incerta",
+        "15",
+        "risco real"
+      ],
+      [
+        "Difícil",
+        "18",
+        "oposição competente"
+      ],
+      [
+        "Severa",
+        "21",
+        "circunstância extraordinária"
+      ],
+      [
+        "Extrema",
+        "24",
+        "feito excepcional"
+      ],
+      [
+        "Lendária",
+        "27",
+        "limite humano ou cosmológico"
+      ]
+    ],
+    "hash": "50326c172572ed6c6d3f0a71b236106fc852d12390ac3097a68f67123b444f6f",
+    "chapter": "Sumário",
+    "section": "Dificuldades"
+  },
+  {
+    "table_index": 19,
+    "headers": [
+      "Resultado",
+      "Margem",
+      "Efeito"
+    ],
+    "row_count": 6,
+    "col_count": 3,
+    "rows": [
+      [
+        "Resultado",
+        "Margem",
+        "Efeito"
+      ],
+      [
+        "Falha severa",
+        "-5 ou menos",
+        "a situação piora de forma significativa"
+      ],
+      [
+        "Falha",
+        "-1 a -4",
+        "não consegue ou consegue pagando custo alto"
+      ],
+      [
+        "Sucesso",
+        "0 a +4",
+        "realiza o objetivo"
+      ],
+      [
+        "Sucesso forte",
+        "+5 a +9",
+        "realiza e obtém benefício"
+      ],
+      [
+        "Sucesso extraordinário",
+        "+10 ou mais",
+        "altera a situação além do esperado"
+      ]
+    ],
+    "hash": "348abd8fcafe15423b91dfb596b1c87d35569ee2c8258b1686bfc0bf75a13e37",
+    "chapter": "Sumário",
+    "section": "Graus de resultado"
+  },
+  {
+    "table_index": 20,
+    "headers": [
+      "Diferença entre os dados",
+      "Intensidade",
+      "Uso sugerido"
+    ],
+    "row_count": 6,
+    "col_count": 3,
+    "rows": [
+      [
+        "Diferença entre os dados",
+        "Intensidade",
+        "Uso sugerido"
+      ],
+      [
+        "0",
+        "Ressonância",
+        "as duas forças encontram a mesma frequência"
+      ],
+      [
+        "1-2",
+        "Sutil",
+        "acrescente uma nuance"
+      ],
+      [
+        "3-5",
+        "Clara",
+        "aplique um efeito principal evidente"
+      ],
+      [
+        "6-8",
+        "Intensa",
+        "altere significativamente a cena"
+      ],
+      [
+        "9",
+        "Absoluta",
+        "deixe uma marca difícil de ignorar"
+      ]
+    ],
+    "hash": "89b1c0b2416ac05bbd592a1f3785c92d88180938218e4cc065dd63902e984d0c",
+    "chapter": "Sumário",
+    "section": "Predominância"
+  },
+  {
+    "table_index": 21,
+    "headers": [
+      "Luz",
+      "Princípio",
+      "Em sucesso",
+      "Em falha ou custo"
+    ],
+    "row_count": 11,
+    "col_count": 4,
+    "rows": [
+      [
+        "Luz",
+        "Princípio",
+        "Em sucesso",
+        "Em falha ou custo"
+      ],
+      [
+        "1",
+        "Centelha",
+        "o efeito começa, ainda que pequeno ou incompleto",
+        "a tentativa revela intenção, esforço ou hesitação"
+      ],
+      [
+        "2",
+        "Vestígio",
+        "a ação deixa pista, marca ou evidência útil",
+        "você deixa rastros, provas ou sinais indesejados"
+      ],
+      [
+        "3",
+        "Forma",
+        "algo ganha contorno, função, posição ou definição",
+        "a forma criada é instável, inadequada ou limitada"
+      ],
+      [
+        "4",
+        "Movimento",
+        "alguém ou algo muda de posição, ritmo ou direção",
+        "o movimento cria posição desfavorável"
+      ],
+      [
+        "5",
+        "Exposição",
+        "alvo, fraqueza, mentira ou passagem fica visível",
+        "você, aliado ou recurso fica exposto"
+      ],
+      [
+        "6",
+        "Abertura",
+        "surge oportunidade imediata",
+        "a oposição recebe abertura ou iniciativa"
+      ],
+      [
+        "7",
+        "Impacto",
+        "algo é interrompido, quebrado, deslocado ou forçado",
+        "há recuo, dano colateral ou reação"
+      ],
+      [
+        "8",
+        "Testemunho",
+        "a ação é reconhecida, vista ou registrada",
+        "a cena atrai autoridade, testemunhas ou julgamento"
+      ],
+      [
+        "9",
+        "Transformação",
+        "ambiente ou situação sofre mudança duradoura",
+        "alteração permanente ocorre de modo indesejado"
+      ],
+      [
+        "10",
+        "Manifestação plena",
+        "o efeito se torna incontestável e domina a cena",
+        "a consequência aparece imediatamente e não pode ser ocultada"
+      ]
+    ],
+    "hash": "6e7dc7b1bf7ea3865a4236782f4fe75b3b4c144b71102f169306170f6ca8dc77",
+    "chapter": "Sumário",
+    "section": "Predominância"
+  },
+  {
+    "table_index": 22,
+    "headers": [
+      "Escuridão",
+      "Princípio",
+      "Em sucesso",
+      "Em falha ou custo"
+    ],
+    "row_count": 11,
+    "col_count": 4,
+    "rows": [
+      [
+        "Escuridão",
+        "Princípio",
+        "Em sucesso",
+        "Em falha ou custo"
+      ],
+      [
+        "1",
+        "Sussurro",
+        "intuição ou sinal quase imperceptível aparece",
+        "algo importante permanece ambíguo"
+      ],
+      [
+        "2",
+        "Eco",
+        "detalhe do passado ou de outra cena retorna",
+        "eco falso, incompleto ou perturbador interfere"
+      ],
+      [
+        "3",
+        "Contexto",
+        "surge conexão com história, lugar ou instituição",
+        "falta uma peça e cresce o risco de interpretação errada"
+      ],
+      [
+        "4",
+        "Caminho",
+        "aparece rota alternativa ou solução indireta",
+        "a única rota exige custo, atraso ou desvio"
+      ],
+      [
+        "5",
+        "Vínculo",
+        "relação é fortalecida, compreendida ou transformada",
+        "surge tensão, dívida, dependência ou distância"
+      ],
+      [
+        "6",
+        "Segredo",
+        "algo oculto se torna acessível",
+        "o segredo é parcial, perigoso ou também percebe você"
+      ],
+      [
+        "7",
+        "Memória",
+        "o passado retorna de forma útil e atuante",
+        "lembrança dolorosa, distorcida ou indesejada emerge"
+      ],
+      [
+        "8",
+        "Possibilidade",
+        "nova opção futura se torna real",
+        "oportunidade surge para a oposição ou cobra preço"
+      ],
+      [
+        "9",
+        "Profundidade",
+        "causa verdadeira, estrutura ou identidade é revelada",
+        "a revelação desestabiliza crenças, vínculos ou segurança"
+      ],
+      [
+        "10",
+        "Origem",
+        "a ação toca a raiz de relação, fenômeno ou verdade",
+        "dívida profunda, eco ou consequência duradoura desperta"
+      ]
+    ],
+    "hash": "f7f54e3ce26aba20e360cd0f1bac9b47fd71c83da689323c37af974837471df2",
+    "chapter": "Sumário",
+    "section": "Predominância"
+  },
+  {
+    "table_index": 23,
+    "headers": [
+      "Grau de resultado",
+      "Luz predomina",
+      "Escuridão predomina"
+    ],
+    "row_count": 6,
+    "col_count": 3,
+    "rows": [
+      [
+        "Grau de resultado",
+        "Luz predomina",
+        "Escuridão predomina"
+      ],
+      [
+        "Falha severa",
+        "desastre visível, quebra, exposição ou reação imediata",
+        "custo profundo, dívida, memória perigosa ou consequência futura"
+      ],
+      [
+        "Falha",
+        "obstáculo material ou público",
+        "complicação contextual ou relacional"
+      ],
+      [
+        "Sucesso",
+        "efeito direto e evidente",
+        "efeito discreto e significativo"
+      ],
+      [
+        "Sucesso forte",
+        "impacto, abertura ou transformação adicional",
+        "segredo, vínculo, oportunidade ou memória adicional"
+      ],
+      [
+        "Sucesso extraordinário",
+        "mudança estrutural ou pública duradoura",
+        "revelação profunda ou possibilidade que altera a campanha"
+      ]
+    ],
+    "hash": "c1c6d396204548cfa5dc04e97079103e25615fb548be9bc6a1f36cff34398d5b",
+    "chapter": "Sumário",
+    "section": "Predominância"
+  },
+  {
+    "table_index": 24,
+    "headers": [
+      "Dupla",
+      "Nome",
+      "Tema e abertura criativa"
+    ],
+    "row_count": 11,
+    "col_count": 3,
+    "rows": [
+      [
+        "Dupla",
+        "Nome",
+        "Tema e abertura criativa"
+      ],
+      [
+        "1-1",
+        "Ressonância Frágil",
+        "algo pequeno sobrevive, começa ou recusa desaparecer"
+      ],
+      [
+        "2-2",
+        "Ressonância do Eco",
+        "pista, som, memória ou padrão retorna"
+      ],
+      [
+        "3-3",
+        "Ressonância da Forma",
+        "algo recebe estrutura estável ou significado definido"
+      ],
+      [
+        "4-4",
+        "Ressonância da Passagem",
+        "rota, deslocamento ou transição torna-se possível"
+      ],
+      [
+        "5-5",
+        "Ressonância do Espelho",
+        "relação, correspondência ou identidade é revelada"
+      ],
+      [
+        "6-6",
+        "Ressonância do Acorde",
+        "aliados, forças ou intenções entram em coordenação"
+      ],
+      [
+        "7-7",
+        "Ressonância da Fratura",
+        "defesa, mentira, barreira ou padrão é rompido"
+      ],
+      [
+        "8-8",
+        "Ressonância do Vínculo",
+        "relação é restaurada, transformada ou posta à prova"
+      ],
+      [
+        "9-9",
+        "Ressonância da Convergência",
+        "várias contribuições produzem mudança coletiva"
+      ],
+      [
+        "10-10",
+        "Ressonância Plena",
+        "Luz e Escuridão alteram a cena em escala excepcional"
+      ]
+    ],
+    "hash": "97a2d2b4b8fceea61f37f263a579eb230bc47b3e1e5b49e6b1b8bb8a13929665",
+    "chapter": "Sumário",
+    "section": "Ressonância"
+  },
+  {
+    "table_index": 25,
+    "headers": [
+      "Atributo",
+      "Função"
+    ],
+    "row_count": 7,
+    "col_count": 2,
+    "rows": [
+      [
+        "Atributo",
+        "Função"
+      ],
+      [
+        "Corpo",
+        "força, resistência, vigor, impacto"
+      ],
+      [
+        "Agilidade",
+        "precisão, velocidade, equilíbrio, reflexo"
+      ],
+      [
+        "Intelecto",
+        "análise, conhecimento, técnica, planejamento"
+      ],
+      [
+        "Presença",
+        "influência, liderança, expressão, intimidação"
+      ],
+      [
+        "Vontade",
+        "disciplina, coragem, identidade, resistência mental"
+      ],
+      [
+        "Sintonia",
+        "magia, ressonância, Fendas, Velarim e evocações"
+      ]
+    ],
+    "hash": "8c7d078766bfb5ba2137564fd161579388f8254f61b5d922cb90842e86a9f25c",
+    "chapter": "Sumário",
+    "section": "Atributos"
+  },
+  {
+    "table_index": 26,
+    "headers": [
+      "Valor",
+      "Significado"
+    ],
+    "row_count": 7,
+    "col_count": 2,
+    "rows": [
+      [
+        "Valor",
+        "Significado"
+      ],
+      [
+        "0",
+        "comum ou não treinado"
+      ],
+      [
+        "1",
+        "capaz"
+      ],
+      [
+        "2",
+        "competente"
+      ],
+      [
+        "3",
+        "excepcional"
+      ],
+      [
+        "4",
+        "extraordinário"
+      ],
+      [
+        "5",
+        "limite de personagem experiente"
+      ]
+    ],
+    "hash": "d18b700d67cc533680ffeee0276f2f51d5accbad528102461328a4c2d756da07",
+    "chapter": "Sumário",
+    "section": "Atributos"
+  },
+  {
+    "table_index": 27,
+    "headers": [
+      "Perícia",
+      "Usos comuns"
+    ],
+    "row_count": 16,
+    "col_count": 2,
+    "rows": [
+      [
+        "Perícia",
+        "Usos comuns"
+      ],
+      [
+        "Atletismo",
+        "correr, escalar, saltar, quebrar"
+      ],
+      [
+        "Combate",
+        "armas corpo a corpo, agarrar, aparar"
+      ],
+      [
+        "Pontaria",
+        "armas à distância, arremesso, precisão"
+      ],
+      [
+        "Furtividade",
+        "ocultar-se, infiltrar-se, disfarçar movimento"
+      ],
+      [
+        "Percepção",
+        "notar ameaças, rastros, detalhes sensoriais"
+      ],
+      [
+        "Sobrevivência",
+        "orientação, clima, caça, terreno"
+      ],
+      [
+        "Investigação",
+        "conectar pistas, examinar cenas, reconstruir eventos"
+      ],
+      [
+        "Conhecimento",
+        "história, política, povos, ciência, cosmologia"
+      ],
+      [
+        "Ofício",
+        "fabricar, reparar, operar ferramentas e dispositivos"
+      ],
+      [
+        "Influência",
+        "negociar, liderar, enganar, intimidar"
+      ],
+      [
+        "Empatia",
+        "compreender emoções, vínculos e motivações"
+      ],
+      [
+        "Cuidado",
+        "medicina, estabilização, suporte físico e emocional"
+      ],
+      [
+        "Magia",
+        "executar fórmulas e controlar efeitos mágicos"
+      ],
+      [
+        "Evocação",
+        "estabelecer, sustentar e comandar vínculos evocados"
+      ],
+      [
+        "Velarim",
+        "analisar e usar formas linguísticas reconhecidas"
+      ]
+    ],
+    "hash": "0566694af12cc412ccab016003ce267680cf93cd826c74769dddd8e4f3bc7e03",
+    "chapter": "Sumário",
+    "section": "Perícias"
+  },
+  {
+    "table_index": 28,
+    "headers": [
+      "Cobertura",
+      "Efeito"
+    ],
+    "row_count": 4,
+    "col_count": 2,
+    "rows": [
+      [
+        "Cobertura",
+        "Efeito"
+      ],
+      [
+        "Parcial",
+        "+2 Guarda"
+      ],
+      [
+        "Forte",
+        "+4 Guarda"
+      ],
+      [
+        "Total",
+        "não pode ser alvo direto"
+      ]
+    ],
+    "hash": "6ff14077d2a66d4129cdfc6cc9994babe3af9a28bbd8d4422ff71cb4c4b1cf16",
+    "chapter": "Sumário",
+    "section": "Cobertura, linha de efeito e áreas"
+  },
+  {
+    "table_index": 29,
+    "headers": [
+      "Campo",
+      "Descrição"
+    ],
+    "row_count": 11,
+    "col_count": 2,
+    "rows": [
+      [
+        "Campo",
+        "Descrição"
+      ],
+      [
+        "Nome",
+        "identificação funcional da edição"
+      ],
+      [
+        "Tradição",
+        "Manifestação, Profundidade, Elemental, Ressonância, Inscrição ou Limiar"
+      ],
+      [
+        "Grau",
+        "0 a 3"
+      ],
+      [
+        "Ação",
+        "Ação, Reação ou ritual"
+      ],
+      [
+        "Alcance e alvo",
+        "posição, criatura, objeto, área ou relação"
+      ],
+      [
+        "Teste",
+        "Guarda, Fortitude, Integridade ou Dificuldade"
+      ],
+      [
+        "Custo",
+        "Fluxo igual ao Grau, salvo regra"
+      ],
+      [
+        "Efeito",
+        "resultado principal"
+      ],
+      [
+        "Ampliação",
+        "uso de +1 Fluxo"
+      ],
+      [
+        "Risco",
+        "consequência apropriada de falha ou Predominância"
+      ]
+    ],
+    "hash": "e623a8f18d10342e84059205be9d6ed7c704af85b6bafdfef57534dc5054f524",
+    "chapter": "Sumário",
+    "section": "Estrutura de uma magia"
+  },
+  {
+    "table_index": 30,
+    "headers": [
+      "Grau",
+      "Custo",
+      "Potência",
+      "Escala"
+    ],
+    "row_count": 5,
+    "col_count": 4,
+    "rows": [
+      [
+        "Grau",
+        "Custo",
+        "Potência",
+        "Escala"
+      ],
+      [
+        "0",
+        "0",
+        "×1",
+        "truque, utilidade ou efeito menor"
+      ],
+      [
+        "1",
+        "1",
+        "×2",
+        "ação de combate comum"
+      ],
+      [
+        "2",
+        "2",
+        "×3",
+        "alteração relevante de cena"
+      ],
+      [
+        "3",
+        "3",
+        "×4",
+        "efeito decisivo e arriscado"
+      ]
+    ],
+    "hash": "8ded00059fac54346b6e6ea0c5ed9c6c227d18b6f82d183c742e3dc58636bca7",
+    "chapter": "Sumário",
+    "section": "Graus e potência ofensiva"
+  },
+  {
+    "table_index": 31,
+    "headers": [
+      "Tradição",
+      "Campo"
+    ],
+    "row_count": 7,
+    "col_count": 2,
+    "rows": [
+      [
+        "Tradição",
+        "Campo"
+      ],
+      [
+        "Manifestação",
+        "forma, matéria, barreira, presença e luz física"
+      ],
+      [
+        "Profundidade",
+        "memória, silêncio, repouso, ocultação e identidade"
+      ],
+      [
+        "Elemental",
+        "calor, frio, vento, pedra, água e eletricidade"
+      ],
+      [
+        "Ressonância",
+        "som, frequência, vínculo, emoção e coordenação"
+      ],
+      [
+        "Inscrição",
+        "objetos, promessas, estruturas e duração"
+      ],
+      [
+        "Limiar",
+        "distância, rotas, probabilidade, Fendas e posição"
+      ]
+    ],
+    "hash": "a6b31bd56267da9475071c1b2170ae2d0f2a250bd1d2d28481875f63d48935bc",
+    "chapter": "Sumário",
+    "section": "Tradições mecânicas"
+  },
+  {
+    "table_index": 32,
+    "headers": [
+      "Magia",
+      "Tradição",
+      "Ação",
+      "Alcance",
+      "Efeito",
+      "Ampliação com +1 Fluxo",
+      "Risco aberto"
+    ],
+    "row_count": 7,
+    "col_count": 7,
+    "rows": [
+      [
+        "Magia",
+        "Tradição",
+        "Ação",
+        "Alcance",
+        "Efeito",
+        "Ampliação com +1 Fluxo",
+        "Risco aberto"
+      ],
+      [
+        "Centelha Orientada",
+        "Manifestação",
+        "Ação",
+        "6 células",
+        "Cria chama, luz ou calor breve. Como ataque, base 2 ×1; não produz Luz cosmológica.",
+        "Aumente duração ou ilumine área 3 x 3.",
+        "Pode revelar posição ou inflamar material vulnerável."
+      ],
+      [
+        "Mão de Pressão",
+        "Limiar",
+        "Ação",
+        "6 células",
+        "Move objeto leve, abre mecanismo simples ou empurra criatura voluntária 1 célula; alvo hostil testa Fortitude.",
+        "Mova +1 célula ou objeto maior.",
+        "O objeto escapa, cai ou produz ruído."
+      ],
+      [
+        "Véu de Silêncio",
+        "Profundidade",
+        "Ação",
+        "área 2 x 2",
+        "Abafa som comum até o próximo turno; não apaga memória nem identidade.",
+        "Aumente a área em 1 célula.",
+        "O silêncio também impede aviso ou palavra aliada."
+      ],
+      [
+        "Marca de Frequência",
+        "Ressonância",
+        "Ação",
+        "toque ou 6 células",
+        "Identifica assinatura mágica, emocional ou harmônica recente.",
+        "Acompanhe a assinatura pela cena.",
+        "Detecta eco semelhante, não necessariamente a fonte correta."
+      ],
+      [
+        "Selo Transitório",
+        "Inscrição",
+        "Ação",
+        "toque",
+        "Inscreve aviso, nome funcional ou condição simples que dura a cena.",
+        "Acrescente gatilho ou duração até pausa.",
+        "A marca fica visível ou registra o usuário."
+      ],
+      [
+        "Sopro Elemental",
+        "Elemental",
+        "Ação",
+        "cone de 2 células",
+        "Manipula pequena quantidade de elemento conhecido. Como ataque, base 2 ×1 e efeito ambiental menor.",
+        "Amplie cone ou intensidade.",
+        "O elemento se espalha para alvo ou objeto próximo."
+      ]
+    ],
+    "hash": "bfa28f3243fdd77ae00ef396401d257eaa34e4983010871e6507a35354b2744b",
+    "chapter": "Sumário",
+    "section": "Catálogo completo de magias desta edição"
+  },
+  {
+    "table_index": 33,
+    "headers": [
+      "Magia",
+      "Tradição",
+      "Ação",
+      "Alcance",
+      "Efeito",
+      "Ampliação com +1 Fluxo",
+      "Risco aberto"
+    ],
+    "row_count": 9,
+    "col_count": 7,
+    "rows": [
+      [
+        "Magia",
+        "Tradição",
+        "Ação",
+        "Alcance",
+        "Efeito",
+        "Ampliação com +1 Fluxo",
+        "Risco aberto"
+      ],
+      [
+        "Lança Elemental",
+        "Elemental",
+        "Ação",
+        "12 células",
+        "Ataque contra Guarda; base 5 ×2 + Sintonia. Escolha elemento conhecido.",
+        "+1 alvo adjacente usando base 3.",
+        "O elemento altera terreno ou atinge objeto vulnerável."
+      ],
+      [
+        "Barreira Manifestada",
+        "Manifestação",
+        "Ação",
+        "6 células",
+        "Cria cobertura com Integridade estrutural 8 em até 2 células contíguas.",
+        "+4 Integridade ou +1 célula.",
+        "A barreira bloqueia também uma rota aliada."
+      ],
+      [
+        "Passo Velado",
+        "Limiar",
+        "Ação",
+        "pessoal",
+        "Mova até 6 células sem provocar Reação e receba +2 Furtividade até o fim do turno.",
+        "Leve um aliado voluntário adjacente.",
+        "Chegue em posição visível ou deixe rastro liminar."
+      ],
+      [
+        "Pulso Restaurador",
+        "Ressonância",
+        "Ação",
+        "6 células",
+        "Cure base 3 ×2 + Sintonia de Vitalidade ou 4 Lucidez.",
+        "+1 alvo adjacente com metade da cura.",
+        "Você recebe 1 Pressão em Sintonia."
+      ],
+      [
+        "Eco de Memória",
+        "Profundidade",
+        "ritual breve",
+        "toque",
+        "Veja impressão emocional recente de objeto ou lugar; não revela verdade total.",
+        "Alcance uma memória mais antiga ou faça uma pergunta adicional.",
+        "Uma memória dolorosa acompanha a revelação."
+      ],
+      [
+        "Trava de Juramento",
+        "Inscrição",
+        "ritual breve",
+        "toque",
+        "Protege objeto ou passagem por condição declarada; avisa e impõe Pressão 2 ao violador.",
+        "Aumente duração ou inclua segundo gatilho.",
+        "A condição ambígua também pode atingir aliado."
+      ],
+      [
+        "Voz Harmônica",
+        "Ressonância",
+        "Ação",
+        "cone de 3 células",
+        "Teste Integridade; base 3 ×2 de Lucidez ou condição Abalado.",
+        "Empurre 1 célula ou afete +1 linha.",
+        "Sua emoção verdadeira se torna perceptível."
+      ],
+      [
+        "Selo de Reparo",
+        "Inscrição",
+        "Ação",
+        "toque",
+        "Repare base 4 ×2 de Integridade estrutural ou Vitalidade de construto.",
+        "Restaure função simples quebrada.",
+        "O reparo exige peça, promessa ou material depois da cena."
+      ]
+    ],
+    "hash": "d9fa896d20abd0c4bb913941d9b0a35ad404740b1c73da40809bfc741ffccc47",
+    "chapter": "Sumário",
+    "section": "Catálogo completo de magias desta edição"
+  },
+  {
+    "table_index": 34,
+    "headers": [
+      "Magia",
+      "Tradição",
+      "Ação",
+      "Alcance",
+      "Efeito",
+      "Ampliação com +1 Fluxo",
+      "Risco aberto"
+    ],
+    "row_count": 9,
+    "col_count": 7,
+    "rows": [
+      [
+        "Magia",
+        "Tradição",
+        "Ação",
+        "Alcance",
+        "Efeito",
+        "Ampliação com +1 Fluxo",
+        "Risco aberto"
+      ],
+      [
+        "Tempestade Local",
+        "Elemental",
+        "Ação",
+        "área 3 x 3 a 12 células",
+        "Ataque contra Guarda ou Fortitude; base de área 4 ×3 e condição coerente.",
+        "Aumente área ou intensidade da condição.",
+        "Terreno permanece perigoso por uma rodada."
+      ],
+      [
+        "Círculo de Repouso",
+        "Profundidade",
+        "Ação",
+        "área 3 x 3",
+        "Aliados recuperam 4 Lucidez e ignoram medo até o próximo turno.",
+        "Remova Abalado ou Dissonante de um alvo.",
+        "Todos ouvem um eco de memória compartilhada."
+      ],
+      [
+        "Ponte Breve",
+        "Limiar",
+        "Ação",
+        "dois pontos visíveis até 12 células",
+        "Cria passagem instantânea entre pontos da mesma camada até o fim do turno.",
+        "Mantenha por uma rodada adicional.",
+        "A rota desloca chegada em 1 célula ou deixa assinatura."
+      ],
+      [
+        "Dissolver Forma",
+        "Manifestação",
+        "Ação",
+        "8 células",
+        "Contra barreira, armadura ou construto: base estrutural 4 ×3 ou reduza Proteção em 3 até reparação.",
+        "Afete +1 objeto adjacente.",
+        "Uma forma aliada próxima também perde estabilidade."
+      ],
+      [
+        "Memória Compartilhada",
+        "Ressonância",
+        "ritual",
+        "toque; até 3 pessoas",
+        "Com consentimento, compartilha lembrança escolhida; cada participante mantém interpretação própria.",
+        "Inclua +2 participantes ou duração maior.",
+        "Emoção associada causa 2 Lucidez se não preparada."
+      ],
+      [
+        "Prisma Defletor",
+        "Manifestação",
+        "Reação",
+        "pessoal ou aliado a 3 células",
+        "Reduza dano mágico em base 4 ×3. Se chegar a zero, redirecione efeito visual inofensivo.",
+        "Redirecione o efeito contra barreira ou espaço vazio.",
+        "O prisma registra a assinatura do ataque e do defensor."
+      ],
+      [
+        "Âncora de Área",
+        "Inscrição",
+        "ritual breve",
+        "área 3 x 3",
+        "Impede teleporte, deslocamento liminar e abertura espontânea de Fenda na área pela cena.",
+        "Aumente área ou duração até pausa.",
+        "Você também não pode usar efeitos de Limiar dentro dela."
+      ],
+      [
+        "Salto de Possibilidade",
+        "Limiar",
+        "Reação",
+        "6 células",
+        "Depois de rolagem visível, rerrole um dos dois dados e escolha qual resultado manter.",
+        "Aplique a um aliado.",
+        "A possibilidade rejeitada cria custo, atraso ou atenção futura."
+      ]
+    ],
+    "hash": "a2e2f8399a1a38491ad9d862f877ccc665da84815679fb085e127a5aa9311cd0",
+    "chapter": "Sumário",
+    "section": "Catálogo completo de magias desta edição"
+  },
+  {
+    "table_index": 35,
+    "headers": [
+      "Magia",
+      "Tradição",
+      "Ação",
+      "Alcance",
+      "Efeito",
+      "Ampliação com +1 Fluxo",
+      "Risco aberto"
+    ],
+    "row_count": 7,
+    "col_count": 7,
+    "rows": [
+      [
+        "Magia",
+        "Tradição",
+        "Ação",
+        "Alcance",
+        "Efeito",
+        "Ampliação com +1 Fluxo",
+        "Risco aberto"
+      ],
+      [
+        "Horizonte Partilhado",
+        "Ressonância",
+        "Ação",
+        "aliados em uma zona funcional",
+        "Por uma rodada, aliados compartilham ameaças percebidas, recebem +3 Percepção e não podem ser surpreendidos.",
+        "Inclua uma informação ou abertura coletiva.",
+        "Todos percebem também uma dor ou medo relevante."
+      ],
+      [
+        "Prisão de Forma",
+        "Manifestação",
+        "Ação",
+        "8 células",
+        "Imobiliza criatura ou fenômeno; alvo testa Fortitude ou Integridade a cada turno. A prisão possui Integridade 18.",
+        "Aumente Integridade ou inclua segundo alvo adjacente.",
+        "A prisão manifesta parte da identidade do conjurador."
+      ],
+      [
+        "Travessia Fratal",
+        "Limiar",
+        "ritual",
+        "Fenda identificada",
+        "Abre passagem entre posições correspondentes. Exige Âncora, destino, teste e custo definido pela Fenda; não garante retorno.",
+        "Estabilize chegada ou leve grupo maior.",
+        "Chegada deslocada, eco de memória ou atenção da Sombra."
+      ],
+      [
+        "Restauração de Nome",
+        "Profundidade",
+        "ritual de uma cena",
+        "toque e vínculo",
+        "Com consentimento e memória reconhecida, remova até 3 Sombra temporária ou condição de assimilação. Não ressuscita.",
+        "Restaure vínculo ou memória danificada relacionada.",
+        "O ritual revela o preço ou a origem da corrupção."
+      ],
+      [
+        "Cataclismo Contido",
+        "Elemental",
+        "Ação; 1/cena",
+        "área 5 x 5 a 12 células",
+        "Ataque de área base 5 ×4. Escolha elemento e altere o terreno de forma severa.",
+        "Concentre em área 3 x 3 para +2 dano final.",
+        "O conjurador fica Fraturado e o ambiente permanece instável."
+      ],
+      [
+        "Pacto Vivo",
+        "Inscrição",
+        "ritual de uma cena",
+        "lugar, objeto ou grupo consentido",
+        "Inscreva promessa que concede +3 a ações coerentes e impõe Pressão 3 a violações conscientes durante o arco.",
+        "Inclua testemunha, condição de encerramento ou proteção material.",
+        "Ambiguidade cria Ruptura no pacto e consequência institucional."
+      ]
+    ],
+    "hash": "1a37b9ebed6c173954bed9f6ce521670536123d7f596b7a9a252cbeee21ea268",
+    "chapter": "Sumário",
+    "section": "Catálogo completo de magias desta edição"
+  },
+  {
+    "table_index": 36,
+    "headers": [
+      "Porte",
+      "Dificuldade",
+      "Custo",
+      "Guarda base",
+      "Vitalidade base",
+      "Dano-base",
+      "Movimento",
+      "Capacidades"
+    ],
+    "row_count": 5,
+    "col_count": 8,
+    "rows": [
+      [
+        "Porte",
+        "Dificuldade",
+        "Custo",
+        "Guarda base",
+        "Vitalidade base",
+        "Dano-base",
+        "Movimento",
+        "Capacidades"
+      ],
+      [
+        "Menor",
+        "12",
+        "1 Fluxo",
+        "12",
+        "6",
+        "3",
+        "6",
+        "uma capacidade I"
+      ],
+      [
+        "Padrão",
+        "15",
+        "2 Fluxos",
+        "14",
+        "14",
+        "4",
+        "6",
+        "capacidades I e II"
+      ],
+      [
+        "Maior",
+        "18",
+        "3 Fluxos",
+        "16",
+        "24",
+        "6",
+        "8",
+        "capacidades II e III"
+      ],
+      [
+        "Instável",
+        "+3",
+        "+1 Fluxo",
+        "varia",
+        "varia",
+        "varia",
+        "varia",
+        "Impulso pode dominar"
+      ]
+    ],
+    "hash": "9493a9f83dec5d2175a21053cfae9d45ef7aa2b2de877bd8907698d6af9b4f13",
+    "chapter": "Sumário",
+    "section": "Convocar e modelos por porte"
+  },
+  {
+    "table_index": 37,
+    "headers": [
+      "Forma",
+      "Função",
+      "Ajuste típico",
+      "Papel"
+    ],
+    "row_count": 7,
+    "col_count": 4,
+    "rows": [
+      [
+        "Forma",
+        "Função",
+        "Ajuste típico",
+        "Papel"
+      ],
+      [
+        "Guardião",
+        "Interpor e proteção de área",
+        "+2 Guarda, +4 Vitalidade, -1 Movimento",
+        "Bastião"
+      ],
+      [
+        "Predador",
+        "mobilidade, rastreio e dano concentrado",
+        "+2 Movimento, +1 dano-base, -2 Vitalidade",
+        "Vanguarda"
+      ],
+      [
+        "Oráculo",
+        "percepção, memória e suporte",
+        "+2 Integridade; dano reduzido",
+        "Amparo"
+      ],
+      [
+        "Tempestade",
+        "dano em área e controle elemental",
+        "base de área 3-4",
+        "Artilharia"
+      ],
+      [
+        "Artífice",
+        "reparo, ferramenta e construção",
+        "+2 Guarda estrutural",
+        "Bastião ou Amparo"
+      ],
+      [
+        "Limiar",
+        "rotas, ocultação e reposicionamento",
+        "+2 Movimento",
+        "Artilharia ou suporte"
+      ]
+    ],
+    "hash": "394b441f07f3763e549d674bc8c6c31f42e4e71eec7dee1ef6e1f796e046c831",
+    "chapter": "Sumário",
+    "section": "Formas de evocação"
+  },
+  {
+    "table_index": 38,
+    "headers": [
+      "Evocação",
+      "Porte",
+      "Âncora",
+      "Pacto",
+      "Estatísticas",
+      "Capacidades"
+    ],
+    "row_count": 4,
+    "col_count": 6,
+    "rows": [
+      [
+        "Evocação",
+        "Porte",
+        "Âncora",
+        "Pacto",
+        "Estatísticas",
+        "Capacidades"
+      ],
+      [
+        "Muralha de Ecos",
+        "Menor",
+        "fragmento de voz preservada",
+        "proteger sem perseguir",
+        "G 14; V 10; D 2; M 5",
+        "Interpor; concede +1 Guarda a adjacente."
+      ],
+      [
+        "Guardião de Quartzo",
+        "Padrão",
+        "fragmento de quartzo inscrito",
+        "defender o portador sem perseguição",
+        "G 16; V 18; D 4; M 5",
+        "Interpor; Barreira de Quartzo 8, 1/cena."
+      ],
+      [
+        "Colosso de Juramento",
+        "Maior",
+        "pedra de pacto testemunhado",
+        "sustentar promessa legítima",
+        "G 18; V 30; D 6; M 4",
+        "Muralha 3 células; ataque II ×3; não obedece ordem que viole o Pacto."
+      ]
+    ],
+    "hash": "5d8b33490662b8fce3c8401251c878ed7003b8e5e2128ab53f75f94e8f41de77",
+    "chapter": "Sumário",
+    "section": "Catálogo completo de Evocações-modelo"
+  },
+  {
+    "table_index": 39,
+    "headers": [
+      "Evocação",
+      "Porte",
+      "Âncora",
+      "Pacto",
+      "Estatísticas",
+      "Capacidades"
+    ],
+    "row_count": 4,
+    "col_count": 6,
+    "rows": [
+      [
+        "Evocação",
+        "Porte",
+        "Âncora",
+        "Pacto",
+        "Estatísticas",
+        "Capacidades"
+      ],
+      [
+        "Fera de Estilhaço",
+        "Menor",
+        "dente, garra ou memória de caça",
+        "caçar somente alvo nomeado",
+        "G 12; V 6; D 4; M 8",
+        "Rastreio +2; Salto I ×2."
+      ],
+      [
+        "Lobo de Fresta",
+        "Padrão",
+        "rota marcada entre duas sombras",
+        "não abandonar o bando",
+        "G 14; V 12; D 5; M 8",
+        "Mordida I ×2; atravessa ocupação e terreno difícil."
+      ],
+      [
+        "Garuda Fratal",
+        "Maior",
+        "pena, sino de vento e horizonte aberto",
+        "transportar e defender, não capturar",
+        "G 16; V 24; D 7; M 10",
+        "Voo; Investida II ×3; Rajada III de área base 3 ×4, 1/cena."
+      ]
+    ],
+    "hash": "170b3d07ddee685ab9152af90fd77a6cd451114d55bae0112702be52961a0aed",
+    "chapter": "Sumário",
+    "section": "Catálogo completo de Evocações-modelo"
+  },
+  {
+    "table_index": 40,
+    "headers": [
+      "Evocação",
+      "Porte",
+      "Âncora",
+      "Pacto",
+      "Estatísticas",
+      "Capacidades"
+    ],
+    "row_count": 4,
+    "col_count": 6,
+    "rows": [
+      [
+        "Evocação",
+        "Porte",
+        "Âncora",
+        "Pacto",
+        "Estatísticas",
+        "Capacidades"
+      ],
+      [
+        "Eco do Jardim",
+        "Menor",
+        "memória vegetal consentida",
+        "não revelar intimidade sem consentimento",
+        "G 12; V 6; D 0; M 5",
+        "+2 Investigação; cura 2 Lucidez, 1/cena."
+      ],
+      [
+        "Olho de Vael",
+        "Padrão",
+        "prisma de observação",
+        "mostrar padrões, não decisões",
+        "G 14; V 10; D 2; M 6",
+        "Revela invisível; pergunta sobre fraqueza 1/cena."
+      ],
+      [
+        "Arquivo Aelvari",
+        "Maior",
+        "canto genealógico preservado",
+        "testemunhar sem impor uma versão",
+        "G 15; V 20; D 3; M 5",
+        "Horizonte Partilhado; recupera memória; pode recusar uso como prova coercitiva."
+      ]
+    ],
+    "hash": "e988bdb0df7b87df7a20546358a7aceb30f6265e06a630589bc73ce4d0538689",
+    "chapter": "Sumário",
+    "section": "Catálogo completo de Evocações-modelo"
+  },
+  {
+    "table_index": 41,
+    "headers": [
+      "Evocação",
+      "Porte",
+      "Âncora",
+      "Pacto",
+      "Estatísticas",
+      "Capacidades"
+    ],
+    "row_count": 4,
+    "col_count": 6,
+    "rows": [
+      [
+        "Evocação",
+        "Porte",
+        "Âncora",
+        "Pacto",
+        "Estatísticas",
+        "Capacidades"
+      ],
+      [
+        "Centelha Draken",
+        "Menor",
+        "escama e elemento",
+        "manifestar sem consumir o ambiente",
+        "G 12; V 6; D 3; M 7",
+        "Ataque elemental I ×2; ilumina ou aquece."
+      ],
+      [
+        "Serpente de Tormenta",
+        "Padrão",
+        "fio metálico e trovão registrado",
+        "percorrer a área, não perseguir civis",
+        "G 14; V 12; D 4; M 8",
+        "Linha elétrica I ×2; desloca alvos 1 célula."
+      ],
+      [
+        "Coro dos Céus Partidos",
+        "Maior",
+        "três âncoras elementais",
+        "encerrar apenas ameaça declarada",
+        "G 16; V 22; D 6; M 8",
+        "Tempestade II ×3 em 3 x 3; Cataclismo III base 4 ×4, 1/cena."
+      ]
+    ],
+    "hash": "32ed3aa4221f07061b5457a976a43982643e06f6fa1bb3500027ef2c41964cc5",
+    "chapter": "Sumário",
+    "section": "Catálogo completo de Evocações-modelo"
+  },
+  {
+    "table_index": 42,
+    "headers": [
+      "Evocação",
+      "Porte",
+      "Âncora",
+      "Pacto",
+      "Estatísticas",
+      "Capacidades"
+    ],
+    "row_count": 4,
+    "col_count": 6,
+    "rows": [
+      [
+        "Evocação",
+        "Porte",
+        "Âncora",
+        "Pacto",
+        "Estatísticas",
+        "Capacidades"
+      ],
+      [
+        "Mão Nomos",
+        "Menor",
+        "ferramenta integrada",
+        "reparar antes de substituir",
+        "G 13; V 8; D 2; M 5",
+        "Ferramenta universal; repara 4 Integridade."
+      ],
+      [
+        "Autômato de Ponte",
+        "Padrão",
+        "modelo modular e placa de função",
+        "manter passagem segura",
+        "G 15; V 16; D 4; M 5",
+        "Ergue cobertura; carrega; reparo II base 4 ×3."
+      ],
+      [
+        "Oficina Caminhante",
+        "Maior",
+        "núcleo de obra e conjunto completo",
+        "criar sem apagar autoria alheia",
+        "G 17; V 28; D 5; M 4",
+        "Produz recursos; Barreira 16; Sobrecarga III base 5 ×4, 1/cena."
+      ]
+    ],
+    "hash": "ada26d77797c75adff2f2784fbfc2504c0789646ab092b316f70674e5eb5e788",
+    "chapter": "Sumário",
+    "section": "Catálogo completo de Evocações-modelo"
+  },
+  {
+    "table_index": 43,
+    "headers": [
+      "Evocação",
+      "Porte",
+      "Âncora",
+      "Pacto",
+      "Estatísticas",
+      "Capacidades"
+    ],
+    "row_count": 4,
+    "col_count": 6,
+    "rows": [
+      [
+        "Evocação",
+        "Porte",
+        "Âncora",
+        "Pacto",
+        "Estatísticas",
+        "Capacidades"
+      ],
+      [
+        "Guia Nimari",
+        "Menor",
+        "moeda perdida e mapa incompleto",
+        "mostrar saída, não escolher por alguém",
+        "G 13; V 6; D 2; M 8",
+        "Ignora terreno; aponta rota segura."
+      ],
+      [
+        "Andarilho do Umbral",
+        "Padrão",
+        "porta sem destino e nome de passagem",
+        "manter caminhos reversíveis",
+        "G 15; V 12; D 4; M 9",
+        "Reposiciona aliado 4 células; ataque I ×2 após atravessar."
+      ],
+      [
+        "Navegante de Kethrell",
+        "Maior",
+        "âncora dupla nas duas camadas",
+        "atravessar somente com consentimento",
+        "G 17; V 24; D 5; M 10",
+        "Ponte Breve; estabiliza Fenda; Colapso de Rota III base 4 ×4, 1/cena."
+      ]
+    ],
+    "hash": "aca81a5c34681d0980ba519a27dda417047a5a1e7b42dcee5faa356878f8f8de",
+    "chapter": "Sumário",
+    "section": "Catálogo completo de Evocações-modelo"
+  },
+  {
+    "table_index": 44,
+    "headers": [
+      "Tamanho do grupo",
+      "Máximo"
+    ],
+    "row_count": 5,
+    "col_count": 2,
+    "rows": [
+      [
+        "Tamanho do grupo",
+        "Máximo"
+      ],
+      [
+        "1-2 personagens",
+        "1 Barra"
+      ],
+      [
+        "3-4 personagens",
+        "2 Barras"
+      ],
+      [
+        "5-8 personagens",
+        "3 Barras"
+      ],
+      [
+        "grupos maiores",
+        "3 Barras"
+      ]
+    ],
+    "hash": "1f106ebdbb8ffb8736c0b347b193caa62a381e5406d2614f55ea91678afce3a9",
+    "chapter": "Sumário",
+    "section": "Medidor compartilhado"
+  },
+  {
+    "table_index": 45,
+    "headers": [
+      "Qualidade",
+      "Efeito"
+    ],
+    "row_count": 6,
+    "col_count": 2,
+    "rows": [
+      [
+        "Qualidade",
+        "Efeito"
+      ],
+      [
+        "Precário",
+        "falha severa ou consequência adequada pode quebrar"
+      ],
+      [
+        "Comum",
+        "sem modificador"
+      ],
+      [
+        "Refinado",
+        "uma tag útil coerente"
+      ],
+      [
+        "Magistral",
+        "+1 no uso principal e duas tags úteis"
+      ],
+      [
+        "Artefato",
+        "segue regras próprias de Vínculo, Preço e Ruptura"
+      ]
+    ],
+    "hash": "56d7d630e7a3552f804ff8ad358538bfee493ab1d4ff7f0fc8475c9132e63af7",
+    "chapter": "Sumário",
+    "section": "Qualidade"
+  },
+  {
+    "table_index": 46,
+    "headers": [
+      "Arma",
+      "Dano-base",
+      "Alcance",
+      "Tags"
+    ],
+    "row_count": 25,
+    "col_count": 4,
+    "rows": [
+      [
+        "Arma",
+        "Dano-base",
+        "Alcance",
+        "Tags"
+      ],
+      [
+        "Desarmado",
+        "2",
+        "corpo a corpo",
+        "leve, não letal"
+      ],
+      [
+        "Arma improvisada",
+        "3",
+        "corpo a corpo",
+        "precária"
+      ],
+      [
+        "Faca",
+        "3",
+        "corpo a corpo",
+        "leve, ocultável"
+      ],
+      [
+        "Clava",
+        "4",
+        "corpo a corpo",
+        "impacto"
+      ],
+      [
+        "Bastão",
+        "3",
+        "corpo a corpo",
+        "duas mãos, foco"
+      ],
+      [
+        "Lança curta",
+        "4",
+        "corpo a corpo ou 6 células",
+        "alcance, arremesso"
+      ],
+      [
+        "Espada",
+        "5",
+        "corpo a corpo",
+        "equilibrada"
+      ],
+      [
+        "Sabre",
+        "5",
+        "corpo a corpo",
+        "leve, equilibrada"
+      ],
+      [
+        "Machado",
+        "6",
+        "corpo a corpo",
+        "potente"
+      ],
+      [
+        "Martelo de guerra",
+        "6",
+        "corpo a corpo",
+        "impacto, pesado"
+      ],
+      [
+        "Lança longa",
+        "5",
+        "2 células",
+        "alcance, duas mãos"
+      ],
+      [
+        "Lâmina grande",
+        "7",
+        "corpo a corpo",
+        "potente, pesada, duas mãos"
+      ],
+      [
+        "Arma de haste",
+        "6",
+        "2 células",
+        "alcance, pesada, duas mãos"
+      ],
+      [
+        "Funda",
+        "3",
+        "10 células",
+        "leve, munição"
+      ],
+      [
+        "Arma de arremesso",
+        "4",
+        "6 células",
+        "arremesso, leve"
+      ],
+      [
+        "Arco",
+        "5",
+        "18 células",
+        "duas mãos, munição"
+      ],
+      [
+        "Besta",
+        "6",
+        "18 células",
+        "recarga, duas mãos"
+      ],
+      [
+        "Besta pesada",
+        "7",
+        "24 células",
+        "recarga, pesada, perfurante, duas mãos"
+      ],
+      [
+        "Arma de disparo",
+        "6",
+        "18 células",
+        "ruidosa, munição"
+      ],
+      [
+        "Repetidor Nomos",
+        "5",
+        "12 células",
+        "rajada, munição, modular"
+      ],
+      [
+        "Projetor de quartzo",
+        "6",
+        "12 células",
+        "mágico, foco, duas mãos"
+      ],
+      [
+        "Bastão ritual",
+        "3",
+        "corpo a corpo",
+        "foco"
+      ],
+      [
+        "Lâmina ressonante",
+        "5",
+        "corpo a corpo",
+        "mágico, equilibrada"
+      ],
+      [
+        "Luva de inscrição",
+        "4",
+        "6 células",
+        "mágico, modular, foco"
+      ]
+    ],
+    "hash": "6447927ec64eee2b2478fe960634d7b04a971b93574a6ef4f8fe26a77ab9d91e",
+    "chapter": "Sumário",
+    "section": "Catálogo completo de armas desta edição"
+  },
+  {
+    "table_index": 47,
+    "headers": [
+      "Tag",
+      "Regra"
+    ],
+    "row_count": 19,
+    "col_count": 2,
+    "rows": [
+      [
+        "Tag",
+        "Regra"
+      ],
+      [
+        "Leve",
+        "pode usar Agilidade em ataque corpo a corpo"
+      ],
+      [
+        "Equilibrada",
+        "uma vez por rodada, sacar ou guardar não custa interação"
+      ],
+      [
+        "Potente",
+        "adicione Corpo ao dano depois do multiplicador, máximo +3"
+      ],
+      [
+        "Alcance",
+        "ataca a 2 células; não concede adjacência para outras ações"
+      ],
+      [
+        "Duas mãos",
+        "não permite escudo simultâneo"
+      ],
+      [
+        "Recarga",
+        "exige Movimento ou interação dedicada para preparar novo disparo"
+      ],
+      [
+        "Impacto",
+        "+2 dano final contra estrutura e armadura"
+      ],
+      [
+        "Ocultável",
+        "exige Percepção contra 15 para notar sem busca"
+      ],
+      [
+        "Foco",
+        "+1 em um teste mágico específico uma vez por cena"
+      ],
+      [
+        "Pesada",
+        "Movimento -1 enquanto empunhada se Corpo for 0 ou 1"
+      ],
+      [
+        "Perfurante",
+        "ignore 1 Proteção comum"
+      ],
+      [
+        "Rajada",
+        "gaste duas munições para +2 no ataque ou segundo alvo adjacente com metade do dano"
+      ],
+      [
+        "Munição",
+        "requer reserva narrativa e pode acabar por consequência"
+      ],
+      [
+        "Modular",
+        "pode trocar uma tag preparada durante pausa"
+      ],
+      [
+        "Arremesso",
+        "pode ser usada no alcance indicado; precisa ser recuperada"
+      ],
+      [
+        "Mágico",
+        "interage com defesas e fenômenos mágicos"
+      ],
+      [
+        "Não letal",
+        "ao levar a 0 Vitalidade, pode estabilizar automaticamente"
+      ],
+      [
+        "Precária",
+        "pode quebrar em falha severa ou impacto inadequado"
+      ]
+    ],
+    "hash": "0f6cea031adcf5a3cd9f975797cd396298d45912a036485cdbab426788b9c63c",
+    "chapter": "Sumário",
+    "section": "Tags de arma"
+  },
+  {
+    "table_index": 48,
+    "headers": [
+      "Armadura",
+      "Proteção",
+      "Modificador"
+    ],
+    "row_count": 6,
+    "col_count": 3,
+    "rows": [
+      [
+        "Armadura",
+        "Proteção",
+        "Modificador"
+      ],
+      [
+        "Roupas reforçadas",
+        "1",
+        "sem penalidade"
+      ],
+      [
+        "Leve",
+        "2",
+        "sem penalidade"
+      ],
+      [
+        "Média",
+        "3",
+        "-1 Furtividade"
+      ],
+      [
+        "Pesada",
+        "4",
+        "-1 Agilidade; ocupa 3 espaços"
+      ],
+      [
+        "Escudo",
+        "+1 Guarda",
+        "usa uma mão e pode servir como Chave"
+      ]
+    ],
+    "hash": "6ce919a8ca81a891dfdbe1e3d70d9ca2e6782d151e9f41ff8c757990e8b759cb",
+    "chapter": "Sumário",
+    "section": "Armaduras"
+  },
+  {
+    "table_index": 49,
+    "headers": [
+      "Ferramenta",
+      "Uso principal"
+    ],
+    "row_count": 11,
+    "col_count": 2,
+    "rows": [
+      [
+        "Ferramenta",
+        "Uso principal"
+      ],
+      [
+        "Kit de cura",
+        "Cuidado, estabilização e tratamento"
+      ],
+      [
+        "Ferramentas de Artífice",
+        "construir, reparar e operar dispositivos"
+      ],
+      [
+        "Conjunto de inscrição",
+        "selos, juramentos e Velarim escrito"
+      ],
+      [
+        "Foco de magia",
+        "canalizar uma tradição mágica"
+      ],
+      [
+        "Âncora de Evocação",
+        "convocar e manter presença"
+      ],
+      [
+        "Kit de exploração",
+        "rotas, abrigo, cordas e sobrevivência"
+      ],
+      [
+        "Analisador científico",
+        "frequência, amostras e contenção"
+      ],
+      [
+        "Equipamento de escalada",
+        "superfícies verticais e segurança"
+      ],
+      [
+        "Kit de disfarce",
+        "aparência, papel social e ocultação"
+      ],
+      [
+        "Instrumentos de frequência",
+        "som, vibração e harmônicos"
+      ]
+    ],
+    "hash": "5b1cc3f3f8f833046e6b97aeace615fe860b2c196bd2baf9bed7c64b2b6e8259",
+    "chapter": "Sumário",
+    "section": "Ferramentas e Chaves utilitárias"
+  },
+  {
+    "table_index": 50,
+    "headers": [
+      "Consumível",
+      "Efeito"
+    ],
+    "row_count": 9,
+    "col_count": 2,
+    "rows": [
+      [
+        "Consumível",
+        "Efeito"
+      ],
+      [
+        "Tônico de Vitalidade",
+        "recupera 5 Vitalidade; 1/cena por personagem"
+      ],
+      [
+        "Estabilizador de Fluxo",
+        "recupera 2 Fluxo; depois Pressão 2 em Sintonia até pausa"
+      ],
+      [
+        "Sal de Memória",
+        "+2 Integridade contra alteração de memória pela cena"
+      ],
+      [
+        "Selo de Contenção",
+        "reduz atividade mágica em área 3 x 3"
+      ],
+      [
+        "Munição de Quartzo",
+        "+2 dano final contra barreira ou construto"
+      ],
+      [
+        "Fio de Retorno",
+        "permite recuperar arma de arremesso ou Chave caída a até 6 células"
+      ],
+      [
+        "Carga de Reparo",
+        "restaura 6 Integridade estrutural"
+      ],
+      [
+        "Ampola de Repouso",
+        "recupera 3 Lucidez; deixa usuário Lento por um turno"
+      ]
+    ],
+    "hash": "88724b4839078232b4736253e9c8c1fb9fe8a158631bf47f08d222244f16c149",
+    "chapter": "Sumário",
+    "section": "Consumíveis"
+  },
+  {
+    "table_index": 51,
+    "headers": [
+      "Marco",
+      "Ganho"
+    ],
+    "row_count": 11,
+    "col_count": 2,
+    "rows": [
+      [
+        "Marco",
+        "Ganho"
+      ],
+      [
+        "1",
+        "criação completa"
+      ],
+      [
+        "2",
+        "técnica ou magia"
+      ],
+      [
+        "3",
+        "especialização de Ofício"
+      ],
+      [
+        "4",
+        "+1 perícia e técnica"
+      ],
+      [
+        "5",
+        "+1 atributo, máximo 4"
+      ],
+      [
+        "6",
+        "técnica avançada ou evocação maior"
+      ],
+      [
+        "7",
+        "acesso a magia Grau 3"
+      ],
+      [
+        "8",
+        "+1 perícia e vínculo adicional"
+      ],
+      [
+        "9",
+        "segunda especialização ou técnica de outro Ofício"
+      ],
+      [
+        "10",
+        "Legado"
+      ]
+    ],
+    "hash": "52d62d03d6175fcec43a8745ef0a81ede979b0ad238ce7b871cb897a044b3682",
+    "chapter": "Sumário",
+    "section": "Ganhos por Marco"
+  },
+  {
+    "table_index": 52,
+    "headers": [
+      "Marcas",
+      "Estado"
+    ],
+    "row_count": 6,
+    "col_count": 2,
+    "rows": [
+      [
+        "Marcas",
+        "Estado"
+      ],
+      [
+        "0",
+        "íntegro"
+      ],
+      [
+        "1-2",
+        "influência"
+      ],
+      [
+        "3-4",
+        "cicatriz ativa"
+      ],
+      [
+        "5",
+        "limiar de assimilação"
+      ],
+      [
+        "6",
+        "crise de identidade"
+      ]
+    ],
+    "hash": "4755551e06f045ee7f14a0ea72400d717bcc910a2c95abdc12572879e8d69de8",
+    "chapter": "Sumário",
+    "section": "Marcas de Sombra"
+  },
+  {
+    "table_index": 53,
+    "headers": [
+      "Estado",
+      "Dificuldade"
+    ],
+    "row_count": 6,
+    "col_count": 2,
+    "rows": [
+      [
+        "Estado",
+        "Dificuldade"
+      ],
+      [
+        "Latente",
+        "21"
+      ],
+      [
+        "Ressonante",
+        "15"
+      ],
+      [
+        "Aberta",
+        "12"
+      ],
+      [
+        "Fraturada",
+        "18 e consequência"
+      ],
+      [
+        "Corrompida",
+        "21 e risco de Sombra"
+      ]
+    ],
+    "hash": "e29cddbf0e3f5c2ec728aef9d5524f1e56dfa8b8fbe392ec7c6ca85b94bac479",
+    "chapter": "Sumário",
+    "section": "Estados"
+  },
+  {
+    "table_index": 54,
+    "headers": [
+      "Categoria",
+      "Dano-base comum",
+      "Acesso típico a potência"
+    ],
+    "row_count": 6,
+    "col_count": 3,
+    "rows": [
+      [
+        "Categoria",
+        "Dano-base comum",
+        "Acesso típico a potência"
+      ],
+      [
+        "Lacaio",
+        "3",
+        "×1"
+      ],
+      [
+        "Comum",
+        "5",
+        "×1; técnica ×2 ocasional"
+      ],
+      [
+        "Elite",
+        "7",
+        "×1; técnica ×2; ×3 preparado"
+      ],
+      [
+        "Chefe",
+        "8-10",
+        "ataques ×1; técnicas ×2; ×3 anunciado"
+      ],
+      [
+        "Catástrofe",
+        "12+",
+        "×4 ou efeito especial, sempre anunciado e evitável"
+      ]
+    ],
+    "hash": "007dc344046ce5d2c90ebb783751b094cd9827bbe43e58f8d6a988535c61ff58",
+    "chapter": "Sumário",
+    "section": "Dano e técnicas de adversários"
+  },
+  {
+    "table_index": 55,
+    "headers": [
+      "Categoria",
+      "Vitalidade"
+    ],
+    "row_count": 5,
+    "col_count": 2,
+    "rows": [
+      [
+        "Categoria",
+        "Vitalidade"
+      ],
+      [
+        "Lacaio",
+        "1 golpe relevante"
+      ],
+      [
+        "Comum",
+        "10-16"
+      ],
+      [
+        "Elite",
+        "24-36"
+      ],
+      [
+        "Chefe",
+        "50-90 por fase"
+      ]
+    ],
+    "hash": "32afed7f8f59b680e31192f00d44eb1371a81f155c03acdfacc3aa9ec539b3a3",
+    "chapter": "Sumário",
+    "section": "Vitalidade de adversários"
+  },
+  {
+    "table_index": 56,
+    "headers": [
+      "Encontro",
+      "Composição"
+    ],
+    "row_count": 6,
+    "col_count": 2,
+    "rows": [
+      [
+        "Encontro",
+        "Composição"
+      ],
+      [
+        "Leve",
+        "4 lacaios ou 2 comuns"
+      ],
+      [
+        "Padrão",
+        "4 comuns"
+      ],
+      [
+        "Difícil",
+        "2 comuns + 1 elite"
+      ],
+      [
+        "Severo",
+        "2 elites ou 1 chefe menor"
+      ],
+      [
+        "Clímax",
+        "chefe com fases e objetivo"
+      ]
+    ],
+    "hash": "bd9fd1b47b3ffbebe26c2b8812fecef37c392147086ebd582342ab7c0aad8493",
+    "chapter": "Sumário",
+    "section": "Orçamento de encontro"
+  },
+  {
+    "table_index": 57,
+    "headers": [
+      "Categoria",
+      "Função",
+      "Vitalidade típica",
+      "Potência típica"
+    ],
+    "row_count": 6,
+    "col_count": 4,
+    "rows": [
+      [
+        "Categoria",
+        "Função",
+        "Vitalidade típica",
+        "Potência típica"
+      ],
+      [
+        "Lacaio",
+        "pressão numérica, alarme, terreno",
+        "1 golpe relevante",
+        "×1"
+      ],
+      [
+        "Comum",
+        "unidade completa de encontro",
+        "10-16",
+        "×1 e ×2 ocasional"
+      ],
+      [
+        "Elite",
+        "ameaça central ou especialista",
+        "24-36",
+        "×1, ×2 e ×3 preparado"
+      ],
+      [
+        "Chefe",
+        "confronto por fases e objetivos",
+        "50-90 por fase",
+        "×1, ×2 e ×3 anunciado"
+      ],
+      [
+        "Fenômeno",
+        "risco ambiental ou relacional",
+        "relógio",
+        "efeitos especiais"
+      ]
+    ],
+    "hash": "667be731bb911adf9c068342b700f037d11050150a5f4b147df81918725585b7",
+    "chapter": "Sumário",
+    "section": "ORIENTAÇÃO PARA O MESTRE"
+  },
+  {
+    "table_index": 58,
+    "headers": [
+      "Faixa",
+      "Ofensiva e defesas",
+      "Vitalidade",
+      "Potência"
+    ],
+    "row_count": 4,
+    "col_count": 4,
+    "rows": [
+      [
+        "Faixa",
+        "Ofensiva e defesas",
+        "Vitalidade",
+        "Potência"
+      ],
+      [
+        "Marcos 1-3",
+        "como escrito",
+        "como escrito",
+        "como escrito"
+      ],
+      [
+        "Marcos 4-6",
+        "+1",
+        "+4 comum; +8 elite; +15 por fase",
+        "uma técnica ganha uso adicional"
+      ],
+      [
+        "Marcos 7-10",
+        "+2",
+        "+8 comum; +16 elite; +25 por fase",
+        "acesso a um Nível superior anunciado"
+      ]
+    ],
+    "hash": "15c9a71739cefe93d814fc973eaf09c4a9c279910429e3fa5494e4751a645cfc",
+    "chapter": "Sumário",
+    "section": "ORIENTAÇÃO PARA O MESTRE"
+  },
+  {
+    "table_index": 59,
+    "headers": [
+      "Intensidade",
+      "Composição inicial"
+    ],
+    "row_count": 6,
+    "col_count": 2,
+    "rows": [
+      [
+        "Intensidade",
+        "Composição inicial"
+      ],
+      [
+        "Leve",
+        "4 lacaios ou 2 comuns"
+      ],
+      [
+        "Padrão",
+        "4 comuns; ou 2 comuns e 4 lacaios"
+      ],
+      [
+        "Difícil",
+        "2 comuns e 1 elite; ou 6 comuns com objetivo favorável ao grupo"
+      ],
+      [
+        "Severo",
+        "2 elites; ou 1 elite, 2 comuns e fenômeno"
+      ],
+      [
+        "Clímax",
+        "chefe com fases, objetivo e possíveis lacaios"
+      ]
+    ],
+    "hash": "f8f112e4845ba8bd81bd3131fbadb1ba46172984dbb542644194af8ac6439378",
+    "chapter": "Sumário",
+    "section": "ORIENTAÇÃO PARA O MESTRE"
+  },
+  {
+    "table_index": 60,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+5",
+        "13",
+        "12",
+        "12",
+        "1 golpe",
+        "1",
+        "6",
+        "3"
+      ]
+    ],
+    "hash": "2823f46989afa311f4396330baa3f80f3e864e76fcd25086087d7dbec4ffe239",
+    "chapter": "Sumário",
+    "section": "PARTE III - LACAIOS"
+  },
+  {
+    "table_index": 61,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+4",
+        "12",
+        "12",
+        "13",
+        "1 golpe",
+        "1",
+        "5",
+        "3"
+      ]
+    ],
+    "hash": "19db1175c80ad284f5caa0f5903c5257d31d771765d853f323b7142225d9c451",
+    "chapter": "Sumário",
+    "section": "PARTE III - LACAIOS"
+  },
+  {
+    "table_index": 62,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+5",
+        "14",
+        "11",
+        "14",
+        "1 golpe",
+        "1",
+        "8",
+        "3"
+      ]
+    ],
+    "hash": "2b7e0f0f0feb091b9d70c761b752173e24d9e846a17acc75ab4eff350c6302e2",
+    "chapter": "Sumário",
+    "section": "PARTE III - LACAIOS"
+  },
+  {
+    "table_index": 63,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+5",
+        "13",
+        "14",
+        "11",
+        "1 golpe",
+        "2",
+        "6",
+        "3"
+      ]
+    ],
+    "hash": "3fcb63c8f20b61ff3e0e296108bd0dd9b3ef226a6b598379241a3ebb913666ca",
+    "chapter": "Sumário",
+    "section": "PARTE III - LACAIOS"
+  },
+  {
+    "table_index": 64,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+5",
+        "13",
+        "10",
+        "15",
+        "1 golpe",
+        "0",
+        "7",
+        "3"
+      ]
+    ],
+    "hash": "ce816f2499ff6220b6f074d612be0fe6833f606d25d632db0d0a082d4beb1ae4",
+    "chapter": "Sumário",
+    "section": "PARTE III - LACAIOS"
+  },
+  {
+    "table_index": 65,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+4",
+        "12",
+        "11",
+        "14",
+        "1 golpe",
+        "0",
+        "7",
+        "3"
+      ]
+    ],
+    "hash": "2fe72feb71ffdf06b206c33f86fbeed6125d00321951abc36acf5bbbdc463d94",
+    "chapter": "Sumário",
+    "section": "PARTE III - LACAIOS"
+  },
+  {
+    "table_index": 66,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+4",
+        "11",
+        "12",
+        "15",
+        "1 golpe",
+        "0",
+        "3",
+        "3"
+      ]
+    ],
+    "hash": "70ffb903801bc94e19aee18f665330699a7ee816d139e12631e08a098632536e",
+    "chapter": "Sumário",
+    "section": "PARTE III - LACAIOS"
+  },
+  {
+    "table_index": 67,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+5",
+        "14",
+        "13",
+        "13",
+        "1 golpe",
+        "1",
+        "5",
+        "3"
+      ]
+    ],
+    "hash": "e5c286df0ef927407853bd0ef4521b20e5793bdfb6114b8387665884bfeef918",
+    "chapter": "Sumário",
+    "section": "PARTE III - LACAIOS"
+  },
+  {
+    "table_index": 68,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+5",
+        "13",
+        "12",
+        "10",
+        "1 golpe",
+        "0",
+        "7",
+        "3"
+      ]
+    ],
+    "hash": "9ead2dc5ac755b07f6cccea6eaecca4d1ec416eecce949359c47ab779dea79e4",
+    "chapter": "Sumário",
+    "section": "PARTE III - LACAIOS"
+  },
+  {
+    "table_index": 69,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+5",
+        "15",
+        "11",
+        "13",
+        "1 golpe",
+        "0",
+        "10",
+        "3"
+      ]
+    ],
+    "hash": "fa8a0242b1d36724c87c708c19c4aae21faad442b02b7d3beae4338a1b6d0e28",
+    "chapter": "Sumário",
+    "section": "PARTE III - LACAIOS"
+  },
+  {
+    "table_index": 70,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+5",
+        "13",
+        "13",
+        "11",
+        "1 golpe",
+        "0",
+        "9",
+        "3"
+      ]
+    ],
+    "hash": "4ed082daf32098d34384788aa045fe9bbc5f486b699efd456464bba3db614bc0",
+    "chapter": "Sumário",
+    "section": "PARTE III - LACAIOS"
+  },
+  {
+    "table_index": 71,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+4",
+        "14",
+        "14",
+        "13",
+        "1 golpe",
+        "2",
+        "4",
+        "3"
+      ]
+    ],
+    "hash": "667d908ee54a5ab01482cdfc58bda9ee2aef0b8ea339604bb6593385ca4ce03b",
+    "chapter": "Sumário",
+    "section": "PARTE III - LACAIOS"
+  },
+  {
+    "table_index": 72,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+6",
+        "14",
+        "13",
+        "12",
+        "14",
+        "1",
+        "6",
+        "5"
+      ]
+    ],
+    "hash": "8ab5cdb8cd78559cca9da0bd12d68f1a91019b9219244e4a731dbda6b4fd4ae5",
+    "chapter": "Sumário",
+    "section": "PARTE IV - ADVERSÁRIOS COMUNS"
+  },
+  {
+    "table_index": 73,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+5",
+        "13",
+        "12",
+        "15",
+        "12",
+        "1",
+        "5",
+        "5"
+      ]
+    ],
+    "hash": "5c5dd784e03ba235596b66c50143c5e8468e1645c76c47854829e8398f16bc2c",
+    "chapter": "Sumário",
+    "section": "PARTE IV - ADVERSÁRIOS COMUNS"
+  },
+  {
+    "table_index": 74,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+6",
+        "14",
+        "13",
+        "13",
+        "13",
+        "1",
+        "7",
+        "5"
+      ]
+    ],
+    "hash": "76d96aa7a12743dae1a825eac14124597f692f9555bcc0811dd29a4a97cce902",
+    "chapter": "Sumário",
+    "section": "PARTE IV - ADVERSÁRIOS COMUNS"
+  },
+  {
+    "table_index": 75,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+6",
+        "13",
+        "12",
+        "16",
+        "12",
+        "1",
+        "5",
+        "5"
+      ]
+    ],
+    "hash": "ce5fbff71c34bb729ce24da0d824222c60fef1a5d3ce7a77df3493c5e34ddc76",
+    "chapter": "Sumário",
+    "section": "PARTE IV - ADVERSÁRIOS COMUNS"
+  },
+  {
+    "table_index": 76,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+7",
+        "15",
+        "14",
+        "13",
+        "16",
+        "2",
+        "6",
+        "5"
+      ]
+    ],
+    "hash": "80c09b3c15be52820f85eea33fad259494e2f59003a5e91fdd74385b8189fc0d",
+    "chapter": "Sumário",
+    "section": "PARTE IV - ADVERSÁRIOS COMUNS"
+  },
+  {
+    "table_index": 77,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+6",
+        "15",
+        "12",
+        "14",
+        "11",
+        "0",
+        "9",
+        "5"
+      ]
+    ],
+    "hash": "8e694c499fd7a60ef758de6520869b540f51aac2a501c8b6a4445b8ef70bf9af",
+    "chapter": "Sumário",
+    "section": "PARTE IV - ADVERSÁRIOS COMUNS"
+  },
+  {
+    "table_index": 78,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+6",
+        "16",
+        "15",
+        "14",
+        "16",
+        "3",
+        "5",
+        "5"
+      ]
+    ],
+    "hash": "36370e54ea73b73ceeb1d8c525282af4bc18e694bbcb1c1523802953c9dad348",
+    "chapter": "Sumário",
+    "section": "PARTE IV - ADVERSÁRIOS COMUNS"
+  },
+  {
+    "table_index": 79,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+7",
+        "15",
+        "14",
+        "13",
+        "13",
+        "1",
+        "8",
+        "5"
+      ]
+    ],
+    "hash": "a882fc907b89b150298f4d17473c93f256a63b24173bed659e1cedc328a3d79e",
+    "chapter": "Sumário",
+    "section": "PARTE IV - ADVERSÁRIOS COMUNS"
+  },
+  {
+    "table_index": 80,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+6",
+        "15",
+        "16",
+        "14",
+        "15",
+        "3",
+        "5",
+        "5"
+      ]
+    ],
+    "hash": "ed45e66ae5ce9069127ce04e6e542d5bde7695cd2451ebfc1c79d2cf01c277b9",
+    "chapter": "Sumário",
+    "section": "PARTE IV - ADVERSÁRIOS COMUNS"
+  },
+  {
+    "table_index": 81,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+6",
+        "13",
+        "12",
+        "16",
+        "12",
+        "0",
+        "5",
+        "5"
+      ]
+    ],
+    "hash": "9e3d1e230eea82cd82daddbe3bab14bd12d868faa998d7d931890df395f6ca82",
+    "chapter": "Sumário",
+    "section": "PARTE IV - ADVERSÁRIOS COMUNS"
+  },
+  {
+    "table_index": 82,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+7",
+        "14",
+        "16",
+        "12",
+        "15",
+        "2",
+        "7",
+        "5"
+      ]
+    ],
+    "hash": "78f1b627b0d1ff0a1a4ef821263257f1430110d057c7164f91230ad52b7485cf",
+    "chapter": "Sumário",
+    "section": "PARTE IV - ADVERSÁRIOS COMUNS"
+  },
+  {
+    "table_index": 83,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+6",
+        "13",
+        "12",
+        "16",
+        "12",
+        "0",
+        "6",
+        "4"
+      ]
+    ],
+    "hash": "4e7c2f0202e596e040480a85a4d6c44c177691d39b57dd6f830f61a97346b345",
+    "chapter": "Sumário",
+    "section": "PARTE IV - ADVERSÁRIOS COMUNS"
+  },
+  {
+    "table_index": 84,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+6",
+        "14",
+        "15",
+        "16",
+        "16",
+        "2",
+        "6",
+        "5"
+      ]
+    ],
+    "hash": "a4371164bc9f273e631c35afc03ba2d9128a524eba806676edb2a1a955d80b0e",
+    "chapter": "Sumário",
+    "section": "PARTE IV - ADVERSÁRIOS COMUNS"
+  },
+  {
+    "table_index": 85,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+6",
+        "14",
+        "12",
+        "17",
+        "11",
+        "0",
+        "7",
+        "5"
+      ]
+    ],
+    "hash": "05536676f14683f4590218debcd1a756c215704bb24a657569b4a650b62a8cfa",
+    "chapter": "Sumário",
+    "section": "PARTE IV - ADVERSÁRIOS COMUNS"
+  },
+  {
+    "table_index": 86,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+7",
+        "15",
+        "13",
+        "17",
+        "14",
+        "1",
+        "6",
+        "5"
+      ]
+    ],
+    "hash": "c32ba0ade99a9fbb84d8f2e0b1f256fe671232c872241e9ff6b803e2b98671b2",
+    "chapter": "Sumário",
+    "section": "PARTE IV - ADVERSÁRIOS COMUNS"
+  },
+  {
+    "table_index": 87,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+7",
+        "15",
+        "15",
+        "11",
+        "15",
+        "1",
+        "9",
+        "5"
+      ]
+    ],
+    "hash": "8af54fb204593e0563c1225c3688fdb1ff77f1d0c63d2cc32f887a1378a6bb8c",
+    "chapter": "Sumário",
+    "section": "PARTE IV - ADVERSÁRIOS COMUNS"
+  },
+  {
+    "table_index": 88,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+6",
+        "15",
+        "15",
+        "11",
+        "14",
+        "2",
+        "10",
+        "5"
+      ]
+    ],
+    "hash": "46cc4bc80f76735632bc142702be320078d0c842927d14372a24b7b80400b7fe",
+    "chapter": "Sumário",
+    "section": "PARTE IV - ADVERSÁRIOS COMUNS"
+  },
+  {
+    "table_index": 89,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+6",
+        "14",
+        "15",
+        "13",
+        "16",
+        "2",
+        "7",
+        "5"
+      ]
+    ],
+    "hash": "5450cc6d4c51b6f77e29b4213a86aa640b5e9ac54b9f60f7e15ec784f7f91187",
+    "chapter": "Sumário",
+    "section": "PARTE IV - ADVERSÁRIOS COMUNS"
+  },
+  {
+    "table_index": 90,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+6",
+        "16",
+        "16",
+        "14",
+        "16",
+        "3",
+        "5",
+        "5"
+      ]
+    ],
+    "hash": "6389853e7d1e1e2d0e9599616911f455f8d9a3fbfb770844ff545de0ce3aa48b",
+    "chapter": "Sumário",
+    "section": "PARTE IV - ADVERSÁRIOS COMUNS"
+  },
+  {
+    "table_index": 91,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+6",
+        "15",
+        "13",
+        "15",
+        "13",
+        "0",
+        "7",
+        "5"
+      ]
+    ],
+    "hash": "289f5bd4b1b0797952a3fa55e4f7f43b5819aaa4837203e8df81ee226ac2328e",
+    "chapter": "Sumário",
+    "section": "PARTE IV - ADVERSÁRIOS COMUNS"
+  },
+  {
+    "table_index": 92,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+8",
+        "18",
+        "17",
+        "15",
+        "34",
+        "4",
+        "5",
+        "7"
+      ]
+    ],
+    "hash": "0e625d2a08f92cee05dd51ad8ce2e305d072a903365352fe9c9068bc6bf9711a",
+    "chapter": "Sumário",
+    "section": "PARTE V - ELITES"
+  },
+  {
+    "table_index": 93,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+9",
+        "17",
+        "15",
+        "15",
+        "28",
+        "2",
+        "8",
+        "7"
+      ]
+    ],
+    "hash": "65c0cfa9313ec9d5a3fa41f23444b862cd0b8af4640c6a28c95b46e810c932cd",
+    "chapter": "Sumário",
+    "section": "PARTE V - ELITES"
+  },
+  {
+    "table_index": 94,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+9",
+        "16",
+        "14",
+        "15",
+        "26",
+        "2",
+        "7",
+        "7"
+      ]
+    ],
+    "hash": "d819d195f382560b74576188faf63069b902843679fcb97671547f8b23522fff",
+    "chapter": "Sumário",
+    "section": "PARTE V - ELITES"
+  },
+  {
+    "table_index": 95,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+8",
+        "16",
+        "14",
+        "17",
+        "28",
+        "2",
+        "6",
+        "7"
+      ]
+    ],
+    "hash": "0415ce5f1e0d374ce1e44bc28417171efd3bc7111830e5e7ebfad2a01004ba1e",
+    "chapter": "Sumário",
+    "section": "PARTE V - ELITES"
+  },
+  {
+    "table_index": 96,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+8",
+        "15",
+        "15",
+        "17",
+        "30",
+        "2",
+        "6",
+        "7"
+      ]
+    ],
+    "hash": "022d7cc0361c372dc598c590110bd9e536e871929e6cb30e564eb3de48882541",
+    "chapter": "Sumário",
+    "section": "PARTE V - ELITES"
+  },
+  {
+    "table_index": 97,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+8",
+        "15",
+        "14",
+        "17",
+        "28",
+        "2",
+        "6",
+        "7"
+      ]
+    ],
+    "hash": "c51657f5a13b685429f438bc7447f82a0931f1c9aa022b3790790ef62bc7e84b",
+    "chapter": "Sumário",
+    "section": "PARTE V - ELITES"
+  },
+  {
+    "table_index": 98,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+8",
+        "17",
+        "16",
+        "15",
+        "32",
+        "3",
+        "5",
+        "7"
+      ]
+    ],
+    "hash": "c8d97b558371fc42f1178d9d3b14f875688ef69d2707d24b0c66ddb4c66757fd",
+    "chapter": "Sumário",
+    "section": "PARTE V - ELITES"
+  },
+  {
+    "table_index": 99,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+9",
+        "17",
+        "15",
+        "15",
+        "27",
+        "1",
+        "9",
+        "7"
+      ]
+    ],
+    "hash": "09387f407712ce14f4053e190edc87c7a861f76904579617e281002be9feb4bf",
+    "chapter": "Sumário",
+    "section": "PARTE V - ELITES"
+  },
+  {
+    "table_index": 100,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+8",
+        "17",
+        "18",
+        "18",
+        "36",
+        "4",
+        "5",
+        "7"
+      ]
+    ],
+    "hash": "b8691f213911b2761cf49781dc379908004240f0f7b88156b834c38bc33aa6a2",
+    "chapter": "Sumário",
+    "section": "PARTE V - ELITES"
+  },
+  {
+    "table_index": 101,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+8",
+        "17",
+        "16",
+        "18",
+        "30",
+        "3",
+        "6",
+        "7"
+      ]
+    ],
+    "hash": "cfc56209a878997f3ca0a76d2052408f4653852a394356e96caac5a8bcd47b59",
+    "chapter": "Sumário",
+    "section": "PARTE V - ELITES"
+  },
+  {
+    "table_index": 102,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+8",
+        "15",
+        "14",
+        "19",
+        "28",
+        "1",
+        "5",
+        "7"
+      ]
+    ],
+    "hash": "a82f32564e0c4b5fd090efc0e44c3a3c7a430d4f918fd3635dd1bb4b746af1c9",
+    "chapter": "Sumário",
+    "section": "PARTE V - ELITES"
+  },
+  {
+    "table_index": 103,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+9",
+        "17",
+        "18",
+        "14",
+        "34",
+        "2",
+        "10",
+        "7"
+      ]
+    ],
+    "hash": "c2e2ceccec18c44ac2579b18b9c40c6b2303b6ff6bbb1e6cb903098c97c9b90c",
+    "chapter": "Sumário",
+    "section": "PARTE V - ELITES"
+  },
+  {
+    "table_index": 104,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+10",
+        "18",
+        "20",
+        "19",
+        "70 por fase",
+        "4",
+        "4",
+        "9"
+      ]
+    ],
+    "hash": "6122cfbe15188d5bd9eae3cf609367e08a09d75cc9e4fb7d9b276df23088ba30",
+    "chapter": "Sumário",
+    "section": "PARTE VI - CHEFES E AMEAÇAS SINGULARES"
+  },
+  {
+    "table_index": 105,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+10",
+        "17",
+        "16",
+        "20",
+        "55 por fase",
+        "3",
+        "6",
+        "8"
+      ]
+    ],
+    "hash": "3aebdd04a7a55dbf38a9cd931d492d48d35f1e52419105fa7afbb4e9bb847fea",
+    "chapter": "Sumário",
+    "section": "PARTE VI - CHEFES E AMEAÇAS SINGULARES"
+  },
+  {
+    "table_index": 106,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+11",
+        "19",
+        "18",
+        "19",
+        "65 por fase",
+        "4",
+        "7",
+        "10"
+      ]
+    ],
+    "hash": "5fffa17dca348c77763ff986960891d7b97f3247266019c029628095f1537827",
+    "chapter": "Sumário",
+    "section": "PARTE VI - CHEFES E AMEAÇAS SINGULARES"
+  },
+  {
+    "table_index": 107,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+9",
+        "16",
+        "17",
+        "20",
+        "60 por fase",
+        "2",
+        "0",
+        "8"
+      ]
+    ],
+    "hash": "b753129f1e623ee625252e49ad46ff6855834f5180ae80522b44dec3478383eb",
+    "chapter": "Sumário",
+    "section": "PARTE VI - CHEFES E AMEAÇAS SINGULARES"
+  },
+  {
+    "table_index": 108,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+10",
+        "18",
+        "19",
+        "20",
+        "80 por fase",
+        "5",
+        "0",
+        "9"
+      ]
+    ],
+    "hash": "7ec29f7d70cb97931c49478080037db82549ba2d5d1bdb2086bd11948f668bb8",
+    "chapter": "Sumário",
+    "section": "PARTE VI - CHEFES E AMEAÇAS SINGULARES"
+  },
+  {
+    "table_index": 109,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+10",
+        "17",
+        "21",
+        "17",
+        "75 por fase",
+        "3",
+        "10",
+        "10"
+      ]
+    ],
+    "hash": "e4d4226a8a0af6a2c585fdc41feb4beb23dc69b6854302c24adb2f4a892001dd",
+    "chapter": "Sumário",
+    "section": "PARTE VI - CHEFES E AMEAÇAS SINGULARES"
+  },
+  {
+    "table_index": 110,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+10",
+        "19",
+        "18",
+        "21",
+        "60 por fase",
+        "3",
+        "12",
+        "9"
+      ]
+    ],
+    "hash": "276a4c1f4c64b7eddf42de5a093aa2ccbd100cebcd4c9394c637a0b827e06653",
+    "chapter": "Sumário",
+    "section": "PARTE VI - CHEFES E AMEAÇAS SINGULARES"
+  },
+  {
+    "table_index": 111,
+    "headers": [
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Vitalidade",
+      "Proteção",
+      "Movimento",
+      "Dano-base"
+    ],
+    "row_count": 2,
+    "col_count": 8,
+    "rows": [
+      [
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Vitalidade",
+        "Proteção",
+        "Movimento",
+        "Dano-base"
+      ],
+      [
+        "+11",
+        "19",
+        "20",
+        "22",
+        "90 por fase",
+        "4",
+        "8",
+        "10"
+      ]
+    ],
+    "hash": "8dde9277021b924e889f7dd5fac2e0d612e912c0a4b8cea1c9f030059418f16c",
+    "chapter": "Sumário",
+    "section": "PARTE VI - CHEFES E AMEAÇAS SINGULARES"
+  },
+  {
+    "table_index": 112,
+    "headers": [
+      "Virtude",
+      "Forma da Sombra"
+    ],
+    "row_count": 9,
+    "col_count": 2,
+    "rows": [
+      [
+        "Virtude",
+        "Forma da Sombra"
+      ],
+      [
+        "proteção",
+        "posse"
+      ],
+      [
+        "memória",
+        "prisão"
+      ],
+      [
+        "comunidade",
+        "uniformidade"
+      ],
+      [
+        "liberdade",
+        "abandono"
+      ],
+      [
+        "ordem",
+        "eliminação de escolha"
+      ],
+      [
+        "transparência",
+        "invasão"
+      ],
+      [
+        "instinto",
+        "redução a impulso"
+      ],
+      [
+        "criação",
+        "obra que domina o usuário"
+      ]
+    ],
+    "hash": "2a09aaa26fb6e4ae8f6fb290b2a4c93e7288584a9d5ae1f62ed32909c1ef2349",
+    "chapter": "Sumário",
+    "section": "PARTE VIII - MODELOS DE ADAPTAÇÃO"
+  },
+  {
+    "table_index": 113,
+    "headers": [
+      "d10",
+      "Encontro"
+    ],
+    "row_count": 11,
+    "col_count": 2,
+    "rows": [
+      [
+        "d10",
+        "Encontro"
+      ],
+      [
+        "1",
+        "rebanho de Cervos de Quartzo atravessa a rota"
+      ],
+      [
+        "2",
+        "Vigias inspecionam documentos e cargas"
+      ],
+      [
+        "3",
+        "Assistentes tentam conter uma anomalia real"
+      ],
+      [
+        "4",
+        "Patrulheiro Lightbringer escolta uma testemunha"
+      ],
+      [
+        "5",
+        "Corvo de Fresta rouba uma Âncora"
+      ],
+      [
+        "6",
+        "comboio científico transporta arquivo selado"
+      ],
+      [
+        "7",
+        "Autômatos bloqueiam ponte insegura"
+      ],
+      [
+        "8",
+        "Tempestade de Ecos aproxima-se"
+      ],
+      [
+        "9",
+        "Rastreador procura pessoa que não sabe ser Trocada"
+      ],
+      [
+        "10",
+        "campo de quartzo revela correspondência com Thur-Daer"
+      ]
+    ],
+    "hash": "0a0ec31d1eef04325568fcd2ad09e5c87b7917f261e1474fe87063a6caa15410",
+    "chapter": "Sumário",
+    "section": "PARTE X - TABELAS REGIONAIS"
+  },
+  {
+    "table_index": 114,
+    "headers": [
+      "d10",
+      "Encontro"
+    ],
+    "row_count": 11,
+    "col_count": 2,
+    "rows": [
+      [
+        "d10",
+        "Encontro"
+      ],
+      [
+        "1",
+        "Esporos repetem gesto de despedida"
+      ],
+      [
+        "2",
+        "Arquivista impede acesso a memória contestada"
+      ],
+      [
+        "3",
+        "Eco Corrompido oferece versão confortável"
+      ],
+      [
+        "4",
+        "Jardim de Memória Repetida fecha caminho"
+      ],
+      [
+        "5",
+        "grupo Aelvari busca testemunha perdida"
+      ],
+      [
+        "6",
+        "fauna carrega inscrições antigas"
+      ],
+      [
+        "7",
+        "Redator de Memória remove autoria"
+      ],
+      [
+        "8",
+        "duas versões do mesmo evento aparecem"
+      ],
+      [
+        "9",
+        "mirveth sentem déjà vu sem se reconhecer"
+      ],
+      [
+        "10",
+        "memória posterior abre rota inédita"
+      ]
+    ],
+    "hash": "6b676a69c941de4c31192a5a22de15a48ba1f565236ef7afad19baeca50b02c8",
+    "chapter": "Sumário",
+    "section": "PARTE X - TABELAS REGIONAIS"
+  },
+  {
+    "table_index": 115,
+    "headers": [
+      "d10",
+      "Encontro"
+    ],
+    "row_count": 11,
+    "col_count": 2,
+    "rows": [
+      [
+        "d10",
+        "Encontro"
+      ],
+      [
+        "1",
+        "Mercador oferece atalho com preço social"
+      ],
+      [
+        "2",
+        "Corvos disputam objeto correspondente"
+      ],
+      [
+        "3",
+        "Caranguejo bloqueia margem"
+      ],
+      [
+        "4",
+        "rota fecha atrás do grupo"
+      ],
+      [
+        "5",
+        "Rastreador científico compra informação"
+      ],
+      [
+        "6",
+        "Andarilho sem Sombra pede identidade emprestada"
+      ],
+      [
+        "7",
+        "Campo de Substituição toca o mercado"
+      ],
+      [
+        "8",
+        "guia verdadeiro foi trocado por Imitação"
+      ],
+      [
+        "9",
+        "dois caminhos legítimos exigem escolhas diferentes"
+      ],
+      [
+        "10",
+        "Navegante deixa sinal de rota corrompida"
+      ]
+    ],
+    "hash": "234911a92c2174c7e3ab76bcfb48e4572f841644fc19d8b3bfd61be8eec5aee4",
+    "chapter": "Sumário",
+    "section": "PARTE X - TABELAS REGIONAIS"
+  },
+  {
+    "table_index": 116,
+    "headers": [
+      "d10",
+      "Encontro"
+    ],
+    "row_count": 11,
+    "col_count": 2,
+    "rows": [
+      [
+        "d10",
+        "Encontro"
+      ],
+      [
+        "1",
+        "Rastejantes cruzam em bando"
+      ],
+      [
+        "2",
+        "Lobos seguem algo que o grupo não percebe"
+      ],
+      [
+        "3",
+        "voz antiga chama por nome incorreto"
+      ],
+      [
+        "4",
+        "Batedor Teriante marca território"
+      ],
+      [
+        "5",
+        "Névoa repete emboscada histórica"
+      ],
+      [
+        "6",
+        "Predador sem Aspecto caça animal ferido"
+      ],
+      [
+        "7",
+        "grupo de refugiados perdeu direção"
+      ],
+      [
+        "8",
+        "Ruptura Frequencial colore a névoa"
+      ],
+      [
+        "9",
+        "rota clandestina está sendo fechada"
+      ],
+      [
+        "10",
+        "silêncio completo anuncia passagem segura ou tempestade"
+      ]
+    ],
+    "hash": "32ee297a3399c6cadefd7efd753035a3ba0696c3bc72d69e69b775c1f01ad4cb",
+    "chapter": "Sumário",
+    "section": "PARTE X - TABELAS REGIONAIS"
+  },
+  {
+    "table_index": 117,
+    "headers": [
+      "d10",
+      "Encontro"
+    ],
+    "row_count": 11,
+    "col_count": 2,
+    "rows": [
+      [
+        "d10",
+        "Encontro"
+      ],
+      [
+        "1",
+        "Operador mantém travessia instável"
+      ],
+      [
+        "2",
+        "Patrulha Lightbringer marca alvos"
+      ],
+      [
+        "3",
+        "Fragmentos de Nome surgem de registros"
+      ],
+      [
+        "4",
+        "Caranguejos atravessam duas margens"
+      ],
+      [
+        "5",
+        "Fenda troca pequenos objetos"
+      ],
+      [
+        "6",
+        "mirveth aproximam-se sem saber"
+      ],
+      [
+        "7",
+        "Zona de Velarim Corrompido ativa inscrição"
+      ],
+      [
+        "8",
+        "Campo de Substituição inicia varredura"
+      ],
+      [
+        "9",
+        "Colapso de Correspondência ameaça duas comunidades"
+      ],
+      [
+        "10",
+        "uma rota segura aparece, mas exige consentimento de ambos os mundos"
+      ]
+    ],
+    "hash": "53c80b3a3c78f2ede6b6871a02698f8b84888fa91f4cb75d9726120991662e96",
+    "chapter": "Sumário",
+    "section": "PARTE X - TABELAS REGIONAIS"
+  },
+  {
+    "table_index": 118,
+    "headers": [
+      "Resolução",
+      "Recompensa apropriada"
+    ],
+    "row_count": 7,
+    "col_count": 2,
+    "rows": [
+      [
+        "Resolução",
+        "Recompensa apropriada"
+      ],
+      [
+        "proteger criatura",
+        "vínculo, rota, conhecimento de habitat"
+      ],
+      [
+        "converter adversário",
+        "testemunho, acesso, divisão interna"
+      ],
+      [
+        "reparar fenômeno",
+        "Âncora, estabilidade regional, memória"
+      ],
+      [
+        "preservar prova",
+        "mudança política, segurança de testemunhas"
+      ],
+      [
+        "derrotar chefe",
+        "mudança de fase da campanha, não apenas item"
+      ],
+      [
+        "destruir sem compreender",
+        "recurso imediato e consequência futura"
+      ]
+    ],
+    "hash": "e99f5148dc9d4e34fd761980fc90a5970fad5043ae45439a3eb29298d540d297",
+    "chapter": "Sumário",
+    "section": "PARTE XI - RECOMPENSAS E CONSEQUÊNCIAS"
+  },
+  {
+    "table_index": 119,
+    "headers": [
+      "Categoria",
+      "Ofensiva",
+      "Guarda",
+      "Fortitude",
+      "Integridade",
+      "Proteção",
+      "Movimento"
+    ],
+    "row_count": 5,
+    "col_count": 7,
+    "rows": [
+      [
+        "Categoria",
+        "Ofensiva",
+        "Guarda",
+        "Fortitude",
+        "Integridade",
+        "Proteção",
+        "Movimento"
+      ],
+      [
+        "Lacaio",
+        "+4 a +6",
+        "11-14",
+        "10-14",
+        "10-15",
+        "0-2",
+        "4-10"
+      ],
+      [
+        "Comum",
+        "+5 a +7",
+        "13-16",
+        "12-16",
+        "11-17",
+        "0-3",
+        "5-9"
+      ],
+      [
+        "Elite",
+        "+7 a +9",
+        "15-18",
+        "14-18",
+        "14-19",
+        "1-4",
+        "5-10"
+      ],
+      [
+        "Chefe",
+        "+9 a +11",
+        "16-20",
+        "16-21",
+        "16-22",
+        "2-5",
+        "4-12"
+      ]
+    ],
+    "hash": "1ed99f7e4c373d2675cd61862d43915622dd6e54df9b3171fc0616c4a62f6c05",
+    "chapter": "Sumário",
+    "section": "APÊNDICE A - CRIAÇÃO RÁPIDA DE ADVERSÁRIO"
+  },
+  {
+    "table_index": 120,
+    "headers": [
+      "Alvo",
+      "Golpes relevantes esperados"
+    ],
+    "row_count": 5,
+    "col_count": 2,
+    "rows": [
+      [
+        "Alvo",
+        "Golpes relevantes esperados"
+      ],
+      [
+        "Lacaio",
+        "1"
+      ],
+      [
+        "Comum",
+        "2-4"
+      ],
+      [
+        "Elite",
+        "5-8"
+      ],
+      [
+        "Fase de chefe",
+        "3-5 rodadas de foco coletivo"
+      ]
+    ],
+    "hash": "d19a5cf6b7c1d30dd54e42ed19d4ebc955df69e9972dfc09276cd442e0c0fe46",
+    "chapter": "Sumário",
+    "section": "APÊNDICE B - CHECKLIST DE PLAYTEST"
+  },
+  {
+    "table_index": 121,
+    "headers": [
+      "Sessões",
+      "Arco",
+      "Movimento principal"
+    ],
+    "row_count": 5,
+    "col_count": 3,
+    "rows": [
+      [
+        "Sessões",
+        "Arco",
+        "Movimento principal"
+      ],
+      [
+        "1–3",
+        "Ordem Aparente",
+        "preservar o vazamento e tornar visível a manipulação"
+      ],
+      [
+        "4–6",
+        "Frestas",
+        "reparar vínculos regionais e atravessar"
+      ],
+      [
+        "7–9",
+        "Nomes",
+        "confrontar memórias impostas e experimentos"
+      ],
+      [
+        "10–12",
+        "Escolha",
+        "decidir a relação entre os mundos"
+      ]
+    ],
+    "hash": "a760857294b7cb9505b55ab7dc5aea8c2f23945f49cfe65c0f6323dd4c56d615",
+    "chapter": "Sumário",
+    "section": "Os Nomes Roubados"
+  },
+  {
+    "table_index": 122,
+    "headers": [
+      "Conceito",
+      "Forma",
+      "Regra"
+    ],
+    "row_count": 9,
+    "col_count": 3,
+    "rows": [
+      [
+        "Conceito",
+        "Forma",
+        "Regra"
+      ],
+      [
+        "luz física",
+        "silma",
+        "fenômeno ótico e material"
+      ],
+      [
+        "Luz cosmológica",
+        "manesh",
+        "manifestação, forma e ordem"
+      ],
+      [
+        "Escuridão legítima",
+        "thuvel",
+        "memória, repouso, profundidade e potencial"
+      ],
+      [
+        "Sombra",
+        "kav",
+        "corrupção, assimilação e apagamento"
+      ],
+      [
+        "ausência de luz",
+        "vesilma",
+        "falta de luz física; não é mal"
+      ],
+      [
+        "alma primordial",
+        "mira",
+        "origem anterior à cisão"
+      ],
+      [
+        "contraparte",
+        "mirveth",
+        "pessoa inteira, nunca metade"
+      ],
+      [
+        "Merge legítimo",
+        "vethari",
+        "relação consentida com identidades preservadas"
+      ]
+    ],
+    "hash": "d9df7a6feed9ac9f9d8e5a6c1e46c2c87abc2e7fcb14f4d0a96f54599142c92a",
+    "chapter": "Sumário",
+    "section": "O QUE É VELARIM"
+  },
+  {
+    "table_index": 123,
+    "headers": [
+      "Forma",
+      "Significado"
+    ],
+    "row_count": 8,
+    "col_count": 2,
+    "rows": [
+      [
+        "Forma",
+        "Significado"
+      ],
+      [
+        "mi",
+        "eu"
+      ],
+      [
+        "vi",
+        "você/tu"
+      ],
+      [
+        "si",
+        "ele/ela/isso"
+      ],
+      [
+        "na",
+        "nós"
+      ],
+      [
+        "viin",
+        "vocês"
+      ],
+      [
+        "siin",
+        "eles/elas"
+      ],
+      [
+        "mir",
+        "pronome reflexivo/identitário"
+      ]
+    ],
+    "hash": "5831e19ae261799b62e19b7a641ba865fcf9f0e7339182c5794a30c7f54a1778",
+    "chapter": "Sumário",
+    "section": "NOMES, PRONOMES E GRUPOS NOMINAIS"
+  },
+  {
+    "table_index": 124,
+    "headers": [
+      "Forma",
+      "Valor"
+    ],
+    "row_count": 14,
+    "col_count": 2,
+    "rows": [
+      [
+        "Forma",
+        "Valor"
+      ],
+      [
+        "nul",
+        "0"
+      ],
+      [
+        "ain",
+        "1"
+      ],
+      [
+        "mor",
+        "2"
+      ],
+      [
+        "sar",
+        "3"
+      ],
+      [
+        "vor",
+        "4"
+      ],
+      [
+        "nhel",
+        "5"
+      ],
+      [
+        "shur",
+        "6"
+      ],
+      [
+        "ruun",
+        "7"
+      ],
+      [
+        "zhei",
+        "8"
+      ],
+      [
+        "nav",
+        "9"
+      ],
+      [
+        "maar",
+        "10"
+      ],
+      [
+        "saal",
+        "100"
+      ],
+      [
+        "luur",
+        "1000"
+      ]
+    ],
+    "hash": "f1031d80e34d0154ed2a65a0cfd9ed587aae8359569b725abfea305e4a4e152f",
+    "chapter": "Sumário",
+    "section": "NÚMEROS E QUANTIDADE"
+  },
+  {
+    "table_index": 125,
+    "headers": [
+      "Forma",
+      "Uso"
+    ],
+    "row_count": 11,
+    "col_count": 2,
+    "rows": [
+      [
+        "Forma",
+        "Uso"
+      ],
+      [
+        "en",
+        "em, no, na"
+      ],
+      [
+        "ra",
+        "de, desde"
+      ],
+      [
+        "ol",
+        "a, para"
+      ],
+      [
+        "ma",
+        "com; e"
+      ],
+      [
+        "sul",
+        "sem"
+      ],
+      [
+        "nar",
+        "sobre, acerca de"
+      ],
+      [
+        "ther",
+        "através de"
+      ],
+      [
+        "sur",
+        "além de, para fora"
+      ],
+      [
+        "nuur",
+        "sob, abaixo"
+      ],
+      [
+        "ru",
+        "por, via"
+      ]
+    ],
+    "hash": "3b5bdc991d42363b01d465074120ef6a92ebca04fb612e9ee4c8aa6189198e20",
+    "chapter": "Sumário",
+    "section": "RELAÇÕES E PREPOSIÇÕES"
+  },
+  {
+    "table_index": 126,
+    "headers": [
+      "Código",
+      "Função"
+    ],
+    "row_count": 5,
+    "col_count": 2,
+    "rows": [
+      [
+        "Código",
+        "Função"
+      ],
+      [
+        "INTR",
+        "não exige objeto direto"
+      ],
+      [
+        "TRANS",
+        "exige ou admite objeto direto"
+      ],
+      [
+        "DITRANS",
+        "admite tema e destinatário"
+      ],
+      [
+        "REL",
+        "descreve relação entre participantes"
+      ]
+    ],
+    "hash": "f3a934b034fdd03a3effb3fcf308ca0eaefed61e80c2d9f74ee9226c1cf55fbe",
+    "chapter": "Sumário",
+    "section": "VERBOS, ASPECTO E MODALIDADE"
+  },
+  {
+    "table_index": 127,
+    "headers": [
+      "Forma",
+      "Valor",
+      "Exemplo"
+    ],
+    "row_count": 5,
+    "col_count": 3,
+    "rows": [
+      [
+        "Forma",
+        "Valor",
+        "Exemplo"
+      ],
+      [
+        "sem sufixo",
+        "geral/agora",
+        "mi virel vi - eu vejo você"
+      ],
+      [
+        "-eth",
+        "concluído ou selado",
+        "velareth - voou"
+      ],
+      [
+        "-ar",
+        "em curso/durativo",
+        "velarvar - está voando"
+      ],
+      [
+        "-il",
+        "possível, desejado ou futuro",
+        "velaril - voará/poderá voar"
+      ]
+    ],
+    "hash": "60b52724b965c863ef55702f3c6214fd2b0390532ebedb2e86ab834640ff360e",
+    "chapter": "Sumário",
+    "section": "VERBOS, ASPECTO E MODALIDADE"
+  },
+  {
+    "table_index": 128,
+    "headers": [
+      "Forma",
+      "Valor"
+    ],
+    "row_count": 6,
+    "col_count": 2,
+    "rows": [
+      [
+        "Forma",
+        "Valor"
+      ],
+      [
+        "kir",
+        "poder, capacidade ou permissão"
+      ],
+      [
+        "van",
+        "dever, obrigação"
+      ],
+      [
+        "sen",
+        "querer ou intenção diante de verbo"
+      ],
+      [
+        "senel",
+        "desejar uma coisa"
+      ],
+      [
+        "senveth",
+        "consentir livremente a relação ou ação"
+      ]
+    ],
+    "hash": "3b4264f6ca14668508d665977cd57f91b24e9285f67026e535c5b9fe310aa7be",
+    "chapter": "Sumário",
+    "section": "VERBOS, ASPECTO E MODALIDADE"
+  },
+  {
+    "table_index": 129,
+    "headers": [
+      "Registro",
+      "Ordem",
+      "Exemplo",
+      "Tradução"
+    ],
+    "row_count": 4,
+    "col_count": 4,
+    "rows": [
+      [
+        "Registro",
+        "Ordem",
+        "Exemplo",
+        "Tradução"
+      ],
+      [
+        "Luz cotidiano",
+        "SVO",
+        "Mi virel vi.",
+        "Eu vejo você."
+      ],
+      [
+        "Escuridão cotidiano",
+        "SOV",
+        "Mi vi virel.",
+        "Eu vejo você."
+      ],
+      [
+        "Ritual comum",
+        "VSO",
+        "Vethari na mirveth.",
+        "Que façamos Merge, contraparte."
+      ]
+    ],
+    "hash": "cafb6942b8b2424bf0d147106d8c1282e84882799cf568d41a471a422fe8db19",
+    "chapter": "Sumário",
+    "section": "AS TRÊS ORDENS"
+  },
+  {
+    "table_index": 130,
+    "headers": [
+      "Forma",
+      "Pergunta"
+    ],
+    "row_count": 9,
+    "col_count": 2,
+    "rows": [
+      [
+        "Forma",
+        "Pergunta"
+      ],
+      [
+        "mai",
+        "quem"
+      ],
+      [
+        "sai",
+        "o que"
+      ],
+      [
+        "rei",
+        "onde"
+      ],
+      [
+        "luurai",
+        "quando"
+      ],
+      [
+        "nhei",
+        "por quê"
+      ],
+      [
+        "vai",
+        "como"
+      ],
+      [
+        "seri",
+        "qual"
+      ],
+      [
+        "maari",
+        "quanto, quantos"
+      ]
+    ],
+    "hash": "bc1cf1175fd296f0e2667419fbda3960d32499f20e34194e023068f9cb86db5b",
+    "chapter": "Sumário",
+    "section": "PERGUNTAS, PEDIDOS E COMANDOS"
+  },
+  {
+    "table_index": 131,
+    "headers": [
+      "Forma",
+      "Função"
+    ],
+    "row_count": 12,
+    "col_count": 2,
+    "rows": [
+      [
+        "Forma",
+        "Função"
+      ],
+      [
+        "ma",
+        "com; e"
+      ],
+      [
+        "sha",
+        "mas"
+      ],
+      [
+        "vei",
+        "ou"
+      ],
+      [
+        "ren",
+        "porque"
+      ],
+      [
+        "ira",
+        "se"
+      ],
+      [
+        "thei",
+        "que"
+      ],
+      [
+        "luu",
+        "enquanto"
+      ],
+      [
+        "aresh",
+        "antes"
+      ],
+      [
+        "ilash",
+        "depois"
+      ],
+      [
+        "nu",
+        "agora"
+      ],
+      [
+        "eri",
+        "então"
+      ]
+    ],
+    "hash": "ff227e8d79539eb8b375e64d885ed28d2b00750c1ae938c648b7f808ffa4b64d",
+    "chapter": "Sumário",
+    "section": "CONECTORES E FRASES COMPLEXAS"
+  },
+  {
+    "table_index": 132,
+    "headers": [
+      "Morfema",
+      "Função",
+      "Exemplo"
+    ],
+    "row_count": 13,
+    "col_count": 3,
+    "rows": [
+      [
+        "Morfema",
+        "Função",
+        "Exemplo"
+      ],
+      [
+        "-in",
+        "plural distributivo",
+        "miranin"
+      ],
+      [
+        "-ari",
+        "coletivo vivo/relacional",
+        "mirari"
+      ],
+      [
+        "-an",
+        "agente ou pessoa ligada à ação",
+        "varan"
+      ],
+      [
+        "-ol",
+        "lugar lexical quando atestado",
+        "tharol"
+      ],
+      [
+        "-esh",
+        "instrumento/objeto",
+        "varesh"
+      ],
+      [
+        "-un",
+        "estado/resultado/abstração",
+        "vethun"
+      ],
+      [
+        "an-",
+        "ação deliberada ou agente explícito",
+        "annher"
+      ],
+      [
+        "-im",
+        "reciprocidade",
+        "vethim"
+      ],
+      [
+        "-ath",
+        "coexistência sem submissão",
+        "namath"
+      ],
+      [
+        "-oi",
+        "ressonância",
+        "uso relacional controlado"
+      ],
+      [
+        "-av",
+        "domínio/submissão",
+        "marcador de risco semântico"
+      ],
+      [
+        "-ov",
+        "massa/assimilação em formas autorizadas",
+        "silmov"
+      ]
+    ],
+    "hash": "e6db541ff2c4e75a0f61a65531f606f643743541ea0d8663add7a9a7fca85a73",
+    "chapter": "Sumário",
+    "section": "MORFOLOGIA PRODUTIVA"
+  },
+  {
+    "table_index": 133,
+    "headers": [
+      "Forma",
+      "IPA",
+      "Classe",
+      "Significado",
+      "Estado"
+    ],
+    "row_count": 49,
+    "col_count": 5,
+    "rows": [
+      [
+        "Forma",
+        "IPA",
+        "Classe",
+        "Significado",
+        "Estado"
+      ],
+      [
+        "silma",
+        "/ˈsil.ma/",
+        "substantivo",
+        "luz físico-material",
+        "CAN"
+      ],
+      [
+        "manesh",
+        "/ˈma.neʃ/",
+        "substantivo",
+        "Luz cosmológica; manifestação primordial",
+        "CAN"
+      ],
+      [
+        "silmari",
+        "/sil.ˈma.ɾi/",
+        "substantivo derivado",
+        "constelação; coletivo harmônico de luzes",
+        "TECH"
+      ],
+      [
+        "silmain",
+        "/sil.ˈmajn/",
+        "substantivo derivado",
+        "luzes dispersas e autônomas",
+        "TECH"
+      ],
+      [
+        "silmain",
+        "/sil.ˈmajn/",
+        "substantivo lexical",
+        "sistema de escrita contínua",
+        "LEX_CAN"
+      ],
+      [
+        "vesilma",
+        "/ve.ˈsil.ma/",
+        "substantivo",
+        "ausência de luz física",
+        "CAN"
+      ],
+      [
+        "silmol",
+        "/ˈsil.mol/",
+        "substantivo lexicalizado",
+        "santuário de luz",
+        "LEX_CAN"
+      ],
+      [
+        "silmov",
+        "/ˈsil.mov/",
+        "substantivo lexicalizado",
+        "massa de luz assimilada",
+        "LEX_CAN"
+      ],
+      [
+        "velar",
+        "/ve.ˈlaɾ/",
+        "verbo intransitivo",
+        "voar; transcender o espaço",
+        "CAN"
+      ],
+      [
+        "velareth",
+        "/ve.la.ˈɾeð/",
+        "verbo intransitivo",
+        "voou; ação selada",
+        "TECH"
+      ],
+      [
+        "velaril",
+        "/ve.la.ˈɾil/",
+        "verbo intransitivo",
+        "voará; ação possível ou desejada",
+        "TECH"
+      ],
+      [
+        "velarvar",
+        "/ve.laɾ.ˈvaɾ/",
+        "verbo intransitivo",
+        "está voando",
+        "TECH"
+      ],
+      [
+        "nooveth",
+        "/ˈnoː.veð/",
+        "verbo transitivo",
+        "tecer magia",
+        "CAN"
+      ],
+      [
+        "noovethan",
+        "/ˈnoː.ve.ðan/",
+        "substantivo derivado",
+        "tecelão ou tecelã de magia",
+        "TECH"
+      ],
+      [
+        "annooveth",
+        "/an.ˈnoː.veð/",
+        "verbo transitivo",
+        "tecer magia com controle ativo",
+        "TECH"
+      ],
+      [
+        "mira",
+        "/ˈmi.ɾa/",
+        "substantivo",
+        "fonte ou alma primordial",
+        "CAN"
+      ],
+      [
+        "veth",
+        "/veð/",
+        "substantivo relacional",
+        "vínculo ou união de alma",
+        "CAN"
+      ],
+      [
+        "mirveth",
+        "/miɾ.ˈveð/",
+        "substantivo lexicalizado",
+        "contraparte cosmológica integral",
+        "LEX_CAN"
+      ],
+      [
+        "mirvethin",
+        "/miɾ.ˈve.ðin/",
+        "substantivo",
+        "contrapartes autônomas",
+        "CAN"
+      ],
+      [
+        "mirvethari",
+        "/miɾ.ve.ˈða.ɾi/",
+        "substantivo",
+        "relação viva entre contrapartes",
+        "CAN"
+      ],
+      [
+        "vethari",
+        "/ve.ˈða.ɾi/",
+        "substantivo/verbo relacional",
+        "Merge legítimo",
+        "CAN"
+      ],
+      [
+        "mirin",
+        "/ˈmi.ɾin/",
+        "substantivo lexicalizado",
+        "origem fraturada da alma",
+        "LEX_CAN"
+      ],
+      [
+        "mirim",
+        "/ˈmi.ɾim/",
+        "substantivo lexicalizado",
+        "reciprocidade de alma originária",
+        "LEX_CAN"
+      ],
+      [
+        "thuvel",
+        "/ˈðu.vel/",
+        "substantivo",
+        "Escuridão cosmológica legítima",
+        "CAN"
+      ],
+      [
+        "kav",
+        "/kav/",
+        "substantivo",
+        "Sombra; corrupção e assimilação",
+        "CAN"
+      ],
+      [
+        "anir",
+        "/a.ˈniɾ/",
+        "substantivo",
+        "começo; origem temporal",
+        "CAN"
+      ],
+      [
+        "tharen",
+        "/ˈða.ɾen/",
+        "substantivo",
+        "caminho; passagem",
+        "SRC"
+      ],
+      [
+        "luumeh",
+        "/ˈluː.mə/",
+        "substantivo",
+        "tempo fluido; era",
+        "SRC"
+      ],
+      [
+        "nam",
+        "/nam/",
+        "verbo relacional",
+        "existir ou permanecer em presença",
+        "TECH"
+      ],
+      [
+        "namath",
+        "/ˈna.mað/",
+        "verbo relacional",
+        "coexistir sem submissão",
+        "TECH"
+      ],
+      [
+        "les",
+        "/les/",
+        "verbo transitivo",
+        "reconhecer; nomear com precisão",
+        "PROV"
+      ],
+      [
+        "velesov",
+        "/ve.le.ˈsov/",
+        "verbo derivado",
+        "sofrer apagamento de identidade",
+        "PROV"
+      ],
+      [
+        "krav",
+        "/kɾav/",
+        "substantivo",
+        "pedra ou rocha da Escuridão",
+        "SRC"
+      ],
+      [
+        "manuv",
+        "/ˈma.nuv/",
+        "substantivo",
+        "mão; instrumento de toque",
+        "SRC"
+      ],
+      [
+        "silar",
+        "/si.ˈlaɾ/",
+        "verbo intransitivo",
+        "brilhar; emanar luz própria",
+        "SRC"
+      ],
+      [
+        "silarun",
+        "/si.ˈla.ɾun/",
+        "substantivo derivado",
+        "brilho como qualidade",
+        "TECH"
+      ],
+      [
+        "kavesh",
+        "/ˈka.veʃ/",
+        "substantivo derivado",
+        "falsificação; instrumento da Sombra",
+        "PROV"
+      ],
+      [
+        "sib",
+        "/sib/",
+        "verbo transitivo",
+        "consumir identidade alheia",
+        "PROV"
+      ],
+      [
+        "dur",
+        "/duɾ/",
+        "verbo transitivo",
+        "comandar ou submeter pela força",
+        "PROV"
+      ],
+      [
+        "tav",
+        "/tav/",
+        "verbo transitivo",
+        "tocar física ou magicamente",
+        "PROV"
+      ],
+      [
+        "mi",
+        "/mi/",
+        "pronome",
+        "eu",
+        "CAN"
+      ],
+      [
+        "si",
+        "/si/",
+        "pronome",
+        "ele, ela ou isso",
+        "CAN"
+      ],
+      [
+        "na",
+        "/na/",
+        "pronome",
+        "nós",
+        "CAN"
+      ],
+      [
+        "ve",
+        "/ve/",
+        "partícula/prefixo",
+        "negação",
+        "CAN"
+      ],
+      [
+        "kir",
+        "/kiɾ/",
+        "partícula modal",
+        "poder; capacidade ou permissão",
+        "SRC"
+      ],
+      [
+        "van",
+        "/van/",
+        "partícula modal",
+        "dever; obrigação",
+        "TECH"
+      ],
+      [
+        "sen",
+        "/sen/",
+        "partícula modal",
+        "querer; desejo intencional",
+        "TECH"
+      ],
+      [
+        "ol",
+        "/ol/",
+        "preposição",
+        "para; a",
+        "TECH"
+      ]
+    ],
+    "hash": "f43016dffd772bfe2efab906859e222154df54dfd078fef3b9035c7b4b3ccffc",
+    "chapter": "Sumário",
+    "section": "DICIONÁRIO DO NÚCLEO 1.0"
+  },
+  {
+    "table_index": 134,
+    "headers": [
+      "Forma",
+      "Classe",
+      "Significado"
+    ],
+    "row_count": 36,
+    "col_count": 3,
+    "rows": [
+      [
+        "Forma",
+        "Classe",
+        "Significado"
+      ],
+      [
+        "ai",
+        "partícula",
+        "pergunta sim/não"
+      ],
+      [
+        "nai",
+        "partícula",
+        "resposta afirmativa/retomada"
+      ],
+      [
+        "li",
+        "partícula pragmática",
+        "pedido cortês"
+      ],
+      [
+        "le",
+        "partícula discursiva",
+        "retomada ou foco"
+      ],
+      [
+        "en",
+        "relação",
+        "em, no, na"
+      ],
+      [
+        "ra",
+        "relação",
+        "de, desde"
+      ],
+      [
+        "ol",
+        "relação",
+        "a, para"
+      ],
+      [
+        "ma",
+        "relação/conector",
+        "com; e"
+      ],
+      [
+        "sul",
+        "relação",
+        "sem"
+      ],
+      [
+        "nar",
+        "relação",
+        "sobre, acerca de"
+      ],
+      [
+        "ther",
+        "relação",
+        "através de"
+      ],
+      [
+        "sur",
+        "relação",
+        "além de, para fora"
+      ],
+      [
+        "nuur",
+        "relação",
+        "sob, abaixo"
+      ],
+      [
+        "ru",
+        "relação",
+        "por, via"
+      ],
+      [
+        "sha",
+        "conector",
+        "mas"
+      ],
+      [
+        "vei",
+        "conector",
+        "ou"
+      ],
+      [
+        "ren",
+        "conector",
+        "porque"
+      ],
+      [
+        "ira",
+        "conector",
+        "se"
+      ],
+      [
+        "thei",
+        "conector/relativo",
+        "que"
+      ],
+      [
+        "luu",
+        "conector temporal",
+        "enquanto"
+      ],
+      [
+        "aresh",
+        "temporal",
+        "antes"
+      ],
+      [
+        "ilash",
+        "temporal",
+        "depois"
+      ],
+      [
+        "nu",
+        "temporal",
+        "agora"
+      ],
+      [
+        "eri",
+        "temporal",
+        "então"
+      ],
+      [
+        "ei",
+        "demonstrativo",
+        "este/esta, próximo"
+      ],
+      [
+        "au",
+        "demonstrativo",
+        "esse/essa, distante"
+      ],
+      [
+        "saa",
+        "quantificador",
+        "todo"
+      ],
+      [
+        "nari",
+        "quantificador",
+        "muitos"
+      ],
+      [
+        "sari",
+        "quantificador",
+        "alguns"
+      ],
+      [
+        "nen",
+        "quantificador",
+        "nenhum"
+      ],
+      [
+        "marin",
+        "quantificador",
+        "mais"
+      ],
+      [
+        "lirin",
+        "quantificador",
+        "menos"
+      ],
+      [
+        "maa",
+        "grau",
+        "muito, intensificador"
+      ],
+      [
+        "lii",
+        "grau",
+        "pouco, atenuador"
+      ],
+      [
+        "rin",
+        "ordinal",
+        "marcador ordinal"
+      ]
+    ],
+    "hash": "ef7f85d63a9f9b9a0fc02b50a54498929284152d1971c5d9fd598428bee829cb",
+    "chapter": "Sumário",
+    "section": "DICIONÁRIO CONVERSACIONAL 2.0"
+  },
+  {
+    "table_index": 135,
+    "headers": [
+      "Forma",
+      "Classe",
+      "Significado"
+    ],
+    "row_count": 9,
+    "col_count": 3,
+    "rows": [
+      [
+        "Forma",
+        "Classe",
+        "Significado"
+      ],
+      [
+        "mai",
+        "interrogativo",
+        "quem"
+      ],
+      [
+        "sai",
+        "interrogativo",
+        "o que"
+      ],
+      [
+        "rei",
+        "interrogativo",
+        "onde"
+      ],
+      [
+        "luurai",
+        "interrogativo",
+        "quando"
+      ],
+      [
+        "nhei",
+        "interrogativo",
+        "por quê"
+      ],
+      [
+        "vai",
+        "interrogativo",
+        "como"
+      ],
+      [
+        "seri",
+        "interrogativo",
+        "qual"
+      ],
+      [
+        "maari",
+        "interrogativo",
+        "quanto, quantos"
+      ]
+    ],
+    "hash": "44b989c2b129434d367782b5ecf2bf1441207126dfafd45a25bcf1066a4a9ce2",
+    "chapter": "Sumário",
+    "section": "DICIONÁRIO CONVERSACIONAL 2.0"
+  },
+  {
+    "table_index": 136,
+    "headers": [
+      "Forma",
+      "Classe",
+      "Significado"
+    ],
+    "row_count": 55,
+    "col_count": 3,
+    "rows": [
+      [
+        "Forma",
+        "Classe",
+        "Significado"
+      ],
+      [
+        "mar",
+        "TRANS",
+        "ter, portar, manter sob custódia"
+      ],
+      [
+        "ralen",
+        "TRANS",
+        "fazer, criar, realizar"
+      ],
+      [
+        "ravel",
+        "TRANS",
+        "construir, consertar estrutura"
+      ],
+      [
+        "savel",
+        "TRANS/INTR",
+        "falar, dizer"
+      ],
+      [
+        "norel",
+        "TRANS",
+        "perguntar"
+      ],
+      [
+        "resen",
+        "TRANS/INTR",
+        "responder"
+      ],
+      [
+        "maren",
+        "TRANS",
+        "saber, conhecer, compreender"
+      ],
+      [
+        "mirem",
+        "TRANS",
+        "pensar, considerar"
+      ],
+      [
+        "sirem",
+        "TRANS",
+        "lembrar"
+      ],
+      [
+        "serem",
+        "TRANS",
+        "ler, interpretar texto"
+      ],
+      [
+        "silen",
+        "TRANS",
+        "escrever, inscrever"
+      ],
+      [
+        "virel",
+        "TRANS",
+        "ver, observar"
+      ],
+      [
+        "nher",
+        "TRANS",
+        "ouvir"
+      ],
+      [
+        "annher",
+        "TRANS",
+        "escutar deliberadamente"
+      ],
+      [
+        "mirel",
+        "TRANS",
+        "sentir, perceber internamente"
+      ],
+      [
+        "nharem",
+        "TRANS",
+        "cheirar, perceber aroma"
+      ],
+      [
+        "laren",
+        "INTR",
+        "ir, viajar"
+      ],
+      [
+        "narel",
+        "INTR",
+        "vir, chegar"
+      ],
+      [
+        "tharel",
+        "TRANS/INTR",
+        "atravessar, passar"
+      ],
+      [
+        "resh",
+        "TRANS/INTR",
+        "abrir"
+      ],
+      [
+        "sesh",
+        "TRANS",
+        "fechar, selar"
+      ],
+      [
+        "varem",
+        "DITRANS",
+        "dar, entregar"
+      ],
+      [
+        "naver",
+        "TRANS",
+        "receber"
+      ],
+      [
+        "marev",
+        "TRANS",
+        "tomar, obter"
+      ],
+      [
+        "nash",
+        "TRANS",
+        "levar, trazer, carregar"
+      ],
+      [
+        "selem",
+        "TRANS",
+        "usar, empregar"
+      ],
+      [
+        "nel",
+        "TRANS/INTR",
+        "comer"
+      ],
+      [
+        "suv",
+        "TRANS/INTR",
+        "beber"
+      ],
+      [
+        "naram",
+        "INTR",
+        "dormir, repousar"
+      ],
+      [
+        "anaram",
+        "INTR",
+        "despertar deliberadamente"
+      ],
+      [
+        "zhar",
+        "INTR",
+        "viver"
+      ],
+      [
+        "sel",
+        "INTR",
+        "terminar, cessar, morrer"
+      ],
+      [
+        "ansel",
+        "TRANS",
+        "encerrar ou matar deliberadamente"
+      ],
+      [
+        "var",
+        "TRANS",
+        "proteger, guardar"
+      ],
+      [
+        "rav",
+        "TRANS",
+        "atacar, golpear"
+      ],
+      [
+        "raav",
+        "TRANS",
+        "cortar"
+      ],
+      [
+        "shar",
+        "TRANS",
+        "ajudar, auxiliar"
+      ],
+      [
+        "miral",
+        "TRANS",
+        "curar, restaurar ser vivo"
+      ],
+      [
+        "lurem",
+        "INTR",
+        "esperar, aguardar"
+      ],
+      [
+        "surel",
+        "TRANS",
+        "encontrar, descobrir"
+      ],
+      [
+        "valen",
+        "TRANS",
+        "escolher, decidir"
+      ],
+      [
+        "lerem",
+        "TRANS",
+        "aprender"
+      ],
+      [
+        "anlerem",
+        "DITRANS",
+        "ensinar"
+      ],
+      [
+        "vethim",
+        "REL",
+        "confiar ou compartilhar reciprocamente"
+      ],
+      [
+        "senveth",
+        "REL",
+        "consentir livremente a relação ou ação"
+      ],
+      [
+        "senel",
+        "TRANS",
+        "desejar, querer uma coisa"
+      ],
+      [
+        "nhevar",
+        "TRANS",
+        "temer"
+      ],
+      [
+        "veran",
+        "INTR/TRANS",
+        "trabalhar, laborar"
+      ],
+      [
+        "nuvel",
+        "TRANS/INTR",
+        "esconder, ocultar-se"
+      ],
+      [
+        "anmanesh",
+        "TRANS",
+        "revelar, manifestar deliberadamente"
+      ],
+      [
+        "rilen",
+        "TRANS",
+        "seguir"
+      ],
+      [
+        "vilen",
+        "TRANS",
+        "conduzir, guiar"
+      ],
+      [
+        "sharem",
+        "TRANS",
+        "encontrar-se com, conhecer em encontro"
+      ],
+      [
+        "zherel",
+        "TRANS/INTR",
+        "mudar, transformar"
+      ]
+    ],
+    "hash": "e044c18e884e23aafa80a5d5d2d4ac678452d7147f0f843f448684dafff226a2",
+    "chapter": "Sumário",
+    "section": "DICIONÁRIO CONVERSACIONAL 2.0"
+  },
+  {
+    "table_index": 137,
+    "headers": [
+      "Forma",
+      "Classe",
+      "Significado"
+    ],
+    "row_count": 14,
+    "col_count": 3,
+    "rows": [
+      [
+        "Forma",
+        "Classe",
+        "Significado"
+      ],
+      [
+        "miran",
+        "substantivo relacional",
+        "pessoa, indivíduo dotado de identidade"
+      ],
+      [
+        "miranin",
+        "substantivo",
+        "pessoas consideradas separadamente"
+      ],
+      [
+        "mirari",
+        "substantivo coletivo",
+        "comunidade viva de pessoas"
+      ],
+      [
+        "niran",
+        "substantivo",
+        "criança, jovem dependente"
+      ],
+      [
+        "luuran",
+        "substantivo",
+        "ancião, pessoa de longa memória"
+      ],
+      [
+        "vethan",
+        "substantivo",
+        "companheiro, aliado, pessoa vinculada"
+      ],
+      [
+        "varan",
+        "substantivo",
+        "guardião, protetor"
+      ],
+      [
+        "ravan",
+        "substantivo",
+        "atacante, adversário"
+      ],
+      [
+        "lereman",
+        "substantivo",
+        "aprendiz, estudante"
+      ],
+      [
+        "anlereman",
+        "substantivo",
+        "professor, mestre de aprendizagem"
+      ],
+      [
+        "sireman",
+        "substantivo",
+        "guardião de memória, arquivista"
+      ],
+      [
+        "ralenan",
+        "substantivo",
+        "criador, artesão"
+      ],
+      [
+        "lesan",
+        "substantivo",
+        "testemunha, nomeador preciso"
+      ]
+    ],
+    "hash": "244e312b91f6b7830b2a4491e181e4a4fb7bcc5a36d25e4db5f32d864758d236",
+    "chapter": "Sumário",
+    "section": "DICIONÁRIO CONVERSACIONAL 2.0"
+  },
+  {
+    "table_index": 138,
+    "headers": [
+      "Forma",
+      "Classe",
+      "Significado"
+    ],
+    "row_count": 11,
+    "col_count": 3,
+    "rows": [
+      [
+        "Forma",
+        "Classe",
+        "Significado"
+      ],
+      [
+        "lesun",
+        "substantivo",
+        "nome reconhecido; identidade nomeável"
+      ],
+      [
+        "mirun",
+        "substantivo",
+        "individualidade, self, identidade própria"
+      ],
+      [
+        "siremun",
+        "substantivo",
+        "memória, lembrança preservada"
+      ],
+      [
+        "miremun",
+        "substantivo",
+        "pensamento, ideia"
+      ],
+      [
+        "leremun",
+        "substantivo",
+        "conhecimento aprendido"
+      ],
+      [
+        "vethun",
+        "substantivo",
+        "compromisso, qualidade de vínculo"
+      ],
+      [
+        "rimen",
+        "substantivo",
+        "limite pessoal que preserva identidade"
+      ],
+      [
+        "seneth",
+        "substantivo",
+        "promessa intencional e selada"
+      ],
+      [
+        "vaneth",
+        "substantivo",
+        "dever aceito e selado"
+      ],
+      [
+        "selun",
+        "substantivo",
+        "fim, cessação, morte como estado"
+      ]
+    ],
+    "hash": "b6e008d305581179410b7dd4053798e9363087b3d0c2bd091de2edde106cea91",
+    "chapter": "Sumário",
+    "section": "DICIONÁRIO CONVERSACIONAL 2.0"
+  },
+  {
+    "table_index": 139,
+    "headers": [
+      "Forma",
+      "Classe",
+      "Significado"
+    ],
+    "row_count": 11,
+    "col_count": 3,
+    "rows": [
+      [
+        "Forma",
+        "Classe",
+        "Significado"
+      ],
+      [
+        "narim",
+        "substantivo",
+        "corpo, forma viva individual"
+      ],
+      [
+        "lesha",
+        "substantivo",
+        "rosto, face reconhecível"
+      ],
+      [
+        "silei",
+        "substantivo",
+        "olho"
+      ],
+      [
+        "nheri",
+        "substantivo",
+        "ouvido, orelha"
+      ],
+      [
+        "savelesh",
+        "substantivo",
+        "boca, aparelho da fala"
+      ],
+      [
+        "mireth",
+        "substantivo",
+        "coração, núcleo vital ou afetivo"
+      ],
+      [
+        "raush",
+        "substantivo",
+        "sangue"
+      ],
+      [
+        "nhavel",
+        "substantivo",
+        "respiração, sopro vital"
+      ],
+      [
+        "zhal",
+        "substantivo",
+        "sussurro, voz baixa"
+      ],
+      [
+        "ravun",
+        "substantivo/qualidade",
+        "ferida, dano, perigo; ferido, perigoso"
+      ]
+    ],
+    "hash": "5bedae3e4a3909feedfbddd956a5aa50af308370fdd31ec7627c8ca651447991",
+    "chapter": "Sumário",
+    "section": "DICIONÁRIO CONVERSACIONAL 2.0"
+  },
+  {
+    "table_index": 140,
+    "headers": [
+      "Forma",
+      "Classe",
+      "Significado"
+    ],
+    "row_count": 23,
+    "col_count": 3,
+    "rows": [
+      [
+        "Forma",
+        "Classe",
+        "Significado"
+      ],
+      [
+        "varam",
+        "substantivo",
+        "mundo, realidade habitável"
+      ],
+      [
+        "namol",
+        "substantivo",
+        "casa, lar, morada"
+      ],
+      [
+        "sair",
+        "substantivo",
+        "cidade, assentamento"
+      ],
+      [
+        "varol",
+        "substantivo",
+        "refúgio, fortaleza, lugar protegido"
+      ],
+      [
+        "tharol",
+        "substantivo",
+        "portal, portão, lugar de passagem"
+      ],
+      [
+        "tharvesh",
+        "substantivo",
+        "Fresta, fissura transitável ou instável"
+      ],
+      [
+        "siremol",
+        "substantivo",
+        "arquivo, biblioteca, lugar de memória"
+      ],
+      [
+        "noovethol",
+        "substantivo",
+        "oficina ou câmara de magia"
+      ],
+      [
+        "ravem",
+        "substantivo",
+        "terra firme, chão"
+      ],
+      [
+        "velol",
+        "substantivo",
+        "céu, espaço de voo"
+      ],
+      [
+        "niva",
+        "substantivo",
+        "água"
+      ],
+      [
+        "nivaren",
+        "substantivo",
+        "rio, água em curso"
+      ],
+      [
+        "nivaar",
+        "substantivo",
+        "mar, grande extensão de água"
+      ],
+      [
+        "shara",
+        "substantivo",
+        "fogo, chama material"
+      ],
+      [
+        "velai",
+        "substantivo",
+        "ar, vento"
+      ],
+      [
+        "rava",
+        "substantivo",
+        "solo, terra, matéria terrosa"
+      ],
+      [
+        "vithra",
+        "substantivo",
+        "cristal, matéria cristalina"
+      ],
+      [
+        "narem",
+        "substantivo",
+        "árvore, planta de grande porte"
+      ],
+      [
+        "naremari",
+        "coletivo",
+        "bosque, floresta como coletivo vivo"
+      ],
+      [
+        "silmi",
+        "substantivo",
+        "estrela, ponto material de luz"
+      ],
+      [
+        "silmeh",
+        "substantivo",
+        "dia, período de luz física"
+      ],
+      [
+        "luumeh vesilma",
+        "expressão",
+        "noite, período de ausência de luz física"
+      ]
+    ],
+    "hash": "c611fd7f5ff7eb4ddd14ad1bc15955e919bcb53b6aad99836579b207d8dce365",
+    "chapter": "Sumário",
+    "section": "DICIONÁRIO CONVERSACIONAL 2.0"
+  },
+  {
+    "table_index": 141,
+    "headers": [
+      "Forma",
+      "Classe",
+      "Significado"
+    ],
+    "row_count": 15,
+    "col_count": 3,
+    "rows": [
+      [
+        "Forma",
+        "Classe",
+        "Significado"
+      ],
+      [
+        "siremesh",
+        "substantivo",
+        "livro, registro, suporte de memória"
+      ],
+      [
+        "silmainesh",
+        "substantivo",
+        "estilete, pena ou instrumento de escrita"
+      ],
+      [
+        "tharenesh",
+        "substantivo",
+        "mapa, bússola ou instrumento de navegação"
+      ],
+      [
+        "reshesh",
+        "substantivo",
+        "chave, mecanismo de abertura"
+      ],
+      [
+        "vethesh",
+        "substantivo",
+        "corda, elo ou instrumento de ligação"
+      ],
+      [
+        "varesh",
+        "substantivo",
+        "escudo, instrumento de proteção"
+      ],
+      [
+        "ravesh",
+        "substantivo",
+        "arma, instrumento de ataque"
+      ],
+      [
+        "raavesh",
+        "substantivo",
+        "lâmina, espada, instrumento de corte"
+      ],
+      [
+        "varunesh",
+        "substantivo",
+        "armadura, cobertura protetora"
+      ],
+      [
+        "nelun",
+        "substantivo",
+        "alimento, refeição"
+      ],
+      [
+        "suvun",
+        "substantivo",
+        "bebida"
+      ],
+      [
+        "navir",
+        "substantivo",
+        "moeda, marcador de valor"
+      ],
+      [
+        "suval",
+        "substantivo",
+        "tecido, pano"
+      ],
+      [
+        "noovethesh",
+        "substantivo",
+        "feitiço, fórmula ou foco de tecelagem mágica"
+      ]
+    ],
+    "hash": "ddca5bc67a20ec00cea55ce6580e5f3698a6cc27190fd6d4ae502632f54bc156",
+    "chapter": "Sumário",
+    "section": "DICIONÁRIO CONVERSACIONAL 2.0"
+  },
+  {
+    "table_index": 142,
+    "headers": [
+      "Forma",
+      "Classe",
+      "Significado"
+    ],
+    "row_count": 31,
+    "col_count": 3,
+    "rows": [
+      [
+        "Forma",
+        "Classe",
+        "Significado"
+      ],
+      [
+        "saren",
+        "qualidade",
+        "bom, correto, saudável; bem"
+      ],
+      [
+        "vesaren",
+        "qualidade",
+        "ruim, incorreto, doente; sem implicar Sombra"
+      ],
+      [
+        "zharen",
+        "qualidade/substantivo",
+        "verdadeiro, real; verdade"
+      ],
+      [
+        "vezharen",
+        "qualidade",
+        "falso, irreal; falsidade comum"
+      ],
+      [
+        "maaren",
+        "qualidade",
+        "grande, amplo, importante"
+      ],
+      [
+        "simin",
+        "qualidade",
+        "pequeno, reduzido"
+      ],
+      [
+        "varen",
+        "qualidade",
+        "novo, recente"
+      ],
+      [
+        "luuren",
+        "qualidade",
+        "velho, antigo"
+      ],
+      [
+        "niren",
+        "qualidade",
+        "jovem, recente em vida"
+      ],
+      [
+        "liven",
+        "qualidade",
+        "rápido"
+      ],
+      [
+        "luren",
+        "qualidade",
+        "lento"
+      ],
+      [
+        "liren",
+        "qualidade",
+        "próximo, perto"
+      ],
+      [
+        "suren",
+        "qualidade",
+        "distante, longe"
+      ],
+      [
+        "mauren",
+        "qualidade",
+        "quente, morno"
+      ],
+      [
+        "shuren",
+        "qualidade",
+        "frio"
+      ],
+      [
+        "reshen",
+        "qualidade",
+        "aberto"
+      ],
+      [
+        "seshen",
+        "qualidade",
+        "fechado, selado"
+      ],
+      [
+        "varun",
+        "qualidade/substantivo",
+        "seguro, protegido; segurança"
+      ],
+      [
+        "silven",
+        "qualidade",
+        "brilhante, dourado ou amarelo"
+      ],
+      [
+        "vethen",
+        "qualidade",
+        "relacionado, aliado"
+      ],
+      [
+        "meren",
+        "qualidade",
+        "calmo, quieto"
+      ],
+      [
+        "nhevaren",
+        "qualidade",
+        "temeroso, com medo"
+      ],
+      [
+        "lirun",
+        "qualidade",
+        "belo, harmonioso"
+      ],
+      [
+        "velun",
+        "qualidade",
+        "livre, não submetido"
+      ],
+      [
+        "vanun",
+        "qualidade",
+        "necessário, obrigatório"
+      ],
+      [
+        "senun",
+        "qualidade",
+        "desejado, querido"
+      ],
+      [
+        "marenun",
+        "qualidade",
+        "conhecido, compreendido"
+      ],
+      [
+        "vemarenun",
+        "qualidade",
+        "desconhecido, não compreendido"
+      ],
+      [
+        "saarun",
+        "qualidade",
+        "inteiro, completo"
+      ],
+      [
+        "vesaarun",
+        "qualidade",
+        "incompleto, partido; não inferior"
+      ]
+    ],
+    "hash": "17b1357191e5e550296bcb8e9c9b284afeb98f1911a0c3a5f51481c006be0d4d",
+    "chapter": "Sumário",
+    "section": "DICIONÁRIO CONVERSACIONAL 2.0"
+  },
+  {
+    "table_index": 143,
+    "headers": [
+      "Forma",
+      "Classe",
+      "Significado"
+    ],
+    "row_count": 8,
+    "col_count": 3,
+    "rows": [
+      [
+        "Forma",
+        "Classe",
+        "Significado"
+      ],
+      [
+        "raaven",
+        "cor",
+        "vermelho, carmesim"
+      ],
+      [
+        "silvaren",
+        "cor",
+        "amarelo, dourado"
+      ],
+      [
+        "niven",
+        "cor",
+        "azul"
+      ],
+      [
+        "nareven",
+        "cor",
+        "verde"
+      ],
+      [
+        "sileven",
+        "cor",
+        "branco, claro"
+      ],
+      [
+        "vesilven",
+        "cor",
+        "preto, escuro material"
+      ],
+      [
+        "zhuren",
+        "cor",
+        "violeta, púrpura"
+      ]
+    ],
+    "hash": "29c82f2f809206c68f59f2798c9adb31e688e3ccc66eded88cb800b305838d71",
+    "chapter": "Sumário",
+    "section": "DICIONÁRIO CONVERSACIONAL 2.0"
+  },
+  {
+    "table_index": 144,
+    "headers": [
+      "Forma",
+      "Classe/valor",
+      "Significado"
+    ],
+    "row_count": 21,
+    "col_count": 3,
+    "rows": [
+      [
+        "Forma",
+        "Classe/valor",
+        "Significado"
+      ],
+      [
+        "mi",
+        "pronome",
+        "eu"
+      ],
+      [
+        "vi",
+        "pronome",
+        "você/tu"
+      ],
+      [
+        "si",
+        "pronome",
+        "ele/ela/isso"
+      ],
+      [
+        "na",
+        "pronome",
+        "nós"
+      ],
+      [
+        "viin",
+        "pronome",
+        "vocês"
+      ],
+      [
+        "siin",
+        "pronome",
+        "eles/elas"
+      ],
+      [
+        "mir",
+        "pronome",
+        "pronome reflexivo/identitário"
+      ],
+      [
+        "nul",
+        "número",
+        "0"
+      ],
+      [
+        "ain",
+        "número",
+        "1"
+      ],
+      [
+        "mor",
+        "número",
+        "2"
+      ],
+      [
+        "sar",
+        "número",
+        "3"
+      ],
+      [
+        "vor",
+        "número",
+        "4"
+      ],
+      [
+        "nhel",
+        "número",
+        "5"
+      ],
+      [
+        "shur",
+        "número",
+        "6"
+      ],
+      [
+        "ruun",
+        "número",
+        "7"
+      ],
+      [
+        "zhei",
+        "número",
+        "8"
+      ],
+      [
+        "nav",
+        "número",
+        "9"
+      ],
+      [
+        "maar",
+        "número",
+        "10"
+      ],
+      [
+        "saal",
+        "número",
+        "100"
+      ],
+      [
+        "luur",
+        "número",
+        "1000"
+      ]
+    ],
+    "hash": "6e92c0954f35ff73fcb400ef032f23db979bc1220832ecd4feac7d4027147faf",
+    "chapter": "Sumário",
+    "section": "DICIONÁRIO CONVERSACIONAL 2.0"
+  },
+  {
+    "table_index": 145,
+    "headers": [
+      "Velarim",
+      "Português"
+    ],
+    "row_count": 41,
+    "col_count": 2,
+    "rows": [
+      [
+        "Velarim",
+        "Português"
+      ],
+      [
+        "Mi virel vi.",
+        "Eu vejo você."
+      ],
+      [
+        "Mi vi virel.",
+        "Eu vejo você. (ordem da Escuridão)"
+      ],
+      [
+        "Ai vi maren Velarim?",
+        "Você entende Velarim?"
+      ],
+      [
+        "Nai. Mi maren.",
+        "Sim. Eu entendo."
+      ],
+      [
+        "Mi ve maren.",
+        "Eu não entendo."
+      ],
+      [
+        "Li savel luren.",
+        "Por favor, fale devagar."
+      ],
+      [
+        "Mai vi?",
+        "Quem é você?"
+      ],
+      [
+        "Mi nam Antônio.",
+        "Eu sou/permaneço Antônio."
+      ],
+      [
+        "Rei nam tharol?",
+        "Onde está o portal?"
+      ],
+      [
+        "Tharol nam en varol.",
+        "O portal está no refúgio."
+      ],
+      [
+        "Ve tav au!",
+        "Não toque nisso!"
+      ],
+      [
+        "Ira vi virel kav, ve laren ol si.",
+        "Se vir a Sombra, não vá até ela."
+      ],
+      [
+        "Thuvel ve nam kav.",
+        "A Escuridão não é a Sombra."
+      ],
+      [
+        "Vesilma ve nam thuvel.",
+        "Ausência de luz não é a Escuridão cosmológica."
+      ],
+      [
+        "Mirveth nam miran saarun.",
+        "A contraparte é uma pessoa inteira."
+      ],
+      [
+        "Ai vi senveth?",
+        "Você consente?"
+      ],
+      [
+        "Mi ve senveth.",
+        "Eu não consinto."
+      ],
+      [
+        "Rimen mi nam.",
+        "Meu limite permanece."
+      ],
+      [
+        "Vethari na mirveth.",
+        "Que façamos Merge, contraparte."
+      ],
+      [
+        "Na vethari ira saa miran senveth.",
+        "Faremos Merge se todas as pessoas consentirem."
+      ],
+      [
+        "Li var niran.",
+        "Por favor, proteja a criança."
+      ],
+      [
+        "Na van sesh tharol.",
+        "Nós devemos fechar o portal."
+      ],
+      [
+        "Mi senel niva.",
+        "Eu quero água."
+      ],
+      [
+        "Varem niva ol mi.",
+        "Dê água a mim."
+      ],
+      [
+        "Maari navir?",
+        "Quanto custa?"
+      ],
+      [
+        "Sari navir.",
+        "Algumas moedas."
+      ],
+      [
+        "Aresh na laren, na nel.",
+        "Antes de viajarmos, comemos."
+      ],
+      [
+        "Ilash na narel, na naram.",
+        "Depois que chegarmos, descansaremos."
+      ],
+      [
+        "Ei siremesh nam ra sireman.",
+        "Este livro é do arquivista."
+      ],
+      [
+        "Mi serem siremesh.",
+        "Eu leio o livro."
+      ],
+      [
+        "Mi silen lesun.",
+        "Eu escrevo o nome reconhecido."
+      ],
+      [
+        "Vi ve kir tharel tharol.",
+        "Você não pode atravessar o portal."
+      ],
+      [
+        "Tharvesh nam ravun.",
+        "A Fresta é perigosa."
+      ],
+      [
+        "Varol nam varun.",
+        "O refúgio é seguro."
+      ],
+      [
+        "Kav vezharen savel.",
+        "A Sombra fala falsidade."
+      ],
+      [
+        "Zharen nam en siremun.",
+        "A verdade permanece na memória."
+      ],
+      [
+        "Na vethim.",
+        "Nós confiamos reciprocamente."
+      ],
+      [
+        "Mi shar vi.",
+        "Eu ajudo você."
+      ],
+      [
+        "Curador: mi miral vi.",
+        "Eu curo/restauro você."
+      ],
+      [
+        "Batedor: mi vilen na.",
+        "Eu guio nosso grupo."
+      ]
+    ],
+    "hash": "6f2823c39f769e137ffed2ca1c0be1b6c56b1bf2661d2ca24110e559511a0886",
+    "chapter": "Sumário",
+    "section": "FRASEÁRIO DE MESA"
+  },
+  {
+    "table_index": 146,
+    "headers": [
+      "#",
+      "Forma",
+      "Tradução"
+    ],
+    "row_count": 63,
+    "col_count": 3,
+    "rows": [
+      [
+        "#",
+        "Forma",
+        "Tradução"
+      ],
+      [
+        "1",
+        "Mi virel vi.",
+        "Eu vejo você."
+      ],
+      [
+        "2",
+        "Mi vi virel.",
+        "Eu vejo você. (ordem da Escuridão)"
+      ],
+      [
+        "3",
+        "Ai vi maren Velarim?",
+        "Você entende Velarim?"
+      ],
+      [
+        "4",
+        "Nai. Mi maren.",
+        "Sim. Eu entendo."
+      ],
+      [
+        "5",
+        "Mi ve maren.",
+        "Eu não entendo."
+      ],
+      [
+        "6",
+        "Li savel luren.",
+        "Por favor, fale devagar."
+      ],
+      [
+        "7",
+        "Mai vi?",
+        "Quem é você?"
+      ],
+      [
+        "8",
+        "Mi nam Antônio.",
+        "Eu sou/permaneço Antônio."
+      ],
+      [
+        "9",
+        "Rei nam tharol?",
+        "Onde está o portal?"
+      ],
+      [
+        "10",
+        "Tharol nam en varol.",
+        "O portal está no refúgio."
+      ],
+      [
+        "11",
+        "Ve tav au!",
+        "Não toque nisso!"
+      ],
+      [
+        "12",
+        "Ira vi virel kav, ve laren ol si.",
+        "Se vir a Sombra, não vá até ela."
+      ],
+      [
+        "13",
+        "Thuvel ve nam kav.",
+        "A Escuridão não é a Sombra."
+      ],
+      [
+        "14",
+        "Vesilma ve nam thuvel.",
+        "Ausência de luz não é a Escuridão cosmológica."
+      ],
+      [
+        "15",
+        "Mirveth nam miran saarun.",
+        "A contraparte é uma pessoa inteira."
+      ],
+      [
+        "16",
+        "Ai vi senveth?",
+        "Você consente?"
+      ],
+      [
+        "17",
+        "Mi ve senveth.",
+        "Eu não consinto."
+      ],
+      [
+        "18",
+        "Rimen mi nam.",
+        "Meu limite permanece."
+      ],
+      [
+        "19",
+        "Vethari na mirveth.",
+        "Que façamos Merge, contraparte."
+      ],
+      [
+        "20",
+        "Na vethari ira saa miran senveth.",
+        "Faremos Merge se todas as pessoas consentirem."
+      ],
+      [
+        "21",
+        "Li var niran.",
+        "Por favor, proteja a criança."
+      ],
+      [
+        "22",
+        "Na van sesh tharol.",
+        "Nós devemos fechar o portal."
+      ],
+      [
+        "23",
+        "Mi senel niva.",
+        "Eu quero água."
+      ],
+      [
+        "24",
+        "Varem niva ol mi.",
+        "Dê água a mim."
+      ],
+      [
+        "25",
+        "Maari navir?",
+        "Quanto custa?"
+      ],
+      [
+        "26",
+        "Sari navir.",
+        "Algumas moedas."
+      ],
+      [
+        "27",
+        "Aresh na laren, na nel.",
+        "Antes de viajarmos, comemos."
+      ],
+      [
+        "28",
+        "Ilash na narel, na naram.",
+        "Depois que chegarmos, descansaremos."
+      ],
+      [
+        "29",
+        "Ei siremesh nam ra sireman.",
+        "Este livro é do arquivista."
+      ],
+      [
+        "30",
+        "Mi serem siremesh.",
+        "Eu leio o livro."
+      ],
+      [
+        "31",
+        "Mi silen lesun.",
+        "Eu escrevo o nome reconhecido."
+      ],
+      [
+        "32",
+        "Vi ve kir tharel tharol.",
+        "Você não pode atravessar o portal."
+      ],
+      [
+        "33",
+        "Tharvesh nam ravun.",
+        "A Fresta é perigosa."
+      ],
+      [
+        "34",
+        "Varol nam varun.",
+        "O refúgio é seguro."
+      ],
+      [
+        "35",
+        "Kav vezharen savel.",
+        "A Sombra fala falsidade."
+      ],
+      [
+        "36",
+        "Zharen nam en siremun.",
+        "A verdade permanece na memória."
+      ],
+      [
+        "37",
+        "Na vethim.",
+        "Nós confiamos reciprocamente."
+      ],
+      [
+        "38",
+        "Mi shar vi.",
+        "Eu ajudo você."
+      ],
+      [
+        "39",
+        "Curador: mi miral vi.",
+        "Eu curo/restauro você."
+      ],
+      [
+        "40",
+        "Batedor: mi vilen na.",
+        "Eu guio nosso grupo."
+      ],
+      [
+        "41",
+        "Mi virel silmi.",
+        "Eu vejo a estrela."
+      ],
+      [
+        "42",
+        "Mi serem siremesh.",
+        "Eu leio o livro."
+      ],
+      [
+        "43",
+        "Mi silen lesun.",
+        "Eu escrevo o nome."
+      ],
+      [
+        "44",
+        "Mi var niran.",
+        "Eu protejo a criança."
+      ],
+      [
+        "45",
+        "Mi resh tharol.",
+        "Eu abro o portal."
+      ],
+      [
+        "46",
+        "Mi sesh tharol.",
+        "Eu fecho o portal."
+      ],
+      [
+        "47",
+        "Mi surem tharen.",
+        "Eu encontro o caminho."
+      ],
+      [
+        "48",
+        "Mi maren zharen.",
+        "Eu compreendo a verdade."
+      ],
+      [
+        "49",
+        "Mi sirem seneth.",
+        "Eu lembro a promessa."
+      ],
+      [
+        "50",
+        "Mi selem tharenesh.",
+        "Eu uso o mapa."
+      ],
+      [
+        "51",
+        "Mi nash nelun.",
+        "Eu carrego alimento."
+      ],
+      [
+        "52",
+        "Mi vi virel.",
+        "Eu vejo você. (ordem da Escuridão)."
+      ],
+      [
+        "53",
+        "Ve virel vi.",
+        "Não vejo você."
+      ],
+      [
+        "54",
+        "Mi virel vi.",
+        "Eu vejo você. (ordem da Escuridão) (ordem da Escuridão)."
+      ],
+      [
+        "55",
+        "Ve vi virel.",
+        "Não vejo você. (ordem da escuridão)"
+      ],
+      [
+        "56",
+        "Mi maren ve.",
+        "Eu não entendo. (ordem da Escuridão)."
+      ],
+      [
+        "57",
+        "Ve ve maren.",
+        "Não não entendo."
+      ],
+      [
+        "58",
+        "Mi Antônio nam.",
+        "Eu sou/permaneço Antônio. (ordem da Escuridão)."
+      ],
+      [
+        "59",
+        "Ve nam Antônio.",
+        "Não sou/permaneço antônio."
+      ],
+      [
+        "60",
+        "Mi senveth ve.",
+        "Eu não consinto. (ordem da Escuridão)."
+      ],
+      [
+        "61",
+        "Ve ve senveth.",
+        "Não não consinto."
+      ],
+      [
+        "62",
+        "Mi niva senel.",
+        "Eu quero água. (ordem da Escuridão)."
+      ]
+    ],
+    "hash": "f5dc89ab53a694dcd74875493e170f0f678576cbca1d238259139223fea567d8",
+    "chapter": "Sumário",
+    "section": "CORPUS DE VALIDAÇÃO HUMANA"
+  },
+  {
+    "table_index": 147,
+    "headers": [
+      "ID",
+      "Fundamento"
+    ],
+    "row_count": 15,
+    "col_count": 2,
+    "rows": [
+      [
+        "ID",
+        "Fundamento"
+      ],
+      [
+        "F-01",
+        "Luz não significa bondade; Escuridão não significa maldade; Sombra é assimilação, domínio e apagamento."
+      ],
+      [
+        "F-02",
+        "Mirveth são pessoas completas e autônomas; não são metades, cópias ou recipientes."
+      ],
+      [
+        "F-03",
+        "Merge legítimo exige consentimento e preservação de identidades."
+      ],
+      [
+        "F-04",
+        "O teste usa Dado da Luz + Dado da Escuridão + Atributo + Perícia."
+      ],
+      [
+        "F-05",
+        "O total decide sucesso; os valores naturais qualificam como o resultado entra no mundo."
+      ],
+      [
+        "F-06",
+        "A grade tática vigente é ortogonal; hexágonos e coordenadas axiais estão superados."
+      ],
+      [
+        "F-07",
+        "Somente o dano-base recebe multiplicadores ×1 a ×5; Proteção é aplicada depois."
+      ],
+      [
+        "F-08",
+        "Povo não determina moralidade, personalidade, profissão ou destino."
+      ],
+      [
+        "F-09",
+        "Ofício é prática aprendida, sustentada por Chave e Trilha; memória de Trilhas inativas permanece."
+      ],
+      [
+        "F-10",
+        "O Mundo da Luz e o Mundo da Escuridão são realidades materiais completas e distintas."
+      ],
+      [
+        "F-11",
+        "A cronologia normativa usa Marcos Históricos 0 a 7; datas absolutas antigas são legado literário."
+      ],
+      [
+        "F-12",
+        "O futuro do Tempo da Escolha não está pré-escrito."
+      ],
+      [
+        "F-13",
+        "Adversário é função na cena, não natureza moral de um Povo."
+      ],
+      [
+        "F-14",
+        "Velarim 2.0 possui 250 registros ativos; língua nova não é criada automaticamente por IA ou software."
+      ]
+    ],
+    "hash": "e320a8aa51318812ba48629750a2d9c29528224384597bc45fe95af32172543f",
+    "chapter": "Sumário",
+    "section": "CONCLUSÃO"
+  }
+]

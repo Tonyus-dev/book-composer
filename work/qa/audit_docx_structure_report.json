@@ -1,0 +1,171 @@
+{
+  "total_sections": 2,
+  "landscape_sections": 0,
+  "sections": [
+    {
+      "orientation": "portrait",
+      "w": 11906,
+      "h": 16838
+    },
+    {
+      "orientation": "portrait",
+      "w": 11906,
+      "h": 16838,
+      "is_document_level": true
+    }
+  ],
+  "total_bookmarks": 974,
+  "bookmarks_sample": [
+    {
+      "id": "1000",
+      "name": "cap_Pr_logo_O_nome_que_atravessa_a_Fratura"
+    },
+    {
+      "id": "1001",
+      "name": "parte_PARTE_I_O_CRISTAL_PARTIDO"
+    },
+    {
+      "id": "1002",
+      "name": "cap_1_O_que_KALLISTIS"
+    },
+    {
+      "id": "1003",
+      "name": "sec_1_1_O_que_as_personagens_fazem"
+    },
+    {
+      "id": "1004",
+      "name": "sec_1_2_Tr_s_compromissos_do_jogo"
+    },
+    {
+      "id": "1005",
+      "name": "sss_1_2_0_1_Diferen_a_gera_possibilidade"
+    },
+    {
+      "id": "1006",
+      "name": "sss_1_2_0_2_Poder_exige_rela_o"
+    },
+    {
+      "id": "1007",
+      "name": "sss_1_2_0_3_Consequ_ncia_n_o_puni_o_autom_ti"
+    },
+    {
+      "id": "1008",
+      "name": "sec_1_3_O_que_KALLISTIS_n_o_exige"
+    },
+    {
+      "id": "1009",
+      "name": "cap_2_Luz_Escurid_o_Sombra_e_Fratura"
+    },
+    {
+      "id": "1010",
+      "name": "sec_2_1_O_Grande_Cristal"
+    },
+    {
+      "id": "1011",
+      "name": "sec_2_2_Mirveth_e_integridade"
+    },
+    {
+      "id": "1012",
+      "name": "sec_2_3_Merge_leg_timo"
+    },
+    {
+      "id": "1013",
+      "name": "cap_3_Hist_ria_do_mundo_partido"
+    },
+    {
+      "id": "1014",
+      "name": "sec_3_1_PRE_MBULO"
+    },
+    {
+      "id": "1015",
+      "name": "sub_3_1_1_Toda_hist_ria_uma_cicatriz"
+    },
+    {
+      "id": "1016",
+      "name": "sec_3_2_MARCO_ZERO_A_ERA_DA_UNI_O"
+    },
+    {
+      "id": "1017",
+      "name": "sub_3_2_1_Antes_que_houvesse_dois_mundos"
+    },
+    {
+      "id": "1018",
+      "name": "sub_3_2_2_Velarim_antes_da_Fratura"
+    },
+    {
+      "id": "1019",
+      "name": "sub_3_2_3_Os_seres_da_Uni_o"
+    }
+  ],
+  "total_fields": 0,
+  "fields_sample": [],
+  "styles_used": [
+    "Heading 1",
+    "Heading 2",
+    "Heading 3",
+    "Heading 4",
+    "Kallistis Body Justify",
+    "Kallistis Box Playtest",
+    "Kallistis Caption",
+    "Kallistis Chapter",
+    "Kallistis LiteraryOpener",
+    "Kallistis Part",
+    "Kallistis Title",
+    "Kallistis Velarim",
+    "Normal"
+  ],
+  "total_styles": 13,
+  "image_relationships": 52,
+  "image_rels_sample": [
+    {
+      "rel_file": "word/_rels/document.xml.rels",
+      "type": "image",
+      "target": "media/rId625.jpg"
+    },
+    {
+      "rel_file": "word/_rels/document.xml.rels",
+      "type": "image",
+      "target": "media/rId482.jpg"
+    },
+    {
+      "rel_file": "word/_rels/document.xml.rels",
+      "type": "image",
+      "target": "media/rId20.jpg"
+    },
+    {
+      "rel_file": "word/_rels/document.xml.rels",
+      "type": "image",
+      "target": "media/rId547.jpg"
+    },
+    {
+      "rel_file": "word/_rels/document.xml.rels",
+      "type": "image",
+      "target": "media/rId32.jpg"
+    },
+    {
+      "rel_file": "word/_rels/document.xml.rels",
+      "type": "image",
+      "target": "media/rId272.jpg"
+    },
+    {
+      "rel_file": "word/_rels/document.xml.rels",
+      "type": "image",
+      "target": "media/rId562.jpg"
+    },
+    {
+      "rel_file": "word/_rels/document.xml.rels",
+      "type": "image",
+      "target": "media/rId581.jpg"
+    },
+    {
+      "rel_file": "word/_rels/document.xml.rels",
+      "type": "image",
+      "target": "media/rId584.jpg"
+    },
+    {
+      "rel_file": "word/_rels/document.xml.rels",
+      "type": "image",
+      "target": "media/rId587.jpg"
+    }
+  ]
+}

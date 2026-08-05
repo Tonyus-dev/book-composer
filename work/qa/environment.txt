@@ -1,0 +1,22 @@
+=== Ambiente de execução – KALLISTIS Baseline ===
+Registrado em: 2026-08-05T00:31:24Z
+
+Python:
+Python 3.12.3
+
+pip:
+pip 26.2.1 from /home/tonyus-dev/Projetos/RPG/kallistis libro/KALLISTIS_PARA_ANTIGRAVITY/.venv/lib/python3.12/site-packages/pip (python 3.12)
+
+python-docx:
+Name: python-docx
+Version: 1.2.0
+Location: /home/tonyus-dev/Projetos/RPG/kallistis libro/KALLISTIS_PARA_ANTIGRAVITY/.venv/lib/python3.12/site-packages
+
+lxml:
+Name: lxml
+Version: 6.1.1
+Location: /home/tonyus-dev/Projetos/RPG/kallistis libro/KALLISTIS_PARA_ANTIGRAVITY/.venv/lib/python3.12/site-packages
+
+LibreOffice:
+LibreOffice 24.2.7.2 420(Build:2)
+

@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+work/renders_source/
+work/renders_final/
+work/builds/
+output/
+*.pdf

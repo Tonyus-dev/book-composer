@@ -1,0 +1,459 @@
+{
+  "total_entries": 1688,
+  "hash_errors": 0,
+  "hash_error_detail": [],
+  "counts_by_category": {
+    "tecnica": 46,
+    "povo": 47,
+    "formula_central": 287,
+    "atributo": 79,
+    "combate": 250,
+    "sombra": 172,
+    "progressao": 43,
+    "magia": 67,
+    "condicao": 42,
+    "velarim": 62,
+    "dano": 195,
+    "arma": 51,
+    "impulso_pressao": 170,
+    "pericia": 21,
+    "oficio": 15,
+    "armadura": 11,
+    "movimento": 73,
+    "recurso": 15,
+    "artefato": 17,
+    "adversario": 25
+  },
+  "samples_by_category": {
+    "tecnica": [
+      {
+        "nome": "Ficha Técnica",
+        "capítulo": "Ficha Técnica",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "A técnica é Nimari, não magia universal.",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Corpos Nomos são construídos, reparáveis e modulares. Materi",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      }
+    ],
+    "povo": [
+      {
+        "nome": "KALLISTIS, seu cenário, sistema, Povos, Ofícios, Chaves, Mag",
+        "capítulo": "Créditos",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "KALLISTIS não começa na Fratura. Começa muito depois, quando",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Certos filósofos Livres e alguns Nomos rejeitam a existência",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      }
+    ],
+    "formula_central": [
+      {
+        "nome": "A primeira parte apresenta o mundo antes de ensinar a rolar ",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "A história de KALLISTIS sobrevive em arquivos, testemunhos e",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Cada povo possui uma forma diferente de percebê-la. Os Aelva",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      }
+    ],
+    "atributo": [
+      {
+        "nome": "KALLISTIS é um RPG de fantasia científica, memória, identida",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Muitos povos da Escuridão afirmam que fechá-la à força seria",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Manesh era manifestação, forma, presença e ordem.",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      }
+    ],
+    "combate": [
+      {
+        "nome": "O jogo pergunta o que uma pessoa preserva quando sua própria",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "combate tático;",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Nessa interpretação, a Sombra não nasceu depois da Fratura: ",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      }
+    ],
+    "sombra": [
+      {
+        "nome": "combatem agentes, monstros, instituições e manifestações da ",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Poder sem consentimento favorece a Sombra.",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Nenhum Povo determina personalidade, moralidade ou profissão",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      }
+    ],
+    "progressao": [
+      {
+        "nome": "progressão de personagem;",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "permitir avanço por caminho perigoso;",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Esse avanço teve consequências contraditórias.",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      }
+    ],
+    "magia": [
+      {
+        "nome": "Magia, Velarim, Merge, artefatos e Fendas funcionam por rela",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "tecelões de magia;",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "A magia tornou-se mais acessível.",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      }
+    ],
+    "condicao": [
+      {
+        "nome": "Luz é forma, exposição, manifestação, impacto e consequência",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "A Fratura não é apenas o início da história. É a condição qu",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Os habitantes dos dois mundos despertaram sem compreender a ",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      }
+    ],
+    "velarim": [
+      {
+        "nome": "Velarim antes da Fratura",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Hoje ela é chamada de Proto-Velarim ou Velarim da União. Nen",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Em Velarim, dizer e existir participavam do mesmo ato. Nomea",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      }
+    ],
+    "dano": [
+      {
+        "nome": "Ela produziu estabilidade, estradas, proteção e sistemas de ",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "resistência é ignorância;",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Kragor estabelecem juramentos de proteção.",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      }
+    ],
+    "arma": [
+      {
+        "nome": "O primeiro arco da campanha",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Na Luz, Draken foram admirados como símbolos de soberania e ",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Ela levou o Martelo do Primeiro Reparo até o arco central.",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      }
+    ],
+    "impulso_pressao": [
+      {
+        "nome": "Conceito. Povo. Origem cosmológica. Ofício. Papel de Ressonâ",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Se criar dupla, ocorre Ressonância.",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "A Ressonância Prismática permite refletir, estruturar e comp",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      }
+    ],
+    "pericia": [
+      {
+        "nome": "uma perícia em 3; três perícias em 2; quatro perícias em 1.",
+        "capítulo": "Sumário",
+        "números": [
+          "3",
+          "2",
+          "1"
+        ],
+        "tabela": null
+      },
+      {
+        "nome": "A Aprendizagem Cruzada expressa curiosidade disciplinada. Um",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Escolha uma perícia não ligada ao seu Ofício. Ela recebe +1.",
+        "capítulo": "Sumário",
+        "números": [
+          "1"
+        ],
+        "tabela": null
+      }
+    ],
+    "oficio": [
+      {
+        "nome": "O Ofício concede mais duas perícias treinadas.",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Heranças Reparador: pode usar Ofício no lugar de Cuidado em ",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Ao tocar uma obra, ferramenta ou estrutura, pode testar Sint",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      }
+    ],
+    "armadura": [
+      {
+        "nome": "A guerreira abriu o escudo por um instante.",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Vinheta - O escudo aberto",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "O Guardião levantou o escudo, não como parede diante da cria",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      }
+    ],
+    "movimento": [
+      {
+        "nome": "Enquanto estiver adjacente ou na mesma zona que um aliado co",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Livres - identidade criada em movimento e comunidade escolhi",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "A tradição que se inventa em movimento",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      }
+    ],
+    "recurso": [
+      {
+        "nome": "Na Luz, Nomos foram incorporados a oficinas, arquivos e sist",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Que material ela se recusa a tratar como recurso neutro?",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "É inspirada na ideia de um recurso único de equipe, mas em K",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      }
+    ],
+    "artefato": [
+      {
+        "nome": "Heranças Forjador: fabrica equipamento de qualidade sem ofic",
+        "capítulo": "Sumário",
+        "números": [
+          "2"
+        ],
+        "tabela": null
+      },
+      {
+        "nome": "Algo retorna: frase antiga, padrão inimigo, som distante, ge",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Âncora: objeto, lugar, nome, lembrança, elemento, artefato o",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      }
+    ],
+    "adversario": [
+      {
+        "nome": "O cheiro de metal e medo dizia que o inimigo atacaria. O Ter",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "No instante seguinte, percebeu que o suposto inimigo escondi",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      },
+      {
+        "nome": "Uma abertura não é apenas onde o inimigo falhou. É onde a si",
+        "capítulo": "Sumário",
+        "números": [],
+        "tabela": null
+      }
+    ]
+  },
+  "categories_found": [
+    "adversario",
+    "arma",
+    "armadura",
+    "artefato",
+    "atributo",
+    "combate",
+    "condicao",
+    "dano",
+    "formula_central",
+    "impulso_pressao",
+    "magia",
+    "movimento",
+    "oficio",
+    "pericia",
+    "povo",
+    "progressao",
+    "recurso",
+    "sombra",
+    "tecnica",
+    "velarim"
+  ]
+}
