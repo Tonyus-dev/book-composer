@@ -1,0 +1,56 @@
+{
+  "characters": 42691,
+  "words": 6474,
+  "sentences": 481,
+  "paragraphs": 343,
+  "avg_sentence_words": 13.46,
+  "avg_paragraph_words": 18.87,
+  "short_sentences_le_5": 45,
+  "long_sentences_ge_35": 10,
+  "pattern_counts": {
+    "nao_apenas_mas": 0,
+    "mais_do_que": 0,
+    "em_sua_essencia": 0,
+    "em_ultima_analise": 0,
+    "vale_destacar": 0,
+    "importante_notar": 0,
+    "nesse_contexto": 1,
+    "rica_tapecaria": 0,
+    "jornada": 0,
+    "serve_como_lembrete": 0,
+    "em_um_mundo_onde": 0,
+    "desde_os_primordios": 0,
+    "neste_capitulo": 0
+  },
+  "generic_word_counts": {
+    "profundamente": 2,
+    "essencialmente": 0,
+    "fundamentalmente": 0,
+    "intrinsecamente": 0,
+    "significativamente": 0,
+    "dinâmico": 0,
+    "complexo": 0,
+    "transformador": 0,
+    "impactante": 0
+  },
+  "repeated_sentence_starts": {
+    "vinheta - o": 5,
+    "perguntas para interpretar": 9,
+    "não reduza os": 9,
+    "em jogo traço": 9,
+    "a dissonância da": 6,
+    "vinheta - a": 4,
+    "em ambos os": 4,
+    "a sombra oferece": 3
+  },
+  "alerts": [
+    "início repetido 'vinheta - o': 5",
+    "início repetido 'perguntas para interpretar': 9",
+    "início repetido 'não reduza os': 9",
+    "início repetido 'em jogo traço': 9",
+    "início repetido 'a dissonância da': 6",
+    "início repetido 'vinheta - a': 4",
+    "início repetido 'em ambos os': 4"
+  ],
+  "status": "REVISAR"
+}

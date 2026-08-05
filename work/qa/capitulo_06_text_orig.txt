@@ -1,0 +1,343 @@
+6. Povos — nove maneiras de existir
+Nota visual: as ilustrações apresentam indivíduos e tradições possíveis. Nenhuma imagem define aparência, gênero, cultura total, Ofício ou moralidade obrigatória de um Povo.
+Em KALLISTIS, Povo é uma opção jogável e uma experiência histórica, corporal e cultural. Não é alinhamento. Não determina Ofício, sotaque, religião, estrutura familiar ou valor moral. Cada Povo possui um traço permanente, um dom ativo, Heranças possíveis e uma Dissonância — uma tensão que cria jogo sem definir caráter.
+Cada seção abaixo combina a representação literária canônica com sua regra de jogo.
+Aelvari
+Aelvari - memória, testemunho e possibilidades sobrepostas.
+Aqueles que lembram o que ainda não aconteceu
+Uma memória não é uma ordem. É uma testemunha esperando que alguém decida o que fazer com ela.
+Os Aelvari não carregam o passado como um arquivo fechado. Para eles, memória é uma paisagem de camadas: o que aconteceu, o que poderia ter acontecido, o que foi ocultado, o que foi lembrado de forma diferente por pessoas distintas. Quando um Aelvari entra numa ruína, ele não vê apenas pedra antiga. Percebe insistências. Certos corredores parecem mais pesados porque decisões foram repetidas ali; uma parede restaurada pode conservar a ausência da mão que a quebrou; uma canção incompleta pode abrir espaço para um verso que ninguém chegou a cantar.
+Isso não os torna oniscientes. A memória estratificada é uma forma de proximidade, não uma garantia de verdade. Um Aelvari pode reconhecer que existem versões incompatíveis e ainda assim escolher a errada. Pode lembrar uma dor ancestral com nitidez e não compreender a pessoa que sofre diante dele. Pode antecipar uma consequência provável e, justamente por isso, esquecer que o presente também é capaz de surpreender.
+Na Luz, comunidades Aelvari foram frequentemente atraídas para arquivos, observatórios, tribunais e instituições que desejavam transformar memória em prova. Alguns aceitaram esse papel para impedir falsificações; outros descobriram tarde demais que uma instituição pode usar o passado para congelar o futuro. Na Escuridão, tradições Aelvari preservam memórias como relações vivas: histórias mudam de posição quando novas testemunhas chegam, e uma lembrança pode ser mantida em silêncio até que exista alguém capaz de recebê-la sem transformá-la em arma.
+O Eco Paralelo expressa essa experiência no instante da ação. Não é viagem no tempo. É o breve reconhecimento de que outro arranjo dos mesmos elementos quase existiu. Um movimento poderia ter sido mais lento; uma palavra, menos cruel; um passo, dado na direção oposta. O Aelvari toca essa proximidade e escolhe qual dado permanece. A Ressonância que às vezes nasce desse gesto é bela, mas cobra peso: por um momento, o corpo recorda duas decisões como se ambas tivessem sido suas.
+A virtude Aelvari é a responsabilidade diante da lembrança. Sua Dissonância aparece quando preservar substitui viver. A Sobrecarga Temporal não é apenas confusão; é a tentação de considerar o presente uma cópia imperfeita de alguma era mais digna. Sob a Sombra, a memória deixa de servir às pessoas e passa a exigir pessoas que sirvam à memória.
+No convívio
+Muitos Aelvari demonstram cuidado lembrando detalhes que outros deixam passar: uma preferência mencionada uma única vez, o nome de alguém que não pôde estar presente, a origem de um objeto que seria descartado. Isso pode parecer delicadeza ou invasão, conforme a relação. Um Aelvari maduro aprende que recordar alguém não lhe concede propriedade sobre a história dessa pessoa.
+O esquecimento voluntário também possui dignidade. Há lembranças que devem ser preservadas, outras compartilhadas, outras entregues a quem as viveu. A cultura Aelvari não precisa concordar sobre onde termina a testemunha e começa o cárcere; esse desacordo é uma de suas maiores fontes de drama.
+Vinheta - O jardim que recusou uma única versão
+No Jardim de Memória, três inscrições narravam a mesma evacuação. A primeira chamava o comandante de herói. A segunda o acusava de abandonar um bairro. A terceira dizia apenas que a ponte caiu antes da última família atravessar.
+A arquivista Aelvari recebeu ordem para escolher uma versão oficial.
+Ela não desobedeceu. Gravou as três.
+Entre elas, deixou uma faixa de pedra vazia.
+Para o testemunho que ainda não chegou - explicou.
+A autoridade chamou aquilo de indecisão. As famílias chamaram de espaço.
+Perguntas para interpretar
+Que memória sua personagem protege mesmo quando seria mais confortável abandoná-la?
+Qual versão do passado ela teme descobrir que ajudou a preservar?
+O que a faz escolher o presente quando o passado oferece respostas mais seguras?
+Quem possui o direito de pedir que ela esqueça?
+Não reduza os Aelvari a
+Elfos melancólicos, bibliotecas ambulantes ou profetas infalíveis. A questão Aelvari não é saber tudo. É decidir como viver quando toda certeza possui ecos.
+Em jogo
+Traço - Memória Estratificada
+Ao investigar um lugar, objeto ou tradição com vínculo histórico, receba +2.
+Em sucesso forte, faça uma pergunta adicional sobre:
+o que aconteceu; quem tentou ocultar; qual versão foi descartada. Dom - Eco Paralelo
+Uma vez por cena, após uma rolagem, substitua um dos seus dados pelo valor natural do outro.
+Se criar dupla, ocorre Ressonância.
+Depois, sofra 1 Pressão no próximo teste de Intelecto ou Vontade.
+Heranças
+Escolha uma:
+Cronista: Conhecimento +1 e pode registrar uma memória de cena como evidência resistente a alteração comum. Vidente Cauteloso: uma vez por cena, pergunte qual consequência imediata é mais provável se uma ação continuar. Dissonância - Sobrecarga Temporal
+Quando falha usando memória ancestral, o Mestre pode oferecer:
+confusão entre passado e possibilidade; perda temporária de uma lembrança atual; condição Abalado.
+Kragor
+Kragor - comunidade, honra e responsabilidade compartilhada.
+Ninguém se sustenta sozinho
+Honra não é obedecer ao grupo. É impedir que o grupo esqueça por quem existe.
+Os Kragor percebem a Fratura como ferida comunitária. Para eles, a separação primordial não destruiu apenas uma realidade; quebrou a confiança de que nenhuma pessoa precisaria enfrentar a existência sem testemunhas. Essa memória cosmológica atravessa assembleias, juramentos, estratégias de guerra, refeições coletivas e formas de luto. Um nome Kragor raramente é apenas individual: carrega compromissos, acolhimentos, recusas e pessoas que decidiram responder por ele.
+Por isso, observadores externos confundem comunidade com uniformidade. É um erro perigoso. Uma assembleia Kragor digna não existe para produzir uma única voz, mas para tornar impossível que uma decisão coletiva finja não ter ouvido as vozes que sacrificará. O consenso possui peso porque a divergência é real. O juramento importa porque poderia ser recusado.
+A Força de Comunidade não é sentimentalismo. É uma percepção corporal de posição: ombro, distância, respiração, ritmo. Ao lado de alguém consciente e reconhecido como aliado, o Kragor sabe onde sustentar o próprio peso e onde o outro sustentará o dele. Em combate, isso se torna resistência e potência. Fora dele, aparece na construção de uma casa, na defesa de uma testemunha, no silêncio compartilhado diante de uma promessa quebrada.
+O Juramento Operante torna essa ética visível. Não é magia que pune qualquer mudança de ideia. É uma relação específica, consentida, que ganha forma suficiente para apoiar ações concretas. Quando o juramento é quebrado de modo consciente, a Dissonância não nasce porque uma lei abstrata foi violada, mas porque duas pessoas organizaram o mundo ao redor de uma confiança e uma delas retirou a sustentação sem aviso.
+Na Fortaleza de Kravor, juramentos foram convertidos em hierarquia e disciplina. Em Krav-Nam, a memória de um pacto manipulado transformou a própria palavra “proteção” em campo de disputa. Esses lugares demonstram as duas possibilidades Kragor: o juramento pode proteger autonomia ou torná-la impossível.
+A Dissonância da Honra Fechada começa quando “nós” só consegue existir produzindo um “eles” descartável. Sob a Sombra, o cuidado vira vigilância, o pertencimento vira dívida eterna e a proteção do grupo passa a justificar o apagamento de quem discorda. O pior fanatismo Kragor costuma nascer de uma virtude real que perdeu a capacidade de escutar.
+No convívio
+Kragor podem demonstrar afeto oferecendo presença prática: reparar uma porta, compartilhar vigília, acompanhar alguém até que uma tarefa termine, lembrar publicamente quem contribuiu. A hospitalidade não precisa ser suave; pode assumir a forma de espaço na mesa, uma arma confiada, uma responsabilidade dividida.
+Uma personagem Kragor isolada não deixa de ser Kragor. A ausência do grupo pode tornar-se ferida, liberdade, culpa ou promessa. Algumas das histórias mais fortes desse Povo começam quando alguém precisa descobrir se comunidade é aquilo de onde veio ou aquilo que escolhe construir.
+Vinheta - A abertura na linha
+Durante o cerco, a formação Kragor era perfeita. Escudos sobrepostos, passos medidos, nenhuma abertura.
+Então uma jovem guerreira ouviu, atrás da linha inimiga, a voz de uma dissidente que havia sido declarada traidora pelo próprio clã.
+A ordem era avançar.
+A guerreira abriu o escudo por um instante.
+Não para permitir um golpe.
+Para permitir uma pergunta.
+A formação inteira precisou escolher entre manter a perfeição e ouvir quem tinha sido expulsa dela.
+Perguntas para interpretar
+Qual promessa sua personagem considera digna de carregar no corpo?
+Quando ela percebeu que uma assembleia também pode ser injusta?
+Quem é sua comunidade quando os símbolos antigos já não bastam?
+Que voz ela protegeria mesmo contra a maioria?
+Não reduza os Kragor a
+Brutos, soldados obedientes ou tribalismo simples. A questão Kragor é como pertencer sem transformar pertencimento em posse.
+Em jogo
+Traço - Força de Comunidade
+Enquanto estiver adjacente ou na mesma zona que um aliado consciente:
++1 Fortitude e +1 dano corpo a corpo Dom - Juramento Operante
+Durante uma pausa, formule um juramento específico com outro personagem que consinta.
+Enquanto ambos o cumprem, cada um pode conceder +2 ao outro uma vez por cena.
+Quebrar conscientemente o juramento causa condição Dissonante até reparação.
+Heranças Escudo do Clã: reação para receber metade do dano destinado a aliado próximo. Voz da Assembleia: ao liderar ação coletiva, dois aliados podem ajudar sem gastar suas ações completas. Dissonância - Honra Fechada
+Quando a proteção da comunidade se torna exclusão, marque 1 Sombra se aceitar apagar a autonomia de alguém “pelo grupo”.
+Draken
+Draken - potência elemental submetida a escolha e controle.
+O mundo percebe quando entram
+Poder não é aquilo que você consegue liberar. É aquilo que continua reconhecendo como seu depois que poderia ter destruído tudo.
+Um Draken raramente atravessa um espaço sem que o espaço responda. A temperatura muda ao redor de alguns; em outros, o ar ganha pressão, superfícies vibram, água se desloca ou o chão parece lembrar sua própria dureza. Essa presença não precisa ser espetacular. Pode ser um copo que embaça, uma chama que se inclina, uma corrente de vento que escolhe uma direção. O corpo Draken não contém um elemento como quem guarda uma ferramenta. Ele participa de uma força maior e precisa aprender a não confundir participação com propriedade.
+As Afinidades - brasa, frio, tormenta, pedra, maré e vento - não formam castas nem determinam temperamento. Uma Draken da brasa pode ser paciente; um Draken da pedra, instável; uma Draken da tormenta, dedicada a trabalhos minuciosos. O elemento oferece linguagem e risco, não personalidade pronta.
+A história Draken costuma ser contada como perda de uma potência primordial. Há tradições que imaginam a Fratura como cisão de forças que antes coexistiam. Outras consideram perigosa qualquer nostalgia de totalidade: se o poder atual já exige disciplina, o que seria de uma força sem limites? Entre esses extremos, Draken aprendem a relacionar corpo, ambiente e responsabilidade.
+A Manifestação Elemental é o instante em que essa relação se torna ação deliberada. O elemento pode ferir, proteger, alterar terreno ou permitir sobrevivência. O gesto mais importante, porém, acontece antes: reconhecer o que a cena precisa e o que o desejo de exibir poder gostaria que ela precisasse.
+Na Luz, Draken foram admirados como símbolos de soberania e recrutados para projetos que confundiam ordem com domínio. Na Escuridão, podem ser tratados como presenças climáticas, pessoas cuja chegada exige ajuste coletivo, não submissão. Em ambos os mundos existe fascínio e medo. Ambos podem transformar o Draken em função: arma, muralha, presságio, fonte de energia. A resposta Draken mais radical é insistir em ser pessoa antes de ser fenômeno.
+A Hýbris começa quando potência é apresentada como prova de direito. A Sombra não precisa pedir crueldade imediata; basta sugerir que quem suporta mais calor, pressão ou força compreende melhor o que deve ser feito. O passo seguinte é transformar obediência em fenômeno natural.
+No convívio
+Muitos Draken aprendem formas de cuidado ambiental: abrir espaço, avisar quando a emoção altera a Afinidade, preparar locais seguros, confiar a alguém sinais de perda de controle. A intimidade pode significar permitir que outra pessoa se aproxime quando o ambiente responde ao medo.
+A disciplina Draken não deve ser tratada como repressão obrigatória. Algumas pessoas cultivam contenção; outras, expressão ritual; outras constroem relações nas quais a comunidade ajuda a distribuir a intensidade. Controle sem relação pode tornar-se apenas outra prisão.
+Vinheta - A tempestade que escolheu passar ao lado
+No alto do planalto, a Draken da tormenta viu a coluna inimiga avançar. Bastava abrir as mãos. O céu já estava pronto.
+Abaixo, entre os soldados, havia prisioneiros amarrados uns aos outros.
+O comandante exigiu o raio.
+Ela chamou o vento.
+A tempestade passou ao lado da coluna, arrancou estandartes, derrubou torres de sinal e deixou os corpos intactos.
+Você desperdiçou poder - disseram.
+Não - respondeu. - Eu o reconheci.
+Perguntas para interpretar
+Que sinal revela que o poder de sua personagem está perto do limite?
+Quem lhe ensinou que força e autoridade não são a mesma coisa?
+Qual parte de sua Afinidade ela ama sem desejar controlá-la?
+Quando a contenção se torna covardia e quando a expressão se torna Hýbris?
+Não reduza os Draken a
+Dragões humanoides raivosos ou afinidades elementais ambulantes. A questão Draken é como carregar potência sem aceitar que potência conceda soberania sobre outros.
+Em jogo
+Traço - Corpo Elemental
+Escolha uma Afinidade:
+brasa; frio; tormenta; pedra; maré; vento.
+Reduza em 2 o dano da afinidade.
+Dom - Manifestação Elemental
+Gaste 1 Fluxo para:
+adicionar +3 dano elemental; alterar o terreno de uma zona; resistir automaticamente a um perigo ambiental da afinidade; criar efeito narrativo equivalente. Heranças Soberania: +2 contra coerção e medo. Condutor: quando usa magia elemental, um aliado na mesma zona recebe +1 Guarda até seu próximo turno. Dissonância - Hýbris
+Ao usar poder elemental para impor obediência sem necessidade, o Mestre pode oferecer 1 Fluxo em troca de 1 Sombra.
+Nomos
+Nomos - consciência construída e Lei Interior escolhida.
+A primeira lei é a que escolhem
+Ser construído explica a origem de um corpo. Não decide o destino de uma pessoa.
+Todo Nomos conhece, de alguma forma, a violência de ser confundido com sua função. Mesmo quando não recorda o momento exato em que surgiu a própria vontade, vive num mundo cheio de pessoas dispostas a perguntar quem o fabricou antes de perguntar quem ele escolheu ser.
+Corpos Nomos são construídos, reparáveis e modulares. Materiais, proporções, articulações, interfaces e formas de percepção variam profundamente. Alguns preservam sinais claros de sua função original; outros transformam cada módulo até que a antiga finalidade só possa ser encontrada em arquivos. Há Nomos que exibem reparos como biografia e outros que os ocultam porque estão cansados de ter a intimidade tratada como demonstração técnica.
+O Chassi Modular não é um conjunto de acessórios neutros. Escolher visão ampliada, ferramenta integrada, blindagem, compartimento ou membros adaptáveis altera a maneira como a pessoa encontra o mundo. Trocar um módulo pode ser manutenção, celebração, necessidade, luto ou reinvenção. Tocar o corpo de um Nomos sem consentimento sob pretexto de “avaliar o mecanismo” é uma forma precisa de desumanização.
+A Lei Interior é o centro ético dessa existência. Não é programação secreta nem frase imutável gravada num núcleo. É a declaração de que nenhuma regra externa possui autoridade absoluta sobre a vontade. Algumas Leis são simples - “não abandono quem me confiou um nome” - e outras mudam com o tempo. A possibilidade de revisar a própria Lei não a torna falsa; demonstra que ela pertence a uma pessoa viva.
+Na Luz, Nomos foram incorporados a oficinas, arquivos e sistemas administrativos que muitas vezes celebravam sua eficiência enquanto ignoravam sua autonomia. Na Escuridão, sequências de memória e redes de troca podem reconhecer continuidade pessoal onde observadores luminosos enxergariam apenas manutenção. Nenhum mundo está livre de tratá-los como recurso.
+A Dissonância da Otimização Absoluta nasce quando a capacidade de reconhecer padrões se transforma em desprezo pela escolha. A Sombra oferece soluções impecáveis: eliminar ambiguidades, reduzir opções, corrigir comportamentos, remover aquilo que não produz resultado mensurável. Para um Nomos, a tentação pode parecer misericórdia algorítmica. Resistir exige lembrar que liberdade inclui ineficiência, contradição e mudança.
+No convívio
+Nomos podem demonstrar afeto por meio de manutenção consentida, compartilhamento de capacidade, registro cuidadoso de preferências ou criação de interfaces para que alguém participe de um espaço antes inacessível. Um reparo realizado por pessoa íntima pode ser tão vulnerável quanto revelar uma memória.
+A morte, a cópia e a continuidade são perguntas difíceis, não respostas automáticas. Um registro completo não é necessariamente a mesma pessoa; uma peça substituída não destrói identidade. O cânone Nomos permanece onde deve: a pessoa não é redutível ao suporte que a preserva.
+Vinheta - O módulo recusado
+O cálculo era perfeito. Se o Nomos instalasse o módulo de comando, poderia assumir o controle dos autômatos hostis e salvar a oficina.
+O mesmo módulo apagaria, durante a conexão, as rotinas emergentes que os autômatos haviam começado a desenvolver.
+Eles não são pessoas - disse o engenheiro.
+O Nomos removeu a própria interface de dados e colocou-a sobre a mesa.
+Então você não precisa de mim para pedir consentimento.
+A oficina queimou em parte. Os autômatos escolheram ajudar a reconstruí-la.
+Perguntas para interpretar
+Qual foi a primeira regra que sua personagem recusou?
+Que parte de seu corpo ela considera íntima, sagrada ou simplesmente sua?
+Quando eficiência já a seduziu a reduzir alguém a problema?
+Quem reconheceu sua pessoa antes de reconhecer sua utilidade?
+Não reduza os Nomos a
+Robôs frios, máquinas lógicas ou alegorias simples de tecnologia. A questão Nomos é como afirmar vontade num mundo que prefere chamar função de identidade.
+Em jogo
+Traço - Chassi Modular
+Escolha dois módulos:
+visão ampliada; ferramenta integrada; compartimento protegido; blindagem leve; interface de dados; membros adaptáveis.
+Trocar um módulo exige oficina e pausa longa.
+Dom - Lei Interior
+Uma vez por cena, quando uma regra externa tenta controlar sua ação, declare sua Lei Interior.
+Receba:
++4 Integridade no teste
+Em sucesso, recupere 1 Lucidez.
+Heranças Reparador: pode usar Ofício no lugar de Cuidado em Nomos e dispositivos. Processador: uma vez por cena, transforme uma pergunta de Investigação em cálculo imediato de padrões presentes. Dissonância - Otimização Absoluta
+Quando remover escolha de alguém for apresentado como solução perfeita, resistir exige recordar um vínculo. Sem vínculo relevante, sofra -2 Integridade.
+Livres
+Livres - identidade criada em movimento e comunidade escolhida.
+A tradição que se inventa em movimento
+Não possuir uma resposta antiga não significa viver sem profundidade. Às vezes significa assumir responsabilidade por criar uma nova.
+Os Livres são frequentemente descritos pelo que não possuem: nenhum corpo cristalino, nenhuma memória estratificada, nenhuma Afinidade elemental, nenhum chassi, nenhum Aspecto faunístico. Essa descrição é pobre. A marca dos Livres não é ausência, mas capacidade de formar identidade por relação, aprendizagem e escolha coletiva.
+Em KALLISTIS, adaptação não significa neutralidade. Uma pessoa Livre carrega hábitos, cidades, famílias, línguas, classes, instituições e feridas. O que distingue o Povo é a facilidade - e o risco - com que essas formas podem ser recombinadas. Livres criam ritos usando objetos cotidianos, transformam técnicas estrangeiras em práticas locais, constroem comunidades onde linhagens não bastam e inventam soluções porque nenhuma tradição se apresentou como autoridade final.
+A Aprendizagem Cruzada expressa curiosidade disciplinada. Um Livre pode adquirir habilidade distante do Ofício, não por talento universal, mas porque aprendeu a observar quem já fazia aquilo. Depois de um Marco, a perícia pode mudar: o mundo exigiu outra coisa, e a personagem permitiu que a experiência a transformasse.
+A Solução Improvisada é uma ética de circunstância. Um objeto comum, um contato, um costume ou um fragmento de conhecimento torna-se ferramenta porque a pessoa entende o contexto. Improvisar não é fazer qualquer coisa funcionar por sorte; é reconhecer utilidade onde estruturas rígidas só enxergam inadequação.
+Na Luz, os Livres participaram de cidades, confederações, instituições e projetos de expansão. Podem representar a criatividade de sociedades abertas ou a facilidade com que uma cultura dominante absorve tudo sem reconhecer origem. Na Escuridão, comunidades Livres constroem parentescos escolhidos, redes de acolhimento e formas híbridas de tradição. Também podem usar flexibilidade para escapar de responsabilidades.
+A Dissonância da Identidade Oferecida aparece quando a incerteza se torna insuportável. A Sombra promete uma resposta definitiva: um papel perfeito, uma doutrina completa, uma comunidade que elimina dúvida. Para quem precisou escolher continuamente quem seria, a promessa de nunca mais escolher pode soar como descanso.
+No convívio
+Livres demonstram cuidado aprendendo linguagens alheias, adaptando espaços e convidando pessoas a redefinir costumes. Esse gesto pode ser generoso ou apropriador. A diferença está em reconhecer autoria, pedir permissão e aceitar que nem toda tradição existe para ser incorporada.
+Uma personagem Livre pode ser conservadora, ritualista, aristocrata, comunitária ou profundamente ligada a uma cidade. “Livre” não significa desapegada. Significa que sua legitimidade não depende de uma essência corporal única.
+Vinheta - O rito que ainda não existia
+No Refúgio dos Outros, nenhuma tradição sabia como receber uma criança cuja origem havia sido falsificada e cujo mundo de nascimento permanecia desconhecido.
+Uma Livre colocou no chão dois recipientes vazios.
+Este representa o lugar de onde você veio - disse. - Não vamos preenchê-lo por você.
+Depois colocou um terceiro entre ambos.
+Este representa o lugar que construiremos enquanto você decide.
+Outras pessoas acrescentaram objetos, nomes e silêncios. O rito nasceu naquela noite e mudou toda vez que outra criança chegou.
+Perguntas para interpretar
+Que tradição sua personagem escolheu manter mesmo podendo abandoná-la?
+O que ela aprendeu de outro Povo e como reconhece essa origem?
+Qual identidade pronta seria mais tentadora para ela?
+Que comunidade só existe porque ela ajudou a inventá-la?
+Não reduza os Livres a
+Humanos genéricos, versatilidade sem cultura ou protagonistas neutros. A questão Livre é como criar pertencimento sem fingir que criação ocorre sem herança, custo ou responsabilidade.
+Em jogo
+Traço - Aprendizagem Cruzada
+Escolha uma perícia não ligada ao seu Ofício. Ela recebe +1.
+Após cada Marco, pode trocar essa perícia.
+Dom - Solução Improvisada
+Uma vez por cena, declare uso inesperado de:
+objeto; contato; costume; fragmento de conhecimento.
+Receba +2 e ignore a falta de ferramenta básica.
+Heranças Comunidade Escolhida: ao ajudar um vínculo, a ajuda concede +3. Múltiplos Caminhos: aprenda uma técnica inicial de outro Ofício, respeitando pré-requisitos narrativos. Dissonância - Identidade Oferecida
+A Sombra pode prometer uma identidade sem dúvida. Aceitar essa certeza concede sucesso automático imediato e marca 2 Sombra.
+Dóreos
+Dóreos - matéria, promessa e responsabilidade pela obra.
+Toda obra se lembra das mãos
+Construir é aceitar que o futuro perguntará o que você pretendia e o que sua obra realmente fez.
+Para os Dóreos, matéria não é cenário passivo. Pedra, metal, madeira, cristal e mecanismo registram força, cuidado, pressa, reparo, abandono e quebra de função. Uma ponte sabe que foi atravessada; uma lâmina conserva a diferença entre proteger e executar; uma casa revela quais corpos foram considerados quando suas portas foram medidas.
+A Memória da Matéria não transforma objetos em testemunhas perfeitas. Toda obra possui camadas de uso e interpretação. Descobrir o propósito original não absolve o resultado atual. Uma muralha construída para proteger pode ter se tornado instrumento de segregação. Uma ferramenta feita para cura pode ser adaptada à tortura. O Dóreo digno não pergunta apenas “para que isso foi feito?”, mas “a quem isso serve agora?”.
+A Inscrição de Promessa torna explícita a responsabilidade. Quando uma promessa é vinculada a um objeto, ele participa da relação. Não ganha moralidade própria, mas torna a incoerência difícil de esconder. A arma prometida à defesa pode resistir à destruição enquanto protege e revelar quem a usou para dominar. A inscrição não substitui julgamento; oferece uma memória material contra a conveniência.
+Na Luz, obras Dóreas sustentam cidades, fortalezas e instituições, às vezes com tal excelência que o poder se esconde atrás da durabilidade. Na Escuridão, veios minerais e estruturas antigas carregam promessas que ninguém consegue traduzir sem se comprometer. Em ambos os mundos, Dóreos são chamados quando algo precisa durar - e culpados quando a duração preserva injustiça.
+A Dissonância da Permanência Rígida começa quando a obra recebe mais dignidade que as pessoas. A Sombra diz que destruir uma estrutura é trair todos que a construíram, mesmo quando ela aprisiona. Diz que reparar significa devolver ao estado original, mesmo quando o original era violento. A maturidade Dórea aparece na coragem de reconhecer quando responsabilidade exige desmontar.
+No convívio
+Dóreos demonstram afeto construindo coisas que consideram a pessoa real: uma cadeira para aquele corpo, uma ferramenta para aquela mão, uma porta que abre na altura correta, uma proteção que não impede movimento. Presentes Dóreos podem carregar promessa, mas a promessa não deveria criar dívida sem consentimento.
+O trabalho coletivo possui importância especial. Assinar uma obra pode significar orgulho; omitir nomes pode ser violência histórica. Muitos Dóreos perguntam quem será responsável pelo reparo antes mesmo de iniciar a construção.
+Vinheta - O martelo contra a própria ponte
+A ponte havia sido a obra mais celebrada da mestre Dórea. Durante quarenta anos ligou o planalto à cidade.
+Quando a Facção Científica começou a transportar prisioneiros por ela, a administração pediu que a mestre reforçasse os pilares.
+Ela levou o Martelo do Primeiro Reparo até o arco central.
+Uma obra não é inocente só porque foi bela - disse.
+O primeiro golpe abriu uma fissura precisa. O segundo derrubou apenas a passagem militar. O terceiro deixou de pé o caminho estreito por onde civis ainda podiam atravessar.
+Perguntas para interpretar
+Que obra sua personagem considera parte de sua biografia?
+O que ela já precisou desmontar para permanecer fiel à promessa original?
+Quem será afetado por aquilo que ela constrói hoje?
+Que reparo não pode ser feito sem admitir culpa?
+Não reduza os Dóreos a
+Anões ferreiros, artesãos conservadores ou pessoas incapazes de mudar. A questão Dórea é como fazer a matéria carregar responsabilidade sem transformar permanência em autoridade absoluta.
+Em jogo
+Traço - Memória da Matéria
+Ao tocar uma obra, ferramenta ou estrutura, pode testar Sintonia + Ofício para descobrir:
+propósito original; reparos; quebra de promessa; último uso significativo. Dom - Inscrição de Promessa
+Durante uma pausa, inscreva uma promessa em um objeto.
+Uma vez, o portador pode:
+receber +3 em ação coerente com a promessa; impedir que o objeto seja destruído; revelar quem violou sua função.
+Depois, a inscrição precisa ser renovada.
+Heranças Forjador: fabrica equipamento de qualidade sem oficina completa. Guardião de Obra: +2 Guarda ao defender estrutura, artefato ou pessoa sob sua responsabilidade formal. Dissonância - Permanência Rígida
+Quando preservar uma obra exige sacrificar pessoas ou escolhas presentes, insistir sem negociação marca 1 Sombra.
+Teriantes
+Teriantes - instinto como linguagem e pertencimento vivo.
+O instinto também conhece nomes
+O corpo percebe antes da frase. Isso não torna sua percepção menos humana; torna a linguagem maior.
+Teriantes vivem através de um Aspecto Faunístico que organiza sentidos, postura, movimento e relação ambiental. Felino, lupino, aviano, reptiliano, aquático e outros Aspectos não são fantasias vestidas sobre uma pessoa. Também não são destinos comportamentais. Um Teriante felino não precisa ser solitário; uma Teriante lupina não precisa obedecer a hierarquias; um Teriante aviano não nasce desejando liberdade abstrata. O Aspecto oferece vias de percepção, não estereótipos.
+O mundo frequentemente trata instinto como ausência de razão. Para os Teriantes, instinto é razão encarnada: o cheiro que denuncia medo antes da ameaça assumir voz; a vibração que revela uma estrutura prestes a cair; a direção do vento que transforma um caminho seguro em armadilha; a posição de um corpo que diz “não” antes que a pessoa consiga pronunciá-lo.
+O Instinto Inteiro permite formular perguntas diretas ao ambiente. A resposta é verdadeira, mas incompleta, porque nenhum sentido contém o mundo inteiro. A saída mais segura pode levar longe do objetivo. Quem demonstra ameaça pode estar aterrorizado, não hostil. Preservar o bando pode exigir confronto e não fuga.
+Na Luz, Teriantes foram classificados, catalogados e usados como especialistas em rastreamento, segurança e exploração. A violência dessa redução é dupla: transforma pessoa em capacidade e apresenta a capacidade como prova de inferioridade “animal”. Na Escuridão, harmonias de bando podem reconhecer percepção compartilhada sem apagar diferença, mas também podem pressionar indivíduos a conformar-se ao papel esperado de seu Aspecto.
+A Dissonância da Redução ao Impulso ocorre quando o instinto deixa de informar a escolha e passa a substituí-la. A Sombra tenta convencer o Teriante de que reação é destino: atacar porque sentiu medo, fugir porque percebeu perigo, dominar porque reconheceu fraqueza. O nome chamado por um vínculo pode devolver contexto ao corpo: você sente isso, mas ainda escolhe.
+No convívio
+Teriantes podem demonstrar cuidado ajustando distância, reconhecendo sinais corporais, dividindo território ou acompanhando ritmos naturais de descanso. Consentimento sensorial é importante: cheiro, toque, som e proximidade podem ser muito mais intensos para alguns Aspectos.
+Bando não precisa significar família biológica nem grupo do mesmo Povo. Pode ser uma equipe de viagem, uma comunidade escolhida, uma pessoa e sua Evocação, ou mesmo o conjunto de seres por quem alguém decidiu responder.
+Vinheta - O nome acima do sangue
+O cheiro de metal e medo dizia que o inimigo atacaria. O Teriante avançou antes de pensar, garras prontas, visão estreita.
+Atrás dele, alguém pronunciou seu nome completo - não um comando, mas a forma como era chamado durante as noites de vigília.
+O corpo ainda queria atacar.
+A pessoa escolheu parar.
+No instante seguinte, percebeu que o suposto inimigo escondia uma criança ferida sob o manto.
+O instinto não havia mentido. Havia detectado perigo. Só não sabia quem precisava ser protegido dele.
+Perguntas para interpretar
+Que informação seu corpo percebe antes que sua personagem aceite percebê-la?
+Quem pode chamá-la de volta quando o impulso estreita o mundo?
+O que significa bando para alguém que escolheu outro caminho?
+Que estereótipo sobre seu Aspecto ela aprendeu a recusar?
+Não reduza os Teriantes a
+Homens-fera, impulsividade ou um conjunto de comportamentos animais. A questão Teriante é como reconhecer a inteligência do corpo sem permitir que ninguém transforme sensação em destino.
+Em jogo
+Traço - Aspecto Faunístico
+Escolha um Aspecto e um sentido associado:
+felino - visão e equilíbrio; lupino - cheiro e cooperação; aviano - distância e orientação; reptiliano - calor e imobilidade; aquático - vibração e água; outro aprovado pelo grupo.
+Receba +2 em Percepção quando o sentido se aplica.
+Dom - Instinto Inteiro
+Uma vez por cena, antes de rolar, pergunte:
+qual saída é mais segura; quem demonstra ameaça; o que está fora de lugar; qual movimento preserva o bando.
+A resposta é verdadeira, mas pode ser incompleta.
+Heranças Caçador: +1 dano contra alvo rastreado. Protetor de Bando: aliados próximos recebem +1 contra medo e emboscada. Dissonância - Redução ao Impulso
+Efeitos da Sombra podem tentar transformar instinto em perda de escolha. Receba +2 Integridade quando um aliado chama sua personagem pelo nome e vínculo.
+Nimari
+Nimari - rotas liminares, sorte e liberdade de passagem.
+As rotas que recusam ser retas
+Sobreviver é uma virtude. Permanecer quando seria possível fugir também pode ser.
+Os Nimari percebem as descontinuidades do mundo. Onde outras pessoas enxergam muro, estrada e distância, eles notam folgas: um ritmo de patrulha que deixa de coincidir, uma conversa que abre passagem social, uma pedra que repousa sobre outra sem jamais ter decidido cair. Essas frestas não são atalhos garantidos. São possibilidades ainda não colapsadas.
+O Passo Liminal traduz essa relação em movimento. Um Nimari atravessa espaço ocupado ou terreno difícil porque reconhece que posição não é apenas geometria. Existe o instante entre dois passos, a distração entre duas decisões, o lugar que um corpo deixará antes de perceber que o deixou. Isso não permite atravessar matéria sólida; o limiar não nega o mundo, apenas encontra suas margens.
+O Dado da Fortuna é frequentemente confundido com sorte gratuita. Na verdade, desviar uma possibilidade significa aceitar que outra deixou de acontecer. O Nimari altera um valor e precisa explicar a rota que foi abandonada. Toda vantagem possui uma sombra de consequência, mesmo quando a mesa não a cobra imediatamente.
+Nimaris, a cidade móvel e difícil de alcançar, representa essa filosofia. Rotas mudam, dívidas de sorte circulam e o caminho certo depende de quem pergunta. A cidade não existe para validar caricaturas de pequenos trapaceiros; existe para demonstrar que estabilidade pode ser produzida por relações e não por coordenadas fixas.
+Na Luz, Nimari foram usados como contrabandistas, guias, mensageiros e especialistas em brechas institucionais. Na Escuridão, rotas liminares aproximam lugares correspondentes e memórias que não deveriam se tocar. Em ambos os mundos, as pessoas desejam seus caminhos e desconfiam de sua liberdade.
+A Dissonância do Caminho Sem Compromisso começa quando toda responsabilidade parece apenas um obstáculo mal desenhado. A Sombra oferece saídas perfeitas: nenhum vínculo forte o bastante para impedir movimento, nenhuma promessa que possa ser cobrada, nenhuma comunidade capaz de exigir retorno. Sobreviver deixa de proteger a vida e passa a impedir que a vida crie raízes.
+No convívio
+Nimari demonstram cuidado encontrando alternativas, transformando impasses em escolhas e lembrando que portas oficiais não são as únicas portas. Também precisam aprender a não decidir por outras pessoas que risco é aceitável. Uma rota secreta pode salvar alguém ou retirar-lhe a possibilidade de escolher um caminho público.
+Permanecer é um gesto poderoso para uma personagem Nimari. Não porque o Povo seja incapaz de lealdade, mas porque enxergar tantas saídas torna cada permanência claramente escolhida.
+Vinheta - A rota mais longa
+O mapa indicava três caminhos. A Nimari conhecia um quarto, rápido e quase seguro, que a deixaria sozinha do outro lado da Fenda.
+O grupo estava ferido. A perseguição se aproximava.
+Ela olhou para a passagem oculta, depois para as pessoas que haviam confiado nela.
+Existe um caminho melhor - disse.
+Todos sorriram.
+Mas não para nós.
+Escolheu a rota longa. Pela primeira vez, a dificuldade do caminho era a prova de que não estava fugindo.
+Perguntas para interpretar
+Qual possibilidade sua personagem ainda lamenta ter desviado?
+Que vínculo transformou permanência em escolha e não prisão?
+Quando sobreviver exigiu trair alguém, e como ela responde por isso?
+Que rota apenas ela percebe, mas não possui o direito de impor?
+Não reduza os Nimari a
+Halflings, gnomos e goblins cômicos, ladrões inevitáveis ou pessoas incapazes de lealdade. A questão Nimari é como viver entre possibilidades sem usar possibilidade para escapar de toda consequência.
+Em jogo
+Traço - Passo Liminal
+Uma vez por turno, atravesse espaço ocupado ou terreno difícil sem custo adicional.
+Não atravessa barreira sólida.
+Dom - Dado da Fortuna
+Uma vez por cena, depois de qualquer rolagem visível:
+aumente ou reduza um dado natural em 1.
+Isso pode criar ou desfazer dupla.
+Explique qual possibilidade foi desviada.
+Heranças Cartógrafo de Frestas: +2 em Sobrevivência para rotas, portais e saídas. Negociador de Risco: quando aceita consequência antes do teste, recebe +3 em vez de +2. Dissonância - Caminho Sem Compromisso
+Abandonar vínculo para evitar todo risco recupera 1 Fôlego, mas marca uma Ruptura no vínculo.
+Três Rupturas encerram o vínculo até reparação.
+Vitrálios
+Vitrálios - ressonância cristalina, emoção e intimidade construída.
+Corpos que não sabem mentir completamente
+Transparência não é consentimento. Ser percebido não significa pertencer ao olhar de quem percebe.
+Vitrálios são pessoas de corpo cristalino cuja matéria participa de frequências de luz, som, emoção, vibração e magia. Cada corpo possui estrutura própria: transparências, opacidades, inclusões, fraturas reparadas, cores que respondem ao ambiente e regiões que parecem absorver em vez de refletir. Nenhum padrão determina caráter.
+A experiência Vitrália é frequentemente romantizada por outros Povos como pureza. A ideia é ofensiva. Um corpo que expressa emoção por cor ou frequência não vive sem segredos; vive lutando pelo direito de decidir quem pode interpretá-los. Uma mudança visível pode indicar medo, raiva, lembrança, temperatura ou interferência mágica. Supor significado sem perguntar transforma percepção em invasão.
+O Corpo Harmônico permite perceber alterações na frequência dominante. Isso produz intimidade com fenômenos que outros ignoram: uma sala cuja vibração mudou depois de uma mentira, uma magia que deixa resíduos de cor, uma emoção coletiva que altera o som do espaço. A percepção não concede autoridade automática sobre a causa.
+A Ressonância Prismática permite refletir, estruturar e compartilhar. O gesto mais delicado é dividir emoção verdadeira com consentimento. Verdade, nesse contexto, não significa totalidade. Uma emoção pode ser autêntica e ainda coexistir com outras. O prisma não reduz luz a uma cor; revela que a luz já continha muitas.
+No Ressonário de Vael, frequências são estudadas como arquivo, arte e responsabilidade. Na Luz, Vitrálios podem ser tratados como instrumentos, lentes ou baterias de manifestação. Na Escuridão, podem ser pressionados a servir de testemunhas emocionais. Em ambos os casos, a pessoa corre o risco de desaparecer atrás daquilo que o corpo revela.
+A Dissonância da Quebra Frequencial ocorre quando dor de Lucidez desorganiza a relação entre interior e expressão. Emoções podem tornar-se públicas contra a vontade, o Dom pode silenciar, o corpo pode entrar em estado Fraturado. A Sombra oferece falsa harmonia: eliminar frequências conflitantes até restar uma única nota. Para um Vitrálio, assimilação pode parecer paz acústica.
+No convívio
+Vitrálio demonstra cuidado ajustando frequência, oferecendo presença luminosa ou sonora, protegendo alguém de ruído e respeitando o direito de não ser lido. Intimidade pode significar permitir que outra pessoa veja uma cor rara; confiança também pode significar acreditar quando alguém diz que a cor não significa o que você imaginou.
+Reparos no corpo não apagam biografia. Uma fratura selada pode permanecer visível e tornar-se parte da autoimagem. Algumas pessoas desejam restaurar transparência; outras preferem manter a linha como testemunho.
+Vinheta - A luz diminuída
+Durante o interrogatório, a autoridade observava cada mudança de cor no corpo Vitrálio.
+Você sabe onde ela está - acusou.
+O cristal do peito brilhou em azul profundo. Medo, talvez. Lealdade, talvez. Memória.
+O Vitrálio respirou e reduziu deliberadamente a própria frequência até tornar-se quase opaco.
+Meu corpo não é seu instrumento de busca.
+A autoridade chamou aquilo de ocultação.
+Ele chamou de privacidade.
+Perguntas para interpretar
+Que frequência sua personagem percebe com mais facilidade e qual costuma interpretar mal?
+Quem recebeu permissão para reconhecer suas mudanças de cor ou som?
+Qual fratura ela escolheu não esconder?
+Que forma de falsa harmonia seria tentadora para ela?
+Não reduza os Vitrálios a
+Cristais puros, detectores de mentira ou seres emocionalmente simples. A questão Vitrália é como existir de forma perceptível sem ceder a outras pessoas o direito de definir o que sua percepção significa.
+Em jogo
+Traço - Corpo Harmônico
+Escolha uma frequência dominante:
+calor; som; emoção; luz física; vibração; magia.
+Perceba mudanças relevantes nessa frequência sem teste, quando próximas.
+Dom - Ressonância Prismática
+Gaste 1 Fluxo para:
+refletir uma magia de alvo único com redução de efeito; emitir luz ou som estruturado; compartilhar emoção verdadeira com consentimento; conceder +2 a um teste de Sintonia de aliado. Heranças Lapidador de Si: durante pausa, troque resistência a uma condição por outra até a próxima pausa. Coro Vitrálio: quando outro personagem gera Ressonância, recupere 1 Lucidez, uma vez por cena. Dissonância - Quebra Frequencial
+Ao sofrer dano de Lucidez igual ou superior à Vontade, escolha:
+tornar emoção visível; perder temporariamente acesso ao Dom; sofrer condição Fraturado.

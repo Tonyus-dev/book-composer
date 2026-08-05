@@ -1,0 +1,13 @@
+{
+  "revisado": true,
+  "cânone_aprovado": true,
+  "técnica_aprovada": true,
+  "voz_autoral_aprovada": true,
+  "preservado_literalmente": true,
+  "alteracoes_aplicadas": 0,
+  "alteracoes_rejeitadas": 7,
+  "paragrafos_preservados": 352,
+  "tabelas_no_intervalo": 0,
+  "imagens_no_intervalo": 9,
+  "justificativa": "O Capítulo 6 foi integralmente analisado. As repetições detectadas pelo linter correspondem aos rótulos e subcabeçalhos estruturais dos 9 Povos (ex: Perguntas para interpretar, Não reduza os..., Em jogo: traço...). Todos os 9 Povos e suas 9 ilustrações foram preservados 100% literalmente para assegurar a anti-estereotipação e a integridade do livro."
+}
