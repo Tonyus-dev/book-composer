@@ -412,6 +412,14 @@ Depois de cada alteração, compare:
 
 Caso o retorno ao original produza mais força, naturalidade ou precisão, rejeite a alteração.
 
+## Padrão Técnico de Diagramação de Tabelas
+
+A partir do Capítulo 8, toda nova tabela ou formatação tabular deve obedecer rigorosamente às diretrizes técnicas de layout, padding, bordas e paleta registradas em:
+`docs/editorial/merge-claude/02_PADRAO_TABELAS_KALLISTIS_PARA_INCORPORAR.md`
+
+Regra de ouro das tabelas:
+> Melhorar a apresentação sem alterar uma única célula de conteúdo (diferenças de conteúdo: 0).
+
 ## Uso de ferramentas
 
 Execute:

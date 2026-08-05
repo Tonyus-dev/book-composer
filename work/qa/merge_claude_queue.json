@@ -1,0 +1,126 @@
+{
+  "source": "Claude",
+  "status": "fila_editorial",
+  "total_items": 10,
+  "by_status": {
+    "pendente": 0,
+    "aplicável_agora": 0,
+    "aguarda_capitulo": 5,
+    "aguarda_merge_final": 3,
+    "rejeitado": 2,
+    "incorporado": 0,
+    "validado": 0
+  },
+  "items": [
+    {
+      "id": "MERGE-001",
+      "descrição": "Reescrita expositiva do Prólogo proposta pelo Claude",
+      "seção_ou_capítulo_afetado": "Prólogo",
+      "categoria": "prosa",
+      "risco": "alto (perda da voz autoral aprovada)",
+      "dependências": "nenhuma",
+      "status": "rejeitado",
+      "fonte_de_autoridade": "Decisão editorial humana (Prólogo preservado originalmente)",
+      "momento_previsto_de_aplicação": "N/A"
+    },
+    {
+      "id": "MERGE-002",
+      "descrição": "Reescrita expositiva do Capítulo 1 proposta pelo Claude",
+      "seção_ou_capítulo_afetado": "Capítulo 1",
+      "categoria": "prosa",
+      "risco": "alto (perda da voz autoral aprovada)",
+      "dependências": "nenhuma",
+      "status": "rejeitado",
+      "fonte_de_autoridade": "Decisão editorial humana (Capítulo 1 aprovado)",
+      "momento_previsto_de_aplicação": "N/A"
+    },
+    {
+      "id": "MERGE-003",
+      "descrição": "Separar títulos de atributos/estatísticas grudados no texto em parágrafos próprios (Guarda, Integridade, Movimento)",
+      "seção_ou_capítulo_afetado": "Capítulos 8, 10 e 21",
+      "categoria": "estrutura",
+      "risco": "baixo",
+      "dependências": "revisão dos capítulos correspondentes",
+      "status": "aguarda_capitulo",
+      "fonte_de_autoridade": "Claude 2.1 / Antigravity baseline",
+      "momento_previsto_de_aplicação": "Durante a revisão dos Capítulos 8, 10 e 21"
+    },
+    {
+      "id": "MERGE-004",
+      "descrição": "Corrigir junções acidentais de palavras e defeitos de conversão (ex: Pontariacontra -> Pontaria contra) sem substituição cega",
+      "seção_ou_capítulo_afetado": "Capítulos 8 a 22 e Apêndices",
+      "categoria": "ortografia_e_formatacao",
+      "risco": "baixo",
+      "dependências": "revisão individual capítulo a capítulo",
+      "status": "aguarda_capitulo",
+      "fonte_de_autoridade": "Claude 2.2 / Antigravity baseline",
+      "momento_previsto_de_aplicação": "Durante a revisão de cada capítulo"
+    },
+    {
+      "id": "MERGE-005",
+      "descrição": "Padronizar a ordem dos 17 campos dos 52 blocos de adversários para máxima legibilidade de mesa",
+      "seção_ou_capítulo_afetado": "Capítulo 21 — Adversários e encontros",
+      "categoria": "diagramacao_e_estatisticas",
+      "risco": "médio (exige auditoria numérica de 52 fichas)",
+      "dependências": "Capítulo 21",
+      "status": "aguarda_capitulo",
+      "fonte_de_autoridade": "Claude 2.3 / Antigravity baseline",
+      "momento_previsto_de_aplicação": "Durante a revisão do Capítulo 21"
+    },
+    {
+      "id": "MERGE-006",
+      "descrição": "Formatar cada termo do glossário em bloco próprio com termo em negrito e recuo suspenso",
+      "seção_ou_capítulo_afetado": "Apêndice E — Glossário essencial",
+      "categoria": "formatacao_e_layout",
+      "risco": "baixo",
+      "dependências": "Apêndice E",
+      "status": "aguarda_capitulo",
+      "fonte_de_autoridade": "Claude 2.4 / Antigravity baseline",
+      "momento_previsto_de_aplicação": "Durante a revisão do Apêndice E"
+    },
+    {
+      "id": "MERGE-007",
+      "descrição": "Aplicar estrutura tabular às seções de referência rápida sem transformar prosa em tabela",
+      "seção_ou_capítulo_afetado": "Apêndice A — Referência rápida",
+      "categoria": "diagramacao_e_tabelas",
+      "risco": "baixo",
+      "dependências": "Apêndice A",
+      "status": "aguarda_capitulo",
+      "fonte_de_autoridade": "Claude 2.5 / Antigravity baseline",
+      "momento_previsto_de_aplicação": "Durante a revisão do Apêndice A"
+    },
+    {
+      "id": "MERGE-008",
+      "descrição": "Incorporar as 33 legendas identificadoras (22 figuras, 11 mapas) presas às respectivas imagens",
+      "seção_ou_capítulo_afetado": "Imagens e mapas em todo o livro",
+      "categoria": "acessibilidade_e_legendas",
+      "risco": "médio (exige verificação visual individual de vinculação)",
+      "dependências": "revisão completa dos capítulos",
+      "status": "aguarda_merge_final",
+      "fonte_de_autoridade": "Claude 2.6 / Antigravity baseline",
+      "momento_previsto_de_aplicação": "Etapa de montagem e merge final"
+    },
+    {
+      "id": "MERGE-009",
+      "descrição": "Reutilizar e atualizar os campos dinâmicos TOC e INDEX para geração automatizada e funcional de páginas",
+      "seção_ou_capítulo_afetado": "Sumário e Índice Remissivo",
+      "categoria": "estrutura_e_campos",
+      "risco": "baixo",
+      "dependências": "consolidação final da paginação",
+      "status": "aguarda_merge_final",
+      "fonte_de_autoridade": "Claude 2.7 / Antigravity baseline",
+      "momento_previsto_de_aplicação": "Etapa de fechamento do volume final"
+    },
+    {
+      "id": "MERGE-010",
+      "descrição": "Tratar o conto O Cristal e a Fresta como narrativa complementar com aviso explícito de autonomia interpretativa",
+      "seção_ou_capítulo_afetado": "Produto complementar / Encarte",
+      "categoria": "narrativa_complementar",
+      "risco": "baixo",
+      "dependências": "definição de empacotamento do produto complementar",
+      "status": "aguarda_merge_final",
+      "fonte_de_autoridade": "Claude 3.1-3.8 / Decisão editorial humana",
+      "momento_previsto_de_aplicação": "Finalização dos produtos complementares"
+    }
+  ]
+}
