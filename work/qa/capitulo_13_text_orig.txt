@@ -1,0 +1,18 @@
+13. Magia
+Magia é relação disciplinada entre intenção, forma e consequência
+O que é magia
+Magia é técnica de manipulação de energia, matéria, memória, probabilidade, frequência ou relação. Pode usar gesto, foco, canto, inscrição, cálculo, instinto, elemento ou Ressonância. Velarim pode participar, mas magia não é automaticamente Velarim.
+Estrutura de uma magia
+Graus e potência ofensiva
+Apenas o dano-base é multiplicado. Sintonia, margem, bônus fixos e efeitos de técnica entram depois. Magias de área usam dano-base menor. Nível IV/x5 fica reservado a Legado, artefato maior ou evento catastrófico.
+Tradições mecânicas
+Testes mágicos
+Quando houver oposição, role Luz + Escuridão + Sintonia + Magia contra Guarda para projétil físico, Fortitude para alteração corporal, Integridade para memória ou identidade, ou Dificuldade da Fenda para travessias.
+Concentração
+Uma personagem sustenta uma magia persistente por vez. Sofrer 5 ou mais de dano exige Vontade + Magia contra 15; falha encerra o efeito.
+Catálogo completo de magias desta edição
+O catálogo abaixo é fechado para o Playtest 1.2. Novas magias podem ser propostas, mas não entram automaticamente no cânone ou na ficha sem aprovação da mesa.
+Grau 0
+Grau 1
+Grau 2
+Grau 3
