@@ -1,0 +1,37 @@
+5. Criação de personagem
+Criar uma personagem é construir uma posição no mundo. A ficha registra capacidades, mas também relações que o cenário pode tocar sem possuir. Antes de distribuir números, escreva uma frase que contenha desejo, conflito e pertencimento.
+Etapas
+Conceito. Povo. Origem cosmológica. Ofício. Papel de Ressonância. Atributos. Perícias. Técnicas. Magias ou evocação, quando disponíveis. Equipamento. Vínculos. Promessa. Ferida. Pergunta pessoal.
+Conceito
+Escreva uma frase:
+Sou [identidade] que deseja [objetivo], mas teme [perda].
+Exemplo:
+Sou uma Dórea restauradora que deseja provar a fraude do pacto, mas teme descobrir que sua própria obra sustentou a mentira.
+Atributos iniciais
+Distribua:
+3, 2, 2, 1, 1, 0
+Nenhum atributo começa acima de 3.
+Povos não concedem bônus fixos de atributo.
+Perícias iniciais
+Distribua:
+uma perícia em 3; três perícias em 2; quatro perícias em 1.
+O Ofício concede mais duas perícias treinadas.
+Vínculos
+Crie três vínculos:
+uma pessoa; uma comunidade; uma verdade, promessa ou lugar.
+Uma vez por cena, quando agir diretamente para proteger ou confrontar um vínculo, receba +2.
+O vínculo pode ser transformado durante a campanha.
+Promessa
+A Promessa responde:
+O que sua personagem se recusa a permitir que seja apagado?
+Uma vez por sessão, ao agir de acordo com a Promessa sob risco real, recupere 1 Determinação.
+Ferida
+A Ferida responde:
+Que perda ainda governa decisões que sua personagem afirma ter superado?
+O Mestre pode oferecer 1 Determinação para colocar a Ferida em risco.
+O jogador decide aceitar ou recusar.
+Pergunta pessoal
+Escolha ou escreva uma:
+Minha origem define quem sou? Até onde uma promessa continua legítima? O que devo ao mundo em que fui criado? Posso confiar em minha própria memória? Que parte de mim foi construída por outros? Sobreviver justifica abandonar alguém? Quanto poder posso usar sem me tornar aquilo que combato? Como preservar intimidade quando meu corpo revela emoções? O que significa encontrar minha mirveth?
+A ficha como memória
+A ficha definitiva separa o Núcleo permanente das Trilhas ativas. Uma personagem pode aprender novos Ofícios sem apagar o que viveu. Técnicas, Chaves e progressão ativa mudam; vínculos, memórias, cicatrizes, promessas e consequências permanecem.

@@ -1,0 +1,13 @@
+{
+  "revisado": true,
+  "cânone_aprovado": true,
+  "técnica_aprovada": true,
+  "voz_autoral_aprovada": true,
+  "preservado_literalmente": true,
+  "alteracoes_aplicadas": 0,
+  "alteracoes_rejeitadas": 0,
+  "paragrafos_preservados": 37,
+  "tabelas_no_intervalo": 0,
+  "imagens_no_intervalo": 0,
+  "justificativa": "O Capítulo 5 foi integralmente lido e avaliado. Todos os passos da criação de personagem já possuem clareza instrucional, escaneabilidade e ritmo adequados, com 0 alertas críticos do linter. Mantido 100% literalmente."
+}
