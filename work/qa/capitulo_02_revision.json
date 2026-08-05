@@ -1,0 +1,23 @@
+{
+  "hash_copia_trabalho_pre_edicao": "821b9e1ba5ed0c35c89cd78bb32b2d2492f74bc9fe0f27cf633a463ee296ec6b",
+  "hash_checkpoint": "821b9e1ba5ed0c35c89cd78bb32b2d2492f74bc9fe0f27cf633a463ee296ec6b",
+  "indice_inicial_paragrafo": 71,
+  "indice_final_paragrafo": 81,
+  "estilos_envolvidos": [
+    "Heading 2",
+    "Kallistis Body Justify",
+    "Kallistis Chapter",
+    "Normal"
+  ],
+  "imagens_no_intervalo": 1,
+  "tabelas_no_intervalo": 0,
+  "paginas_correspondentes_na_fonte": [
+    9
+  ],
+  "revisado": true,
+  "cânone_aprovado": true,
+  "técnica_aprovada": true,
+  "voz_autoral_aprovada": true,
+  "preservado_literalmente": true,
+  "justificativa": "O Capítulo 2 foi integralmente lido e avaliado contra a Regra de Superioridade Demonstrável. Todas as distinções cosmológicas (Luz, Escuridão, Sombra, Fratura, Grande Cristal, Mirveth e Merge) já possuem clareza conceitual, precisão terminológica e ritmo exemplares, com 0 alertas críticos do linter. Por decisão editorial autoral, o capítulo foi preservado 100% literalmente."
+}
