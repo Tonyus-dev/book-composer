@@ -1,0 +1,18 @@
+{
+  "previous_declared_count": 223,
+  "corrected_canonical_count": 225,
+  "raw_occurrences": 226,
+  "duplicate_excess": 1,
+  "duplicate_group": "ravun",
+  "editorial_authorization": true,
+  "reason": "Contagem declarada incompatível com o inventário lexical integral",
+  "source_commit_discovery": "a59c4dc",
+  "docx_hash_before": "366da81fd81a4c0ef5a2518da7bb90bb3db1c22a737f4df4df53644f6e5197f9",
+  "docx_hash_after": "46b4986b56cc23f5a46bbee67bfa653876e35b75348fb08769becf7a168ec381",
+  "paragraph_index": 4265,
+  "previous_paragraph_text": "Esta seção reúne 223 verbetes humanos diretamente atestados na expansão e em seu corpus, além dos 48 registros do núcleo.",
+  "corrected_paragraph_text": "Esta seção reúne 225 verbetes humanos únicos diretamente atestados nas fontes lexicais inventariadas. O Núcleo 1.0 permanece documentado separadamente em seus 48 registros canônicos.",
+  "audit_note": "Nenhum verbete foi criado; nenhum verbete foi removido; nenhum verbete foi fundido além da repetição já comprovada de ravun; a correção altera somente a metacontagem editorial.",
+  "verdict": "PASS — ERRATA CANÔNICA DE CONTAGEM APLICADA",
+  "velarim_audit_pending_status": "ENCERRADO (LIBERADO)"
+}
