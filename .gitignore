@@ -6,3 +6,8 @@ work/renders_final/
 work/builds/
 output/
 *.pdf
+
+# Generated / packaged / checkpoint files ignored during consolidation
+03_OUTPUT_ESPERADO/render_report.json
+KALLISTIS_SKILL_ESCRITA_AUTORAL_v1.0.zip
+work/checkpoints/*.docx
