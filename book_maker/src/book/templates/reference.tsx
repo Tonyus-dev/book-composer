@@ -7,6 +7,7 @@ function Portrait({ block, auto }: { block: ImageBlock; auto?: boolean }) {
   return (
     <figure
       className={`k-profile__portrait${auto ? " k-profile__portrait--auto" : ""}`}
+      data-block-id={block.id}
       style={{ margin: 0 }}
     >
       <img

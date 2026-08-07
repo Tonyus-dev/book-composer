@@ -54,7 +54,10 @@ export function QuoteLayoutTemplate({ page }: TemplateProps) {
   const quote = firstOfType(page.blocks, "quote");
   if (page.variant === "full-page" && quote) {
     return (
-      <div style={{ display: "grid", height: "100%", alignContent: "center" }}>
+      <div
+        data-block-id={quote.id}
+        style={{ display: "grid", height: "100%", alignContent: "center" }}
+      >
         <PullQuote block={{ ...quote, size: quote.size ?? "lg" }} />
       </div>
     );

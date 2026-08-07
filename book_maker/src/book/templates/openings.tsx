@@ -10,7 +10,7 @@ export function CoverTemplate({ page, meta }: TemplateProps) {
   return (
     <>
       {art ? (
-        <div className="k-bleed">
+        <div className="k-bleed" data-block-id={art.id}>
           <img
             className="k-bleed--img"
             src={resolveAssetSrc(art.src)}
@@ -20,7 +20,11 @@ export function CoverTemplate({ page, meta }: TemplateProps) {
         </div>
       ) : null}
       <div className="k-cover">
-        {lockup ? <BrandLockup block={{ ...lockup, width: lockup.width ?? "108mm" }} /> : null}
+        {lockup ? (
+          <div data-block-id={lockup.id} className="k-cover__lockup-slot">
+            <BrandLockup block={{ ...lockup, width: lockup.width ?? "108mm" }} />
+          </div>
+        ) : null}
         <div>
           <h1 className="k-cover__product">{page.title ?? meta.title}</h1>
           {page.subtitle ? <p className="k-cover__sub">{page.subtitle}</p> : null}
@@ -43,7 +47,7 @@ export function PartOpeningTemplate({ page }: TemplateProps) {
   return (
     <>
       {art ? (
-        <div className="k-bleed">
+        <div className="k-bleed" data-block-id={art.id}>
           <img
             className="k-bleed--img"
             src={resolveAssetSrc(art.src)}
@@ -56,7 +60,11 @@ export function PartOpeningTemplate({ page }: TemplateProps) {
         <div className="k-part__rule" />
         {page.eyebrow ? <p className="k-part__label">{page.eyebrow}</p> : null}
         <h1 className="k-part__title">{page.title}</h1>
-        {claim ? <p className="k-part__claim">{claim.content}</p> : null}
+        {claim ? (
+          <p className="k-part__claim" data-block-id={claim.id}>
+            {claim.content}
+          </p>
+        ) : null}
       </div>
     </>
   );
@@ -84,7 +92,7 @@ export function ChapterOpeningTemplate({ page }: TemplateProps) {
   if (side) {
     return (
       <div className="k-chapter--side" style={{ ["--band-w" as string]: art?.width ?? "34%" }}>
-        <div className="k-chapter__band">
+        <div className="k-chapter__band" data-block-id={art?.id}>
           {art ? (
             <img
               src={resolveAssetSrc(art.src)}
@@ -103,7 +111,11 @@ export function ChapterOpeningTemplate({ page }: TemplateProps) {
 
   return (
     <div>
-      <div className="k-chapter__band" style={{ ["--band-h" as string]: art?.height ?? "40%" }}>
+      <div
+        className="k-chapter__band"
+        data-block-id={art?.id}
+        style={{ ["--band-h" as string]: art?.height ?? "40%" }}
+      >
         {art ? (
           <img
             src={resolveAssetSrc(art.src)}

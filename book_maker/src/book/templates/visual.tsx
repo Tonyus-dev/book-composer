@@ -19,7 +19,7 @@ export function FullArtTemplate({ page }: TemplateProps) {
   if (fullBleed) {
     return (
       <>
-        <div className="k-bleed">
+        <div className="k-bleed" data-block-id={art.id}>
           <img
             className="k-bleed--img"
             src={resolveAssetSrc(art.src)}
@@ -34,7 +34,7 @@ export function FullArtTemplate({ page }: TemplateProps) {
 
   return (
     <div style={{ display: "grid", gridTemplateRows: "auto 1fr", height: "100%", gap: "5mm" }}>
-      <div style={{ height: art.height ?? "62%" }}>
+      <div data-block-id={art.id} style={{ height: art.height ?? "62%" }}>
         <img
           src={resolveAssetSrc(art.src)}
           alt={art.alt}
@@ -70,7 +70,7 @@ export function MapPageTemplate({ page }: TemplateProps) {
         ) : null}
       </div>
       {map ? (
-        <figure style={{ margin: "0 0 4mm", height: map.height ?? "52%" }}>
+        <figure data-block-id={map.id} style={{ margin: "0 0 4mm", height: map.height ?? "52%" }}>
           <img
             src={resolveAssetSrc(map.src)}
             alt={map.alt}
