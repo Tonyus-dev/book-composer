@@ -22,11 +22,11 @@ No terceiro parágrafo verificamos viúvas e órfãs, a proximidade dos títulos
 export const demoBook: Book = {
   schemaVersion: 1,
   meta: {
-    title: "Livro Básico",
-    subtitle: "Memória, Fratura e Escolha entre Dois Mundos",
-    author: "Nomos Ludens",
+    title: "KALLISTIS — Livro Básico",
+    subtitle: "O Cristal e a Fresta",
+    author: "Antônio de Oliveira",
     imprint: "Nomos Ludens",
-    edition: "Maquete editorial · v0.1",
+    edition: "Edição Definitiva v1.3",
     firstFolio: 1,
   },
   tokens: DEFAULT_TOKENS,
@@ -67,8 +67,8 @@ export const demoBook: Book = {
       id: "p-001",
       template: "cover",
       variant: "default",
-      title: "Livro Básico",
-      subtitle: "Memória, Fratura e Escolha entre Dois Mundos",
+      title: "KALLISTIS — Livro Básico",
+      subtitle: "O Cristal e a Fresta",
       settings: {
         header: false,
         footer: false,
@@ -117,7 +117,7 @@ export const demoBook: Book = {
           type: "text",
           role: "credits",
           content:
-            "KALLISTIS · Livro Básico\nMaquete editorial produzida no KALLISTIS BOOK BUILDER.\n\nFormato 210 × 280 mm, retrato, frente e verso. Corpo em EB Garamond; informação funcional em Liberation Sans. Paleta conforme o Manual de Branding KALLISTIS v1.0.",
+            "KALLISTIS — Livro Básico\nO Cristal e a Fresta\nMemória, Fratura e Escolha entre Dois Mundos\n\nEdição Definitiva v1.3 · Agosto de 2026\nAutor: Antônio de Oliveira\nEditora: Nomos Ludens\n\nFormato 210 × 280 mm. Corpo em EB Garamond; informação funcional em Liberation Sans. Paleta conforme o Manual de Branding KALLISTIS v1.0.",
         },
         { id: "b-fm-div", type: "divider", ornament: false, spaceBefore: 4, spaceAfter: 4 },
         {
