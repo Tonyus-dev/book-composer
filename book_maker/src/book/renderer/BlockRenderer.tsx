@@ -41,7 +41,7 @@ export function BlockBody({ block }: { block: Block }) {
   }
 }
 
-/** Envelope de bloco: span, espaçamento editorial e (só no editor) seleção. */
+/** Envelope de bloco: span, espaçamento editorial, identificação e (só no editor) seleção. */
 export function BlockRenderer({ block }: { block: Block }) {
   const { interactive, selectedBlockId, onSelectBlock } = useBookRender();
   const style: CSSProperties = {
@@ -56,24 +56,28 @@ export function BlockRenderer({ block }: { block: Block }) {
     .filter(Boolean)
     .join(" ");
 
-  if (!interactive) {
-    return (
-      <div className={className} style={style}>
-        <BlockBody block={block} />
-      </div>
-    );
-  }
-
+  /*
+   * `data-block-id` identifica o bloco para medições geométricas fora do
+   * editor (preflight, print view). Só deixa de sair do DOM quando o
+   * renderer não roda — e isso é feature: blocos consumidos por templates
+   * especiais (capa, full_art) têm layout próprio e são medidos pelos
+   * contêineres .k-bleed / .k-cover. Seleção e clique continuam exclusivos
+   * do editor.
+   */
   return (
     <div
       className={className}
       style={style}
       data-block-id={block.id}
-      data-selected={selectedBlockId === block.id ? "true" : undefined}
-      onClick={(event) => {
-        event.stopPropagation();
-        onSelectBlock?.(block.id);
-      }}
+      data-selected={interactive && selectedBlockId === block.id ? "true" : undefined}
+      onClick={
+        interactive
+          ? (event) => {
+              event.stopPropagation();
+              onSelectBlock?.(block.id);
+            }
+          : undefined
+      }
     >
       <BlockBody block={block} />
     </div>
