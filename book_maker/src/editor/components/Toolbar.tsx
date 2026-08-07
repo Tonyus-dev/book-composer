@@ -1,0 +1,272 @@
+import { useRef } from "react";
+import type { Block, BlockType } from "../../book/types";
+import { downloadBookJson, readBookFromFile } from "../../lib/persistence/json";
+import { useEditor, nextId, type Overlays, type ZoomValue } from "../state/store";
+
+const OVERLAY_LABELS: { key: keyof Overlays; label: string }[] = [
+  { key: "margins", label: "Margens" },
+  { key: "bleed", label: "Sangria" },
+  { key: "safe", label: "Área segura" },
+  { key: "columns", label: "Colunas" },
+  { key: "baseline", label: "Baseline" },
+];
+
+const ZOOMS: ZoomValue[] = ["fit", 0.5, 0.75, 1];
+
+const NEW_BLOCKS: { type: BlockType; label: string }[] = [
+  { type: "heading", label: "Título" },
+  { type: "text", label: "Texto" },
+  { type: "image", label: "Imagem" },
+  { type: "quote", label: "Citação" },
+  { type: "box", label: "Box" },
+  { type: "table", label: "Tabela" },
+  { type: "divider", label: "Divisor" },
+  { type: "caption", label: "Legenda" },
+];
+
+function makeBlock(type: BlockType): Block {
+  const id = nextId("b");
+  switch (type) {
+    case "heading":
+      return { id, type, level: 2, text: "Novo título" };
+    case "image":
+      return { id, type, src: "", alt: "", fit: "cover", position: "flow", span: "full" };
+    case "quote":
+      return { id, type, text: "Nova citação.", size: "md", variant: "rule", span: "full" };
+    case "box":
+      return { id, type, kind: "regra", title: "Novo box", content: "Conteúdo.", span: "full" };
+    case "table":
+      return {
+        id,
+        type,
+        columns: ["Coluna A", "Coluna B"],
+        rows: [["—", "—"]],
+        span: "full",
+      };
+    case "divider":
+      return { id, type, ornament: true, span: "full" };
+    case "caption":
+      return { id, type, text: "Legenda." };
+    case "toc":
+      return { id, type, columns: 1, entries: [] };
+    case "lockup":
+      return {
+        id,
+        type,
+        src: "/assets/branding/KALLISTIS_lockup_master.jpg",
+        alt: "KALLISTIS",
+        variant: "lockup",
+        width: "70mm",
+      };
+    default:
+      return { id, type: "text", content: "Novo parágrafo.", role: "body" };
+  }
+}
+
+/** Barra superior: visualização, overlays, blocos, projeto e exportação. */
+export function Toolbar() {
+  const {
+    book,
+    view,
+    setView,
+    zoom,
+    setZoom,
+    overlays,
+    toggleOverlay,
+    status,
+    selectedPage,
+    addBlock,
+    selectBlock,
+    replaceBook,
+    resetToDemo,
+    preflight,
+    preflightRunning,
+    runPreflight,
+    openPreflight,
+  } = useEditor();
+  const fileRef = useRef<HTMLInputElement>(null);
+  const { errors, warnings, infos } = preflight.summary;
+
+  /* Exportação de produção nunca é silenciosa quando existe ERROR. */
+  const openPrint = () => {
+    if (errors > 0) {
+      const proceed = window.confirm(
+        `PREFLIGHT: ${errors} ERROR(S) no livro.\n\n` +
+          "A exportação de produção pode perder conteúdo (texto cortado, arte fora do trim, asset ausente).\n\n" +
+          "Confirmar a abertura do modo impressão mesmo com erros?",
+      );
+      if (!proceed) {
+        openPreflight();
+        return;
+      }
+    }
+    window.open("/print", "_blank", "noopener");
+  };
+
+  const insert = (type: BlockType) => {
+    const block = makeBlock(type);
+    addBlock(selectedPage.id, block);
+    selectBlock(block.id);
+  };
+
+  return (
+    <header className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-border bg-card px-3 py-2">
+      <div className="flex items-baseline gap-2">
+        <span className="text-[13px] font-semibold tracking-[0.2em] text-foreground uppercase">
+          Kallistis
+        </span>
+        <span className="text-[10px] tracking-[0.18em] text-muted-foreground uppercase">
+          Book Builder
+        </span>
+      </div>
+
+      <div className="flex items-center gap-1">
+        {(["page", "spread", "light"] as const).map((mode) => (
+          <button
+            key={mode}
+            type="button"
+            onClick={() => setView(mode)}
+            title={
+              mode === "light"
+                ? "Mesa de luz: ritmo, densidade e distribuição de arte no livro inteiro"
+                : undefined
+            }
+            className={`border px-2 py-1 text-[11px] ${
+              view === mode
+                ? "border-primary bg-primary text-primary-foreground"
+                : "border-border hover:bg-accent"
+            }`}
+          >
+            {mode === "page" ? "Página" : mode === "spread" ? "Spread" : "Mesa de luz"}
+          </button>
+        ))}
+      </div>
+
+      <label className="flex items-center gap-1 text-[11px] text-muted-foreground">
+        Zoom
+        <select
+          value={String(zoom)}
+          onChange={(event) => {
+            const raw = event.target.value;
+            setZoom(raw === "fit" ? "fit" : (Number(raw) as ZoomValue));
+          }}
+          className="border border-border bg-input/40 px-1.5 py-1 text-[11px] text-foreground"
+        >
+          {ZOOMS.map((value) => (
+            <option key={String(value)} value={String(value)}>
+              {value === "fit" ? "Ajustar" : `${Number(value) * 100}%`}
+            </option>
+          ))}
+        </select>
+      </label>
+
+      <div className="flex items-center gap-1">
+        {OVERLAY_LABELS.map((entry) => (
+          <button
+            key={entry.key}
+            type="button"
+            aria-pressed={overlays[entry.key]}
+            onClick={() => toggleOverlay(entry.key)}
+            className={`border px-2 py-1 text-[11px] ${
+              overlays[entry.key]
+                ? "border-primary text-foreground"
+                : "border-border text-muted-foreground hover:bg-accent"
+            }`}
+          >
+            {entry.label}
+          </button>
+        ))}
+      </div>
+
+      <label className="flex items-center gap-1 text-[11px] text-muted-foreground">
+        Inserir
+        <select
+          value=""
+          onChange={(event) => {
+            if (event.target.value) insert(event.target.value as BlockType);
+          }}
+          className="border border-border bg-input/40 px-1.5 py-1 text-[11px] text-foreground"
+        >
+          <option value="">bloco…</option>
+          {NEW_BLOCKS.map((entry) => (
+            <option key={entry.type} value={entry.type}>
+              {entry.label}
+            </option>
+          ))}
+        </select>
+      </label>
+
+      <div className="ml-auto flex items-center gap-2">
+        <button
+          type="button"
+          onClick={runPreflight}
+          disabled={preflightRunning}
+          title="Analisar o livro inteiro e listar diagnósticos editoriais"
+          className={`border px-2 py-1 text-[11px] font-medium disabled:opacity-60 ${
+            errors > 0 ? "border-destructive text-destructive" : "border-border hover:bg-accent"
+          }`}
+        >
+          {preflightRunning ? "Preflight…" : "Preflight"}
+        </button>
+        <button
+          type="button"
+          onClick={openPreflight}
+          className="text-[10px] text-muted-foreground tabular-nums hover:text-foreground"
+        >
+          <span className={errors > 0 ? "text-destructive" : ""}>{errors} Errors</span>
+          {` ${warnings} Warnings ${infos} Info`}
+        </button>
+        <span className="text-[10px] text-muted-foreground">
+          {status === "saving" ? "salvando…" : "salvo localmente"}
+        </span>
+        <button
+          type="button"
+          onClick={() => downloadBookJson(book)}
+          className="border border-border px-2 py-1 text-[11px] hover:bg-accent"
+        >
+          Exportar JSON
+        </button>
+        <button
+          type="button"
+          onClick={() => fileRef.current?.click()}
+          className="border border-border px-2 py-1 text-[11px] hover:bg-accent"
+        >
+          Importar JSON
+        </button>
+        <input
+          ref={fileRef}
+          type="file"
+          accept="application/json"
+          className="hidden"
+          onChange={async (event) => {
+            const file = event.target.files?.[0];
+            if (!file) return;
+            try {
+              replaceBook(await readBookFromFile(file));
+            } catch (error) {
+              console.error(error);
+              window.alert("Arquivo de projeto inválido.");
+            }
+            event.target.value = "";
+          }}
+        />
+        <button
+          type="button"
+          onClick={() => {
+            if (window.confirm("Descartar o projeto local e voltar à maquete demo?")) resetToDemo();
+          }}
+          className="border border-border px-2 py-1 text-[11px] text-muted-foreground hover:bg-accent"
+        >
+          Reset demo
+        </button>
+        <button
+          type="button"
+          onClick={openPrint}
+          className="border border-primary bg-primary px-2 py-1 text-[11px] font-medium text-primary-foreground"
+        >
+          Modo impressão
+        </button>
+      </div>
+    </header>
+  );
+}

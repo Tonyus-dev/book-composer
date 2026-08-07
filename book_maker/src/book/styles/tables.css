@@ -1,0 +1,60 @@
+/* KALLISTIS — tabelas editoriais: header forte, corpo limpo, poucas bordas. */
+
+.k-table-wrap {
+  margin: 3mm 0 4.5mm;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.k-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-functional);
+  font-size: var(--table-size);
+  line-height: 1.32;
+}
+
+.k-table caption {
+  caption-side: top;
+  text-align: left;
+  font-family: var(--font-functional);
+  font-size: 8pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--k-purple);
+  font-weight: 700;
+  padding-bottom: 1.6mm;
+}
+
+.k-table thead th {
+  background: var(--k-purple);
+  color: var(--k-paper);
+  text-align: left;
+  font-weight: 700;
+  padding: 1.6mm 2mm;
+  letter-spacing: 0.04em;
+}
+
+.k-table tbody td {
+  padding: 1.4mm 2mm;
+  border-bottom: 0.2mm solid var(--k-border);
+  vertical-align: top;
+}
+
+.k-table tbody tr:nth-child(even) td {
+  background: var(--k-field);
+}
+
+.k-table tbody td:first-child {
+  font-weight: 600;
+  color: var(--k-ink);
+}
+
+.k-table--compact tbody td,
+.k-table--compact thead th {
+  padding: 1mm 1.6mm;
+}
+
+.k-table thead {
+  display: table-header-group;
+}

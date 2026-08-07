@@ -1,0 +1,65 @@
+/* KALLISTIS — folha de impressão. Base do PDF (210 x 280 mm).
+   A UI do editor nunca entra aqui. */
+
+@page {
+  size: 210mm 280mm;
+  margin: 0;
+}
+
+.k-print {
+  background: #fff;
+  margin: 0;
+}
+
+.k-print .k-page {
+  margin: 0 auto;
+  break-after: page;
+  page-break-after: always;
+  break-inside: avoid;
+}
+
+.k-print .k-page:last-child {
+  break-after: auto;
+  page-break-after: auto;
+}
+
+/* Na tela, a print view mostra as páginas empilhadas com respiro.
+   Na impressão, respiro zero. */
+@media screen {
+  .k-print {
+    background: #17141c;
+    padding: 24px 0;
+    display: grid;
+    justify-items: center;
+    gap: 24px;
+  }
+}
+
+@media print {
+  .k-print {
+    padding: 0;
+    gap: 0;
+    display: block;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+  }
+
+  .k-no-print {
+    display: none !important;
+  }
+
+  .k-page {
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  /* Overlays de produção são apenas do editor. */
+  .k-overlay {
+    display: none !important;
+  }
+}

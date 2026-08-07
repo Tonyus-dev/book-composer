@@ -1,0 +1,8 @@
+/* Folha editorial independente do KALLISTIS BOOK BUILDER.
+   Não depende de Tailwind nem de componentes de UI. */
+@import "./tokens.css";
+@import "./typography.css";
+@import "./page.css";
+@import "./components.css";
+@import "./tables.css";
+@import "./print.css";
