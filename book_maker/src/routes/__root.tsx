@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "KALLISTIS Book Builder" },
+      { title: "KALLISTIS Book Maker" },
       {
         name: "description",
         content:
           "Ferramenta editorial local-first para compor, revisar e exportar o Livro Básico do RPG KALLISTIS em PDF 1:1.",
       },
       { name: "author", content: "Nomos Ludens" },
-      { property: "og:title", content: "KALLISTIS Book Builder" },
+      { property: "og:title", content: "KALLISTIS Book Maker" },
       {
         property: "og:description",
         content: "Composição editorial e exportação de PDF 1:1 do Livro Básico de KALLISTIS.",

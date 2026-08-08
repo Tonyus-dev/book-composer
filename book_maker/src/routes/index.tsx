@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ClientOnly } from "@tanstack/react-router";
 import { EditorLayout } from "../editor/EditorLayout";
 
-const title = "KALLISTIS Book Builder — composição do Livro Básico";
+const title = "KALLISTIS Book Maker — composição do Livro Básico";
 const description =
   "Ferramenta editorial local-first para montar, revisar visualmente e exportar o Livro Básico do RPG KALLISTIS em PDF 1:1.";
 
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
-      <h1 className="sr-only">KALLISTIS Book Builder</h1>
+      <h1 className="sr-only">KALLISTIS Book Maker</h1>
       <ClientOnly
         fallback={
           <div className="flex min-h-screen items-center justify-center bg-background text-xs tracking-[0.2em] text-muted-foreground uppercase">

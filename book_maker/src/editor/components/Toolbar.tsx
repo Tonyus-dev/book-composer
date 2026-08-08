@@ -111,13 +111,21 @@ export function Toolbar() {
 
   return (
     <header className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-border bg-card px-3 py-2">
-      <div className="flex items-baseline gap-2">
+      <div className="flex min-w-[220px] items-center gap-3">
         <span className="text-[13px] font-semibold tracking-[0.2em] text-foreground uppercase">
-          Kallistis
+          Kallistis Book Maker
         </span>
-        <span className="text-[10px] tracking-[0.18em] text-muted-foreground uppercase">
-          Book Builder
-        </span>
+        <span className="h-5 w-px bg-border" aria-hidden="true" />
+        <div className="min-w-0 leading-tight">
+          <div className="truncate text-[11px] font-medium text-foreground" title={book.meta.title}>
+            {book.meta.title}
+          </div>
+          {book.meta.edition ? (
+            <div className="truncate text-[10px] text-muted-foreground" title={book.meta.edition}>
+              {book.meta.edition}
+            </div>
+          ) : null}
+        </div>
       </div>
 
       <div className="flex items-center gap-1">
@@ -224,14 +232,14 @@ export function Toolbar() {
           onClick={() => downloadBookJson(book)}
           className="border border-border px-2 py-1 text-[11px] hover:bg-accent"
         >
-          Exportar JSON
+          Exportar projeto
         </button>
         <button
           type="button"
           onClick={() => fileRef.current?.click()}
           className="border border-border px-2 py-1 text-[11px] hover:bg-accent"
         >
-          Importar JSON
+          Abrir projeto
         </button>
         <input
           ref={fileRef}
@@ -253,11 +261,12 @@ export function Toolbar() {
         <button
           type="button"
           onClick={() => {
-            if (window.confirm("Descartar o projeto local e voltar à maquete demo?")) resetToDemo();
+            if (window.confirm("Descartar o projeto local e voltar à maquete de desenvolvimento?"))
+              resetToDemo();
           }}
           className="border border-border px-2 py-1 text-[11px] text-muted-foreground hover:bg-accent"
         >
-          Reset demo
+          Restaurar maquete
         </button>
         <button
           type="button"
