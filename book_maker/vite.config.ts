@@ -12,4 +12,17 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  /* INC-1: expõe o sidecar canônico projects/ como asset estático no output
+     do build (Nitro copia para .output/public/projects/). Fonte canônica
+     continua sendo book_maker/projects/kallistis-production-plan.json.
+     maxAge=0 desabilita Cache-Control imutável porque o sidecar é versionado
+     e pode mudar entre deploys; a UI já usa cache: "no-store" no fetch.
+     O cast `as never` contorna o tipo restrito de LovableViteTanstackOptions
+     (que só expõe preset/output/cloudflare por design); o spread runtime
+     do @lovable.dev/vite-tanstack-config propaga publicAssets para Nitro. */
+  nitro: {
+    publicAssets: [
+      { baseURL: "/projects", dir: "projects", maxAge: 0, fallthrough: false },
+    ],
+  } as never,
 });

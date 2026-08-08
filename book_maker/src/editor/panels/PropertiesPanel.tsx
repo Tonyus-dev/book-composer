@@ -1,8 +1,10 @@
+import { useState } from "react";
 import type { Block, BookTokens, ImageBlock, PageVariant, TemplateId } from "../../book/types";
 import { TEMPLATES, TEMPLATE_IDS } from "../../book/templates";
 import { PREFLIGHT_RULES, SEVERITY_LABEL } from "../../lib/preflight/types";
 import { useEditor } from "../state/store";
 import { AreaField, PanelSection, RangeField, SelectField, TextField, ToggleField } from "./fields";
+import { GuidePanel } from "./GuidePanel";
 
 const TOKEN_FIELDS: { key: keyof BookTokens; label: string }[] = [
   { key: "pageWidth", label: "Largura" },
@@ -326,17 +328,44 @@ export function PropertiesPanel() {
     focusIssue,
   } = useEditor();
 
+  const [tab, setTab] = useState<"properties" | "guide">("properties");
   const definition = TEMPLATES[selectedPage.template];
   const issues = issuesForPage(selectedPage.id);
 
+  const tabClass = (active: boolean) =>
+    `border-b-2 px-3 py-1 text-[11px] tracking-[0.18em] uppercase ${
+      active
+        ? "border-primary text-foreground"
+        : "border-transparent text-muted-foreground hover:text-foreground"
+    }`;
+
   return (
     <div className="flex h-full flex-col overflow-y-auto">
-      <div className="flex items-center justify-between border-b border-border px-3 py-2">
-        <h2 className="text-[11px] font-semibold tracking-[0.18em] text-muted-foreground uppercase">
+      <div className="flex items-center gap-1 border-b border-border px-2 py-1">
+        <button
+          type="button"
+          aria-pressed={tab === "properties"}
+          data-testid="tab-properties"
+          className={tabClass(tab === "properties")}
+          onClick={() => setTab("properties")}
+        >
           Propriedades
-        </h2>
+        </button>
+        <button
+          type="button"
+          aria-pressed={tab === "guide"}
+          data-testid="tab-guide"
+          className={tabClass(tab === "guide")}
+          onClick={() => setTab("guide")}
+        >
+          Guia
+        </button>
       </div>
 
+      {tab === "guide" ? (
+        <GuidePanel />
+      ) : (
+        <>
       {issues.length > 0 ? (
         <PanelSection title="Preflight desta página">
           <ul className="space-y-1 text-[11px]">
@@ -478,6 +507,8 @@ export function PropertiesPanel() {
               ))}
             </div>
           </PanelSection>
+        </>
+      )}
         </>
       )}
     </div>

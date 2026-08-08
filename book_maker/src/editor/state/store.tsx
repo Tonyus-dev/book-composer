@@ -19,6 +19,16 @@ import type {
 import { TEMPLATES } from "../../book/templates";
 import { demoBook } from "../../data/demo-book";
 import { loadLocalBook, saveLocalBook } from "../../lib/persistence/local";
+import {
+  emptyPageGuide,
+  ensurePageEntry,
+  loadLocalProductionPlan,
+  normalizeProductionPlan,
+  productionPlanForBookId,
+  saveLocalProductionPlan,
+  type PageGuide,
+  type ProductionPlan,
+} from "../../lib/persistence/production-plan";
 import { assetRef, registerBookAssets } from "../../lib/assets/registry";
 import { buildReport, fingerprint } from "../../lib/preflight/report";
 import type { PreflightIssue, PreflightReport } from "../../lib/preflight/types";
@@ -109,6 +119,11 @@ interface EditorContextValue {
   focusIssue: (issue: PreflightIssue) => void;
   replaceBook: (book: Book) => void;
   resetToDemo: () => void;
+  /* PRODUCTION PLAN — direção editorial por página, nunca entra no print. */
+  productionPlan: ProductionPlan;
+  selectedPageGuide: PageGuide;
+  updatePageGuide: (pageId: string, patch: Partial<PageGuide>) => void;
+  resetProductionPlan: () => void;
 }
 
 const EditorContext = createContext<EditorContextValue | null>(null);
@@ -151,13 +166,38 @@ export function EditorProvider({ children }: { children: ReactNode }) {
     columns: false,
     baseline: false,
   });
+  const [productionPlan, setProductionPlanState] = useState<ProductionPlan>(() => ({
+    version: 1,
+    bookId: productionPlanForBookId(demoBook),
+    pages: {},
+  }));
 
-  /* Estado inicial: projeto demo; se existir projeto local, ele tem precedência. */
+  /* Estado inicial: projeto demo; se existir projeto local, ele tem precedência.
+     O production plan segue a mesma hierarquia: localStorage primeiro, depois
+     sidecar versionável em /projects/kallistis-production-plan.json (fetch
+     assíncrono, sem bloquear a hidratação do livro). */
   useEffect(() => {
     const local = loadLocalBook();
+    const nextBook = local && local.pages.length > 0 ? local : demoBook;
     if (local && local.pages.length > 0) {
       setBook(local);
       setSelectedPageId(local.pages[0]!.id);
+    }
+    const planLocal = loadLocalProductionPlan(productionPlanForBookId(nextBook));
+    const seedBookId = productionPlanForBookId(nextBook);
+    if (planLocal) {
+      setProductionPlanState(planLocal);
+    } else {
+      fetch("/projects/kallistis-production-plan.json", { cache: "no-store" })
+        .then((response) => (response.ok ? response.json() : null))
+        .then((raw) => {
+          if (!raw || typeof raw !== "object") return;
+          const seeded = normalizeProductionPlan(raw, seedBookId);
+          setProductionPlanState(seeded);
+        })
+        .catch(() => {
+          /* sem sidecar disponível: mantém defaults vazios */
+        });
     }
     setHydrated(true);
   }, []);
@@ -195,6 +235,15 @@ export function EditorProvider({ children }: { children: ReactNode }) {
     return () => window.clearTimeout(timer);
   }, [book, hydrated]);
 
+  /* Autosave do production plan, mesmo padrão discreto de 400 ms. */
+  useEffect(() => {
+    if (!hydrated) return;
+    const timer = window.setTimeout(() => {
+      saveLocalProductionPlan(productionPlan);
+    }, 400);
+    return () => window.clearTimeout(timer);
+  }, [productionPlan, hydrated]);
+
   /* Mapeamento id → bytes disponível para o renderizador antes de pintar. */
   registerBookAssets(book.assets);
 
@@ -204,6 +253,8 @@ export function EditorProvider({ children }: { children: ReactNode }) {
   );
   const selectedPage = book.pages[selectedPageIndex] ?? book.pages[0]!;
   const selectedBlock = selectedPage.blocks.find((b) => b.id === selectedBlockId) ?? null;
+  const selectedPageGuide: PageGuide =
+    productionPlan.pages[selectedPage.id] ?? emptyPageGuide();
 
   const selectPage = useCallback((pageId: string) => {
     setSelectedPageId(pageId);
@@ -258,6 +309,8 @@ export function EditorProvider({ children }: { children: ReactNode }) {
       rhythmWarnings: rhythmWarningList,
       rhythmConfig,
       showRhythmStrip,
+      productionPlan,
+      selectedPageGuide,
       setRhythmRule,
       toggleRhythmStrip: () => setShowRhythmStrip((prev) => !prev),
       setView,
@@ -431,7 +484,25 @@ export function EditorProvider({ children }: { children: ReactNode }) {
       },
       issuesForPage: (pageId) => preflight.issues.filter((issue) => issue.pageId === pageId),
       focusIssue,
-      replaceBook: (next) => {
+      updatePageGuide: (pageId, patch) => {
+        setProductionPlanState((prev) => {
+          const current = prev.pages[pageId] ?? emptyPageGuide();
+          const merged: PageGuide = {
+            ...current,
+            ...patch,
+            review: patch.review ? { ...current.review, ...patch.review } : current.review,
+          };
+          return { ...prev, pages: { ...prev.pages, [pageId]: merged } };
+        });
+      },
+      resetProductionPlan: () => {
+        setProductionPlanState({
+          version: 1,
+          bookId: productionPlanForBookId(book),
+          pages: {},
+        });
+      },
+            replaceBook: (next) => {
         setBook(next);
         setSelectedPageId(next.pages[0]!.id);
         setSelectedBlockId(null);
@@ -461,10 +532,12 @@ export function EditorProvider({ children }: { children: ReactNode }) {
     selectedBlock,
     selectedBlockId,
     selectedPage,
+    selectedPageGuide,
     selectedPageIndex,
     status,
     view,
     zoom,
+    productionPlan,
   ]);
 
   return <EditorContext.Provider value={value}>{children}</EditorContext.Provider>;
