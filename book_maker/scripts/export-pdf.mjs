@@ -230,26 +230,47 @@ async function main() {
       }
     }
 
-    // Tamanho físico lido dos tokens do próprio livro: o PDF nunca herda "letter".
+    // Tamanho físico derivado dos tokens do livro (trim + 2 x bleed).
+    // Lemos os tokens a partir do `.k-book` (que aplica as CSS vars),
+    // injetamos uma @page com esse tamanho e usamos preferCSSPageSize: true
+    // para que o PDF gere a folha física em pontos PDF sem arredondamentos
+    // de px → mm do navegador.
     const size = await page.evaluate(() => {
-      const el = document.querySelector(".k-page");
-      if (!el) return null;
-      const style = getComputedStyle(el);
-      return { width: style.width, height: style.height };
+      const root = document.querySelector(".k-book");
+      if (!root) return null;
+      const s = getComputedStyle(root);
+      const numeric = (value) => {
+        const match = String(value).trim().match(/^(-?[0-9.]+)([a-z]+)?$/);
+        return match ? { n: parseFloat(match[1]), u: match[2] || "mm" } : null;
+      };
+      const w = numeric(s.getPropertyValue("--page-width"));
+      const h = numeric(s.getPropertyValue("--page-height"));
+      const b = numeric(s.getPropertyValue("--bleed"));
+      if (!w || !h || !b) return null;
+      if (w.u !== b.u || h.u !== b.u) return null;
+      return {
+        width: `${w.n + 2 * b.n}${w.u}`,
+        height: `${h.n + 2 * b.n}${h.u}`,
+      };
     });
+    if (size) {
+      await page.addStyleTag({
+        content: `@page { size: ${size.width} ${size.height}; margin: 0; }`,
+      });
+    }
+
     const outPath = outPathEarly;
 
     await page.pdf({
       path: outPath,
       printBackground: true,
       preferCSSPageSize: true,
-      ...(size ? { width: size.width, height: size.height } : {}),
       margin: { top: "0", right: "0", bottom: "0", left: "0" },
       tagged: false,
     });
 
     console.log(
-      `[export:pdf] ${pages} páginas · ${size?.width ?? "?"} x ${size?.height ?? "?"} → ${outPath}`,
+      `[export:pdf] ${pages} páginas · folha ${size?.width ?? "?"} x ${size?.height ?? "?"} → ${outPath}`,
     );
   } finally {
     await browser.close();

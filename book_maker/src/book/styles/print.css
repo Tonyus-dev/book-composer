@@ -1,8 +1,12 @@
-/* KALLISTIS — folha de impressão. Base do PDF (210 x 280 mm).
-   A UI do editor nunca entra aqui. */
+/* KALLISTIS — folha de impressão. Base do PDF (trim + bleed).
+   A UI do editor nunca entra aqui.
+   .k-page continua representando o TRIM (210 x 280 mm com tokens atuais).
+   .k-print-sheet é a FOLHA FÍSICA (trim + 2 x bleed = 216 x 286 mm).
+
+   O tamanho físico do PDF é injetado em @page pelo exportador a partir dos
+   tokens; esta folha mantém apenas a margem de página e a geometria interna. */
 
 @page {
-  size: 210mm 280mm;
   margin: 0;
 }
 
@@ -11,19 +15,33 @@
   margin: 0;
 }
 
-.k-print .k-page {
-  margin: 0 auto;
+/* Folha física: única unidade de quebra de página em /print. */
+.k-print-sheet {
+  position: relative;
+  width: calc(var(--page-width) + var(--bleed) + var(--bleed));
+  height: calc(var(--page-height) + var(--bleed) + var(--bleed));
+  margin: 0;
   break-after: page;
   page-break-after: always;
   break-inside: avoid;
 }
 
-.k-print .k-page:last-child {
+.k-print-sheet:last-child {
   break-after: auto;
   page-break-after: auto;
 }
 
-/* Na tela, a print view mostra as páginas empilhadas com respiro.
+/* Página de trim permanece exatamente como no editor; na folha física,
+   ela é posicionada com offset de sangria para que .k-bleed alcance as
+   quatro bordas da folha sem alterar a geometria editorial. */
+.k-print-sheet > .k-page {
+  position: absolute;
+  left: var(--bleed);
+  top: var(--bleed);
+  margin: 0;
+}
+
+/* Na tela, a print view mostra as folhas empilhadas com respiro.
    Na impressão, respiro zero. */
 @media screen {
   .k-print {
