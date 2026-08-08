@@ -303,9 +303,8 @@ export const DEFAULT_TOKENS: BookTokens = {
 };
 
 /**
- * Spread editorial obrigatório: par (left, right) que abre junto na impressão,
- * com imagem horizontal compartilhada. A renderização em /print usa uma folha
- * única de largura 2*trim + bleed para evitar duplicação e respeitar o gutter.
+ * Par editorial de páginas adjacentes que compartilham uma composição visual.
+ * Não altera a paginação física do PDF.
  */
 export interface Spread {
   left: number;

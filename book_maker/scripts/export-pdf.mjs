@@ -231,8 +231,6 @@ async function main() {
     }
 
     // Tamanho físico derivado dos tokens do livro (trim + 2 x bleed).
-    // Injetamos @page nomeadas (single vs spread) para que o Chromium respeite
-    // tanto folhas unitárias quanto spreads editoriais de largura dupla.
     const size = await page.evaluate(() => {
       const root = document.querySelector(".k-book");
       if (!root) return null;
@@ -251,12 +249,11 @@ async function main() {
       return {
         width: `${w.n + 2 * b.n}${w.u}`,
         height: `${h.n + 2 * b.n}${h.u}`,
-        spreadWidth: `${2 * w.n + 2 * b.n}${w.u}`,
       };
     });
     if (size) {
       await page.addStyleTag({
-        content: `@page single { size: ${size.width} ${size.height}; margin: 0; }\n@page spread { size: ${size.spreadWidth} ${size.height}; margin: 0; }`,
+        content: `@page { size: ${size.width} ${size.height}; margin: 0; }`,
       });
     }
 
