@@ -290,12 +290,25 @@ export function staticIssues(book: Book): PreflightIssue[] {
         }
         for (const entry of block.entries) {
           if (!Number.isFinite(entry.page) || entry.page < firstFolio || entry.page > lastFolio) {
-            push(
-              "toc-destination",
-              "error",
-              `Entrada "${entry.label}" aponta para fólio ${entry.page} (fora de ${firstFolio}–${lastFolio}).`,
-              base,
-            );
+            // fólio 0 (ou null) é ausência intencional de destino: o sumário
+            // continua renderizando "—" e não cria destinos fictícios. Apenas
+            // destinos realmente fora do livro (acima do último fólio) viram
+            // ERROR; ausências intencionais são apenas informativas.
+            if (!Number.isFinite(entry.page) || entry.page <= 0) {
+              push(
+                "toc-destination",
+                "info",
+                `Entrada "${entry.label}" sem destino definido (placeholder).`,
+                base,
+              );
+            } else {
+              push(
+                "toc-destination",
+                "error",
+                `Entrada "${entry.label}" aponta para fólio ${entry.page} (fora de ${firstFolio}–${lastFolio}).`,
+                base,
+              );
+            }
             continue;
           }
           const target = folioTargets.get(entry.page);

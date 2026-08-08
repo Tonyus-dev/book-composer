@@ -259,6 +259,8 @@ export interface Book {
   pages: Page[];
   /** assets enviados localmente, mapeados por id */
   assets?: BookAsset[];
+  /** pares obrigatórios que abrem juntos (ex.: 008-009, 021-022). */
+  spreads?: Spread[];
 }
 
 export const CSS_VAR_BY_TOKEN: Record<keyof BookTokens, string> = {
@@ -281,20 +283,34 @@ export const CSS_VAR_BY_TOKEN: Record<keyof BookTokens, string> = {
 };
 
 export const DEFAULT_TOKENS: BookTokens = {
-  pageWidth: "210mm",
-  pageHeight: "280mm",
-  bleed: "3mm",
-  marginInner: "22mm",
-  marginOuter: "17mm",
-  marginTop: "18mm",
-  marginBottom: "22mm",
-  columnGap: "8mm",
-  bodySize: "10.75pt",
-  bodyLeading: "14.5pt",
-  rulesSize: "10pt",
-  rulesLeading: "13pt",
-  tableSize: "9pt",
-  h1Size: "27pt",
-  h2Size: "17pt",
-  h3Size: "13pt",
+  /* Edição Definitiva v1.3 — trim 140×210 mm + bleed 5 mm → PDF 150×220 mm. */
+  pageWidth: "140mm",
+  pageHeight: "210mm",
+  bleed: "5mm",
+  marginInner: "16mm",
+  marginOuter: "12mm",
+  marginTop: "14mm",
+  marginBottom: "16mm",
+  columnGap: "6mm",
+  bodySize: "10pt",
+  bodyLeading: "13.5pt",
+  rulesSize: "9.5pt",
+  rulesLeading: "12.5pt",
+  tableSize: "8.5pt",
+  h1Size: "22pt",
+  h2Size: "14pt",
+  h3Size: "11pt",
 };
+
+/**
+ * Spread editorial obrigatório: par (left, right) que abre junto na impressão,
+ * com imagem horizontal compartilhada. A renderização em /print usa uma folha
+ * única de largura 2*trim + bleed para evitar duplicação e respeitar o gutter.
+ */
+export interface Spread {
+  left: number;
+  right: number;
+  /** caminho público do asset (mesma imagem horizontal em ambos os lados). */
+  asset: string;
+  alt: string;
+}

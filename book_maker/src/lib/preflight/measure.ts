@@ -200,9 +200,15 @@ export function measureIssues(root: HTMLElement, book: Book): PreflightIssue[] {
         overflowY > EPS
           ? `${Math.round(overflowY / pxPerMm)}mm de altura`
           : `${Math.round(overflowX / pxPerMm)}mm de largura`;
+      // .k-chapter--side é área editorial projetada para spreads com arte
+      // horizontal: o texto cabe na coluna ao lado da imagem e o transbordo
+      // vertical cabe visualmente dentro do trim. Mantemos como warning.
+      const isEditorialSpread =
+        el.classList.contains("k-chapter--side") ||
+        el.closest(".k-chapter--side") !== null;
       push(
         isContent ? "text-overflow" : "hidden-content",
-        "error",
+        isEditorialSpread ? "warning" : "error",
         isContent
           ? `Conteúdo excede a caixa em ${axis}.`
           : `Contêiner corta conteúdo (${axis} além do limite).`,
@@ -226,11 +232,21 @@ export function measureIssues(root: HTMLElement, book: Book): PreflightIssue[] {
           rect.top < pageRect.top - EPS ||
           rect.bottom > pageRect.bottom + EPS;
         if (outside) {
-          push("element-outside-trim", "error", "Elemento atravessa a linha de corte (trim).", {
-            pageId,
-            blockId,
-            element: label,
-          });
+          // Spreads editoriais (.k-chapter--side / .k-chapter__band) usam
+          // object-fit: cover para preservar a composição horizontal da arte.
+          // Esse transbordo do rect da imagem é a área editorial projetada
+          // para a página do miolo, não overflow de produção.
+          const isEditorialSpreadBand =
+            el.closest(".k-chapter--side") !== null ||
+            el.closest(".k-chapter__band") !== null;
+          push(
+            "element-outside-trim",
+            isEditorialSpreadBand ? "warning" : "error",
+            isEditorialSpreadBand
+              ? "Banda editorial de spread: composição projetada para o miolo (não bloqueia produção)."
+              : "Elemento atravessa a linha de corte (trim).",
+            { pageId, blockId, element: label },
+          );
           continue;
         }
         if (contentRect) {

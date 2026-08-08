@@ -173,6 +173,8 @@
   line-height: 1;
   font-weight: 600;
   margin: 0 0 6mm;
+  color: var(--k-paper);
+  text-shadow: 0 0 6mm rgba(0, 0, 0, 0.55);
 }
 
 .k-part__claim {
@@ -182,6 +184,8 @@
   font-style: italic;
   max-width: 105mm;
   margin: 0;
+  color: var(--k-paper);
+  text-shadow: 0 0 4mm rgba(0, 0, 0, 0.6);
 }
 
 /* Capa */

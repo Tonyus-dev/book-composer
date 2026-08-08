@@ -1,5 +1,5 @@
 import { createFileRoute, useSearch } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import type { Book } from "../book/types";
 import { BookRoot } from "../book/renderer/BookRoot";
 import { PageRenderer } from "../book/renderer/PageRenderer";
@@ -116,11 +116,64 @@ function PrintView() {
 
   return (
     <BookRoot tokens={book.tokens} className="k-print">
-      {book.pages.map((page, index) => (
-        <div key={page.id} className="k-print-sheet" data-page-index={index}>
-          <PageRenderer book={book} page={page} index={index} />
-        </div>
-      ))}
+      <SpreadAwarePages book={book} />
     </BookRoot>
   );
+}
+
+/**
+ * Renderiza páginas do livro agrupando os pares de spread (008-009 etc.)
+ * em uma única folha física de largura 2*trim + 2*bleed. Cada página
+ * continua sendo renderizada por PageRenderer para preservar header/footer
+ * e paridade.
+ */
+function SpreadAwarePages({ book }: { book: Book }) {
+  const spreads = book.spreads ?? [];
+  const spreadPair = new Map<number, { left: number; right: number }>();
+  for (const s of spreads) {
+    spreadPair.set(s.left, { left: s.left, right: s.right });
+  }
+
+  const pages = book.pages;
+  const emitted = new Set<number>();
+  const out: ReactNode[] = [];
+
+  pages.forEach((page, index) => {
+    if (emitted.has(index)) return;
+    const folioNum = book.meta.firstFolio + index;
+    const spread = spreadPair.get(folioNum);
+    if (spread) {
+      const rightIndex = index + 1;
+      const rightPage = pages[rightIndex];
+      if (rightPage) {
+        emitted.add(index);
+        emitted.add(rightIndex);
+        out.push(
+          <div
+            key={`spread-${folioNum}`}
+            className="k-print-sheet k-print-sheet--spread"
+            data-spread-left={folioNum}
+            data-spread-right={folioNum + 1}
+          >
+            <div className="k-spread__left">
+              <PageRenderer book={book} page={page} index={index} />
+            </div>
+            <div className="k-spread__gutter" aria-hidden="true" />
+            <div className="k-spread__right">
+              <PageRenderer book={book} page={rightPage} index={rightIndex} />
+            </div>
+          </div>,
+        );
+        return;
+      }
+    }
+    emitted.add(index);
+    out.push(
+      <div key={page.id} className="k-print-sheet" data-page-index={index}>
+        <PageRenderer book={book} page={page} index={index} />
+      </div>,
+    );
+  });
+
+  return <>{out}</>;
 }

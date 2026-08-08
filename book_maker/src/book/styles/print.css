@@ -1,7 +1,7 @@
 /* KALLISTIS — folha de impressão. Base do PDF (trim + bleed).
    A UI do editor nunca entra aqui.
-   .k-page continua representando o TRIM (210 x 280 mm com tokens atuais).
-   .k-print-sheet é a FOLHA FÍSICA (trim + 2 x bleed = 216 x 286 mm).
+   .k-page continua representando o TRIM (140 x 210 mm com tokens atuais).
+   .k-print-sheet é a FOLHA FÍSICA (trim + 2 x bleed = 150 x 220 mm).
 
    O tamanho físico do PDF é injetado em @page pelo exportador a partir dos
    tokens; esta folha mantém apenas a margem de página e a geometria interna. */
@@ -31,10 +31,65 @@
   page-break-after: auto;
 }
 
+/* Spread editorial: duas páginas em uma folha de largura 2*trim + 2*bleed.
+   Cada lado preserva header/footer e paridade; o gutter (3 mm) é apenas
+   um marcador visual fora da impressão. */
+.k-print-sheet--spread {
+  width: calc(2 * var(--page-width) + 2 * var(--bleed));
+  height: calc(var(--page-height) + var(--bleed) + var(--bleed));
+  display: grid;
+  grid-template-columns: 1fr 6mm 1fr;
+  align-items: stretch;
+}
+
+.k-spread__left,
+.k-spread__right {
+  position: relative;
+  width: calc(var(--page-width) + var(--bleed) + var(--bleed));
+  height: 100%;
+}
+
+.k-spread__gutter {
+  background: transparent;
+}
+
+/* Páginas nomeadas no PDF: folha simples vs spread editorial.
+   O exportador substitui o @page global por estas duas regras com os
+   tamanhos físicos reais calculados a partir dos tokens do livro. */
+@page single {
+  size: 150mm 220mm;
+  margin: 0;
+}
+@page spread {
+  size: 300mm 220mm;
+  margin: 0;
+}
+
+.k-print-sheet {
+  page: single;
+}
+
+.k-print-sheet--spread {
+  page: spread;
+}
+
+/* Em mídia impressa, removemos o gutter visível e deixamos as duas páginas
+   encostarem-se pelo bleed — a lombada real será definida pela gráfica. */
+@media print {
+  .k-print-sheet--spread {
+    grid-template-columns: 1fr 1fr;
+  }
+  .k-spread__gutter {
+    display: none;
+  }
+}
+
 /* Página de trim permanece exatamente como no editor; na folha física,
    ela é posicionada com offset de sangria para que .k-bleed alcance as
    quatro bordas da folha sem alterar a geometria editorial. */
-.k-print-sheet > .k-page {
+.k-print-sheet > .k-page,
+.k-spread__left > .k-page,
+.k-spread__right > .k-page {
   position: absolute;
   left: var(--bleed);
   top: var(--bleed);
