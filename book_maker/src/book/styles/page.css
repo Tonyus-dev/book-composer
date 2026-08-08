@@ -1,0 +1,342 @@
+/* KALLISTIS — geometria da página, grid, header/footer, quebras. */
+
+.k-page {
+  position: relative;
+  width: var(--page-width);
+  height: var(--page-height);
+  background: var(--k-paper);
+  color: var(--k-ink);
+  overflow: visible; /* overflow nunca é escondido silenciosamente */
+  box-sizing: border-box;
+}
+
+.k-page--obsidian {
+  background: var(--k-obsidian);
+}
+
+/* Caixa de texto. Margem interna protege o vinco: depende da paridade. */
+.k-page__content {
+  position: absolute;
+  top: var(--margin-top);
+  bottom: var(--margin-bottom);
+  left: var(--margin-inner);
+  right: var(--margin-outer);
+  display: flow-root;
+}
+
+.k-page--verso .k-page__content {
+  left: var(--margin-outer);
+  right: var(--margin-inner);
+}
+
+.k-flow {
+  display: flow-root;
+  height: 100%;
+}
+
+.k-flow--2col {
+  column-count: 2;
+  column-gap: var(--column-gap);
+  column-fill: auto;
+}
+
+.k-block {
+  break-inside: avoid-column;
+}
+
+.k-block--span-full {
+  column-span: all;
+  break-inside: auto;
+}
+
+.k-block--text {
+  break-inside: auto;
+}
+
+/* Header editorial */
+.k-runhead {
+  position: absolute;
+  top: calc(var(--margin-top) - 8mm);
+  left: var(--margin-inner);
+  right: var(--margin-outer);
+  font-family: var(--font-functional);
+  font-size: var(--micro-size);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--k-muted);
+  border-bottom: 0.3mm solid var(--k-border);
+  padding-bottom: 1.6mm;
+}
+
+.k-page--verso .k-runhead {
+  left: var(--margin-outer);
+  right: var(--margin-inner);
+}
+
+.k-runhead--verso {
+  text-align: left;
+}
+.k-runhead--recto {
+  text-align: right;
+}
+
+/* Footer / folio: sempre na margem externa */
+.k-folio {
+  position: absolute;
+  bottom: calc(var(--margin-bottom) - 11mm);
+  font-family: var(--font-functional);
+  font-size: 8.5pt;
+  color: var(--k-muted);
+  font-variant-numeric: lining-nums;
+}
+
+.k-folio--recto {
+  right: var(--margin-outer);
+  text-align: right;
+}
+
+.k-folio--verso {
+  left: var(--margin-outer);
+  text-align: left;
+}
+
+.k-footnote {
+  position: absolute;
+  bottom: calc(var(--margin-bottom) - 11mm);
+  font-family: var(--font-functional);
+  font-size: 7pt;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--k-border);
+}
+
+.k-footnote--recto {
+  left: var(--margin-inner);
+}
+.k-footnote--verso {
+  right: var(--margin-inner);
+}
+
+/* Full bleed: ultrapassa o trim até a sangria */
+.k-bleed {
+  position: absolute;
+  inset: calc(var(--bleed) * -1);
+}
+
+.k-bleed img,
+.k-bleed--img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Quebras editoriais */
+.k-break-before {
+  break-before: page;
+  page-break-before: always;
+}
+
+.k-keep {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* Aberturas */
+.k-part {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: end;
+  padding: var(--margin-top) var(--margin-outer) var(--margin-bottom) var(--margin-inner);
+}
+
+.k-part__rule {
+  width: 34mm;
+  height: 0.8mm;
+  background: var(--k-lime);
+  margin-bottom: 6mm;
+}
+
+.k-part__label {
+  font-family: var(--font-functional);
+  font-size: 9pt;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin: 0 0 4mm;
+  color: var(--k-lime);
+}
+
+.k-part__title {
+  font-family: var(--font-display);
+  font-size: 40pt;
+  line-height: 1;
+  font-weight: 600;
+  margin: 0 0 6mm;
+  color: var(--k-paper);
+  text-shadow: 0 0 6mm rgba(0, 0, 0, 0.55);
+}
+
+.k-part__claim {
+  font-family: var(--font-display);
+  font-size: 13pt;
+  line-height: 1.35;
+  font-style: italic;
+  max-width: 105mm;
+  margin: 0;
+  color: var(--k-paper);
+  text-shadow: 0 0 4mm rgba(0, 0, 0, 0.6);
+}
+
+/* Capa */
+.k-cover {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  justify-items: center;
+  text-align: center;
+  padding: 26mm var(--margin-outer) 18mm;
+}
+
+.k-cover__lockup {
+  align-self: center;
+  width: 108mm;
+  max-width: 100%;
+  height: auto;
+  mix-blend-mode: normal;
+}
+
+.k-cover__product {
+  font-family: var(--font-display);
+  font-size: 22pt;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 8mm 0 2mm;
+  font-weight: 600;
+}
+
+.k-cover__sub {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 12.5pt;
+  margin: 0;
+}
+
+.k-cover__foot {
+  font-family: var(--font-functional);
+  font-size: 8pt;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--k-border);
+}
+
+/* Full art / mapa */
+.k-art {
+  position: absolute;
+  inset: 0;
+}
+
+.k-art__caption {
+  position: absolute;
+  bottom: var(--margin-bottom);
+  left: var(--margin-inner);
+  right: var(--margin-outer);
+  font-family: var(--font-functional);
+  font-size: 8pt;
+  line-height: 1.4;
+  color: var(--k-paper);
+  text-shadow: 0 0 6mm rgba(8, 8, 14, 0.9);
+}
+
+/* Perfil (Povos, Ofícios, NPCs) */
+.k-profile {
+  display: grid;
+  gap: 0 var(--column-gap);
+  height: 100%;
+}
+
+.k-profile--portrait-left {
+  grid-template-columns: var(--portrait-w, 38%) 1fr;
+}
+.k-profile--portrait-right {
+  grid-template-columns: 1fr var(--portrait-w, 38%);
+}
+.k-profile__portrait {
+  position: relative;
+}
+.k-profile__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.k-profile__portrait--auto img {
+  height: auto;
+}
+
+.k-profile__body {
+  display: flow-root;
+  min-width: 0;
+}
+
+.k-profile--dual .k-profile__portraits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--column-gap);
+  margin-bottom: 5mm;
+}
+
+/* Abertura de capítulo — o conteúdo começa na mesma página */
+.k-chapter__band {
+  position: relative;
+  width: 100%;
+  height: var(--band-h, 40%);
+  margin-bottom: 6mm;
+  overflow: hidden;
+}
+
+.k-chapter__band img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.k-chapter__number {
+  font-family: var(--font-functional);
+  font-size: 8.5pt;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--k-green-text);
+  margin: 0 0 2mm;
+}
+
+.k-chapter__title {
+  font-family: var(--font-display);
+  font-size: var(--h1-size);
+  line-height: 1.02;
+  font-weight: 600;
+  color: var(--k-purple);
+  margin: 0 0 3mm;
+}
+
+.k-chapter__rule {
+  width: 100%;
+  height: 0.4mm;
+  background: var(--k-purple);
+  opacity: 0.5;
+  margin-bottom: 4mm;
+}
+
+.k-chapter--side {
+  display: grid;
+  grid-template-columns: var(--band-w, 34%) 1fr;
+  gap: 0 var(--column-gap);
+  height: 100%;
+}
+
+.k-chapter--side .k-chapter__band {
+  height: 100%;
+  margin-bottom: 0;
+}

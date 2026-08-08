@@ -1,0 +1,36 @@
+{
+  "id": "p-001",
+  "template": "narrative",
+  "title": "ABERTURA",
+  "eyebrow": "ABERTURA",
+  "part": "Front Matter",
+  "settings": {
+    "header": false,
+    "footer": false,
+    "pageNumber": false,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p001-b-h2",
+      "type": "heading",
+      "level": 2,
+      "text": "ABERTURA"
+    },
+    {
+      "id": "p001-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "Dois mundos completos.\nUma ferida entre eles.\nNenhuma resposta final.\n\nOl aniran, ol miran, ol lesimanin.",
+      "align": "center",
+      "width": "78mm"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 1
+  }
+}

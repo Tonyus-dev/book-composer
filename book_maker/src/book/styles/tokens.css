@@ -1,0 +1,53 @@
+/*
+ * KALLISTIS — design tokens do LIVRO.
+ * Paleta normativa: Manual de Branding KALLISTIS v1.0, seção 06.
+ * Formato editorial desta edição: 140 x 210 mm (trim) + 5 mm (bleed) → 150 x 220 mm (PDF).
+ * Edição Definitiva v1.3.
+ * Alterar aqui altera o livro inteiro. Não espalhar valores nos componentes.
+ */
+
+.k-book {
+  /* Paleta oficial */
+  --k-purple: #542869;
+  --k-obsidian: #08080e;
+  --k-paper: #fbfaf7;
+  --k-magenta: #be185d;
+  --k-violet: #b953dc;
+  --k-green: #518a1b;
+  --k-green-text: #386d17;
+  --k-lime: #a0b521;
+  --k-gold: #d6a11e;
+
+  /* Derivados editoriais (tinta, apoio, filetes) */
+  --k-ink: #191520;
+  --k-muted: #5d5666;
+  --k-border: #d9d4cc;
+  --k-field: #f3f0ea;
+  --k-field-strong: #ebe6dd;
+
+  /* Tipografia */
+  --font-display: "EB Garamond", "Garamond", "Times New Roman", serif;
+  --font-body: "EB Garamond", "Garamond", "Times New Roman", serif;
+  --font-functional: "Liberation Sans", Arial, Helvetica, sans-serif;
+
+  /* Geometria física da página (Edição Definitiva v1.3) */
+  --page-width: 140mm;
+  --page-height: 210mm;
+  --bleed: 5mm;
+  --margin-inner: 16mm;
+  --margin-outer: 12mm;
+  --margin-top: 14mm;
+  --margin-bottom: 16mm;
+  --column-gap: 6mm;
+
+  /* Escala tipográfica */
+  --body-size: 10pt;
+  --body-leading: 13.5pt;
+  --rules-size: 9.5pt;
+  --rules-leading: 12.5pt;
+  --table-size: 8.5pt;
+  --h1-size: 22pt;
+  --h2-size: 14pt;
+  --h3-size: 11pt;
+  --micro-size: 7pt;
+}

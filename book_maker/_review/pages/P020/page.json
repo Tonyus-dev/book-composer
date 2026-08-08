@@ -1,0 +1,42 @@
+{
+  "id": "p-020",
+  "template": "chapter_opening",
+  "variant": "image-top",
+  "title": "AS PRIMEIRAS FRESTAS",
+  "eyebrow": "PARTE I",
+  "part": "Parte I",
+  "chapter": "AS PRIMEIRAS FRESTAS",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p020-b-img",
+      "type": "image",
+      "src": "/assets/handoff/approved/p020_primeiras_frestas_pb.jpg",
+      "alt": "AS PRIMEIRAS FRESTAS — vinheta P20",
+      "position": "top",
+      "fit": "contain",
+      "fullBleed": false,
+      "width": "100%",
+      "height": "62mm"
+    },
+    {
+      "id": "p020-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "Foram necessárias gerações de observação e estudo para estabilizar pequenas fissuras entre os mundos.\n\nOs primeiros experimentos não produziram portas duradouras. Vieram fragmentos: um som sem origem, uma mudança súbita de temperatura, parte de um objeto, um eco de memória, a visão de um céu com estrelas que não pertenciam àquele lugar.\n\nDepois ocorreu o primeiro contato registrado por ambos os lados. Por instantes, pesquisadores olharam através de uma abertura e perceberam que havia outra realidade do outro lado — não um vazio, não um reflexo, mas um mundo.\n\nOs relatos discordam sobre o significado do acontecimento. Para alguns, foi descoberta. Para outros, intrusão. Essa divergência nunca deixou de importar.\n\nUma Fresta não é uma fronteira geográfica entre países vizinhos. É uma correspondência instável entre posições de dois mundos materiais completos. A distância dentro de cada mundo é geográfica; entre os mundos, é cosmológica.\n\nE nenhuma abertura, por si só, produz consentimento, compreensão ou direito de passagem.",
+      "align": "justify"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 20
+  }
+}

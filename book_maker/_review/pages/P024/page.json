@@ -1,0 +1,44 @@
+{
+  "id": "p-024",
+  "template": "chapter_opening",
+  "variant": "image-side",
+  "title": "OS OUTROS",
+  "eyebrow": "PARTE I · METADE ESQUERDA",
+  "part": "Parte I",
+  "chapter": "OS OUTROS",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p024-b-img",
+      "type": "image",
+      "src": "/assets/handoff/approved/p024_025_outros_lightbringers_pb.jpg",
+      "alt": "OS OUTROS — spread left",
+      "position": "left",
+      "fit": "cover",
+      "fullBleed": false,
+      "width": "100%",
+      "height": "100%",
+      "objectX": 0,
+      "objectY": 50
+    },
+    {
+      "id": "p024-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "Uma criança trocada não é incompleta. É uma pessoa integral criada em um mundo diferente daquele em que nasceu.\n\nNo Mundo da Luz, muitas crianças vindas da Escuridão foram classificadas como anomalias. Com o tempo surgiu um nome social: Os Outros. A população, sem conhecer a origem real, explicava diferenças por doença, maldição, contaminação ou degeneração. A Facção explorou esse preconceito: monitorou alguns, recrutou outros e eliminou aqueles que considerava ameaça ao segredo.\n\nMuitos cresceram sem saber que haviam sido sequestrados.\n\nNo presente, Os Outros não formam uma identidade política única. Alguns amam as famílias que os criaram. Alguns procuram origem. Alguns exigem reparação. Alguns rejeitam ambos os mundos. Para comunidades da Escuridão, podem ser parentes roubados — ou desconhecidos formados por outra cultura.\n\nA origem não apaga a biografia.\n\nNenhum Outro pertence automaticamente à Luz, à Escuridão, à Facção ou a qualquer causa que pretenda falar em seu nome.",
+      "align": "justify"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 24
+  }
+}

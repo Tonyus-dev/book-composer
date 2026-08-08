@@ -1,0 +1,42 @@
+{
+  "id": "p-017",
+  "template": "chapter_opening",
+  "variant": "image-top",
+  "title": "A DUPLA HERANÇA — Quando os mundos aprenderam a respirar separados",
+  "eyebrow": "PARTE I",
+  "part": "Parte I",
+  "chapter": "A DUPLA HERANÇA — Quando os mundos aprenderam a respirar separados",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p017-b-img",
+      "type": "image",
+      "src": "/assets/handoff/approved/p017_dois_mundos_fratura_pb.png",
+      "alt": "A DUPLA HERANÇA — Quando os mundos aprenderam a respirar separados — vinheta P17",
+      "position": "top",
+      "fit": "contain",
+      "fullBleed": false,
+      "width": "100%",
+      "height": "62mm"
+    },
+    {
+      "id": "p017-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "Nos primeiros tempos depois da Fratura, não havia mito consolidado nem explicação suficiente. Havia gente tentando entender por que o mundo parecia inteiro e, ainda assim, carregava a pressão de alguma coisa ausente.\n\nSem esperar por resposta, essa gente viveu. Ergueu cidades. Criou filhos. Mudou de deuses. Derrubou reis. Abriu rotas comerciais. Foi à guerra por razões que nada tinham a ver com o outro mundo — porque, para a maioria, o outro mundo ainda não era sequer uma certeza.\n\nA origem comum não desapareceu; transformou-se em ecos, símbolos, sonhos, superstições e perguntas. A vida concreta, porém, tornou-se local. Cada mundo construiu biografias, culturas e instituições próprias.\n\nÉ por isso que atravessar uma Fresta não significa encontrar uma sala vazia esperando ser completada. Significa encontrar outro mundo inteiro: antigo, contraditório e tão cheio de história quanto aquele que ficou para trás.\n\nCorrespondência não é cópia. Origem comum não cancela autonomia.",
+      "align": "justify"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 17
+  }
+}

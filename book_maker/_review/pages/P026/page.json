@@ -1,0 +1,44 @@
+{
+  "id": "p-026",
+  "template": "chapter_opening",
+  "variant": "image-side",
+  "title": "DAEREN E THAVIN",
+  "eyebrow": "PARTE I · METADE ESQUERDA",
+  "part": "Parte I",
+  "chapter": "DAEREN E THAVIN",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p026-b-img",
+      "type": "image",
+      "src": "/assets/handoff/approved/p026_027_daeren_thavin_isenna_pb.jpg",
+      "alt": "DAEREN E THAVIN — spread left",
+      "position": "left",
+      "fit": "cover",
+      "fullBleed": false,
+      "width": "100%",
+      "height": "100%",
+      "objectX": 0,
+      "objectY": 50
+    },
+    {
+      "id": "p026-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "Daeren foi criado como Lightbringer. Treinado para liderar operações na Escuridão, acreditava que sua vida possuía um propósito maior.\n\nAntes de uma missão, encontrou arquivos proibidos. Descobriu que nascera na Escuridão, que fora trocado, que sua família de origem havia sido enganada, que a restauração preparava uma ocupação e que a Facção ocultava mortes e fracassos. Descobriu também que existia uma mirveth do outro lado.\n\nDaeren desertou. Não foi um despertar instantâneo para a virtude. Foi ruptura: a identidade que sustentara sua vida deixou de ser confiável.\n\nNa Escuridão encontrou Thavin. Os registros afirmam que eram mirveth.\n\nNão houve fusão, iluminação imediata ou compreensão total. Houve desconfiança. Thavin viu um agente treinado pela instituição que ameaçava seu mundo. Daeren viu tudo aquilo que aprendera a temer.\n\nA relação entre os dois foi construída por diálogo, conflito e escolha. Isso a tornou mais importante do que qualquer ressonância automática.\n\nJuntos, reuniram provas e alertaram comunidades sobre os Lightbringers.",
+      "align": "justify"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 26
+  }
+}

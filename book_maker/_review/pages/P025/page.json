@@ -1,0 +1,44 @@
+{
+  "id": "p-025",
+  "template": "chapter_opening",
+  "variant": "image-side",
+  "title": "LIGHTBRINGERS",
+  "eyebrow": "PARTE I · METADE DIREITA",
+  "part": "Parte I",
+  "chapter": "LIGHTBRINGERS",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p025-b-img",
+      "type": "image",
+      "src": "/assets/handoff/approved/p024_025_outros_lightbringers_pb.jpg",
+      "alt": "LIGHTBRINGERS — spread right",
+      "position": "left",
+      "fit": "cover",
+      "fullBleed": false,
+      "width": "100%",
+      "height": "100%",
+      "objectX": 100,
+      "objectY": 50
+    },
+    {
+      "id": "p025-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "A Facção também selecionou crianças para treinamento especializado. Esses agentes tornaram-se os Lightbringers.\n\nRecebiam educação de elite, formação marcial, estudo controlado de Velarim, doutrinação histórica e preparação para travessias. Sua identidade era construída em torno de uma missão: restaurar o que lhes diziam ter sido quebrado.\n\nAprendiam que a Escuridão era uma realidade defeituosa. Aprendiam que haviam sido escolhidos para consertá-la. Não aprendiam que muitos deles tinham sido trocados. Não aprendiam que thuvel era uma força cosmológica legítima. Não aprendiam que a Sombra podia agir através da Luz.\n\nNem todos permanecem leais. Alguns acreditam integralmente. Outros percebem inconsistências. Alguns descobrem fragmentos da verdade. Outros temem que questionar a doutrina destrua tudo o que deu sentido à própria vida.\n\nA campanha não começa porque os Lightbringers são monstros.\n\nComeça porque são pessoas treinadas para chamar violência de dever.",
+      "align": "justify"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 25
+  }
+}

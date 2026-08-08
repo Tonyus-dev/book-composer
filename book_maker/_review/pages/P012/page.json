@@ -1,0 +1,42 @@
+{
+  "id": "p-012",
+  "template": "chapter_opening",
+  "variant": "image-top",
+  "title": "VETHARI — Relação sem apagamento",
+  "eyebrow": "PARTE I",
+  "part": "Parte I",
+  "chapter": "VETHARI — Relação sem apagamento",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p012-b-img",
+      "type": "image",
+      "src": "/assets/handoff/approved/p012_mirveth_thuvel_pb.png",
+      "alt": "VETHARI — Relação sem apagamento — vinheta P12",
+      "position": "top",
+      "fit": "contain",
+      "fullBleed": false,
+      "width": "100%",
+      "height": "62mm"
+    },
+    {
+      "id": "p012-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "Se mirveth descreve contrapartes integrais, vethari descreve uma possibilidade de relação legítima.\n\nVethari não é absorção, retorno compulsório à unidade nem fusão que apaga fronteiras pessoais. É relação em que identidade, autonomia e consentimento permanecem reconhecíveis. Aproximar-se não transforma duas pessoas em uma só. Ressonância, por mais intensa que seja, não dá posse sobre quem ressoa.\n\nPor isso, uma relação deixa de ser legítima no instante em que alguém exige, em nome do amor, da aliança, da ciência ou da fé, que o outro deixe de discordar, de escolher ou de ser diferente. Nesse ponto, o vínculo não se torna “mais profundo”. Ele muda de natureza e se aproxima de kav.\n\nA relação pode atravessar a Fresta. As identidades não precisam atravessar uma à outra.\n\nEsse princípio vale para mirveth, para Merge e, em escala maior, para a própria pergunta política de KALLISTIS: é possível construir unidade sem transformar diferença em defeito?",
+      "align": "justify"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 12
+  }
+}

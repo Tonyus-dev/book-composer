@@ -1,0 +1,318 @@
+import { useMemo, useRef, useState } from "react";
+import { ASSETS, ASSET_CATEGORIES } from "../../lib/assets/catalog";
+import type { BookAsset, ImageBlock } from "../../book/types";
+import { assetRef, formatBytes, resolveAssetSrc } from "../../lib/assets/registry";
+import { ACCEPTED_ASSET_MIME, fileToBookAsset } from "../../lib/assets/upload";
+import { useEditor, nextId } from "../state/store";
+import { AssetEditor, type AssetEditorTarget } from "./AssetEditor";
+import { applyRecipe, editedToAsset, type EditRecipe } from "../../lib/assets/edit";
+
+/** Item unificado: catálogo estático (public/assets) + assets enviados. */
+interface BrowserItem {
+  key: string;
+  /** referência gravada no JSON: caminho público ou asset:<id> */
+  src: string;
+  label: string;
+  category: string;
+  note?: string | undefined;
+  effectivePpi?: number | undefined;
+  uploaded?: BookAsset | undefined;
+}
+
+/**
+ * Painel de assets: consome o catálogo de public/assets e aceita upload local.
+ * Assets enviados ficam no projeto JSON (book.assets) e são referenciados por id.
+ */
+export function AssetBrowser() {
+  const {
+    book,
+    selectedPage,
+    selectedBlock,
+    updateBlock,
+    addBlock,
+    selectBlock,
+    addAssets,
+    updateAsset,
+    removeAsset,
+    assetUsage,
+  } = useEditor();
+  const [category, setCategory] = useState<string>("all");
+  const [query, setQuery] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [editing, setEditing] = useState<AssetEditorTarget | null>(null);
+  const fileRef = useRef<HTMLInputElement>(null);
+  const uploadCategory = category === "all" ? "characters" : category;
+
+  const uploaded = book.assets ?? [];
+
+  const items = useMemo(() => {
+    const all: BrowserItem[] = [
+      ...uploaded.map((asset) => ({
+        key: asset.id,
+        src: assetRef(asset.id),
+        label: asset.label,
+        category: asset.category,
+        effectivePpi: asset.effectivePpi,
+        uploaded: asset,
+      })),
+      ...ASSETS.map((asset) => ({
+        key: asset.src,
+        src: asset.src,
+        label: asset.label,
+        category: asset.category,
+        note: asset.note,
+        effectivePpi: asset.effectivePpi,
+      })),
+    ];
+    const term = query.trim().toLowerCase();
+    return all
+      .filter((item) => category === "all" || item.category === category)
+      .filter((item) => item.label.toLowerCase().includes(term));
+  }, [category, query, uploaded]);
+
+  const apply = (item: BrowserItem) => {
+    if (selectedBlock && selectedBlock.type === "image") {
+      updateBlock(selectedPage.id, selectedBlock.id, {
+        src: item.src,
+        alt: item.label,
+        effectivePpi: item.effectivePpi,
+      });
+      return;
+    }
+    const block: ImageBlock = {
+      id: nextId("b"),
+      type: "image",
+      src: item.src,
+      alt: item.label,
+      fit: "cover",
+      position: "flow",
+      span: "full",
+      ...(item.effectivePpi ? { effectivePpi: item.effectivePpi } : {}),
+    };
+    addBlock(selectedPage.id, block);
+    selectBlock(block.id);
+  };
+
+  const upload = async (files: FileList) => {
+    setBusy(true);
+    setError(null);
+    const created: BookAsset[] = [];
+    const failures: string[] = [];
+    for (const file of Array.from(files)) {
+      if (!file.type.startsWith("image/")) {
+        failures.push(`${file.name}: formato não suportado`);
+        continue;
+      }
+      try {
+        created.push(
+          await fileToBookAsset(file, {
+            id: nextId("asset"),
+            category: uploadCategory,
+            pageWidth: book.tokens.pageWidth,
+          }),
+        );
+      } catch (cause) {
+        failures.push(cause instanceof Error ? cause.message : String(cause));
+      }
+    }
+    if (created.length > 0) addAssets(created);
+    setError(failures.length > 0 ? failures.join(" · ") : null);
+    setBusy(false);
+  };
+
+  /* Recorte/resize/remoção de fundo: bytes editados voltam para o próprio JSON. */
+  const saveEdit = async (
+    target: AssetEditorTarget,
+    recipe: EditRecipe,
+    mode: "replace" | "duplicate",
+    label: string,
+  ): Promise<string | null> => {
+    try {
+      const edited = await applyRecipe(target.source, recipe, { mime: target.mime });
+      const pageWidthMm = Number.parseFloat(book.tokens.pageWidth) || 210;
+      if (mode === "replace" && target.assetId) {
+        const asset = editedToAsset({ label, category: target.category }, edited, {
+          id: target.assetId,
+          pageWidthMm,
+        });
+        const { id: _id, createdAt: _createdAt, ...patch } = asset;
+        updateAsset(target.assetId, patch);
+        return null;
+      }
+      const created = editedToAsset({ label, category: target.category }, edited, {
+        id: nextId("asset"),
+        pageWidthMm,
+      });
+      addAssets([created]);
+      return null;
+    } catch (cause) {
+      return cause instanceof Error ? cause.message : String(cause);
+    }
+  };
+
+  return (
+    <div className="flex h-full flex-col overflow-hidden">
+      {editing ? (
+        <AssetEditor
+          target={editing}
+          onClose={() => setEditing(null)}
+          onSave={(recipe, mode, label) => saveEdit(editing, recipe, mode, label)}
+        />
+      ) : null}
+      <div className="border-b border-border px-3 py-2">
+        <h2 className="mb-2 text-[11px] font-semibold tracking-[0.18em] text-muted-foreground uppercase">
+          Assets
+        </h2>
+        <input
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          placeholder="Buscar…"
+          className="mb-2 w-full border border-border bg-input/40 px-2 py-1 text-xs outline-none focus-visible:border-primary"
+        />
+        <select
+          value={category}
+          onChange={(event) => setCategory(event.target.value)}
+          className="mb-2 w-full border border-border bg-input/40 px-2 py-1 text-xs outline-none"
+        >
+          <option value="all">Todas as categorias</option>
+          {ASSET_CATEGORIES.map((entry) => (
+            <option key={entry.id} value={entry.id}>
+              {entry.label}
+            </option>
+          ))}
+        </select>
+
+        <button
+          type="button"
+          disabled={busy}
+          onClick={() => fileRef.current?.click()}
+          className="w-full border border-primary bg-primary px-2 py-1 text-[11px] font-medium text-primary-foreground disabled:opacity-60"
+        >
+          {busy ? "importando…" : "Enviar imagens locais"}
+        </button>
+        <input
+          ref={fileRef}
+          type="file"
+          multiple
+          accept={ACCEPTED_ASSET_MIME.join(",")}
+          className="hidden"
+          onChange={async (event) => {
+            const files = event.target.files;
+            if (files && files.length > 0) await upload(files);
+            event.target.value = "";
+          }}
+        />
+        <p className="mt-1 text-[10px] leading-snug text-muted-foreground">
+          Vão para <span className="text-foreground">{uploadCategory}</span> e ficam gravados no
+          projeto JSON (id + bytes), não em pastas soltas.
+        </p>
+        {error ? <p className="mt-1 text-[10px] text-destructive">{error}</p> : null}
+      </div>
+
+      <div className="grid flex-1 grid-cols-2 content-start gap-2 overflow-y-auto p-2">
+        {items.map((item) => {
+          const uses = item.uploaded ? assetUsage(item.uploaded.id) : 0;
+          return (
+            <div key={item.key} className="border border-border">
+              <button
+                type="button"
+                onClick={() => apply(item)}
+                title={item.note ?? item.label}
+                className="group block w-full text-left hover:opacity-90"
+              >
+                <img
+                  src={resolveAssetSrc(item.src)}
+                  alt={item.label}
+                  loading="lazy"
+                  className="aspect-4/5 w-full object-cover"
+                />
+                <span className="block px-1.5 pt-1 text-[10px] leading-tight text-muted-foreground group-hover:text-foreground">
+                  {item.label}
+                </span>
+              </button>
+              {item.uploaded ? (
+                <div className="px-1.5 pb-1">
+                  <p className="text-[9px] text-muted-foreground">
+                    {item.uploaded.pixelWidth}×{item.uploaded.pixelHeight} ·{" "}
+                    {formatBytes(item.uploaded.bytes)}
+                    {item.uploaded.effectivePpi ? ` · ${item.uploaded.effectivePpi} ppi` : ""}
+                    {uses > 0 ? ` · ${uses} uso${uses > 1 ? "s" : ""}` : ""}
+                  </p>
+                  <div className="mt-1 flex gap-1">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setEditing({
+                          source: resolveAssetSrc(item.src),
+                          label: item.label,
+                          category: item.category,
+                          mime: item.uploaded!.mime,
+                          assetId: item.uploaded!.id,
+                        })
+                      }
+                      className="border border-border px-1 text-[9px] hover:bg-accent"
+                    >
+                      Editar
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const label = window.prompt("Nome do asset", item.label);
+                        if (label) updateAsset(item.uploaded!.id, { label });
+                      }}
+                      className="border border-border px-1 text-[9px] hover:bg-accent"
+                    >
+                      Renomear
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const warn =
+                          uses > 0
+                            ? `Este asset está em ${uses} bloco(s). Remover deixará referências órfãs. Continuar?`
+                            : "Remover este asset do projeto?";
+                        if (window.confirm(warn)) removeAsset(item.uploaded!.id);
+                      }}
+                      className="border border-border px-1 text-[9px] text-muted-foreground hover:bg-accent"
+                    >
+                      Remover
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="px-1.5 pb-1">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setEditing({
+                        source: resolveAssetSrc(item.src),
+                        label: item.label,
+                        category: item.category,
+                        mime: "image/png",
+                      })
+                    }
+                    className="border border-border px-1 text-[9px] hover:bg-accent"
+                  >
+                    Recortar / editar
+                  </button>
+                </div>
+              )}
+            </div>
+          );
+        })}
+        {items.length === 0 ? (
+          <p className="col-span-2 p-2 text-[11px] text-muted-foreground">
+            Nenhum asset registrado para este filtro.
+          </p>
+        ) : null}
+      </div>
+
+      <p className="border-t border-border px-3 py-2 text-[10px] leading-snug text-muted-foreground">
+        {selectedBlock?.type === "image"
+          ? "Clique para substituir a imagem do bloco selecionado."
+          : "Clique para inserir um novo bloco de imagem na página atual."}
+      </p>
+    </div>
+  );
+}

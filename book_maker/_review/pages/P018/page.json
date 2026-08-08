@@ -1,0 +1,37 @@
+{
+  "id": "p-018",
+  "template": "narrative",
+  "title": "Povos e Reinos",
+  "eyebrow": "HISTÓRIA",
+  "part": "Parte I",
+  "chapter": "Povos e Reinos",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p018-b-h2",
+      "type": "heading",
+      "level": 2,
+      "text": "POVOS E REINOS",
+      "eyebrow": "HISTÓRIA"
+    },
+    {
+      "id": "p018-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "Não existiu um único caminho para sobreviver à Fratura. Memória, juramento, poder, construção, adaptação, instinto, acaso e ressonância tornaram-se respostas culturais diferentes — e nenhuma delas produziu uma civilização moralmente uniforme.\n\nComunidades tornaram-se cidades. Clãs formaram hierarquias, confederações e redes. Reinos cresceram e caíram. Rotas comerciais ligaram regiões que antes não se reconheciam. A Luz produziu repúblicas, tiranias, alianças e colapsos. A Escuridão também.\n\nAs primeiras grandes guerras registradas foram travadas dentro de cada mundo, entre povos que ainda não compreendiam a existência do outro lado. Isso importa porque desfaz uma leitura fácil: o conflito de KALLISTIS nunca foi “Luz contra Escuridão”.\n\nQuando os dois mundos finalmente se tocaram, não se encontraram como partes incompletas voltando ao lugar. Encontraram-se como civilizações antigas, cada uma já carregando suas próprias disputas, virtudes, crimes e memórias.",
+      "align": "justify"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 18
+  }
+}

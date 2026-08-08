@@ -1,0 +1,129 @@
+/* Overlays de produção e seleção — pertencem ao EDITOR, nunca ao PDF.
+   Tudo aqui é anulado por @media print. */
+
+.k-overlay {
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+  z-index: 5;
+}
+
+.k-overlay--margins {
+  border: 0.3mm dashed color-mix(in oklab, #b953dc 70%, transparent);
+  top: var(--margin-top);
+  bottom: var(--margin-bottom);
+  left: var(--margin-inner);
+  right: var(--margin-outer);
+  inset: unset;
+}
+
+.k-page--verso .k-overlay--margins {
+  left: var(--margin-outer);
+  right: var(--margin-inner);
+}
+
+.k-overlay--bleed {
+  inset: calc(var(--bleed) * -1);
+  outline: 0.3mm dashed color-mix(in oklab, #be185d 80%, transparent);
+}
+
+.k-overlay--safe {
+  top: calc(var(--margin-top) + 5mm);
+  bottom: calc(var(--margin-bottom) + 5mm);
+  left: calc(var(--margin-inner) + 5mm);
+  right: calc(var(--margin-outer) + 5mm);
+  inset: unset;
+  outline: 0.3mm dotted color-mix(in oklab, #a0b521 80%, transparent);
+}
+
+.k-overlay--columns {
+  top: var(--margin-top);
+  bottom: var(--margin-bottom);
+  left: var(--margin-inner);
+  right: var(--margin-outer);
+  inset: unset;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: var(--column-gap);
+}
+
+.k-page--verso .k-overlay--columns {
+  left: var(--margin-outer);
+  right: var(--margin-inner);
+}
+
+.k-overlay--columns > span {
+  background: color-mix(in oklab, #b953dc 12%, transparent);
+}
+
+.k-overlay--baseline {
+  top: var(--margin-top);
+  bottom: var(--margin-bottom);
+  left: var(--margin-inner);
+  right: var(--margin-outer);
+  inset: unset;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    color-mix(in oklab, #542869 22%, transparent) 0 0.2mm,
+    transparent 0.2mm var(--body-leading)
+  );
+}
+
+/* Seleção de bloco: apenas no editor. */
+.k-editor-page [data-block-id] {
+  cursor: pointer;
+  outline: 0.3mm solid transparent;
+  outline-offset: 1mm;
+}
+
+.k-editor-page [data-block-id]:hover {
+  outline-color: color-mix(in oklab, #b953dc 45%, transparent);
+}
+
+.k-editor-page [data-selected="true"] {
+  outline-color: #b953dc;
+  outline-width: 0.5mm;
+}
+
+/* Overflow nunca é escondido: ele é sinalizado. */
+.k-editor-page[data-overflow="true"] {
+  box-shadow: 0 0 0 2px #be185d;
+}
+
+.k-editor-page {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.k-thumb {
+  transform-origin: top left;
+  pointer-events: none;
+}
+/* Fundo xadrez: revela a transparência real na prévia de recorte de fundo. */
+.k-checker {
+  background-image:
+    linear-gradient(45deg, rgb(120 120 130 / 0.22) 25%, transparent 25%),
+    linear-gradient(-45deg, rgb(120 120 130 / 0.22) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgb(120 120 130 / 0.22) 75%),
+    linear-gradient(-45deg, transparent 75%, rgb(120 120 130 / 0.22) 75%);
+  background-position:
+    0 0,
+    0 6px,
+    6px -6px,
+    -6px 0;
+  background-size: 12px 12px;
+}
+
+/* Códigos de cor da MESA DE LUZ / faixa de ritmo — análise editorial, não decoração.
+   Nunca entram no livro: são exclusivos do editor. */
+:root {
+  --k-rhythm-front: #6b7280;
+  --k-rhythm-opening: #b953dc;
+  --k-rhythm-narrative: #8b8f9a;
+  --k-rhythm-rules: #3f7fb8;
+  --k-rhythm-profile: #c98a3a;
+  --k-rhythm-table: #4c9a80;
+  --k-rhythm-art: #d05a8c;
+  --k-rhythm-map: #7a6bd0;
+  --k-rhythm-warning: #d9a13b;
+  --k-rhythm-preflight: #be185d;
+}

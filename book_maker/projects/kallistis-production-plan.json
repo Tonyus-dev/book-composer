@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "bookId": "KALLISTIS — Livro Básico",
+  "pages": {
+    "p-001": {
+      "status": "review",
+      "brief": "Capa oficial do Livro Básico: title lockado como 'KALLISTIS — Livro Básico' e subtítulo 'O Cristal e a Fresta / Memória, Fratura e Escolha entre Dois Mundos / Agosto de 2026'. Fundo obsidian, full bleed, com imagem oficial de capa ocupando o retângulo inteiro e wordmark posicionado pelo template COVER. Não duplicar imagem.",
+      "textSources": [
+        {
+          "source": "book.meta",
+          "section": "title",
+          "note": "KALLISTIS — Livro Básico (canônico)"
+        },
+        {
+          "source": "book.meta",
+          "section": "subtitle",
+          "note": "O Cristal e a Fresta / Memória, Fratura e Escolha entre Dois Mundos / Agosto de 2026"
+        },
+        {
+          "source": "book.meta",
+          "section": "imprint",
+          "note": "Nomos Ludens"
+        }
+      ],
+      "assets": [
+        {
+          "ref": "/assets/cover/capa-cristal.jpg",
+          "role": "Capa full bleed",
+          "instruction": "Imagem oficial única, fit cover, fullBleed true, position full. Não trocar por outra arte."
+        }
+      ],
+      "notes": [
+        "Lapidação 02: página 1 aprovada tecnicamente; aguarda revisão visual do autor.",
+        "Wordmark e título renderizados pelo template COVER a partir do JSON, não reconstruir com fonte."
+      ],
+      "review": {
+        "text": "pending",
+        "art": "pending",
+        "layout": "pending"
+      }
+    },
+    "p-002": {
+      "status": "review",
+      "brief": "Ficha técnica limpa em fundo paper, 1 coluna, com bloco de créditos listando título, edição, autor, editora, data, idioma, direitos, subject e keywords. Sem ornamento. Header desligado, footer e número de página ligados.",
+      "textSources": [
+        {
+          "source": "book.meta",
+          "section": "title",
+          "note": "KALLISTIS — Livro Básico"
+        },
+        {
+          "source": "book.meta",
+          "section": "edition",
+          "note": "Edição Definitiva v1.3"
+        },
+        {
+          "source": "book.meta",
+          "section": "author",
+          "note": "Antônio de Oliveira"
+        },
+        {
+          "source": "book.meta",
+          "section": "imprint",
+          "note": "Nomos Ludens"
+        },
+        {
+          "source": "book.meta",
+          "section": "firstFolio",
+          "note": "1"
+        }
+      ],
+      "assets": [],
+      "notes": [
+        "Lapidação 02: página 2 aprovada tecnicamente; aguarda revisão visual do autor."
+      ],
+      "review": {
+        "text": "pending",
+        "art": "pending",
+        "layout": "pending"
+      }
+    },
+    "p-003": {
+      "status": "review",
+      "brief": "Sumário canônico estruturado em Partes I/II/III e capítulos numerados. Folios exibidos como '—' enquanto a paginação global não estiver fechada (regra da Lapidação 02). 2 colunas dentro do bloco TOC, sem header, com número de página.",
+      "textSources": [
+        {
+          "source": "kallistis-livro-basico.json",
+          "section": "pages[p-003].blocks[b-toc].entries",
+          "note": "Lista canônica: Parte I (cap. 1–4), Parte II (cap. 5–7), Parte III (cap. 8–13), Apêndices A/B."
+        }
+      ],
+      "assets": [],
+      "notes": [
+        "Lapidação 02: regra — não inventar paginação final; '—' até a numeração ser fechada.",
+        "Nenhuma arte: página tipográfica."
+      ],
+      "review": {
+        "text": "pending",
+        "art": "pending",
+        "layout": "pending"
+      }
+    },
+    "p-004": {
+      "status": "review",
+      "brief": "Início literário do Prólogo na mesma página. Cabeçalho PRÓLOGO (H1) + subtítulo 'A velha e a Fresta' (H2) + bloco narrativo body que abre a romantização. Sem header, fundo paper, 1 coluna.",
+      "textSources": [
+        {
+          "source": "work/romantizacao/KALLISTIS_O_CRISTAL_E_A_FRESTA_ATE_APENDICE_A.md",
+          "section": "I",
+          "note": "A velha começou a falar antes de o rapaz se sentar. … É só a que sobrou depois que tirei o que era orgulho e o que era medo. Texto já materializado no bloco b-prologue-opening da página 4."
+        }
+      ],
+      "assets": [],
+      "notes": [
+        "Lapidação 02: narrativa canônica do Apêndice A já reproduzida no bloco; continuação literária nas páginas seguintes do livro.",
+        "Página tipográfica; sem arte."
+      ],
+      "review": {
+        "text": "pending",
+        "art": "pending",
+        "layout": "pending"
+      }
+    }
+  }
+}
