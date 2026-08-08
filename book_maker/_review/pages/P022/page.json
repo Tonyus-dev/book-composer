@@ -1,0 +1,44 @@
+{
+  "id": "p-022",
+  "template": "chapter_opening",
+  "variant": "image-side",
+  "title": "KETHRELL E O ERRO DA CERTEZA",
+  "eyebrow": "PARTE I · METADE ESQUERDA",
+  "part": "Parte I",
+  "chapter": "KETHRELL E O ERRO DA CERTEZA",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p022-b-img",
+      "type": "image",
+      "src": "/assets/handoff/approved/p021_022_kethrell_faccao_cientifica_pb.jpg",
+      "alt": "KETHRELL E O ERRO DA CERTEZA — spread left",
+      "position": "left",
+      "fit": "cover",
+      "fullBleed": false,
+      "width": "100%",
+      "height": "100%",
+      "objectX": 0,
+      "objectY": 50
+    },
+    {
+      "id": "p022-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "Kethrell tornou-se um dos principais articuladores da doutrina de recomposição.\n\nSeu pensamento apoiava-se em três afirmações:\n\n1. a Fratura foi um erro;\n2. as mirveth preservam a estrutura necessária para revertê-la;\n3. uma instituição esclarecida possui o dever de conduzir a restauração.\n\nAs duas primeiras eram hipóteses. A terceira foi o início da tirania.\n\nQuando o Conselho recusou seus planos, Kethrell e seus seguidores partiram levando cópias de pesquisas, instrumentos, sequências de Silmain e registros de ressonância entre nascimentos. Dessa ruptura surgiu a organização clandestina que seria conhecida como Facção Científica.\n\nO nome sugeria neutralidade. A organização nunca foi neutra.\n\nO erro de Kethrell não foi ter uma teoria. Foi transformar convicção em licença para decidir pela vida de quem jamais lhe concedera esse direito.",
+      "align": "justify"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 22
+  }
+}

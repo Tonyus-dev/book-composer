@@ -1,0 +1,42 @@
+{
+  "id": "p-014",
+  "template": "chapter_opening",
+  "variant": "image-top",
+  "title": "LAR · CIDADE · COMPANHIA",
+  "eyebrow": "PARTE I",
+  "part": "Parte I",
+  "chapter": "LAR · CIDADE · COMPANHIA",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p014-b-img",
+      "type": "image",
+      "src": "/assets/handoff/approved/p014_pedralma_escalas_pb.png",
+      "alt": "LAR · CIDADE · COMPANHIA — vinheta P14",
+      "position": "top",
+      "fit": "contain",
+      "fullBleed": false,
+      "width": "100%",
+      "height": "62mm"
+    },
+    {
+      "id": "p014-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "Uma companhia de aventureiros pode atravessar três reinos sem telhado, endereço ou bandeira. Se leva consigo uma Pedr’alma, leva um lar.\n\nNuma família, a pedra pode reunir símbolos de quem vive e de quem já morreu. Numa companhia, registra identidades diferentes sem exigir uniformidade. Numa cidade, torna-se a memória material de pessoas que talvez nunca tenham se conhecido, mas que reconhecem uma comunidade comum.\n\nA pedra representa a comunidade. Ela não é a comunidade. Roubar uma Pedr’alma não concede autoridade sobre quem ela representa. Riscar um símbolo não apaga a dignidade de quem o escolheu.\n\nÉ precisamente aí que o objeto toca o tema central de KALLISTIS.\n\nA Pedr’alma diz:\n“Nós pertencemos.”\n\nA Sombra acrescenta:\n“Logo, vocês pertencem a mim.”\n\nA diferença entre as duas frases é a diferença entre vínculo e posse.",
+      "align": "justify"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 14
+  }
+}

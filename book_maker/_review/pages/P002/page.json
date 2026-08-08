@@ -1,0 +1,28 @@
+{
+  "id": "p-002",
+  "template": "front_matter",
+  "title": "FICHA TÉCNICA",
+  "part": "Front Matter",
+  "settings": {
+    "header": false,
+    "footer": true,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p002-b-t",
+      "type": "text",
+      "role": "credits",
+      "content": "KALLISTIS — Livro Básico\n\nO Cristal e a Fresta\nMemória, Fratura e Escolha entre Dois Mundos\n\nEdição Definitiva v1.3 · Agosto de 2026\n\nAutor: Antônio de Oliveira\nEditora: Nomos Ludens\nFormato: 140 × 210 mm\nTipografia: EB Garamond / Liberation Sans\n\nIlustrações produzidas com auxílio de ferramentas de inteligência artificial generativa.\n\nCopyright © 2026 por Antônio de Oliveira\n\nTodos os direitos reservados. É permitida a reprodução parcial desta obra, limitada a breves trechos e citações, exclusivamente para fins não comerciais e educacionais, desde que a autoria seja devidamente creditada e a fonte original seja citada.\n\nA reprodução integral, a comercialização, a tradução ou a adaptação desta obra sem a autorização prévia e expressa por escrito do autor são terminantemente proibidas, sujeitando o infrator às penalidades previstas na Lei de Direitos Autorais (Lei nº 9.610/98).",
+      "align": "start"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 2
+  }
+}

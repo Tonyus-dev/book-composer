@@ -1,0 +1,42 @@
+{
+  "id": "p-007",
+  "template": "chapter_opening",
+  "variant": "image-top",
+  "title": "THUVEL — O Mundo da Escuridão",
+  "eyebrow": "PARTE I",
+  "part": "Parte I",
+  "chapter": "THUVEL — O Mundo da Escuridão",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p007-b-img",
+      "type": "image",
+      "src": "/assets/handoff/approved/p007_thuvel_pb.png",
+      "alt": "THUVEL — O Mundo da Escuridão — vinheta P7",
+      "position": "top",
+      "fit": "contain",
+      "fullBleed": false,
+      "width": "100%",
+      "height": "62mm"
+    },
+    {
+      "id": "p007-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "Quem atravessa para o Mundo da Escuridão descobre outra lógica: existir não exige provar-se o tempo todo. Uma forma pode permanecer sugerida; uma intenção pode amadurecer em silêncio antes de tornar-se gesto.\n\nIsso é thuvel — não vazio, falta ou mal, mas Escuridão cosmológica legítima: profundidade, silêncio, memória, repouso e potencial. Ali, uma casa abandonada pode continuar carregando o peso de quem viveu nela. O que ainda não se manifestou não deixou, por isso, de existir. Uma semente sob a neve continua sendo futuro.\n\nOs povos de thuvel aprenderam a desconfiar da pressa. Profundidade não é corrupção. Silêncio não é culpa. Repouso não é morte. Potencial não é ameaça.\n\nTambém aqui existe risco: silêncio pode ser imposto, memória pode virar prisão, profundidade pode ser usada para esconder poder. Isso, porém, não transforma a Escuridão em Sombra. Thuvel é uma forma legítima e completa da realidade, tão capaz de cuidado ou crueldade quanto manesh.",
+      "align": "justify"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 7
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "p-029",
+  "template": "chapter_opening",
+  "variant": "image-side",
+  "title": "O TEMPO DA ESCOLHA",
+  "eyebrow": "PARTE I · METADE DIREITA",
+  "part": "Parte I",
+  "chapter": "O TEMPO DA ESCOLHA",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p029-b-img",
+      "type": "image",
+      "src": "/assets/handoff/approved/p028_029_thaeraen_tempo_escolha_pb.jpeg",
+      "alt": "O TEMPO DA ESCOLHA — spread right",
+      "position": "left",
+      "fit": "cover",
+      "fullBleed": false,
+      "width": "100%",
+      "height": "100%",
+      "objectX": 100,
+      "objectY": 50
+    },
+    {
+      "id": "p029-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "A história alcançou seu ponto de maior tensão.\n\nOs portais existem. A Facção já não consegue manter todo o programa em segredo. Os dois mundos conhecem fragmentos da verdade. Lightbringers estão preparados. Os Outros começam a organizar respostas. Mirveth podem encontrar-se. Velarim pode ser usado para reconstruir relações — ou para apagá-las.\n\nA Luz está politicamente dividida entre restauradores e múltiplas formas de dissidência. A Escuridão prepara defesa, mas não responde como bloco único: há contenção, medo, negociação e desejo de ataque preventivo. Os Outros não pertencem automaticamente a lado algum. Nem todos os Lightbringers permanecem leais.\n\nA guerra ainda não começou.\n\nIsso é essencial. Invadir, fechar portais, reconciliar, restaurar ou construir uma nova relação entre os mundos são possibilidades, não acontecimentos já escritos.\n\nO presente de KALLISTIS é um limiar. O futuro pertence à mesa.",
+      "align": "justify"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 29
+  }
+}

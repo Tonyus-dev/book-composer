@@ -1,0 +1,44 @@
+{
+  "id": "p-008",
+  "template": "chapter_opening",
+  "variant": "image-side",
+  "title": "LUZ, ESCURIDÃO E SOMBRA — I",
+  "eyebrow": "PARTE I · METADE ESQUERDA",
+  "part": "Parte I",
+  "chapter": "LUZ, ESCURIDÃO E SOMBRA — I",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p008-b-img",
+      "type": "image",
+      "src": "/assets/handoff/approved/p008_009_luz_escuridao_sombra_pb.png",
+      "alt": "LUZ, ESCURIDÃO E SOMBRA — I — spread left",
+      "position": "left",
+      "fit": "cover",
+      "fullBleed": false,
+      "width": "100%",
+      "height": "100%",
+      "objectX": 0,
+      "objectY": 50
+    },
+    {
+      "id": "p008-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "Conta-se que uma aprendiz de Silmain apagou, por acidente, a última vela de seu quarto e, assustada, sussurrou uma prece contra a Sombra.\n\nA mestra entrou, reacendeu o pavio e corrigiu:\n\n— Você não está em thuvel. Está em vesilma.\n\nA diferença é fundamental. Manesh é Luz cosmológica: manifestação, forma e presença. Thuvel é Escuridão cosmológica legítima: profundidade, silêncio, memória e potencial. Silma é luz física — o clarão de uma chama, o sol sobre a pedra. Vesilma é apenas a ausência dessa luz física.\n\nUma sala sem lamparina não pertence à Escuridão. Um cristal que refrata o sol não se torna, por isso, manifestação de manesh. KALLISTIS não divide existência entre claridade boa e escuridão má. Divide-a entre realidades completas que não podem ser reduzidas a iluminação, moralidade ou estética.\n\nConfundir os termos não é detalhe vocabular: é transformar diferença em erro antes mesmo de começar a compreendê-la.",
+      "align": "justify"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 8
+  }
+}

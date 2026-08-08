@@ -1,0 +1,42 @@
+{
+  "id": "p-006",
+  "template": "chapter_opening",
+  "variant": "image-top",
+  "title": "MANESH — O Mundo da Luz",
+  "eyebrow": "PARTE I",
+  "part": "Parte I",
+  "chapter": "MANESH — O Mundo da Luz",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p006-b-img",
+      "type": "image",
+      "src": "/assets/handoff/approved/p006_manesh_pb.png",
+      "alt": "MANESH — O Mundo da Luz — vinheta P6",
+      "position": "top",
+      "fit": "contain",
+      "fullBleed": false,
+      "width": "100%",
+      "height": "62mm"
+    },
+    {
+      "id": "p006-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "Dizem que quem chega ao Mundo da Luz pela primeira vez sente que o próprio ar parece declarar as coisas. As pedras mostram a idade nas rachaduras; os rostos carregam os anos; um exército em marcha anuncia sua intenção na poeira que levanta.\n\nIsso é manesh — não o brilho de uma vela, mas a condição cosmológica da manifestação: forma, presença, ação e ordem. No Mundo da Luz, mudanças tendem a deixar marcas legíveis. Cidades erguem torres que podem ser medidas do horizonte; tratados procuram ser públicos; juramentos e dívidas de honra ganham forma material.\n\nHá grandeza nisso — e risco. Manesh não significa bondade. Manifestação sem repouso pode virar exposição absoluta. Ordem sem profundidade pode virar rigidez. Clareza pode ser usada para vigiar, classificar ou simplificar pessoas até que não sobre nada que não caiba no registro.\n\nA Luz, portanto, não precisa ser moralmente superior à Escuridão para ser legítima. Ela é uma das maneiras completas pelas quais a realidade passou a existir depois da Fratura.",
+      "align": "justify"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 6
+  }
+}

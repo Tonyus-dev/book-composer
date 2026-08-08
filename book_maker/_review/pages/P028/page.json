@@ -1,0 +1,44 @@
+{
+  "id": "p-028",
+  "template": "chapter_opening",
+  "variant": "image-side",
+  "title": "THAERAEN — Uma profecia não é uma ordem",
+  "eyebrow": "PARTE I · METADE ESQUERDA",
+  "part": "Parte I",
+  "chapter": "THAERAEN — Uma profecia não é uma ordem",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p028-b-img",
+      "type": "image",
+      "src": "/assets/handoff/approved/p028_029_thaeraen_tempo_escolha_pb.jpeg",
+      "alt": "THAERAEN — Uma profecia não é uma ordem — spread left",
+      "position": "left",
+      "fit": "cover",
+      "fullBleed": false,
+      "width": "100%",
+      "height": "100%",
+      "objectX": 0,
+      "objectY": 50
+    },
+    {
+      "id": "p028-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "Durante a Era das Revelações, um Aelvari conhecido como Thaeraen pronunciou uma profecia associada ao reencontro dos mundos.\n\nA formulação exata em Velarim não foi preservada de modo normativo verificável. Traduções posteriores divergem. Nenhuma versão literal deve ser tratada como voz incontestável do universo.\n\nO núcleo comum preservado afirma apenas que alguém marcado pelos dois mundos participará da convergência; que o resultado dependerá de escolha; que conquista não produzirá reconciliação legítima; que a Fratura não termina pelo apagamento das diferenças; e que ambas as realidades precisam reconhecer a legitimidade da outra.\n\nA Facção leu esses fragmentos como anúncio de um Lightbringer destinado a concluir a restauração. Opositores viram neles uma defesa da coexistência voluntária.\n\nThaeraen recusou uma única leitura institucional.\n\nSegundo seus discípulos: uma profecia que elimina a escolha não revela o futuro — tenta fabricá-lo.",
+      "align": "justify"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 28
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": "p-011",
+  "template": "chapter_opening",
+  "variant": "image-top",
+  "title": "MIRVETH — Uma pessoa inteira",
+  "eyebrow": "PARTE I",
+  "part": "Parte I",
+  "chapter": "MIRVETH — Uma pessoa inteira",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p011-b-img",
+      "type": "image",
+      "src": "/assets/handoff/approved/p011_mirveth_manesh_pb.png",
+      "alt": "MIRVETH — Uma pessoa inteira — vinheta P11",
+      "position": "top",
+      "fit": "contain",
+      "fullBleed": false,
+      "width": "100%",
+      "height": "62mm"
+    },
+    {
+      "id": "p011-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "Há uma superstição persistente segundo a qual, em algum lugar do outro mundo, existe “a metade que falta” de cada pessoa.\n\nOs registros corrigem essa ideia com precisão: a Fratura não criou duas metades famintas por recomposição. De uma origem cosmológica comum surgiram duas pessoas autônomas, cada qual integral em seu próprio mundo. A essas contrapartes chama-se mirveth.\n\nNenhuma mirveth é original. Nenhuma é cópia, recipiente, fragmento ou versão verdadeira da outra. Elas não compartilham automaticamente pensamentos, memórias, sentimentos ou direitos sobre o corpo e a vida uma da outra.\n\nPode haver ressonância. Pode haver reconhecimento. Pode haver estranhamento, conflito, curiosidade ou nenhuma relação desejada. A origem comum cria uma possibilidade de relação; não cria obrigação.\n\nA primeira regra para compreender mirveth é, portanto, simples: a cosmologia explica de onde duas pessoas vieram. Não decide o que elas devem fazer uma com a outra.",
+      "align": "justify"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 11
+  }
+}

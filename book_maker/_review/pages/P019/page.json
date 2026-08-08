@@ -1,0 +1,42 @@
+{
+  "id": "p-019",
+  "template": "chapter_opening",
+  "variant": "image-top",
+  "title": "SILMAIN — Quando a palavra pôde atravessar séculos",
+  "eyebrow": "PARTE I",
+  "part": "Parte I",
+  "chapter": "SILMAIN — Quando a palavra pôde atravessar séculos",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p019-b-img",
+      "type": "image",
+      "src": "/assets/handoff/approved/p019_silmain_pb.png",
+      "alt": "SILMAIN — Quando a palavra pôde atravessar séculos — vinheta P19",
+      "position": "top",
+      "fit": "contain",
+      "fullBleed": false,
+      "width": "100%",
+      "height": "62mm"
+    },
+    {
+      "id": "p019-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "Ninguém possui autoria exclusiva comprovada de Silmain. Fragmentos aparecem em camadas antigas, enquanto escolas posteriores a reorganizaram, codificaram e transmitiram.\n\nSilmain é escrita. Não é energia, matéria ou autoridade automática.\n\nSua forma contínua permitiu registrar com precisão crescente fórmulas, juramentos, nomes, sequências de ressonância e testemunhos. Aquilo que antes dependia inteiramente de voz, ritmo, memória e presença ganhou permanência material. O conhecimento pôde atravessar gerações com menos deformação.\n\nMas registrar não é o mesmo que compreender.\n\nUma inscrição pode preservar uma estrutura e perder o contexto que lhe dava sentido. Pode ser copiada por alguém que não conhece a relação que ela descreve. Pode sobreviver ao mestre que sabia quando não usá-la.\n\nEssa diferença entre preservação e interpretação se tornaria decisiva. Silmain permitiu comparar tradições dos dois mundos — e também forneceu a instituições futuras uma ferramenta poderosa para selecionar, recortar e reinterpretar aquilo que os arquivos diziam.",
+      "align": "justify"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 19
+  }
+}

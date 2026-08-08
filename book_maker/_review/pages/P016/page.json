@@ -1,0 +1,38 @@
+{
+  "id": "p-016",
+  "template": "narrative",
+  "title": "História do Mundo Partido",
+  "eyebrow": "HISTÓRIA",
+  "part": "Parte I",
+  "chapter": "História do Mundo Partido",
+  "settings": {
+    "header": false,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p016-b-h2",
+      "type": "heading",
+      "level": 2,
+      "text": "HISTÓRIA DO MUNDO PARTIDO",
+      "eyebrow": "ABERTURA"
+    },
+    {
+      "id": "p016-b-t",
+      "type": "text",
+      "role": "lead",
+      "content": "Toda história é uma cicatriz.\n\nA história de KALLISTIS não começa com um nascimento. Começa com uma ausência.\n\nCada povo percebe essa ausência de modo diferente: memória que antecede a memória, juramentos que parecem responder a uma comunidade perdida, linhas interrompidas na pedra, ângulos impossíveis dentro do próprio corpo. Nenhum deles se recorda do todo. Mesmo assim, todos vivem como se alguma coisa tivesse acontecido antes do primeiro dia.\n\nA esse acontecimento chamamos Fratura.\n\nContar o que veio depois exige distinguir aquilo que o mundo sabe daquilo que apenas acredita saber. Este livro separa fundamento cosmológico, consenso histórico, tradição disputada e hipótese. A incerteza não é defeito do cenário: memória, tradução e autoridade são parte do conflito.\n\nA história começa onde a certeza deixa de ser confortável.",
+      "align": "start",
+      "width": "88mm"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 16
+  }
+}

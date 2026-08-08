@@ -1,0 +1,42 @@
+{
+  "id": "p-010",
+  "template": "chapter_opening",
+  "variant": "image-top",
+  "title": "O GRANDE CRISTAL — Antes que houvesse dois mundos",
+  "eyebrow": "PARTE I",
+  "part": "Parte I",
+  "chapter": "O GRANDE CRISTAL — Antes que houvesse dois mundos",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p010-b-img",
+      "type": "image",
+      "src": "/assets/handoff/approved/p010_cristal_uno_pb.png",
+      "alt": "O GRANDE CRISTAL — Antes que houvesse dois mundos — vinheta P10",
+      "position": "top",
+      "fit": "contain",
+      "fullBleed": false,
+      "width": "100%",
+      "height": "62mm"
+    },
+    {
+      "id": "p010-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "Nenhum vivo pode dizer: “eu estive lá”. Não existe testemunho direto da realidade anterior à Fratura. O que sobrevive são ressonâncias, inscrições, memórias incompletas e propriedades da própria matéria.\n\nAinda assim, quase todas as tradições reconhecem um fundamento: antes de Luz e Escuridão se tornarem mundos distintos, existia uma realidade unificada. Chamamos esse estado de Grande Cristal.\n\nO nome é imperfeito. “Cristal” sugere superfície, dureza e limite; o Grande Cristal era descrito como matéria e possibilidade, manifestação e repouso, memória e transformação. Manesh e thuvel coexistiam sem conflito.\n\nEntão veio a Fratura. Ela não produziu um original e uma cópia, nem dois cacos incapazes de existir sozinhos. Produziu dois mundos materiais completos.\n\nA causa permanece disputada. Há tradições de saturação, escolha, agressão e mito. Também permanece aberta a relação histórica entre a Fratura e a Sombra: algumas tradições situam kav depois da separação; outras suspeitam de uma pressão assimiladora anterior. O cânone não resolve essa disputa.\n\nO que ele fecha é outra coisa: nenhuma teoria sobre o passado concede a alguém o direito de apagar as vidas que vieram depois.",
+      "align": "justify"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 10
+  }
+}

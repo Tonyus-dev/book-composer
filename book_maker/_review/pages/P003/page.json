@@ -1,0 +1,98 @@
+{
+  "id": "p-003",
+  "template": "toc",
+  "title": "SUMÁRIO",
+  "part": "Front Matter",
+  "settings": {
+    "header": false,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p003-b-toc",
+      "type": "toc",
+      "columns": 1,
+      "entries": [
+        {
+          "label": "PRÓLOGO — A velha e a Fresta",
+          "page": 4,
+          "level": "chapter"
+        },
+        {
+          "label": "PARTE I — O CRISTAL PARTIDO",
+          "page": 5,
+          "level": "part"
+        },
+        {
+          "label": "Manesh — O Mundo da Luz",
+          "page": 6,
+          "level": "chapter"
+        },
+        {
+          "label": "Thuvel — O Mundo da Escuridão",
+          "page": 7,
+          "level": "chapter"
+        },
+        {
+          "label": "Luz, Escuridão e Sombra",
+          "page": 8,
+          "level": "chapter"
+        },
+        {
+          "label": "Mirveth",
+          "page": 11,
+          "level": "chapter"
+        },
+        {
+          "label": "Pedr’alma",
+          "page": 13,
+          "level": "chapter"
+        },
+        {
+          "label": "História do Mundo Partido",
+          "page": 16,
+          "level": "chapter"
+        },
+        {
+          "label": "O Cinturão das Frestas",
+          "page": 31,
+          "level": "chapter"
+        },
+        {
+          "label": "PARTE II — PESSOAS, POVOS E CAMINHOS",
+          "page": 0,
+          "level": "part"
+        },
+        {
+          "label": "PARTE III — REGRAS DE JOGO",
+          "page": 0,
+          "level": "part"
+        },
+        {
+          "label": "PARTE IV — EQUIPAMENTO, ARTEFATO E TRANSFORMAÇÃO",
+          "page": 0,
+          "level": "part"
+        },
+        {
+          "label": "PARTE V — CONDUZIR KALLISTIS",
+          "page": 0,
+          "level": "part"
+        },
+        {
+          "label": "APÊNDICES",
+          "page": 0,
+          "level": "appendix"
+        }
+      ]
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 3
+  }
+}

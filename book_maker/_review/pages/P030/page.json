@@ -1,0 +1,75 @@
+{
+  "id": "p-030",
+  "template": "narrative",
+  "title": "O QUE SABEMOS — E O QUE AINDA PODE MUDAR",
+  "eyebrow": "FECHAMENTO",
+  "part": "Parte I",
+  "chapter": "O que sabemos — e o que ainda pode mudar",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p030-b-h-1",
+      "type": "heading",
+      "level": 3,
+      "text": "FUNDAMENTOS"
+    },
+    {
+      "id": "p030-b-t-1",
+      "type": "text",
+      "role": "body",
+      "content": "Existiu um estado primordial chamado Grande Cristal. A Fratura produziu dois mundos materiais completos. Luz e Escuridão são legítimas. Sombra é assimilação, falsificação e apagamento da diferença. Mirveth são pessoas integrais.",
+      "align": "start"
+    },
+    {
+      "id": "p030-b-h-2",
+      "type": "heading",
+      "level": 3,
+      "text": "HISTÓRIA CONSENSUAL"
+    },
+    {
+      "id": "p030-b-t-2",
+      "type": "text",
+      "role": "body",
+      "content": "Os mundos desenvolveram culturas próprias. Silmain preservou estruturas antigas com maior precisão. Frestas foram estabilizadas. A Facção Científica transformou pesquisa em autoridade, criou o Programa de Substituição e treinou Lightbringers. Daeren desertou. Isenna vazou provas. O segredo começou a falhar.",
+      "align": "start"
+    },
+    {
+      "id": "p030-b-h-3",
+      "type": "heading",
+      "level": 3,
+      "text": "TRADIÇÕES E HIPÓTESES"
+    },
+    {
+      "id": "p030-b-t-3",
+      "type": "text",
+      "role": "body",
+      "content": "A causa da Fratura, a natureza exata da Era da União e a relação histórica inicial de kav com a Fratura permanecem disputadas. A redação literal das profecias não é autoridade normativa.",
+      "align": "start"
+    },
+    {
+      "id": "p030-b-h-4",
+      "type": "heading",
+      "level": 3,
+      "text": "FUTURO ABERTO"
+    },
+    {
+      "id": "p030-b-t-4",
+      "type": "text",
+      "role": "body",
+      "content": "A guerra ainda não começou. O destino da Fenda, dos portais, da Facção e da relação entre os mundos pertence às escolhas da campanha.\n\nÉ possível reparar a Fratura sem apagar as vidas que nasceram dela?\n\nO futuro não está escrito.",
+      "align": "start"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 30
+  }
+}

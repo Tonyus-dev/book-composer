@@ -1,0 +1,27 @@
+{
+  "id": "p-015",
+  "template": "narrative",
+  "title": "TRANSIÇÃO",
+  "eyebrow": "TRANSIÇÃO",
+  "part": "Parte I",
+  "settings": {
+    "header": false,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p015-b-div-1",
+      "type": "divider",
+      "ornament": false
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 15
+  }
+}

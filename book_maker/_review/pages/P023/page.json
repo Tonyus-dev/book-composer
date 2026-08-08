@@ -1,0 +1,37 @@
+{
+  "id": "p-023",
+  "template": "narrative",
+  "title": "O PROGRAMA DE SUBSTITUIÇÃO",
+  "eyebrow": "HISTÓRIA",
+  "part": "Parte I",
+  "chapter": "O Programa de Substituição",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p023-b-h2",
+      "type": "heading",
+      "level": 2,
+      "text": "O PROGRAMA DE SUBSTITUIÇÃO",
+      "eyebrow": "ART_PENDING_REVIEW"
+    },
+    {
+      "id": "p023-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "Ao estudar ressonâncias entre nascimentos dos dois mundos, a Facção encontrou correlações capazes de localizar certas contrapartes recém-nascidas. Nem toda correspondência era exata; nem toda mirveth nascia no mesmo instante segundo calendários locais. Mas, em condições específicas, a proximidade cosmológica permitia agir.\n\nA Facção transformou essa descoberta em programa.\n\nIdentificava nascimentos ressonantes. Abria passagens durante o parto. Retirava uma criança de um mundo e a colocava no lugar da criança correspondente do outro. Falsificava registros. Observava as famílias. Media adaptação física, anímica e mágica. Mais tarde, recrutava sobreviventes considerados úteis.\n\nAs trocas não buscavam unir mirveth. Buscavam produzir pessoas capazes de atravessar, operar e, por fim, conquistar ambos os mundos.\n\nA linguagem administrativa escondia o centro moral do procedimento: crianças eram tratadas como instrumentos de pesquisa e famílias eram convertidas em variáveis de um experimento que nunca haviam autorizado.\n\nDessas operações nasceriam duas categorias que a própria Facção tentaria controlar: Os Outros e os Lightbringers.",
+      "align": "justify"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 23
+  }
+}

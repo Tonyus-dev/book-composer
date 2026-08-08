@@ -1,0 +1,40 @@
+{
+  "id": "p-005",
+  "template": "part_opening",
+  "title": "O Cristal Partido",
+  "eyebrow": "PARTE I",
+  "part": "Parte I",
+  "chapter": "O Cristal Partido",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p005-b-img",
+      "type": "image",
+      "src": "/assets/handoff/approved/p005_cristal_partido_pb.png",
+      "alt": "O Cristal Partido — abertura da Parte I",
+      "position": "full",
+      "fit": "cover",
+      "fullBleed": true
+    },
+    {
+      "id": "p005-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "PARTE I\n\nO CRISTAL PARTIDO\n\nDois mundos completos. Uma origem comum. Uma história que só existe porque a unidade deixou de ser resposta.",
+      "align": "start",
+      "width": "92mm"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 5
+  }
+}

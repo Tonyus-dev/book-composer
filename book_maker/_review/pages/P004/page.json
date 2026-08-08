@@ -1,0 +1,42 @@
+{
+  "id": "p-004",
+  "template": "chapter_opening",
+  "variant": "image-top",
+  "title": "PRÓLOGO — A velha e a Fresta",
+  "eyebrow": "PRÓLOGO",
+  "part": "Parte I",
+  "chapter": "A velha e a Fresta",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p004-b-img",
+      "type": "image",
+      "src": "/assets/handoff/approved/p004_velha_e_fresta_pb.png",
+      "alt": "A velha e a Fresta — vinheta P004",
+      "position": "top",
+      "fit": "contain",
+      "fullBleed": false,
+      "width": "100%",
+      "height": "60mm"
+    },
+    {
+      "id": "p004-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "A velha começou a falar antes de o rapaz se sentar.\n\n— Puxa a pedra pra perto do fogo, senão você não ouve nada além do vento do Baixio.\n\nEle puxou. Era noite em Silmari, uma daquelas noites em que o Planalto esfria depressa demais e os observatórios acendem suas lanternas de cristal uma a uma, como se o céu estivesse sendo remendado luz por luz. A velha — arquivista aposentada, ou pelo menos era o que dizia de si mesma, e ninguém tinha coragem de perguntar mais — girava entre os dedos um fragmento de quartzo que não brilhava por conta própria. Brilhava por conta do fogo.\n\n— Você quer atravessar a Fenda amanhã — disse ela, sem erguer os olhos da pedra. — Todo Trocado quer, no começo. Acha que do outro lado vai encontrar a metade que falta. Vou te contar uma coisa antes que você cometa esse erro: ninguém, em parte alguma dos dois mundos, é metade de nada.\n\nO rapaz quis perguntar como ela sabia que ele era Trocado. Ela não deu tempo.\n\n— Vou te contar a história inteira, do jeito que minha mestra me contou, e a mestra dela antes disso. Não é a versão da Facção. Não é a versão dos Clãs. É só a que sobrou depois que tirei o que era orgulho e o que era medo. Escuta.",
+      "align": "justify"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 4
+  }
+}

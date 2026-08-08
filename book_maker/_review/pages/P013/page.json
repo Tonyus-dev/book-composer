@@ -1,0 +1,42 @@
+{
+  "id": "p-013",
+  "template": "chapter_opening",
+  "variant": "image-top",
+  "title": "PEDR’ALMA",
+  "eyebrow": "PARTE I",
+  "part": "Parte I",
+  "chapter": "PEDR’ALMA",
+  "settings": {
+    "header": true,
+    "footer": false,
+    "pageNumber": true,
+    "columns": 1,
+    "background": "paper",
+    "fullBleed": false
+  },
+  "blocks": [
+    {
+      "id": "p013-b-img",
+      "type": "image",
+      "src": "/assets/handoff/approved/p013_pedralma_monolito_pb.png",
+      "alt": "PEDR’ALMA — vinheta P13",
+      "position": "top",
+      "fit": "contain",
+      "fullBleed": false,
+      "width": "100%",
+      "height": "62mm"
+    },
+    {
+      "id": "p013-b-t",
+      "type": "text",
+      "role": "body",
+      "content": "Pergunte a um exilado onde fica seu lar, e talvez ele não aponte para uma casa. Talvez aponte para uma pedra.\n\nA Pedr’alma é uma pedra marcada por símbolos de quem pertence a um núcleo: família, companhia, ordem, comunidade ou cidade. Pode carregar uma espada gravada, uma pena, uma pegada, uma estrela, uma ferramenta — sinais simples que dizem quem esteve ali e quem escolheu permanecer em relação com os demais.\n\nNas cidades, torna-se monolito e centro de memória pública. Juramentos são feitos diante dela; nomes podem ser lembrados; gerações reconhecem naquele objeto um ponto de continuidade.\n\nEm um lar, a Pedr’alma pode caber nas mãos. O tamanho muda; a função não.\n\nEla materializa identidade, memória e pertencimento, mas não governa aquilo que representa. Seu princípio é pertencimento sem posse.\n\nLar é onde repousa a Pedr’alma.",
+      "align": "justify"
+    }
+  ],
+  "_review": {
+    "generatedAt": "2026-08-08T22:17:08.818Z",
+    "sourceCommit": "79bf701520247f46a1c26fbea1a1833b973781d1",
+    "folio": 13
+  }
+}
