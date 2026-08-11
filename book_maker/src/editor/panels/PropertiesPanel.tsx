@@ -1,6 +1,15 @@
 import { useState } from "react";
-import type { Block, BookTokens, ImageBlock, PageVariant, TemplateId } from "../../book/types";
+import type {
+  Block,
+  BookTokens,
+  ImageBlock,
+  PageVariant,
+  TableBlock,
+  TableBorderMode,
+  TemplateId,
+} from "../../book/types";
 import { TEMPLATES, TEMPLATE_IDS } from "../../book/templates";
+import { normalizeTableBlock } from "../../book/tableModel";
 import { PREFLIGHT_RULES, SEVERITY_LABEL } from "../../lib/preflight/types";
 import { useEditor } from "../state/store";
 import { AreaField, PanelSection, RangeField, SelectField, TextField, ToggleField } from "./fields";
@@ -208,40 +217,96 @@ function BlockProperties({ block }: { block: Block }) {
         </PanelSection>
       ) : null}
 
-      {block.type === "table" ? (
-        <PanelSection title="Tabela">
-          <TextField
-            label="Legenda"
-            value={block.caption ?? ""}
-            onChange={(value) => patch({ caption: value || undefined })}
-          />
-          <ToggleField
-            label="Compacta"
-            checked={Boolean(block.compact)}
-            onChange={(checked) => patch({ compact: checked })}
-          />
-          <AreaField
-            label="Colunas (uma por linha)"
-            value={block.columns.join("\n")}
-            rows={4}
-            onChange={(value) => patch({ columns: value.split("\n") })}
-          />
-          <AreaField
-            label="Linhas (células separadas por |)"
-            value={block.rows.map((row) => row.join(" | ")).join("\n")}
-            rows={8}
-            onChange={(value) =>
-              patch({
-                rows: value
-                  .split("\n")
-                  .filter((line) => line.trim().length > 0)
-                  .map((line) => line.split("|").map((cell) => cell.trim())),
-              })
-            }
-          />
-        </PanelSection>
-      ) : null}
+      {block.type === "table" ? <TableProperties block={block} /> : null}
     </>
+  );
+}
+
+function TableProperties({ block }: { block: TableBlock }) {
+  const { selectedPage, updateTable } = useEditor();
+  const table = normalizeTableBlock(block);
+  const patch = (transform: (current: typeof table) => typeof table) =>
+    updateTable(selectedPage.id, table.id, transform);
+  return (
+    <PanelSection title="Tabela estrutural">
+      <TextField
+        label="Legenda"
+        value={table.caption ?? ""}
+        onChange={(value) =>
+          patch((current) => {
+            const next = { ...current };
+            if (value) next.caption = value;
+            else delete next.caption;
+            return next;
+          })
+        }
+      />
+      <div className="mb-2 text-[10px] text-muted-foreground">
+        {table.columns.length} colunas · {table.rows.length} linhas · edição visual ativa no canvas
+      </div>
+      <ToggleField
+        label="Compacta"
+        checked={Boolean(table.compact)}
+        onChange={(checked) => patch((current) => ({ ...current, compact: checked }))}
+      />
+      <ToggleField
+        label="Repetir cabeçalho"
+        checked={table.repeatHeader !== false}
+        onChange={(checked) => patch((current) => ({ ...current, repeatHeader: checked }))}
+      />
+      <ToggleField
+        label="Permitir quebra"
+        checked={Boolean(table.allowPageBreak)}
+        onChange={(checked) => patch((current) => ({ ...current, allowPageBreak: checked }))}
+      />
+      <SelectField
+        label="Bordas"
+        value={table.style?.borderMode ?? "horizontal"}
+        options={[
+          { value: "none", label: "Nenhuma" },
+          { value: "horizontal", label: "Horizontais" },
+          { value: "grid", label: "Grade" },
+          { value: "custom", label: "Personalizadas" },
+        ]}
+        onChange={(value) =>
+          patch((current) => ({
+            ...current,
+            style: { ...current.style, borderMode: value as TableBorderMode },
+          }))
+        }
+      />
+      <TextField
+        label="Padding horizontal"
+        value={table.style?.cellPaddingX ?? "2mm"}
+        onChange={(value) =>
+          patch((current) => ({ ...current, style: { ...current.style, cellPaddingX: value } }))
+        }
+      />
+      <TextField
+        label="Padding vertical"
+        value={table.style?.cellPaddingY ?? "1.4mm"}
+        onChange={(value) =>
+          patch((current) => ({ ...current, style: { ...current.style, cellPaddingY: value } }))
+        }
+      />
+      <ToggleField
+        label="Zebra"
+        checked={Boolean(table.style?.zebra)}
+        onChange={(checked) =>
+          patch((current) => ({ ...current, style: { ...current.style, zebra: checked } }))
+        }
+      />
+      <ToggleField
+        label="Primeira coluna forte"
+        checked={Boolean(table.style?.firstColumnStrong)}
+        onChange={(checked) =>
+          patch((current) => ({
+            ...current,
+            style: { ...current.style, firstColumnStrong: checked },
+          }))
+        }
+      />
+    </PanelSection>
   );
 }
 

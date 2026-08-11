@@ -17,6 +17,7 @@
     "worker:dry-run": "vite build && wrangler deploy --config .output/server/wrangler.json --dry-run",
     "export:pdf": "node scripts/export-pdf.mjs",
     "lint": "eslint .",
+    "test:table": "bun scripts/test-table-model.ts",
     "format": "prettier --write ."
   },
   "dependencies": {

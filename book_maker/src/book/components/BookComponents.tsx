@@ -2,7 +2,7 @@
  * Componentes editoriais do LIVRO.
  * Não importam nada da UI do editor (Tailwind/shadcn) — apenas CSS editorial.
  */
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import type {
   BoxBlock,
   CaptionBlock,
@@ -17,6 +17,7 @@ import type {
 } from "../types";
 import { Markdown } from "../renderer/markdown";
 import { resolveAssetSrc } from "../../lib/assets/registry";
+import { normalizeTableBlock, tableHeaderRows } from "../tableModel";
 
 const BOX_TITLES: Record<BoxBlock["kind"], string> = {
   regra: "Regra",
@@ -90,28 +91,105 @@ export function PullQuote({ block }: { block: QuoteBlock }) {
 }
 
 export function BookTable({ block }: { block: TableBlock }) {
+  const table = normalizeTableBlock(block);
+  const style = table.style ?? {};
+  const headerRows = table.continuationHeader ?? tableHeaderRows(table);
+  const bodyRows = table.rows.filter((row) => row.kind !== "header" && row.kind !== "footer");
+  const footerRows = table.rows.filter((row) => row.kind === "footer");
+  const tableStyle = {
+    fontFamily: style.fontFamily,
+    fontSize: style.fontSize,
+    lineHeight: style.lineHeight,
+    color: style.textColor,
+    ["--table-padding-x" as string]: style.cellPaddingX,
+    ["--table-padding-y" as string]: style.cellPaddingY,
+    ["--table-border-width" as string]: style.borderWidth,
+    ["--table-border-color" as string]: style.borderColor,
+    ["--table-header-bg" as string]: style.headerBackground,
+    ["--table-header-color" as string]: style.headerColor,
+    ["--table-body-bg" as string]: style.bodyBackground,
+    ["--table-zebra-bg" as string]: style.zebraBackground,
+  } as CSSProperties;
+  const row = (
+    current: (typeof table.rows)[number],
+    section: "head" | "body" | "foot",
+    index: number,
+  ) => (
+    <tr
+      key={current.id}
+      data-table-row-id={current.id}
+      className={current.kind ? `k-table__row--${current.kind}` : undefined}
+      style={{
+        minHeight: current.minHeight ? `${current.minHeight}mm` : undefined,
+        background: current.style?.background,
+      }}
+    >
+      {current.cells.map((cell, cellIndex) => {
+        const isHeader = section === "head";
+        const Cell = isHeader ? "th" : "td";
+        const cellStyle = {
+          textAlign: cell.align ?? table.columns[cellIndex]?.align ?? "left",
+          verticalAlign: cell.verticalAlign ?? "top",
+          fontWeight:
+            cell.emphasis === "strong"
+              ? 700
+              : isHeader
+                ? (style.headerWeight ?? 700)
+                : style.firstColumnStrong && cellIndex === 0
+                  ? 600
+                  : cell.style?.fontWeight,
+          background: cell.style?.background,
+          color: cell.style?.color,
+          fontSize: cell.style?.fontSize,
+          fontStyle: cell.style?.fontStyle,
+        } as CSSProperties;
+        return (
+          <Cell
+            key={cell.id}
+            data-table-cell-id={cell.id}
+            scope={isHeader ? (cellIndex === 0 ? "col" : "col") : undefined}
+            colSpan={cell.colSpan}
+            rowSpan={cell.rowSpan}
+            style={cellStyle}
+          >
+            {cell.content}
+          </Cell>
+        );
+      })}
+    </tr>
+  );
   return (
-    <div className="k-table-wrap">
-      <table className={`k-table${block.compact ? " k-table--compact" : ""}`}>
-        {block.caption ? <caption>{block.caption}</caption> : null}
-        <thead>
-          <tr>
-            {block.columns.map((col, i) => (
-              <th key={i} scope="col">
-                {col}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {block.rows.map((row, r) => (
-            <tr key={r}>
-              {row.map((cell, c) => (
-                <td key={c}>{cell}</td>
-              ))}
-            </tr>
+    <div
+      className="k-table-wrap"
+      data-table-id={table.id}
+      data-allow-page-break={table.allowPageBreak ? "true" : "false"}
+      data-continuation-of={table.continuationOf}
+    >
+      <table
+        className={`k-table${table.compact ? " k-table--compact" : ""}`}
+        style={tableStyle}
+        data-table-border={style.borderMode ?? "horizontal"}
+        data-table-zebra={style.zebra ? "true" : "false"}
+      >
+        {table.caption ? <caption>{table.caption}</caption> : null}
+        <colgroup>
+          {table.columns.map((column) => (
+            <col
+              key={column.id}
+              data-table-column-id={column.id}
+              style={{ width: `${(column.width ?? 1 / table.columns.length) * 100}%` }}
+            />
           ))}
-        </tbody>
+        </colgroup>
+        {headerRows.length > 0 ? (
+          <thead>{headerRows.map((current, index) => row(current, "head", index))}</thead>
+        ) : null}
+        {bodyRows.length > 0 ? (
+          <tbody>{bodyRows.map((current, index) => row(current, "body", index))}</tbody>
+        ) : null}
+        {footerRows.length > 0 ? (
+          <tfoot>{footerRows.map((current, index) => row(current, "foot", index))}</tfoot>
+        ) : null}
       </table>
     </div>
   );

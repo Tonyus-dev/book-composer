@@ -1,5 +1,6 @@
-import type { Book } from "../../book/types";
+import type { Block, Book, Page } from "../../book/types";
 import { DEFAULT_TOKENS } from "../../book/types";
+import { normalizeTableBlock } from "../../book/tableModel";
 
 const STORAGE_KEY = "kallistis.book-builder.project.v1";
 
@@ -31,12 +32,20 @@ export function normalizeBook(input: unknown): Book {
   if (!book || typeof book !== "object" || !Array.isArray(book.pages)) {
     throw new Error("JSON de projeto inválido: campo 'pages' ausente.");
   }
+  const pages: Page[] = book.pages.map((page) => ({
+    ...page,
+    blocks: page.blocks.map((block) =>
+      block.type === "table" ? normalizeTableBlock(block) : (block as Block),
+    ),
+  }));
   return {
     schemaVersion: 1,
     meta: book.meta,
     tokens: { ...DEFAULT_TOKENS, ...(book.tokens ?? {}) },
     nodes: book.nodes ?? [],
-    pages: book.pages,
+    pages,
     assets: Array.isArray(book.assets) ? book.assets : [],
+    spreads: Array.isArray(book.spreads) ? book.spreads : [],
+    tableStyles: Array.isArray(book.tableStyles) ? book.tableStyles : [],
   };
 }

@@ -14,12 +14,14 @@ import type {
   BookTokens,
   Page,
   PageSettings,
+  TableStyle,
   TemplateId,
 } from "../../book/types";
 import { TEMPLATES } from "../../book/templates";
 import { demoBook } from "../../data/demo-book";
 import { canonicalBook } from "../../data/canonical-book";
 import { loadLocalBook, saveLocalBook } from "../../lib/persistence/local";
+import { normalizeBook } from "../../lib/persistence/local";
 import {
   emptyPageGuide,
   ensurePageEntry,
@@ -34,6 +36,8 @@ import { assetRef, registerBookAssets } from "../../lib/assets/registry";
 import { buildReport, fingerprint } from "../../lib/preflight/report";
 import type { PreflightIssue, PreflightReport } from "../../lib/preflight/types";
 import { folioFor } from "../../book/renderer/PageRenderer";
+import { normalizeTableBlock, splitTable as splitTableBlock } from "../../book/tableModel";
+import type { TableBlockV2 } from "../../book/types";
 import { bookRhythm, type PageRhythm } from "../../lib/rhythm/metrics";
 import {
   DEFAULT_RHYTHM_CONFIG,
@@ -99,6 +103,14 @@ interface EditorContextValue {
   updatePageSettings: (pageId: string, patch: Partial<PageSettings>) => void;
   setTemplate: (pageId: string, template: TemplateId) => void;
   updateBlock: (pageId: string, blockId: string, patch: Record<string, unknown>) => void;
+  updateTable: (
+    pageId: string,
+    blockId: string,
+    transform: (table: TableBlockV2) => TableBlockV2,
+  ) => void;
+  splitTable: (pageId: string, blockId: string, afterRowIndex: number) => void;
+  duplicateTable: (pageId: string, blockId: string) => void;
+  saveTablePreset: (name: string, style: TableStyle) => void;
   addBlock: (pageId: string, block: Block) => void;
   removeBlock: (pageId: string, blockId: string) => void;
   moveBlock: (pageId: string, blockId: string, direction: -1 | 1) => void;
@@ -131,6 +143,7 @@ const EditorContext = createContext<EditorContextValue | null>(null);
 
 let idCounter = 0;
 const nextId = (prefix: string) => `${prefix}-${Date.now().toString(36)}-${(idCounter += 1)}`;
+const INITIAL_BOOK = normalizeBook(canonicalBook);
 
 function withPage(book: Book, pageId: string, transform: (page: Page) => Page): Book {
   return {
@@ -147,9 +160,9 @@ function replacePageIdInNodes(book: Book, oldId: string, newIds: string[]): Book
 }
 
 export function EditorProvider({ children }: { children: ReactNode }) {
-  const [book, setBook] = useState<Book>(canonicalBook);
+  const [book, setBook] = useState<Book>(INITIAL_BOOK);
   const [hydrated, setHydrated] = useState(false);
-  const [selectedPageId, setSelectedPageId] = useState<string>(canonicalBook.pages[0]!.id);
+  const [selectedPageId, setSelectedPageId] = useState<string>(INITIAL_BOOK.pages[0]!.id);
   const [selectedBlockId, setSelectedBlockId] = useState<string | null>(null);
   const [view, setView] = useState<ViewMode>("page");
   const [zoom, setZoom] = useState<ZoomValue>("fit");
@@ -169,7 +182,7 @@ export function EditorProvider({ children }: { children: ReactNode }) {
   });
   const [productionPlan, setProductionPlanState] = useState<ProductionPlan>(() => ({
     version: 1,
-    bookId: productionPlanForBookId(canonicalBook),
+    bookId: productionPlanForBookId(INITIAL_BOOK),
     pages: {},
   }));
 
@@ -179,7 +192,7 @@ export function EditorProvider({ children }: { children: ReactNode }) {
      assíncrono, sem bloquear a hidratação do livro). */
   useEffect(() => {
     const local = loadLocalBook();
-    const nextBook = local && local.pages.length > 0 ? local : canonicalBook;
+    const nextBook = local && local.pages.length > 0 ? local : INITIAL_BOOK;
     if (local && local.pages.length > 0) {
       setBook(local);
       setSelectedPageId(local.pages[0]!.id);
@@ -351,6 +364,95 @@ export function EditorProvider({ children }: { children: ReactNode }) {
             ),
           })),
         ),
+      updateTable: (pageId, blockId, transform) =>
+        setBook((prev) =>
+          withPage(prev, pageId, (page) => ({
+            ...page,
+            blocks: page.blocks.map((block) =>
+              block.id === blockId && block.type === "table"
+                ? transform(normalizeTableBlock(block))
+                : block,
+            ),
+          })),
+        ),
+      splitTable: (pageId, blockId, afterRowIndex) => {
+        const continuationPageId = nextId("page");
+        setBook((prev) => {
+          const pageIndex = prev.pages.findIndex((page) => page.id === pageId);
+          const source = prev.pages[pageIndex];
+          const sourceBlock = source?.blocks.find((block) => block.id === blockId);
+          if (!source || !sourceBlock || sourceBlock.type !== "table") return prev;
+          const { first, continuation } = splitTableBlock(
+            normalizeTableBlock(sourceBlock),
+            afterRowIndex,
+          );
+          const continuationPage: Page = {
+            ...source,
+            id: continuationPageId,
+            title: source.title ? `${source.title} — continuação` : "Continuação de tabela",
+            blocks: [continuation],
+          };
+          const pages = prev.pages.map((page) =>
+            page.id === pageId
+              ? {
+                  ...page,
+                  blocks: page.blocks.map((block) => (block.id === blockId ? first : block)),
+                }
+              : page,
+          );
+          pages.splice(pageIndex + 1, 0, continuationPage);
+          const nodes = prev.nodes.map((node) =>
+            node.pageIds.includes(pageId)
+              ? {
+                  ...node,
+                  pageIds: node.pageIds.flatMap((id) =>
+                    id === pageId ? [id, continuationPageId] : [id],
+                  ),
+                }
+              : node,
+          );
+          return { ...prev, pages, nodes };
+        });
+        setSelectedPageId(continuationPageId);
+        setSelectedBlockId(null);
+      },
+      duplicateTable: (pageId, blockId) =>
+        setBook((prev) =>
+          withPage(prev, pageId, (page) => {
+            const index = page.blocks.findIndex((block) => block.id === blockId);
+            const source = page.blocks[index];
+            if (!source || source.type !== "table") return page;
+            const cloneId = nextId("table");
+            const sourceTable = normalizeTableBlock(source);
+            const clone = {
+              ...sourceTable,
+              id: cloneId,
+              columns: sourceTable.columns.map((column, columnIndex) => ({
+                ...column,
+                id: `${cloneId}-col-${columnIndex + 1}`,
+              })),
+              rows: sourceTable.rows.map((row, rowIndex) => ({
+                ...row,
+                id: `${cloneId}-row-${rowIndex + 1}`,
+                cells: row.cells.map((cell, cellIndex) => ({
+                  ...cell,
+                  id: `${cloneId}-cell-${rowIndex + 1}-${cellIndex + 1}`,
+                })),
+              })),
+            };
+            const blocks = [...page.blocks];
+            blocks.splice(index + 1, 0, clone);
+            return { ...page, blocks };
+          }),
+        ),
+      saveTablePreset: (name, style) =>
+        setBook((prev) => ({
+          ...prev,
+          tableStyles: [
+            ...(prev.tableStyles ?? []).filter((preset) => preset.name !== name),
+            { id: `custom-${Date.now().toString(36)}`, name, style },
+          ],
+        })),
       addBlock: (pageId, block) =>
         setBook((prev) =>
           withPage(prev, pageId, (page) => ({ ...page, blocks: [...page.blocks, block] })),
@@ -503,13 +605,15 @@ export function EditorProvider({ children }: { children: ReactNode }) {
         });
       },
       replaceBook: (next) => {
-        setBook(next);
-        setSelectedPageId(next.pages[0]!.id);
+        const normalized = normalizeBook(next);
+        setBook(normalized);
+        setSelectedPageId(normalized.pages[0]!.id);
         setSelectedBlockId(null);
       },
       resetToDemo: () => {
-        setBook(demoBook);
-        setSelectedPageId(demoBook.pages[0]!.id);
+        const normalized = normalizeBook(demoBook);
+        setBook(normalized);
+        setSelectedPageId(normalized.pages[0]!.id);
         setSelectedBlockId(null);
       },
     };

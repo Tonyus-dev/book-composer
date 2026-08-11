@@ -6,12 +6,22 @@
   page-break-inside: avoid;
 }
 
+.k-table-wrap[data-allow-page-break="true"] {
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
 .k-table {
   width: 100%;
   border-collapse: collapse;
   font-family: var(--font-functional);
   font-size: var(--table-size);
   line-height: 1.32;
+  color: var(--table-text-color, var(--k-ink));
+}
+
+.k-table col {
+  min-width: 0;
 }
 
 .k-table caption {
@@ -27,27 +37,50 @@
 }
 
 .k-table thead th {
-  background: var(--k-purple);
-  color: var(--k-paper);
+  background: var(--table-header-bg, var(--k-purple));
+  color: var(--table-header-color, var(--k-paper));
   text-align: left;
   font-weight: 700;
-  padding: 1.6mm 2mm;
+  padding: var(--table-padding-y, 1.6mm) var(--table-padding-x, 2mm);
   letter-spacing: 0.04em;
 }
 
 .k-table tbody td {
-  padding: 1.4mm 2mm;
-  border-bottom: 0.2mm solid var(--k-border);
+  padding: var(--table-padding-y, 1.4mm) var(--table-padding-x, 2mm);
+  border-bottom: var(--table-border-width, 0.2mm) solid var(--table-border-color, var(--k-border));
   vertical-align: top;
+  background: var(--table-body-bg, transparent);
 }
 
-.k-table tbody tr:nth-child(even) td {
-  background: var(--k-field);
+.k-table[data-table-zebra="true"] tbody tr:nth-child(even) td {
+  background: var(--table-zebra-bg, var(--k-field));
 }
 
 .k-table tbody td:first-child {
   font-weight: 600;
   color: var(--k-ink);
+}
+
+.k-table thead th,
+.k-table tbody td,
+.k-table tfoot td,
+.k-table tfoot th {
+  border-color: var(--table-border-color, var(--k-border));
+}
+
+.k-table[data-table-border="none"] th,
+.k-table[data-table-border="none"] td {
+  border: 0;
+}
+
+.k-table[data-table-border="grid"] th,
+.k-table[data-table-border="grid"] td {
+  border: var(--table-border-width, 0.2mm) solid var(--table-border-color, var(--k-border));
+}
+
+.k-table tr {
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 .k-table--compact tbody td,

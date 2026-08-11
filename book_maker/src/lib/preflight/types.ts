@@ -23,6 +23,12 @@ export type PreflightRuleId =
   | "missing-alt-text"
   | "caption-detached"
   | "table-overflow"
+  | "table-cell-overflow"
+  | "table-width-invalid"
+  | "table-empty"
+  | "table-merge-invalid"
+  | "table-too-small-text"
+  | "table-column-too-narrow"
   | "box-split"
   | "heading-orphan"
   | "widow-orphan"
@@ -151,6 +157,42 @@ export const PREFLIGHT_RULES: Record<PreflightRuleId, PreflightRuleMeta> = {
     label: "Tabela excede a medida",
     source: "static",
     inspection: "Use span de largura total, reduza colunas ou o corpo de tabela.",
+  },
+  "table-cell-overflow": {
+    id: "table-cell-overflow",
+    label: "Célula de tabela excede a página",
+    source: "measured",
+    inspection: "Reduza o conteúdo da célula ou quebre a tabela antes dessa linha.",
+  },
+  "table-width-invalid": {
+    id: "table-width-invalid",
+    label: "Larguras de tabela inválidas",
+    source: "static",
+    inspection: "Confira as divisórias de coluna e normalize a soma para 100%.",
+  },
+  "table-empty": {
+    id: "table-empty",
+    label: "Tabela vazia",
+    source: "static",
+    inspection: "Preencha a tabela ou remova o bloco vazio.",
+  },
+  "table-merge-invalid": {
+    id: "table-merge-invalid",
+    label: "Mesclagem estrutural inválida",
+    source: "static",
+    inspection: "Desmescle a célula e refaça o intervalo retangular.",
+  },
+  "table-too-small-text": {
+    id: "table-too-small-text",
+    label: "Texto de tabela pequeno demais",
+    source: "static",
+    inspection: "Aumente o corpo da tabela para preservar legibilidade em P&B.",
+  },
+  "table-column-too-narrow": {
+    id: "table-column-too-narrow",
+    label: "Coluna estreita demais",
+    source: "static",
+    inspection: "Arraste a divisória para redistribuir a largura da tabela.",
   },
   "box-split": {
     id: "box-split",

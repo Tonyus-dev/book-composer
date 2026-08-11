@@ -110,6 +110,110 @@
   touch-action: none;
 }
 
+/* Overlay estrutural da tabela: existe apenas no canvas do editor. */
+.k-editor-table-overlay {
+  position: absolute;
+  z-index: 42;
+  pointer-events: none;
+}
+
+.k-editor-table-toolbar {
+  position: absolute;
+  top: -34px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  width: max-content;
+  max-width: min(780px, 90vw);
+  padding: 3px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--card) 96%, transparent);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 14%);
+  pointer-events: auto;
+}
+
+.k-editor-table-toolbar button,
+.k-editor-table-toolbar select {
+  min-height: 23px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  padding: 2px 6px;
+  color: var(--foreground);
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.k-editor-table-toolbar button:hover,
+.k-editor-table-toolbar select:hover {
+  background: var(--accent);
+}
+
+.k-editor-table-toolbar button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.k-editor-table-cell {
+  position: absolute;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  background: transparent;
+  padding: 0;
+  pointer-events: auto;
+  cursor: cell;
+}
+
+.k-editor-table-cell:hover {
+  border-color: rgb(185 83 220 / 55%);
+  background: rgb(185 83 220 / 7%);
+}
+
+.k-editor-table-cell.is-selected {
+  border: 2px solid #b953dc;
+  background: rgb(185 83 220 / 12%);
+}
+
+.k-editor-table-cell-editor {
+  position: absolute;
+  z-index: 3;
+  box-sizing: border-box;
+  resize: none;
+  border: 2px solid #b953dc;
+  outline: none;
+  background: var(--card);
+  padding: 2px 4px;
+  color: var(--foreground);
+  font: inherit;
+  line-height: 1.25;
+  pointer-events: auto;
+}
+
+.k-editor-table-column-handle {
+  position: absolute;
+  top: 0;
+  z-index: 4;
+  width: 9px;
+  height: 100%;
+  transform: translateX(-50%);
+  cursor: col-resize;
+  pointer-events: auto;
+}
+
+.k-editor-table-column-handle::after {
+  position: absolute;
+  top: 0;
+  left: 4px;
+  width: 1px;
+  height: 100%;
+  background: transparent;
+  content: "";
+}
+
+.k-editor-table-column-handle:hover::after {
+  background: #b953dc;
+}
+
 /* Overflow nunca é escondido: ele é sinalizado. */
 .k-editor-page[data-overflow="true"] {
   box-shadow: 0 0 0 2px #be185d;

@@ -4,6 +4,8 @@ import type { Book, ImageBlock, Page } from "../../book/types";
 import { PageRenderer } from "../../book/renderer/PageRenderer";
 import { BookRenderContext } from "../../book/renderer/context";
 import { useEditor, type Overlays } from "../state/store";
+import { normalizeTableBlock } from "../../book/tableModel";
+import { TableEditorOverlay } from "./TableEditorOverlay";
 
 function OverlayLayers({ overlays }: { overlays: Overlays }) {
   return (
@@ -172,6 +174,7 @@ export function PageCanvas({
     reportOverflow,
     overflowPages,
     updateBlock,
+    updateTable,
   } = useEditor();
   const ref = useRef<HTMLDivElement>(null);
 
@@ -207,6 +210,14 @@ export function PageCanvas({
             pageId={page.id}
             block={selectedBlock}
             updateBlock={updateBlock}
+          />
+        ) : null}
+        {active && selectedBlock?.type === "table" ? (
+          <TableEditorOverlay
+            pageRef={ref}
+            pageId={page.id}
+            block={normalizeTableBlock(selectedBlock)}
+            updateTable={updateTable}
           />
         ) : null}
       </PageRenderer>

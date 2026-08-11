@@ -5,6 +5,7 @@
  * (o mesmo livro produz sempre os mesmos números) e jamais altera composição.
  */
 import type { Block, Book, Page, TemplateId } from "../../book/types";
+import { normalizeTableBlock } from "../../book/tableModel";
 
 /** Classe de composição — é o que a faixa de ritmo codifica. */
 export type RhythmClass =
@@ -82,11 +83,16 @@ function blockChars(block: Block): number {
       return block.text.length + (block.attribution?.length ?? 0);
     case "box":
       return block.title.length + block.content.length;
-    case "table":
+    case "table": {
+      const table = normalizeTableBlock(block);
       return (
-        block.columns.join("").length +
-        block.rows.reduce((sum, row) => sum + row.join("").length, 0)
+        table.columns.map((column) => column.label ?? "").join("").length +
+        table.rows.reduce(
+          (sum, row) => sum + row.cells.reduce((cells, cell) => cells + cell.content.length, 0),
+          0,
+        )
       );
+    }
     case "caption":
       return block.text.length;
     case "toc":

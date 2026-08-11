@@ -1,5 +1,6 @@
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import type { Block, BlockType } from "../../book/types";
+import { createTableBlock } from "../../book/tableModel";
 import { downloadBookJson, readBookFromFile } from "../../lib/persistence/json";
 import { useEditor, nextId, type Overlays, type ZoomValue } from "../state/store";
 
@@ -85,6 +86,10 @@ export function Toolbar() {
     openPreflight,
   } = useEditor();
   const fileRef = useRef<HTMLInputElement>(null);
+  const [newTableOpen, setNewTableOpen] = useState(false);
+  const [newTableColumns, setNewTableColumns] = useState("3");
+  const [newTableRows, setNewTableRows] = useState("5");
+  const [newTableHeader, setNewTableHeader] = useState(true);
   const { errors, warnings, infos } = preflight.summary;
 
   /* Exportação de produção nunca é silenciosa quando existe ERROR. */
@@ -104,178 +109,257 @@ export function Toolbar() {
   };
 
   const insert = (type: BlockType) => {
+    if (type === "table") {
+      setNewTableOpen(true);
+      return;
+    }
     const block = makeBlock(type);
     addBlock(selectedPage.id, block);
     selectBlock(block.id);
   };
 
   return (
-    <header className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-border bg-card px-3 py-2">
-      <div className="flex min-w-[220px] items-center gap-3">
-        <span className="text-[13px] font-semibold tracking-[0.2em] text-foreground uppercase">
-          Kallistis Book Maker
-        </span>
-        <span className="h-5 w-px bg-border" aria-hidden="true" />
-        <div className="min-w-0 leading-tight">
-          <div className="truncate text-[11px] font-medium text-foreground" title={book.meta.title}>
-            {book.meta.title}
-          </div>
-          {book.meta.edition ? (
-            <div className="truncate text-[10px] text-muted-foreground" title={book.meta.edition}>
-              {book.meta.edition}
+    <>
+      <header className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-border bg-card px-3 py-2">
+        <div className="flex min-w-[220px] items-center gap-3">
+          <span className="text-[13px] font-semibold tracking-[0.2em] text-foreground uppercase">
+            Kallistis Book Maker
+          </span>
+          <span className="h-5 w-px bg-border" aria-hidden="true" />
+          <div className="min-w-0 leading-tight">
+            <div
+              className="truncate text-[11px] font-medium text-foreground"
+              title={book.meta.title}
+            >
+              {book.meta.title}
             </div>
-          ) : null}
+            {book.meta.edition ? (
+              <div className="truncate text-[10px] text-muted-foreground" title={book.meta.edition}>
+                {book.meta.edition}
+              </div>
+            ) : null}
+          </div>
         </div>
-      </div>
 
-      <div className="flex items-center gap-1">
-        {(["page", "spread", "light"] as const).map((mode) => (
-          <button
-            key={mode}
-            type="button"
-            onClick={() => setView(mode)}
-            title={
-              mode === "light"
-                ? "Mesa de luz: ritmo, densidade e distribuição de arte no livro inteiro"
-                : undefined
-            }
-            className={`border px-2 py-1 text-[11px] ${
-              view === mode
-                ? "border-primary bg-primary text-primary-foreground"
-                : "border-border hover:bg-accent"
-            }`}
-          >
-            {mode === "page" ? "Página" : mode === "spread" ? "Spread" : "Mesa de luz"}
-          </button>
-        ))}
-      </div>
-
-      <label className="flex items-center gap-1 text-[11px] text-muted-foreground">
-        Zoom
-        <select
-          value={String(zoom)}
-          onChange={(event) => {
-            const raw = event.target.value;
-            setZoom(raw === "fit" ? "fit" : (Number(raw) as ZoomValue));
-          }}
-          className="border border-border bg-input/40 px-1.5 py-1 text-[11px] text-foreground"
-        >
-          {ZOOMS.map((value) => (
-            <option key={String(value)} value={String(value)}>
-              {value === "fit" ? "Ajustar" : `${Number(value) * 100}%`}
-            </option>
+        <div className="flex items-center gap-1">
+          {(["page", "spread", "light"] as const).map((mode) => (
+            <button
+              key={mode}
+              type="button"
+              onClick={() => setView(mode)}
+              title={
+                mode === "light"
+                  ? "Mesa de luz: ritmo, densidade e distribuição de arte no livro inteiro"
+                  : undefined
+              }
+              className={`border px-2 py-1 text-[11px] ${
+                view === mode
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-border hover:bg-accent"
+              }`}
+            >
+              {mode === "page" ? "Página" : mode === "spread" ? "Spread" : "Mesa de luz"}
+            </button>
           ))}
-        </select>
-      </label>
+        </div>
 
-      <div className="flex items-center gap-1">
-        {OVERLAY_LABELS.map((entry) => (
-          <button
-            key={entry.key}
-            type="button"
-            aria-pressed={overlays[entry.key]}
-            onClick={() => toggleOverlay(entry.key)}
-            className={`border px-2 py-1 text-[11px] ${
-              overlays[entry.key]
-                ? "border-primary text-foreground"
-                : "border-border text-muted-foreground hover:bg-accent"
-            }`}
+        <label className="flex items-center gap-1 text-[11px] text-muted-foreground">
+          Zoom
+          <select
+            value={String(zoom)}
+            onChange={(event) => {
+              const raw = event.target.value;
+              setZoom(raw === "fit" ? "fit" : (Number(raw) as ZoomValue));
+            }}
+            className="border border-border bg-input/40 px-1.5 py-1 text-[11px] text-foreground"
           >
-            {entry.label}
-          </button>
-        ))}
-      </div>
+            {ZOOMS.map((value) => (
+              <option key={String(value)} value={String(value)}>
+                {value === "fit" ? "Ajustar" : `${Number(value) * 100}%`}
+              </option>
+            ))}
+          </select>
+        </label>
 
-      <label className="flex items-center gap-1 text-[11px] text-muted-foreground">
-        Inserir
-        <select
-          value=""
-          onChange={(event) => {
-            if (event.target.value) insert(event.target.value as BlockType);
-          }}
-          className="border border-border bg-input/40 px-1.5 py-1 text-[11px] text-foreground"
-        >
-          <option value="">bloco…</option>
-          {NEW_BLOCKS.map((entry) => (
-            <option key={entry.type} value={entry.type}>
+        <div className="flex items-center gap-1">
+          {OVERLAY_LABELS.map((entry) => (
+            <button
+              key={entry.key}
+              type="button"
+              aria-pressed={overlays[entry.key]}
+              onClick={() => toggleOverlay(entry.key)}
+              className={`border px-2 py-1 text-[11px] ${
+                overlays[entry.key]
+                  ? "border-primary text-foreground"
+                  : "border-border text-muted-foreground hover:bg-accent"
+              }`}
+            >
               {entry.label}
-            </option>
+            </button>
           ))}
-        </select>
-      </label>
+        </div>
 
-      <div className="ml-auto flex items-center gap-2">
-        <button
-          type="button"
-          onClick={runPreflight}
-          disabled={preflightRunning}
-          title="Analisar o livro inteiro e listar diagnósticos editoriais"
-          className={`border px-2 py-1 text-[11px] font-medium disabled:opacity-60 ${
-            errors > 0 ? "border-destructive text-destructive" : "border-border hover:bg-accent"
-          }`}
-        >
-          {preflightRunning ? "Preflight…" : "Preflight"}
-        </button>
-        <button
-          type="button"
-          onClick={openPreflight}
-          className="text-[10px] text-muted-foreground tabular-nums hover:text-foreground"
-        >
-          <span className={errors > 0 ? "text-destructive" : ""}>{errors} Errors</span>
-          {` ${warnings} Warnings ${infos} Info`}
-        </button>
-        <span className="text-[10px] text-muted-foreground">
-          {status === "saving" ? "salvando…" : "salvo localmente"}
-        </span>
-        <button
-          type="button"
-          onClick={() => downloadBookJson(book)}
-          className="border border-border px-2 py-1 text-[11px] hover:bg-accent"
-        >
-          Exportar projeto
-        </button>
-        <button
-          type="button"
-          onClick={() => fileRef.current?.click()}
-          className="border border-border px-2 py-1 text-[11px] hover:bg-accent"
-        >
-          Abrir projeto
-        </button>
-        <input
-          ref={fileRef}
-          type="file"
-          accept="application/json"
-          className="hidden"
-          onChange={async (event) => {
-            const file = event.target.files?.[0];
-            if (!file) return;
-            try {
-              replaceBook(await readBookFromFile(file));
-            } catch (error) {
-              console.error(error);
-              window.alert("Arquivo de projeto inválido.");
-            }
-            event.target.value = "";
-          }}
-        />
-        <button
-          type="button"
-          onClick={() => {
-            if (window.confirm("Descartar o projeto local e voltar à maquete de desenvolvimento?"))
-              resetToDemo();
-          }}
-          className="border border-border px-2 py-1 text-[11px] text-muted-foreground hover:bg-accent"
-        >
-          Restaurar maquete
-        </button>
-        <button
-          type="button"
-          onClick={openPrint}
-          className="border border-primary bg-primary px-2 py-1 text-[11px] font-medium text-primary-foreground"
-        >
-          Modo impressão
-        </button>
-      </div>
-    </header>
+        <label className="flex items-center gap-1 text-[11px] text-muted-foreground">
+          Inserir
+          <select
+            value=""
+            onChange={(event) => {
+              if (event.target.value) insert(event.target.value as BlockType);
+            }}
+            className="border border-border bg-input/40 px-1.5 py-1 text-[11px] text-foreground"
+          >
+            <option value="">bloco…</option>
+            {NEW_BLOCKS.map((entry) => (
+              <option key={entry.type} value={entry.type}>
+                {entry.label}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <div className="ml-auto flex items-center gap-2">
+          <button
+            type="button"
+            onClick={runPreflight}
+            disabled={preflightRunning}
+            title="Analisar o livro inteiro e listar diagnósticos editoriais"
+            className={`border px-2 py-1 text-[11px] font-medium disabled:opacity-60 ${
+              errors > 0 ? "border-destructive text-destructive" : "border-border hover:bg-accent"
+            }`}
+          >
+            {preflightRunning ? "Preflight…" : "Preflight"}
+          </button>
+          <button
+            type="button"
+            onClick={openPreflight}
+            className="text-[10px] text-muted-foreground tabular-nums hover:text-foreground"
+          >
+            <span className={errors > 0 ? "text-destructive" : ""}>{errors} Errors</span>
+            {` ${warnings} Warnings ${infos} Info`}
+          </button>
+          <span className="text-[10px] text-muted-foreground">
+            {status === "saving" ? "salvando…" : "salvo localmente"}
+          </span>
+          <button
+            type="button"
+            onClick={() => downloadBookJson(book)}
+            className="border border-border px-2 py-1 text-[11px] hover:bg-accent"
+          >
+            Exportar projeto
+          </button>
+          <button
+            type="button"
+            onClick={() => fileRef.current?.click()}
+            className="border border-border px-2 py-1 text-[11px] hover:bg-accent"
+          >
+            Abrir projeto
+          </button>
+          <input
+            ref={fileRef}
+            type="file"
+            accept="application/json"
+            className="hidden"
+            onChange={async (event) => {
+              const file = event.target.files?.[0];
+              if (!file) return;
+              try {
+                replaceBook(await readBookFromFile(file));
+              } catch (error) {
+                console.error(error);
+                window.alert("Arquivo de projeto inválido.");
+              }
+              event.target.value = "";
+            }}
+          />
+          <button
+            type="button"
+            onClick={() => {
+              if (
+                window.confirm("Descartar o projeto local e voltar à maquete de desenvolvimento?")
+              )
+                resetToDemo();
+            }}
+            className="border border-border px-2 py-1 text-[11px] text-muted-foreground hover:bg-accent"
+          >
+            Restaurar maquete
+          </button>
+          <button
+            type="button"
+            onClick={openPrint}
+            className="border border-primary bg-primary px-2 py-1 text-[11px] font-medium text-primary-foreground"
+          >
+            Modo impressão
+          </button>
+        </div>
+      </header>
+      {newTableOpen ? (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/70 p-6">
+          <form
+            className="w-[360px] border border-border bg-card p-4 shadow-xl"
+            onSubmit={(event) => {
+              event.preventDefault();
+              const table = createTableBlock(
+                `table-${Date.now().toString(36)}`,
+                Number(newTableColumns) || 3,
+                Number(newTableRows) || 5,
+                newTableHeader,
+              );
+              addBlock(selectedPage.id, table);
+              selectBlock(table.id);
+              setNewTableOpen(false);
+            }}
+          >
+            <h2 className="mb-3 text-sm font-semibold">Nova tabela</h2>
+            <div className="grid grid-cols-2 gap-3">
+              <label className="flex flex-col gap-1 text-xs">
+                Colunas
+                <input
+                  className="border border-border bg-input/40 px-2 py-1"
+                  type="number"
+                  min="1"
+                  max="24"
+                  value={newTableColumns}
+                  onChange={(event) => setNewTableColumns(event.target.value)}
+                />
+              </label>
+              <label className="flex flex-col gap-1 text-xs">
+                Linhas
+                <input
+                  className="border border-border bg-input/40 px-2 py-1"
+                  type="number"
+                  min="1"
+                  max="200"
+                  value={newTableRows}
+                  onChange={(event) => setNewTableRows(event.target.value)}
+                />
+              </label>
+            </div>
+            <label className="mt-3 flex items-center gap-2 text-xs">
+              <input
+                type="checkbox"
+                checked={newTableHeader}
+                onChange={(event) => setNewTableHeader(event.target.checked)}
+              />
+              Primeira linha é cabeçalho
+            </label>
+            <div className="mt-4 flex justify-end gap-2">
+              <button
+                type="button"
+                className="border border-border px-3 py-1 text-xs"
+                onClick={() => setNewTableOpen(false)}
+              >
+                Cancelar
+              </button>
+              <button
+                type="submit"
+                className="border border-primary bg-primary px-3 py-1 text-xs text-primary-foreground"
+              >
+                Criar
+              </button>
+            </div>
+          </form>
+        </div>
+      ) : null}
+    </>
   );
 }

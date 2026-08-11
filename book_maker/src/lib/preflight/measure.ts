@@ -285,6 +285,16 @@ export function measureIssues(root: HTMLElement, book: Book): PreflightIssue[] {
           { pageId, blockId, element: label },
         );
       }
+      for (const cell of Array.from(table.querySelectorAll<HTMLElement>("td, th"))) {
+        if (cell.scrollHeight - cell.clientHeight <= EPS) continue;
+        const { blockId, label } = blockName(cell);
+        push(
+          "table-cell-overflow",
+          "error",
+          "Célula de tabela excede a altura disponível e pode cortar texto.",
+          { pageId, blockId, element: `${label} · célula` },
+        );
+      }
     }
 
     /* 5 — viúvas tipográficas */

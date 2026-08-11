@@ -106,12 +106,109 @@ export interface QuoteBlock extends BaseBlock {
   align?: BlockAlign;
 }
 
-export interface TableBlock extends BaseBlock {
+export type TableAlign = "left" | "center" | "right";
+export type TableVerticalAlign = "top" | "middle" | "bottom";
+export type TableRowKind = "header" | "body" | "footer";
+export type TableBorderMode = "none" | "horizontal" | "grid" | "custom";
+
+export interface TableCellStyle {
+  background?: string;
+  borderTop?: string;
+  borderRight?: string;
+  borderBottom?: string;
+  borderLeft?: string;
+  fontSize?: string;
+  fontWeight?: number;
+  fontStyle?: "normal" | "italic";
+  color?: string;
+}
+
+export interface TableRowStyle {
+  background?: string;
+  borderTop?: string;
+  borderBottom?: string;
+}
+
+export interface TableColumn {
+  id: string;
+  label?: string;
+  width?: number;
+  minWidth?: number;
+  align?: TableAlign;
+}
+
+export interface TableCell {
+  id: string;
+  content: string;
+  colSpan?: number;
+  rowSpan?: number;
+  align?: TableAlign;
+  verticalAlign?: TableVerticalAlign;
+  emphasis?: "normal" | "strong";
+  style?: TableCellStyle;
+}
+
+export interface TableRow {
+  id: string;
+  kind?: TableRowKind;
+  cells: TableCell[];
+  minHeight?: number;
+  keepTogether?: boolean;
+  style?: TableRowStyle;
+}
+
+export interface TableStyle {
+  fontFamily?: string;
+  fontSize?: string;
+  lineHeight?: number;
+  textColor?: string;
+  cellPaddingX?: string;
+  cellPaddingY?: string;
+  borderMode?: TableBorderMode;
+  borderWidth?: string;
+  borderColor?: string;
+  headerBackground?: string;
+  headerColor?: string;
+  headerWeight?: number;
+  bodyBackground?: string;
+  zebra?: boolean;
+  zebraBackground?: string;
+  firstColumnStrong?: boolean;
+}
+
+/** Formato V2: IDs internos são persistidos e independem do índice atual. */
+export interface TableBlockV2 extends BaseBlock {
   type: "table";
+  tableVersion: 2;
+  caption?: string;
+  columns: TableColumn[];
+  rows: TableRow[];
+  stylePresetId?: string;
+  style?: TableStyle;
+  compact?: boolean;
+  repeatHeader?: boolean;
+  allowPageBreak?: boolean;
+  continuationOf?: string;
+  continuationIndex?: number;
+  continuationHeader?: TableRow[];
+}
+
+/** V1 aceito na entrada para compatibilidade com projetos já salvos. */
+export interface LegacyTableBlock extends BaseBlock {
+  type: "table";
+  tableVersion?: 1;
   caption?: string;
   columns: string[];
   rows: string[][];
   compact?: boolean;
+}
+
+export type TableBlock = TableBlockV2 | LegacyTableBlock;
+
+export interface TableStylePreset {
+  id: string;
+  name: string;
+  style: TableStyle;
 }
 
 export type BoxKind = "regra" | "exemplo" | "ambientacao" | "mestre" | "atencao";
@@ -261,6 +358,8 @@ export interface Book {
   assets?: BookAsset[];
   /** pares obrigatórios que abrem juntos (ex.: 008-009, 021-022). */
   spreads?: Spread[];
+  /** presets de tabela personalizados, persistidos dentro do projeto. */
+  tableStyles?: TableStylePreset[];
 }
 
 export const CSS_VAR_BY_TOKEN: Record<keyof BookTokens, string> = {

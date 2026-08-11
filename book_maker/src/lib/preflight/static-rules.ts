@@ -1,5 +1,6 @@
 import type { Block, Book, Page, TemplateId } from "../../book/types";
 import { folioFor, isVerso } from "../../book/renderer/PageRenderer";
+import { normalizeTableBlock, tableGrid } from "../../book/tableModel";
 import { findAsset } from "../assets/catalog";
 import { isAssetRef, lookupAsset } from "../assets/registry";
 import {
@@ -233,7 +234,57 @@ export function staticIssues(book: Book): PreflightIssue[] {
       }
 
       if (block.type === "table") {
-        const wide = block.columns.length > 6;
+        const table = normalizeTableBlock(block);
+        const widthSum = table.columns.reduce((sum, column) => sum + (column.width ?? 0), 0);
+        const narrow = table.columns.filter(
+          (column) => (column.width ?? 0) < (column.minWidth ?? 0.08),
+        ).length;
+        if (table.columns.length === 0 || table.rows.length === 0) {
+          push("table-empty", "error", "Tabela sem colunas ou linhas editáveis.", base);
+        }
+        if (!Number.isFinite(widthSum) || Math.abs(widthSum - 1) > 0.01) {
+          push(
+            "table-width-invalid",
+            "error",
+            `Larguras somam ${Math.round(widthSum * 100)}%, não 100%.`,
+            base,
+          );
+        }
+        if (narrow > 0) {
+          push(
+            "table-column-too-narrow",
+            "warning",
+            `${narrow} coluna(s) abaixo do mínimo editorial.`,
+            base,
+          );
+        }
+        if (table.style?.fontSize && Number.parseFloat(table.style.fontSize) < 7) {
+          push(
+            "table-too-small-text",
+            "warning",
+            `Corpo de tabela ${table.style.fontSize} abaixo do mínimo confortável.`,
+            base,
+          );
+        }
+        const grid = tableGrid(table);
+        const invalidMerge = table.rows.some((row) =>
+          row.cells.some((cell) => {
+            const entry = grid.flat().find((item) => item.cell.id === cell.id);
+            return Boolean(
+              entry &&
+              (entry.rowIndex + entry.rowSpan > table.rows.length ||
+                entry.columnIndex + entry.colSpan > table.columns.length),
+            );
+          }),
+        );
+        if (invalidMerge)
+          push(
+            "table-merge-invalid",
+            "error",
+            "Tabela contém uma mesclagem que ultrapassa a grade.",
+            base,
+          );
+        const wide = table.columns.length > 6;
         if (wide && page.settings.columns === 2 && block.span !== "full") {
           push(
             "table-overflow",
@@ -249,7 +300,7 @@ export function staticIssues(book: Book): PreflightIssue[] {
             base,
           );
         }
-        const ragged = block.rows.filter((row) => row.length !== block.columns.length).length;
+        const ragged = table.rows.filter((row) => row.cells.length === 0).length;
         if (ragged > 0) {
           push(
             "table-overflow",
