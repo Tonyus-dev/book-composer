@@ -160,27 +160,42 @@ test("editor, canonical cover migration, IndexedDB assets, reload, offline and p
   ).toHaveCount(0);
 
   const input = page.locator('input[type="file"][accept*="image/jpeg"]');
-  for (const [name, width, height, color] of [
-    ["A.png", 100, 100, [220, 20, 20]],
-    ["B.png", 800, 1200, [20, 180, 60]],
-    ["C.png", 1800, 2700, [20, 70, 220]],
-  ] as const) {
+  const applyRaster = async (
+    name: string,
+    width: number,
+    height: number,
+    color: readonly [number, number, number],
+  ) => {
     await input.setInputFiles({
       name,
       mimeType: "image/png",
       buffer: png(width, height, color),
     });
     await page.getByTitle(name.slice(0, -4), { exact: true }).click();
-    if (name === "A.png") {
-      await page.getByRole("button", { name: "Preflight", exact: true }).click();
-      await expect(page.getByText(/baixa resolução/i)).toBeVisible();
-    }
-  }
+  };
+
+  await applyRaster("A.png", 100, 100, [220, 20, 20]);
+  await page.getByRole("button", { name: "Preflight", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Preflight", exact: true })).toBeVisible();
+  await expect(page.getByText("estático + medições de layout", { exact: true })).toBeVisible();
+  const lowResolutionIssue = page.getByText("Resolução efetiva baixa", { exact: true });
+  await expect(lowResolutionIssue).toBeVisible();
+  const lowResolutionRow = lowResolutionIssue.locator("xpath=ancestor::button[1]");
+  await expect(lowResolutionRow).toContainText("ERROR");
+  await expect(lowResolutionRow).toContainText(/Imagem com \d+ ppi efetivos/);
+  await page.getByRole("button", { name: "Fechar", exact: true }).click();
+
+  await applyRaster("B.png", 800, 1200, [20, 180, 60]);
+  await applyRaster("C.png", 1800, 2700, [20, 70, 220]);
   const coverImages = editorCover.locator(".k-bleed--img");
   await expect(coverImages).toHaveCount(1);
   await expect(coverImages).toHaveAttribute("src", /^blob:/);
   await expect(coverImages).toHaveJSProperty("naturalWidth", 1800);
-  await expect(page.getByText(/baixa resolução/i)).toHaveCount(0);
+  await page.getByRole("button", { name: "Preflight", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Preflight", exact: true })).toBeVisible();
+  await expect(page.getByText("estático + medições de layout", { exact: true })).toBeVisible();
+  await expect(page.getByText("Resolução efetiva baixa", { exact: true })).toHaveCount(0);
+  await page.getByRole("button", { name: "Fechar", exact: true }).click();
 
   await expect
     .poll(() =>
@@ -243,7 +258,13 @@ test("blank is empty and preserves a manual composition in reload, print and PDF
 }, testInfo) => {
   await seedBookOnce(page);
   await page.goto("/");
-  await page.getByRole("button", { name: "Adicionar Página em branco depois" }).click();
+  const blankAddButtons = page.getByRole("button", {
+    name: "Adicionar Página em branco depois",
+    exact: true,
+  });
+  await expect(blankAddButtons).toHaveCount(1);
+  await blankAddButtons.click();
+  await expect(blankAddButtons).toHaveCount(2);
   const blankThumbnail = page.locator("button .k-page[data-template='blank']");
   await blankThumbnail.locator("xpath=ancestor::button[1]").click();
   const blankPage = page.locator(".k-editor-page[data-template='blank']");
@@ -307,6 +328,8 @@ test("blank is empty and preserves a manual composition in reload, print and PDF
     savedBlank.blocks.map((block: { frame?: unknown }) => block.frame).filter(Boolean),
   ).toHaveLength(4);
   await page.reload();
+  await expect(blankAddButtons).toHaveCount(2);
+  await blankThumbnail.locator("xpath=ancestor::button[1]").click();
   await expect(blankPage.locator("[data-block-id]")).toHaveCount(4);
   await expect(blankPage.locator(".k-block--text")).toHaveAttribute("style", /top: 180mm/);
 
