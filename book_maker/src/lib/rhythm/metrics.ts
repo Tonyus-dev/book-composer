@@ -35,6 +35,7 @@ export const RHYTHM_CLASS_COLORS: Record<RhythmClass, string> = {
 };
 
 const CLASS_BY_TEMPLATE: Record<TemplateId, RhythmClass> = {
+  blank: "art",
   cover: "front",
   front_matter: "front",
   toc: "front",

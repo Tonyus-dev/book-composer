@@ -25,6 +25,7 @@ import type {
   TemplateId,
 } from "../../book/types";
 import { TEMPLATES } from "../../book/templates";
+import { createEmptyPage } from "../../book/page-factory";
 import { demoBook } from "../../data/demo-book";
 import { canonicalBook } from "../../data/canonical-book";
 import {
@@ -660,23 +661,7 @@ export function EditorProvider({ children }: { children: ReactNode }) {
         setBook((prev) => {
           const index = prev.pages.findIndex((page) => page.id === afterPageId);
           const reference = prev.pages[index];
-          const page: Page = {
-            id: nextId("page"),
-            template,
-            variant: TEMPLATES[template].variants[0],
-            part: reference?.part,
-            chapter: reference?.chapter,
-            title: "Nova página",
-            settings: {
-              header: true,
-              footer: false,
-              pageNumber: true,
-              columns: TEMPLATES[template].defaultColumns,
-              background: "paper",
-              fullBleed: false,
-            },
-            blocks: [],
-          };
+          const page = createEmptyPage(template, reference);
           const pages = [...prev.pages];
           pages.splice(index + 1, 0, page);
           const nodes = prev.nodes.map((node) =>

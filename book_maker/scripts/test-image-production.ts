@@ -5,6 +5,8 @@ import { pixelsForPrint } from "../src/lib/assets/registry";
 import { registerBookAssets } from "../src/lib/assets/registry";
 import { effectiveImagePpi, staticIssues } from "../src/lib/preflight/static-rules";
 import { bookSnapshot, normalizeBook, saveLocalBook } from "../src/lib/persistence/local";
+import { createEmptyPage } from "../src/book/page-factory";
+import { TEMPLATES } from "../src/book/templates";
 
 const image = (id: string, src = `asset:${id}`): ImageBlock => ({
   id: `block-${id}`,
@@ -116,6 +118,24 @@ assert.equal(normalizeBook(canonicalLegacy).pages[0]!.coverMode, "art-only");
 const genericLegacy = coverBook(1772, 2599, "overlay");
 delete genericLegacy.pages[0]!.coverMode;
 assert.equal(normalizeBook(genericLegacy).pages[0]!.coverMode, undefined);
+
+const blank = createEmptyPage("blank");
+assert.equal(TEMPLATES.blank.label, "Página em branco");
+assert.equal(TEMPLATES.blank.usesContentBox, false);
+assert.deepEqual(blank.blocks, []);
+assert.equal(blank.title, undefined);
+assert.deepEqual(blank.settings, {
+  header: false,
+  footer: false,
+  pageNumber: false,
+  columns: 1,
+  background: "paper",
+  fullBleed: false,
+});
+const pageBeforeSwitch = coverBook(1772, 2599).pages[0]!;
+const contentBeforeSwitch = pageBeforeSwitch.blocks;
+const switched = { ...pageBeforeSwitch, template: "blank" as const };
+assert.equal(switched.blocks, contentBeforeSwitch);
 
 const empty = coverBook(1772, 2599);
 empty.pages[0]!.blocks = [];

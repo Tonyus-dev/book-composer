@@ -182,3 +182,61 @@ test("real PDF accepts legacy portable JSON and has the fixture page count", asy
   expect(bytes.subarray(0, 5).toString()).toBe("%PDF-");
   expect(bytes.toString("latin1").match(/\/Type\s*\/Page\b/g)?.length).toBe(fixture.pages.length);
 });
+
+test("blank is empty and preserves a manual composition in reload, print and PDF", async ({
+  page,
+}, testInfo) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Adicionar Página em branco depois" }).first().click();
+  await page.getByText("BLANK", { exact: true }).last().click();
+  const blankPage = page.locator(".k-page[data-template='blank']");
+  await expect(blankPage).toBeVisible();
+  await expect(blankPage.locator("[data-block-id]")).toHaveCount(0);
+  await expect(blankPage.locator(".k-page__content, .k-page-number, .k-page-header")).toHaveCount(
+    0,
+  );
+
+  const insert = page.getByLabel("Inserir");
+  await insert.selectOption("heading");
+  await page.getByLabel("X (mm)").fill("8");
+  await page.getByLabel("Y (mm)").fill("8");
+  await insert.selectOption("text");
+  await page.getByLabel("X (mm)").fill("12");
+  await page.getByLabel("Y (mm)").fill("180");
+  await insert.selectOption("image");
+  await page.locator('input[type="file"][accept*="image/jpeg"]').setInputFiles({
+    name: "blank-center.svg",
+    mimeType: "image/svg+xml",
+    buffer: Buffer.from(svg(1200, 1200, "purple")),
+  });
+  await page.getByTitle("blank-center").click();
+  await page.getByLabel("X (mm)").fill("45");
+  await page.getByLabel("Y (mm)").fill("70");
+  await page.getByText("Inserir elemento ▾", { exact: true }).click();
+  await page.getByRole("button", { name: "Área de cor" }).click();
+  await page.getByLabel("X (mm)").fill("40");
+  await page.getByLabel("Y (mm)").fill("65");
+  await page.getByRole("button", { name: "↑ subir" }).click();
+
+  await expect(blankPage.locator(".k-block--heading")).toHaveCSS("left", /px/);
+  await expect(blankPage.locator(".k-block--text")).toHaveCSS("top", /px/);
+  await expect(blankPage.locator(".k-block--image")).toHaveCount(1);
+  await expect(blankPage.locator(".k-block--shape")).toHaveCount(1);
+  await page.waitForTimeout(700);
+  await page.reload();
+  await expect(blankPage.locator("[data-block-id]")).toHaveCount(4);
+  await expect(blankPage.locator(".k-block--text")).toHaveAttribute("style", /top: 180mm/);
+
+  await page.goto("/print");
+  await expect(page.locator("html")).toHaveAttribute("data-print-ready", "true");
+  const printedBlank = page.locator(".k-page[data-template='blank']");
+  await expect(printedBlank.locator("[data-block-id]")).toHaveCount(4);
+  await expect(
+    page.locator("[class*='k-editor-'], [data-testid='block-drag-surface']"),
+  ).toHaveCount(0);
+  const output = testInfo.outputPath("blank-manual-composition.pdf");
+  await page.pdf({ path: output, printBackground: true, preferCSSPageSize: true });
+  const pdf = await readFile(output);
+  expect(pdf.subarray(0, 5).toString()).toBe("%PDF-");
+  expect(pdf.length).toBeGreaterThan(0);
+});

@@ -21,6 +21,11 @@ bun run dev          # editor em http://localhost:8080
 
 Rotas: `/` (editor) e `/print` (renderização limpa usada pelo exportador).
 
+O template **Página em branco** cria uma prancheta física de 140 × 210 mm com zero blocos,
+sem cabeçalho, rodapé, fólio ou composição automática. Blocos existentes podem usar frames em
+milímetros diretamente sobre o trim, integrar spreads e alcançar a sangria quando `fullBleed`
+for escolhido; os mesmos frames são usados no editor, em `/print` e no PDF.
+
 Scripts úteis:
 
 ```sh

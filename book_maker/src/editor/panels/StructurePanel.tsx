@@ -84,6 +84,15 @@ function PageRow({ page, index }: { page: Page; index: number }) {
         </button>
         <button
           type="button"
+          onClick={() => addPage(page.id, "blank")}
+          aria-label="Adicionar Página em branco depois"
+          title="Página em branco"
+          className="p-1 text-muted-foreground hover:text-foreground"
+        >
+          BLANK
+        </button>
+        <button
+          type="button"
           onClick={() => duplicatePage(page.id)}
           aria-label="Duplicar página"
           className="p-1 text-muted-foreground hover:text-foreground"

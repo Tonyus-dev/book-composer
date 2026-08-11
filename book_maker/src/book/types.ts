@@ -5,6 +5,7 @@
  */
 
 export type TemplateId =
+  | "blank"
   | "cover"
   | "front_matter"
   | "toc"
@@ -19,6 +20,7 @@ export type TemplateId =
   | "map_page";
 
 export const TEMPLATE_LABELS: Record<TemplateId, string> = {
+  blank: "BLANK",
   cover: "COVER",
   front_matter: "FRONT MATTER",
   toc: "TOC",
