@@ -128,7 +128,7 @@ test("editor, canonical cover migration, IndexedDB assets, reload, offline and p
       mimeType: "image/svg+xml",
       buffer: Buffer.from(svg(width, height, color)),
     });
-    await page.getByTitle(name.slice(0, -4)).click();
+    await page.getByTitle(name.slice(0, -4), { exact: true }).click();
     if (name === "A.svg") {
       await page.getByRole("button", { name: "Preflight", exact: true }).first().click();
       await expect(page.getByText(/baixa resolução/i).first()).toBeVisible();
@@ -198,7 +198,7 @@ test("blank is empty and preserves a manual composition in reload, print and PDF
     0,
   );
 
-  const insert = page.getByLabel("Inserir");
+  const insert = page.getByLabel("Inserir bloco", { exact: true });
   await insert.selectOption("heading");
   await page.getByLabel("X (mm)").fill("8");
   await page.getByLabel("Y (mm)").fill("8");
@@ -211,7 +211,7 @@ test("blank is empty and preserves a manual composition in reload, print and PDF
     mimeType: "image/svg+xml",
     buffer: Buffer.from(svg(1200, 1200, "purple")),
   });
-  await page.getByTitle("blank-center").click();
+  await page.getByTitle("blank-center", { exact: true }).click();
   await page.getByLabel("X (mm)").fill("45");
   await page.getByLabel("Y (mm)").fill("70");
   await page.getByText("Inserir elemento ▾", { exact: true }).click();

@@ -524,6 +524,7 @@ export function Toolbar() {
         <label className="flex items-center gap-1 text-[11px] text-muted-foreground">
           Inserir
           <select
+            aria-label="Inserir bloco"
             value=""
             onChange={(event) => {
               if (event.target.value) insert(event.target.value as BlockType);
