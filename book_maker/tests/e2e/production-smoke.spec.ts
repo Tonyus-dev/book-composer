@@ -1,10 +1,43 @@
 import { expect, test } from "playwright/test";
 import { readFile, stat } from "node:fs/promises";
+import { deflateSync } from "node:zlib";
 
 const storageKey = "kallistis.book-builder.project.v2.default";
 const svg = (width: number, height: number, color: string) =>
   `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"><rect width="100%" height="100%" fill="${color}"/></svg>`;
 const inline = `data:image/svg+xml;base64,${Buffer.from(svg(40, 40, "#123")).toString("base64")}`;
+
+function crc32(input: Buffer): number {
+  let crc = 0xffffffff;
+  for (const byte of input) {
+    crc ^= byte;
+    for (let bit = 0; bit < 8; bit += 1) crc = (crc >>> 1) ^ (0xedb88320 & -(crc & 1));
+  }
+  return (crc ^ 0xffffffff) >>> 0;
+}
+
+function png(width: number, height: number, rgb: readonly [number, number, number]): Buffer {
+  const chunk = (type: string, data: Buffer) => {
+    const name = Buffer.from(type, "ascii");
+    const length = Buffer.alloc(4);
+    length.writeUInt32BE(data.length);
+    const checksum = Buffer.alloc(4);
+    checksum.writeUInt32BE(crc32(Buffer.concat([name, data])));
+    return Buffer.concat([length, name, data, checksum]);
+  };
+  const header = Buffer.alloc(13);
+  header.writeUInt32BE(width, 0);
+  header.writeUInt32BE(height, 4);
+  header.set([8, 2, 0, 0, 0], 8);
+  const row = Buffer.alloc(1 + width * 3);
+  for (let x = 0; x < width; x += 1) row.set(rgb, 1 + x * 3);
+  return Buffer.concat([
+    Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]),
+    chunk("IHDR", header),
+    chunk("IDAT", deflateSync(Buffer.concat(Array.from({ length: height }, () => row)))),
+    chunk("IEND", Buffer.alloc(0)),
+  ]);
+}
 
 const fixture = {
   schemaVersion: 1,
@@ -90,18 +123,27 @@ const fixture = {
   ],
 };
 
-test.beforeEach(async ({ page }) => {
-  await page.addInitScript(({ key, value }) => localStorage.setItem(key, JSON.stringify(value)), {
-    key: storageKey,
-    value: fixture,
-  });
-});
+async function seedBookOnce(page: import("playwright/test").Page) {
+  await page.goto("/login");
+  await page.evaluate(
+    ({ key, value }) => {
+      localStorage.clear();
+      sessionStorage.clear();
+      localStorage.setItem(key, JSON.stringify(value));
+    },
+    {
+      key: storageKey,
+      value: fixture,
+    },
+  );
+}
 
 test("editor, canonical cover migration, IndexedDB assets, reload, offline and print", async ({
   page,
 }, testInfo) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
+  await seedBookOnce(page);
   await page.goto("/");
   const editorCover = page.locator(".k-editor-page[data-page-id='cover']");
   await expect(editorCover).toBeVisible();
@@ -119,27 +161,39 @@ test("editor, canonical cover migration, IndexedDB assets, reload, offline and p
 
   const input = page.locator('input[type="file"][accept*="image/jpeg"]');
   for (const [name, width, height, color] of [
-    ["A.svg", 100, 100, "red"],
-    ["B.svg", 500, 500, "green"],
-    ["C.svg", 3000, 4400, "blue"],
+    ["A.png", 100, 100, [220, 20, 20]],
+    ["B.png", 800, 1200, [20, 180, 60]],
+    ["C.png", 1800, 2700, [20, 70, 220]],
   ] as const) {
     await input.setInputFiles({
       name,
-      mimeType: "image/svg+xml",
-      buffer: Buffer.from(svg(width, height, color)),
+      mimeType: "image/png",
+      buffer: png(width, height, color),
     });
     await page.getByTitle(name.slice(0, -4), { exact: true }).click();
-    if (name === "A.svg") {
-      await page.getByRole("button", { name: "Preflight", exact: true }).first().click();
-      await expect(page.getByText(/baixa resolução/i).first()).toBeVisible();
+    if (name === "A.png") {
+      await page.getByRole("button", { name: "Preflight", exact: true }).click();
+      await expect(page.getByText(/baixa resolução/i)).toBeVisible();
     }
   }
   const coverImages = editorCover.locator(".k-bleed--img");
   await expect(coverImages).toHaveCount(1);
   await expect(coverImages).toHaveAttribute("src", /^blob:/);
-  await expect(coverImages).toHaveJSProperty("naturalWidth", 3000);
+  await expect(coverImages).toHaveJSProperty("naturalWidth", 1800);
+  await expect(page.getByText(/baixa resolução/i)).toHaveCount(0);
 
-  await page.waitForTimeout(700);
+  await expect
+    .poll(() =>
+      page.evaluate((key) => {
+        const raw = localStorage.getItem(key);
+        if (!raw) return null;
+        const saved = JSON.parse(raw);
+        const reference = saved.pages[0]?.blocks[0]?.src;
+        const assetId = typeof reference === "string" ? reference.replace(/^asset:/, "") : "";
+        return saved.assets?.find((asset: { id?: string }) => asset.id === assetId)?.label ?? null;
+      }, storageKey),
+    )
+    .toBe("C");
   const persisted = await page.evaluate((key) => localStorage.getItem(key) ?? "", storageKey);
   expect(persisted).not.toContain("data:image/");
   expect(persisted.length).toBeLessThan(30_000);
@@ -147,12 +201,12 @@ test("editor, canonical cover migration, IndexedDB assets, reload, offline and p
 
   await page.reload();
   await expect(coverImages).toHaveAttribute("src", /^blob:/);
-  await expect(coverImages).toHaveJSProperty("naturalWidth", 3000);
+  await expect(coverImages).toHaveJSProperty("naturalWidth", 1800);
   await page.route("**/*", (route) =>
     route.request().resourceType() === "image" ? route.abort() : route.continue(),
   );
   await page.reload();
-  await expect(coverImages).toHaveJSProperty("naturalWidth", 3000);
+  await expect(coverImages).toHaveJSProperty("naturalWidth", 1800);
 
   await page.goto("/print");
   await expect(page.locator("html")).toHaveAttribute("data-print-ready", "true");
@@ -187,9 +241,10 @@ test("real PDF accepts legacy portable JSON and has the fixture page count", asy
 test("blank is empty and preserves a manual composition in reload, print and PDF", async ({
   page,
 }, testInfo) => {
+  await seedBookOnce(page);
   await page.goto("/");
-  await page.getByRole("button", { name: "Adicionar Página em branco depois" }).first().click();
-  const blankThumbnail = page.locator("button .k-page[data-template='blank']").last();
+  await page.getByRole("button", { name: "Adicionar Página em branco depois" }).click();
+  const blankThumbnail = page.locator("button .k-page[data-template='blank']");
   await blankThumbnail.locator("xpath=ancestor::button[1]").click();
   const blankPage = page.locator(".k-editor-page[data-template='blank']");
   await expect(blankPage).toBeVisible();
@@ -224,7 +279,33 @@ test("blank is empty and preserves a manual composition in reload, print and PDF
   await expect(blankPage.locator(".k-block--text")).toHaveCSS("top", /px/);
   await expect(blankPage.locator(".k-block--image")).toHaveCount(1);
   await expect(blankPage.locator(".k-block--shape")).toHaveCount(1);
-  await page.waitForTimeout(700);
+  await expect(blankPage.locator("[data-block-id]")).toHaveCount(4);
+  await expect
+    .poll(() =>
+      page.evaluate((key) => {
+        const raw = localStorage.getItem(key);
+        if (!raw) return null;
+        const blank = JSON.parse(raw).pages.find(
+          (candidate: { template?: string }) => candidate.template === "blank",
+        );
+        return blank?.blocks?.length ?? null;
+      }, storageKey),
+    )
+    .toBe(4);
+  await expect(page.getByTitle("O autosave local continua ativo mesmo sem a nuvem.")).toContainText(
+    "salvo localmente",
+  );
+  const savedBook = await page.evaluate(
+    (key) => JSON.parse(localStorage.getItem(key) ?? "null"),
+    storageKey,
+  );
+  const savedBlank = savedBook.pages.find(
+    (candidate: { template?: string }) => candidate.template === "blank",
+  );
+  expect(savedBlank.blocks).toHaveLength(4);
+  expect(
+    savedBlank.blocks.map((block: { frame?: unknown }) => block.frame).filter(Boolean),
+  ).toHaveLength(4);
   await page.reload();
   await expect(blankPage.locator("[data-block-id]")).toHaveCount(4);
   await expect(blankPage.locator(".k-block--text")).toHaveAttribute("style", /top: 180mm/);
