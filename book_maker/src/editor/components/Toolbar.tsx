@@ -33,6 +33,7 @@ import {
 const BLOCK_CLIPBOARD_KEY = "kallistis.book-builder.block-clipboard.v1";
 
 const OVERLAY_LABELS: { key: keyof Overlays; label: string }[] = [
+  { key: "rulers", label: "Réguas" },
   { key: "margins", label: "Margens" },
   { key: "bleed", label: "Sangria" },
   { key: "safe", label: "Área segura" },

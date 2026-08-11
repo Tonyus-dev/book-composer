@@ -73,6 +73,7 @@ const RHYTHM_CONFIG_KEY = "kallistis.rhythm-config.v1";
 export type ZoomValue = 0.5 | 0.75 | 1 | "fit";
 
 export interface Overlays {
+  rulers: boolean;
   margins: boolean;
   bleed: boolean;
   safe: boolean;
@@ -226,6 +227,7 @@ export function EditorProvider({ children }: { children: ReactNode }) {
   const [showRhythmStrip, setShowRhythmStrip] = useState(true);
   const [snapGrid, setSnapGrid] = useState(false);
   const [overlays, setOverlays] = useState<Overlays>({
+    rulers: true,
     margins: true,
     bleed: false,
     safe: false,

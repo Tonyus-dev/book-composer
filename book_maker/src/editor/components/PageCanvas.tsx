@@ -28,6 +28,112 @@ function OverlayLayers({ overlays }: { overlays: Overlays }) {
 
 const CSS_PX_PER_MM = 96 / 25.4;
 
+function mmValue(value: string) {
+  const parsed = Number.parseFloat(value);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 0;
+}
+
+function rulerTicks(lengthMm: number) {
+  return Array.from({ length: Math.floor(lengthMm) + 1 }, (_, value) => value);
+}
+
+function RulerOverlay({
+  book,
+  point,
+}: {
+  book: Book;
+  point: { x: number; y: number; xMm: number; yMm: number } | null;
+}) {
+  const widthMm = mmValue(book.tokens.pageWidth);
+  const heightMm = mmValue(book.tokens.pageHeight);
+  const bleedMm = mmValue(book.tokens.bleed);
+  const marginInnerMm = mmValue(book.tokens.marginInner);
+  const marginOuterMm = mmValue(book.tokens.marginOuter);
+  const marginTopMm = mmValue(book.tokens.marginTop);
+  const marginBottomMm = mmValue(book.tokens.marginBottom);
+  const horizontalTicks = rulerTicks(widthMm);
+  const verticalTicks = rulerTicks(heightMm);
+  const horizontalPosition = (value: number) => `${(value / widthMm) * 100}%`;
+  const verticalPosition = (value: number) => `${(value / heightMm) * 100}%`;
+
+  return (
+    <div className="k-editor-ruler" data-testid="ruler-overlay" aria-label="Réguas da página">
+      <div className="k-editor-ruler__top" aria-hidden="true">
+        {horizontalTicks.map((value) => (
+          <span
+            key={`x-${value}`}
+            className={`k-editor-ruler__tick${value % 10 === 0 ? " is-major" : value % 5 === 0 ? " is-medium" : ""}`}
+            style={{ left: horizontalPosition(value) }}
+          >
+            {value % 10 === 0 ? <b>{value}</b> : null}
+          </span>
+        ))}
+        <span
+          className="k-editor-ruler__marker k-editor-ruler__marker--inner"
+          style={{ left: horizontalPosition(marginInnerMm) }}
+          title={`Margem interna: ${marginInnerMm} mm`}
+        />
+        <span
+          className="k-editor-ruler__marker k-editor-ruler__marker--outer"
+          style={{ left: horizontalPosition(Math.max(0, widthMm - marginOuterMm)) }}
+          title={`Margem externa: ${marginOuterMm} mm`}
+        />
+        <span className="k-editor-ruler__center" style={{ left: "50%" }}>
+          ½
+        </span>
+      </div>
+      <div className="k-editor-ruler__left" aria-hidden="true">
+        {verticalTicks.map((value) => (
+          <span
+            key={`y-${value}`}
+            className={`k-editor-ruler__tick${value % 10 === 0 ? " is-major" : value % 5 === 0 ? " is-medium" : ""}`}
+            style={{ top: verticalPosition(value) }}
+          >
+            {value % 10 === 0 ? <b>{value}</b> : null}
+          </span>
+        ))}
+        <span
+          className="k-editor-ruler__marker k-editor-ruler__marker--top"
+          style={{ top: verticalPosition(marginTopMm) }}
+          title={`Margem superior: ${marginTopMm} mm`}
+        />
+        <span
+          className="k-editor-ruler__marker k-editor-ruler__marker--bottom"
+          style={{ top: verticalPosition(Math.max(0, heightMm - marginBottomMm)) }}
+          title={`Margem inferior: ${marginBottomMm} mm`}
+        />
+        <span className="k-editor-ruler__center" style={{ top: "50%" }}>
+          ½
+        </span>
+      </div>
+      <div className="k-editor-ruler__bleed-label" aria-hidden="true">
+        Sangria {bleedMm} mm
+      </div>
+      {point ? (
+        <>
+          <span
+            className="k-editor-ruler__crosshair k-editor-ruler__crosshair--vertical"
+            style={{ left: point.x }}
+            aria-hidden="true"
+          />
+          <span
+            className="k-editor-ruler__crosshair k-editor-ruler__crosshair--horizontal"
+            style={{ top: point.y }}
+            aria-hidden="true"
+          />
+          <output
+            className="k-editor-ruler__readout"
+            data-testid="ruler-readout"
+            style={{ left: point.x, top: point.y }}
+          >
+            X {point.xMm.toFixed(1)} mm · Y {point.yMm.toFixed(1)} mm
+          </output>
+        </>
+      ) : null}
+    </div>
+  );
+}
+
 type ResizeBox = { left: number; top: number; width: number; height: number };
 
 function findBlockElement(pageElement: HTMLElement, blockId: string) {
@@ -449,6 +555,41 @@ export function PageCanvas({
   } = useEditor();
   const ref = useRef<HTMLDivElement>(null);
   const [editingBlockId, setEditingBlockId] = useState<string | null>(null);
+  const [rulerPoint, setRulerPoint] = useState<{
+    x: number;
+    y: number;
+    xMm: number;
+    yMm: number;
+  } | null>(null);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!active || !overlays.rulers || !node) {
+      setRulerPoint(null);
+      return;
+    }
+    const move = (event: PointerEvent) => {
+      const rect = node.getBoundingClientRect();
+      const scale = node.offsetWidth > 0 ? rect.width / node.offsetWidth : 1;
+      const x = Math.max(0, Math.min(node.offsetWidth, (event.clientX - rect.left) / scale));
+      const y = Math.max(0, Math.min(node.offsetHeight, (event.clientY - rect.top) / scale));
+      const widthMm = mmValue(book.tokens.pageWidth);
+      const heightMm = mmValue(book.tokens.pageHeight);
+      setRulerPoint({
+        x,
+        y,
+        xMm: node.offsetWidth > 0 ? (x / node.offsetWidth) * widthMm : 0,
+        yMm: node.offsetHeight > 0 ? (y / node.offsetHeight) * heightMm : 0,
+      });
+    };
+    const leave = () => setRulerPoint(null);
+    node.addEventListener("pointermove", move);
+    node.addEventListener("pointerleave", leave);
+    return () => {
+      node.removeEventListener("pointermove", move);
+      node.removeEventListener("pointerleave", leave);
+    };
+  }, [active, book.tokens.pageHeight, book.tokens.pageWidth, overlays.rulers, page.id]);
 
   const handleAssetDrop = (event: React.DragEvent<HTMLElement>) => {
     const raw = event.dataTransfer.getData("application/x-kallistis-asset");
@@ -547,6 +688,7 @@ export function PageCanvas({
         overflow={Boolean(overflowPages[page.id])}
       >
         <OverlayLayers overlays={overlays} />
+        {active && overlays.rulers ? <RulerOverlay book={book} point={rulerPoint} /> : null}
         {active && selectedBlock?.type === "image" ? (
           <ImageResizeOverlay
             pageRef={ref}

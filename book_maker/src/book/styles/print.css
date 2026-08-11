@@ -81,4 +81,8 @@
   .k-overlay {
     display: none !important;
   }
+
+  .k-editor-ruler {
+    display: none !important;
+  }
 }
