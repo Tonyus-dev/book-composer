@@ -93,6 +93,27 @@ function describeBlock(block: Block): string {
   }
 }
 
+function RecipeThumbnail({ recipe }: { recipe: BookRecipe }) {
+  const nodes = recipe.structure.slice(0, 8);
+  return (
+    <div
+      className="grid h-12 w-16 shrink-0 grid-cols-3 grid-rows-3 gap-px border border-border bg-border p-px"
+      aria-label={`Preview do modelo ${recipe.name}`}
+    >
+      {nodes.map((node) => (
+        <span
+          key={node.recipeBlockId}
+          className={`min-h-0 overflow-hidden px-0.5 text-[6px] leading-tight ${
+            node.mode === "fixed" ? "bg-muted text-muted-foreground" : "bg-primary/20 text-primary"
+          }`}
+        >
+          {node.slotKey ?? "fixo"}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 interface RecipeDialogProps {
   page: Page;
   recipes: BookRecipe[];
@@ -294,6 +315,7 @@ export function RecipeDialog({
               key={recipe.id}
               className="flex items-center justify-between gap-2 border-b border-border py-2 last:border-0"
             >
+              <RecipeThumbnail recipe={recipe} />
               <div className="min-w-0">
                 <div className="truncate text-xs font-medium">{recipe.name}</div>
                 <div className="text-[10px] text-muted-foreground">
