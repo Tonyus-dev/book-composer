@@ -7,7 +7,7 @@ import { loadLocalBook, normalizeBook } from "../lib/persistence/local";
 import { registerBookAssets } from "../lib/assets/registry";
 import { buildReport } from "../lib/preflight/report";
 import { measureIssues } from "../lib/preflight/measure";
-import { demoBook } from "../data/demo-book";
+import { canonicalBook } from "../data/canonical-book";
 
 const title = "KALLISTIS — impressão do Livro Básico";
 const description =
@@ -34,21 +34,31 @@ export const Route = createFileRoute("/print")({
  */
 function PrintView() {
   const { src } = useSearch({ from: "/print" });
-  const [book, setBook] = useState<Book>(demoBook);
-  const [ready, setReady] = useState(false);
+  const initialInjected =
+    typeof window !== "undefined"
+      ? (window as unknown as { __KALLISTIS_BOOK__?: unknown }).__KALLISTIS_BOOK__
+      : undefined;
+  const [book, setBook] = useState<Book>(() =>
+    initialInjected ? normalizeBook(initialInjected) : canonicalBook,
+  );
+  const [sourceResolved, setSourceResolved] = useState(Boolean(initialInjected) || !src);
 
   /* Assets embutidos no JSON precisam estar mapeados antes de pintar as páginas. */
   registerBookAssets(book.assets);
 
   useEffect(() => {
     let cancelled = false;
+    setSourceResolved(false);
 
     const run = async () => {
       // 1. JSON injetado pelo exportador (Playwright) — export reprodutível.
       const injected = (window as unknown as { __KALLISTIS_BOOK__?: unknown }).__KALLISTIS_BOOK__;
       if (injected) {
         try {
-          setBook(normalizeBook(injected));
+          if (!cancelled) {
+            setBook(normalizeBook(injected));
+            setSourceResolved(true);
+          }
           return;
         } catch (error) {
           console.error("[kallistis] JSON injetado inválido", error);
@@ -61,7 +71,10 @@ function PrintView() {
           const response = await fetch(src);
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           const parsed = normalizeBook(await response.json());
-          if (!cancelled) setBook(parsed);
+          if (!cancelled) {
+            setBook(parsed);
+            setSourceResolved(true);
+          }
           return;
         } catch (error) {
           console.error("[kallistis] falha ao carregar JSON de", src, error);
@@ -70,12 +83,13 @@ function PrintView() {
 
       // 3. Projeto local do editor.
       const local = loadLocalBook();
-      if (local && local.pages.length > 0 && !cancelled) setBook(local);
+      if (!cancelled) {
+        if (local && local.pages.length > 0) setBook(local);
+        setSourceResolved(true);
+      }
     };
 
-    void run().finally(() => {
-      if (!cancelled) setReady(true);
-    });
+    void run();
 
     return () => {
       cancelled = true;
@@ -83,7 +97,7 @@ function PrintView() {
   }, [src]);
 
   useEffect(() => {
-    if (!ready) return;
+    if (!sourceResolved) return;
     let cancelled = false;
     const flag = async () => {
       const images = Array.from(document.images);
@@ -98,21 +112,49 @@ function PrintView() {
         ),
       );
       if (document.fonts?.ready) await document.fonts.ready;
+      await new Promise(requestAnimationFrame);
+      await new Promise(requestAnimationFrame);
       if (cancelled) return;
       /*
        * Preflight completo (estático + medições no DOM impresso) publicado
        * para o exportador auditar antes de gerar o PDF de produção.
        */
+      const expectedIds = book.pages.map((page) => page.id);
+      const renderedIds = Array.from(
+        document.querySelectorAll<HTMLElement>(".k-page[data-page-id]"),
+        (page) => page.dataset["pageId"] ?? "",
+      );
+      if (
+        renderedIds.length !== expectedIds.length ||
+        renderedIds.some((id, index) => id !== expectedIds[index])
+      ) {
+        console.error("[kallistis] render incompleto em /print", {
+          expected: expectedIds.length,
+          rendered: renderedIds.length,
+        });
+        return;
+      }
       const report = buildReport(book, measureIssues(document.body, book), { measured: true });
       (window as unknown as { __KALLISTIS_PREFLIGHT__?: unknown }).__KALLISTIS_PREFLIGHT__ = report;
       document.documentElement.dataset["preflightErrors"] = String(report.summary.errors);
+      const afterIds = Array.from(
+        document.querySelectorAll<HTMLElement>(".k-page[data-page-id]"),
+        (page) => page.dataset["pageId"] ?? "",
+      );
+      if (
+        afterIds.length !== expectedIds.length ||
+        afterIds.some((id, index) => id !== expectedIds[index])
+      ) {
+        console.error("[kallistis] render mudou durante o preflight de /print");
+        return;
+      }
       if (!cancelled) document.documentElement.dataset["printReady"] = "true";
     };
     void flag();
     return () => {
       cancelled = true;
     };
-  }, [ready, book]);
+  }, [sourceResolved, book]);
 
   return (
     <BookRoot tokens={book.tokens} className="k-print">

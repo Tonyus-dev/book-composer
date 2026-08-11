@@ -62,7 +62,7 @@ Actions, defina os secrets do repositório:
 ## GitHub Actions
 
 - `.github/workflows/ci.yml` — lint, typecheck e build em push/PR
-- `.github/workflows/deploy.yml` — deploy na Cloudflare em push na `main` (ou manual)
+- `.github/workflows/deploy.yml` — deploy na Cloudflare em push na `master` (ou manual)
 
 ## Stack
 

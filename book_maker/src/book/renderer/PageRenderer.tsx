@@ -2,6 +2,7 @@ import { forwardRef, type CSSProperties } from "react";
 import type { Book, Page } from "../types";
 import { TEMPLATES } from "../templates";
 import { PageFooterNote, PageHeader, PageNumber } from "../components/BookComponents";
+import { useBookRender } from "./context";
 
 export interface PageRenderProps {
   book: Book;
@@ -33,6 +34,7 @@ export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function
   { book, page, index, className, style, children, onClick, overflow },
   ref,
 ) {
+  const { interactive, onSelectBlock } = useBookRender();
   const definition = TEMPLATES[page.template];
   const Template = definition.component;
   const folio = folioFor(book, index);
@@ -50,6 +52,16 @@ export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function
     .join(" ");
 
   const templateProps = { page, meta: book.meta, folio, verso };
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    const block = (event.target as HTMLElement).closest<HTMLElement>("[data-block-id]");
+    const blockId = block?.dataset["blockId"];
+    if (interactive && blockId) {
+      event.stopPropagation();
+      onSelectBlock?.(blockId);
+      return;
+    }
+    onClick?.();
+  };
 
   return (
     <section
@@ -59,7 +71,7 @@ export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function
       data-page-id={page.id}
       data-folio={folio}
       data-overflow={overflow ? "true" : undefined}
-      onClick={onClick}
+      onClick={interactive ? handleClick : onClick}
       aria-label={`Página ${folio}${page.title ? ` — ${page.title}` : ""}`}
     >
       {page.settings.header ? (

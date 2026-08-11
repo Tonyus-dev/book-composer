@@ -18,6 +18,7 @@ import type {
 } from "../../book/types";
 import { TEMPLATES } from "../../book/templates";
 import { demoBook } from "../../data/demo-book";
+import { canonicalBook } from "../../data/canonical-book";
 import { loadLocalBook, saveLocalBook } from "../../lib/persistence/local";
 import {
   emptyPageGuide,
@@ -146,9 +147,9 @@ function replacePageIdInNodes(book: Book, oldId: string, newIds: string[]): Book
 }
 
 export function EditorProvider({ children }: { children: ReactNode }) {
-  const [book, setBook] = useState<Book>(demoBook);
+  const [book, setBook] = useState<Book>(canonicalBook);
   const [hydrated, setHydrated] = useState(false);
-  const [selectedPageId, setSelectedPageId] = useState<string>(demoBook.pages[0]!.id);
+  const [selectedPageId, setSelectedPageId] = useState<string>(canonicalBook.pages[0]!.id);
   const [selectedBlockId, setSelectedBlockId] = useState<string | null>(null);
   const [view, setView] = useState<ViewMode>("page");
   const [zoom, setZoom] = useState<ZoomValue>("fit");
@@ -168,17 +169,17 @@ export function EditorProvider({ children }: { children: ReactNode }) {
   });
   const [productionPlan, setProductionPlanState] = useState<ProductionPlan>(() => ({
     version: 1,
-    bookId: productionPlanForBookId(demoBook),
+    bookId: productionPlanForBookId(canonicalBook),
     pages: {},
   }));
 
-  /* Estado inicial: projeto demo; se existir projeto local, ele tem precedência.
+  /* Estado inicial: projeto editorial versionado; se existir projeto local, ele tem precedência.
      O production plan segue a mesma hierarquia: localStorage primeiro, depois
      sidecar versionável em /projects/kallistis-production-plan.json (fetch
      assíncrono, sem bloquear a hidratação do livro). */
   useEffect(() => {
     const local = loadLocalBook();
-    const nextBook = local && local.pages.length > 0 ? local : demoBook;
+    const nextBook = local && local.pages.length > 0 ? local : canonicalBook;
     if (local && local.pages.length > 0) {
       setBook(local);
       setSelectedPageId(local.pages[0]!.id);
