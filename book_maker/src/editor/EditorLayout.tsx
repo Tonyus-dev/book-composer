@@ -12,6 +12,12 @@ import "./styles/editor.css";
 /** Três painéis: ESTRUTURA · PREVIEW · PROPRIEDADES (assets abaixo da estrutura). */
 export function EditorLayout() {
   const [allowed, setAllowed] = useState<boolean | null>(import.meta.env.DEV ? true : null);
+  const [leftPanelOpen, setLeftPanelOpen] = useState(() =>
+    typeof window === "undefined" ? true : window.matchMedia("(min-width: 900px)").matches,
+  );
+  const [rightPanelOpen, setRightPanelOpen] = useState(() =>
+    typeof window === "undefined" ? true : window.matchMedia("(min-width: 1100px)").matches,
+  );
 
   useEffect(() => {
     if (import.meta.env.DEV) return;
@@ -33,8 +39,12 @@ export function EditorLayout() {
     <EditorProvider>
       <div className="flex h-screen flex-col overflow-hidden bg-background text-foreground">
         <Toolbar />
-        <div className="flex min-h-0 flex-1">
-          <aside className="flex w-[268px] shrink-0 flex-col border-r border-border bg-card">
+        <div className="k-editor-workspace flex min-h-0 flex-1">
+          <aside
+            id="k-editor-left-panel"
+            className={`k-editor-side-panel k-editor-side-panel--left flex w-[268px] shrink-0 flex-col border-r border-border bg-card ${leftPanelOpen ? "is-open" : "is-closed"}`}
+            aria-hidden={!leftPanelOpen}
+          >
             <div className="min-h-0 flex-1">
               <StructurePanel />
             </div>
@@ -43,11 +53,35 @@ export function EditorLayout() {
             </div>
           </aside>
 
-          <main className="flex min-w-0 flex-1 flex-col">
+          <main className="relative flex min-w-0 flex-1 flex-col">
+            <div className="k-editor-panel-controls" role="toolbar" aria-label="Painéis laterais">
+              <button
+                type="button"
+                className="k-editor-panel-toggle"
+                aria-expanded={leftPanelOpen}
+                aria-controls="k-editor-left-panel"
+                onClick={() => setLeftPanelOpen((open) => !open)}
+              >
+                ☰ <span>Estrutura e assets</span>
+              </button>
+              <button
+                type="button"
+                className="k-editor-panel-toggle k-editor-panel-toggle--right"
+                aria-expanded={rightPanelOpen}
+                aria-controls="k-editor-right-panel"
+                onClick={() => setRightPanelOpen((open) => !open)}
+              >
+                <span>Propriedades</span> ☰
+              </button>
+            </div>
             <PreviewArea />
           </main>
 
-          <aside className="w-[300px] shrink-0 border-l border-border bg-card">
+          <aside
+            id="k-editor-right-panel"
+            className={`k-editor-side-panel k-editor-side-panel--right w-[300px] shrink-0 border-l border-border bg-card ${rightPanelOpen ? "is-open" : "is-closed"}`}
+            aria-hidden={!rightPanelOpen}
+          >
             <PropertiesPanel />
           </aside>
         </div>

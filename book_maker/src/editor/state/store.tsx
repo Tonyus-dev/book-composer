@@ -27,7 +27,12 @@ import type {
 import { TEMPLATES } from "../../book/templates";
 import { demoBook } from "../../data/demo-book";
 import { canonicalBook } from "../../data/canonical-book";
-import { loadLocalBook, saveLocalBook } from "../../lib/persistence/local";
+import {
+  getActiveLocalProjectId,
+  loadLocalBook,
+  saveLocalBook,
+  setActiveLocalProjectId,
+} from "../../lib/persistence/local";
 import { normalizeBook } from "../../lib/persistence/local";
 import { cloudProjectId, loadCloudProject, saveCloudSnapshot } from "../../lib/persistence/cloud";
 import {
@@ -149,6 +154,8 @@ interface EditorContextValue {
   issuesForPage: (pageId: string) => PreflightIssue[];
   focusIssue: (issue: PreflightIssue) => void;
   replaceBook: (book: Book) => void;
+  projectId: string;
+  switchLocalProject: (projectId: string, book: Book) => void;
   insertPage: (page: Page) => void;
   resetToDemo: () => void;
   saveRecipe: (recipe: BookRecipe) => void;
@@ -192,6 +199,8 @@ function replacePageIdInNodes(book: Book, oldId: string, newIds: string[]): Book
 
 export function EditorProvider({ children }: { children: ReactNode }) {
   const [book, setBookState] = useState<Book>(INITIAL_BOOK);
+  const [projectId, setProjectId] = useState(() => getActiveLocalProjectId());
+  const initialProjectIdRef = useRef(projectId);
   const historyRef = useRef<{ past: Book[]; future: Book[] }>({ past: [], future: [] });
   const setBook = useCallback((updater: SetStateAction<Book>) => {
     setBookState((previous) => {
@@ -239,7 +248,7 @@ export function EditorProvider({ children }: { children: ReactNode }) {
      sidecar versionável em /projects/kallistis-production-plan.json (fetch
      assíncrono, sem bloquear a hidratação do livro). */
   useEffect(() => {
-    const local = loadLocalBook();
+    const local = loadLocalBook(initialProjectIdRef.current);
     const nextBook = local && local.pages.length > 0 ? local : INITIAL_BOOK;
     if (local && local.pages.length > 0) {
       setBook(local);
@@ -331,11 +340,11 @@ export function EditorProvider({ children }: { children: ReactNode }) {
     if (!hydrated) return;
     setStatus("saving");
     const timer = window.setTimeout(() => {
-      saveLocalBook(book);
+      saveLocalBook(book, projectId);
       setStatus("saved");
     }, 400);
     return () => window.clearTimeout(timer);
-  }, [book, hydrated]);
+  }, [book, hydrated, projectId]);
 
   /* Cloud autosave: debounce longo, independente do autosave local. O servidor
      rejeita revisões concorrentes; nunca sobrescrevemos outra máquina às cegas. */
@@ -764,6 +773,16 @@ export function EditorProvider({ children }: { children: ReactNode }) {
         setSelectedPageId(normalized.pages[0]!.id);
         setSelectedBlockId(null);
       },
+      projectId,
+      switchLocalProject: (nextProjectId, nextBook) => {
+        const normalized = normalizeBook(nextBook);
+        setActiveLocalProjectId(nextProjectId);
+        setProjectId(nextProjectId);
+        setBook(normalized);
+        setSelectedPageId(normalized.pages[0]!.id);
+        setSelectedBlockId(null);
+        historyRef.current = { past: [], future: [] };
+      },
       insertPage: (sourcePage) => {
         const clone: Page = {
           ...sourcePage,
@@ -930,6 +949,7 @@ export function EditorProvider({ children }: { children: ReactNode }) {
     view,
     zoom,
     productionPlan,
+    projectId,
   ]);
 
   return <EditorContext.Provider value={value}>{children}</EditorContext.Provider>;

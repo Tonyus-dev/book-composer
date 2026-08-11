@@ -47,12 +47,26 @@ export function BodyText({ block }: { block: TextBlock }) {
   ]
     .filter(Boolean)
     .join(" ");
+  const boxOpacity = Math.max(0, Math.min(100, block.boxOpacity ?? 0));
+  const boxGrain = Math.max(0, Math.min(100, block.boxGrain ?? 0));
+  const boxColor = block.boxColor ?? "#542869";
   return (
     <div
-      className={classes}
+      className={`${classes}${boxOpacity > 0 || boxGrain > 0 ? " k-body--text-box" : ""}`}
       style={{
         maxWidth: block.width,
         textAlign: block.align === "justify" ? "justify" : block.align,
+        ...(boxOpacity > 0 || boxGrain > 0
+          ? {
+              backgroundColor: `color-mix(in srgb, ${boxColor} ${boxOpacity}%, transparent)`,
+              backgroundImage:
+                boxGrain > 0
+                  ? `radial-gradient(circle at 20% 30%, rgb(0 0 0 / ${boxGrain * 0.0016}) 0 0.45px, transparent 0.8px), radial-gradient(circle at 70% 60%, rgb(255 255 255 / ${boxGrain * 0.0012}) 0 0.5px, transparent 0.9px)`
+                  : undefined,
+              backgroundSize: boxGrain > 0 ? "4px 4px, 5px 5px" : undefined,
+              backgroundBlendMode: boxGrain > 0 ? "multiply" : undefined,
+            }
+          : {}),
       }}
     >
       <Markdown source={block.content} />

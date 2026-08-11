@@ -50,6 +50,7 @@ function ImageResizeOverlay({
 }) {
   const [box, setBox] = useState<ResizeBox | null>(null);
   const [cropMode, setCropMode] = useState(false);
+  const cleanupDragRef = useRef<(() => void) | null>(null);
 
   const syncBox = useCallback(() => {
     const pageElement = pageRef.current;
@@ -92,6 +93,8 @@ function ImageResizeOverlay({
     };
   }, [syncBox]);
 
+  useEffect(() => () => cleanupDragRef.current?.(), []);
+
   if (!box) return null;
 
   const handlePointerDown = (event: ReactPointerEvent<HTMLElement>) => {
@@ -101,7 +104,10 @@ function ImageResizeOverlay({
     if (!pageElement) return;
     const target = findBlockElement(pageElement, block.id);
     if (!target) return;
-    event.currentTarget.setPointerCapture(event.pointerId);
+    cleanupDragRef.current?.();
+    const pointerTarget = event.currentTarget;
+    const pointerId = event.pointerId;
+    pointerTarget.setPointerCapture(pointerId);
 
     const pageRect = pageElement.getBoundingClientRect();
     const targetRect = target.getBoundingClientRect();
@@ -121,6 +127,12 @@ function ImageResizeOverlay({
     const ratio = startHeight > 0 ? startWidth / startHeight : 1;
 
     const onPointerMove = (moveEvent: PointerEvent) => {
+      // Alguns navegadores podem perder o pointerup ao sair do canvas. Um
+      // movimento sem botões pressionados encerra o gesto órfão imediatamente.
+      if (moveEvent.buttons === 0) {
+        onPointerUp();
+        return;
+      }
       if (cropMode) {
         updateBlock(pageId, block.id, {
           objectX: Math.max(
@@ -164,11 +176,23 @@ function ImageResizeOverlay({
     const onPointerUp = () => {
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerup", onPointerUp);
+      window.removeEventListener("pointercancel", onPointerUp);
+      pointerTarget.removeEventListener("lostpointercapture", onPointerUp);
+      try {
+        if (pointerTarget.hasPointerCapture(pointerId))
+          pointerTarget.releasePointerCapture(pointerId);
+      } catch {
+        /* o ponteiro pode já ter sido liberado pelo navegador */
+      }
+      if (cleanupDragRef.current === onPointerUp) cleanupDragRef.current = null;
       syncBox();
     };
+    cleanupDragRef.current = onPointerUp;
 
     window.addEventListener("pointermove", onPointerMove);
     window.addEventListener("pointerup", onPointerUp, { once: true });
+    window.addEventListener("pointercancel", onPointerUp, { once: true });
+    pointerTarget.addEventListener("lostpointercapture", onPointerUp);
   };
 
   return (
@@ -181,13 +205,43 @@ function ImageResizeOverlay({
         event.stopPropagation();
         setCropMode((value) => !value);
       }}
+      onPointerUp={() => cleanupDragRef.current?.()}
+      onPointerCancel={() => cleanupDragRef.current?.()}
     >
+      <div
+        className="k-editor-image-mode-toolbar"
+        role="group"
+        aria-label="Modo de manipulação da imagem"
+        onPointerDown={(event) => event.stopPropagation()}
+        onClick={(event) => event.stopPropagation()}
+      >
+        <button
+          type="button"
+          className={!cropMode ? "is-active" : ""}
+          aria-pressed={!cropMode}
+          data-testid="image-box-mode"
+          onClick={() => setCropMode(false)}
+        >
+          Mover caixa
+        </button>
+        <button
+          type="button"
+          className={cropMode ? "is-active" : ""}
+          aria-pressed={cropMode}
+          data-testid="image-content-mode"
+          onClick={() => setCropMode(true)}
+        >
+          Mover imagem
+        </button>
+      </div>
       <div
         className={`k-editor-image-crop-surface${cropMode ? " is-crop-mode" : ""}`}
         data-testid="image-drag-surface"
         data-resize="false"
         aria-label={cropMode ? "Mover imagem dentro do recorte" : "Mover imagem na página"}
         onPointerDown={handlePointerDown}
+        onPointerUp={() => cleanupDragRef.current?.()}
+        onPointerCancel={() => cleanupDragRef.current?.()}
       />
       <button
         type="button"
@@ -195,7 +249,8 @@ function ImageResizeOverlay({
         data-testid="image-resize-handle"
         aria-label="Redimensionar imagem"
         onPointerDown={handlePointerDown}
-        onPointerUp={(event) => event.stopPropagation()}
+        onPointerUp={() => cleanupDragRef.current?.()}
+        onPointerCancel={() => cleanupDragRef.current?.()}
       />
     </div>
   );
@@ -217,6 +272,7 @@ function BlockTransformOverlay({
   snapGrid: boolean;
 }) {
   const [box, setBox] = useState<ResizeBox | null>(null);
+  const cleanupDragRef = useRef<(() => void) | null>(null);
   const syncBox = useCallback(() => {
     const pageElement = pageRef.current;
     if (!pageElement) return;
@@ -253,6 +309,8 @@ function BlockTransformOverlay({
     };
   }, [syncBox]);
 
+  useEffect(() => () => cleanupDragRef.current?.(), []);
+
   if (!box) return null;
 
   const onPointerDown = (event: ReactPointerEvent<HTMLElement>) => {
@@ -262,7 +320,10 @@ function BlockTransformOverlay({
     if (!pageElement) return;
     const target = findBlockElement(pageElement, block.id);
     if (!target) return;
-    event.currentTarget.setPointerCapture(event.pointerId);
+    cleanupDragRef.current?.();
+    const pointerTarget = event.currentTarget;
+    const pointerId = event.pointerId;
+    pointerTarget.setPointerCapture(pointerId);
     const pageRect = pageElement.getBoundingClientRect();
     const contentRect =
       pageElement.querySelector<HTMLElement>(".k-page__content")?.getBoundingClientRect() ??
@@ -280,6 +341,12 @@ function BlockTransformOverlay({
     const startX = event.clientX;
     const startY = event.clientY;
     const move = (moveEvent: PointerEvent) => {
+      // Recupera o estado caso o navegador entregue um pointermove sem
+      // pointerup após o cursor deixar a área do editor.
+      if (moveEvent.buttons === 0) {
+        stop();
+        return;
+      }
       const dx = (moveEvent.clientX - startX) / scale / pxPerMm;
       const dy = (moveEvent.clientY - startY) / scale / pxPerMm;
       const next = resize
@@ -300,10 +367,22 @@ function BlockTransformOverlay({
     const stop = () => {
       window.removeEventListener("pointermove", move);
       window.removeEventListener("pointerup", stop);
+      window.removeEventListener("pointercancel", stop);
+      pointerTarget.removeEventListener("lostpointercapture", stop);
+      try {
+        if (pointerTarget.hasPointerCapture(pointerId))
+          pointerTarget.releasePointerCapture(pointerId);
+      } catch {
+        /* o ponteiro pode já ter sido liberado pelo navegador */
+      }
+      if (cleanupDragRef.current === stop) cleanupDragRef.current = null;
       syncBox();
     };
+    cleanupDragRef.current = stop;
     window.addEventListener("pointermove", move);
     window.addEventListener("pointerup", stop, { once: true });
+    window.addEventListener("pointercancel", stop, { once: true });
+    pointerTarget.addEventListener("lostpointercapture", stop);
   };
 
   return (
@@ -316,6 +395,8 @@ function BlockTransformOverlay({
         event.stopPropagation();
         if (["text", "heading", "quote", "caption", "box"].includes(block.type)) onEdit();
       }}
+      onPointerUp={() => cleanupDragRef.current?.()}
+      onPointerCancel={() => cleanupDragRef.current?.()}
     >
       <div
         className="k-editor-transform-surface"
@@ -323,6 +404,8 @@ function BlockTransformOverlay({
         data-resize="false"
         aria-label={`Mover bloco ${block.type}`}
         onPointerDown={onPointerDown}
+        onPointerUp={() => cleanupDragRef.current?.()}
+        onPointerCancel={() => cleanupDragRef.current?.()}
       />
       <button
         type="button"
@@ -331,7 +414,8 @@ function BlockTransformOverlay({
         data-resize="true"
         aria-label={`Redimensionar bloco ${block.type}`}
         onPointerDown={onPointerDown}
-        onPointerUp={(event) => event.stopPropagation()}
+        onPointerUp={() => cleanupDragRef.current?.()}
+        onPointerCancel={() => cleanupDragRef.current?.()}
       />
     </div>
   );

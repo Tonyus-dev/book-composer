@@ -22,7 +22,15 @@ import {
 import { useEditor, nextId, type Overlays, type ZoomValue } from "../state/store";
 import { RecipeDialog } from "./RecipeDialog";
 import { logoutOwner } from "../../lib/auth";
-import { clearLocalBook } from "../../lib/persistence/local";
+import {
+  clearLocalBook,
+  createLocalProjectId,
+  listLocalProjects,
+  loadLocalBook,
+  type LocalProjectSummary,
+} from "../../lib/persistence/local";
+
+const BLOCK_CLIPBOARD_KEY = "kallistis.book-builder.block-clipboard.v1";
 
 const OVERLAY_LABELS: { key: keyof Overlays; label: string }[] = [
   { key: "margins", label: "Margens" },
@@ -143,7 +151,10 @@ export function Toolbar() {
     setTemplate,
     addBlock,
     selectBlock,
+    selectedBlock,
     replaceBook,
+    projectId,
+    switchLocalProject,
     insertPage,
     resetToDemo,
     preflight,
@@ -167,6 +178,11 @@ export function Toolbar() {
   const [newTableColumns, setNewTableColumns] = useState("3");
   const [newTableRows, setNewTableRows] = useState("5");
   const [newTableHeader, setNewTableHeader] = useState(true);
+  const [newProjectOpen, setNewProjectOpen] = useState(false);
+  const [newProjectTitle, setNewProjectTitle] = useState("Novo projeto KALLISTIS");
+  const [cloneSourceId, setCloneSourceId] = useState<string | null>(null);
+  const [projectLibraryOpen, setProjectLibraryOpen] = useState(false);
+  const [localProjects, setLocalProjects] = useState<LocalProjectSummary[]>([]);
   const [authoringOpen, setAuthoringOpen] = useState<
     "smart" | "ascii" | "form" | "sheet" | "recipes" | null
   >(null);
@@ -242,10 +258,9 @@ export function Toolbar() {
     selectBlock(block.id);
   };
 
-  const createNewProject = (clearStored = false) => {
-    const title = window.prompt("Nome do novo projeto", "Novo projeto KALLISTIS")?.trim();
-    if (!title) return;
-    if (clearStored) clearLocalBook();
+  const createNewProject = (title: string, clearStored = false) => {
+    if (!title.trim()) return;
+    if (clearStored) clearLocalBook(projectId);
     const page: Page = {
       id: `page-${Date.now().toString(36)}`,
       template: "narrative",
@@ -253,15 +268,64 @@ export function Toolbar() {
       settings: { ...selectedPage.settings, header: false, footer: false, pageNumber: false },
       blocks: [],
     };
-    replaceBook({
+    const nextBook = {
       ...book,
-      meta: { ...book.meta, title, edition: "Projeto editorial" },
+      meta: { ...book.meta, title: title.trim(), edition: "Projeto editorial" },
       pages: [page],
       nodes: [],
       assets: [],
       fonts: [],
       spreads: [],
-    });
+    };
+    switchLocalProject(createLocalProjectId(), nextBook);
+  };
+
+  const openProjectLibrary = () => {
+    setLocalProjects(listLocalProjects());
+    setProjectLibraryOpen(true);
+  };
+
+  const openLocalProject = (localProjectId: string) => {
+    const next = loadLocalBook(localProjectId);
+    if (!next) {
+      window.alert("O snapshot local deste projeto não está disponível.");
+      return;
+    }
+    switchLocalProject(localProjectId, next);
+    setProjectLibraryOpen(false);
+  };
+
+  const openProjectInWindow = (localProjectId: string) => {
+    const url = new URL(window.location.href);
+    url.searchParams.set("project", localProjectId);
+    window.open(url.toString(), "_blank", "noopener,noreferrer");
+  };
+
+  const requestCloneProject = (source: LocalProjectSummary) => {
+    setCloneSourceId(source.id);
+    setNewProjectTitle(`${source.title} — cópia`);
+    setProjectLibraryOpen(false);
+    setNewProjectOpen(true);
+  };
+
+  const copySelectedBlock = () => {
+    if (!selectedBlock) {
+      window.alert("Selecione um bloco antes de copiar.");
+      return;
+    }
+    window.localStorage.setItem(BLOCK_CLIPBOARD_KEY, JSON.stringify(selectedBlock));
+  };
+
+  const pasteCopiedBlock = () => {
+    try {
+      const raw = JSON.parse(window.localStorage.getItem(BLOCK_CLIPBOARD_KEY) ?? "null") as Block;
+      if (!raw || typeof raw.id !== "string" || typeof raw.type !== "string") throw new Error();
+      const pasted = cloneBlockForInsert(raw, 0);
+      addBlock(selectedPage.id, pasted);
+      selectBlock(pasted.id);
+    } catch {
+      window.alert("Nenhum bloco válido foi copiado entre os projetos.");
+    }
   };
 
   const exportCurrentPage = () => {
@@ -515,7 +579,11 @@ export function Toolbar() {
             <div className="absolute right-0 top-full z-50 mt-1 grid min-w-[190px] gap-1 border border-border bg-card p-2 shadow-xl">
               <button
                 type="button"
-                onClick={() => createNewProject()}
+                onClick={() => {
+                  setCloneSourceId(null);
+                  setNewProjectTitle("Novo projeto KALLISTIS");
+                  setNewProjectOpen(true);
+                }}
                 className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
               >
                 Novo projeto
@@ -533,6 +601,28 @@ export function Toolbar() {
                 className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
               >
                 Abrir projeto
+              </button>
+              <button
+                type="button"
+                onClick={openProjectLibrary}
+                className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
+              >
+                Biblioteca de projetos
+              </button>
+              <button
+                type="button"
+                onClick={copySelectedBlock}
+                disabled={!selectedBlock}
+                className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent disabled:opacity-40"
+              >
+                Copiar bloco selecionado
+              </button>
+              <button
+                type="button"
+                onClick={pasteCopiedBlock}
+                className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
+              >
+                Colar bloco de outro projeto
               </button>
               <button
                 type="button"
@@ -556,7 +646,9 @@ export function Toolbar() {
                       "Excluir o projeto local atual? O arquivo exportado e a nuvem não serão apagados.",
                     )
                   )
-                    createNewProject(true);
+                    clearLocalBook(projectId);
+                  setNewProjectTitle("Novo projeto KALLISTIS");
+                  setNewProjectOpen(true);
                 }}
                 className="border border-destructive px-2 py-1 text-left text-[11px] text-destructive hover:bg-accent"
               >
@@ -645,6 +737,127 @@ export function Toolbar() {
           ) : null}
         </div>
       </header>
+      {newProjectOpen ? (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/70 p-6">
+          <form
+            className="w-[360px] border border-border bg-card p-4 shadow-xl"
+            onSubmit={(event) => {
+              event.preventDefault();
+              if (cloneSourceId) {
+                const source = loadLocalBook(cloneSourceId);
+                if (source) {
+                  switchLocalProject(createLocalProjectId(), {
+                    ...source,
+                    meta: { ...source.meta, title: newProjectTitle.trim() },
+                  });
+                }
+                setCloneSourceId(null);
+              } else {
+                createNewProject(newProjectTitle);
+              }
+              setNewProjectOpen(false);
+            }}
+          >
+            <h2 className="mb-3 text-sm font-semibold">
+              {cloneSourceId ? "Clonar projeto" : "Novo projeto"}
+            </h2>
+            <label className="flex flex-col gap-1 text-xs">
+              Nome do projeto
+              <input
+                autoFocus
+                className="border border-border bg-input/40 px-2 py-1"
+                value={newProjectTitle}
+                onChange={(event) => setNewProjectTitle(event.target.value)}
+              />
+            </label>
+            <div className="mt-4 flex justify-end gap-2">
+              <button
+                type="button"
+                className="border border-border px-3 py-1 text-xs"
+                onClick={() => {
+                  setCloneSourceId(null);
+                  setNewProjectOpen(false);
+                }}
+              >
+                Cancelar
+              </button>
+              <button
+                type="submit"
+                className="border border-primary bg-primary px-3 py-1 text-xs text-primary-foreground"
+              >
+                {cloneSourceId ? "Criar cópia" : "Criar projeto"}
+              </button>
+            </div>
+          </form>
+        </div>
+      ) : null}
+      {projectLibraryOpen ? (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/70 p-6">
+          <div className="max-h-[80vh] w-[620px] max-w-full overflow-auto border border-border bg-card p-4 shadow-xl">
+            <div className="mb-3 flex items-center justify-between gap-4">
+              <div>
+                <h2 className="text-sm font-semibold">Biblioteca de projetos locais</h2>
+                <p className="mt-1 text-[10px] text-muted-foreground">
+                  Cada projeto fica em um snapshot separado. Abra dois snapshots em janelas
+                  diferentes para copiar blocos.
+                </p>
+              </div>
+              <button
+                type="button"
+                className="text-xs text-muted-foreground"
+                onClick={() => setProjectLibraryOpen(false)}
+              >
+                Fechar
+              </button>
+            </div>
+            {localProjects.length === 0 ? (
+              <p className="border border-dashed border-border p-4 text-xs text-muted-foreground">
+                Ainda não há snapshots locais. Salve ou crie um projeto para ele aparecer aqui.
+              </p>
+            ) : (
+              <div className="grid gap-2">
+                {localProjects.map((localProject) => (
+                  <div
+                    key={localProject.id}
+                    className="flex items-center justify-between gap-3 border border-border p-2"
+                  >
+                    <div className="min-w-0">
+                      <div className="truncate text-xs font-medium">{localProject.title}</div>
+                      <div className="text-[10px] text-muted-foreground">
+                        Atualizado {new Date(localProject.updatedAt).toLocaleString("pt-BR")}
+                        {localProject.id === projectId ? " · projeto atual" : ""}
+                      </div>
+                    </div>
+                    <div className="flex shrink-0 gap-1">
+                      <button
+                        type="button"
+                        className="border border-primary px-2 py-1 text-[10px] hover:bg-accent"
+                        onClick={() => openLocalProject(localProject.id)}
+                      >
+                        Abrir aqui
+                      </button>
+                      <button
+                        type="button"
+                        className="border border-border px-2 py-1 text-[10px] hover:bg-accent"
+                        onClick={() => requestCloneProject(localProject)}
+                      >
+                        Clonar
+                      </button>
+                      <button
+                        type="button"
+                        className="border border-border px-2 py-1 text-[10px] hover:bg-accent"
+                        onClick={() => openProjectInWindow(localProject.id)}
+                      >
+                        Nova janela
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      ) : null}
       {newTableOpen ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/70 p-6">
           <form

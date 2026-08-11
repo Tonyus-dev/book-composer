@@ -223,6 +223,25 @@ function BlockProperties({ block }: { block: Block }) {
             placeholder="ex. 120mm"
             onChange={(value) => patch({ width: value || undefined })}
           />
+          <ColorField
+            label="Cor da caixa"
+            value={block.boxColor ?? "#542869"}
+            onChange={(value) => patch({ boxColor: value })}
+          />
+          <RangeField
+            label="Opacidade / transparência da caixa"
+            min={0}
+            max={100}
+            value={block.boxOpacity ?? 0}
+            onChange={(value) => patch({ boxOpacity: value })}
+          />
+          <RangeField
+            label="Granulação da caixa"
+            min={0}
+            max={100}
+            value={block.boxGrain ?? 0}
+            onChange={(value) => patch({ boxGrain: value })}
+          />
           <AreaField
             label="Conteúdo (markdown simples)"
             value={block.content}

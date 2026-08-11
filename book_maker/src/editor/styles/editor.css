@@ -1,6 +1,89 @@
 /* Overlays de produção e seleção — pertencem ao EDITOR, nunca ao PDF.
    Tudo aqui é anulado por @media print. */
 
+.k-editor-workspace {
+  position: relative;
+}
+
+.k-editor-side-panel {
+  overflow: hidden;
+  transition:
+    width 160ms ease,
+    flex-basis 160ms ease,
+    opacity 120ms ease;
+}
+
+.k-editor-side-panel.is-closed {
+  width: 0 !important;
+  flex-basis: 0 !important;
+  border-width: 0 !important;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.k-editor-panel-controls {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  left: 10px;
+  z-index: 70;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.k-editor-panel-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 28px;
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--card) 94%, transparent);
+  color: var(--foreground);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 12%);
+  font-size: 11px;
+  pointer-events: auto;
+}
+
+.k-editor-panel-toggle:hover {
+  background: var(--accent);
+}
+
+@media (max-width: 899px) {
+  .k-editor-panel-controls {
+    top: 6px;
+    right: 6px;
+    left: 6px;
+  }
+
+  .k-editor-panel-toggle span {
+    display: none;
+  }
+
+  .k-editor-side-panel {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 60;
+    width: min(88vw, 300px) !important;
+    max-width: 300px;
+    box-shadow: 0 8px 30px rgb(0 0 0 / 25%);
+  }
+
+  .k-editor-side-panel--left {
+    left: 0;
+  }
+
+  .k-editor-side-panel--right {
+    right: 0;
+  }
+
+  .k-editor-side-panel.is-closed {
+    width: 0 !important;
+  }
+}
+
 .k-overlay {
   position: absolute;
   pointer-events: none;
@@ -92,6 +175,37 @@
   box-sizing: border-box;
   border: 0.5mm solid color-mix(in oklab, #b953dc 78%, transparent);
   pointer-events: auto;
+}
+
+.k-editor-image-mode-toolbar {
+  position: absolute;
+  top: -30px;
+  left: -1px;
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid #b953dc;
+  background: #17121b;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 32%);
+  white-space: nowrap;
+}
+
+.k-editor-image-mode-toolbar button {
+  padding: 3px 6px;
+  border: 1px solid transparent;
+  color: #fff;
+  background: transparent;
+  font:
+    10px/1.1 system-ui,
+    sans-serif;
+  cursor: pointer;
+}
+
+.k-editor-image-mode-toolbar button:hover,
+.k-editor-image-mode-toolbar button.is-active {
+  border-color: #d99beb;
+  background: #b953dc;
 }
 
 .k-editor-image-crop-surface {

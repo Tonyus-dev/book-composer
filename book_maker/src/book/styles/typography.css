@@ -67,6 +67,13 @@
   text-indent: 4.6mm;
 }
 
+.k-body--text-box {
+  box-sizing: border-box;
+  padding: 3mm 4mm;
+  border: 0.25mm solid color-mix(in srgb, var(--k-purple) 28%, transparent);
+  background-clip: padding-box;
+}
+
 .k-body--lead p {
   font-size: calc(var(--body-size) * 1.14);
   line-height: calc(var(--body-leading) * 1.1);

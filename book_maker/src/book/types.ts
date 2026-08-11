@@ -82,6 +82,10 @@ export interface TextBlock extends BaseBlock {
   dropCap?: boolean;
   align?: BlockAlign;
   width?: string;
+  /** Aparência opcional de uma caixa de texto composta diretamente na página. */
+  boxColor?: string;
+  boxOpacity?: number;
+  boxGrain?: number;
 }
 
 export interface HeadingBlock extends BaseBlock {
