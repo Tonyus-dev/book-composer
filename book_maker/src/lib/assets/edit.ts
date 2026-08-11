@@ -5,7 +5,7 @@ import { MAX_ASSET_BYTES } from "./upload";
 /**
  * Edição de imagem local-first: tudo acontece em <canvas> no navegador.
  * Nenhum serviço externo, nenhum upload — o resultado volta como bytes
- * (data URL) para dentro do próprio projeto JSON.
+ * (data URL transitória) para externalização imediata no asset store local.
  */
 
 export interface CropRect {

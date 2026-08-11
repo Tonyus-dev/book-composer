@@ -1,4 +1,5 @@
 import type { Book } from "../../book/types";
+import { bookSnapshot } from "./local";
 
 export type CloudLoadResult =
   | { kind: "ok"; snapshot: Book | null; revision: number }
@@ -82,7 +83,7 @@ export async function saveCloudSnapshot(
   const response = await request(`/api/projects/${encodeURIComponent(id)}/snapshot`, {
     method: "POST",
     headers: { "content-type": "application/json" },
-    body: JSON.stringify({ id, name, snapshot, baseRevision }),
+    body: JSON.stringify({ id, name, snapshot: bookSnapshot(snapshot), baseRevision }),
   });
   if (!response) return { kind: "unavailable" };
   if (response.status === 401) return { kind: "unauthorized" };

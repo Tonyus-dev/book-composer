@@ -19,7 +19,7 @@ export interface AssetEntry {
   src: string;
   label: string;
   category: AssetCategory;
-  /** ppi efetivo estimado no formato 210x280 mm; usado apenas para warning */
+  /** estimativa legada de uso; o preflight real deriva PPI da geometria física do bloco */
   effectivePpi?: number;
   note?: string;
 }

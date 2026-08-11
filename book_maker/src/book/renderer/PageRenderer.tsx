@@ -93,6 +93,7 @@ export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function
       className={classes}
       style={pageStyle}
       data-page-id={page.id}
+      data-template={page.template}
       data-folio={folio}
       data-fixed={page.fixed ? "true" : undefined}
       data-overflow={overflow ? "true" : undefined}

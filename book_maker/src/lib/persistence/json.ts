@@ -1,9 +1,11 @@
 import type { Book, Page } from "../../book/types";
 import { normalizeBook } from "./local";
+import { bookSnapshot } from "./local";
+import { getAssetBlob } from "../assets/local-store";
 
 /** JSON legível e diffável em Git: 2 espaços, chaves estáveis. */
 export function serializeBook(book: Book): string {
-  return `${JSON.stringify(book, null, 2)}\n`;
+  return `${JSON.stringify(bookSnapshot(book), null, 2)}\n`;
 }
 
 export function downloadBookJson(book: Book, filename = "kallistis-book.json") {
@@ -14,6 +16,47 @@ export function downloadBookJson(book: Book, filename = "kallistis-book.json") {
   anchor.download = filename;
   anchor.click();
   URL.revokeObjectURL(url);
+}
+
+/** Export portátil explícito: reembute bytes somente sob ação do usuário. */
+export async function portableBook(book: Book): Promise<Book> {
+  return {
+    ...book,
+    assets: await Promise.all(
+      (book.assets ?? []).map(async (asset) => {
+        const key =
+          asset.storage?.kind === "local"
+            ? asset.storage.key
+            : asset.storage?.kind === "r2"
+              ? asset.storage.localKey
+              : undefined;
+        if (asset.data) return { ...asset };
+        const blob = key
+          ? await getAssetBlob(key)
+          : asset.storage?.kind === "r2"
+            ? await fetch(asset.storage.url).then((response) =>
+                response.ok ? response.blob() : null,
+              )
+            : null;
+        if (!key && asset.storage?.kind !== "r2") return { ...asset };
+        if (!blob) throw new Error(`Bytes locais ausentes para ${asset.label}`);
+        const data = await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(String(reader.result));
+          reader.onerror = () => reject(reader.error);
+          reader.readAsDataURL(blob);
+        });
+        return { ...asset, data };
+      }),
+    ),
+  };
+}
+
+export async function downloadPortableBookJson(
+  book: Book,
+  filename = "kallistis-book.portable.json",
+) {
+  downloadBookJson(await portableBook(book), filename);
 }
 
 export function downloadPageJson(page: Page, filename = "kallistis-page.json") {

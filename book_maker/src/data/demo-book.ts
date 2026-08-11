@@ -13,7 +13,7 @@ import { DEFAULT_TOKENS, type Book } from "../book/types";
 const DEMO = "[CONTEÚDO DE DEMONSTRAÇÃO]";
 
 const demoProse = (extra = "") =>
-  `${DEMO} Este parágrafo existe para medir massa textual, entrelinha e cor de página no formato 210 por 280 milímetros. Ele não afirma nada sobre o mundo: serve para verificar se a mancha de texto respira, se a justificação se comporta e se a leitura continua confortável por várias linhas seguidas. ${extra}
+  `${DEMO} Este parágrafo existe para medir massa textual, entrelinha e cor de página no trim 140 por 210 milímetros. Ele não afirma nada sobre o mundo: serve para verificar se a mancha de texto respira, se a justificação se comporta e se a leitura continua confortável por várias linhas seguidas. ${extra}
 
 A segunda leva de linhas confirma o recuo de parágrafo, o comportamento da hifenização e a relação entre corpo e entrelinha. Quando a prosa ocupa a coluna inteira, o olho precisa encontrar um ritmo estável, sem buracos de espaçamento e sem linhas curtas isoladas no fim do bloco.
 
@@ -66,6 +66,7 @@ export const demoBook: Book = {
     {
       id: "p-001",
       template: "cover",
+      coverMode: "art-only",
       variant: "default",
       title: "KALLISTIS — Livro Básico",
       subtitle: "O Cristal e a Fresta",
@@ -117,7 +118,7 @@ export const demoBook: Book = {
           type: "text",
           role: "credits",
           content:
-            "KALLISTIS — Livro Básico\nO Cristal e a Fresta\nMemória, Fratura e Escolha entre Dois Mundos\n\nEdição Definitiva v1.3 · Agosto de 2026\nAutor: Antônio de Oliveira\nEditora: Nomos Ludens\n\nFormato 210 × 280 mm. Corpo em EB Garamond; informação funcional em Liberation Sans. Paleta conforme o Manual de Branding KALLISTIS v1.0.",
+            "KALLISTIS — Livro Básico\nO Cristal e a Fresta\nMemória, Fratura e Escolha entre Dois Mundos\n\nEdição Definitiva v1.3 · Agosto de 2026\nAutor: Antônio de Oliveira\nEditora: Nomos Ludens\n\nTrim 140 × 210 mm; sangria de 5 mm por lado. Corpo em EB Garamond; informação funcional em Liberation Sans. Paleta conforme o Manual de Branding KALLISTIS v1.0.",
         },
         { id: "b-fm-div", type: "divider", ornament: false, spaceBefore: 4, spaceAfter: 4 },
         {

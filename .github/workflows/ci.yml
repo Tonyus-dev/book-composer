@@ -21,3 +21,15 @@ jobs:
       - run: bun run typecheck
       - run: bun run test
       - run: bun run build
+      - run: bunx playwright install --with-deps chromium
+      - run: bun run test:e2e
+      - name: Upload browser/PDF evidence on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-evidence
+          path: |
+            book_maker/playwright-report
+            book_maker/test-results
+          if-no-files-found: ignore
+          retention-days: 7

@@ -1,15 +1,17 @@
 import type { BookAsset } from "../../book/types";
+import { useEffect, useState } from "react";
+import { getAssetBlob } from "./local-store";
 
 /**
- * Mapeamento URL/ID dos assets embutidos no projeto JSON.
- *
- * Um bloco nunca guarda bytes: guarda `asset:<id>`. Os bytes vivem em
- * `book.assets`, então o mesmo JSON reproduz o livro em qualquer máquina,
- * sem depender de arquivos soltos em public/assets.
+ * Registry central de `asset:<id>`. Metadados ficam no Book; blobs locais são
+ * materializados do IndexedDB uma vez e compartilhados por todos os renders.
  */
 export const ASSET_PROTOCOL = "asset:";
 
 let registry: Record<string, BookAsset> = {};
+const runtimeUrls = new Map<string, string>();
+const pending = new Map<string, Promise<string>>();
+const listeners = new Set<() => void>();
 
 export function isAssetRef(src: string | undefined): boolean {
   return typeof src === "string" && src.startsWith(ASSET_PROTOCOL);
@@ -28,6 +30,12 @@ export function registerBookAssets(assets: BookAsset[] | undefined) {
   const next: Record<string, BookAsset> = {};
   for (const asset of assets ?? []) next[asset.id] = asset;
   registry = next;
+  for (const [id, url] of runtimeUrls) {
+    if (!next[id]) {
+      URL.revokeObjectURL(url);
+      runtimeUrls.delete(id);
+    }
+  }
 }
 
 export function lookupAsset(src: string | undefined): BookAsset | undefined {
@@ -46,8 +54,55 @@ export function listRegisteredAssets(): BookAsset[] {
 export function resolveAssetSrc(src: string | undefined): string {
   if (!src) return "";
   const asset = lookupAsset(src);
-  if (asset) return asset.data;
+  if (asset?.data) return asset.data;
+  if (asset) {
+    const runtime = runtimeUrls.get(asset.id);
+    if (!runtime) void resolveAssetSrcAsync(src);
+    return runtime ?? (asset.storage?.kind === "r2" ? asset.storage.url : "");
+  }
   return isAssetRef(src) ? "" : src;
+}
+
+export async function resolveAssetSrcAsync(src: string | undefined): Promise<string> {
+  if (!src) return "";
+  const asset = lookupAsset(src);
+  if (!asset) return isAssetRef(src) ? "" : src;
+  if (asset.data) return asset.data;
+  const immediate = runtimeUrls.get(asset.id);
+  if (immediate) return immediate;
+  const key =
+    asset.storage?.kind === "local"
+      ? asset.storage.key
+      : asset.storage?.kind === "r2"
+        ? asset.storage.localKey
+        : undefined;
+  if (!key) return asset.storage?.kind === "r2" ? asset.storage.url : "";
+  const existing = pending.get(asset.id);
+  if (existing) return existing;
+  const loading = getAssetBlob(key).then((blob) => {
+    if (!blob) return "";
+    const url = URL.createObjectURL(blob);
+    const old = runtimeUrls.get(asset.id);
+    if (old) URL.revokeObjectURL(old);
+    runtimeUrls.set(asset.id, url);
+    listeners.forEach((listener) => listener());
+    window.dispatchEvent(new Event("kallistis-asset-ready"));
+    return url;
+  });
+  pending.set(asset.id, loading);
+  loading.finally(() => pending.delete(asset.id));
+  return loading;
+}
+
+export function useResolvedAssetSrc(src: string | undefined): string {
+  const [, refresh] = useState(0);
+  useEffect(() => {
+    const listener = () => refresh((value) => value + 1);
+    listeners.add(listener);
+    void resolveAssetSrcAsync(src);
+    return () => void listeners.delete(listener);
+  }, [src]);
+  return resolveAssetSrc(src);
 }
 
 const MM_PER_INCH = 25.4;

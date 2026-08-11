@@ -1,9 +1,10 @@
 import type { BookAsset } from "../../book/types";
+import { putAssetBlob } from "./local-store";
 
 export const ACCEPTED_ASSET_MIME = ["image/jpeg", "image/png", "image/webp", "image/svg+xml"];
 export const ACCEPTED_FONT_EXTENSIONS = [".woff2", ".woff", ".ttf", ".otf"];
 
-/** Barreira individual; não garante que a quota total do localStorage comporte o projeto. */
+/** Barreira defensiva de Canvas/upload; blobs não são persistidos no localStorage. */
 export const MAX_ASSET_BYTES = 4 * 1024 * 1024;
 
 function readAsDataUrl(file: File): Promise<string> {
@@ -58,24 +59,26 @@ function measure(dataUrl: string): Promise<{ width: number; height: number }> {
 }
 
 /**
- * Converte arquivos locais em assets do projeto (bytes em data URL).
- * Nenhum upload remoto: o projeto continua local-first e reprodutível pelo JSON.
+ * Preserva o arquivo original no IndexedDB e retorna somente metadados leves.
  */
 export async function fileToBookAsset(
   file: File,
-  options: { id: string; category: string },
+  options: { id: string; category: string; projectId?: string },
 ): Promise<BookAsset> {
   if (file.size > MAX_ASSET_BYTES) {
     throw new Error(`${file.name} excede o limite de ${MAX_ASSET_BYTES / (1024 * 1024)} MB.`);
   }
-  const data = await readAsDataUrl(file);
-  const { width, height } = await measure(data);
+  const preview = URL.createObjectURL(file);
+  const { width, height } = await measure(preview);
+  URL.revokeObjectURL(preview);
   if (!width || !height) throw new Error(`${file.name}: imagem inválida.`);
+  const key = `${options.projectId ?? "default"}/${options.id}`;
+  await putAssetBlob(key, file);
   return {
     id: options.id,
     label: file.name.replace(/\.[^.]+$/, ""),
     category: options.category,
-    data,
+    storage: { kind: "local", key },
     mime: file.type || "application/octet-stream",
     bytes: file.size,
     pixelWidth: width,

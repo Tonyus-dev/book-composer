@@ -18,6 +18,7 @@
     "dev:cloud": "vite build && wrangler dev --config .output/server/wrangler.json --local",
     "db:migrate": "wrangler d1 migrations apply kallistis-book-builder-prod --remote --config wrangler.jsonc",
     "test": "bun run test:table && bun run test:authoring && bun run test:sheet && bun run test:image",
+    "test:e2e": "playwright test",
     "export:pdf": "node scripts/export-pdf.mjs",
     "lint": "eslint .",
     "test:table": "bun scripts/test-table-model.ts",

@@ -46,6 +46,7 @@ const REPOSITORY = "Tonyus-dev/kallistis_producao";
 const REF = "main";
 const MAX_SNAPSHOT_BYTES = 900_000;
 const MAX_GITHUB_ASSET_BYTES = 20_000_000;
+const MAX_LOCAL_ASSET_BYTES = 4 * 1024 * 1024;
 
 function json(data: unknown, status = 200, headers?: HeadersInit): Response {
   return new Response(JSON.stringify(data), {
@@ -442,6 +443,36 @@ async function serveImportedAsset(request: Request, env: WorkerEnv): Promise<Res
   });
 }
 
+async function uploadProjectAsset(
+  request: Request,
+  env: WorkerEnv,
+  projectId: string,
+  assetId: string,
+) {
+  if (!env.R2_ASSETS) return json({ ok: false, error: "r2_unavailable" }, 503);
+  if (!validProjectId(assetId)) return badRequest("invalid_asset_id");
+  const bytes = new Uint8Array(await request.arrayBuffer());
+  if (!bytes.byteLength || bytes.byteLength > MAX_LOCAL_ASSET_BYTES)
+    return badRequest("asset_size_invalid");
+  const mime = request.headers.get("content-type") || "application/octet-stream";
+  if (!mime.startsWith("image/")) return badRequest("asset_mime_invalid");
+  const key = `projects/${projectId}/assets/${assetId}`;
+  await env.R2_ASSETS.put(key, bytes, {
+    httpMetadata: { contentType: mime },
+    customMetadata: { projectId, assetId },
+  });
+  return json({ ok: true, key, url: `/api/projects/${projectId}/assets/${assetId}` });
+}
+
+async function serveProjectAsset(env: WorkerEnv, projectId: string, assetId: string) {
+  if (!env.R2_ASSETS) return new Response("Not found", { status: 404 });
+  const object = await env.R2_ASSETS.get(`projects/${projectId}/assets/${assetId}`);
+  if (!object) return new Response("Not found", { status: 404 });
+  return new Response(object.body, {
+    headers: { "content-type": object.httpMetadata?.contentType ?? "application/octet-stream" },
+  });
+}
+
 export async function handleApiRequest(
   request: Request,
   env: WorkerEnv = {},
@@ -476,6 +507,14 @@ export async function handleApiRequest(
       const id = typeof rawId === "string" ? rawId : "";
       if (!validProjectId(id)) return badRequest("invalid_project_id");
       return saveSnapshot(request, env, id);
+    }
+    const assetMatch = url.pathname.match(/^\/api\/projects\/([^/]+)\/assets\/([^/]+)$/);
+    if (assetMatch) {
+      const projectId = decodeURIComponent(assetMatch[1]!);
+      const assetId = decodeURIComponent(assetMatch[2]!);
+      if (!validProjectId(projectId)) return badRequest("invalid_project_id");
+      if (request.method === "PUT") return uploadProjectAsset(request, env, projectId, assetId);
+      if (request.method === "GET") return serveProjectAsset(env, projectId, assetId);
     }
     const projectMatch = url.pathname.match(/^\/api\/projects\/([^/]+)(?:\/snapshot)?$/);
     if (projectMatch) {

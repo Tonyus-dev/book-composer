@@ -13,6 +13,7 @@ import {
   type GitHubSourceAsset,
 } from "../../lib/persistence/source";
 import { cloudProjectId } from "../../lib/persistence/cloud";
+import { externalizeAsset } from "../../lib/persistence/local";
 import { findPrimaryImage } from "../../book/templates/types";
 
 /** Item unificado: catálogo estático (public/assets) + assets enviados. */
@@ -29,11 +30,12 @@ interface BrowserItem {
 
 /**
  * Painel de assets: consome o catálogo de public/assets e aceita upload local.
- * Assets enviados ficam no projeto JSON (book.assets) e são referenciados por id.
+ * Assets enviados ficam no IndexedDB; o projeto guarda metadados e referência por id.
  */
 export function AssetBrowser() {
   const {
     book,
+    projectId,
     selectedPage,
     selectedBlock,
     updateBlock,
@@ -182,6 +184,7 @@ export function AssetBrowser() {
           await fileToBookAsset(file, {
             id: nextId("asset"),
             category: uploadCategory,
+            projectId,
           }),
         );
       } catch (cause) {
@@ -203,16 +206,22 @@ export function AssetBrowser() {
     try {
       const edited = await applyRecipe(target.source, recipe, { mime: target.mime });
       if (mode === "replace" && target.assetId) {
-        const asset = editedToAsset({ label, category: target.category }, edited, {
-          id: target.assetId,
-        });
+        const asset = await externalizeAsset(
+          editedToAsset({ label, category: target.category }, edited, {
+            id: target.assetId,
+          }),
+          projectId,
+        );
         const { id: _id, createdAt: _createdAt, ...patch } = asset;
         updateAsset(target.assetId, patch);
         return null;
       }
-      const created = editedToAsset({ label, category: target.category }, edited, {
-        id: nextId("asset"),
-      });
+      const created = await externalizeAsset(
+        editedToAsset({ label, category: target.category }, edited, {
+          id: nextId("asset"),
+        }),
+        projectId,
+      );
       addAssets([created]);
       return null;
     } catch (cause) {
@@ -282,7 +291,7 @@ export function AssetBrowser() {
         />
         <p className="mt-1 text-[10px] leading-snug text-muted-foreground">
           Vão para <span className="text-foreground">{uploadCategory}</span> e ficam gravados no
-          projeto JSON (id + bytes), não em pastas soltas.
+          IndexedDB local (o JSON cotidiano guarda somente id + metadados).
         </p>
         {error ? <p className="mt-1 text-[10px] text-destructive">{error}</p> : null}
       </div>
