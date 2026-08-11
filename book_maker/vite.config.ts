@@ -22,5 +22,9 @@ export default defineConfig({
      do @lovable.dev/vite-tanstack-config propaga publicAssets para Nitro. */
   nitro: {
     publicAssets: [{ baseURL: "/projects", dir: "projects", maxAge: 0, fallthrough: false }],
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true,
+    },
   } as never,
 });

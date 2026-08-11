@@ -332,8 +332,19 @@ export function Toolbar() {
             <span className={errors > 0 ? "text-destructive" : ""}>{errors} Errors</span>
             {` ${warnings} Warnings ${infos} Info`}
           </button>
-          <span className="text-[10px] text-muted-foreground">
-            {status === "saving" ? "salvando…" : "salvo localmente"}
+          <span
+            className="text-[10px] text-muted-foreground"
+            title="O autosave local continua ativo mesmo sem a nuvem."
+          >
+            {status === "saving"
+              ? "sincronizando…"
+              : status === "conflict"
+                ? "conflito de versão"
+                : status === "offline"
+                  ? "offline · salvo localmente"
+                  : status === "error"
+                    ? "erro de sync · salvo localmente"
+                    : "salvo localmente"}
           </span>
           <button
             type="button"

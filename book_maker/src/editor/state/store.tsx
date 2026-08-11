@@ -4,6 +4,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from "react";
@@ -26,6 +27,7 @@ import { demoBook } from "../../data/demo-book";
 import { canonicalBook } from "../../data/canonical-book";
 import { loadLocalBook, saveLocalBook } from "../../lib/persistence/local";
 import { normalizeBook } from "../../lib/persistence/local";
+import { cloudProjectId, loadCloudProject, saveCloudSnapshot } from "../../lib/persistence/cloud";
 import {
   emptyPageGuide,
   ensurePageEntry,
@@ -71,7 +73,7 @@ export interface Overlays {
   baseline: boolean;
 }
 
-export type SaveStatus = "idle" | "saving" | "saved";
+export type SaveStatus = "idle" | "saving" | "saved" | "offline" | "conflict" | "error";
 
 interface MeasuredSnapshot {
   fingerprint: string;
@@ -203,6 +205,11 @@ export function EditorProvider({ children }: { children: ReactNode }) {
     bookId: productionPlanForBookId(INITIAL_BOOK),
     pages: {},
   }));
+  const [cloudReady, setCloudReady] = useState(false);
+  const cloudProjectIdRef = useRef(cloudProjectId(INITIAL_BOOK));
+  const cloudRevisionRef = useRef<number | null>(null);
+  const cloudReadyRef = useRef(false);
+  const skipCloudSaveRef = useRef(false);
 
   /* Estado inicial: projeto editorial versionado; se existir projeto local, ele tem precedência.
      O production plan segue a mesma hierarquia: localStorage primeiro, depois
@@ -231,6 +238,23 @@ export function EditorProvider({ children }: { children: ReactNode }) {
           /* sem sidecar disponível: mantém defaults vazios */
         });
     }
+    void loadCloudProject(cloudProjectIdRef.current).then((remote) => {
+      if (remote.kind === "ok") {
+        cloudRevisionRef.current = remote.revision;
+        if (!local && remote.snapshot) {
+          try {
+            const normalized = normalizeBook(remote.snapshot);
+            skipCloudSaveRef.current = true;
+            setBook(normalized);
+            setSelectedPageId(normalized.pages[0]!.id);
+          } catch {
+            /* uma revisão remota inválida não substitui o fallback local */
+          }
+        }
+      }
+      cloudReadyRef.current = true;
+      setCloudReady(true);
+    });
     setHydrated(true);
   }, []);
 
@@ -266,6 +290,38 @@ export function EditorProvider({ children }: { children: ReactNode }) {
     }, 400);
     return () => window.clearTimeout(timer);
   }, [book, hydrated]);
+
+  /* Cloud autosave: debounce longo, independente do autosave local. O servidor
+     rejeita revisões concorrentes; nunca sobrescrevemos outra máquina às cegas. */
+  useEffect(() => {
+    if (!hydrated || !cloudReady) return;
+    if (skipCloudSaveRef.current) {
+      skipCloudSaveRef.current = false;
+      return;
+    }
+    const timer = window.setTimeout(() => {
+      void (async () => {
+        setStatus("saving");
+        const result = await saveCloudSnapshot(
+          cloudProjectIdRef.current,
+          book.meta.title,
+          book,
+          cloudRevisionRef.current,
+        );
+        if (result.kind === "ok") {
+          cloudRevisionRef.current = result.revision;
+          setStatus("saved");
+        } else if (result.kind === "conflict") {
+          setStatus("conflict");
+        } else if (result.kind === "unauthorized" || result.kind === "unavailable") {
+          setStatus("offline");
+        } else {
+          setStatus("error");
+        }
+      })();
+    }, 3000);
+    return () => window.clearTimeout(timer);
+  }, [book, cloudReady, hydrated]);
 
   /* Autosave do production plan, mesmo padrão discreto de 400 ms. */
   useEffect(() => {

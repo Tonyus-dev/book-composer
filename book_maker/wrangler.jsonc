@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kallistis-book-builder",
+  "compatibility_date": "2026-08-08",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "kallistis-book-builder-prod",
+      "database_id": "a0eb47e3-9ebf-49d5-8e07-ee94ade8bbfe"
+    }
+  ]
+}

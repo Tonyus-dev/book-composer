@@ -45,14 +45,15 @@ Playwright: `bunx playwright install chromium`.
 ## Deploy na Cloudflare
 
 O build usa Nitro com o preset `cloudflare-module` e gera automaticamente
-`.output/server/wrangler.json`. Esse manifesto gerado é a configuração de publicação do Worker;
-não é necessário manter um `wrangler.toml` manual.
+`.output/server/wrangler.json`. O binding D1 de produção é declarado em `wrangler.jsonc` e a
+migration versionada vive em `migrations/0001_initial.sql`.
 
 ```sh
 bunx wrangler login
 bun run deploy       # build + wrangler deploy usando o manifesto gerado
 bun run worker:dry-run # valida o pacote sem publicar
 bun run worker:dev   # executa localmente no runtime Workers
+bun run db:migrate   # aplica migrations no D1 remoto autenticado
 ```
 
 O nome do Worker vem de `package.json` (`kallistis-book-builder`). Para publicar via GitHub
@@ -60,6 +61,15 @@ Actions, defina os secrets do repositório:
 
 - `CLOUDFLARE_API_TOKEN` — token com permissão _Workers Scripts: Edit_
 - `CLOUDFLARE_ACCOUNT_ID` — ID da conta Cloudflare
+
+Para APIs privadas, configure Cloudflare Access na rota do Worker ou um secret `APP_API_TOKEN`.
+O Worker aceita somente Access JWT + identidade ou bearer token server-side; o frontend nunca
+recebe esses valores. `GITHUB_TOKEN`, quando configurado como secret do Worker, é usado apenas
+server-side para leitura de `Tonyus-dev/kallistis_producao` (`main`) nos prefixes canônicos.
+
+R2 é o destino dos assets importados e snapshots grandes. O código já expõe o binding opcional
+`R2_ASSETS`, mas a criação do bucket depende da habilitação de R2 na conta Cloudflare; sem ele,
+o editor continua operando com localStorage e o D1 mantém apenas snapshots JSON pequenos.
 
 ## GitHub Actions
 
