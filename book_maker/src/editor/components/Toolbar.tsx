@@ -8,6 +8,11 @@ import {
   serializeAsciiLayout,
 } from "../../book/authoring";
 import { createTableBlock } from "../../book/tableModel";
+import {
+  blankSheet,
+  cloneSheetForInsert,
+  createKallistisCharacterSheet,
+} from "../../book/sheetModel";
 import { downloadBookJson, readBookFromFile } from "../../lib/persistence/json";
 import { useEditor, nextId, type Overlays, type ZoomValue } from "../state/store";
 import { RecipeDialog } from "./RecipeDialog";
@@ -32,6 +37,7 @@ const NEW_BLOCKS: { type: BlockType; label: string }[] = [
   { type: "divider", label: "Divisor" },
   { type: "caption", label: "Legenda" },
   { type: "form", label: "Ficha / formulário" },
+  { type: "sheet", label: "Sheet designer" },
 ];
 
 function makeBlock(type: BlockType): Block {
@@ -65,6 +71,8 @@ function makeBlock(type: BlockType): Block {
         fields: [{ id: `${id}-field-1`, label: "Nome", type: "text" }],
         span: "full",
       };
+    case "sheet":
+      return { id, type, sheet: blankSheet(`${id}-sheet`), span: "full" };
     case "toc":
       return { id, type, columns: 1, entries: [] };
     case "lockup":
@@ -112,12 +120,13 @@ export function Toolbar() {
   const [newTableColumns, setNewTableColumns] = useState("3");
   const [newTableRows, setNewTableRows] = useState("5");
   const [newTableHeader, setNewTableHeader] = useState(true);
-  const [authoringOpen, setAuthoringOpen] = useState<"smart" | "ascii" | "form" | "recipes" | null>(
-    null,
-  );
+  const [authoringOpen, setAuthoringOpen] = useState<
+    "smart" | "ascii" | "form" | "sheet" | "recipes" | null
+  >(null);
   const [authoringText, setAuthoringText] = useState("");
   const [formTitle, setFormTitle] = useState("Ficha de personagem");
   const [formColumns, setFormColumns] = useState<1 | 2>(1);
+  const [sheetPreset, setSheetPreset] = useState("blank");
   const { errors, warnings, infos } = preflight.summary;
   const asciiPreview = useMemo(() => {
     if (authoringOpen !== "ascii" || !authoringText.trim()) return null;
@@ -155,6 +164,10 @@ export function Toolbar() {
     }
     if (type === "form") {
       setAuthoringOpen("form");
+      return;
+    }
+    if (type === "sheet") {
+      setAuthoringOpen("sheet");
       return;
     }
     const block = makeBlock(type);
@@ -454,7 +467,9 @@ export function Toolbar() {
                       ? "Layout ASCII"
                       : authoringOpen === "form"
                         ? "Criar ficha / formulário"
-                        : "Receitas editoriais"}
+                        : authoringOpen === "sheet"
+                          ? "Criar Sheet editorial"
+                          : "Receitas editoriais"}
                 </h2>
                 <p className="mt-1 text-[10px] text-muted-foreground">
                   {authoringOpen === "smart"
@@ -463,7 +478,9 @@ export function Toolbar() {
                       ? "Use @template, @title, # título, > citação, parágrafos, tabelas Markdown e [form]."
                       : authoringOpen === "form"
                         ? "Um campo por linha: Nome::text, Notas::multiline, Vida::number ou Ativo::checkbox."
-                        : "Salve a composição como modelo sem copiar o conteúdo específico da página."}
+                        : authoringOpen === "sheet"
+                          ? "Escolha uma tela vazia ou a reconstrução genérica da ficha de referência. Depois edite os elementos diretamente na página."
+                          : "Salve a composição como modelo sem copiar o conteúdo específico da página."}
                 </p>
               </div>
               <button
@@ -539,6 +556,90 @@ export function Toolbar() {
                     className="border border-primary bg-primary px-3 py-1 text-xs text-primary-foreground"
                   >
                     Criar ficha
+                  </button>
+                </div>
+              </form>
+            ) : authoringOpen === "sheet" ? (
+              <form
+                className="space-y-4"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  const id = `sheet-${Date.now().toString(36)}`;
+                  const templateId = sheetPreset.startsWith("template:")
+                    ? sheetPreset.slice("template:".length)
+                    : null;
+                  const template = templateId
+                    ? book.sheetTemplates?.find((item) => item.id === templateId)
+                    : undefined;
+                  const sheet = template
+                    ? cloneSheetForInsert(template.sheet, id)
+                    : sheetPreset === "kallistis"
+                      ? createKallistisCharacterSheet(id)
+                      : blankSheet(id);
+                  addBlocks([{ id: `b-${id}`, type: "sheet", sheet, span: "full" }]);
+                  closeAuthoring();
+                }}
+              >
+                <label className="flex items-start gap-2 border border-border p-3 text-xs">
+                  <input
+                    type="radio"
+                    checked={sheetPreset === "blank"}
+                    onChange={() => setSheetPreset("blank")}
+                  />
+                  <span>
+                    <strong>Canvas vazio</strong>
+                    <br />
+                    <span className="text-muted-foreground">
+                      Começar pelo inserir, arrastar e redimensionar.
+                    </span>
+                  </span>
+                </label>
+                {(book.sheetTemplates ?? []).map((template) => (
+                  <label
+                    key={template.id}
+                    className="flex items-start gap-2 border border-border p-3 text-xs"
+                  >
+                    <input
+                      type="radio"
+                      checked={sheetPreset === `template:${template.id}`}
+                      onChange={() => setSheetPreset(`template:${template.id}`)}
+                    />
+                    <span>
+                      <strong>Modelo: {template.name}</strong>
+                      <br />
+                      <span className="text-muted-foreground">
+                        Criar uma ficha a partir deste desenho salvo.
+                      </span>
+                    </span>
+                  </label>
+                ))}
+                <label className="flex items-start gap-2 border border-border p-3 text-xs">
+                  <input
+                    type="radio"
+                    checked={sheetPreset === "kallistis"}
+                    onChange={() => setSheetPreset("kallistis")}
+                  />
+                  <span>
+                    <strong>Ficha de personagem KALLISTIS</strong>
+                    <br />
+                    <span className="text-muted-foreground">
+                      Duas páginas montadas com elementos genéricos do engine.
+                    </span>
+                  </span>
+                </label>
+                <div className="flex justify-end gap-2">
+                  <button
+                    type="button"
+                    className="border border-border px-3 py-1 text-xs"
+                    onClick={closeAuthoring}
+                  >
+                    Cancelar
+                  </button>
+                  <button
+                    type="submit"
+                    className="border border-primary bg-primary px-3 py-1 text-xs text-primary-foreground"
+                  >
+                    Criar Sheet
                   </button>
                 </div>
               </form>

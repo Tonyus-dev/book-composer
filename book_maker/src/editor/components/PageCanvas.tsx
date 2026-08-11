@@ -7,6 +7,7 @@ import { useEditor, type Overlays } from "../state/store";
 import { normalizeTableBlock } from "../../book/tableModel";
 import { TableEditorOverlay } from "./TableEditorOverlay";
 import { InlineTextEditorOverlay } from "./InlineTextEditorOverlay";
+import { SheetDesignerOverlay } from "./SheetDesignerOverlay";
 
 function OverlayLayers({ overlays }: { overlays: Overlays }) {
   return (
@@ -291,7 +292,18 @@ export function PageCanvas({
 
   return (
     <BookRenderContext.Provider
-      value={{ interactive: true, selectedBlockId, onSelectBlock: selectBlock }}
+      value={{
+        interactive: true,
+        selectedBlockId,
+        onSelectBlock: selectBlock,
+        onSheetValueChange: (blockId, key, value) => {
+          const block = page.blocks.find((item) => item.id === blockId);
+          if (!block || block.type !== "sheet") return;
+          updateBlock(page.id, blockId, {
+            sheet: { ...block.sheet, values: { ...block.sheet.values, [key]: value } },
+          });
+        },
+      }}
     >
       <PageRenderer
         ref={ref}
@@ -328,6 +340,14 @@ export function PageCanvas({
             pageId={page.id}
             block={normalizeTableBlock(selectedBlock)}
             updateTable={updateTable}
+          />
+        ) : null}
+        {active && selectedBlock?.type === "sheet" ? (
+          <SheetDesignerOverlay
+            pageRef={ref}
+            pageId={page.id}
+            block={selectedBlock}
+            updateBlock={updateBlock}
           />
         ) : null}
         {active && editingBlockId && selectedBlock?.id === editingBlockId ? (

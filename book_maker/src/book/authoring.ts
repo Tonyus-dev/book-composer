@@ -17,6 +17,7 @@ import type {
 import { createTableBlock, parseTabularText } from "./tableModel";
 import { normalizeTableBlock } from "./tableModel";
 import { TEMPLATES } from "./templates";
+import { cloneSheetForInsert } from "./sheetModel";
 
 function id(prefix: string, index: number) {
   return `${prefix}-${Date.now().toString(36)}-${index + 1}`;
@@ -58,6 +59,13 @@ export function cloneBlockForInsert(block: Block, index = 0): Block {
         id: `${nextId}-field-${fieldIndex + 1}`,
       })),
     } as FormBlock;
+  }
+  if (block.type === "sheet") {
+    return {
+      ...block,
+      id: nextId,
+      sheet: cloneSheetForInsert(block.sheet, nextId),
+    };
   }
   if (block.type === "layout") {
     return {
@@ -107,6 +115,7 @@ export function suggestedRecipeKind(block: Block): RecipeSlotKind | null {
     case "lockup":
       return "symbol";
     case "form":
+    case "sheet":
     case "toc":
       return "body";
     case "divider":
@@ -173,6 +182,33 @@ export function emptyBlockForRecipe(block: Block, label: string, kind?: RecipeSl
         }),
       };
     }
+    case "sheet":
+      return {
+        ...next,
+        sheet: {
+          ...next.sheet,
+          values: {},
+          pages: next.sheet.pages.map((page) => ({
+            ...page,
+            elements: page.elements.map((element) => {
+              if (
+                ![
+                  "text-field",
+                  "number-field",
+                  "text-area",
+                  "calculated",
+                  "checkbox",
+                  "choice",
+                  "scale",
+                ].includes(element.type)
+              )
+                return element;
+              const { value: _value, ...withoutValue } = element;
+              return withoutValue;
+            }),
+          })),
+        },
+      };
     case "lockup":
       return { ...next, src: "", alt: label };
     case "divider":

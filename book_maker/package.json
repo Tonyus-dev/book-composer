@@ -19,6 +19,7 @@
     "lint": "eslint .",
     "test:table": "bun scripts/test-table-model.ts",
     "test:authoring": "bun scripts/test-authoring.ts",
+    "test:sheet": "bun scripts/test-sheet.ts",
     "format": "prettier --write ."
   },
   "dependencies": {

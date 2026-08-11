@@ -415,6 +415,157 @@
   letter-spacing: 0.12em;
 }
 
+/* Sheet & Form Designer: documento físico preenchível, sem UI no print. */
+.k-sheet-document {
+  display: grid;
+  gap: 8mm;
+  width: 100%;
+}
+
+.k-sheet-page {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--sheet-paper, #f8f5ef);
+  color: var(--sheet-ink, #59324f);
+  box-shadow: 0 0 0 0.2mm rgba(89, 50, 79, 0.25);
+  isolation: isolate;
+}
+
+.k-sheet-document--print .k-sheet-page {
+  box-shadow: none;
+  break-after: page;
+}
+
+.k-sheet-element {
+  position: absolute;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.k-sheet-element--text,
+.k-sheet-element--symbol {
+  white-space: pre-wrap;
+}
+
+.k-sheet-element--line,
+.k-sheet-element--divider {
+  min-height: 0.25mm;
+}
+
+.k-sheet-element--box {
+  border: 0.25mm solid currentColor;
+}
+
+.k-sheet-element--repeater {
+  display: grid;
+  grid-auto-rows: 1fr;
+  border-top: 0.2mm solid currentColor;
+}
+
+.k-sheet-element--repeater span,
+.k-sheet-element--table {
+  border-bottom: 0.2mm solid currentColor;
+}
+
+.k-sheet-element--table {
+  display: grid;
+  align-content: center;
+  padding: 1mm;
+}
+
+.k-sheet-element--image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.k-sheet-element--field {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.k-sheet-element--text-area {
+  align-items: stretch;
+}
+
+.k-sheet-field-label {
+  position: absolute;
+  top: -0.1em;
+  left: 0;
+  transform: translateY(-100%);
+  font-size: 0.7em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.k-sheet-field-control,
+.k-sheet-field-value {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  outline: none;
+}
+
+.k-sheet-field-control--area,
+.k-sheet-field-value--area {
+  white-space: pre-wrap;
+}
+
+.k-sheet-field-value {
+  overflow: hidden;
+  white-space: pre-wrap;
+}
+
+.k-sheet-checkbox,
+.k-sheet-checkbox-input {
+  display: inline-grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+.k-sheet-checkbox-input {
+  appearance: none;
+  border: 0.3mm solid currentColor;
+  cursor: pointer;
+}
+
+.k-sheet-checkbox-input:checked::after,
+.k-sheet-checkbox.is-checked::after {
+  content: "✓";
+}
+
+.k-sheet-scale {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  font-size: 1.6em;
+}
+
+.k-sheet-scale span {
+  opacity: 0.45;
+}
+.k-sheet-scale span.is-active {
+  opacity: 1;
+}
+
+.k-sheet-element--calculated .k-sheet-field-value {
+  border-bottom: 0.2mm solid currentColor;
+}
+
 /* Abertura de capítulo — o conteúdo começa na mesma página */
 .k-chapter__band {
   position: relative;

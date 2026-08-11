@@ -15,6 +15,7 @@ import {
 } from "../components/BookComponents";
 import { useBookRender } from "./context";
 import { normalizeTableBlock } from "../tableModel";
+import { SheetRenderer } from "./SheetRenderer";
 
 export function BlockBody({ block }: { block: Block }) {
   switch (block.type) {
@@ -40,6 +41,8 @@ export function BlockBody({ block }: { block: Block }) {
       return <BrandLockup block={block} />;
     case "form":
       return <BookForm block={block} />;
+    case "sheet":
+      return <SheetRenderer sheet={block.sheet} blockId={block.id} />;
     case "layout":
       return <LayoutBody block={block} />;
     default:

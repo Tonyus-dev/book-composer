@@ -278,6 +278,124 @@ export interface FormBlock extends BaseBlock {
   columns?: 1 | 2;
 }
 
+/**
+ * Documento preenchível editorial. A geometria é física (mm), portanto o
+ * mesmo JSON serve ao editor, ao preenchimento digital e à impressão.
+ */
+export type SheetElementType =
+  | "text"
+  | "label"
+  | "text-field"
+  | "number-field"
+  | "checkbox"
+  | "choice"
+  | "scale"
+  | "line"
+  | "divider"
+  | "box"
+  | "image"
+  | "symbol"
+  | "table"
+  | "text-area"
+  | "calculated"
+  | "group"
+  | "repeater";
+
+export interface SheetRect {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
+export interface SheetElementStyle {
+  color?: string;
+  background?: string;
+  borderColor?: string;
+  borderWidth?: number;
+  borderStyle?: "solid" | "dashed" | "dotted";
+  borderRadius?: number;
+  fontFamily?: string;
+  fontSize?: number;
+  fontWeight?: number;
+  fontStyle?: "normal" | "italic";
+  textAlign?: "left" | "center" | "right";
+  lineHeight?: number;
+  padding?: number;
+}
+
+export interface SheetElement {
+  id: string;
+  type: SheetElementType;
+  rect: SheetRect;
+  text?: string;
+  label?: string;
+  key?: string;
+  placeholder?: string;
+  formula?: string;
+  min?: number;
+  max?: number;
+  step?: number;
+  options?: string[];
+  value?: string | number | boolean;
+  source?: string;
+  alt?: string;
+  childIds?: string[];
+  repeatCount?: number;
+  repeatGap?: number;
+  style?: SheetElementStyle;
+  required?: boolean;
+  tabIndex?: number;
+  locked?: boolean;
+  hidden?: boolean;
+  zIndex?: number;
+}
+
+export interface SheetPage {
+  id: string;
+  widthMm: number;
+  heightMm: number;
+  elements: SheetElement[];
+  background?: string;
+  master?: boolean;
+}
+
+export type SheetMode = "design" | "fill" | "print";
+
+export interface SheetDocument {
+  id: string;
+  name: string;
+  version: 1;
+  widthMm: number;
+  heightMm: number;
+  bleedMm?: number;
+  pages: SheetPage[];
+  values: Record<string, string | number | boolean>;
+  formulas?: Record<string, string>;
+  templateId?: string;
+  mode?: SheetMode;
+}
+
+export interface SheetTemplate {
+  id: string;
+  name: string;
+  sheet: SheetDocument;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface SheetInstance {
+  id: string;
+  templateId: string;
+  values: Record<string, string | number | boolean>;
+  createdAt: string;
+}
+
+export interface SheetBlock extends BaseBlock {
+  type: "sheet";
+  sheet: SheetDocument;
+}
+
 export type LayoutAreaContent =
   | HeadingBlock
   | TextBlock
@@ -289,7 +407,8 @@ export type LayoutAreaContent =
   | DividerBlock
   | TocBlock
   | LockupBlock
-  | FormBlock;
+  | FormBlock
+  | SheetBlock;
 
 export interface LayoutArea {
   id: string;
@@ -325,6 +444,7 @@ export type Block =
   | TocBlock
   | LockupBlock
   | FormBlock
+  | SheetBlock
   | LayoutBlock;
 
 export type BlockType = Block["type"];
@@ -430,6 +550,9 @@ export interface Book {
   tableStyles?: TableStylePreset[];
   /** modelos editoriais reutilizáveis; páginas materializadas são independentes. */
   recipes?: BookRecipe[];
+  /** modelos e instâncias de documentos preenchíveis, sem separar do projeto editorial. */
+  sheetTemplates?: SheetTemplate[];
+  sheetInstances?: SheetInstance[];
 }
 
 export type RecipeScope = "page" | "spread";

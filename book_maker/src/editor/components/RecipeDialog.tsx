@@ -86,6 +86,8 @@ function describeBlock(block: Block): string {
       return block.alt || "Marca fixa";
     case "form":
       return block.title || "Ficha";
+    case "sheet":
+      return block.sheet.name || "Sheet";
     case "toc":
       return "Sumário";
     case "layout":

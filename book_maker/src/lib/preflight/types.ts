@@ -43,7 +43,10 @@ export type PreflightRuleId =
   | "hidden-content"
   | "low-contrast"
   | "required-recipe-slot-empty"
-  | "recipe-instance-invalid";
+  | "recipe-instance-invalid"
+  | "sheet-element-outside-page"
+  | "sheet-formula-invalid"
+  | "sheet-field-unbound";
 
 export interface PreflightRuleMeta {
   id: PreflightRuleId;
@@ -285,6 +288,24 @@ export const PREFLIGHT_RULES: Record<PreflightRuleId, PreflightRuleMeta> = {
     label: "Instância de modelo inválida",
     source: "static",
     inspection: "Recrie a página a partir de um modelo válido ou remova a proveniência inválida.",
+  },
+  "sheet-element-outside-page": {
+    id: "sheet-element-outside-page",
+    label: "Elemento da ficha fora da página",
+    source: "static",
+    inspection: "Selecione o elemento no Sheet Designer e ajuste sua caixa ao trim físico.",
+  },
+  "sheet-formula-invalid": {
+    id: "sheet-formula-invalid",
+    label: "Fórmula de ficha inválida",
+    source: "static",
+    inspection: "Confira referências, parênteses e divisão por zero no campo calculado.",
+  },
+  "sheet-field-unbound": {
+    id: "sheet-field-unbound",
+    label: "Campo de ficha sem vínculo",
+    source: "static",
+    inspection: "Defina uma chave de dados para que o campo possa ser preenchido e persistido.",
   },
 };
 

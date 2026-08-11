@@ -9,6 +9,7 @@ export interface BookRenderContextValue {
   interactive: boolean;
   selectedBlockId?: string | null;
   onSelectBlock?: (blockId: string) => void;
+  onSheetValueChange?: (blockId: string, key: string, value: string | number | boolean) => void;
 }
 
 export const BookRenderContext = createContext<BookRenderContextValue>({

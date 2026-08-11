@@ -15,6 +15,9 @@ import type {
   BookTokens,
   Page,
   PageSettings,
+  SheetDocument,
+  SheetInstance,
+  SheetTemplate,
   TableStyle,
   TemplateId,
 } from "../../book/types";
@@ -145,6 +148,8 @@ interface EditorContextValue {
   createPageFromRecipe: (afterPageId: string, recipe: BookRecipe) => void;
   deleteRecipe: (recipeId: string) => void;
   insertRecipe: (pageId: string, recipe: BookRecipe) => void;
+  saveSheetTemplate: (sheet: SheetDocument) => void;
+  createSheetInstance: (templateId: string, values?: SheetInstance["values"]) => void;
   /* PRODUCTION PLAN — direção editorial por página, nunca entra no print. */
   productionPlan: ProductionPlan;
   selectedPageGuide: PageGuide;
@@ -726,6 +731,39 @@ export function EditorProvider({ children }: { children: ReactNode }) {
         );
         setSelectedPageId(pageId);
         setSelectedBlockId(cloned[0]?.id ?? null);
+      },
+      saveSheetTemplate: (sheet) => {
+        const now = new Date().toISOString();
+        const template: SheetTemplate = {
+          id: sheet.templateId ?? `sheet-template-${Date.now().toString(36)}`,
+          name: sheet.name,
+          sheet: JSON.parse(
+            JSON.stringify({ ...sheet, mode: "design", values: {} }),
+          ) as SheetDocument,
+          createdAt: now,
+          updatedAt: now,
+        };
+        setBook((prev) => ({
+          ...prev,
+          sheetTemplates: [
+            ...(prev.sheetTemplates ?? []).filter(
+              (item) => item.id !== template.id && item.name !== template.name,
+            ),
+            template,
+          ],
+        }));
+      },
+      createSheetInstance: (templateId, values = {}) => {
+        const instance: SheetInstance = {
+          id: `sheet-instance-${Date.now().toString(36)}`,
+          templateId,
+          values: { ...values },
+          createdAt: new Date().toISOString(),
+        };
+        setBook((prev) => ({
+          ...prev,
+          sheetInstances: [...(prev.sheetInstances ?? []), instance],
+        }));
       },
     };
   }, [

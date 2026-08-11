@@ -3,6 +3,7 @@ import { folioFor, isVerso } from "../../book/renderer/PageRenderer";
 import { normalizeTableBlock, tableGrid } from "../../book/tableModel";
 import { findAsset } from "../assets/catalog";
 import { isAssetRef, lookupAsset } from "../assets/registry";
+import { evaluateSheetFormulas } from "../../book/sheetFormula";
 import {
   PREFLIGHT_RULES,
   type PreflightIssue,
@@ -369,6 +370,55 @@ export function staticIssues(book: Book): PreflightIssue[] {
           `Box com ${block.content.length} caracteres: risco de quebra entre colunas.`,
           base,
         );
+      }
+
+      if (block.type === "sheet") {
+        const formulaEvaluation = evaluateSheetFormulas(
+          block.sheet.formulas ?? {},
+          block.sheet.values,
+        );
+        for (const [key, error] of Object.entries(formulaEvaluation.errors)) {
+          push("sheet-formula-invalid", "error", `Fórmula “${key}” inválida (${error}).`, base);
+        }
+        block.sheet.pages.forEach((sheetPage, sheetPageIndex) => {
+          sheetPage.elements.forEach((sheetElement) => {
+            const { x, y, width, height } = sheetElement.rect;
+            if (
+              x < 0 ||
+              y < 0 ||
+              width <= 0 ||
+              height <= 0 ||
+              x + width > sheetPage.widthMm ||
+              y + height > sheetPage.heightMm
+            ) {
+              push(
+                "sheet-element-outside-page",
+                "error",
+                `Elemento ${sheetElement.id} ultrapassa a página física ${sheetPageIndex + 1}.`,
+                base,
+              );
+            }
+            if (
+              [
+                "text-field",
+                "number-field",
+                "checkbox",
+                "choice",
+                "scale",
+                "text-area",
+                "calculated",
+              ].includes(sheetElement.type) &&
+              !sheetElement.key
+            ) {
+              push(
+                "sheet-field-unbound",
+                "warning",
+                `Campo ${sheetElement.id} não possui chave de dados.`,
+                base,
+              );
+            }
+          });
+        });
       }
 
       /* referências internas em markdown: [texto](#destino) */

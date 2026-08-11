@@ -183,6 +183,9 @@ export function measureIssues(root: HTMLElement, book: Book): PreflightIssue[] {
      */
     const contentBox = pageEl.querySelector<HTMLElement>(".k-page__content");
     const clippers = Array.from(pageEl.querySelectorAll<HTMLElement>("*")).filter((el) => {
+      /* Um Sheet pode conter várias páginas físicas dentro do mesmo bloco;
+       * seu overflow interno é a paginação editorial, não conteúdo cortado. */
+      if (el.closest(".k-sheet-document")) return false;
       if (el === contentBox) return false;
       if (el.classList.contains("k-bleed") || el.querySelector(".k-bleed")) return false;
       if (el.closest(".k-bleed")) return false;
@@ -196,6 +199,7 @@ export function measureIssues(root: HTMLElement, book: Book): PreflightIssue[] {
       if (overflowY <= EPS && overflowX <= EPS) continue;
       const { blockId, label } = blockName(el);
       const isContent = el.classList.contains("k-page__content");
+      if (isContent && el.querySelector(".k-sheet-document")) continue;
       const axis =
         overflowY > EPS
           ? `${Math.round(overflowY / pxPerMm)}mm de altura`
@@ -214,6 +218,7 @@ export function measureIssues(root: HTMLElement, book: Book): PreflightIssue[] {
     const contentEl = pageEl.querySelector<HTMLElement>(".k-page__content");
     const contentRect = contentEl?.getBoundingClientRect();
     for (const el of Array.from(pageEl.querySelectorAll<HTMLElement>("[data-block-id]"))) {
+      if (el.querySelector(".k-sheet-document")) continue;
       const rect = el.getBoundingClientRect();
       if (rect.width < 1 && rect.height < 1) continue;
       const { blockId, label } = blockName(el);

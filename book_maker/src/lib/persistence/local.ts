@@ -2,6 +2,7 @@ import type { Block, Book, Page } from "../../book/types";
 import { DEFAULT_TOKENS } from "../../book/types";
 import { normalizeTableBlock } from "../../book/tableModel";
 import { normalizeRecipe } from "../../book/authoring";
+import { normalizeSheet } from "../../book/sheetModel";
 
 const STORAGE_KEY = "kallistis.book-builder.project.v1";
 
@@ -35,9 +36,11 @@ export function normalizeBook(input: unknown): Book {
   }
   const pages: Page[] = book.pages.map((page) => ({
     ...page,
-    blocks: page.blocks.map((block) =>
-      block.type === "table" ? normalizeTableBlock(block) : (block as Block),
-    ),
+    blocks: page.blocks.map((block) => {
+      if (block.type === "table") return normalizeTableBlock(block);
+      if (block.type === "sheet") return { ...block, sheet: normalizeSheet(block.sheet) };
+      return block as Block;
+    }),
   }));
   return {
     schemaVersion: 1,
@@ -58,5 +61,7 @@ export function normalizeBook(input: unknown): Book {
           }
         })
       : [],
+    sheetTemplates: Array.isArray(book.sheetTemplates) ? book.sheetTemplates : [],
+    sheetInstances: Array.isArray(book.sheetInstances) ? book.sheetInstances : [],
   };
 }
