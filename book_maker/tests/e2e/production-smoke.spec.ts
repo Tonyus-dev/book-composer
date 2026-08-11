@@ -103,17 +103,18 @@ test("editor, canonical cover migration, IndexedDB assets, reload, offline and p
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/");
-  await expect(page.locator(".k-page[data-page-id='cover']")).toBeVisible();
+  const editorCover = page.locator(".k-editor-page[data-page-id='cover']");
+  await expect(editorCover).toBeVisible();
   await expect(
-    page.locator(".k-cover__product, .k-cover__sub, .k-cover__foot, .k-cover__lockup-slot"),
+    editorCover.locator(".k-cover__product, .k-cover__sub, .k-cover__foot, .k-cover__lockup-slot"),
   ).toHaveCount(0);
   const coverMode = page.getByLabel("Composição da capa");
   await coverMode.selectOption("overlay");
-  await expect(page.locator(".k-cover__product")).toBeVisible();
-  await expect(page.locator(".k-cover__sub")).toBeVisible();
+  await expect(editorCover.locator(".k-cover__product")).toBeVisible();
+  await expect(editorCover.locator(".k-cover__sub")).toBeVisible();
   await coverMode.selectOption("art-only");
   await expect(
-    page.locator(".k-cover__product, .k-cover__sub, .k-cover__foot, .k-cover__lockup-slot"),
+    editorCover.locator(".k-cover__product, .k-cover__sub, .k-cover__foot, .k-cover__lockup-slot"),
   ).toHaveCount(0);
 
   const input = page.locator('input[type="file"][accept*="image/jpeg"]');
@@ -133,7 +134,7 @@ test("editor, canonical cover migration, IndexedDB assets, reload, offline and p
       await expect(page.getByText(/baixa resolução/i).first()).toBeVisible();
     }
   }
-  const coverImages = page.locator(".k-page[data-page-id='cover'] .k-bleed--img");
+  const coverImages = editorCover.locator(".k-bleed--img");
   await expect(coverImages).toHaveCount(1);
   await expect(coverImages).toHaveAttribute("src", /^blob:/);
   await expect(coverImages).toHaveJSProperty("naturalWidth", 3000);
@@ -188,8 +189,9 @@ test("blank is empty and preserves a manual composition in reload, print and PDF
 }, testInfo) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Adicionar Página em branco depois" }).first().click();
-  await page.getByText("BLANK", { exact: true }).last().click();
-  const blankPage = page.locator(".k-page[data-template='blank']");
+  const blankThumbnail = page.locator("button .k-page[data-template='blank']").last();
+  await blankThumbnail.locator("xpath=ancestor::button[1]").click();
+  const blankPage = page.locator(".k-editor-page[data-template='blank']");
   await expect(blankPage).toBeVisible();
   await expect(blankPage.locator("[data-block-id]")).toHaveCount(0);
   await expect(blankPage.locator(".k-page__content, .k-page-number, .k-page-header")).toHaveCount(
