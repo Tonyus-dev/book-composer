@@ -2,6 +2,9 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "kallistis-book-builder",
   "compatibility_date": "2026-08-08",
+  "vars": {
+    "APP_VERSION": "book-maker-release-candidate"
+  },
   "d1_databases": [
     {
       "binding": "DB",
