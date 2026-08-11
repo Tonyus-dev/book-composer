@@ -41,7 +41,9 @@ export type PreflightRuleId =
   | "toc-destination"
   | "font-substitution"
   | "hidden-content"
-  | "low-contrast";
+  | "low-contrast"
+  | "required-recipe-slot-empty"
+  | "recipe-instance-invalid";
 
 export interface PreflightRuleMeta {
   id: PreflightRuleId;
@@ -271,6 +273,18 @@ export const PREFLIGHT_RULES: Record<PreflightRuleId, PreflightRuleMeta> = {
     label: "Contraste de texto baixo",
     source: "measured",
     inspection: "Reveja cor de texto sobre o fundo desta página.",
+  },
+  "required-recipe-slot-empty": {
+    id: "required-recipe-slot-empty",
+    label: "Slot obrigatório vazio",
+    source: "static",
+    inspection: "Selecione o slot no editor e preencha o conteúdo antes de exportar.",
+  },
+  "recipe-instance-invalid": {
+    id: "recipe-instance-invalid",
+    label: "Instância de modelo inválida",
+    source: "static",
+    inspection: "Recrie a página a partir de um modelo válido ou remova a proveniência inválida.",
   },
 };
 

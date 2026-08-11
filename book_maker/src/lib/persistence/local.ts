@@ -1,6 +1,7 @@
 import type { Block, Book, Page } from "../../book/types";
 import { DEFAULT_TOKENS } from "../../book/types";
 import { normalizeTableBlock } from "../../book/tableModel";
+import { normalizeRecipe } from "../../book/authoring";
 
 const STORAGE_KEY = "kallistis.book-builder.project.v1";
 
@@ -47,6 +48,15 @@ export function normalizeBook(input: unknown): Book {
     assets: Array.isArray(book.assets) ? book.assets : [],
     spreads: Array.isArray(book.spreads) ? book.spreads : [],
     tableStyles: Array.isArray(book.tableStyles) ? book.tableStyles : [],
-    recipes: Array.isArray(book.recipes) ? book.recipes : [],
+    recipes: Array.isArray(book.recipes)
+      ? book.recipes.flatMap((recipe) => {
+          try {
+            return [normalizeRecipe(recipe)];
+          } catch (error) {
+            console.warn("[kallistis] recipe inválida ignorada", error);
+            return [];
+          }
+        })
+      : [],
   };
 }

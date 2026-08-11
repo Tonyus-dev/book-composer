@@ -5,12 +5,12 @@ import {
   createFormBlock,
   parseAsciiLayout,
   parseSmartPaste,
-  recipeFromPage,
   serializeAsciiLayout,
 } from "../../book/authoring";
 import { createTableBlock } from "../../book/tableModel";
 import { downloadBookJson, readBookFromFile } from "../../lib/persistence/json";
 import { useEditor, nextId, type Overlays, type ZoomValue } from "../state/store";
+import { RecipeDialog } from "./RecipeDialog";
 
 const OVERLAY_LABELS: { key: keyof Overlays; label: string }[] = [
   { key: "margins", label: "Margens" },
@@ -104,7 +104,8 @@ export function Toolbar() {
     runPreflight,
     openPreflight,
     saveRecipe,
-    insertRecipe,
+    createPageFromRecipe,
+    deleteRecipe,
   } = useEditor();
   const fileRef = useRef<HTMLInputElement>(null);
   const [newTableOpen, setNewTableOpen] = useState(false);
@@ -117,8 +118,6 @@ export function Toolbar() {
   const [authoringText, setAuthoringText] = useState("");
   const [formTitle, setFormTitle] = useState("Ficha de personagem");
   const [formColumns, setFormColumns] = useState<1 | 2>(1);
-  const [recipeName, setRecipeName] = useState("");
-  const [recipeDescription, setRecipeDescription] = useState("");
   const { errors, warnings, infos } = preflight.summary;
   const asciiPreview = useMemo(() => {
     if (authoringOpen !== "ascii" || !authoringText.trim()) return null;
@@ -464,7 +463,7 @@ export function Toolbar() {
                       ? "Use @template, @title, # título, > citação, parágrafos, tabelas Markdown e [form]."
                       : authoringOpen === "form"
                         ? "Um campo por linha: Nome::text, Notas::multiline, Vida::number ou Ativo::checkbox."
-                        : "Uma receita salva os blocos da página atual para reaplicar em qualquer página."}
+                        : "Salve a composição como modelo sem copiar o conteúdo específico da página."}
                 </p>
               </div>
               <button
@@ -477,65 +476,19 @@ export function Toolbar() {
             </div>
 
             {authoringOpen === "recipes" ? (
-              <div className="space-y-3">
-                <div className="grid grid-cols-[1fr_1fr_auto] gap-2">
-                  <input
-                    className="border border-border bg-input/40 px-2 py-1 text-xs"
-                    placeholder="Nome da receita"
-                    value={recipeName}
-                    onChange={(event) => setRecipeName(event.target.value)}
-                  />
-                  <input
-                    className="border border-border bg-input/40 px-2 py-1 text-xs"
-                    placeholder="Descrição (opcional)"
-                    value={recipeDescription}
-                    onChange={(event) => setRecipeDescription(event.target.value)}
-                  />
-                  <button
-                    type="button"
-                    className="border border-primary bg-primary px-2 py-1 text-xs text-primary-foreground disabled:opacity-50"
-                    disabled={!recipeName.trim() || selectedPage.blocks.length === 0}
-                    onClick={() => {
-                      saveRecipe(
-                        recipeFromPage(selectedPage, recipeName.trim(), recipeDescription),
-                      );
-                      setRecipeName("");
-                      setRecipeDescription("");
-                    }}
-                  >
-                    Salvar página
-                  </button>
-                </div>
-                <div className="max-h-64 space-y-1 overflow-y-auto border-t border-border pt-2">
-                  {(book.recipes ?? []).length === 0 ? (
-                    <p className="text-xs text-muted-foreground">Nenhuma receita salva ainda.</p>
-                  ) : (
-                    book.recipes?.map((recipe) => (
-                      <div
-                        key={recipe.id}
-                        className="flex items-center justify-between gap-3 border-b border-border py-2"
-                      >
-                        <div className="min-w-0">
-                          <div className="truncate text-xs font-medium">{recipe.name}</div>
-                          <div className="truncate text-[10px] text-muted-foreground">
-                            {recipe.description ?? `${recipe.blocks.length} blocos`}
-                          </div>
-                        </div>
-                        <button
-                          type="button"
-                          className="shrink-0 border border-border px-2 py-1 text-[11px] hover:bg-accent"
-                          onClick={() => {
-                            insertRecipe(selectedPage.id, recipe);
-                            closeAuthoring();
-                          }}
-                        >
-                          Aplicar
-                        </button>
-                      </div>
-                    ))
-                  )}
-                </div>
-              </div>
+              <RecipeDialog
+                page={selectedPage}
+                pairedPage={
+                  book.pages[book.pages.findIndex((page) => page.id === selectedPage.id) + 1]
+                }
+                recipes={book.recipes ?? []}
+                onSave={saveRecipe}
+                onCreatePage={(recipe) => {
+                  createPageFromRecipe(selectedPage.id, recipe);
+                  closeAuthoring();
+                }}
+                onDelete={deleteRecipe}
+              />
             ) : authoringOpen === "form" ? (
               <form
                 className="space-y-3"

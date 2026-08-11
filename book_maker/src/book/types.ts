@@ -55,6 +55,10 @@ export interface BaseBlock {
   /** Espaço editorial antes/depois, em mm. */
   spaceBefore?: number;
   spaceAfter?: number;
+  /** Metadados discretos de uma instância de recipe; não alteram o print. */
+  recipeSlotKey?: string;
+  recipeSlotLabel?: string;
+  recipeSlotRequired?: boolean;
 }
 
 export type TextRole = "body" | "lead" | "dialogue" | "credits" | "note";
@@ -347,6 +351,8 @@ export interface Page {
   eyebrow?: string | undefined;
   /** composição manual protegida contra alterações automáticas futuras. */
   fixed?: boolean;
+  /** Proveniência informativa; a página materializada não fica vinculada à recipe. */
+  recipeInstance?: RecipeInstance;
   settings: PageSettings;
   blocks: Block[];
 }
@@ -422,16 +428,100 @@ export interface Book {
   spreads?: Spread[];
   /** presets de tabela personalizados, persistidos dentro do projeto. */
   tableStyles?: TableStylePreset[];
-  /** receitas editoriais reutilizáveis, armazenadas como snapshots de blocos. */
+  /** modelos editoriais reutilizáveis; páginas materializadas são independentes. */
   recipes?: BookRecipe[];
+}
+
+export type RecipeScope = "page" | "spread";
+
+export type RecipeSlotKind =
+  | "title"
+  | "subtitle"
+  | "eyebrow"
+  | "lead"
+  | "body"
+  | "portrait"
+  | "image"
+  | "hero-image"
+  | "map"
+  | "symbol"
+  | "table"
+  | "quote"
+  | "box"
+  | "caption";
+
+export type RecipeBlockMode = "slot" | "fixed" | "ignore";
+
+export interface RecipeSlotConstraints {
+  preferredOrientation?: "portrait" | "landscape" | "square";
+  transparentPreferred?: boolean;
+  fit?: ImageFit;
+  maxCharacters?: number;
+  minCharacters?: number;
+}
+
+export interface RecipeSlot {
+  id: string;
+  key: string;
+  kind: RecipeSlotKind;
+  label: string;
+  required?: boolean;
+  acceptedBlockTypes?: BlockType[];
+  sourceBlockId?: string;
+  defaults?: Record<string, unknown>;
+  constraints?: RecipeSlotConstraints;
+}
+
+/** Bloco estrutural da recipe. `style` contém apenas forma e conteúdo vazio. */
+export interface RecipeBlockNode {
+  type: "block";
+  recipeBlockId: string;
+  blockType: BlockType;
+  mode: RecipeBlockMode;
+  slotKey?: string;
+  fixedContent?: Block;
+  style?: Block;
+}
+
+export interface RecipePageBlueprint {
+  template?: TemplateId;
+  variant?: PageVariant;
+  pageSettings?: Partial<PageSettings>;
+  structure: RecipeBlockNode[];
+  slots: RecipeSlot[];
+}
+
+export interface RecipePreviewMetadata {
+  blockCount: number;
+  slotCount: number;
+  fixedCount: number;
+  pageCount?: 1 | 2;
+}
+
+export interface RecipeInstance {
+  recipeId: string;
+  recipeVersion: number;
+  spreadInstanceId?: string;
 }
 
 export interface BookRecipe {
   id: string;
   name: string;
   description?: string;
+  version: number;
+  scope: RecipeScope;
   template?: TemplateId;
-  blocks: Block[];
+  variant?: PageVariant;
+  pageSettings?: Partial<PageSettings>;
+  structure: RecipeBlockNode[];
+  slots: RecipeSlot[];
+  spread?: {
+    left: RecipePageBlueprint;
+    right: RecipePageBlueprint;
+  };
+  preview?: RecipePreviewMetadata;
+  /** Campo de leitura apenas para projetos anteriores à versão semântica. */
+  blocks?: Block[];
   createdAt: string;
   updatedAt: string;
 }

@@ -54,6 +54,32 @@ function textOf(block: Block): string {
   return "";
 }
 
+function isRecipeSlotEmpty(block: Block): boolean {
+  switch (block.type) {
+    case "heading":
+      return !block.text.trim();
+    case "text":
+      return !block.content.trim();
+    case "image":
+      return !block.src;
+    case "quote":
+      return !block.text.trim();
+    case "box":
+      return !block.title.trim() && !block.content.trim();
+    case "caption":
+      return !block.text.trim();
+    case "table": {
+      const table = normalizeTableBlock(block);
+      return (
+        table.rows.length === 0 ||
+        table.rows.every((row) => row.cells.every((cell) => !cell.content.trim()))
+      );
+    }
+    default:
+      return false;
+  }
+}
+
 /**
  * Regras estáticas: dependem apenas do JSON do livro, então rodam no editor,
  * na rota de impressão e no exportador com resultado idêntico.
@@ -117,6 +143,20 @@ export function staticIssues(book: Book): PreflightIssue[] {
     const verso = isVerso(folio);
     const ctx = { page, folio };
 
+    if (page.recipeInstance) {
+      if (!page.recipeInstance.recipeId || !Number.isInteger(page.recipeInstance.recipeVersion)) {
+        push(
+          "recipe-instance-invalid",
+          "error",
+          "Metadados de proveniência do modelo estão incompletos.",
+          {
+            ...ctx,
+            element: `página ${folio} · recipeInstance`,
+          },
+        );
+      }
+    }
+
     /* página em branco acidental */
     if (page.blocks.length === 0 && page.template !== "full_art" && page.template !== "map_page") {
       push("blank-page", "warning", "Página sem nenhum bloco de conteúdo.", {
@@ -168,9 +208,20 @@ export function staticIssues(book: Book): PreflightIssue[] {
       const element = blockLabel(block, blockIndex);
       const base = { ...ctx, blockId: block.id, element };
 
+      if (block.recipeSlotKey && block.recipeSlotRequired && isRecipeSlotEmpty(block)) {
+        push(
+          "required-recipe-slot-empty",
+          "warning",
+          `Slot obrigatório “${block.recipeSlotLabel ?? block.recipeSlotKey}” ainda está vazio.`,
+          base,
+        );
+      }
+
       if (block.type === "image" || block.type === "lockup") {
         if (!block.src) {
-          push("missing-asset", "error", "Bloco de imagem sem asset definido.", base);
+          if (!block.recipeSlotKey) {
+            push("missing-asset", "error", "Bloco de imagem sem asset definido.", base);
+          }
         } else if (isAssetRef(block.src)) {
           if (!lookupAsset(block.src)) {
             push(

@@ -6,6 +6,12 @@ import type {
   LayoutAreaContent,
   LayoutBlock,
   Page,
+  RecipeBlockMode,
+  RecipeBlockNode,
+  RecipePageBlueprint,
+  RecipeSlot,
+  RecipeSlotConstraints,
+  RecipeSlotKind,
   TemplateId,
 } from "./types";
 import { createTableBlock, parseTabularText } from "./tableModel";
@@ -67,11 +73,388 @@ export function cloneBlockForInsert(block: Block, index = 0): Block {
   return { ...block, id: nextId } as Block;
 }
 
-export function cloneRecipe(recipe: BookRecipe): BookRecipe {
+export interface RecipeBlockClassification {
+  blockId: string;
+  mode: RecipeBlockMode;
+  kind?: RecipeSlotKind;
+  key?: string;
+  label?: string;
+  required?: boolean;
+  constraints?: RecipeSlotConstraints;
+}
+
+function cloneJson<T>(value: T): T {
+  return JSON.parse(JSON.stringify(value)) as T;
+}
+
+export function suggestedRecipeKind(block: Block): RecipeSlotKind | null {
+  switch (block.type) {
+    case "heading":
+      return block.level === 1 ? "title" : "subtitle";
+    case "text":
+      return block.role === "lead" ? "lead" : "body";
+    case "image":
+      if (block.position === "full" || block.fullBleed) return "hero-image";
+      return block.position === "left" || block.position === "right" ? "portrait" : "image";
+    case "table":
+      return "table";
+    case "quote":
+      return "quote";
+    case "box":
+      return "box";
+    case "caption":
+      return "caption";
+    case "lockup":
+      return "symbol";
+    case "form":
+    case "toc":
+      return "body";
+    case "divider":
+    case "layout":
+      return null;
+  }
+}
+
+function defaultConstraints(kind: RecipeSlotKind): RecipeSlotConstraints | undefined {
+  if (kind === "portrait") return { preferredOrientation: "portrait", fit: "contain" };
+  if (kind === "hero-image" || kind === "map") {
+    return { preferredOrientation: "landscape", fit: "contain" };
+  }
+  if (kind === "title") return { maxCharacters: 60 };
+  return undefined;
+}
+
+function emptyTable(block: Extract<Block, { type: "table" }>): Extract<Block, { type: "table" }> {
+  const normalized = normalizeTableBlock(cloneJson(block));
+  const { caption: _caption, ...withoutCaption } = normalized;
   return {
-    ...recipe,
-    blocks: recipe.blocks.map((block, index) => cloneBlockForInsert(block, index)),
+    ...withoutCaption,
+    rows: withoutCaption.rows.map((row) => ({
+      ...row,
+      cells: row.cells.map((cell) => ({ ...cell, content: "" })),
+    })),
   };
+}
+
+/** Remove conteúdo específico, preservando proporções, estilo e geometria editorial. */
+export function emptyBlockForRecipe(block: Block, label: string, kind?: RecipeSlotKind): Block {
+  const next = cloneJson(block);
+  switch (next.type) {
+    case "heading": {
+      const { eyebrow: _eyebrow, ...withoutEyebrow } = next;
+      return { ...withoutEyebrow, text: "" };
+    }
+    case "text":
+      return { ...next, content: "" };
+    case "image": {
+      const { caption: _caption, ...withoutCaption } = next;
+      return { ...withoutCaption, src: "", alt: `${label} — solte uma imagem` };
+    }
+    case "quote": {
+      const { attribution: _attribution, ...withoutAttribution } = next;
+      return { ...withoutAttribution, text: "" };
+    }
+    case "table":
+      return emptyTable(next);
+    case "box":
+      return { ...next, title: "", content: "" };
+    case "caption":
+      return { ...next, text: "" };
+    case "toc":
+      return { ...next, entries: [] };
+    case "form": {
+      const { intro: _intro, ...withoutIntro } = next;
+      return {
+        ...withoutIntro,
+        title: "",
+        fields: next.fields.map((field) => {
+          const { hint: _hint, ...withoutHint } = field;
+          return { ...withoutHint, label: "" };
+        }),
+      };
+    }
+    case "lockup":
+      return { ...next, src: "", alt: label };
+    case "divider":
+      return next;
+    case "layout":
+      return {
+        ...next,
+        areas: next.areas.map((area) => ({
+          ...area,
+          block: emptyBlockForRecipe(
+            area.block as Block,
+            area.marker ?? "Área",
+          ) as LayoutAreaContent,
+        })),
+      };
+  }
+  return next;
+}
+
+function defaultMode(block: Block): RecipeBlockMode {
+  return block.type === "divider" || block.type === "lockup" ? "fixed" : "slot";
+}
+
+function uniqueSlotKey(kind: RecipeSlotKind, used: Set<string>, preferred?: string): string {
+  const base = (preferred || kind).toLowerCase().replace(/[^a-z0-9-]+/g, "-") || "slot";
+  let key = base;
+  let index = 2;
+  while (used.has(key)) key = `${base}-${index++}`;
+  used.add(key);
+  return key;
+}
+
+function labelForBlock(block: Block, kind?: RecipeSlotKind): string {
+  if (kind === "title") return "Título";
+  if (kind === "portrait") return "Retrato";
+  if (kind === "table") return "Tabela";
+  if (kind === "quote") return "Citação";
+  if (kind === "lead") return "Texto introdutório";
+  if (kind === "body") return "Texto principal";
+  if (block.type === "divider") return "Divisor fixo";
+  return kind ? kind.replaceAll("-", " ") : block.type;
+}
+
+function blueprintFromPage(
+  page: Page,
+  classifications: RecipeBlockClassification[] = [],
+): RecipePageBlueprint {
+  const byBlockId = new Map(classifications.map((item) => [item.blockId, item]));
+  const usedKeys = new Set<string>();
+  const slots: RecipeSlot[] = [];
+  const structure: RecipeBlockNode[] = [];
+
+  page.blocks.forEach((block) => {
+    const classification = byBlockId.get(block.id);
+    const mode = classification?.mode ?? defaultMode(block);
+    if (mode === "ignore") return;
+    const kind = classification?.kind ?? suggestedRecipeKind(block);
+    if (mode === "fixed" || !kind) {
+      structure.push({
+        type: "block",
+        recipeBlockId: `recipe-block-${block.id}`,
+        blockType: block.type,
+        mode: "fixed",
+        fixedContent: cloneJson(block),
+      });
+      return;
+    }
+    const label = classification?.label?.trim() || labelForBlock(block, kind);
+    const key = uniqueSlotKey(kind, usedKeys, classification?.key);
+    const constraints = classification?.constraints ?? defaultConstraints(kind);
+    const slot: RecipeSlot = {
+      id: `recipe-slot-${key}`,
+      key,
+      kind,
+      label,
+      required:
+        classification?.required ?? ["title", "lead", "body", "portrait", "table"].includes(kind),
+      acceptedBlockTypes: [block.type],
+      sourceBlockId: block.id,
+      ...(constraints ? { constraints } : {}),
+    };
+    slots.push(slot);
+    structure.push({
+      type: "block",
+      recipeBlockId: `recipe-block-${block.id}`,
+      blockType: block.type,
+      mode: "slot",
+      slotKey: key,
+      style: emptyBlockForRecipe(block, label, kind),
+    });
+  });
+  return {
+    template: page.template,
+    ...(page.variant ? { variant: page.variant } : {}),
+    pageSettings: cloneJson(page.settings),
+    structure,
+    slots,
+  };
+}
+
+export function semanticRecipeFromPage(
+  page: Page,
+  name: string,
+  description = "",
+  classifications: RecipeBlockClassification[] = [],
+): BookRecipe {
+  const now = new Date().toISOString();
+  const blueprint = blueprintFromPage(page, classifications);
+  return {
+    id: `recipe-${Date.now().toString(36)}`,
+    name,
+    ...(description ? { description } : {}),
+    version: 1,
+    scope: "page",
+    ...(blueprint.template ? { template: blueprint.template } : {}),
+    ...(blueprint.variant ? { variant: blueprint.variant } : {}),
+    ...(blueprint.pageSettings ? { pageSettings: blueprint.pageSettings } : {}),
+    structure: blueprint.structure,
+    slots: blueprint.slots,
+    preview: {
+      blockCount: blueprint.structure.length,
+      slotCount: blueprint.slots.length,
+      fixedCount: blueprint.structure.filter((node) => node.mode === "fixed").length,
+      pageCount: 1,
+    },
+    createdAt: now,
+    updatedAt: now,
+  };
+}
+
+export function semanticRecipeFromSpread(
+  left: Page,
+  right: Page,
+  name: string,
+  description = "",
+  leftClassifications: RecipeBlockClassification[] = [],
+  rightClassifications: RecipeBlockClassification[] = [],
+): BookRecipe {
+  const now = new Date().toISOString();
+  const leftBlueprint = blueprintFromPage(left, leftClassifications);
+  const rightBlueprint = blueprintFromPage(right, rightClassifications);
+  return {
+    id: `recipe-${Date.now().toString(36)}`,
+    name,
+    ...(description ? { description } : {}),
+    version: 1,
+    scope: "spread",
+    structure: leftBlueprint.structure,
+    slots: leftBlueprint.slots,
+    spread: { left: leftBlueprint, right: rightBlueprint },
+    preview: {
+      blockCount: leftBlueprint.structure.length + rightBlueprint.structure.length,
+      slotCount: leftBlueprint.slots.length + rightBlueprint.slots.length,
+      fixedCount:
+        leftBlueprint.structure.filter((node) => node.mode === "fixed").length +
+        rightBlueprint.structure.filter((node) => node.mode === "fixed").length,
+      pageCount: 2,
+    },
+    createdAt: now,
+    updatedAt: now,
+  };
+}
+
+/** Migra snapshots antigos para uma recipe semântica sem reutilizar conteúdo ao instanciar. */
+export function normalizeRecipe(input: unknown): BookRecipe {
+  const raw = input as Partial<BookRecipe>;
+  if (!raw || typeof raw !== "object" || typeof raw.name !== "string") {
+    throw new Error("Recipe inválida: nome ausente.");
+  }
+  if (Array.isArray(raw.structure) && Array.isArray(raw.slots)) {
+    const validBlockTypes = new Set([
+      "text",
+      "heading",
+      "image",
+      "quote",
+      "table",
+      "box",
+      "caption",
+      "divider",
+      "toc",
+      "lockup",
+      "form",
+      "layout",
+    ]);
+    const validModes = new Set(["slot", "fixed", "ignore"]);
+    if (
+      (raw.scope !== undefined && raw.scope !== "page" && raw.scope !== "spread") ||
+      (raw.scope === "spread" && (!raw.spread || !raw.spread.left || !raw.spread.right)) ||
+      !raw.structure.every(
+        (node) =>
+          node &&
+          node.type === "block" &&
+          typeof node.recipeBlockId === "string" &&
+          validBlockTypes.has(node.blockType) &&
+          validModes.has(node.mode),
+      ) ||
+      !raw.slots.every(
+        (slot) =>
+          slot &&
+          typeof slot.id === "string" &&
+          typeof slot.key === "string" &&
+          typeof slot.kind === "string",
+      ) ||
+      new Set(raw.slots.map((slot) => slot.key)).size !== raw.slots.length
+    ) {
+      throw new Error("Recipe inválida: estrutura, modos ou slots inconsistentes.");
+    }
+    return {
+      ...raw,
+      version: raw.version ?? 1,
+      scope: raw.scope ?? "page",
+      structure: raw.structure,
+      slots: raw.slots,
+    } as BookRecipe;
+  }
+  const blocks = Array.isArray(raw.blocks) ? raw.blocks : [];
+  const migrated = semanticRecipeFromPage(
+    {
+      id: "legacy-recipe-source",
+      template: raw.template ?? "narrative",
+      settings: {
+        header: true,
+        footer: false,
+        pageNumber: true,
+        columns: 1,
+        background: "paper",
+        fullBleed: false,
+      },
+      blocks,
+    },
+    raw.name,
+    raw.description ?? "",
+  );
+  return {
+    ...migrated,
+    id: raw.id ?? migrated.id,
+    createdAt: raw.createdAt ?? migrated.createdAt,
+    updatedAt: raw.updatedAt ?? migrated.updatedAt,
+  };
+}
+
+export function materializeRecipeBlueprint(blueprint: RecipePageBlueprint): Block[] {
+  return blueprint.structure.flatMap((node, index) => {
+    if (node.mode === "ignore") return [];
+    const source = node.mode === "fixed" ? node.fixedContent : node.style;
+    if (!source) return [];
+    const slot = blueprint.slots.find((item) => item.key === node.slotKey);
+    const block =
+      node.mode === "slot"
+        ? emptyBlockForRecipe(source, slot?.label ?? "Slot", slot?.kind)
+        : source;
+    const materialized = cloneBlockForInsert(block, index);
+    if (node.mode !== "slot" || !slot) return [materialized];
+    return [
+      {
+        ...materialized,
+        recipeSlotKey: slot.key,
+        recipeSlotLabel: slot.label,
+        ...(slot.required === undefined ? {} : { recipeSlotRequired: slot.required }),
+      },
+    ];
+  });
+}
+
+export function materializeRecipe(recipe: BookRecipe): Block[] {
+  const normalized = normalizeRecipe(recipe);
+  return materializeRecipeBlueprint({
+    structure: normalized.structure,
+    slots: normalized.slots,
+    ...(normalized.template ? { template: normalized.template } : {}),
+    ...(normalized.variant ? { variant: normalized.variant } : {}),
+    ...(normalized.pageSettings ? { pageSettings: normalized.pageSettings } : {}),
+  });
+}
+
+export function cloneRecipe(recipe: BookRecipe): BookRecipe {
+  const normalized = normalizeRecipe(recipe);
+  return cloneJson(normalized);
+}
+
+export function recipeFromPage(page: Page, name: string, description: string): BookRecipe {
+  return semanticRecipeFromPage(page, name, description);
 }
 
 function formFromLines(lines: string[], blockIndex: number, stable = false): FormBlock {
@@ -451,18 +834,5 @@ export function createFormBlock(
     title: title.trim() || "Nova ficha",
     columns,
     fields: form.fields.map((field, index) => ({ ...field, id: `${idValue}-field-${index + 1}` })),
-  };
-}
-
-export function recipeFromPage(page: Page, name: string, description: string): BookRecipe {
-  const now = new Date().toISOString();
-  return {
-    id: `recipe-${Date.now().toString(36)}`,
-    name,
-    ...(description ? { description } : {}),
-    template: page.template,
-    blocks: page.blocks.map((block, index) => cloneBlockForInsert(block, index)),
-    createdAt: now,
-    updatedAt: now,
   };
 }

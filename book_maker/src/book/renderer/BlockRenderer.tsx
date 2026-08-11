@@ -14,6 +14,7 @@ import {
   SectionDivider,
 } from "../components/BookComponents";
 import { useBookRender } from "./context";
+import { normalizeTableBlock } from "../tableModel";
 
 export function BlockBody({ block }: { block: Block }) {
   switch (block.type) {
@@ -76,6 +77,33 @@ function LayoutBody({ block }: { block: LayoutBlock }) {
   );
 }
 
+function recipeSlotIsEmpty(block: Block): boolean {
+  switch (block.type) {
+    case "heading":
+      return !block.text.trim();
+    case "text":
+      return !block.content.trim();
+    case "image":
+      return !block.src;
+    case "quote":
+      return !block.text.trim();
+    case "box":
+      return !block.title.trim() && !block.content.trim();
+    case "caption":
+      return !block.text.trim();
+    case "table":
+      return (() => {
+        const table = normalizeTableBlock(block);
+        return (
+          table.rows.length === 0 ||
+          table.rows.every((row) => row.cells.every((cell) => !cell.content.trim()))
+        );
+      })();
+    default:
+      return false;
+  }
+}
+
 /** Envelope de bloco: span, espaçamento editorial, identificação e (só no editor) seleção. */
 export function BlockRenderer({ block }: { block: Block }) {
   const { interactive, selectedBlockId, onSelectBlock } = useBookRender();
@@ -90,6 +118,7 @@ export function BlockRenderer({ block }: { block: Block }) {
   ]
     .filter(Boolean)
     .join(" ");
+  const emptyRecipeSlot = Boolean(block.recipeSlotKey && recipeSlotIsEmpty(block));
 
   /*
    * `data-block-id` identifica o bloco para medições geométricas fora do
@@ -114,7 +143,14 @@ export function BlockRenderer({ block }: { block: Block }) {
           : undefined
       }
     >
-      <BlockBody block={block} />
+      {emptyRecipeSlot && interactive ? (
+        <div className="k-recipe-slot-placeholder" data-recipe-slot={block.recipeSlotKey}>
+          <strong>{block.recipeSlotLabel ?? block.recipeSlotKey}</strong>
+          <span>{block.type === "image" ? "Solte uma imagem" : "Clique para preencher"}</span>
+        </div>
+      ) : emptyRecipeSlot ? null : (
+        <BlockBody block={block} />
+      )}
     </div>
   );
 }

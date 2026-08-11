@@ -1,10 +1,14 @@
 import {
   cloneBlockForInsert,
   createFormBlock,
+  materializeRecipe,
+  normalizeRecipe,
   parseAsciiLayout,
   parseSmartPaste,
+  semanticRecipeFromPage,
   serializeAsciiLayout,
 } from "../src/book/authoring";
+import type { Page } from "../src/book/types";
 
 const table = parseSmartPaste("Nome\tValor\nA\t1\nB\t2");
 if (table.kind !== "table" || table.blocks[0]?.type !== "table")
@@ -67,5 +71,76 @@ if (
   throw new Error("áreas ASCII não preservaram semântica");
 }
 if (serializeAsciiLayout(layout) !== boxSource) throw new Error("round-trip ASCII não é estável");
+
+const recipePage: Page = {
+  id: "recipe-source",
+  template: "profile",
+  variant: "portrait-left",
+  settings: {
+    header: true,
+    footer: false,
+    pageNumber: true,
+    columns: 1,
+    background: "paper",
+    fullBleed: false,
+  },
+  blocks: [
+    { id: "title-source", type: "heading", level: 1, text: "Povo original" },
+    {
+      id: "portrait-source",
+      type: "image",
+      src: "/portrait.jpg",
+      alt: "Retrato original",
+      position: "left",
+    },
+    {
+      id: "body-source",
+      type: "text",
+      content: "Conteúdo específico que não deve vazar.",
+      role: "body",
+    },
+    { id: "divider-source", type: "divider", ornament: true },
+  ],
+};
+const semanticRecipe = semanticRecipeFromPage(recipePage, "Perfil semântico", "Modelo de teste", [
+  { blockId: "title-source", mode: "slot", kind: "title", required: true },
+  { blockId: "portrait-source", mode: "slot", kind: "portrait", required: true },
+  { blockId: "body-source", mode: "slot", kind: "body", required: true },
+  { blockId: "divider-source", mode: "fixed" },
+]);
+if (semanticRecipe.scope !== "page" || semanticRecipe.slots.length !== 3) {
+  throw new Error("recipe semântica não classificou slots");
+}
+const materialized = materializeRecipe(semanticRecipe);
+if (materialized.length !== 4 || materialized.some((block) => block.id.endsWith("source"))) {
+  throw new Error("instanciação não gerou IDs independentes");
+}
+const materializedHeading = materialized.find((block) => block.type === "heading");
+const materializedImage = materialized.find((block) => block.type === "image");
+const materializedDivider = materialized.find((block) => block.type === "divider");
+if (
+  materializedHeading?.type !== "heading" ||
+  materializedHeading.text ||
+  materializedImage?.type !== "image" ||
+  materializedImage.src ||
+  materializedDivider?.type !== "divider" ||
+  !materializedDivider.ornament
+) {
+  throw new Error("recipe não separou slots vazios de elementos fixos");
+}
+const legacy = normalizeRecipe({
+  id: "legacy",
+  name: "Receita antiga",
+  template: "narrative",
+  blocks: [{ id: "old", type: "text", content: "não copiar" }],
+  createdAt: "2026-01-01T00:00:00.000Z",
+  updatedAt: "2026-01-01T00:00:00.000Z",
+});
+if (
+  materializeRecipe(legacy)[0]?.type !== "text" ||
+  (materializeRecipe(legacy)[0] as { content?: string }).content
+) {
+  throw new Error("migração de recipe antiga preservou conteúdo indevidamente");
+}
 
 console.log("authoring PASS");

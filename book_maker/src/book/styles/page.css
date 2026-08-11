@@ -385,6 +385,26 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
+.k-recipe-slot-placeholder {
+  display: grid;
+  min-height: 16mm;
+  place-items: center;
+  gap: 1mm;
+  border: 0.35mm dashed var(--k-primary);
+  background: color-mix(in srgb, var(--k-primary) 7%, transparent);
+  color: var(--k-primary);
+  font-family: var(--font-functional);
+  font-size: 8pt;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.k-recipe-slot-placeholder span {
+  color: var(--k-muted);
+  font-size: 7pt;
+  letter-spacing: 0.03em;
+  text-transform: none;
+}
 .k-layout--interactive .k-layout__area[data-layout-marker]::before {
   display: block;
   margin-bottom: 1mm;

@@ -38,7 +38,12 @@ import { buildReport, fingerprint } from "../../lib/preflight/report";
 import type { PreflightIssue, PreflightReport } from "../../lib/preflight/types";
 import { folioFor } from "../../book/renderer/PageRenderer";
 import { normalizeTableBlock, splitTable as splitTableBlock } from "../../book/tableModel";
-import { cloneBlockForInsert, cloneRecipe } from "../../book/authoring";
+import {
+  cloneBlockForInsert,
+  materializeRecipe,
+  materializeRecipeBlueprint,
+  normalizeRecipe,
+} from "../../book/authoring";
 import type { TableBlockV2 } from "../../book/types";
 import { bookRhythm, type PageRhythm } from "../../lib/rhythm/metrics";
 import {
@@ -137,6 +142,8 @@ interface EditorContextValue {
   replaceBook: (book: Book) => void;
   resetToDemo: () => void;
   saveRecipe: (recipe: BookRecipe) => void;
+  createPageFromRecipe: (afterPageId: string, recipe: BookRecipe) => void;
+  deleteRecipe: (recipeId: string) => void;
   insertRecipe: (pageId: string, recipe: BookRecipe) => void;
   /* PRODUCTION PLAN — direção editorial por página, nunca entra no print. */
   productionPlan: ProductionPlan;
@@ -643,19 +650,82 @@ export function EditorProvider({ children }: { children: ReactNode }) {
       saveRecipe: (recipe) =>
         setBook((prev) => ({
           ...prev,
-          recipes: [...(prev.recipes ?? []).filter((item) => item.name !== recipe.name), recipe],
+          recipes: [
+            ...(prev.recipes ?? []).filter((item) => item.name !== recipe.name),
+            normalizeRecipe(recipe),
+          ],
+        })),
+      createPageFromRecipe: (afterPageId, recipe) => {
+        const normalized = normalizeRecipe(recipe);
+        let createdPageIds: string[] = [];
+        setBook((prev) => {
+          const index = prev.pages.findIndex((page) => page.id === afterPageId);
+          const reference = prev.pages[index] ?? prev.pages[prev.pages.length - 1];
+          if (!reference) return prev;
+          const spreadInstanceId =
+            normalized.scope === "spread" ? nextId("spread-instance") : undefined;
+          const blueprints =
+            normalized.scope === "spread" && normalized.spread
+              ? [normalized.spread.left, normalized.spread.right]
+              : [
+                  {
+                    ...(normalized.template ? { template: normalized.template } : {}),
+                    ...(normalized.variant ? { variant: normalized.variant } : {}),
+                    ...(normalized.pageSettings ? { pageSettings: normalized.pageSettings } : {}),
+                    structure: normalized.structure,
+                    slots: normalized.slots,
+                  },
+                ];
+          const pages = blueprints.map((blueprint, blueprintIndex) => {
+            const template = blueprint.template ?? reference.template;
+            const settings: PageSettings = {
+              ...reference.settings,
+              ...(blueprint.pageSettings ?? {}),
+            };
+            return {
+              id: nextId("page"),
+              template,
+              ...(blueprint.variant ? { variant: blueprint.variant } : {}),
+              part: reference.part,
+              chapter: reference.chapter,
+              title: blueprintIndex === 0 ? "Nova página" : "Nova página — direita",
+              settings,
+              blocks: materializeRecipeBlueprint(blueprint),
+              recipeInstance: {
+                recipeId: normalized.id,
+                recipeVersion: normalized.version,
+                ...(spreadInstanceId ? { spreadInstanceId } : {}),
+              },
+            } satisfies Page;
+          });
+          createdPageIds = pages.map((page) => page.id);
+          const nextPages = [...prev.pages];
+          nextPages.splice(index + 1, 0, ...pages);
+          return {
+            ...prev,
+            pages: nextPages,
+            nodes: replacePageIdInNodes(prev, afterPageId, [afterPageId, ...createdPageIds]),
+          };
+        });
+        if (createdPageIds[0]) setSelectedPageId(createdPageIds[0]);
+        setSelectedBlockId(null);
+      },
+      deleteRecipe: (recipeId) =>
+        setBook((prev) => ({
+          ...prev,
+          recipes: (prev.recipes ?? []).filter((recipe) => recipe.id !== recipeId),
         })),
       insertRecipe: (pageId, recipe) => {
-        const cloned = cloneRecipe(recipe);
+        const cloned = materializeRecipe(recipe);
         setBook((prev) =>
           withPage(prev, pageId, (page) => ({
             ...page,
             template: recipe.template ?? page.template,
-            blocks: [...page.blocks, ...cloned.blocks],
+            blocks: [...page.blocks, ...cloned],
           })),
         );
         setSelectedPageId(pageId);
-        setSelectedBlockId(cloned.blocks[0]?.id ?? null);
+        setSelectedBlockId(cloned[0]?.id ?? null);
       },
     };
   }, [
