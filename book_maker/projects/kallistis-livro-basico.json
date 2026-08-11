@@ -671,7 +671,7 @@
           "position": "left",
           "fit": "cover",
           "fullBleed": false,
-          "width": "100%",
+          "width": "36%",
           "height": "100%",
           "objectX": 0,
           "objectY": 50
@@ -710,7 +710,7 @@
           "position": "left",
           "fit": "cover",
           "fullBleed": false,
-          "width": "100%",
+          "width": "36%",
           "height": "100%",
           "objectX": 100,
           "objectY": 50
@@ -1132,7 +1132,7 @@
           "position": "left",
           "fit": "cover",
           "fullBleed": false,
-          "width": "100%",
+          "width": "36%",
           "height": "100%",
           "objectX": 100,
           "objectY": 50
@@ -1171,7 +1171,7 @@
           "position": "left",
           "fit": "cover",
           "fullBleed": false,
-          "width": "100%",
+          "width": "36%",
           "height": "100%",
           "objectX": 0,
           "objectY": 50
@@ -1242,7 +1242,7 @@
           "position": "left",
           "fit": "cover",
           "fullBleed": false,
-          "width": "100%",
+          "width": "36%",
           "height": "100%",
           "objectX": 0,
           "objectY": 50
@@ -1281,7 +1281,7 @@
           "position": "left",
           "fit": "cover",
           "fullBleed": false,
-          "width": "100%",
+          "width": "36%",
           "height": "100%",
           "objectX": 100,
           "objectY": 50
@@ -1320,7 +1320,7 @@
           "position": "left",
           "fit": "cover",
           "fullBleed": false,
-          "width": "100%",
+          "width": "36%",
           "height": "100%",
           "objectX": 0,
           "objectY": 50
@@ -1359,7 +1359,7 @@
           "position": "left",
           "fit": "cover",
           "fullBleed": false,
-          "width": "100%",
+          "width": "36%",
           "height": "100%",
           "objectX": 100,
           "objectY": 50
@@ -1398,7 +1398,7 @@
           "position": "left",
           "fit": "cover",
           "fullBleed": false,
-          "width": "100%",
+          "width": "36%",
           "height": "100%",
           "objectX": 0,
           "objectY": 50
@@ -1437,7 +1437,7 @@
           "position": "left",
           "fit": "cover",
           "fullBleed": false,
-          "width": "100%",
+          "width": "36%",
           "height": "100%",
           "objectX": 100,
           "objectY": 50

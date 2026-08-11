@@ -19,6 +19,7 @@ interface D1Database {
 
 interface R2Object {
   body: ReadableStream<Uint8Array>;
+  arrayBuffer(): Promise<ArrayBuffer>;
   httpMetadata?: { contentType?: string };
   httpEtag?: string;
 }
@@ -36,21 +37,13 @@ export interface WorkerEnv {
   DB?: D1Database;
   R2_ASSETS?: R2Bucket;
   GITHUB_TOKEN?: string;
-  APP_API_TOKEN?: string;
+  OWNER_PASSWORD?: string;
+  SESSION_SECRET?: string;
   APP_VERSION?: string;
 }
 
 const REPOSITORY = "Tonyus-dev/kallistis_producao";
 const REF = "main";
-const ALLOWED_PREFIXES = [
-  "assets/povos/",
-  "assets/oficios/",
-  "assets/simbolos/",
-  "assets/cosmologia_historia/",
-  "assets/geografia/",
-  "assets/frames/",
-  "assets/forms/",
-];
 const MAX_SNAPSHOT_BYTES = 900_000;
 const MAX_GITHUB_ASSET_BYTES = 20_000_000;
 
@@ -61,23 +54,123 @@ function json(data: unknown, status = 200, headers?: HeadersInit): Response {
   });
 }
 
-function isAccessRequest(request: Request): boolean {
-  return Boolean(
-    request.headers.get("cf-access-authenticated-user-email") &&
-    request.headers.get("cf-access-jwt-assertion"),
-  );
-}
-
-function isAuthorized(request: Request, env: WorkerEnv): boolean {
-  if (isAccessRequest(request)) return true;
-  const expected = env.APP_API_TOKEN;
-  const actual = request.headers.get("authorization")?.replace(/^Bearer\s+/i, "");
-  return Boolean(expected && actual && expected === actual);
-}
-
 function unauthorized(): Response {
   return json({ ok: false, error: "authentication_required" }, 401, {
-    "www-authenticate": "Bearer",
+    "www-authenticate": "Cookie",
+  });
+}
+
+const SESSION_COOKIE = "kallistis_owner_session";
+const SESSION_SECONDS = 30 * 24 * 60 * 60;
+
+function base64Url(bytes: Uint8Array): string {
+  let binary = "";
+  for (const byte of bytes) binary += String.fromCharCode(byte);
+  return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+}
+
+function decodeBase64Url(value: string): Uint8Array | null {
+  try {
+    const binary = atob(value.replace(/-/g, "+").replace(/_/g, "/"));
+    return Uint8Array.from(binary, (character) => character.charCodeAt(0));
+  } catch {
+    return null;
+  }
+}
+
+async function sha256(value: string): Promise<Uint8Array> {
+  return new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value)));
+}
+
+function equalBytes(left: Uint8Array, right: Uint8Array): boolean {
+  if (left.byteLength !== right.byteLength) return false;
+  let difference = 0;
+  for (let index = 0; index < left.byteLength; index += 1)
+    difference |= left[index]! ^ right[index]!;
+  return difference === 0;
+}
+
+async function signSession(payload: string, secret: string): Promise<string> {
+  const key = await crypto.subtle.importKey(
+    "raw",
+    new TextEncoder().encode(secret),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"],
+  );
+  const signature = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(payload));
+  return base64Url(new Uint8Array(signature));
+}
+
+function cookieValue(request: Request): string | null {
+  const cookie = request.headers.get("cookie") ?? "";
+  const match = cookie.match(new RegExp(`(?:^|;\\s*)${SESSION_COOKIE}=([^;]+)`));
+  return match?.[1] ?? null;
+}
+
+async function hasOwnerSession(request: Request, secret: string | undefined): Promise<boolean> {
+  if (!secret) return false;
+  const raw = cookieValue(request);
+  if (!raw) return false;
+  const [encoded, signature] = raw.split(".");
+  if (!encoded || !signature) return false;
+  const payloadBytes = decodeBase64Url(encoded);
+  const signatureBytes = decodeBase64Url(signature);
+  if (!payloadBytes || !signatureBytes) return false;
+  const expected = await signSession(encoded, secret);
+  const expectedBytes = decodeBase64Url(expected);
+  if (!expectedBytes || !equalBytes(signatureBytes, expectedBytes)) return false;
+  try {
+    const payload = JSON.parse(new TextDecoder().decode(payloadBytes)) as {
+      owner?: unknown;
+      expiresAt?: unknown;
+    };
+    return (
+      payload.owner === true &&
+      typeof payload.expiresAt === "number" &&
+      payload.expiresAt > Date.now()
+    );
+  } catch {
+    return false;
+  }
+}
+
+async function createOwnerCookie(secret: string): Promise<string> {
+  const now = Date.now();
+  const payload = base64Url(
+    new TextEncoder().encode(
+      JSON.stringify({ owner: true, issuedAt: now, expiresAt: now + SESSION_SECONDS * 1000 }),
+    ),
+  );
+  const signature = await signSession(payload, secret);
+  return `${SESSION_COOKIE}=${payload}.${signature}; Max-Age=${SESSION_SECONDS}; Path=/; HttpOnly; Secure; SameSite=Strict`;
+}
+
+function clearOwnerCookie(): string {
+  return `${SESSION_COOKIE}=; Max-Age=0; Path=/; HttpOnly; Secure; SameSite=Strict`;
+}
+
+function sameOrigin(request: Request): boolean {
+  const origin = request.headers.get("origin");
+  return !origin || origin === new URL(request.url).origin;
+}
+
+async function isAuthorized(request: Request, env: WorkerEnv): Promise<boolean> {
+  return hasOwnerSession(request, env.SESSION_SECRET);
+}
+
+async function login(request: Request, env: WorkerEnv): Promise<Response> {
+  if (!sameOrigin(request)) return json({ ok: false, error: "origin_not_allowed" }, 403);
+  if (!env.OWNER_PASSWORD || !env.SESSION_SECRET)
+    return json({ ok: false, error: "owner_auth_not_configured" }, 503);
+  const body = await readJson(request);
+  const password = body?.["password"];
+  if (typeof password !== "string" || password.length === 0 || password.length > 4096)
+    return unauthorized();
+  const [actual, expected] = await Promise.all([sha256(password), sha256(env.OWNER_PASSWORD)]);
+  if (!equalBytes(actual, expected)) return unauthorized();
+  return json({ ok: true, authenticated: true }, 200, {
+    "set-cookie": await createOwnerCookie(env.SESSION_SECRET),
   });
 }
 
@@ -94,7 +187,7 @@ function validGitHubPath(value: string): boolean {
     value.length <= 240 &&
     !value.includes("..") &&
     !value.startsWith("/") &&
-    ALLOWED_PREFIXES.some((prefix) => value.startsWith(prefix))
+    value.startsWith("assets/")
   );
 }
 
@@ -164,7 +257,7 @@ async function getProject(env: WorkerEnv, id: string): Promise<Response> {
     .first<Record<string, unknown>>();
   if (!project) return json({ ok: false, error: "project_not_found" }, 404);
   const revision = await env.DB.prepare(
-    "SELECT revision, checksum, snapshot_json, created_at FROM project_revisions WHERE project_id = ?1 ORDER BY revision DESC LIMIT 1",
+    "SELECT revision, object_key, checksum, snapshot_json, created_at FROM project_revisions WHERE project_id = ?1 ORDER BY revision DESC LIMIT 1",
   )
     .bind(id)
     .first<Record<string, unknown>>();
@@ -174,6 +267,16 @@ async function getProject(env: WorkerEnv, id: string): Promise<Response> {
       snapshot = JSON.parse(revision["snapshot_json"]);
     } catch {
       return json({ ok: false, error: "stored_snapshot_invalid" }, 500);
+    }
+  }
+  if (snapshot === null && typeof revision?.["object_key"] === "string" && env.R2_ASSETS) {
+    const object = await env.R2_ASSETS.get(revision["object_key"]);
+    if (object) {
+      try {
+        snapshot = JSON.parse(await new Response(object.body).text());
+      } catch {
+        return json({ ok: false, error: "stored_snapshot_invalid" }, 500);
+      }
     }
   }
   return json({ ok: true, project, revision, snapshot });
@@ -209,6 +312,13 @@ async function saveSnapshot(request: Request, env: WorkerEnv, id: string): Promi
       .run();
   }
   const revision = currentRevision + 1;
+  const objectKey = `projects/${id}/revisions/${revision}.json`;
+  if (env.R2_ASSETS) {
+    await env.R2_ASSETS.put(objectKey, new TextEncoder().encode(packed.json), {
+      httpMetadata: { contentType: "application/json" },
+      customMetadata: { projectId: id, revision: String(revision) },
+    });
+  }
   const checksum = await crypto.subtle
     .digest("SHA-256", new TextEncoder().encode(packed.json))
     .then((buffer) =>
@@ -221,9 +331,9 @@ async function saveSnapshot(request: Request, env: WorkerEnv, id: string): Promi
       `${id}:${revision}`,
       id,
       revision,
-      `projects/${id}/revisions/${revision}.json`,
+      objectKey,
       checksum,
-      packed.json,
+      env.R2_ASSETS ? null : packed.json,
       now,
     )
     .run();
@@ -263,6 +373,9 @@ async function importGitHubAsset(request: Request, env: WorkerEnv): Promise<Resp
   const body = await readJson(request);
   const rawPath = body?.["path"];
   const path = typeof rawPath === "string" ? rawPath : "";
+  const rawProjectId = body?.["projectId"];
+  const projectId =
+    typeof rawProjectId === "string" && validProjectId(rawProjectId) ? rawProjectId : null;
   if (!validGitHubPath(path)) return badRequest("github_path_not_allowed");
   const response = await fetch(githubUrl(path), { headers: githubHeaders(env.GITHUB_TOKEN) });
   if (!response.ok) return json({ ok: false, error: "github_asset_failed" }, 502);
@@ -284,6 +397,22 @@ async function importGitHubAsset(request: Request, env: WorkerEnv): Promise<Resp
     httpMetadata: { contentType: assetContentType(path) },
     customMetadata: { repository: REPOSITORY, ref: REF, sourcePath: path, blobSha: sha },
   });
+  if (env.DB && projectId) {
+    await env.DB.prepare(
+      "INSERT OR REPLACE INTO assets (id, project_id, object_key, mime, bytes, width, height, source_type, source_metadata, created_at) VALUES (?1, ?2, ?3, ?4, ?5, NULL, NULL, ?6, ?7, ?8)",
+    )
+      .bind(
+        `github:${sha}:${path}`,
+        projectId,
+        key,
+        assetContentType(path),
+        bytes.byteLength,
+        "github",
+        JSON.stringify({ repository: REPOSITORY, ref: REF, path, blobSha: sha }),
+        new Date().toISOString(),
+      )
+      .run();
+  }
   return json({
     ok: true,
     key,
@@ -319,16 +448,26 @@ export async function handleApiRequest(
 ): Promise<Response | null> {
   const url = new URL(request.url);
   if (!url.pathname.startsWith("/api/")) return null;
+  if (url.pathname === "/api/auth/login" && request.method === "POST") return login(request, env);
+  if (url.pathname === "/api/auth/logout" && request.method === "POST") {
+    if (!sameOrigin(request)) return json({ ok: false, error: "origin_not_allowed" }, 403);
+    return json({ ok: true, authenticated: false }, 200, { "set-cookie": clearOwnerCookie() });
+  }
+  if (url.pathname === "/api/auth/session" && request.method === "GET") {
+    return json({ ok: true, authenticated: await isAuthorized(request, env) });
+  }
   if (url.pathname === "/api/health" && request.method === "GET") {
     return json({
       ok: true,
       version: env.APP_VERSION ?? "development",
       storage: env.DB ? "d1" : "local-only",
       assets: env.R2_ASSETS ? "r2" : "local-only",
-      privateApi: isAccessRequest(request) ? "access" : env.APP_API_TOKEN ? "token" : "blocked",
+      privateApi: env.OWNER_PASSWORD && env.SESSION_SECRET ? "owner" : "blocked",
     });
   }
-  if (!isAuthorized(request, env)) return unauthorized();
+  if (["POST", "PUT", "PATCH", "DELETE"].includes(request.method) && !sameOrigin(request))
+    return json({ ok: false, error: "origin_not_allowed" }, 403);
+  if (!(await isAuthorized(request, env))) return unauthorized();
   try {
     if (url.pathname === "/api/projects" && request.method === "GET") return listProjects(env);
     if (url.pathname === "/api/projects" && request.method === "POST") {

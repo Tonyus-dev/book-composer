@@ -62,14 +62,14 @@ Actions, defina os secrets do repositório:
 - `CLOUDFLARE_API_TOKEN` — token com permissão _Workers Scripts: Edit_
 - `CLOUDFLARE_ACCOUNT_ID` — ID da conta Cloudflare
 
-Para APIs privadas, configure Cloudflare Access na rota do Worker ou um secret `APP_API_TOKEN`.
-O Worker aceita somente Access JWT + identidade ou bearer token server-side; o frontend nunca
-recebe esses valores. `GITHUB_TOKEN`, quando configurado como secret do Worker, é usado apenas
-server-side para leitura de `Tonyus-dev/kallistis_producao` (`main`) nos prefixes canônicos.
+Cloudflare Access não é usado nesta versão por decisão do proprietário. As APIs privadas usam
+single-owner auth: configure os secrets `OWNER_PASSWORD` e `SESSION_SECRET` exclusivamente no
+Worker. A sessão é um cookie HttpOnly, Secure e SameSite=Strict; a senha nunca vai para o bundle,
+localStorage ou query string. `GITHUB_TOKEN`, quando configurado como secret do Worker, é usado
+apenas server-side para leitura de `Tonyus-dev/kallistis_producao` (`main`) nos prefixes canônicos.
 
-R2 é o destino dos assets importados e snapshots grandes. O código já expõe o binding opcional
-`R2_ASSETS`, mas a criação do bucket depende da habilitação de R2 na conta Cloudflare; sem ele,
-o editor continua operando com localStorage e o D1 mantém apenas snapshots JSON pequenos.
+R2 é o destino dos assets importados e snapshots. O binding `R2_ASSETS` usa o bucket
+`kallistis-book-assets`; D1 mantém metadados, revisões e fallback JSON compatível.
 
 ## GitHub Actions
 

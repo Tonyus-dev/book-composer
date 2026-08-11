@@ -35,7 +35,7 @@ async function request(path: string, init?: RequestInit): Promise<Response | nul
     try {
       const health = await fetch("/api/health", { headers: { accept: "application/json" } });
       const payload = (await health.json()) as { privateApi?: unknown };
-      accessAvailable = payload.privateApi === "access";
+      accessAvailable = payload.privateApi === "owner";
     } catch {
       accessAvailable = false;
     }

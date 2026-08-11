@@ -16,6 +16,7 @@ import {
 import { downloadBookJson, readBookFromFile } from "../../lib/persistence/json";
 import { useEditor, nextId, type Overlays, type ZoomValue } from "../state/store";
 import { RecipeDialog } from "./RecipeDialog";
+import { logoutOwner } from "../../lib/auth";
 
 const OVERLAY_LABELS: { key: keyof Overlays; label: string }[] = [
   { key: "margins", label: "Margens" },
@@ -396,6 +397,18 @@ export function Toolbar() {
           >
             Modo impressão
           </button>
+          {!import.meta.env.DEV ? (
+            <button
+              type="button"
+              onClick={async () => {
+                await logoutOwner();
+                window.location.replace("/login");
+              }}
+              className="border border-border px-2 py-1 text-[11px] text-muted-foreground hover:bg-accent"
+            >
+              Sair
+            </button>
+          ) : null}
         </div>
       </header>
       {newTableOpen ? (

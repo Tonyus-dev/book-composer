@@ -3,13 +3,19 @@
   "name": "kallistis-book-builder",
   "compatibility_date": "2026-08-08",
   "vars": {
-    "APP_VERSION": "book-maker-release-candidate"
+    "APP_VERSION": "book-maker-release-candidate",
   },
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "kallistis-book-builder-prod",
-      "database_id": "a0eb47e3-9ebf-49d5-8e07-ee94ade8bbfe"
-    }
-  ]
+      "database_id": "a0eb47e3-9ebf-49d5-8e07-ee94ade8bbfe",
+    },
+  ],
+  "r2_buckets": [
+    {
+      "binding": "R2_ASSETS",
+      "bucket_name": "kallistis-book-assets",
+    },
+  ],
 }

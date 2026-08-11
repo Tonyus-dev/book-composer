@@ -1,3 +1,4 @@
 # Copy to .dev.vars for Worker-local development. Never commit real values.
-APP_API_TOKEN=replace-with-a-local-token
+OWNER_PASSWORD=replace-with-a-local-development-password
+SESSION_SECRET=replace-with-a-long-random-development-secret
 GITHUB_TOKEN=read-only-token-for-Tonyus-dev/kallistis_producao

@@ -6,6 +6,13 @@ import { ACCEPTED_ASSET_MIME, fileToBookAsset } from "../../lib/assets/upload";
 import { useEditor, nextId } from "../state/store";
 import { AssetEditor, type AssetEditorTarget } from "./AssetEditor";
 import { applyRecipe, editedToAsset, type EditRecipe } from "../../lib/assets/edit";
+import {
+  importedGitHubAssetUrl,
+  importGitHubSourceAsset,
+  loadGitHubSourceAssets,
+  type GitHubSourceAsset,
+} from "../../lib/persistence/source";
+import { cloudProjectId } from "../../lib/persistence/cloud";
 
 /** Item unificado: catálogo estático (public/assets) + assets enviados. */
 interface BrowserItem {
@@ -41,6 +48,9 @@ export function AssetBrowser() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [editing, setEditing] = useState<AssetEditorTarget | null>(null);
+  const [sourceAssets, setSourceAssets] = useState<GitHubSourceAsset[]>([]);
+  const [sourceOpen, setSourceOpen] = useState(false);
+  const [sourceBusy, setSourceBusy] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
   const uploadCategory = category === "all" ? "characters" : category;
 
@@ -91,6 +101,47 @@ export function AssetBrowser() {
     };
     addBlock(selectedPage.id, block);
     selectBlock(block.id);
+  };
+
+  const applyImported = (src: string, label: string) => {
+    if (selectedBlock && selectedBlock.type === "image") {
+      updateBlock(selectedPage.id, selectedBlock.id, { src, alt: label });
+      return;
+    }
+    const block: ImageBlock = {
+      id: nextId("b"),
+      type: "image",
+      src,
+      alt: label,
+      fit: "cover",
+      position: "flow",
+      span: "full",
+    };
+    addBlock(selectedPage.id, block);
+    selectBlock(block.id);
+  };
+
+  const openSource = async () => {
+    setSourceOpen(true);
+    setSourceBusy(true);
+    setError(null);
+    const assets = await loadGitHubSourceAssets();
+    setSourceAssets(assets ?? []);
+    if (!assets) setError("Fonte canônica indisponível nesta sessão.");
+    setSourceBusy(false);
+  };
+
+  const importSource = async (asset: GitHubSourceAsset) => {
+    if (!asset.sha) return;
+    setSourceBusy(true);
+    setError(null);
+    const imported = await importGitHubSourceAsset(asset.path, cloudProjectId(book));
+    if (!imported) {
+      setError("Não foi possível importar o asset para o R2.");
+    } else {
+      applyImported(importedGitHubAssetUrl(imported.blobSha, imported.path), imported.path);
+    }
+    setSourceBusy(false);
   };
 
   const upload = async (files: FileList) => {
@@ -190,6 +241,14 @@ export function AssetBrowser() {
         >
           {busy ? "importando…" : "Enviar imagens locais"}
         </button>
+        <button
+          type="button"
+          disabled={sourceBusy}
+          onClick={openSource}
+          className="mt-1 w-full border border-border px-2 py-1 text-[11px] hover:bg-accent disabled:opacity-60"
+        >
+          {sourceBusy && sourceOpen ? "consultando fonte…" : "Fonte canônica KALLISTIS"}
+        </button>
         <input
           ref={fileRef}
           type="file"
@@ -208,6 +267,32 @@ export function AssetBrowser() {
         </p>
         {error ? <p className="mt-1 text-[10px] text-destructive">{error}</p> : null}
       </div>
+
+      {sourceOpen ? (
+        <div className="max-h-44 overflow-y-auto border-b border-border bg-muted/20 p-2">
+          <div className="mb-1 flex items-center justify-between text-[10px] text-muted-foreground">
+            <span>Tonyus-dev/kallistis_producao · main · somente leitura</span>
+            <button type="button" onClick={() => setSourceOpen(false)}>
+              fechar
+            </button>
+          </div>
+          {sourceAssets.length === 0 && !sourceBusy ? (
+            <p className="text-[10px] text-muted-foreground">Nenhum asset consultável.</p>
+          ) : null}
+          {sourceAssets.map((asset) => (
+            <button
+              key={`${asset.sha}:${asset.path}`}
+              type="button"
+              disabled={sourceBusy || !asset.sha}
+              onClick={() => void importSource(asset)}
+              className="block w-full truncate border-b border-border/50 px-1 py-1 text-left text-[10px] hover:bg-accent disabled:opacity-60"
+              title="Importar para R2 e inserir na página"
+            >
+              {asset.path}
+            </button>
+          ))}
+        </div>
+      ) : null}
 
       <div className="grid flex-1 grid-cols-2 content-start gap-2 overflow-y-auto p-2">
         {items.map((item) => {
