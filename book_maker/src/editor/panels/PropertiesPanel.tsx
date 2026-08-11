@@ -48,9 +48,32 @@ const TOKEN_FIELDS: { key: keyof BookTokens; label: string }[] = [
   { key: "h3Size", label: "H3" },
 ];
 
+const GOOGLE_FONT_OPTIONS = [
+  {
+    value: '"Libre Bodoni", Georgia, serif',
+    label: "Libre Bodoni",
+  },
+  {
+    value: '"EB Garamond", Garamond, "Times New Roman", serif',
+    label: "EB Garamond",
+  },
+  {
+    value: '"Merriweather", Georgia, serif',
+    label: "Merriweather",
+  },
+  {
+    value: '"Nunito", Arial, sans-serif',
+    label: "Nunito",
+  },
+  {
+    value: '"Google Sans", Arial, sans-serif',
+    label: "Google Sans",
+  },
+];
+
 function fontOptions(book: { fonts?: { family: string }[] }) {
   return [
-    { value: '"EB Garamond", "Garamond", "Times New Roman", serif', label: "EB Garamond / serif" },
+    ...GOOGLE_FONT_OPTIONS,
     { value: '"Liberation Sans", Arial, Helvetica, sans-serif', label: "Liberation Sans / sans" },
     ...(book.fonts ?? []).map((font) => ({ value: font.family, label: font.family })),
   ];
@@ -152,7 +175,7 @@ function BlockProperties({ block }: { block: Block }) {
           value={block.fontFamily ?? ""}
           options={[
             { value: "", label: "Herdar documento" },
-            { value: "EB Garamond", label: "EB Garamond" },
+            ...GOOGLE_FONT_OPTIONS,
             { value: "Liberation Sans", label: "Liberation Sans" },
             ...(book.fonts ?? []).map((font) => ({ value: font.family, label: font.family })),
           ]}
