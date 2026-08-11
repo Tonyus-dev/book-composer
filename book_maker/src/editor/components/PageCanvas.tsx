@@ -228,6 +228,35 @@ export function PageCanvas({
   const ref = useRef<HTMLDivElement>(null);
   const [editingBlockId, setEditingBlockId] = useState<string | null>(null);
 
+  const handleAssetDrop = (event: React.DragEvent<HTMLElement>) => {
+    const raw = event.dataTransfer.getData("application/x-kallistis-asset");
+    if (!raw) return;
+    const target = (event.target as HTMLElement).closest<HTMLElement>("[data-recipe-slot]");
+    const blockId = target?.closest<HTMLElement>("[data-block-id]")?.dataset["blockId"];
+    const block = page.blocks.find((item) => item.id === blockId);
+    if (!target || !block || block.type !== "image") return;
+    const slot = target.dataset["recipeSlot"] ?? "";
+    if (
+      !["portrait", "image", "hero-image", "map", "symbol"].some(
+        (kind) => slot === kind || slot.startsWith(`${kind}-`),
+      )
+    ) {
+      return;
+    }
+    try {
+      const asset = JSON.parse(raw) as { src?: string; label?: string; effectivePpi?: number };
+      if (!asset.src) return;
+      event.preventDefault();
+      updateBlock(page.id, block.id, {
+        src: asset.src,
+        alt: asset.label ?? block.alt,
+        ...(asset.effectivePpi ? { effectivePpi: asset.effectivePpi } : {}),
+      });
+    } catch {
+      /* clipboard de asset inválido não altera o documento */
+    }
+  };
+
   useEffect(() => {
     if (!active || !selectedBlockId) return;
     const onKeyDown = (event: KeyboardEvent) => {
@@ -278,6 +307,10 @@ export function PageCanvas({
             setEditingBlockId(blockId);
           }
         }}
+        onDragOver={(event) => {
+          if ((event.target as HTMLElement).closest("[data-recipe-slot]")) event.preventDefault();
+        }}
+        onDrop={handleAssetDrop}
         overflow={Boolean(overflowPages[page.id])}
       >
         <OverlayLayers overlays={overlays} />

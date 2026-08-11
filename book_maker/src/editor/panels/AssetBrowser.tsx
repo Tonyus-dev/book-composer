@@ -216,6 +216,18 @@ export function AssetBrowser() {
             <div key={item.key} className="border border-border">
               <button
                 type="button"
+                draggable
+                onDragStart={(event) => {
+                  event.dataTransfer.effectAllowed = "copy";
+                  event.dataTransfer.setData(
+                    "application/x-kallistis-asset",
+                    JSON.stringify({
+                      src: item.src,
+                      label: item.label,
+                      effectivePpi: item.effectivePpi,
+                    }),
+                  );
+                }}
                 onClick={() => apply(item)}
                 title={item.note ?? item.label}
                 className="group block w-full text-left hover:opacity-90"

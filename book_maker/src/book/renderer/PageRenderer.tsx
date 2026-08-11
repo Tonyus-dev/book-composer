@@ -15,6 +15,8 @@ export interface PageRenderProps {
   children?: React.ReactNode;
   onClick?: () => void;
   onDoubleClick?: (blockId: string | null) => void;
+  onDragOver?: (event: React.DragEvent<HTMLElement>) => void;
+  onDrop?: (event: React.DragEvent<HTMLElement>) => void;
   /** sinalização de overflow (editor); não afeta o livro impresso */
   overflow?: boolean;
 }
@@ -32,7 +34,19 @@ export function isVerso(folio: number) {
  * é o mesmo componente usado no editor e na print view.
  */
 export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function PageRenderer(
-  { book, page, index, className, style, children, onClick, onDoubleClick, overflow },
+  {
+    book,
+    page,
+    index,
+    className,
+    style,
+    children,
+    onClick,
+    onDoubleClick,
+    onDragOver,
+    onDrop,
+    overflow,
+  },
   ref,
 ) {
   const { interactive, onSelectBlock } = useBookRender();
@@ -79,6 +93,8 @@ export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function
       data-overflow={overflow ? "true" : undefined}
       onClick={interactive ? handleClick : onClick}
       onDoubleClick={interactive ? handleDoubleClick : undefined}
+      onDragOver={interactive ? onDragOver : undefined}
+      onDrop={interactive ? onDrop : undefined}
       aria-label={`Página ${folio}${page.title ? ` — ${page.title}` : ""}`}
     >
       {page.settings.header ? (
