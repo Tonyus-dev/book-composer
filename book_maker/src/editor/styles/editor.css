@@ -21,6 +21,44 @@
   pointer-events: none;
 }
 
+.k-editor-left-panel-sections {
+  display: grid;
+  min-height: 0;
+  height: 100%;
+}
+
+.k-editor-left-panel-sections > * {
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.k-editor-panel-separator {
+  position: relative;
+  z-index: 2;
+  cursor: row-resize;
+  touch-action: none;
+  background: var(--border);
+}
+
+.k-editor-panel-separator::after {
+  position: absolute;
+  top: 2px;
+  right: 25%;
+  left: 25%;
+  height: 3px;
+  border-radius: 99px;
+  background: var(--muted-foreground);
+  opacity: 0.55;
+  content: "";
+}
+
+.k-editor-panel-separator:hover,
+.k-editor-panel-separator:focus-visible {
+  outline: none;
+  background: color-mix(in oklab, var(--primary) 65%, var(--border));
+}
+
 .k-editor-panel-controls {
   position: absolute;
   top: 8px;
