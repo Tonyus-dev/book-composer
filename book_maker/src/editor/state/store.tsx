@@ -491,7 +491,14 @@ export function EditorProvider({ children }: { children: ReactNode }) {
               ? page.variant
               : definition.variants[0];
             /* Conteúdo nunca é apagado ao trocar template. */
-            return { ...page, template, variant };
+            return {
+              ...page,
+              template,
+              variant,
+              ...(template === "cover" && page.template !== "cover" && !page.coverMode
+                ? { coverMode: "art-only" as const }
+                : {}),
+            };
           }),
         ),
       updateBlock: (pageId, blockId, patch) =>

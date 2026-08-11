@@ -525,6 +525,8 @@ export interface Page {
   chapter?: string | undefined;
   title?: string | undefined;
   subtitle?: string | undefined;
+  /** Capa pronta não recebe título, autoria ou lockup sobre a arte. */
+  coverMode?: "art-only" | "overlay";
   eyebrow?: string | undefined;
   /** composição manual protegida contra alterações automáticas futuras. */
   fixed?: boolean;
@@ -591,6 +593,11 @@ export interface BookAsset {
   pixelHeight: number;
   /** ppi efetivo se a imagem ocupar a largura total da página */
   effectivePpi?: number;
+  /** Metadados da preparação raster para impressão. */
+  sourcePixelWidth?: number;
+  sourcePixelHeight?: number;
+  printTargetPpi?: number;
+  printInterpolated?: boolean;
   note?: string;
   createdAt: string;
 }

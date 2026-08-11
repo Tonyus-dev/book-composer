@@ -257,6 +257,14 @@ export function staticIssues(book: Book): PreflightIssue[] {
             `Imagem com ${ppi} ppi efetivos (recomendado ${MIN_PPI}).`,
             base,
           );
+        } else if (lookupAsset(block.src)?.printInterpolated) {
+          const asset = lookupAsset(block.src)!;
+          push(
+            "image-low-resolution",
+            "info",
+            `Imagem preparada a ${asset.printTargetPpi ?? MIN_PPI} ppi por interpolação (${asset.sourcePixelWidth}×${asset.sourcePixelHeight} px na origem).`,
+            base,
+          );
         }
       }
 

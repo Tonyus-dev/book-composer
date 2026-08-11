@@ -15,6 +15,16 @@ export function findImage(blocks: Block[], position?: ImagePosition): ImageBlock
   );
 }
 
+/** A arte principal é explícita (full bleed/full) antes do fallback legado. */
+export function findPrimaryImage(blocks: Block[]): ImageBlock | undefined {
+  return (
+    blocks.find(
+      (block): block is ImageBlock =>
+        block.type === "image" && (block.fullBleed || block.position === "full"),
+    ) ?? findImage(blocks)
+  );
+}
+
 export function withoutBlock(blocks: Block[], block?: Block): Block[] {
   return block ? blocks.filter((b) => b.id !== block.id) : blocks;
 }

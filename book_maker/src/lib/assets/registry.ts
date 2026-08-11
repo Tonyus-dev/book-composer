@@ -51,6 +51,45 @@ export function resolveAssetSrc(src: string | undefined): string {
 }
 
 const MM_PER_INCH = 25.4;
+export const PRINT_TARGET_PPI = 300;
+export const MAX_PRINT_RASTER_PIXELS = 32_000_000;
+
+export function pixelsForPrint(mm: number, ppi = PRINT_TARGET_PPI): number {
+  if (!Number.isFinite(mm) || mm <= 0) return 0;
+  return Math.ceil((mm / MM_PER_INCH) * ppi);
+}
+
+export function effectivePpiForSize(
+  pixelWidth: number,
+  pixelHeight: number,
+  widthMm: number,
+  heightMm: number,
+): number {
+  if (!pixelWidth || !pixelHeight || !widthMm || !heightMm) return 0;
+  return Math.round(
+    Math.min(pixelWidth / (widthMm / MM_PER_INCH), pixelHeight / (heightMm / MM_PER_INCH)),
+  );
+}
+
+export function printRasterPlan(
+  pixelWidth: number,
+  pixelHeight: number,
+  widthMm: number,
+  heightMm: number,
+) {
+  const requiredWidth = pixelsForPrint(widthMm);
+  const requiredHeight = pixelsForPrint(heightMm);
+  const scale = Math.max(requiredWidth / pixelWidth, requiredHeight / pixelHeight, 1);
+  const width = Math.ceil(pixelWidth * scale);
+  const height = Math.ceil(pixelHeight * scale);
+  return {
+    width,
+    height,
+    scale,
+    interpolated: scale > 1,
+    safe: width * height <= MAX_PRINT_RASTER_PIXELS,
+  };
+}
 
 /** ppi efetivo se a imagem ocupar a largura indicada (mm) da página. */
 export function effectivePpiFor(pixelWidth: number, widthMm: number): number {

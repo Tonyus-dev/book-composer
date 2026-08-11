@@ -13,6 +13,7 @@ import {
   type GitHubSourceAsset,
 } from "../../lib/persistence/source";
 import { cloudProjectId } from "../../lib/persistence/cloud";
+import { findPrimaryImage } from "../../book/templates/types";
 
 /** Item unificado: catálogo estático (public/assets) + assets enviados. */
 interface BrowserItem {
@@ -89,14 +90,27 @@ export function AssetBrowser() {
       });
       return;
     }
+    if (selectedPage.template === "cover") {
+      const primary = findPrimaryImage(selectedPage.blocks);
+      if (primary) {
+        updateBlock(selectedPage.id, primary.id, {
+          src: item.src,
+          alt: item.label,
+          effectivePpi: item.effectivePpi,
+        });
+        selectBlock(primary.id);
+        return;
+      }
+    }
     const block: ImageBlock = {
       id: nextId("b"),
       type: "image",
       src: item.src,
       alt: item.label,
       fit: "cover",
-      position: "flow",
+      position: selectedPage.template === "cover" ? "full" : "flow",
       span: "full",
+      fullBleed: selectedPage.template === "cover",
       ...(item.effectivePpi ? { effectivePpi: item.effectivePpi } : {}),
     };
     addBlock(selectedPage.id, block);
@@ -108,14 +122,23 @@ export function AssetBrowser() {
       updateBlock(selectedPage.id, selectedBlock.id, { src, alt: label });
       return;
     }
+    if (selectedPage.template === "cover") {
+      const primary = findPrimaryImage(selectedPage.blocks);
+      if (primary) {
+        updateBlock(selectedPage.id, primary.id, { src, alt: label, effectivePpi: undefined });
+        selectBlock(primary.id);
+        return;
+      }
+    }
     const block: ImageBlock = {
       id: nextId("b"),
       type: "image",
       src,
       alt: label,
       fit: "cover",
-      position: "flow",
+      position: selectedPage.template === "cover" ? "full" : "flow",
       span: "full",
+      fullBleed: selectedPage.template === "cover",
     };
     addBlock(selectedPage.id, block);
     selectBlock(block.id);
@@ -160,6 +183,8 @@ export function AssetBrowser() {
             id: nextId("asset"),
             category: uploadCategory,
             pageWidth: book.tokens.pageWidth,
+            pageHeight: book.tokens.pageHeight,
+            bleed: book.tokens.bleed,
           }),
         );
       } catch (cause) {
@@ -333,6 +358,11 @@ export function AssetBrowser() {
                     {item.uploaded.pixelWidth}×{item.uploaded.pixelHeight} ·{" "}
                     {formatBytes(item.uploaded.bytes)}
                     {item.uploaded.effectivePpi ? ` · ${item.uploaded.effectivePpi} ppi` : ""}
+                    {item.uploaded.printInterpolated
+                      ? " · 300 ppi por interpolação"
+                      : item.uploaded.printTargetPpi
+                        ? " · resolução nativa"
+                        : ""}
                     {uses > 0 ? ` · ${uses} uso${uses > 1 ? "s" : ""}` : ""}
                   </p>
                   <div className="mt-1 flex gap-1">

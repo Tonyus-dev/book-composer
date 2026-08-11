@@ -744,6 +744,19 @@ export function PropertiesPanel() {
                   }))}
                   onChange={(value) => setTemplate(selectedPage.id, value)}
                 />
+                {selectedPage.template === "cover" ? (
+                  <SelectField
+                    label="Composição da capa"
+                    value={selectedPage.coverMode ?? "overlay"}
+                    options={[
+                      { value: "art-only", label: "Imagem pronta, sem textos" },
+                      { value: "overlay", label: "Arte com textos sobrepostos" },
+                    ]}
+                    onChange={(value) =>
+                      updatePage(selectedPage.id, { coverMode: value as "art-only" | "overlay" })
+                    }
+                  />
+                ) : null}
                 {definition.variants.length > 1 ? (
                   <SelectField
                     label="Variante"
