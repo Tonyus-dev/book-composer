@@ -593,11 +593,6 @@ export interface BookAsset {
   pixelHeight: number;
   /** ppi efetivo se a imagem ocupar a largura total da página */
   effectivePpi?: number;
-  /** Metadados da preparação raster para impressão. */
-  sourcePixelWidth?: number;
-  sourcePixelHeight?: number;
-  printTargetPpi?: number;
-  printInterpolated?: boolean;
   note?: string;
   createdAt: string;
 }

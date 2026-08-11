@@ -19,9 +19,12 @@ export function findImage(blocks: Block[], position?: ImagePosition): ImageBlock
 export function findPrimaryImage(blocks: Block[]): ImageBlock | undefined {
   return (
     blocks.find(
-      (block): block is ImageBlock =>
-        block.type === "image" && (block.fullBleed || block.position === "full"),
-    ) ?? findImage(blocks)
+      (block): block is ImageBlock => block.type === "image" && Boolean(block.fullBleed),
+    ) ??
+    blocks.find(
+      (block): block is ImageBlock => block.type === "image" && block.position === "full",
+    ) ??
+    findImage(blocks)
   );
 }
 

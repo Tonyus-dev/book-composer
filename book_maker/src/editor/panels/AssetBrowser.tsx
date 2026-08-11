@@ -182,9 +182,6 @@ export function AssetBrowser() {
           await fileToBookAsset(file, {
             id: nextId("asset"),
             category: uploadCategory,
-            pageWidth: book.tokens.pageWidth,
-            pageHeight: book.tokens.pageHeight,
-            bleed: book.tokens.bleed,
           }),
         );
       } catch (cause) {
@@ -205,11 +202,9 @@ export function AssetBrowser() {
   ): Promise<string | null> => {
     try {
       const edited = await applyRecipe(target.source, recipe, { mime: target.mime });
-      const pageWidthMm = Number.parseFloat(book.tokens.pageWidth) || 210;
       if (mode === "replace" && target.assetId) {
         const asset = editedToAsset({ label, category: target.category }, edited, {
           id: target.assetId,
-          pageWidthMm,
         });
         const { id: _id, createdAt: _createdAt, ...patch } = asset;
         updateAsset(target.assetId, patch);
@@ -217,7 +212,6 @@ export function AssetBrowser() {
       }
       const created = editedToAsset({ label, category: target.category }, edited, {
         id: nextId("asset"),
-        pageWidthMm,
       });
       addAssets([created]);
       return null;
@@ -358,11 +352,6 @@ export function AssetBrowser() {
                     {item.uploaded.pixelWidth}×{item.uploaded.pixelHeight} ·{" "}
                     {formatBytes(item.uploaded.bytes)}
                     {item.uploaded.effectivePpi ? ` · ${item.uploaded.effectivePpi} ppi` : ""}
-                    {item.uploaded.printInterpolated
-                      ? " · 300 ppi por interpolação"
-                      : item.uploaded.printTargetPpi
-                        ? " · resolução nativa"
-                        : ""}
                     {uses > 0 ? ` · ${uses} uso${uses > 1 ? "s" : ""}` : ""}
                   </p>
                   <div className="mt-1 flex gap-1">

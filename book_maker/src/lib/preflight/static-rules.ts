@@ -2,7 +2,13 @@ import type { Block, Book, Page, TemplateId } from "../../book/types";
 import { folioFor, isVerso } from "../../book/renderer/PageRenderer";
 import { normalizeTableBlock, tableGrid } from "../../book/tableModel";
 import { findAsset } from "../assets/catalog";
-import { isAssetRef, lookupAsset } from "../assets/registry";
+import {
+  effectivePpiForSize,
+  isAssetRef,
+  lookupAsset,
+  resolutionSeverity,
+} from "../assets/registry";
+import { findPrimaryImage } from "../../book/templates/types";
 import { evaluateSheetFormulas } from "../../book/sheetFormula";
 import {
   PREFLIGHT_RULES,
@@ -32,6 +38,52 @@ const OPENING_TEMPLATES: TemplateId[] = ["part_opening", "chapter_opening"];
 function mm(token: string | undefined): number {
   const parsed = Number.parseFloat(token ?? "");
   return Number.isFinite(parsed) ? parsed : 0;
+}
+
+function explicitMm(token: string | undefined): number | null {
+  if (!token || !/^\s*\d+(?:\.\d+)?mm\s*$/i.test(token)) return null;
+  const value = Number.parseFloat(token);
+  return value > 0 ? value : null;
+}
+
+function imageSourcePixels(block: Extract<Block, { type: "image" }>) {
+  const asset = lookupAsset(block.src);
+  if (!asset) return null;
+  const legacy = asset as typeof asset & {
+    printInterpolated?: boolean;
+    sourcePixelWidth?: number;
+    sourcePixelHeight?: number;
+  };
+  if (legacy.printInterpolated && legacy.sourcePixelWidth && legacy.sourcePixelHeight) {
+    return { width: legacy.sourcePixelWidth, height: legacy.sourcePixelHeight };
+  }
+  return { width: asset.pixelWidth, height: asset.pixelHeight };
+}
+
+export function effectiveImagePpi(
+  book: Book,
+  page: Page,
+  block: Extract<Block, { type: "image" }>,
+) {
+  const pixels = imageSourcePixels(block);
+  if (!pixels) return block.effectivePpi ?? findAsset(block.src)?.effectivePpi ?? null;
+
+  if (page.template === "cover" && (block.fullBleed || block.position === "full")) {
+    const bleed = mm(book.tokens.bleed);
+    return effectivePpiForSize(
+      pixels.width,
+      pixels.height,
+      mm(book.tokens.pageWidth) + bleed * 2,
+      mm(book.tokens.pageHeight) + bleed * 2,
+    );
+  }
+
+  const widthMm = block.frame?.width ?? explicitMm(block.width);
+  const heightMm = block.frame?.height ?? explicitMm(block.height);
+  if (widthMm && heightMm) {
+    return effectivePpiForSize(pixels.width, pixels.height, widthMm, heightMm);
+  }
+  return block.effectivePpi ?? null;
 }
 
 function slug(text: string): string {
@@ -187,6 +239,17 @@ export function staticIssues(book: Book): PreflightIssue[] {
         element: `página ${folio} · paridade`,
       });
     }
+    if (page.template === "cover" && page.coverMode === "art-only") {
+      const art = findPrimaryImage(page.blocks);
+      const resolvable = Boolean(art?.src && (!isAssetRef(art.src) || lookupAsset(art.src)));
+      if (!resolvable) {
+        push("missing-asset", "error", "Capa em modo art-only sem arte principal válida.", {
+          ...ctx,
+          ...(art ? { blockId: art.id } : {}),
+          element: `página ${folio} · capa art-only`,
+        });
+      }
+    }
 
     /* running header */
     if (page.settings.header) {
@@ -240,29 +303,20 @@ export function staticIssues(book: Book): PreflightIssue[] {
           push("missing-alt-text", "warning", "Imagem sem alt text editorial.", base);
         }
 
-        const ppi =
-          (block.type === "image" ? block.effectivePpi : undefined) ??
-          lookupAsset(block.src)?.effectivePpi;
-        if (ppi && ppi < CRITICAL_PPI) {
+        const ppi = block.type === "image" ? effectiveImagePpi(book, page, block) : null;
+        const severity = ppi ? resolutionSeverity(ppi) : null;
+        if (ppi && severity === "error") {
           push(
             "image-low-resolution",
             "error",
             `Imagem com ${ppi} ppi efetivos (mínimo aceitável ${CRITICAL_PPI}).`,
             base,
           );
-        } else if (ppi && ppi < MIN_PPI) {
+        } else if (ppi && severity === "warning") {
           push(
             "image-low-resolution",
             "warning",
             `Imagem com ${ppi} ppi efetivos (recomendado ${MIN_PPI}).`,
-            base,
-          );
-        } else if (lookupAsset(block.src)?.printInterpolated) {
-          const asset = lookupAsset(block.src)!;
-          push(
-            "image-low-resolution",
-            "info",
-            `Imagem preparada a ${asset.printTargetPpi ?? MIN_PPI} ppi por interpolação (${asset.sourcePixelWidth}×${asset.sourcePixelHeight} px na origem).`,
             base,
           );
         }

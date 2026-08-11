@@ -1,5 +1,6 @@
 import type { BookAsset } from "../../book/types";
-import { effectivePpiFor } from "./registry";
+import { MAX_CANVAS_PIXELS } from "./registry";
+import { MAX_ASSET_BYTES } from "./upload";
 
 /**
  * Edição de imagem local-first: tudo acontece em <canvas> no navegador.
@@ -183,6 +184,11 @@ export async function applyRecipe(
 
   const targetWidth = Math.max(1, Math.round(recipe.resizeWidth || sw));
   const targetHeight = Math.max(1, Math.round((sh / sw) * targetWidth));
+  if (targetWidth * targetHeight > MAX_CANVAS_PIXELS) {
+    throw new Error(
+      `A edição exigiria ${targetWidth}×${targetHeight} px; reduza o tamanho do recorte.`,
+    );
+  }
 
   const canvas = document.createElement("canvas");
   canvas.width = targetWidth;
@@ -208,7 +214,13 @@ export async function applyRecipe(
   }
 
   const data = canvas.toDataURL(mime, mime === "image/jpeg" ? 0.92 : undefined);
-  return { data, mime, width: targetWidth, height: targetHeight, bytes: dataUrlBytes(data) };
+  const bytes = dataUrlBytes(data);
+  if (bytes > MAX_ASSET_BYTES) {
+    throw new Error(
+      `A imagem editada excede ${MAX_ASSET_BYTES / (1024 * 1024)} MB e não pode ser persistida localmente.`,
+    );
+  }
+  return { data, mime, width: targetWidth, height: targetHeight, bytes };
 }
 
 function pickMime(mime: string) {
@@ -226,9 +238,8 @@ export function dataUrlBytes(dataUrl: string): number {
 export function editedToAsset(
   base: Pick<BookAsset, "label" | "category">,
   edited: EditedImage,
-  options: { id: string; pageWidthMm: number },
+  options: { id: string },
 ): BookAsset {
-  const ppi = effectivePpiFor(edited.width, options.pageWidthMm);
   return {
     id: options.id,
     label: base.label,
@@ -238,7 +249,6 @@ export function editedToAsset(
     bytes: edited.bytes,
     pixelWidth: edited.width,
     pixelHeight: edited.height,
-    ...(ppi ? { effectivePpi: ppi } : {}),
     createdAt: new Date().toISOString(),
   };
 }

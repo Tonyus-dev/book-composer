@@ -342,8 +342,7 @@ export function EditorProvider({ children }: { children: ReactNode }) {
     if (!hydrated) return;
     setStatus("saving");
     const timer = window.setTimeout(() => {
-      saveLocalBook(book, projectId);
-      setStatus("saved");
+      setStatus(saveLocalBook(book, projectId) ? "saved" : "error");
     }, 400);
     return () => window.clearTimeout(timer);
   }, [book, hydrated, projectId]);
@@ -496,7 +495,7 @@ export function EditorProvider({ children }: { children: ReactNode }) {
               template,
               variant,
               ...(template === "cover" && page.template !== "cover" && !page.coverMode
-                ? { coverMode: "art-only" as const }
+                ? { coverMode: "overlay" as const }
                 : {}),
             };
           }),

@@ -51,10 +51,9 @@ export function resolveAssetSrc(src: string | undefined): string {
 }
 
 const MM_PER_INCH = 25.4;
-export const PRINT_TARGET_PPI = 300;
-export const MAX_PRINT_RASTER_PIXELS = 32_000_000;
+export const MAX_CANVAS_PIXELS = 32_000_000;
 
-export function pixelsForPrint(mm: number, ppi = PRINT_TARGET_PPI): number {
+export function pixelsForPrint(mm: number, ppi = 300): number {
   if (!Number.isFinite(mm) || mm <= 0) return 0;
   return Math.ceil((mm / MM_PER_INCH) * ppi);
 }
@@ -71,24 +70,10 @@ export function effectivePpiForSize(
   );
 }
 
-export function printRasterPlan(
-  pixelWidth: number,
-  pixelHeight: number,
-  widthMm: number,
-  heightMm: number,
-) {
-  const requiredWidth = pixelsForPrint(widthMm);
-  const requiredHeight = pixelsForPrint(heightMm);
-  const scale = Math.max(requiredWidth / pixelWidth, requiredHeight / pixelHeight, 1);
-  const width = Math.ceil(pixelWidth * scale);
-  const height = Math.ceil(pixelHeight * scale);
-  return {
-    width,
-    height,
-    scale,
-    interpolated: scale > 1,
-    safe: width * height <= MAX_PRINT_RASTER_PIXELS,
-  };
+export function resolutionSeverity(ppi: number): "error" | "warning" | null {
+  if (ppi < 150) return "error";
+  if (ppi < 300) return "warning";
+  return null;
 }
 
 /** ppi efetivo se a imagem ocupar a largura indicada (mm) da página. */
