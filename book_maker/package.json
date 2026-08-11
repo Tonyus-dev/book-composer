@@ -12,7 +12,9 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "deploy": "vite build && wrangler deploy",
+    "deploy": "vite build && wrangler deploy --config .output/server/wrangler.json",
+    "worker:dev": "vite build && wrangler dev --config .output/server/wrangler.json --local",
+    "worker:dry-run": "vite build && wrangler deploy --config .output/server/wrangler.json --dry-run",
     "export:pdf": "node scripts/export-pdf.mjs",
     "lint": "eslint .",
     "format": "prettier --write ."

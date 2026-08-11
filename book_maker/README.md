@@ -45,12 +45,14 @@ Playwright: `bunx playwright install chromium`.
 ## Deploy na Cloudflare
 
 O build usa Nitro com o preset `cloudflare-module` e gera automaticamente
-`dist/server/wrangler.json` mais `.wrangler/deploy/config.json`. Não é necessário manter um
-`wrangler.toml` manual.
+`.output/server/wrangler.json`. Esse manifesto gerado é a configuração de publicação do Worker;
+não é necessário manter um `wrangler.toml` manual.
 
 ```sh
 bunx wrangler login
-bun run deploy       # build + wrangler deploy
+bun run deploy       # build + wrangler deploy usando o manifesto gerado
+bun run worker:dry-run # valida o pacote sem publicar
+bun run worker:dev   # executa localmente no runtime Workers
 ```
 
 O nome do Worker vem de `package.json` (`kallistis-book-builder`). Para publicar via GitHub
