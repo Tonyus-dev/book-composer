@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import type { Block } from "../types";
+import type { Block, LayoutBlock } from "../types";
 import {
   BodyText,
   BookBox,
@@ -39,9 +39,41 @@ export function BlockBody({ block }: { block: Block }) {
       return <BrandLockup block={block} />;
     case "form":
       return <BookForm block={block} />;
+    case "layout":
+      return <LayoutBody block={block} />;
     default:
       return null;
   }
+}
+
+function LayoutBody({ block }: { block: LayoutBlock }) {
+  const { interactive } = useBookRender();
+  return (
+    <div
+      className={`k-layout${interactive ? " k-layout--interactive" : ""}`}
+      style={{
+        gridTemplateColumns: block.widths.map((width) => `${width}fr`).join(" "),
+        gridTemplateRows: block.heights.map((height) => `${height}fr`).join(" "),
+      }}
+      data-layout-columns={block.columns}
+      data-layout-rows={block.rows}
+    >
+      {block.areas.map((area) => (
+        <div
+          key={area.id}
+          className="k-layout__area"
+          data-layout-area-id={area.id}
+          data-layout-marker={area.marker}
+          style={{
+            gridColumn: `${area.column} / span ${area.colSpan ?? 1}`,
+            gridRow: `${area.row} / span ${area.rowSpan ?? 1}`,
+          }}
+        >
+          <BlockBody block={area.block} />
+        </div>
+      ))}
+    </div>
+  );
 }
 
 /** Envelope de bloco: span, espaçamento editorial, identificação e (só no editor) seleção. */

@@ -73,7 +73,13 @@ export function BookImage({ block }: { block: ImageBlock }) {
         } as React.CSSProperties
       }
     >
-      <img src={resolveAssetSrc(block.src)} alt={block.alt} />
+      {block.src ? (
+        <img src={resolveAssetSrc(block.src)} alt={block.alt} />
+      ) : (
+        <div className="k-image-placeholder" aria-label={block.alt || "Imagem"}>
+          {block.alt || "Imagem"}
+        </div>
+      )}
       {block.caption ? <figcaption className="k-caption">{block.caption}</figcaption> : null}
     </figure>
   );

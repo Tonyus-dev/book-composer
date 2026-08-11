@@ -347,6 +347,54 @@
   line-height: 1;
 }
 
+.k-layout {
+  display: grid;
+  gap: 0;
+  min-height: 42mm;
+  margin: 3mm 0 4.5mm;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.k-layout__area {
+  min-width: 0;
+  min-height: 12mm;
+  overflow: hidden;
+  padding: 3mm;
+  border: 0.2mm solid var(--k-border);
+}
+.k-layout__area .k-block {
+  margin: 0;
+}
+.k-layout__area .k-figure {
+  height: 100%;
+  margin: 0;
+}
+.k-layout__area .k-figure img,
+.k-layout__area .k-image-placeholder {
+  min-height: 24mm;
+}
+.k-image-placeholder {
+  display: grid;
+  min-height: 28mm;
+  place-items: center;
+  border: 0.35mm dashed var(--k-border);
+  background: var(--k-field);
+  color: var(--k-muted);
+  font-family: var(--font-functional);
+  font-size: 8pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.k-layout--interactive .k-layout__area[data-layout-marker]::before {
+  display: block;
+  margin-bottom: 1mm;
+  color: var(--k-muted);
+  content: "@" attr(data-layout-marker);
+  font-family: var(--font-functional);
+  font-size: 7pt;
+  letter-spacing: 0.12em;
+}
+
 /* Abertura de capítulo — o conteúdo começa na mesma página */
 .k-chapter__band {
   position: relative;

@@ -3,6 +3,7 @@ import {
   createFormBlock,
   parseAsciiLayout,
   parseSmartPaste,
+  serializeAsciiLayout,
 } from "../src/book/authoring";
 
 const table = parseSmartPaste("Nome\tValor\nA\t1\nB\t2");
@@ -11,13 +12,13 @@ if (table.kind !== "table" || table.blocks[0]?.type !== "table")
 if (table.blocks[0].rows.length !== 3 || table.blocks[0].columns.length !== 2)
   throw new Error("dimensão TSV inválida");
 
-const layout = parseAsciiLayout(
+const markdownLayout = parseAsciiLayout(
   "@template table_page\n@title Página de referência\n# Título\nTexto.\n\n> Nota.",
 );
 if (
-  layout.template !== "table_page" ||
-  layout.title !== "Página de referência" ||
-  layout.blocks.length !== 3
+  markdownLayout.template !== "table_page" ||
+  markdownLayout.title !== "Página de referência" ||
+  markdownLayout.blocks.length !== 3
 ) {
   throw new Error("layout ASCII inválido");
 }
@@ -39,5 +40,32 @@ if (
 ) {
   throw new Error("clone de ficha não preservou IDs independentes");
 }
+
+const boxSource = `┌───────────────────────────────────────┐
+│              # TÍTULO                 │
+├───────────────────┬───────────────────┤
+│                   │                   │
+│     @PORTRAIT     │      @TEXT        │
+│                   │                   │
+│                   │                   │
+├───────────────────┴───────────────────┤
+│              @QUOTE                   │
+└───────────────────────────────────────┘`;
+const boxed = parseAsciiLayout(boxSource);
+const layout = boxed.blocks[0];
+if (layout?.type !== "layout") throw new Error("caixa ASCII não virou layout");
+if (layout.columns !== 2 || layout.rows !== 3 || layout.areas.length !== 4) {
+  throw new Error("geometria ASCII inválida");
+}
+const [titleArea, portraitArea, textArea, quoteArea] = layout.areas;
+if (
+  titleArea?.colSpan !== 2 ||
+  portraitArea?.block.type !== "image" ||
+  textArea?.marker !== "TEXT" ||
+  quoteArea?.colSpan !== 2
+) {
+  throw new Error("áreas ASCII não preservaram semântica");
+}
+if (serializeAsciiLayout(layout) !== boxSource) throw new Error("round-trip ASCII não é estável");
 
 console.log("authoring PASS");

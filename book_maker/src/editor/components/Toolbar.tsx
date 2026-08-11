@@ -1,10 +1,12 @@
-import { useState, useRef } from "react";
+import { useMemo, useState, useRef } from "react";
 import type { Block, BlockType } from "../../book/types";
 import {
+  cloneBlockForInsert,
   createFormBlock,
   parseAsciiLayout,
   parseSmartPaste,
   recipeFromPage,
+  serializeAsciiLayout,
 } from "../../book/authoring";
 import { createTableBlock } from "../../book/tableModel";
 import { downloadBookJson, readBookFromFile } from "../../lib/persistence/json";
@@ -118,6 +120,18 @@ export function Toolbar() {
   const [recipeName, setRecipeName] = useState("");
   const [recipeDescription, setRecipeDescription] = useState("");
   const { errors, warnings, infos } = preflight.summary;
+  const asciiPreview = useMemo(() => {
+    if (authoringOpen !== "ascii" || !authoringText.trim()) return null;
+    const parsed = parseAsciiLayout(authoringText);
+    const layout = parsed.blocks.find((block) => block.type === "layout");
+    return {
+      source: layout?.type === "layout" ? serializeAsciiLayout(layout) : authoringText.trim(),
+      summary:
+        layout?.type === "layout"
+          ? `${layout.columns} colunas · ${layout.rows} faixas · ${layout.areas.length} áreas`
+          : `${parsed.blocks.length} blocos editoriais`,
+    };
+  }, [authoringOpen, authoringText]);
 
   /* Exportação de produção nunca é silenciosa quando existe ERROR. */
   const openPrint = () => {
@@ -155,8 +169,9 @@ export function Toolbar() {
   };
 
   const addBlocks = (blocks: Block[]) => {
-    blocks.forEach((block) => addBlock(selectedPage.id, block));
-    if (blocks[0]) selectBlock(blocks[0].id);
+    const cloned = blocks.map((block, index) => cloneBlockForInsert(block, index));
+    cloned.forEach((block) => addBlock(selectedPage.id, block));
+    if (cloned[0]) selectBlock(cloned[0].id);
   };
 
   return (
@@ -593,6 +608,16 @@ export function Toolbar() {
                   closeAuthoring();
                 }}
               >
+                {authoringOpen === "ascii" && asciiPreview ? (
+                  <div className="border border-border bg-muted/20 p-2">
+                    <div className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                      Preview determinístico · {asciiPreview.summary}
+                    </div>
+                    <pre className="max-h-36 overflow-auto whitespace-pre font-mono text-[10px] leading-tight text-foreground">
+                      {asciiPreview.source}
+                    </pre>
+                  </div>
+                ) : null}
                 <textarea
                   className="h-64 w-full resize-y border border-border bg-input/40 p-2 font-mono text-xs"
                   value={authoringText}

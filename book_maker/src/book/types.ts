@@ -271,6 +271,41 @@ export interface FormBlock extends BaseBlock {
   columns?: 1 | 2;
 }
 
+export type LayoutAreaContent =
+  | HeadingBlock
+  | TextBlock
+  | ImageBlock
+  | QuoteBlock
+  | TableBlock
+  | BoxBlock
+  | CaptionBlock
+  | DividerBlock
+  | TocBlock
+  | LockupBlock
+  | FormBlock;
+
+export interface LayoutArea {
+  id: string;
+  row: number;
+  column: number;
+  rowSpan?: number;
+  colSpan?: number;
+  marker?: string;
+  block: LayoutAreaContent;
+}
+
+/** Grid editorial real derivado do desenho ASCII; continua serializável e imprimível. */
+export interface LayoutBlock extends BaseBlock {
+  type: "layout";
+  columns: number;
+  rows: number;
+  widths: number[];
+  heights: number[];
+  areas: LayoutArea[];
+  /** Fonte textual preservada para preview e round-trip determinístico. */
+  asciiSource?: string;
+}
+
 export type Block =
   | TextBlock
   | HeadingBlock
@@ -282,7 +317,8 @@ export type Block =
   | DividerBlock
   | TocBlock
   | LockupBlock
-  | FormBlock;
+  | FormBlock
+  | LayoutBlock;
 
 export type BlockType = Block["type"];
 
