@@ -33,6 +33,7 @@ export const Route = createFileRoute("/print")({
  * O Chromium imprime esta rota em 1:1 com as dimensões físicas dos tokens.
  */
 function PrintView() {
+  const [, refreshAssets] = useState(0);
   const { src } = useSearch({ from: "/print" });
   const initialInjected =
     typeof window !== "undefined"
@@ -42,6 +43,12 @@ function PrintView() {
     initialInjected ? normalizeBook(initialInjected) : canonicalBook,
   );
   const [sourceResolved, setSourceResolved] = useState(Boolean(initialInjected) || !src);
+
+  useEffect(() => {
+    const refresh = () => refreshAssets((value) => value + 1);
+    window.addEventListener("kallistis-asset-ready", refresh);
+    return () => window.removeEventListener("kallistis-asset-ready", refresh);
+  }, []);
 
   /* Assets embutidos no JSON precisam estar mapeados antes de pintar as páginas. */
   registerBookAssets(book.assets);

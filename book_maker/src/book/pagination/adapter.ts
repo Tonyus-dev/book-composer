@@ -3,7 +3,7 @@
  *
  * Estado real:
  *  - "fixed" (ativo): o modelo de dados é explicitamente paginado. Cada Page do
- *    JSON é uma página física 210x280 mm. O Chromium imprime 1:1 e o PDF nasce
+ *    JSON usa trim 140x210 mm + sangria de 5 mm. O Chromium imprime 1:1 e o PDF nasce
  *    do HTML/CSS. Nenhuma biblioteca externa é necessária.
  *  - "paged" / "vivliostyle" (NÃO IMPLEMENTADO): necessários somente quando o
  *    livro passar a ter fluxo contínuo (importação de texto longo) e a quebra

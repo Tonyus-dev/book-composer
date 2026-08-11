@@ -4,7 +4,7 @@ import { DEFAULT_TOKENS, type Book, type BookAsset, type ImageBlock } from "../s
 import { pixelsForPrint } from "../src/lib/assets/registry";
 import { registerBookAssets } from "../src/lib/assets/registry";
 import { effectiveImagePpi, staticIssues } from "../src/lib/preflight/static-rules";
-import { saveLocalBook } from "../src/lib/persistence/local";
+import { bookSnapshot, normalizeBook, saveLocalBook } from "../src/lib/persistence/local";
 
 const image = (id: string, src = `asset:${id}`): ImageBlock => ({
   id: `block-${id}`,
@@ -95,6 +95,27 @@ for (const src of ["/a.jpg", "/b.jpg", "/c.jpg"]) {
 }
 assert.equal(blocks.length, 1);
 assert.equal(findPrimaryImage(blocks)?.src, "/c.jpg");
+
+const severalMegabytes = `data:image/png;base64,${"A".repeat(4 * 1024 * 1024)}`;
+const externalized = coverBook(1772, 2599);
+externalized.assets![0] = {
+  ...externalized.assets![0]!,
+  data: severalMegabytes,
+  bytes: 3 * 1024 * 1024,
+  storage: { kind: "local", key: "volume/cover" },
+};
+const lightweight = JSON.stringify(bookSnapshot(externalized));
+assert.ok(lightweight.length < 10_000, `snapshot leve mediu ${lightweight.length} bytes`);
+assert.ok(!lightweight.includes("data:image/"));
+
+const canonicalLegacy = coverBook(1772, 2599, "overlay");
+canonicalLegacy.meta.title = "KALLISTIS — Livro Básico";
+delete canonicalLegacy.pages[0]!.coverMode;
+(canonicalLegacy.pages[0]!.blocks[0] as ImageBlock).src = "/assets/cover/capa-cristal.jpg";
+assert.equal(normalizeBook(canonicalLegacy).pages[0]!.coverMode, "art-only");
+const genericLegacy = coverBook(1772, 2599, "overlay");
+delete genericLegacy.pages[0]!.coverMode;
+assert.equal(normalizeBook(genericLegacy).pages[0]!.coverMode, undefined);
 
 const empty = coverBook(1772, 2599);
 empty.pages[0]!.blocks = [];

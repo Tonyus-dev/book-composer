@@ -14,7 +14,7 @@ import {
   createKallistisCharacterSheet,
 } from "../../book/sheetModel";
 import {
-  downloadBookJson,
+  downloadPortableBookJson,
   downloadPageJson,
   readBookFromFile,
   readPageFromFile,
@@ -591,7 +591,9 @@ export function Toolbar() {
               </button>
               <button
                 type="button"
-                onClick={() => downloadBookJson(book, `${book.meta.title || "projeto"}.json`)}
+                onClick={() =>
+                  void downloadPortableBookJson(book, `${book.meta.title || "projeto"}.json`)
+                }
                 className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
               >
                 Salvar projeto
@@ -659,10 +661,10 @@ export function Toolbar() {
           </details>
           <button
             type="button"
-            onClick={() => downloadBookJson(book)}
+            onClick={() => void downloadPortableBookJson(book)}
             className="border border-border px-2 py-1 text-[11px] hover:bg-accent"
           >
-            Exportar projeto
+            Exportar projeto portátil
           </button>
           <button
             type="button"

@@ -30,6 +30,7 @@ import { canonicalBook } from "../../data/canonical-book";
 import {
   getActiveLocalProjectId,
   loadLocalBook,
+  migrateLegacyAssets,
   saveLocalBook,
   setActiveLocalProjectId,
 } from "../../lib/persistence/local";
@@ -46,6 +47,7 @@ import {
   type ProductionPlan,
 } from "../../lib/persistence/production-plan";
 import { assetRef, registerBookAssets } from "../../lib/assets/registry";
+import { syncLocalAssets } from "../../lib/assets/cloud-upload";
 import { buildReport, fingerprint } from "../../lib/preflight/report";
 import type { PreflightIssue, PreflightReport } from "../../lib/preflight/types";
 import { folioFor } from "../../book/renderer/PageRenderer";
@@ -199,6 +201,7 @@ function replacePageIdInNodes(book: Book, oldId: string, newIds: string[]): Book
 }
 
 export function EditorProvider({ children }: { children: ReactNode }) {
+  const [, refreshAssets] = useState(0);
   const [book, setBookState] = useState<Book>(INITIAL_BOOK);
   const [projectId, setProjectId] = useState(() => getActiveLocalProjectId());
   const initialProjectIdRef = useRef(projectId);
@@ -245,6 +248,12 @@ export function EditorProvider({ children }: { children: ReactNode }) {
   const cloudReadyRef = useRef(false);
   const skipCloudSaveRef = useRef(false);
 
+  useEffect(() => {
+    const refresh = () => refreshAssets((value) => value + 1);
+    window.addEventListener("kallistis-asset-ready", refresh);
+    return () => window.removeEventListener("kallistis-asset-ready", refresh);
+  }, []);
+
   /* Estado inicial: projeto editorial versionado; se existir projeto local, ele tem precedência.
      O production plan segue a mesma hierarquia: localStorage primeiro, depois
      sidecar versionável em /projects/kallistis-production-plan.json (fetch
@@ -252,10 +261,13 @@ export function EditorProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const local = loadLocalBook(initialProjectIdRef.current);
     const nextBook = local && local.pages.length > 0 ? local : INITIAL_BOOK;
-    if (local && local.pages.length > 0) {
-      setBook(local);
-      setSelectedPageId(local.pages[0]!.id);
-    }
+    void migrateLegacyAssets(nextBook, initialProjectIdRef.current).then((migrated) => {
+      if (migrated !== nextBook || (local && local.pages.length > 0)) {
+        setBook(migrated);
+        setSelectedPageId(migrated.pages[0]!.id);
+      }
+      setHydrated(true);
+    });
     const planLocal = loadLocalProductionPlan(productionPlanForBookId(nextBook));
     const seedBookId = productionPlanForBookId(nextBook);
     if (planLocal) {
@@ -278,9 +290,11 @@ export function EditorProvider({ children }: { children: ReactNode }) {
         if (!local && remote.snapshot) {
           try {
             const normalized = normalizeBook(remote.snapshot);
-            skipCloudSaveRef.current = true;
-            setBook(normalized);
-            setSelectedPageId(normalized.pages[0]!.id);
+            void migrateLegacyAssets(normalized, initialProjectIdRef.current).then((migrated) => {
+              skipCloudSaveRef.current = true;
+              setBook(migrated);
+              setSelectedPageId(migrated.pages[0]!.id);
+            });
           } catch {
             /* uma revisão remota inválida não substitui o fallback local */
           }
@@ -289,7 +303,6 @@ export function EditorProvider({ children }: { children: ReactNode }) {
       cloudReadyRef.current = true;
       setCloudReady(true);
     });
-    setHydrated(true);
   }, [setBook]);
 
   /* A hidratação inicial não deve ocupar o histórico editorial. */
@@ -358,14 +371,20 @@ export function EditorProvider({ children }: { children: ReactNode }) {
     const timer = window.setTimeout(() => {
       void (async () => {
         setStatus("saving");
+        const cloudBook = await syncLocalAssets(book, cloudProjectIdRef.current);
+        if (!cloudBook) {
+          setStatus("offline");
+          return;
+        }
         const result = await saveCloudSnapshot(
           cloudProjectIdRef.current,
           book.meta.title,
-          book,
+          cloudBook,
           cloudRevisionRef.current,
         );
         if (result.kind === "ok") {
           cloudRevisionRef.current = result.revision;
+          if (cloudBook !== book) setBookState(cloudBook);
           setStatus("saved");
         } else if (result.kind === "conflict") {
           setStatus("conflict");

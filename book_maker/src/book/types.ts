@@ -576,22 +576,25 @@ export interface BookMeta {
   firstFolio: number;
 }
 
-/**
- * Asset embutido no projeto: bytes em data URL + metadados de produção.
- * Blocos referenciam por `asset:<id>` (ver lib/assets/registry).
- */
+export type BookAssetStorage =
+  | { kind: "local"; key: string }
+  | { kind: "r2"; key: string; url: string; localKey?: string }
+  | { kind: "legacy-inline" };
+
+/** Metadados editoriais leves. Bytes locais vivem no IndexedDB. */
 export interface BookAsset {
   id: string;
   label: string;
   /** categoria do catálogo, para filtro no navegador de assets */
   category: string;
-  /** data URL (base64) — mantém o JSON autocontido e reprodutível */
-  data: string;
+  /** Compatibilidade de leitura com projetos/exports portáteis antigos. */
+  data?: string;
+  storage?: BookAssetStorage;
   mime: string;
   bytes: number;
   pixelWidth: number;
   pixelHeight: number;
-  /** ppi efetivo se a imagem ocupar a largura total da página */
+  /** estimativa legada de uso; PPI real depende da geometria física do bloco */
   effectivePpi?: number;
   note?: string;
   createdAt: string;

@@ -3,6 +3,7 @@ import { DEFAULT_TOKENS } from "../../book/types";
 import { normalizeTableBlock } from "../../book/tableModel";
 import { normalizeRecipe } from "../../book/authoring";
 import { normalizeSheet } from "../../book/sheetModel";
+import { dataUrlToBlob, hasAssetBlob, localAssetKey, putAssetBlob } from "../assets/local-store";
 
 const STORAGE_KEY = "kallistis.book-builder.project.v1";
 const PROJECT_PREFIX = "kallistis.book-builder.project.v2.";
@@ -94,7 +95,7 @@ export function loadLocalBook(projectId = getActiveLocalProjectId()): Book | nul
 export function saveLocalBook(book: Book, projectId = getActiveLocalProjectId()): boolean {
   if (typeof window === "undefined") return false;
   try {
-    const serialized = JSON.stringify(book);
+    const serialized = JSON.stringify(bookSnapshot(book));
     window.localStorage.setItem(projectStorageKey(projectId), serialized);
     if (projectId === "default") window.localStorage.setItem(STORAGE_KEY, serialized);
     registerProject(projectId, book.meta.title);
@@ -103,6 +104,54 @@ export function saveLocalBook(book: Book, projectId = getActiveLocalProjectId())
     console.error("[kallistis] falha ao salvar projeto local", error);
     return false;
   }
+}
+
+/** Cópia leve para autosave/snapshot; inline só é removido após migração confirmada. */
+export function bookSnapshot(book: Book): Book {
+  return {
+    ...book,
+    assets: (book.assets ?? []).map((asset) => {
+      if ((asset.storage?.kind === "local" || asset.storage?.kind === "r2") && asset.data) {
+        const { data: _data, ...metadata } = asset;
+        return metadata;
+      }
+      return { ...asset };
+    }),
+  };
+}
+
+/** Migração idempotente: a chave estável é projeto/id e data só sai após leitura confirmada. */
+export async function migrateLegacyAssets(book: Book, projectId: string): Promise<Book> {
+  let changed = false;
+  const assets = await Promise.all(
+    (book.assets ?? []).map(async (asset) => {
+      if (!asset.data?.startsWith("data:image/")) return asset;
+      const key =
+        asset.storage?.kind === "local" ? asset.storage.key : localAssetKey(projectId, asset.id);
+      try {
+        if (!(await hasAssetBlob(key))) await putAssetBlob(key, dataUrlToBlob(asset.data));
+        if (!(await hasAssetBlob(key))) return asset;
+        changed = true;
+        const { data: _data, ...metadata } = asset;
+        return { ...metadata, storage: { kind: "local" as const, key } };
+      } catch (error) {
+        console.error("[kallistis] migração de asset preservou o inline", asset.id, error);
+        return asset;
+      }
+    }),
+  );
+  return changed ? { ...book, assets } : book;
+}
+
+export async function externalizeAsset(
+  asset: import("../../book/types").BookAsset,
+  projectId: string,
+) {
+  if (!asset.data) return asset;
+  const key = localAssetKey(projectId, asset.id);
+  await putAssetBlob(key, dataUrlToBlob(asset.data));
+  const { data: _data, ...metadata } = asset;
+  return { ...metadata, storage: { kind: "local" as const, key } };
 }
 
 export function clearLocalBook(projectId = getActiveLocalProjectId()) {
@@ -120,6 +169,11 @@ export function normalizeBook(input: unknown): Book {
   }
   const pages: Page[] = book.pages.map((page) => ({
     ...page,
+    ...(page.template === "cover" &&
+    page.coverMode === undefined &&
+    isCanonicalComposedCover(book, page)
+      ? { coverMode: "art-only" as const }
+      : {}),
     blocks: page.blocks.map((block) => {
       if (block.type === "table") return normalizeTableBlock(block);
       if (block.type === "sheet") return { ...block, sheet: normalizeSheet(block.sheet) };
@@ -132,7 +186,12 @@ export function normalizeBook(input: unknown): Book {
     tokens: { ...DEFAULT_TOKENS, ...(book.tokens ?? {}) },
     nodes: book.nodes ?? [],
     pages,
-    assets: Array.isArray(book.assets) ? book.assets : [],
+    assets: Array.isArray(book.assets)
+      ? book.assets.map((asset) => ({
+          ...asset,
+          ...(!asset.storage && asset.data ? { storage: { kind: "legacy-inline" as const } } : {}),
+        }))
+      : [],
     fonts: Array.isArray(book.fonts) ? book.fonts : [],
     spreads: Array.isArray(book.spreads) ? book.spreads : [],
     tableStyles: Array.isArray(book.tableStyles) ? book.tableStyles : [],
@@ -149,4 +208,13 @@ export function normalizeBook(input: unknown): Book {
     sheetTemplates: Array.isArray(book.sheetTemplates) ? book.sheetTemplates : [],
     sheetInstances: Array.isArray(book.sheetInstances) ? book.sheetInstances : [],
   };
+}
+
+function isCanonicalComposedCover(book: Book, page: Page): boolean {
+  return (
+    book.meta?.title === "KALLISTIS — Livro Básico" &&
+    page.blocks.some(
+      (block) => block.type === "image" && block.src === "/assets/cover/capa-cristal.jpg",
+    )
+  );
 }
