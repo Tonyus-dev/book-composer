@@ -91,11 +91,18 @@ export function loadLocalBook(projectId = getActiveLocalProjectId()): Book | nul
   }
 }
 
-export function saveLocalBook(book: Book, projectId = getActiveLocalProjectId()) {
-  if (typeof window === "undefined") return;
-  window.localStorage.setItem(projectStorageKey(projectId), JSON.stringify(book));
-  if (projectId === "default") window.localStorage.setItem(STORAGE_KEY, JSON.stringify(book));
-  registerProject(projectId, book.meta.title);
+export function saveLocalBook(book: Book, projectId = getActiveLocalProjectId()): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    const serialized = JSON.stringify(book);
+    window.localStorage.setItem(projectStorageKey(projectId), serialized);
+    if (projectId === "default") window.localStorage.setItem(STORAGE_KEY, serialized);
+    registerProject(projectId, book.meta.title);
+    return true;
+  } catch (error) {
+    console.error("[kallistis] falha ao salvar projeto local", error);
+    return false;
+  }
 }
 
 export function clearLocalBook(projectId = getActiveLocalProjectId()) {

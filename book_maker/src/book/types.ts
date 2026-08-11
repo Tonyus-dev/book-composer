@@ -525,6 +525,8 @@ export interface Page {
   chapter?: string | undefined;
   title?: string | undefined;
   subtitle?: string | undefined;
+  /** Capa pronta não recebe título, autoria ou lockup sobre a arte. */
+  coverMode?: "art-only" | "overlay";
   eyebrow?: string | undefined;
   /** composição manual protegida contra alterações automáticas futuras. */
   fixed?: boolean;

@@ -1,12 +1,19 @@
 import { BlockList } from "../renderer/BlockRenderer";
 import { BrandLockup } from "../components/BookComponents";
-import { findImage, firstOfType, withoutBlock, type TemplateProps } from "./types";
+import {
+  findImage,
+  findPrimaryImage,
+  firstOfType,
+  withoutBlock,
+  type TemplateProps,
+} from "./types";
 import { resolveAssetSrc } from "../../lib/assets/registry";
 
 /** COVER — imagem full bleed + master do lockup. O wordmark nunca é recriado com fonte. */
 export function CoverTemplate({ page, meta }: TemplateProps) {
-  const art = findImage(page.blocks);
+  const art = findPrimaryImage(page.blocks);
   const lockup = firstOfType(page.blocks, "lockup");
+  const showOverlay = (page.coverMode ?? "overlay") === "overlay";
   return (
     <>
       {art ? (
@@ -19,23 +26,25 @@ export function CoverTemplate({ page, meta }: TemplateProps) {
           />
         </div>
       ) : null}
-      <div className="k-cover">
-        {lockup ? (
-          <div data-block-id={lockup.id} className="k-cover__lockup-slot">
-            <BrandLockup block={{ ...lockup, width: lockup.width ?? "108mm" }} />
+      {showOverlay ? (
+        <div className="k-cover">
+          {lockup ? (
+            <div data-block-id={lockup.id} className="k-cover__lockup-slot">
+              <BrandLockup block={{ ...lockup, width: lockup.width ?? "108mm" }} />
+            </div>
+          ) : null}
+          <div>
+            <h1 className="k-cover__product">{page.title ?? meta.title}</h1>
+            {page.subtitle ? <p className="k-cover__sub">{page.subtitle}</p> : null}
+            <p className="k-cover__foot" style={{ marginTop: "10mm" }}>
+              {meta.author}
+            </p>
+            <p className="k-cover__foot" style={{ marginTop: "2mm", opacity: 0.75 }}>
+              {meta.imprint}
+            </p>
           </div>
-        ) : null}
-        <div>
-          <h1 className="k-cover__product">{page.title ?? meta.title}</h1>
-          {page.subtitle ? <p className="k-cover__sub">{page.subtitle}</p> : null}
-          <p className="k-cover__foot" style={{ marginTop: "10mm" }}>
-            {meta.author}
-          </p>
-          <p className="k-cover__foot" style={{ marginTop: "2mm", opacity: 0.75 }}>
-            {meta.imprint}
-          </p>
         </div>
-      </div>
+      ) : null}
     </>
   );
 }

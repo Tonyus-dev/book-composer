@@ -13,6 +13,7 @@ import {
   type GitHubSourceAsset,
 } from "../../lib/persistence/source";
 import { cloudProjectId } from "../../lib/persistence/cloud";
+import { findPrimaryImage } from "../../book/templates/types";
 
 /** Item unificado: catálogo estático (public/assets) + assets enviados. */
 interface BrowserItem {
@@ -89,14 +90,27 @@ export function AssetBrowser() {
       });
       return;
     }
+    if (selectedPage.template === "cover") {
+      const primary = findPrimaryImage(selectedPage.blocks);
+      if (primary) {
+        updateBlock(selectedPage.id, primary.id, {
+          src: item.src,
+          alt: item.label,
+          effectivePpi: item.effectivePpi,
+        });
+        selectBlock(primary.id);
+        return;
+      }
+    }
     const block: ImageBlock = {
       id: nextId("b"),
       type: "image",
       src: item.src,
       alt: item.label,
       fit: "cover",
-      position: "flow",
+      position: selectedPage.template === "cover" ? "full" : "flow",
       span: "full",
+      fullBleed: selectedPage.template === "cover",
       ...(item.effectivePpi ? { effectivePpi: item.effectivePpi } : {}),
     };
     addBlock(selectedPage.id, block);
@@ -108,14 +122,23 @@ export function AssetBrowser() {
       updateBlock(selectedPage.id, selectedBlock.id, { src, alt: label });
       return;
     }
+    if (selectedPage.template === "cover") {
+      const primary = findPrimaryImage(selectedPage.blocks);
+      if (primary) {
+        updateBlock(selectedPage.id, primary.id, { src, alt: label, effectivePpi: undefined });
+        selectBlock(primary.id);
+        return;
+      }
+    }
     const block: ImageBlock = {
       id: nextId("b"),
       type: "image",
       src,
       alt: label,
       fit: "cover",
-      position: "flow",
+      position: selectedPage.template === "cover" ? "full" : "flow",
       span: "full",
+      fullBleed: selectedPage.template === "cover",
     };
     addBlock(selectedPage.id, block);
     selectBlock(block.id);
@@ -159,7 +182,6 @@ export function AssetBrowser() {
           await fileToBookAsset(file, {
             id: nextId("asset"),
             category: uploadCategory,
-            pageWidth: book.tokens.pageWidth,
           }),
         );
       } catch (cause) {
@@ -180,11 +202,9 @@ export function AssetBrowser() {
   ): Promise<string | null> => {
     try {
       const edited = await applyRecipe(target.source, recipe, { mime: target.mime });
-      const pageWidthMm = Number.parseFloat(book.tokens.pageWidth) || 210;
       if (mode === "replace" && target.assetId) {
         const asset = editedToAsset({ label, category: target.category }, edited, {
           id: target.assetId,
-          pageWidthMm,
         });
         const { id: _id, createdAt: _createdAt, ...patch } = asset;
         updateAsset(target.assetId, patch);
@@ -192,7 +212,6 @@ export function AssetBrowser() {
       }
       const created = editedToAsset({ label, category: target.category }, edited, {
         id: nextId("asset"),
-        pageWidthMm,
       });
       addAssets([created]);
       return null;

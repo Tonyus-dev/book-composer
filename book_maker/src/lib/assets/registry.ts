@@ -51,6 +51,30 @@ export function resolveAssetSrc(src: string | undefined): string {
 }
 
 const MM_PER_INCH = 25.4;
+export const MAX_CANVAS_PIXELS = 32_000_000;
+
+export function pixelsForPrint(mm: number, ppi = 300): number {
+  if (!Number.isFinite(mm) || mm <= 0) return 0;
+  return Math.ceil((mm / MM_PER_INCH) * ppi);
+}
+
+export function effectivePpiForSize(
+  pixelWidth: number,
+  pixelHeight: number,
+  widthMm: number,
+  heightMm: number,
+): number {
+  if (!pixelWidth || !pixelHeight || !widthMm || !heightMm) return 0;
+  return Math.round(
+    Math.min(pixelWidth / (widthMm / MM_PER_INCH), pixelHeight / (heightMm / MM_PER_INCH)),
+  );
+}
+
+export function resolutionSeverity(ppi: number): "error" | "warning" | null {
+  if (ppi < 150) return "error";
+  if (ppi < 300) return "warning";
+  return null;
+}
 
 /** ppi efetivo se a imagem ocupar a largura indicada (mm) da página. */
 export function effectivePpiFor(pixelWidth: number, widthMm: number): number {
