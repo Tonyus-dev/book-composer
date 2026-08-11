@@ -8,6 +8,16 @@ type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
 };
 
+type RuntimeRequest = Request & {
+  runtime?: { cloudflare?: { env?: unknown } };
+};
+
+function resolveWorkerEnv(request: Request, env: unknown): WorkerEnv {
+  if (env && typeof env === "object") return env as WorkerEnv;
+  const runtimeEnv = (request as RuntimeRequest).runtime?.cloudflare?.env;
+  return runtimeEnv && typeof runtimeEnv === "object" ? (runtimeEnv as WorkerEnv) : {};
+}
+
 let serverEntryPromise: Promise<ServerEntry> | undefined;
 
 async function getServerEntry(): Promise<ServerEntry> {
@@ -48,7 +58,7 @@ function isH3SwallowedErrorBody(body: string): boolean {
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
-      const apiResponse = await handleApiRequest(request, env as WorkerEnv);
+      const apiResponse = await handleApiRequest(request, resolveWorkerEnv(request, env));
       if (apiResponse) return apiResponse;
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
