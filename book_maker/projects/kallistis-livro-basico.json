@@ -31,11 +31,7 @@
       "id": "node-front",
       "label": "Front Matter",
       "kind": "front",
-      "pageIds": [
-        "p-001",
-        "p-002",
-        "p-003"
-      ]
+      "pageIds": ["p-001", "p-002", "p-003"]
     },
     {
       "id": "node-part-1",
@@ -75,9 +71,7 @@
       "id": "node-cinturao",
       "label": "O Cinturão das Frestas",
       "kind": "chapter",
-      "pageIds": [
-        "p-031"
-      ]
+      "pageIds": ["p-031"]
     },
     {
       "id": "node-part-2",
@@ -355,13 +349,7 @@
       "id": "node-apendices",
       "label": "Apêndices",
       "kind": "appendix",
-      "pageIds": [
-        "p-276",
-        "p-277",
-        "p-278",
-        "p-279",
-        "p-280"
-      ]
+      "pageIds": ["p-276", "p-277", "p-278", "p-279", "p-280"]
     }
   ],
   "pages": [

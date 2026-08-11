@@ -21,8 +21,6 @@ export default defineConfig({
      (que só expõe preset/output/cloudflare por design); o spread runtime
      do @lovable.dev/vite-tanstack-config propaga publicAssets para Nitro. */
   nitro: {
-    publicAssets: [
-      { baseURL: "/projects", dir: "projects", maxAge: 0, fallthrough: false },
-    ],
+    publicAssets: [{ baseURL: "/projects", dir: "projects", maxAge: 0, fallthrough: false }],
   } as never,
 });

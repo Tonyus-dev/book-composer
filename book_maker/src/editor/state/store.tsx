@@ -254,8 +254,7 @@ export function EditorProvider({ children }: { children: ReactNode }) {
   );
   const selectedPage = book.pages[selectedPageIndex] ?? book.pages[0]!;
   const selectedBlock = selectedPage.blocks.find((b) => b.id === selectedBlockId) ?? null;
-  const selectedPageGuide: PageGuide =
-    productionPlan.pages[selectedPage.id] ?? emptyPageGuide();
+  const selectedPageGuide: PageGuide = productionPlan.pages[selectedPage.id] ?? emptyPageGuide();
 
   const selectPage = useCallback((pageId: string) => {
     setSelectedPageId(pageId);
@@ -503,7 +502,7 @@ export function EditorProvider({ children }: { children: ReactNode }) {
           pages: {},
         });
       },
-            replaceBook: (next) => {
+      replaceBook: (next) => {
         setBook(next);
         setSelectedPageId(next.pages[0]!.id);
         setSelectedBlockId(null);

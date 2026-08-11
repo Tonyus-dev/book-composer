@@ -44,9 +44,8 @@ export function AssetBrowser() {
   const fileRef = useRef<HTMLInputElement>(null);
   const uploadCategory = category === "all" ? "characters" : category;
 
-  const uploaded = book.assets ?? [];
-
   const items = useMemo(() => {
+    const uploaded = book.assets ?? [];
     const all: BrowserItem[] = [
       ...uploaded.map((asset) => ({
         key: asset.id,
@@ -69,7 +68,7 @@ export function AssetBrowser() {
     return all
       .filter((item) => category === "all" || item.category === category)
       .filter((item) => item.label.toLowerCase().includes(term));
-  }, [category, query, uploaded]);
+  }, [category, query, book.assets]);
 
   const apply = (item: BrowserItem) => {
     if (selectedBlock && selectedBlock.type === "image") {

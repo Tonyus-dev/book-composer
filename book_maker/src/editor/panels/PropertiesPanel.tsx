@@ -366,149 +366,160 @@ export function PropertiesPanel() {
         <GuidePanel />
       ) : (
         <>
-      {issues.length > 0 ? (
-        <PanelSection title="Preflight desta página">
-          <ul className="space-y-1 text-[11px]">
-            {issues.map((issue, index) => (
-              <li key={index}>
-                <button
-                  type="button"
-                  onClick={() => focusIssue(issue)}
-                  className="text-left hover:underline"
-                >
-                  <span
-                    className={
-                      issue.severity === "error"
-                        ? "text-destructive"
-                        : issue.severity === "warning"
-                          ? "text-[#c08b2b]"
-                          : "text-muted-foreground"
-                    }
-                  >
-                    {SEVERITY_LABEL[issue.severity]}
-                  </span>{" "}
-                  <span className="text-foreground">{issue.description}</span>{" "}
-                  <span className="text-muted-foreground">
-                    ({PREFLIGHT_RULES[issue.rule].label})
-                  </span>
-                </button>
-              </li>
-            ))}
-          </ul>
-        </PanelSection>
-      ) : null}
+          {issues.length > 0 ? (
+            <PanelSection title="Preflight desta página">
+              <ul className="space-y-1 text-[11px]">
+                {issues.map((issue, index) => (
+                  <li key={index}>
+                    <button
+                      type="button"
+                      onClick={() => focusIssue(issue)}
+                      className="text-left hover:underline"
+                    >
+                      <span
+                        className={
+                          issue.severity === "error"
+                            ? "text-destructive"
+                            : issue.severity === "warning"
+                              ? "text-[#c08b2b]"
+                              : "text-muted-foreground"
+                        }
+                      >
+                        {SEVERITY_LABEL[issue.severity]}
+                      </span>{" "}
+                      <span className="text-foreground">{issue.description}</span>{" "}
+                      <span className="text-muted-foreground">
+                        ({PREFLIGHT_RULES[issue.rule].label})
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </PanelSection>
+          ) : null}
 
-      {selectedBlock ? (
-        <BlockProperties block={selectedBlock} />
-      ) : (
-        <>
-          <PanelSection title="Página">
-            <SelectField
-              label="Template"
-              value={selectedPage.template}
-              options={TEMPLATE_IDS.map((id) => ({
-                value: id as TemplateId,
-                label: TEMPLATES[id].label,
-              }))}
-              onChange={(value) => setTemplate(selectedPage.id, value)}
-            />
-            {definition.variants.length > 1 ? (
-              <SelectField
-                label="Variante"
-                value={(selectedPage.variant ?? definition.variants[0]!) as PageVariant}
-                options={definition.variants.map((variant) => ({ value: variant, label: variant }))}
-                onChange={(value) => updatePage(selectedPage.id, { variant: value })}
-              />
-            ) : null}
-            <TextField
-              label="Título"
-              value={selectedPage.title ?? ""}
-              onChange={(value) => updatePage(selectedPage.id, { title: value || undefined })}
-            />
-            <TextField
-              label="Subtítulo"
-              value={selectedPage.subtitle ?? ""}
-              onChange={(value) => updatePage(selectedPage.id, { subtitle: value || undefined })}
-            />
-            <TextField
-              label="Sobretítulo"
-              value={selectedPage.eyebrow ?? ""}
-              onChange={(value) => updatePage(selectedPage.id, { eyebrow: value || undefined })}
-            />
-            <TextField
-              label="Parte"
-              value={selectedPage.part ?? ""}
-              onChange={(value) => updatePage(selectedPage.id, { part: value || undefined })}
-            />
-            <TextField
-              label="Capítulo"
-              value={selectedPage.chapter ?? ""}
-              onChange={(value) => updatePage(selectedPage.id, { chapter: value || undefined })}
-            />
-          </PanelSection>
-
-          <PanelSection title="Composição">
-            <SelectField
-              label="Colunas"
-              value={String(selectedPage.settings.columns) as "1" | "2"}
-              options={[
-                { value: "1", label: "1 coluna (literário)" },
-                { value: "2", label: "2 colunas (referência)" },
-              ]}
-              onChange={(value) =>
-                updatePageSettings(selectedPage.id, { columns: Number(value) as 1 | 2 })
-              }
-            />
-            <SelectField
-              label="Fundo"
-              value={selectedPage.settings.background}
-              options={[
-                { value: "paper", label: "Paper" },
-                { value: "obsidian", label: "Obsidian" },
-              ]}
-              onChange={(value) => updatePageSettings(selectedPage.id, { background: value })}
-            />
-            <ToggleField
-              label="Full bleed"
-              checked={selectedPage.settings.fullBleed}
-              onChange={(checked) => updatePageSettings(selectedPage.id, { fullBleed: checked })}
-            />
-            <ToggleField
-              label="Header"
-              checked={selectedPage.settings.header}
-              onChange={(checked) => updatePageSettings(selectedPage.id, { header: checked })}
-            />
-            <ToggleField
-              label="Footer"
-              checked={selectedPage.settings.footer}
-              onChange={(checked) => updatePageSettings(selectedPage.id, { footer: checked })}
-            />
-            <ToggleField
-              label="Número de página"
-              checked={selectedPage.settings.pageNumber}
-              onChange={(checked) => updatePageSettings(selectedPage.id, { pageNumber: checked })}
-            />
-            <ToggleField
-              label="Quebra forçada antes"
-              checked={Boolean(selectedPage.settings.breakBefore)}
-              onChange={(checked) => updatePageSettings(selectedPage.id, { breakBefore: checked })}
-            />
-          </PanelSection>
-
-          <PanelSection title="Documento (tokens)">
-            <div className="grid grid-cols-2 gap-x-2">
-              {TOKEN_FIELDS.map((field) => (
-                <TextField
-                  key={field.key}
-                  label={field.label}
-                  value={book.tokens[field.key]}
-                  onChange={(value) => setTokens({ [field.key]: value } as Partial<BookTokens>)}
+          {selectedBlock ? (
+            <BlockProperties block={selectedBlock} />
+          ) : (
+            <>
+              <PanelSection title="Página">
+                <SelectField
+                  label="Template"
+                  value={selectedPage.template}
+                  options={TEMPLATE_IDS.map((id) => ({
+                    value: id as TemplateId,
+                    label: TEMPLATES[id].label,
+                  }))}
+                  onChange={(value) => setTemplate(selectedPage.id, value)}
                 />
-              ))}
-            </div>
-          </PanelSection>
-        </>
-      )}
+                {definition.variants.length > 1 ? (
+                  <SelectField
+                    label="Variante"
+                    value={(selectedPage.variant ?? definition.variants[0]!) as PageVariant}
+                    options={definition.variants.map((variant) => ({
+                      value: variant,
+                      label: variant,
+                    }))}
+                    onChange={(value) => updatePage(selectedPage.id, { variant: value })}
+                  />
+                ) : null}
+                <TextField
+                  label="Título"
+                  value={selectedPage.title ?? ""}
+                  onChange={(value) => updatePage(selectedPage.id, { title: value || undefined })}
+                />
+                <TextField
+                  label="Subtítulo"
+                  value={selectedPage.subtitle ?? ""}
+                  onChange={(value) =>
+                    updatePage(selectedPage.id, { subtitle: value || undefined })
+                  }
+                />
+                <TextField
+                  label="Sobretítulo"
+                  value={selectedPage.eyebrow ?? ""}
+                  onChange={(value) => updatePage(selectedPage.id, { eyebrow: value || undefined })}
+                />
+                <TextField
+                  label="Parte"
+                  value={selectedPage.part ?? ""}
+                  onChange={(value) => updatePage(selectedPage.id, { part: value || undefined })}
+                />
+                <TextField
+                  label="Capítulo"
+                  value={selectedPage.chapter ?? ""}
+                  onChange={(value) => updatePage(selectedPage.id, { chapter: value || undefined })}
+                />
+              </PanelSection>
+
+              <PanelSection title="Composição">
+                <SelectField
+                  label="Colunas"
+                  value={String(selectedPage.settings.columns) as "1" | "2"}
+                  options={[
+                    { value: "1", label: "1 coluna (literário)" },
+                    { value: "2", label: "2 colunas (referência)" },
+                  ]}
+                  onChange={(value) =>
+                    updatePageSettings(selectedPage.id, { columns: Number(value) as 1 | 2 })
+                  }
+                />
+                <SelectField
+                  label="Fundo"
+                  value={selectedPage.settings.background}
+                  options={[
+                    { value: "paper", label: "Paper" },
+                    { value: "obsidian", label: "Obsidian" },
+                  ]}
+                  onChange={(value) => updatePageSettings(selectedPage.id, { background: value })}
+                />
+                <ToggleField
+                  label="Full bleed"
+                  checked={selectedPage.settings.fullBleed}
+                  onChange={(checked) =>
+                    updatePageSettings(selectedPage.id, { fullBleed: checked })
+                  }
+                />
+                <ToggleField
+                  label="Header"
+                  checked={selectedPage.settings.header}
+                  onChange={(checked) => updatePageSettings(selectedPage.id, { header: checked })}
+                />
+                <ToggleField
+                  label="Footer"
+                  checked={selectedPage.settings.footer}
+                  onChange={(checked) => updatePageSettings(selectedPage.id, { footer: checked })}
+                />
+                <ToggleField
+                  label="Número de página"
+                  checked={selectedPage.settings.pageNumber}
+                  onChange={(checked) =>
+                    updatePageSettings(selectedPage.id, { pageNumber: checked })
+                  }
+                />
+                <ToggleField
+                  label="Quebra forçada antes"
+                  checked={Boolean(selectedPage.settings.breakBefore)}
+                  onChange={(checked) =>
+                    updatePageSettings(selectedPage.id, { breakBefore: checked })
+                  }
+                />
+              </PanelSection>
+
+              <PanelSection title="Documento (tokens)">
+                <div className="grid grid-cols-2 gap-x-2">
+                  {TOKEN_FIELDS.map((field) => (
+                    <TextField
+                      key={field.key}
+                      label={field.label}
+                      value={book.tokens[field.key]}
+                      onChange={(value) => setTokens({ [field.key]: value } as Partial<BookTokens>)}
+                    />
+                  ))}
+                </div>
+              </PanelSection>
+            </>
+          )}
         </>
       )}
     </div>

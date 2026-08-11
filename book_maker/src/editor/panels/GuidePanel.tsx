@@ -104,7 +104,8 @@ export function GuidePanel() {
       <PanelSection title="Identificação">
         <p className="text-[11px] text-muted-foreground">
           Página <span className="font-mono text-foreground">{pageId}</span> — direção editorial
-          registrada localmente. Estes dados não entram em <span className="font-mono">/print</span> nem no PDF.
+          registrada localmente. Estes dados não entram em <span className="font-mono">/print</span>{" "}
+          nem no PDF.
         </p>
       </PanelSection>
 
@@ -174,10 +175,7 @@ export function GuidePanel() {
       <PanelSection title="Assets">
         <ul className="space-y-3">
           {selectedPageGuide.assets.map((entry, index) => (
-            <li
-              key={`asset-${index}`}
-              className="space-y-1 border border-border bg-input/30 p-2"
-            >
+            <li key={`asset-${index}`} className="space-y-1 border border-border bg-input/30 p-2">
               <TextField
                 label="Ref / path"
                 value={entry.ref}
