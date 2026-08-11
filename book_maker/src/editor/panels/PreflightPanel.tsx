@@ -77,6 +77,8 @@ function IssueRow({ issue }: { issue: PreflightIssue }) {
     <li>
       <button
         type="button"
+        data-preflight-rule={issue.rule}
+        data-preflight-severity={issue.severity}
         onClick={() => focusIssue(issue)}
         className={`flex w-full gap-3 border-b border-border px-3 py-2 text-left hover:bg-accent/40 ${
           active ? "bg-accent/60" : ""

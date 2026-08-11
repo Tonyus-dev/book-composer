@@ -178,10 +178,9 @@ test("editor, canonical cover migration, IndexedDB assets, reload, offline and p
   await page.getByRole("button", { name: "Preflight", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Preflight", exact: true })).toBeVisible();
   await expect(page.getByText("estático + medições de layout", { exact: true })).toBeVisible();
-  const lowResolutionIssue = page.getByText("Resolução efetiva baixa", { exact: true });
-  await expect(lowResolutionIssue).toBeVisible();
-  const lowResolutionRow = lowResolutionIssue.locator("xpath=ancestor::button[1]");
-  await expect(lowResolutionRow).toContainText("ERROR");
+  const lowResolutionRow = page.locator('[data-preflight-rule="image-low-resolution"]');
+  await expect(lowResolutionRow).toHaveCount(1);
+  await expect(lowResolutionRow).toHaveAttribute("data-preflight-severity", "error");
   await expect(lowResolutionRow).toContainText(/Imagem com \d+ ppi efetivos/);
   await page.getByRole("button", { name: "Fechar", exact: true }).click();
 
@@ -194,7 +193,7 @@ test("editor, canonical cover migration, IndexedDB assets, reload, offline and p
   await page.getByRole("button", { name: "Preflight", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Preflight", exact: true })).toBeVisible();
   await expect(page.getByText("estático + medições de layout", { exact: true })).toBeVisible();
-  await expect(page.getByText("Resolução efetiva baixa", { exact: true })).toHaveCount(0);
+  await expect(page.locator('[data-preflight-rule="image-low-resolution"]')).toHaveCount(0);
   await page.getByRole("button", { name: "Fechar", exact: true }).click();
 
   await expect
