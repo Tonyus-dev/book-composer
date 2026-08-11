@@ -490,6 +490,48 @@ function TableProperties({ block }: { block: TableBlock }) {
         }
       />
       <TextField
+        label="Tamanho do texto"
+        value={table.style?.fontSize ?? ""}
+        placeholder="ex. 8.5pt"
+        onChange={(value) =>
+          patch((current) => ({
+            ...current,
+            style: { ...current.style, ...(value ? { fontSize: value } : {}) },
+          }))
+        }
+      />
+      <ColorField
+        label="Cor do texto"
+        value={table.style?.textColor ?? "#17140f"}
+        onChange={(value) =>
+          patch((current) => ({ ...current, style: { ...current.style, textColor: value } }))
+        }
+      />
+      <ColorField
+        label="Fundo do cabeçalho"
+        value={table.style?.headerBackground ?? "#17140f"}
+        onChange={(value) =>
+          patch((current) => ({
+            ...current,
+            style: { ...current.style, headerBackground: value },
+          }))
+        }
+      />
+      <ColorField
+        label="Fundo do corpo"
+        value={table.style?.bodyBackground ?? "#fffdf8"}
+        onChange={(value) =>
+          patch((current) => ({ ...current, style: { ...current.style, bodyBackground: value } }))
+        }
+      />
+      <ColorField
+        label="Cor das bordas"
+        value={table.style?.borderColor?.slice(0, 7) ?? "#17140f"}
+        onChange={(value) =>
+          patch((current) => ({ ...current, style: { ...current.style, borderColor: value } }))
+        }
+      />
+      <TextField
         label="Padding horizontal"
         value={table.style?.cellPaddingX ?? "2mm"}
         onChange={(value) =>

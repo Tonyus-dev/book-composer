@@ -190,6 +190,7 @@ export function normalizeTableBlock(block: TableBlock): TableBlockV2 {
     ...v2,
     columns,
     rows,
+    graphics: Array.isArray(v2.graphics) ? v2.graphics : [],
     repeatHeader: v2.repeatHeader ?? true,
     allowPageBreak: v2.allowPageBreak ?? false,
     style: { ...defaultTableStyle(), ...(v2.style ?? {}) },
@@ -617,6 +618,10 @@ export function cloneTable(table: TableBlockV2, newId: string): TableBlockV2 {
         ...cell,
         id: childId(newId, `cell-${rowIndex}`, cellIndex),
       })),
+    })),
+    graphics: (table.graphics ?? []).map((graphic, index) => ({
+      ...graphic,
+      id: childId(newId, "graphic", index),
     })),
   };
 }

@@ -9,7 +9,7 @@ import {
   type PointerEvent,
   type RefObject,
 } from "react";
-import type { TableBlockV2, TableCell } from "../../book/types";
+import type { TableBlockV2, TableCell, TableGraphic, TableGraphicKind } from "../../book/types";
 import {
   addTableColumn,
   addTableRow,
@@ -86,7 +86,9 @@ export function TableEditorOverlay({
   const [anchorId, setAnchorId] = useState<string | null>(null);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [draft, setDraft] = useState("");
+  const [selectedGraphicId, setSelectedGraphicId] = useState<string | null>(null);
   const cellRefs = useRef(new Map<string, HTMLButtonElement>());
+  const graphicCleanupRef = useRef<(() => void) | null>(null);
   const { book, duplicateTable, saveTablePreset, splitTable } = useEditor();
   const normalized = normalizeTableBlock(block);
   const firstCellId = normalized.rows[0]?.cells[0]?.id;
@@ -145,6 +147,8 @@ export function TableEditorOverlay({
     setAnchorId(firstCellId ?? null);
     setEditingId(null);
   }, [firstCellId, normalized.id]);
+
+  useEffect(() => () => graphicCleanupRef.current?.(), []);
 
   const apply = (transform: (table: TableBlockV2) => TableBlockV2) =>
     updateTable(pageId, normalized.id, transform);
@@ -299,6 +303,150 @@ export function TableEditorOverlay({
     window.addEventListener("pointerup", onUp, { once: true });
   };
 
+  const startRowResize = (rowIndex: number, event: PointerEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+    const rowEntry = tableGrid(normalized)[rowIndex]?.find((entry) => entry.rowIndex === rowIndex);
+    const row = normalized.rows[rowIndex];
+    const rowCell = rowEntry ? cells.find((cell) => cell.id === rowEntry.cell.id) : null;
+    if (!row || !rowCell) return;
+    graphicCleanupRef.current?.();
+    const pointerTarget = event.currentTarget;
+    const pointerId = event.pointerId;
+    pointerTarget.setPointerCapture(pointerId);
+    const startY = event.clientY;
+    const startHeightPx = rowCell.height;
+    const pageElement = pageRef.current;
+    const pageRect = pageElement?.getBoundingClientRect();
+    const scale =
+      pageElement && pageElement.offsetWidth > 0 && pageRect
+        ? pageRect.width / pageElement.offsetWidth
+        : 1;
+    const onMove = (moveEvent: globalThis.PointerEvent) => {
+      if (moveEvent.buttons === 0) {
+        stop();
+        return;
+      }
+      const nextHeight = Math.max(
+        4,
+        (startHeightPx + (moveEvent.clientY - startY) / scale) / (96 / 25.4),
+      );
+      apply((table) => ({
+        ...table,
+        rows: table.rows.map((current, index) =>
+          index === rowIndex ? { ...current, minHeight: nextHeight } : current,
+        ),
+      }));
+    };
+    const stop = () => {
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", stop);
+      window.removeEventListener("pointercancel", stop);
+      pointerTarget.removeEventListener("lostpointercapture", stop);
+      try {
+        if (pointerTarget.hasPointerCapture(pointerId))
+          pointerTarget.releasePointerCapture(pointerId);
+      } catch {
+        /* o ponteiro pode já ter sido liberado pelo navegador */
+      }
+      if (graphicCleanupRef.current === stop) graphicCleanupRef.current = null;
+      syncGeometry();
+    };
+    graphicCleanupRef.current = stop;
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", stop, { once: true });
+    window.addEventListener("pointercancel", stop, { once: true });
+    pointerTarget.addEventListener("lostpointercapture", stop);
+  };
+
+  const addGraphic = (kind: TableGraphicKind) => {
+    const graphic: TableGraphic = {
+      id: `table-graphic-${Date.now().toString(36)}`,
+      kind,
+      x: kind === "line" ? 12 : 24,
+      y: kind === "line" ? 50 : 28,
+      width: kind === "line" ? 76 : 52,
+      height: kind === "line" ? 1 : kind === "label" ? 12 : 28,
+      stroke: "#542869",
+      fill: kind === "label" ? "#eee7f0" : "transparent",
+      strokeWidth: "0.4mm",
+      ...(kind === "label" ? { text: "Elemento" } : {}),
+    };
+    apply((table) => ({ ...table, graphics: [...(table.graphics ?? []), graphic] }));
+    setSelectedGraphicId(graphic.id);
+  };
+
+  const removeSelectedGraphic = () => {
+    if (!selectedGraphicId) return;
+    apply((table) => ({
+      ...table,
+      graphics: (table.graphics ?? []).filter((graphic) => graphic.id !== selectedGraphicId),
+    }));
+    setSelectedGraphicId(null);
+  };
+
+  const startGraphicTransform = (
+    graphicId: string,
+    resize: boolean,
+    event: PointerEvent<HTMLDivElement>,
+  ) => {
+    event.preventDefault();
+    event.stopPropagation();
+    const graphic = (normalized.graphics ?? []).find((item) => item.id === graphicId);
+    if (!graphic || !tableBox) return;
+    setSelectedGraphicId(graphicId);
+    graphicCleanupRef.current?.();
+    const pointerTarget = event.currentTarget;
+    const pointerId = event.pointerId;
+    pointerTarget.setPointerCapture(pointerId);
+    const startX = event.clientX;
+    const startY = event.clientY;
+    const onMove = (moveEvent: globalThis.PointerEvent) => {
+      if (moveEvent.buttons === 0) {
+        stop();
+        return;
+      }
+      const dx = ((moveEvent.clientX - startX) / tableBox.width) * 100;
+      const dy = ((moveEvent.clientY - startY) / tableBox.height) * 100;
+      apply((table) => ({
+        ...table,
+        graphics: (table.graphics ?? []).map((current) => {
+          if (current.id !== graphicId) return current;
+          if (resize) {
+            return {
+              ...current,
+              width: Math.max(4, Math.min(96 - current.x, graphic.width + dx)),
+              height: Math.max(1, Math.min(96 - current.y, graphic.height + dy)),
+            };
+          }
+          return {
+            ...current,
+            x: Math.max(0, Math.min(96 - current.width, graphic.x + dx)),
+            y: Math.max(0, Math.min(96 - current.height, graphic.y + dy)),
+          };
+        }),
+      }));
+    };
+    const stop = () => {
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", stop);
+      window.removeEventListener("pointercancel", stop);
+      pointerTarget.removeEventListener("lostpointercapture", stop);
+      try {
+        if (pointerTarget.hasPointerCapture(pointerId))
+          pointerTarget.releasePointerCapture(pointerId);
+      } catch {
+        /* o ponteiro pode já ter sido liberado pelo navegador */
+      }
+      if (graphicCleanupRef.current === stop) graphicCleanupRef.current = null;
+    };
+    graphicCleanupRef.current = stop;
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", stop, { once: true });
+    window.addEventListener("pointercancel", stop, { once: true });
+    pointerTarget.addEventListener("lostpointercapture", stop);
+  };
+
   if (!tableBox) return null;
   const presets = [...BUILT_IN_TABLE_PRESETS, ...(book.tableStyles ?? [])];
 
@@ -441,20 +589,23 @@ export function TableEditorOverlay({
         <button
           type="button"
           onClick={() => apply((table) => setCellsAlign(table, selectedSet, "left"))}
+          aria-label="Alinhar texto à esquerda"
         >
-          ←
+          esquerda
         </button>
         <button
           type="button"
           onClick={() => apply((table) => setCellsAlign(table, selectedSet, "center"))}
+          aria-label="Centralizar texto"
         >
-          ↔
+          centro
         </button>
         <button
           type="button"
           onClick={() => apply((table) => setCellsAlign(table, selectedSet, "right"))}
+          aria-label="Alinhar texto à direita"
         >
-          →
+          direita
         </button>
         <button
           type="button"
@@ -510,6 +661,31 @@ export function TableEditorOverlay({
         >
           zebra
         </button>
+        <span className="k-editor-table-toolbar__group-label">elementos</span>
+        <button type="button" data-testid="table-add-line" onClick={() => addGraphic("line")}>
+          + linha gráfica
+        </button>
+        <button
+          type="button"
+          data-testid="table-add-rectangle"
+          onClick={() => addGraphic("rectangle")}
+        >
+          + retângulo
+        </button>
+        <button type="button" data-testid="table-add-circle" onClick={() => addGraphic("circle")}>
+          + círculo
+        </button>
+        <button type="button" data-testid="table-add-label" onClick={() => addGraphic("label")}>
+          + rótulo
+        </button>
+        <button
+          type="button"
+          data-testid="table-remove-graphic"
+          onClick={removeSelectedGraphic}
+          disabled={!selectedGraphicId}
+        >
+          apagar elemento
+        </button>
         <button
           type="button"
           onClick={() => {
@@ -549,6 +725,67 @@ export function TableEditorOverlay({
           ))}
         </select>
       </div>
+
+      {normalized.rows.slice(0, -1).map((row, rowIndex) => {
+        const entry = tableGrid(normalized)[rowIndex]?.find((item) => item.rowIndex === rowIndex);
+        const rowCell = entry ? cells.find((cell) => cell.id === entry.cell.id) : null;
+        if (!rowCell) return null;
+        return (
+          <div
+            key={`row-handle-${row.id}`}
+            className="k-editor-table-row-handle"
+            style={{ top: rowCell.top + rowCell.height }}
+            role="separator"
+            aria-label={`Redimensionar linha ${rowIndex + 1}`}
+            onPointerDown={(event) => startRowResize(rowIndex, event)}
+          />
+        );
+      })}
+
+      {(normalized.graphics ?? []).map((graphic) => (
+        <div
+          key={graphic.id}
+          className={`k-editor-table-graphic k-editor-table-graphic--${graphic.kind}${selectedGraphicId === graphic.id ? " is-selected" : ""}`}
+          style={{
+            left: `${graphic.x}%`,
+            top: `${graphic.y}%`,
+            width: `${graphic.width}%`,
+            height: `${graphic.height}%`,
+            borderColor: graphic.stroke,
+            borderWidth: graphic.strokeWidth,
+            background: graphic.fill,
+          }}
+          role="button"
+          tabIndex={0}
+          aria-label={`Elemento gráfico ${graphic.kind}`}
+          onClick={(event) => {
+            event.stopPropagation();
+            setSelectedGraphicId(graphic.id);
+          }}
+          onDoubleClick={() => {
+            if (graphic.kind !== "label") return;
+            const text = window.prompt("Texto do rótulo", graphic.text ?? "Elemento");
+            if (text === null) return;
+            apply((table) => ({
+              ...table,
+              graphics: (table.graphics ?? []).map((current) =>
+                current.id === graphic.id ? { ...current, text } : current,
+              ),
+            }));
+          }}
+          onPointerDown={(event) => startGraphicTransform(graphic.id, false, event)}
+          onKeyDown={(event) => {
+            if (event.key === "Delete" || event.key === "Backspace") removeSelectedGraphic();
+          }}
+        >
+          {graphic.kind === "label" ? graphic.text : null}
+          <div
+            className="k-editor-table-graphic-handle"
+            data-testid="table-graphic-resize-handle"
+            onPointerDown={(event) => startGraphicTransform(graphic.id, true, event)}
+          />
+        </div>
+      ))}
 
       {normalized.columns.slice(0, -1).map((column, index) => {
         const next = normalized.columns[index + 1]!;

@@ -179,6 +179,21 @@ export interface TableRow {
   style?: TableRowStyle;
 }
 
+export type TableGraphicKind = "line" | "rectangle" | "circle" | "label";
+
+export interface TableGraphic {
+  id: string;
+  kind: TableGraphicKind;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  stroke?: string;
+  fill?: string;
+  strokeWidth?: string;
+  text?: string;
+}
+
 export interface TableStyle {
   fontFamily?: string;
   fontSize?: string;
@@ -213,6 +228,8 @@ export interface TableBlockV2 extends BaseBlock {
   continuationOf?: string;
   continuationIndex?: number;
   continuationHeader?: TableRow[];
+  /** Elementos gráficos posicionados em percentuais sobre a área da tabela. */
+  graphics?: TableGraphic[];
 }
 
 /** V1 aceito na entrada para compatibilidade com projetos já salvos. */

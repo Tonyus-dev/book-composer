@@ -233,6 +233,23 @@ export function BookTable({ block }: { block: TableBlock }) {
           <tfoot>{footerRows.map((current, index) => row(current, "foot", index))}</tfoot>
         ) : null}
       </table>
+      {table.graphics?.map((graphic) => (
+        <div
+          key={graphic.id}
+          className={`k-table-graphic k-table-graphic--${graphic.kind}`}
+          style={{
+            left: `${graphic.x}%`,
+            top: `${graphic.y}%`,
+            width: `${graphic.width}%`,
+            height: `${graphic.height}%`,
+            borderColor: graphic.stroke,
+            borderWidth: graphic.strokeWidth,
+            background: graphic.fill,
+          }}
+        >
+          {graphic.kind === "label" ? graphic.text : null}
+        </div>
+      ))}
     </div>
   );
 }

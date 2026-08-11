@@ -451,6 +451,15 @@
   background: var(--accent);
 }
 
+.k-editor-table-toolbar__group-label {
+  align-self: center;
+  padding: 0 3px;
+  color: var(--muted-foreground);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .k-editor-table-toolbar button:disabled {
   cursor: not-allowed;
   opacity: 0.45;
@@ -514,6 +523,79 @@
 
 .k-editor-table-column-handle:hover::after {
   background: #b953dc;
+}
+
+.k-editor-table-row-handle {
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 4;
+  height: 9px;
+  transform: translateY(-50%);
+  cursor: row-resize;
+  pointer-events: auto;
+}
+
+.k-editor-table-row-handle::after {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: transparent;
+  content: "";
+}
+
+.k-editor-table-row-handle:hover::after {
+  background: #b953dc;
+}
+
+.k-editor-table-graphic {
+  position: absolute;
+  z-index: 6;
+  box-sizing: border-box;
+  min-width: 8px;
+  min-height: 8px;
+  border: 1px solid #b953dc;
+  background: rgb(185 83 220 / 8%);
+  cursor: move;
+  pointer-events: auto;
+}
+
+.k-editor-table-graphic.is-selected {
+  outline: 2px solid #b953dc;
+  outline-offset: 1px;
+}
+
+.k-editor-table-graphic--line {
+  min-height: 0;
+  border-width: 0 0 2px;
+  background: transparent;
+}
+
+.k-editor-table-graphic--circle {
+  border-radius: 50%;
+}
+
+.k-editor-table-graphic--label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  background: rgb(185 83 220 / 12%);
+  font-size: 10px;
+  text-align: center;
+}
+
+.k-editor-table-graphic-handle {
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #fff;
+  background: #b953dc;
+  cursor: nwse-resize;
 }
 
 /* Overflow nunca é escondido: ele é sinalizado. */

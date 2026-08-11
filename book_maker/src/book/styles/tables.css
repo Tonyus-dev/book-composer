@@ -1,9 +1,35 @@
 /* KALLISTIS — tabelas editoriais: header forte, corpo limpo, poucas bordas. */
 
 .k-table-wrap {
+  position: relative;
   margin: 3mm 0 4.5mm;
   break-inside: avoid;
   page-break-inside: avoid;
+}
+
+.k-table-graphic {
+  position: absolute;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.k-table-graphic--line {
+  min-height: 0;
+  border-bottom-style: solid;
+  background: transparent;
+}
+
+.k-table-graphic--circle {
+  border-radius: 50%;
+}
+
+.k-table-graphic--label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1mm;
+  font-size: 8pt;
+  text-align: center;
 }
 
 .k-table-wrap[data-allow-page-break="true"] {
