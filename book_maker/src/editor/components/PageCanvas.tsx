@@ -6,6 +6,7 @@ import { BookRenderContext } from "../../book/renderer/context";
 import { useEditor, type Overlays } from "../state/store";
 import { normalizeTableBlock } from "../../book/tableModel";
 import { TableEditorOverlay } from "./TableEditorOverlay";
+import { InlineTextEditorOverlay } from "./InlineTextEditorOverlay";
 
 function OverlayLayers({ overlays }: { overlays: Overlays }) {
   return (
@@ -47,6 +48,7 @@ function ImageResizeOverlay({
   updateBlock: (pageId: string, blockId: string, patch: Record<string, unknown>) => void;
 }) {
   const [box, setBox] = useState<ResizeBox | null>(null);
+  const [cropMode, setCropMode] = useState(false);
 
   const syncBox = useCallback(() => {
     const pageElement = pageRef.current;
@@ -91,7 +93,7 @@ function ImageResizeOverlay({
 
   if (!box) return null;
 
-  const handlePointerDown = (event: ReactPointerEvent<HTMLButtonElement>) => {
+  const handlePointerDown = (event: ReactPointerEvent<HTMLElement>) => {
     event.preventDefault();
     event.stopPropagation();
     const pageElement = pageRef.current;
@@ -109,16 +111,50 @@ function ImageResizeOverlay({
     const maxHeight = pageElement.offsetHeight;
     const startX = event.clientX;
     const startY = event.clientY;
+    const startObjectX = block.objectX ?? 50;
+    const startObjectY = block.objectY ?? 50;
+    const startOffsetX = block.offsetX ?? 0;
+    const startOffsetY = block.offsetY ?? 0;
+    const isMove = event.currentTarget.dataset["resize"] === "false";
+    const keepRatio = event.shiftKey;
+    const ratio = startHeight > 0 ? startWidth / startHeight : 1;
 
     const onPointerMove = (moveEvent: PointerEvent) => {
+      if (cropMode) {
+        updateBlock(pageId, block.id, {
+          objectX: Math.max(
+            0,
+            Math.min(100, startObjectX - ((moveEvent.clientX - startX) / targetRect.width) * 100),
+          ),
+          objectY: Math.max(
+            0,
+            Math.min(100, startObjectY - ((moveEvent.clientY - startY) / targetRect.height) * 100),
+          ),
+        });
+        return;
+      }
       const width = Math.max(
         CSS_PX_PER_MM * 10,
         Math.min(maxWidth, startWidth + (moveEvent.clientX - startX) / scale),
       );
-      const height = Math.max(
+      let height = Math.max(
         CSS_PX_PER_MM * 10,
         Math.min(maxHeight, startHeight + (moveEvent.clientY - startY) / scale),
       );
+      if (isMove) {
+        updateBlock(pageId, block.id, {
+          offsetX: Math.max(
+            -100,
+            Math.min(100, startOffsetX + ((moveEvent.clientX - startX) / pageRect.width) * 100),
+          ),
+          offsetY: Math.max(
+            -100,
+            Math.min(100, startOffsetY + ((moveEvent.clientY - startY) / pageRect.height) * 100),
+          ),
+        });
+        return;
+      }
+      if (keepRatio) height = Math.min(maxHeight, width / ratio);
       updateBlock(pageId, block.id, {
         width: `${Math.round((width / CSS_PX_PER_MM) * 10) / 10}mm`,
         height: `${Math.round((height / CSS_PX_PER_MM) * 10) / 10}mm`,
@@ -140,7 +176,18 @@ function ImageResizeOverlay({
       style={{ left: box.left, top: box.top, width: box.width, height: box.height }}
       aria-label="Área redimensionável da imagem"
       onClick={(event) => event.stopPropagation()}
+      onDoubleClick={(event) => {
+        event.stopPropagation();
+        setCropMode((value) => !value);
+      }}
     >
+      <div
+        className={`k-editor-image-crop-surface${cropMode ? " is-crop-mode" : ""}`}
+        data-testid="image-drag-surface"
+        data-resize="false"
+        aria-label={cropMode ? "Mover imagem dentro do recorte" : "Mover imagem na página"}
+        onPointerDown={handlePointerDown}
+      />
       <button
         type="button"
         className="k-editor-resize-handle"
@@ -175,8 +222,31 @@ export function PageCanvas({
     overflowPages,
     updateBlock,
     updateTable,
+    removeBlock,
+    duplicateBlock,
   } = useEditor();
   const ref = useRef<HTMLDivElement>(null);
+  const [editingBlockId, setEditingBlockId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!active || !selectedBlockId) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement | null;
+      if (target && /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)) return;
+      if (event.key === "Delete") {
+        event.preventDefault();
+        removeBlock(page.id, selectedBlockId);
+        selectBlock(null);
+        return;
+      }
+      if (event.key.toLowerCase() === "d" && (event.metaKey || event.ctrlKey)) {
+        event.preventDefault();
+        duplicateBlock(page.id, selectedBlockId);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [active, duplicateBlock, page.id, removeBlock, selectBlock, selectedBlockId]);
 
   useEffect(() => {
     const node = ref.current;
@@ -201,6 +271,13 @@ export function PageCanvas({
         index={index}
         className={`k-editor-page${active ? " k-editor-page--active" : ""}`}
         onClick={() => selectPage(page.id)}
+        onDoubleClick={(blockId) => {
+          if (!active || !blockId) return;
+          const target = page.blocks.find((block) => block.id === blockId);
+          if (target && ["text", "heading", "quote", "caption", "box"].includes(target.type)) {
+            setEditingBlockId(blockId);
+          }
+        }}
         overflow={Boolean(overflowPages[page.id])}
       >
         <OverlayLayers overlays={overlays} />
@@ -218,6 +295,15 @@ export function PageCanvas({
             pageId={page.id}
             block={normalizeTableBlock(selectedBlock)}
             updateTable={updateTable}
+          />
+        ) : null}
+        {active && editingBlockId && selectedBlock?.id === editingBlockId ? (
+          <InlineTextEditorOverlay
+            pageRef={ref}
+            pageId={page.id}
+            block={selectedBlock}
+            updateBlock={updateBlock}
+            onClose={() => setEditingBlockId(null)}
           />
         ) : null}
       </PageRenderer>

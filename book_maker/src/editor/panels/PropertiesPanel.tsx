@@ -446,6 +446,7 @@ export function PropertiesPanel() {
     setTokens,
     issuesForPage,
     focusIssue,
+    togglePageFixed,
   } = useEditor();
 
   const [tab, setTab] = useState<"properties" | "guide">("properties");
@@ -523,6 +524,14 @@ export function PropertiesPanel() {
           ) : (
             <>
               <PanelSection title="Página">
+                <button
+                  type="button"
+                  className={`mb-3 w-full border px-2 py-1.5 text-left text-[11px] ${selectedPage.fixed ? "border-primary bg-primary/10 text-foreground" : "border-border hover:bg-accent"}`}
+                  aria-pressed={Boolean(selectedPage.fixed)}
+                  onClick={() => togglePageFixed(selectedPage.id)}
+                >
+                  {selectedPage.fixed ? "🔒 Composição fixada" : "○ Fixar composição"}
+                </button>
                 <SelectField
                   label="Template"
                   value={selectedPage.template}

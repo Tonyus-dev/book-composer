@@ -70,6 +70,8 @@ export function BookImage({ block }: { block: ImageBlock }) {
           "--fig-h": block.height,
           "--fig-fit": block.fit ?? "cover",
           "--fig-pos": `${block.objectX ?? 50}% ${block.objectY ?? 50}%`,
+          "--fig-offset-x": `${block.offsetX ?? 0}%`,
+          "--fig-offset-y": `${block.offsetY ?? 0}%`,
         } as React.CSSProperties
       }
     >

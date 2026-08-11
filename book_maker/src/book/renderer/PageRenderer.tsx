@@ -14,6 +14,7 @@ export interface PageRenderProps {
   /** children é usado pelo editor para overlays de produção */
   children?: React.ReactNode;
   onClick?: () => void;
+  onDoubleClick?: (blockId: string | null) => void;
   /** sinalização de overflow (editor); não afeta o livro impresso */
   overflow?: boolean;
 }
@@ -31,7 +32,7 @@ export function isVerso(folio: number) {
  * é o mesmo componente usado no editor e na print view.
  */
 export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function PageRenderer(
-  { book, page, index, className, style, children, onClick, overflow },
+  { book, page, index, className, style, children, onClick, onDoubleClick, overflow },
   ref,
 ) {
   const { interactive, onSelectBlock } = useBookRender();
@@ -62,6 +63,10 @@ export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function
     }
     onClick?.();
   };
+  const handleDoubleClick = (event: React.MouseEvent<HTMLElement>) => {
+    const block = (event.target as HTMLElement).closest<HTMLElement>("[data-block-id]");
+    onDoubleClick?.(block?.dataset["blockId"] ?? null);
+  };
 
   return (
     <section
@@ -70,8 +75,10 @@ export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function
       style={style}
       data-page-id={page.id}
       data-folio={folio}
+      data-fixed={page.fixed ? "true" : undefined}
       data-overflow={overflow ? "true" : undefined}
       onClick={interactive ? handleClick : onClick}
+      onDoubleClick={interactive ? handleDoubleClick : undefined}
       aria-label={`Página ${folio}${page.title ? ` — ${page.title}` : ""}`}
     >
       {page.settings.header ? (

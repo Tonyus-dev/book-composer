@@ -59,6 +59,7 @@ function PageRow({ page, index }: { page: Page; index: number }) {
         <PageThumbnail book={book} page={page} index={index} />
         <span className="min-w-0 flex-1">
           <span className="block truncate text-foreground">
+            {page.fixed ? "🔒 " : ""}
             {page.title ?? TEMPLATE_LABELS[page.template]}
           </span>
           <span className="mt-0.5 flex items-center gap-1.5 text-[10px] text-muted-foreground">

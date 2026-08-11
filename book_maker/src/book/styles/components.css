@@ -4,6 +4,7 @@
 .k-figure {
   margin: 0 0 4mm;
   break-inside: avoid;
+  transform: translate(var(--fig-offset-x, 0%), var(--fig-offset-y, 0%));
 }
 
 .k-figure--left {

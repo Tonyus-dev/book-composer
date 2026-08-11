@@ -88,6 +88,9 @@ export interface ImageBlock extends BaseBlock {
   /** object-position em porcentagem (crop). */
   objectX?: number;
   objectY?: number;
+  /** deslocamento visual em porcentagem do frame, aplicado pela composição direta. */
+  offsetX?: number;
+  offsetY?: number;
   /** largura/altura em % ou mm (string CSS). */
   width?: string;
   height?: string;
@@ -342,6 +345,8 @@ export interface Page {
   title?: string | undefined;
   subtitle?: string | undefined;
   eyebrow?: string | undefined;
+  /** composição manual protegida contra alterações automáticas futuras. */
+  fixed?: boolean;
   settings: PageSettings;
   blocks: Block[];
 }

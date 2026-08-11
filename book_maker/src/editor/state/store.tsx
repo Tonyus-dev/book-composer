@@ -38,7 +38,7 @@ import { buildReport, fingerprint } from "../../lib/preflight/report";
 import type { PreflightIssue, PreflightReport } from "../../lib/preflight/types";
 import { folioFor } from "../../book/renderer/PageRenderer";
 import { normalizeTableBlock, splitTable as splitTableBlock } from "../../book/tableModel";
-import { cloneRecipe } from "../../book/authoring";
+import { cloneBlockForInsert, cloneRecipe } from "../../book/authoring";
 import type { TableBlockV2 } from "../../book/types";
 import { bookRhythm, type PageRhythm } from "../../lib/rhythm/metrics";
 import {
@@ -103,6 +103,7 @@ interface EditorContextValue {
   reportOverflow: (pageId: string, overflowing: boolean) => void;
   updatePage: (pageId: string, patch: Partial<Omit<Page, "id">>) => void;
   updatePageSettings: (pageId: string, patch: Partial<PageSettings>) => void;
+  togglePageFixed: (pageId: string) => void;
   setTemplate: (pageId: string, template: TemplateId) => void;
   updateBlock: (pageId: string, blockId: string, patch: Record<string, unknown>) => void;
   updateTable: (
@@ -112,6 +113,7 @@ interface EditorContextValue {
   ) => void;
   splitTable: (pageId: string, blockId: string, afterRowIndex: number) => void;
   duplicateTable: (pageId: string, blockId: string) => void;
+  duplicateBlock: (pageId: string, blockId: string) => void;
   saveTablePreset: (name: string, style: TableStyle) => void;
   addBlock: (pageId: string, block: Block) => void;
   removeBlock: (pageId: string, blockId: string) => void;
@@ -348,6 +350,8 @@ export function EditorProvider({ children }: { children: ReactNode }) {
             settings: { ...page.settings, ...patch },
           })),
         ),
+      togglePageFixed: (pageId) =>
+        setBook((prev) => withPage(prev, pageId, (page) => ({ ...page, fixed: !page.fixed }))),
       setTemplate: (pageId, template) =>
         setBook((prev) =>
           withPage(prev, pageId, (page) => {
@@ -449,6 +453,22 @@ export function EditorProvider({ children }: { children: ReactNode }) {
             return { ...page, blocks };
           }),
         ),
+      duplicateBlock: (pageId, blockId) => {
+        const page = book.pages.find((item) => item.id === pageId);
+        const index = page?.blocks.findIndex((block) => block.id === blockId) ?? -1;
+        const source = index >= 0 ? page?.blocks[index] : undefined;
+        if (!page || !source) return;
+        const clone = cloneBlockForInsert(source, index + 1);
+        setBook((prev) =>
+          withPage(prev, pageId, (current) => {
+            const blocks = [...current.blocks];
+            blocks.splice(index + 1, 0, clone);
+            return { ...current, blocks };
+          }),
+        );
+        setSelectedPageId(pageId);
+        setSelectedBlockId(clone.id);
+      },
       saveTablePreset: (name, style) =>
         setBook((prev) => ({
           ...prev,
