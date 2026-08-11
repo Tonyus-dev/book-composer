@@ -3,6 +3,8 @@ import type {
   Block,
   BookTokens,
   ImageBlock,
+  FormBlock,
+  FormFieldType,
   PageVariant,
   TableBlock,
   TableBorderMode,
@@ -218,7 +220,60 @@ function BlockProperties({ block }: { block: Block }) {
       ) : null}
 
       {block.type === "table" ? <TableProperties block={block} /> : null}
+      {block.type === "form" ? <FormProperties block={block} /> : null}
     </>
+  );
+}
+
+function FormProperties({ block }: { block: FormBlock }) {
+  const { selectedPage, updateBlock } = useEditor();
+  const patch = (values: Record<string, unknown>) => updateBlock(selectedPage.id, block.id, values);
+  const fieldsText = block.fields.map((field) => `${field.label}::${field.type}`).join("\n");
+  return (
+    <PanelSection title="Ficha / formulário">
+      <TextField label="Título" value={block.title} onChange={(value) => patch({ title: value })} />
+      <AreaField
+        label="Introdução"
+        value={block.intro ?? ""}
+        rows={3}
+        onChange={(value) => patch({ intro: value || undefined })}
+      />
+      <SelectField
+        label="Colunas"
+        value={String(block.columns ?? 1) as "1" | "2"}
+        options={[
+          { value: "1", label: "Uma coluna" },
+          { value: "2", label: "Duas colunas" },
+        ]}
+        onChange={(value) => patch({ columns: Number(value) as 1 | 2 })}
+      />
+      <AreaField
+        label="Campos (label::tipo)"
+        value={fieldsText}
+        rows={8}
+        onChange={(value) => {
+          const fields = value
+            .split(/\r?\n/)
+            .map((line, index) => {
+              const [label, rawType] = line.split("::").map((part) => part.trim());
+              const allowed: FormFieldType[] = ["text", "multiline", "number", "checkbox", "line"];
+              const type = allowed.includes(rawType as FormFieldType)
+                ? (rawType as FormFieldType)
+                : "text";
+              return {
+                id: block.fields[index]?.id ?? `${block.id}-field-${index + 1}`,
+                label: label || "Campo",
+                type,
+              };
+            })
+            .filter((field) => field.label);
+          patch({ fields });
+        }}
+      />
+      <p className="text-[10px] text-muted-foreground">
+        Tipos: text, multiline, number, checkbox, line.
+      </p>
+    </PanelSection>
   );
 }
 

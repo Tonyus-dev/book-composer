@@ -1,5 +1,11 @@
 import { useState, useRef } from "react";
 import type { Block, BlockType } from "../../book/types";
+import {
+  createFormBlock,
+  parseAsciiLayout,
+  parseSmartPaste,
+  recipeFromPage,
+} from "../../book/authoring";
 import { createTableBlock } from "../../book/tableModel";
 import { downloadBookJson, readBookFromFile } from "../../lib/persistence/json";
 import { useEditor, nextId, type Overlays, type ZoomValue } from "../state/store";
@@ -23,6 +29,7 @@ const NEW_BLOCKS: { type: BlockType; label: string }[] = [
   { type: "table", label: "Tabela" },
   { type: "divider", label: "Divisor" },
   { type: "caption", label: "Legenda" },
+  { type: "form", label: "Ficha / formulário" },
 ];
 
 function makeBlock(type: BlockType): Block {
@@ -48,6 +55,14 @@ function makeBlock(type: BlockType): Block {
       return { id, type, ornament: true, span: "full" };
     case "caption":
       return { id, type, text: "Legenda." };
+    case "form":
+      return {
+        id,
+        type,
+        title: "Nova ficha",
+        fields: [{ id: `${id}-field-1`, label: "Nome", type: "text" }],
+        span: "full",
+      };
     case "toc":
       return { id, type, columns: 1, entries: [] };
     case "lockup":
@@ -76,6 +91,8 @@ export function Toolbar() {
     toggleOverlay,
     status,
     selectedPage,
+    updatePage,
+    setTemplate,
     addBlock,
     selectBlock,
     replaceBook,
@@ -84,12 +101,22 @@ export function Toolbar() {
     preflightRunning,
     runPreflight,
     openPreflight,
+    saveRecipe,
+    insertRecipe,
   } = useEditor();
   const fileRef = useRef<HTMLInputElement>(null);
   const [newTableOpen, setNewTableOpen] = useState(false);
   const [newTableColumns, setNewTableColumns] = useState("3");
   const [newTableRows, setNewTableRows] = useState("5");
   const [newTableHeader, setNewTableHeader] = useState(true);
+  const [authoringOpen, setAuthoringOpen] = useState<"smart" | "ascii" | "form" | "recipes" | null>(
+    null,
+  );
+  const [authoringText, setAuthoringText] = useState("");
+  const [formTitle, setFormTitle] = useState("Ficha de personagem");
+  const [formColumns, setFormColumns] = useState<1 | 2>(1);
+  const [recipeName, setRecipeName] = useState("");
+  const [recipeDescription, setRecipeDescription] = useState("");
   const { errors, warnings, infos } = preflight.summary;
 
   /* Exportação de produção nunca é silenciosa quando existe ERROR. */
@@ -113,9 +140,23 @@ export function Toolbar() {
       setNewTableOpen(true);
       return;
     }
+    if (type === "form") {
+      setAuthoringOpen("form");
+      return;
+    }
     const block = makeBlock(type);
     addBlock(selectedPage.id, block);
     selectBlock(block.id);
+  };
+
+  const closeAuthoring = () => {
+    setAuthoringOpen(null);
+    setAuthoringText("");
+  };
+
+  const addBlocks = (blocks: Block[]) => {
+    blocks.forEach((block) => addBlock(selectedPage.id, block));
+    if (blocks[0]) selectBlock(blocks[0].id);
   };
 
   return (
@@ -180,6 +221,33 @@ export function Toolbar() {
             ))}
           </select>
         </label>
+
+        <div className="flex items-center gap-1">
+          <button
+            type="button"
+            className="border border-border px-2 py-1 text-[11px] hover:bg-accent"
+            onClick={() => setAuthoringOpen("smart")}
+            title="Importa texto, TSV, CSV ou Markdown como conteúdo editorial"
+          >
+            Colar inteligente
+          </button>
+          <button
+            type="button"
+            className="border border-border px-2 py-1 text-[11px] hover:bg-accent"
+            onClick={() => setAuthoringOpen("ascii")}
+            title="Cria uma composição a partir de uma notação ASCII simples"
+          >
+            Layout ASCII
+          </button>
+          <button
+            type="button"
+            className="border border-border px-2 py-1 text-[11px] hover:bg-accent"
+            onClick={() => setAuthoringOpen("recipes")}
+            title="Salvar e reaplicar receitas editoriais"
+          >
+            Receitas
+          </button>
+        </div>
 
         <div className="flex items-center gap-1">
           {OVERLAY_LABELS.map((entry) => (
@@ -358,6 +426,202 @@ export function Toolbar() {
               </button>
             </div>
           </form>
+        </div>
+      ) : null}
+      {authoringOpen ? (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/70 p-6">
+          <div className="w-[560px] max-w-full border border-border bg-card p-4 shadow-xl">
+            <div className="mb-3 flex items-start justify-between gap-4">
+              <div>
+                <h2 className="text-sm font-semibold">
+                  {authoringOpen === "smart"
+                    ? "Colar inteligente"
+                    : authoringOpen === "ascii"
+                      ? "Layout ASCII"
+                      : authoringOpen === "form"
+                        ? "Criar ficha / formulário"
+                        : "Receitas editoriais"}
+                </h2>
+                <p className="mt-1 text-[10px] text-muted-foreground">
+                  {authoringOpen === "smart"
+                    ? "TSV/CSV/Markdown vira tabela; texto comum vira bloco textual."
+                    : authoringOpen === "ascii"
+                      ? "Use @template, @title, # título, > citação, parágrafos, tabelas Markdown e [form]."
+                      : authoringOpen === "form"
+                        ? "Um campo por linha: Nome::text, Notas::multiline, Vida::number ou Ativo::checkbox."
+                        : "Uma receita salva os blocos da página atual para reaplicar em qualquer página."}
+                </p>
+              </div>
+              <button
+                type="button"
+                className="text-xs text-muted-foreground"
+                onClick={closeAuthoring}
+              >
+                Fechar
+              </button>
+            </div>
+
+            {authoringOpen === "recipes" ? (
+              <div className="space-y-3">
+                <div className="grid grid-cols-[1fr_1fr_auto] gap-2">
+                  <input
+                    className="border border-border bg-input/40 px-2 py-1 text-xs"
+                    placeholder="Nome da receita"
+                    value={recipeName}
+                    onChange={(event) => setRecipeName(event.target.value)}
+                  />
+                  <input
+                    className="border border-border bg-input/40 px-2 py-1 text-xs"
+                    placeholder="Descrição (opcional)"
+                    value={recipeDescription}
+                    onChange={(event) => setRecipeDescription(event.target.value)}
+                  />
+                  <button
+                    type="button"
+                    className="border border-primary bg-primary px-2 py-1 text-xs text-primary-foreground disabled:opacity-50"
+                    disabled={!recipeName.trim() || selectedPage.blocks.length === 0}
+                    onClick={() => {
+                      saveRecipe(
+                        recipeFromPage(selectedPage, recipeName.trim(), recipeDescription),
+                      );
+                      setRecipeName("");
+                      setRecipeDescription("");
+                    }}
+                  >
+                    Salvar página
+                  </button>
+                </div>
+                <div className="max-h-64 space-y-1 overflow-y-auto border-t border-border pt-2">
+                  {(book.recipes ?? []).length === 0 ? (
+                    <p className="text-xs text-muted-foreground">Nenhuma receita salva ainda.</p>
+                  ) : (
+                    book.recipes?.map((recipe) => (
+                      <div
+                        key={recipe.id}
+                        className="flex items-center justify-between gap-3 border-b border-border py-2"
+                      >
+                        <div className="min-w-0">
+                          <div className="truncate text-xs font-medium">{recipe.name}</div>
+                          <div className="truncate text-[10px] text-muted-foreground">
+                            {recipe.description ?? `${recipe.blocks.length} blocos`}
+                          </div>
+                        </div>
+                        <button
+                          type="button"
+                          className="shrink-0 border border-border px-2 py-1 text-[11px] hover:bg-accent"
+                          onClick={() => {
+                            insertRecipe(selectedPage.id, recipe);
+                            closeAuthoring();
+                          }}
+                        >
+                          Aplicar
+                        </button>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+            ) : authoringOpen === "form" ? (
+              <form
+                className="space-y-3"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  const block = createFormBlock(
+                    `form-${Date.now().toString(36)}`,
+                    formTitle,
+                    authoringText,
+                    formColumns,
+                  );
+                  addBlocks([block]);
+                  closeAuthoring();
+                }}
+              >
+                <input
+                  className="w-full border border-border bg-input/40 px-2 py-1 text-xs"
+                  value={formTitle}
+                  onChange={(event) => setFormTitle(event.target.value)}
+                  placeholder="Título da ficha"
+                />
+                <select
+                  className="border border-border bg-input/40 px-2 py-1 text-xs"
+                  value={String(formColumns)}
+                  onChange={(event) => setFormColumns(Number(event.target.value) as 1 | 2)}
+                >
+                  <option value="1">Uma coluna</option>
+                  <option value="2">Duas colunas</option>
+                </select>
+                <textarea
+                  className="h-48 w-full resize-y border border-border bg-input/40 p-2 font-mono text-xs"
+                  value={authoringText}
+                  onChange={(event) => setAuthoringText(event.target.value)}
+                  placeholder={
+                    "Nome::text\nClasse::text\nVida::number\nNotas::multiline\nAtivo::checkbox"
+                  }
+                />
+                <div className="flex justify-end gap-2">
+                  <button
+                    type="button"
+                    className="border border-border px-3 py-1 text-xs"
+                    onClick={closeAuthoring}
+                  >
+                    Cancelar
+                  </button>
+                  <button
+                    type="submit"
+                    className="border border-primary bg-primary px-3 py-1 text-xs text-primary-foreground"
+                  >
+                    Criar ficha
+                  </button>
+                </div>
+              </form>
+            ) : (
+              <form
+                className="space-y-3"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  if (authoringOpen === "ascii") {
+                    const parsed = parseAsciiLayout(authoringText);
+                    if (parsed.blocks.length === 0) return;
+                    addBlocks(parsed.blocks);
+                    if (parsed.title) updatePage(selectedPage.id, { title: parsed.title });
+                    if (parsed.template) setTemplate(selectedPage.id, parsed.template);
+                  } else {
+                    const parsed = parseSmartPaste(authoringText);
+                    if (parsed.blocks.length === 0) return;
+                    addBlocks(parsed.blocks);
+                  }
+                  closeAuthoring();
+                }}
+              >
+                <textarea
+                  className="h-64 w-full resize-y border border-border bg-input/40 p-2 font-mono text-xs"
+                  value={authoringText}
+                  onChange={(event) => setAuthoringText(event.target.value)}
+                  autoFocus
+                  placeholder={
+                    authoringOpen === "ascii"
+                      ? "@template narrative\n@title Uma página\n# Título\nTexto editorial.\n\n> Uma citação."
+                      : "Nome\tDano\tAlcance\nEspada\t1d8\tCurto"
+                  }
+                />
+                <div className="flex justify-end gap-2">
+                  <button
+                    type="button"
+                    className="border border-border px-3 py-1 text-xs"
+                    onClick={closeAuthoring}
+                  >
+                    Cancelar
+                  </button>
+                  <button
+                    type="submit"
+                    className="border border-primary bg-primary px-3 py-1 text-xs text-primary-foreground"
+                  >
+                    Inserir
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
         </div>
       ) : null}
     </>

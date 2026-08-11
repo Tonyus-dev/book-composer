@@ -7,6 +7,7 @@ import type {
   BoxBlock,
   CaptionBlock,
   DividerBlock,
+  FormBlock,
   HeadingBlock,
   ImageBlock,
   LockupBlock,
@@ -215,6 +216,40 @@ export function SectionDivider({ block }: { block: DividerBlock }) {
     <div className="k-divider" aria-hidden="true">
       {block.ornament ? <span className="k-divider__mark" /> : <span className="k-divider__line" />}
     </div>
+  );
+}
+
+export function BookForm({ block }: { block: FormBlock }) {
+  return (
+    <section className="k-form" aria-label={block.title}>
+      <h2 className="k-form__title">{block.title}</h2>
+      {block.intro ? <p className="k-form__intro">{block.intro}</p> : null}
+      <div className={`k-form__fields k-form__fields--${block.columns ?? 1}`}>
+        {block.fields.map((field) => (
+          <div key={field.id} className={`k-form__field k-form__field--${field.type}`}>
+            <div className="k-form__label">
+              {field.label}
+              {field.required ? <span aria-hidden="true"> *</span> : null}
+            </div>
+            {field.hint ? <div className="k-form__hint">{field.hint}</div> : null}
+            {field.type === "checkbox" ? (
+              <div className="k-form__checkbox" aria-hidden="true">
+                □
+              </div>
+            ) : field.type === "multiline" ? (
+              <div
+                className="k-form__lines"
+                style={{ "--form-lines": field.lines ?? 3 } as CSSProperties}
+              />
+            ) : field.type === "line" ? (
+              <div className="k-form__line" />
+            ) : (
+              <div className="k-form__line" />
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 

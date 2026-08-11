@@ -251,6 +251,26 @@ export interface LockupBlock extends BaseBlock {
   variant?: "lockup" | "wordmark" | "symbol";
 }
 
+export type FormFieldType = "text" | "multiline" | "number" | "checkbox" | "line";
+
+export interface FormField {
+  id: string;
+  label: string;
+  type: FormFieldType;
+  required?: boolean;
+  hint?: string;
+  lines?: number;
+}
+
+/** Ficha/formulário estrutural: continua editável e imprimível, sem simular backend. */
+export interface FormBlock extends BaseBlock {
+  type: "form";
+  title: string;
+  intro?: string;
+  fields: FormField[];
+  columns?: 1 | 2;
+}
+
 export type Block =
   | TextBlock
   | HeadingBlock
@@ -261,7 +281,8 @@ export type Block =
   | CaptionBlock
   | DividerBlock
   | TocBlock
-  | LockupBlock;
+  | LockupBlock
+  | FormBlock;
 
 export type BlockType = Block["type"];
 
@@ -360,6 +381,18 @@ export interface Book {
   spreads?: Spread[];
   /** presets de tabela personalizados, persistidos dentro do projeto. */
   tableStyles?: TableStylePreset[];
+  /** receitas editoriais reutilizáveis, armazenadas como snapshots de blocos. */
+  recipes?: BookRecipe[];
+}
+
+export interface BookRecipe {
+  id: string;
+  name: string;
+  description?: string;
+  template?: TemplateId;
+  blocks: Block[];
+  createdAt: string;
+  updatedAt: string;
 }
 
 export const CSS_VAR_BY_TOKEN: Record<keyof BookTokens, string> = {

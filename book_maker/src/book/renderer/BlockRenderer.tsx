@@ -9,6 +9,7 @@ import {
   BookToc,
   BrandLockup,
   Caption,
+  BookForm,
   PullQuote,
   SectionDivider,
 } from "../components/BookComponents";
@@ -36,6 +37,8 @@ export function BlockBody({ block }: { block: Block }) {
       return <BookToc block={block} />;
     case "lockup":
       return <BrandLockup block={block} />;
+    case "form":
+      return <BookForm block={block} />;
     default:
       return null;
   }

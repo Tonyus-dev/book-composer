@@ -11,6 +11,7 @@ import type {
   Block,
   Book,
   BookAsset,
+  BookRecipe,
   BookTokens,
   Page,
   PageSettings,
@@ -37,6 +38,7 @@ import { buildReport, fingerprint } from "../../lib/preflight/report";
 import type { PreflightIssue, PreflightReport } from "../../lib/preflight/types";
 import { folioFor } from "../../book/renderer/PageRenderer";
 import { normalizeTableBlock, splitTable as splitTableBlock } from "../../book/tableModel";
+import { cloneRecipe } from "../../book/authoring";
 import type { TableBlockV2 } from "../../book/types";
 import { bookRhythm, type PageRhythm } from "../../lib/rhythm/metrics";
 import {
@@ -132,6 +134,8 @@ interface EditorContextValue {
   focusIssue: (issue: PreflightIssue) => void;
   replaceBook: (book: Book) => void;
   resetToDemo: () => void;
+  saveRecipe: (recipe: BookRecipe) => void;
+  insertRecipe: (pageId: string, recipe: BookRecipe) => void;
   /* PRODUCTION PLAN — direção editorial por página, nunca entra no print. */
   productionPlan: ProductionPlan;
   selectedPageGuide: PageGuide;
@@ -615,6 +619,23 @@ export function EditorProvider({ children }: { children: ReactNode }) {
         setBook(normalized);
         setSelectedPageId(normalized.pages[0]!.id);
         setSelectedBlockId(null);
+      },
+      saveRecipe: (recipe) =>
+        setBook((prev) => ({
+          ...prev,
+          recipes: [...(prev.recipes ?? []).filter((item) => item.name !== recipe.name), recipe],
+        })),
+      insertRecipe: (pageId, recipe) => {
+        const cloned = cloneRecipe(recipe);
+        setBook((prev) =>
+          withPage(prev, pageId, (page) => ({
+            ...page,
+            template: recipe.template ?? page.template,
+            blocks: [...page.blocks, ...cloned.blocks],
+          })),
+        );
+        setSelectedPageId(pageId);
+        setSelectedBlockId(cloned.blocks[0]?.id ?? null);
       },
     };
   }, [

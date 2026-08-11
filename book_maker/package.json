@@ -18,6 +18,7 @@
     "export:pdf": "node scripts/export-pdf.mjs",
     "lint": "eslint .",
     "test:table": "bun scripts/test-table-model.ts",
+    "test:authoring": "bun scripts/test-authoring.ts",
     "format": "prettier --write ."
   },
   "dependencies": {

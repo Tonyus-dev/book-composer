@@ -287,6 +287,66 @@
   margin-bottom: 5mm;
 }
 
+/* Fichas/formulários: marcação editorial real, sem controles falsos no print. */
+.k-form {
+  margin: 4mm 0;
+  border: 0.25mm solid var(--k-border);
+  padding: 4mm;
+  break-inside: avoid;
+}
+.k-form__title {
+  margin: 0 0 1.5mm;
+  color: var(--k-purple);
+  font-family: var(--font-functional);
+  font-size: 12pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.k-form__intro {
+  margin: 0 0 3mm;
+  font-size: 8.5pt;
+  color: var(--k-muted);
+}
+.k-form__fields {
+  display: grid;
+  gap: 3.5mm 5mm;
+}
+.k-form__fields--2 {
+  grid-template-columns: 1fr 1fr;
+}
+.k-form__field--multiline {
+  grid-column: 1 / -1;
+}
+.k-form__label {
+  margin-bottom: 1mm;
+  font-size: 8.5pt;
+  font-weight: 700;
+}
+.k-form__hint {
+  margin-bottom: 1mm;
+  font-size: 7pt;
+  color: var(--k-muted);
+}
+.k-form__line {
+  height: 6mm;
+  border-bottom: 0.25mm solid var(--k-border);
+}
+.k-form__lines {
+  height: calc(var(--form-lines, 3) * 6mm);
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(6mm - 0.25mm),
+    var(--k-border) calc(6mm - 0.25mm),
+    var(--k-border) 6mm
+  );
+}
+.k-form__checkbox {
+  font-size: 16pt;
+  line-height: 1;
+}
+
 /* Abertura de capítulo — o conteúdo começa na mesma página */
 .k-chapter__band {
   position: relative;
