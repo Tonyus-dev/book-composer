@@ -60,7 +60,7 @@ function MeasurementMount({
         zIndex: -1,
       }}
     >
-      <BookRoot tokens={book.tokens}>
+      <BookRoot tokens={book.tokens} fonts={book.fonts}>
         {book.pages.map((page, index) => (
           <PageRenderer key={page.id} book={book} page={page} index={index} />
         ))}

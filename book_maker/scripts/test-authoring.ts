@@ -1,5 +1,6 @@
 import {
   cloneBlockForInsert,
+  createPaginationPresets,
   createFormBlock,
   materializeRecipe,
   normalizeRecipe,
@@ -110,6 +111,14 @@ const semanticRecipe = semanticRecipeFromPage(recipePage, "Perfil semântico", "
 ]);
 if (semanticRecipe.scope !== "page" || semanticRecipe.slots.length !== 3) {
   throw new Error("recipe semântica não classificou slots");
+}
+const paginationPresets = createPaginationPresets();
+if (
+  paginationPresets.length !== 7 ||
+  new Set(paginationPresets.map((recipe) => recipe.id)).size !== 7 ||
+  paginationPresets.some((recipe) => recipe.scope !== "page" || recipe.structure.length === 0)
+) {
+  throw new Error("presets de paginação inválidos");
 }
 const materialized = materializeRecipe(semanticRecipe);
 if (materialized.length !== 4 || materialized.some((block) => block.id.endsWith("source"))) {

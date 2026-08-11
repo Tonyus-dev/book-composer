@@ -1,5 +1,5 @@
-import { useMemo, useState, useRef } from "react";
-import type { Block, BlockType } from "../../book/types";
+import { useEffect, useMemo, useState, useRef } from "react";
+import type { Block, BlockType, Page, ShapeBlock, ShapeKind } from "../../book/types";
 import {
   cloneBlockForInsert,
   createFormBlock,
@@ -13,10 +13,16 @@ import {
   cloneSheetForInsert,
   createKallistisCharacterSheet,
 } from "../../book/sheetModel";
-import { downloadBookJson, readBookFromFile } from "../../lib/persistence/json";
+import {
+  downloadBookJson,
+  downloadPageJson,
+  readBookFromFile,
+  readPageFromFile,
+} from "../../lib/persistence/json";
 import { useEditor, nextId, type Overlays, type ZoomValue } from "../state/store";
 import { RecipeDialog } from "./RecipeDialog";
 import { logoutOwner } from "../../lib/auth";
+import { clearLocalBook } from "../../lib/persistence/local";
 
 const OVERLAY_LABELS: { key: keyof Overlays; label: string }[] = [
   { key: "margins", label: "Margens" },
@@ -74,6 +80,16 @@ function makeBlock(type: BlockType): Block {
       };
     case "sheet":
       return { id, type, sheet: blankSheet(`${id}-sheet`), span: "full" };
+    case "shape":
+      return {
+        id,
+        type,
+        shape: "frame",
+        label: "Moldura editorial",
+        stroke: "#542869",
+        fill: "transparent",
+        frame: { x: 18, y: 28, width: 120, height: 38 },
+      };
     case "toc":
       return { id, type, columns: 1, entries: [] };
     case "lockup":
@@ -88,6 +104,27 @@ function makeBlock(type: BlockType): Block {
     default:
       return { id, type: "text", content: "Novo parágrafo.", role: "body" };
   }
+}
+
+function makeShape(shape: ShapeKind): ShapeBlock {
+  const labels: Record<ShapeKind, string> = {
+    frame: "Moldura editorial",
+    window: "Janela editorial",
+    line: "Linha editorial",
+    fill: "Área de cor",
+  };
+  return {
+    id: nextId("shape"),
+    type: "shape",
+    shape,
+    label: labels[shape],
+    stroke: shape === "line" ? "#542869" : "#542869",
+    fill: shape === "window" ? "#f1eee6" : shape === "fill" ? "#eee7f0" : "transparent",
+    frame:
+      shape === "line"
+        ? { x: 18, y: 80, width: 120, height: 4 }
+        : { x: 18, y: 28, width: 120, height: 38 },
+  };
 }
 
 /** Barra superior: visualização, overlays, blocos, projeto e exportação. */
@@ -107,6 +144,7 @@ export function Toolbar() {
     addBlock,
     selectBlock,
     replaceBook,
+    insertPage,
     resetToDemo,
     preflight,
     preflightRunning,
@@ -115,9 +153,17 @@ export function Toolbar() {
     saveRecipe,
     createPageFromRecipe,
     deleteRecipe,
+    canUndo,
+    canRedo,
+    undo,
+    redo,
+    snapGrid,
+    toggleSnapGrid,
   } = useEditor();
   const fileRef = useRef<HTMLInputElement>(null);
+  const pageFileRef = useRef<HTMLInputElement>(null);
   const [newTableOpen, setNewTableOpen] = useState(false);
+  const [elementsOpen, setElementsOpen] = useState(false);
   const [newTableColumns, setNewTableColumns] = useState("3");
   const [newTableRows, setNewTableRows] = useState("5");
   const [newTableHeader, setNewTableHeader] = useState(true);
@@ -129,6 +175,19 @@ export function Toolbar() {
   const [formColumns, setFormColumns] = useState<1 | 2>(1);
   const [sheetPreset, setSheetPreset] = useState("blank");
   const { errors, warnings, infos } = preflight.summary;
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (!(event.metaKey || event.ctrlKey) || event.key.toLowerCase() !== "z") return;
+      const target = event.target as HTMLElement | null;
+      if (target && /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)) return;
+      event.preventDefault();
+      if (event.shiftKey) redo();
+      else undo();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [redo, undo]);
   const asciiPreview = useMemo(() => {
     if (authoringOpen !== "ascii" || !authoringText.trim()) return null;
     const parsed = parseAsciiLayout(authoringText);
@@ -158,7 +217,14 @@ export function Toolbar() {
     window.open("/print", "_blank", "noopener");
   };
 
-  const insert = (type: BlockType) => {
+  const insert = (type: BlockType | `shape:${ShapeKind}`) => {
+    if (typeof type === "string" && type.startsWith("shape:")) {
+      const shape = makeShape(type.slice("shape:".length) as ShapeKind);
+      addBlock(selectedPage.id, shape);
+      selectBlock(shape.id);
+      setElementsOpen(false);
+      return;
+    }
     if (type === "table") {
       setNewTableOpen(true);
       return;
@@ -171,9 +237,36 @@ export function Toolbar() {
       setAuthoringOpen("sheet");
       return;
     }
-    const block = makeBlock(type);
+    const block = makeBlock(type as BlockType);
     addBlock(selectedPage.id, block);
     selectBlock(block.id);
+  };
+
+  const createNewProject = (clearStored = false) => {
+    const title = window.prompt("Nome do novo projeto", "Novo projeto KALLISTIS")?.trim();
+    if (!title) return;
+    if (clearStored) clearLocalBook();
+    const page: Page = {
+      id: `page-${Date.now().toString(36)}`,
+      template: "narrative",
+      title: "Página 1",
+      settings: { ...selectedPage.settings, header: false, footer: false, pageNumber: false },
+      blocks: [],
+    };
+    replaceBook({
+      ...book,
+      meta: { ...book.meta, title, edition: "Projeto editorial" },
+      pages: [page],
+      nodes: [],
+      assets: [],
+      fonts: [],
+      spreads: [],
+    });
+  };
+
+  const exportCurrentPage = () => {
+    const filename = `${selectedPage.title?.replace(/[^a-z0-9]+/gi, "-") || "pagina"}.json`;
+    downloadPageJson(selectedPage, filename);
   };
 
   const closeAuthoring = () => {
@@ -249,6 +342,74 @@ export function Toolbar() {
             ))}
           </select>
         </label>
+
+        <div className="flex items-center gap-1">
+          <button
+            type="button"
+            data-testid="undo-button"
+            disabled={!canUndo}
+            title="Desfazer (Ctrl/Cmd+Z)"
+            onClick={undo}
+            className="border border-border px-2 py-1 text-[11px] hover:bg-accent disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            ↶
+          </button>
+          <button
+            type="button"
+            data-testid="redo-button"
+            disabled={!canRedo}
+            title="Refazer (Shift+Ctrl/Cmd+Z)"
+            onClick={redo}
+            className="border border-border px-2 py-1 text-[11px] hover:bg-accent disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            ↷
+          </button>
+          <button
+            type="button"
+            data-testid="snap-grid-toggle"
+            aria-pressed={snapGrid}
+            title="Alinhar objetos à grade de 1 mm"
+            onClick={toggleSnapGrid}
+            className={`border px-2 py-1 text-[11px] ${snapGrid ? "border-primary bg-primary/10" : "border-border hover:bg-accent"}`}
+          >
+            Grade 1 mm
+          </button>
+        </div>
+
+        <details
+          open={elementsOpen}
+          onToggle={(event) => setElementsOpen(event.currentTarget.open)}
+          className="relative"
+        >
+          <summary className="cursor-pointer list-none border border-primary bg-primary/10 px-2 py-1 text-[11px] text-foreground">
+            Inserir elemento ▾
+          </summary>
+          <div className="absolute left-0 top-full z-50 mt-1 grid min-w-[180px] gap-1 border border-border bg-card p-2 shadow-xl">
+            {[
+              ["shape:frame", "Moldura"],
+              ["shape:window", "Janela / caixa"],
+              ["shape:line", "Linha / filete"],
+              ["shape:fill", "Área de cor"],
+              ["text", "Texto"],
+              ["heading", "Título"],
+              ["quote", "Citação"],
+              ["box", "Box semântico"],
+              ["table", "Tabela"],
+              ["image", "Imagem"],
+              ["form", "Ficha / formulário"],
+              ["sheet", "Sheet editorial"],
+            ].map(([value, label]) => (
+              <button
+                key={value}
+                type="button"
+                className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
+                onClick={() => insert(value as BlockType | `shape:${ShapeKind}`)}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </details>
 
         <div className="flex items-center gap-1">
           <button
@@ -347,6 +508,62 @@ export function Toolbar() {
                     ? "erro de sync · salvo localmente"
                     : "salvo localmente"}
           </span>
+          <details className="relative">
+            <summary className="cursor-pointer list-none border border-border px-2 py-1 text-[11px] hover:bg-accent">
+              Projeto ▾
+            </summary>
+            <div className="absolute right-0 top-full z-50 mt-1 grid min-w-[190px] gap-1 border border-border bg-card p-2 shadow-xl">
+              <button
+                type="button"
+                onClick={() => createNewProject()}
+                className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
+              >
+                Novo projeto
+              </button>
+              <button
+                type="button"
+                onClick={() => downloadBookJson(book, `${book.meta.title || "projeto"}.json`)}
+                className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
+              >
+                Salvar projeto
+              </button>
+              <button
+                type="button"
+                onClick={() => fileRef.current?.click()}
+                className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
+              >
+                Abrir projeto
+              </button>
+              <button
+                type="button"
+                onClick={exportCurrentPage}
+                className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
+              >
+                Exportar folha selecionada
+              </button>
+              <button
+                type="button"
+                onClick={() => pageFileRef.current?.click()}
+                className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
+              >
+                Importar folha neste projeto
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  if (
+                    window.confirm(
+                      "Excluir o projeto local atual? O arquivo exportado e a nuvem não serão apagados.",
+                    )
+                  )
+                    createNewProject(true);
+                }}
+                className="border border-destructive px-2 py-1 text-left text-[11px] text-destructive hover:bg-accent"
+              >
+                Excluir projeto local
+              </button>
+            </div>
+          </details>
           <button
             type="button"
             onClick={() => downloadBookJson(book)}
@@ -374,6 +591,23 @@ export function Toolbar() {
               } catch (error) {
                 console.error(error);
                 window.alert("Arquivo de projeto inválido.");
+              }
+              event.target.value = "";
+            }}
+          />
+          <input
+            ref={pageFileRef}
+            type="file"
+            accept="application/json"
+            className="hidden"
+            onChange={async (event) => {
+              const file = event.target.files?.[0];
+              if (!file) return;
+              try {
+                insertPage(await readPageFromFile(file));
+              } catch (error) {
+                console.error(error);
+                window.alert("Arquivo de folha inválido.");
               }
               event.target.value = "";
             }}

@@ -7,11 +7,13 @@ import {
   useRef,
   useState,
   type ReactNode,
+  type SetStateAction,
 } from "react";
 import type {
   Block,
   Book,
   BookAsset,
+  BookFont,
   BookRecipe,
   BookTokens,
   Page,
@@ -135,6 +137,8 @@ interface EditorContextValue {
   setTokens: (patch: Partial<BookTokens>) => void;
   setMeta: (patch: Partial<Book["meta"]>) => void;
   addAssets: (assets: BookAsset[]) => void;
+  addFont: (font: BookFont) => void;
+  removeFont: (fontId: string) => void;
   updateAsset: (assetId: string, patch: Partial<Omit<BookAsset, "id">>) => void;
   removeAsset: (assetId: string) => void;
   assetUsage: (assetId: string) => number;
@@ -145,6 +149,7 @@ interface EditorContextValue {
   issuesForPage: (pageId: string) => PreflightIssue[];
   focusIssue: (issue: PreflightIssue) => void;
   replaceBook: (book: Book) => void;
+  insertPage: (page: Page) => void;
   resetToDemo: () => void;
   saveRecipe: (recipe: BookRecipe) => void;
   createPageFromRecipe: (afterPageId: string, recipe: BookRecipe) => void;
@@ -157,6 +162,12 @@ interface EditorContextValue {
   selectedPageGuide: PageGuide;
   updatePageGuide: (pageId: string, patch: Partial<PageGuide>) => void;
   resetProductionPlan: () => void;
+  canUndo: boolean;
+  canRedo: boolean;
+  undo: () => void;
+  redo: () => void;
+  snapGrid: boolean;
+  toggleSnapGrid: () => void;
 }
 
 const EditorContext = createContext<EditorContextValue | null>(null);
@@ -180,7 +191,18 @@ function replacePageIdInNodes(book: Book, oldId: string, newIds: string[]): Book
 }
 
 export function EditorProvider({ children }: { children: ReactNode }) {
-  const [book, setBook] = useState<Book>(INITIAL_BOOK);
+  const [book, setBookState] = useState<Book>(INITIAL_BOOK);
+  const historyRef = useRef<{ past: Book[]; future: Book[] }>({ past: [], future: [] });
+  const setBook = useCallback((updater: SetStateAction<Book>) => {
+    setBookState((previous) => {
+      const next = typeof updater === "function" ? updater(previous) : updater;
+      if (next !== previous) {
+        historyRef.current.past = [...historyRef.current.past, previous].slice(-50);
+        historyRef.current.future = [];
+      }
+      return next;
+    });
+  }, []);
   const [hydrated, setHydrated] = useState(false);
   const [selectedPageId, setSelectedPageId] = useState<string>(INITIAL_BOOK.pages[0]!.id);
   const [selectedBlockId, setSelectedBlockId] = useState<string | null>(null);
@@ -193,6 +215,7 @@ export function EditorProvider({ children }: { children: ReactNode }) {
   const [preflightOpen, setPreflightOpen] = useState(false);
   const [rhythmConfig, setRhythmConfig] = useState<RhythmConfig>(DEFAULT_RHYTHM_CONFIG);
   const [showRhythmStrip, setShowRhythmStrip] = useState(true);
+  const [snapGrid, setSnapGrid] = useState(false);
   const [overlays, setOverlays] = useState<Overlays>({
     margins: true,
     bleed: false,
@@ -256,6 +279,29 @@ export function EditorProvider({ children }: { children: ReactNode }) {
       setCloudReady(true);
     });
     setHydrated(true);
+  }, [setBook]);
+
+  /* A hidratação inicial não deve ocupar o histórico editorial. */
+  useEffect(() => {
+    if (cloudReady) historyRef.current = { past: [], future: [] };
+  }, [cloudReady]);
+
+  const undo = useCallback(() => {
+    setBookState((current) => {
+      const previous = historyRef.current.past.pop();
+      if (!previous) return current;
+      historyRef.current.future.unshift(current);
+      return previous;
+    });
+  }, []);
+
+  const redo = useCallback(() => {
+    setBookState((current) => {
+      const next = historyRef.current.future.shift();
+      if (!next) return current;
+      historyRef.current.past.push(current);
+      return next;
+    });
   }, []);
 
   /* Preferências de avisos de ritmo: locais, do editor, não do livro. */
@@ -396,6 +442,12 @@ export function EditorProvider({ children }: { children: ReactNode }) {
       rhythmWarnings: rhythmWarningList,
       rhythmConfig,
       showRhythmStrip,
+      canUndo: historyRef.current.past.length > 0,
+      canRedo: historyRef.current.future.length > 0,
+      undo,
+      redo,
+      snapGrid,
+      toggleSnapGrid: () => setSnapGrid((current) => !current),
       productionPlan,
       selectedPageGuide,
       setRhythmRule,
@@ -642,6 +694,16 @@ export function EditorProvider({ children }: { children: ReactNode }) {
       setMeta: (patch) => setBook((prev) => ({ ...prev, meta: { ...prev.meta, ...patch } })),
       addAssets: (assets) =>
         setBook((prev) => ({ ...prev, assets: [...(prev.assets ?? []), ...assets] })),
+      addFont: (font) =>
+        setBook((prev) => ({
+          ...prev,
+          fonts: [...(prev.fonts ?? []).filter((item) => item.id !== font.id), font],
+        })),
+      removeFont: (fontId) =>
+        setBook((prev) => ({
+          ...prev,
+          fonts: (prev.fonts ?? []).filter((font) => font.id !== fontId),
+        })),
       updateAsset: (assetId, patch) =>
         setBook((prev) => ({
           ...prev,
@@ -700,6 +762,22 @@ export function EditorProvider({ children }: { children: ReactNode }) {
         const normalized = normalizeBook(next);
         setBook(normalized);
         setSelectedPageId(normalized.pages[0]!.id);
+        setSelectedBlockId(null);
+      },
+      insertPage: (sourcePage) => {
+        const clone: Page = {
+          ...sourcePage,
+          id: nextId("page"),
+          blocks: sourcePage.blocks.map((block, index) => cloneBlockForInsert(block, index)),
+        };
+        setBook((prev) => {
+          const index = prev.pages.findIndex((page) => page.id === selectedPageId);
+          const insertAt = index < 0 ? prev.pages.length : index + 1;
+          const pages = [...prev.pages];
+          pages.splice(insertAt, 0, clone);
+          return { ...prev, pages };
+        });
+        setSelectedPageId(clone.id);
         setSelectedBlockId(null);
       },
       resetToDemo: () => {
@@ -841,9 +919,14 @@ export function EditorProvider({ children }: { children: ReactNode }) {
     selectedBlock,
     selectedBlockId,
     selectedPage,
+    selectedPageId,
     selectedPageGuide,
     selectedPageIndex,
+    setBook,
     status,
+    snapGrid,
+    undo,
+    redo,
     view,
     zoom,
     productionPlan,

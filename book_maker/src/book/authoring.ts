@@ -119,6 +119,7 @@ export function suggestedRecipeKind(block: Block): RecipeSlotKind | null {
     case "toc":
       return "body";
     case "divider":
+    case "shape":
     case "layout":
       return null;
   }
@@ -337,6 +338,174 @@ export function semanticRecipeFromPage(
     createdAt: now,
     updatedAt: now,
   };
+}
+
+/** Sete composições iniciais reutilizáveis do Book Maker. Conteúdo nasce vazio. */
+export function createPaginationPresets(): BookRecipe[] {
+  const settings = (columns: 1 | 2 = 1): Page["settings"] => ({
+    header: false,
+    footer: false,
+    pageNumber: true,
+    columns,
+    background: "paper",
+    fullBleed: false,
+  });
+  const page = (
+    id: string,
+    template: Page["template"],
+    blocks: Block[],
+    columns: 1 | 2 = 1,
+    variant?: Page["variant"],
+  ): Page => ({
+    id,
+    template,
+    ...(variant ? { variant } : {}),
+    title: id,
+    settings: settings(columns),
+    blocks,
+  });
+
+  const presets: Array<{ name: string; description: string; page: Page }> = [
+    {
+      name: "01 · Narrativa clássica",
+      description: "Título, abertura e texto corrido para capítulos literários.",
+      page: page("preset-narrativa", "narrative", [
+        { id: "preset-narrativa-title", type: "heading", level: 1, text: "Título do capítulo" },
+        { id: "preset-narrativa-lead", type: "text", content: "Texto introdutório", role: "lead" },
+        { id: "preset-narrativa-body", type: "text", content: "Texto principal", role: "body" },
+      ]),
+    },
+    {
+      name: "02 · Imagem lateral",
+      description: "Retrato ou arte à esquerda com narrativa ao lado.",
+      page: page(
+        "preset-lateral",
+        "narrative",
+        [
+          { id: "preset-lateral-title", type: "heading", level: 2, text: "Título" },
+          {
+            id: "preset-lateral-image",
+            type: "image",
+            src: "",
+            alt: "Retrato",
+            position: "left",
+            fit: "contain",
+          },
+          { id: "preset-lateral-body", type: "text", content: "Texto da composição", role: "body" },
+        ],
+        1,
+        "image-side",
+      ),
+    },
+    {
+      name: "03 · Hero de abertura",
+      description: "Imagem de impacto, título e texto de entrada em página inteira.",
+      page: page(
+        "preset-hero",
+        "full_art",
+        [
+          {
+            id: "preset-hero-image",
+            type: "image",
+            src: "",
+            alt: "Imagem de abertura",
+            position: "full",
+            fullBleed: true,
+            fit: "cover",
+          },
+          { id: "preset-hero-title", type: "heading", level: 1, text: "Título de abertura" },
+          { id: "preset-hero-body", type: "text", content: "Texto de abertura", role: "lead" },
+        ],
+        1,
+        "full-page",
+      ),
+    },
+    {
+      name: "04 · Referência em duas colunas",
+      description: "Cabeçalho amplo e leitura técnica compacta em duas colunas.",
+      page: page(
+        "preset-duas-colunas",
+        "rules_2col",
+        [
+          { id: "preset-duas-title", type: "heading", level: 2, text: "Título da regra" },
+          {
+            id: "preset-duas-lead",
+            type: "text",
+            content: "Resumo da regra",
+            role: "lead",
+            span: "full",
+          },
+          { id: "preset-duas-body", type: "text", content: "Detalhamento técnico", role: "body" },
+          {
+            id: "preset-duas-box",
+            type: "box",
+            kind: "regra",
+            title: "Regra",
+            content: "Texto da regra",
+          },
+        ],
+        2,
+      ),
+    },
+    {
+      name: "05 · Citação de impacto",
+      description: "Citação dominante com atribuição e contexto editorial.",
+      page: page("preset-citacao", "quote_layout", [
+        {
+          id: "preset-citacao-quote",
+          type: "quote",
+          text: "Citação em destaque",
+          attribution: "Atribuição",
+          size: "lg",
+          variant: "rule",
+        },
+        { id: "preset-citacao-body", type: "text", content: "Contexto da citação", role: "body" },
+      ]),
+    },
+    {
+      name: "06 · Tabela técnica",
+      description: "Título, tabela estrutural e caixa de observação.",
+      page: page("preset-tabela", "table_page", [
+        { id: "preset-tabela-title", type: "heading", level: 2, text: "Tabela de referência" },
+        { ...createTableBlock("preset-tabela-table", 3, 4, true), caption: "Legenda da tabela" },
+        {
+          id: "preset-tabela-box",
+          type: "box",
+          kind: "atencao",
+          title: "Observação",
+          content: "Nota complementar",
+        },
+      ]),
+    },
+    {
+      name: "07 · Perfil de personagem",
+      description: "Retrato, identidade, citação e dados biográficos em composição editorial.",
+      page: page("preset-perfil", "profile", [
+        { id: "preset-perfil-title", type: "heading", level: 1, text: "Nome da personagem" },
+        {
+          id: "preset-perfil-image",
+          type: "image",
+          src: "",
+          alt: "Retrato da personagem",
+          position: "right",
+          fit: "contain",
+        },
+        { id: "preset-perfil-lead", type: "text", content: "Resumo da personagem", role: "lead" },
+        {
+          id: "preset-perfil-quote",
+          type: "quote",
+          text: "Frase marcante",
+          size: "sm",
+          variant: "plain",
+        },
+        { id: "preset-perfil-body", type: "text", content: "Biografia e dados", role: "body" },
+      ]),
+    },
+  ];
+  return presets.map(({ name, description, page: source }, index) => ({
+    ...semanticRecipeFromPage(source, name, description),
+    id: `pagination-preset-${index + 1}`,
+  }));
 }
 
 export function semanticRecipeFromSpread(

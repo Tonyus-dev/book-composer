@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import type { Block, BookRecipe, Page, RecipeBlockMode, RecipeSlotKind } from "../../book/types";
 import {
   normalizeRecipe,
+  createPaginationPresets,
   semanticRecipeFromPage,
   semanticRecipeFromSpread,
   suggestedRecipeKind,
@@ -92,6 +93,8 @@ function describeBlock(block: Block): string {
       return "Sumário";
     case "layout":
       return "Layout estrutural ASCII";
+    case "shape":
+      return block.label || "Elemento gráfico";
   }
 }
 
@@ -140,6 +143,7 @@ export function RecipeDialog({
   );
   const [message, setMessage] = useState("");
   const [importing, setImporting] = useState(false);
+  const paginationPresets = useMemo(() => createPaginationPresets(), []);
   const slotCount = useMemo(
     () => classifications.filter((item) => item.mode === "slot" && item.kind).length,
     [classifications],
@@ -305,6 +309,32 @@ export function RecipeDialog({
         })}
       </div>
       {message ? <p className="text-[11px] text-primary">{message}</p> : null}
+      <div className="border-t border-border pt-2">
+        <div className="mb-1 flex items-center justify-between gap-2 text-[10px] font-semibold tracking-[0.12em] text-muted-foreground uppercase">
+          <span>7 modelos de paginação</span>
+          <span className="font-normal normal-case tracking-normal">prontos para usar</span>
+        </div>
+        <div className="grid gap-1 sm:grid-cols-2">
+          {paginationPresets.map((recipe) => (
+            <div key={recipe.id} className="flex items-center gap-2 border border-border p-1.5">
+              <RecipeThumbnail recipe={recipe} />
+              <div className="min-w-0 flex-1">
+                <div className="truncate text-[11px] font-medium">{recipe.name}</div>
+                <div className="line-clamp-2 text-[10px] text-muted-foreground">
+                  {recipe.description}
+                </div>
+              </div>
+              <button
+                type="button"
+                className="shrink-0 border border-primary px-2 py-1 text-[10px] hover:bg-accent"
+                onClick={() => onCreatePage(recipe)}
+              >
+                Usar
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
       <div className="border-t border-border pt-2">
         <div className="mb-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
           Biblioteca de modelos

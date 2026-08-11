@@ -43,6 +43,47 @@
   border-left: 0.4mm solid var(--k-lime);
 }
 
+/* Objetos de composição direta: moldura, janela, linha e preenchimento. */
+.k-shape {
+  box-sizing: border-box;
+  min-width: 4mm;
+  min-height: 4mm;
+  border: var(--shape-stroke-width, 0.35mm) solid var(--shape-stroke, var(--k-purple));
+  background: var(--shape-fill, transparent);
+}
+
+.k-shape--frame {
+  background: transparent;
+}
+
+.k-shape--window {
+  background: var(--shape-fill, var(--k-field));
+  box-shadow: inset 0 0 0 1mm
+    color-mix(in srgb, var(--shape-stroke, var(--k-purple)) 20%, transparent);
+}
+
+.k-shape--line {
+  min-height: 0;
+  height: 0.6mm;
+  border-width: 0;
+  background: var(--shape-stroke, var(--k-purple));
+}
+
+.k-shape--fill {
+  border-color: transparent;
+  background: var(--shape-fill, var(--k-field));
+}
+
+.k-shape span {
+  display: block;
+  padding: 2mm;
+  color: var(--shape-stroke, var(--k-purple));
+  font-family: var(--font-functional);
+  font-size: 7pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 /* Família única de boxes: varia título, filete e acento. */
 .k-box {
   --box-accent: var(--k-purple);

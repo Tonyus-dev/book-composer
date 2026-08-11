@@ -5,6 +5,7 @@ import {
   BookBox,
   BookHeading,
   BookImage,
+  BookShape,
   BookTable,
   BookToc,
   BrandLockup,
@@ -45,6 +46,8 @@ export function BlockBody({ block }: { block: Block }) {
       return <SheetRenderer sheet={block.sheet} blockId={block.id} />;
     case "layout":
       return <LayoutBody block={block} />;
+    case "shape":
+      return <BookShape block={block} />;
     default:
       return null;
   }
@@ -114,6 +117,15 @@ export function BlockRenderer({ block }: { block: Block }) {
     marginTop: block.spaceBefore ? `${block.spaceBefore}mm` : undefined,
     marginBottom: block.spaceAfter ? `${block.spaceAfter}mm` : undefined,
   };
+  if (block.frame) {
+    style.position = "absolute";
+    style.left = `${block.frame.x}mm`;
+    style.top = `${block.frame.y}mm`;
+    style.width = `${block.frame.width}mm`;
+    style.height = `${block.frame.height}mm`;
+    style.zIndex = 10;
+  }
+  if (block.fontFamily) style.fontFamily = `"${block.fontFamily.replace(/["\\]/g, "")}"`;
   const className = [
     "k-block",
     `k-block--${block.type}`,

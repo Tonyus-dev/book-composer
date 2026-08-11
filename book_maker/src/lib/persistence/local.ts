@@ -49,6 +49,7 @@ export function normalizeBook(input: unknown): Book {
     nodes: book.nodes ?? [],
     pages,
     assets: Array.isArray(book.assets) ? book.assets : [],
+    fonts: Array.isArray(book.fonts) ? book.fonts : [],
     spreads: Array.isArray(book.spreads) ? book.spreads : [],
     tableStyles: Array.isArray(book.tableStyles) ? book.tableStyles : [],
     recipes: Array.isArray(book.recipes)

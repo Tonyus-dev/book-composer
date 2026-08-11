@@ -10,14 +10,20 @@ function Portrait({ block, auto }: { block: ImageBlock; auto?: boolean }) {
       data-block-id={block.id}
       style={{ margin: 0 }}
     >
-      <img
-        src={resolveAssetSrc(block.src)}
-        alt={block.alt}
-        style={{
-          objectFit: block.fit ?? "cover",
-          objectPosition: `${block.objectX ?? 50}% ${block.objectY ?? 50}%`,
-        }}
-      />
+      {block.src ? (
+        <img
+          src={resolveAssetSrc(block.src)}
+          alt={block.alt}
+          style={{
+            objectFit: block.fit ?? "cover",
+            objectPosition: `${block.objectX ?? 50}% ${block.objectY ?? 50}%`,
+          }}
+        />
+      ) : (
+        <div className="k-image-placeholder" aria-label={block.alt || "Imagem"}>
+          {block.alt || "Imagem"}
+        </div>
+      )}
       {block.caption ? <figcaption className="k-caption">{block.caption}</figcaption> : null}
     </figure>
   );

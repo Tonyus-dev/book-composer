@@ -4,7 +4,7 @@
   position: relative;
   width: var(--page-width);
   height: var(--page-height);
-  background: var(--k-paper);
+  background: var(--page-color, var(--k-paper));
   color: var(--k-ink);
   overflow: visible; /* overflow nunca é escondido silenciosamente */
   box-sizing: border-box;

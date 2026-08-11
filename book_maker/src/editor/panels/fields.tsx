@@ -37,6 +37,35 @@ export function TextField({
   );
 }
 
+export function ColorField({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+}) {
+  return (
+    <Field label={label}>
+      <div className="flex gap-2">
+        <input
+          type="color"
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+          className="h-7 w-10 border border-border bg-transparent p-0.5"
+        />
+        <input
+          className={inputClass}
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+          aria-label={label}
+        />
+      </div>
+    </Field>
+  );
+}
+
 export function AreaField({
   label,
   value,

@@ -157,7 +157,7 @@ function PrintView() {
   }, [sourceResolved, book]);
 
   return (
-    <BookRoot tokens={book.tokens} className="k-print">
+    <BookRoot tokens={book.tokens} fonts={book.fonts} className="k-print">
       {book.pages.map((page, index) => (
         <div key={page.id} className="k-print-sheet" data-page-index={index}>
           <PageRenderer book={book} page={page} index={index} />

@@ -15,6 +15,7 @@ import type {
   TableBlock,
   TextBlock,
   TocBlock,
+  ShapeBlock,
 } from "../types";
 import { Markdown } from "../renderer/markdown";
 import { resolveAssetSrc } from "../../lib/assets/registry";
@@ -84,6 +85,24 @@ export function BookImage({ block }: { block: ImageBlock }) {
       )}
       {block.caption ? <figcaption className="k-caption">{block.caption}</figcaption> : null}
     </figure>
+  );
+}
+
+export function BookShape({ block }: { block: ShapeBlock }) {
+  return (
+    <div
+      className={`k-shape k-shape--${block.shape}`}
+      aria-label={block.label ?? block.shape}
+      style={
+        {
+          "--shape-stroke": block.stroke,
+          "--shape-fill": block.fill,
+          "--shape-stroke-width": block.strokeWidth,
+        } as CSSProperties
+      }
+    >
+      {block.label ? <span>{block.label}</span> : null}
+    </div>
   );
 }
 

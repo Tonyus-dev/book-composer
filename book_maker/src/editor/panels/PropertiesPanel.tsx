@@ -6,6 +6,8 @@ import type {
   FormBlock,
   FormFieldType,
   PageVariant,
+  ShapeBlock,
+  ShapeKind,
   TableBlock,
   TableBorderMode,
   TemplateId,
@@ -14,8 +16,18 @@ import { TEMPLATES, TEMPLATE_IDS } from "../../book/templates";
 import { normalizeTableBlock } from "../../book/tableModel";
 import { PREFLIGHT_RULES, SEVERITY_LABEL } from "../../lib/preflight/types";
 import { useEditor } from "../state/store";
-import { AreaField, PanelSection, RangeField, SelectField, TextField, ToggleField } from "./fields";
+import {
+  AreaField,
+  ColorField,
+  PanelSection,
+  RangeField,
+  SelectField,
+  TextField,
+  ToggleField,
+} from "./fields";
 import { GuidePanel } from "./GuidePanel";
+import { fileToBookFont, ACCEPTED_FONT_EXTENSIONS } from "../../lib/assets/upload";
+import { nextId } from "../state/store";
 
 const TOKEN_FIELDS: { key: keyof BookTokens; label: string }[] = [
   { key: "pageWidth", label: "Largura" },
@@ -36,8 +48,16 @@ const TOKEN_FIELDS: { key: keyof BookTokens; label: string }[] = [
   { key: "h3Size", label: "H3" },
 ];
 
+function fontOptions(book: { fonts?: { family: string }[] }) {
+  return [
+    { value: '"EB Garamond", "Garamond", "Times New Roman", serif', label: "EB Garamond / serif" },
+    { value: '"Liberation Sans", Arial, Helvetica, sans-serif', label: "Liberation Sans / sans" },
+    ...(book.fonts ?? []).map((font) => ({ value: font.family, label: font.family })),
+  ];
+}
+
 function BlockProperties({ block }: { block: Block }) {
-  const { selectedPage, updateBlock, removeBlock, moveBlock } = useEditor();
+  const { book, selectedPage, updateBlock, removeBlock, moveBlock } = useEditor();
   const patch = (values: Record<string, unknown>) => updateBlock(selectedPage.id, block.id, values);
 
   return (
@@ -86,6 +106,62 @@ function BlockProperties({ block }: { block: Block }) {
           value={String(block.spaceAfter ?? "")}
           onChange={(value) => patch({ spaceAfter: value ? Number(value) : undefined })}
         />
+      </PanelSection>
+
+      <PanelSection title="Moldura / composição direta">
+        <div className="grid grid-cols-2 gap-x-2">
+          {(["x", "y", "width", "height"] as const).map((key) => (
+            <TextField
+              key={key}
+              label={`${key.toUpperCase()} (mm)`}
+              value={block.frame ? String(block.frame[key]) : ""}
+              placeholder={
+                key === "width" || key === "height" ? "arraste no canvas" : "arraste no canvas"
+              }
+              onChange={(value) => {
+                const number = Number(value);
+                if (!Number.isFinite(number)) return;
+                patch({
+                  frame: {
+                    ...(block.frame ?? { x: 18, y: 28, width: 80, height: 30 }),
+                    [key]: number,
+                  },
+                });
+              }}
+            />
+          ))}
+        </div>
+        {block.frame ? (
+          <button
+            type="button"
+            className="mt-1 border border-border px-2 py-1 text-[10px] text-muted-foreground hover:bg-accent"
+            onClick={() => patch({ frame: undefined })}
+          >
+            Voltar ao fluxo editorial
+          </button>
+        ) : (
+          <p className="text-[10px] text-muted-foreground">
+            Selecione e arraste o bloco para criar uma moldura física.
+          </p>
+        )}
+      </PanelSection>
+
+      <PanelSection title="Tipografia local">
+        <SelectField
+          label="Fonte deste bloco"
+          value={block.fontFamily ?? ""}
+          options={[
+            { value: "", label: "Herdar documento" },
+            { value: "EB Garamond", label: "EB Garamond" },
+            { value: "Liberation Sans", label: "Liberation Sans" },
+            ...(book.fonts ?? []).map((font) => ({ value: font.family, label: font.family })),
+          ]}
+          onChange={(value) => patch({ fontFamily: value || undefined })}
+        />
+        <p className="text-[10px] text-muted-foreground">
+          Aplica somente a este bloco; a fonte precisa estar inserida no projeto para o PDF ser
+          reproduzível.
+        </p>
       </PanelSection>
 
       {block.type === "text" ? (
@@ -159,6 +235,7 @@ function BlockProperties({ block }: { block: Block }) {
       ) : null}
 
       {block.type === "image" ? <ImageProperties block={block} /> : null}
+      {block.type === "shape" ? <ShapeProperties block={block} /> : null}
 
       {block.type === "quote" ? (
         <PanelSection title="Citação">
@@ -222,6 +299,46 @@ function BlockProperties({ block }: { block: Block }) {
       {block.type === "table" ? <TableProperties block={block} /> : null}
       {block.type === "form" ? <FormProperties block={block} /> : null}
     </>
+  );
+}
+
+function ShapeProperties({ block }: { block: ShapeBlock }) {
+  const { selectedPage, updateBlock } = useEditor();
+  const patch = (values: Record<string, unknown>) => updateBlock(selectedPage.id, block.id, values);
+  return (
+    <PanelSection title="Elemento gráfico">
+      <SelectField
+        label="Tipo"
+        value={block.shape}
+        options={[
+          { value: "frame", label: "Moldura" },
+          { value: "window", label: "Janela / caixa" },
+          { value: "line", label: "Linha / filete" },
+          { value: "fill", label: "Área de cor" },
+        ]}
+        onChange={(value) => patch({ shape: value as ShapeKind })}
+      />
+      <TextField
+        label="Rótulo"
+        value={block.label ?? ""}
+        onChange={(value) => patch({ label: value || undefined })}
+      />
+      <ColorField
+        label="Traço"
+        value={block.stroke ?? "#542869"}
+        onChange={(value) => patch({ stroke: value })}
+      />
+      <ColorField
+        label="Preenchimento"
+        value={block.fill ?? "#ffffff"}
+        onChange={(value) => patch({ fill: value })}
+      />
+      <TextField
+        label="Espessura"
+        value={block.strokeWidth ?? "0.35mm"}
+        onChange={(value) => patch({ strokeWidth: value || undefined })}
+      />
+    </PanelSection>
   );
 }
 
@@ -444,6 +561,8 @@ export function PropertiesPanel() {
     updatePageSettings,
     setTemplate,
     setTokens,
+    addFont,
+    removeFont,
     issuesForPage,
     focusIssue,
     togglePageFixed,
@@ -602,6 +721,14 @@ export function PropertiesPanel() {
                   ]}
                   onChange={(value) => updatePageSettings(selectedPage.id, { background: value })}
                 />
+                <ColorField
+                  label="Cor da página"
+                  value={
+                    selectedPage.settings.pageColor ??
+                    (selectedPage.settings.background === "obsidian" ? "#171821" : "#fffdf8")
+                  }
+                  onChange={(value) => updatePageSettings(selectedPage.id, { pageColor: value })}
+                />
                 <ToggleField
                   label="Full bleed"
                   checked={selectedPage.settings.fullBleed}
@@ -646,6 +773,73 @@ export function PropertiesPanel() {
                     />
                   ))}
                 </div>
+              </PanelSection>
+
+              <PanelSection title="Tipografia do documento">
+                <SelectField
+                  label="Títulos e display"
+                  value={book.tokens.fontDisplay}
+                  options={fontOptions(book)}
+                  onChange={(value) => setTokens({ fontDisplay: value })}
+                />
+                <SelectField
+                  label="Texto corrido"
+                  value={book.tokens.fontBody}
+                  options={fontOptions(book)}
+                  onChange={(value) => setTokens({ fontBody: value })}
+                />
+                <SelectField
+                  label="Interface e tabelas"
+                  value={book.tokens.fontFunctional}
+                  options={fontOptions(book)}
+                  onChange={(value) => setTokens({ fontFunctional: value })}
+                />
+                <label className="mt-2 block border border-dashed border-border px-2 py-2 text-[10px] text-muted-foreground hover:bg-accent">
+                  <span className="mb-1 block font-medium text-foreground">Inserir fonte</span>
+                  <span className="mb-2 block">
+                    .woff2, .woff, .ttf ou .otf · fica dentro do projeto
+                  </span>
+                  <input
+                    type="file"
+                    accept={ACCEPTED_FONT_EXTENSIONS.join(",")}
+                    className="block w-full text-[10px]"
+                    onChange={async (event) => {
+                      const file = event.target.files?.[0];
+                      if (!file) return;
+                      const fallback = file.name.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ");
+                      const family = window.prompt("Nome da família tipográfica", fallback)?.trim();
+                      if (family) {
+                        try {
+                          addFont(await fileToBookFont(file, { id: nextId("font"), family }));
+                        } catch (error) {
+                          window.alert(error instanceof Error ? error.message : "Fonte inválida.");
+                        }
+                      }
+                      event.target.value = "";
+                    }}
+                  />
+                </label>
+                {(book.fonts ?? []).length > 0 ? (
+                  <div className="mt-2 space-y-1">
+                    {(book.fonts ?? []).map((font) => (
+                      <div
+                        key={font.id}
+                        className="flex items-center justify-between gap-2 text-[10px]"
+                      >
+                        <span className="truncate" title={font.fileName}>
+                          {font.family}
+                        </span>
+                        <button
+                          type="button"
+                          className="text-destructive hover:underline"
+                          onClick={() => removeFont(font.id)}
+                        >
+                          remover
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
               </PanelSection>
             </>
           )}

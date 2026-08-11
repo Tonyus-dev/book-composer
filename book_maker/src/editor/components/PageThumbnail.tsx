@@ -26,7 +26,7 @@ export function PageThumbnail({
       style={{ width, height: pageHeightPx * scale }}
       aria-hidden="true"
     >
-      <BookRoot tokens={book.tokens}>
+      <BookRoot tokens={book.tokens} fonts={book.fonts}>
         <div className="k-thumb" style={{ transform: `scale(${scale})` }}>
           <PageRenderer book={book} page={page} index={index} />
         </div>

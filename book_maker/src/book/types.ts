@@ -48,6 +48,13 @@ export type PageVariant =
 export type BlockAlign = "start" | "center" | "end" | "justify";
 export type BlockSpan = "column" | "full";
 
+export interface BlockFrame {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
 export interface BaseBlock {
   id: string;
   /** Bloco pode ocupar uma coluna ou a largura total da caixa de texto. */
@@ -59,6 +66,10 @@ export interface BaseBlock {
   recipeSlotKey?: string;
   recipeSlotLabel?: string;
   recipeSlotRequired?: boolean;
+  /** Moldura física opcional para composição direta na página. */
+  frame?: BlockFrame;
+  /** Família tipográfica local; vazio herda a tipografia do documento. */
+  fontFamily?: string;
 }
 
 export type TextRole = "body" | "lead" | "dialogue" | "credits" | "note";
@@ -237,6 +248,28 @@ export interface DividerBlock extends BaseBlock {
   ornament?: boolean;
 }
 
+export type ShapeKind = "frame" | "window" | "line" | "fill";
+
+export interface ShapeBlock extends BaseBlock {
+  type: "shape";
+  shape: ShapeKind;
+  label?: string;
+  stroke?: string;
+  fill?: string;
+  strokeWidth?: string;
+}
+
+/** Fonte carregada pelo usuário e embutida no JSON do projeto. */
+export interface BookFont {
+  id: string;
+  family: string;
+  fileName: string;
+  mime: string;
+  data: string;
+  bytes: number;
+  createdAt: string;
+}
+
 export interface TocEntry {
   label: string;
   page: number;
@@ -405,6 +438,7 @@ export type LayoutAreaContent =
   | BoxBlock
   | CaptionBlock
   | DividerBlock
+  | ShapeBlock
   | TocBlock
   | LockupBlock
   | FormBlock
@@ -445,6 +479,7 @@ export type Block =
   | LockupBlock
   | FormBlock
   | SheetBlock
+  | ShapeBlock
   | LayoutBlock;
 
 export type BlockType = Block["type"];
@@ -455,6 +490,7 @@ export interface PageSettings {
   pageNumber: boolean;
   columns: 1 | 2;
   background: "paper" | "obsidian";
+  pageColor?: string;
   fullBleed: boolean;
   breakBefore?: boolean;
 }
@@ -502,6 +538,9 @@ export interface BookTokens {
   h1Size: string;
   h2Size: string;
   h3Size: string;
+  fontDisplay: string;
+  fontBody: string;
+  fontFunctional: string;
 }
 
 export interface BookMeta {
@@ -544,6 +583,8 @@ export interface Book {
   pages: Page[];
   /** assets enviados localmente, mapeados por id */
   assets?: BookAsset[];
+  /** fontes locais embutidas no projeto, disponíveis globalmente ou por bloco. */
+  fonts?: BookFont[];
   /** pares obrigatórios que abrem juntos (ex.: 008-009, 021-022). */
   spreads?: Spread[];
   /** presets de tabela personalizados, persistidos dentro do projeto. */
@@ -666,6 +707,9 @@ export const CSS_VAR_BY_TOKEN: Record<keyof BookTokens, string> = {
   h1Size: "--h1-size",
   h2Size: "--h2-size",
   h3Size: "--h3-size",
+  fontDisplay: "--font-display",
+  fontBody: "--font-body",
+  fontFunctional: "--font-functional",
 };
 
 export const DEFAULT_TOKENS: BookTokens = {
@@ -686,6 +730,9 @@ export const DEFAULT_TOKENS: BookTokens = {
   h1Size: "22pt",
   h2Size: "14pt",
   h3Size: "11pt",
+  fontDisplay: '"EB Garamond", "Garamond", "Times New Roman", serif',
+  fontBody: '"EB Garamond", "Garamond", "Times New Roman", serif',
+  fontFunctional: '"Liberation Sans", Arial, Helvetica, sans-serif',
 };
 
 /**

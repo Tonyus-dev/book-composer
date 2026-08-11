@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent, RefObject } from "react";
-import type { Book, ImageBlock, Page } from "../../book/types";
+import type { Block, BlockFrame, Book, ImageBlock, Page } from "../../book/types";
 import { PageRenderer } from "../../book/renderer/PageRenderer";
 import { BookRenderContext } from "../../book/renderer/context";
 import { useEditor, type Overlays } from "../state/store";
@@ -201,6 +201,142 @@ function ImageResizeOverlay({
   );
 }
 
+function BlockTransformOverlay({
+  pageRef,
+  pageId,
+  block,
+  updateBlock,
+  onEdit,
+  snapGrid,
+}: {
+  pageRef: RefObject<HTMLDivElement | null>;
+  pageId: string;
+  block: Block;
+  updateBlock: (pageId: string, blockId: string, patch: Record<string, unknown>) => void;
+  onEdit: () => void;
+  snapGrid: boolean;
+}) {
+  const [box, setBox] = useState<ResizeBox | null>(null);
+  const syncBox = useCallback(() => {
+    const pageElement = pageRef.current;
+    if (!pageElement) return;
+    const target = findBlockElement(pageElement, block.id);
+    if (!target) return setBox(null);
+    const pageRect = pageElement.getBoundingClientRect();
+    const targetRect = target.getBoundingClientRect();
+    const scale = pageElement.offsetWidth > 0 ? pageRect.width / pageElement.offsetWidth : 1;
+    setBox({
+      left: (targetRect.left - pageRect.left) / scale,
+      top: (targetRect.top - pageRect.top) / scale,
+      width: targetRect.width / scale,
+      height: targetRect.height / scale,
+    });
+  }, [block.id, pageRef]);
+
+  useLayoutEffect(() => {
+    const frame = window.requestAnimationFrame(syncBox);
+    const target = pageRef.current ? findBlockElement(pageRef.current, block.id) : null;
+    const observer = target ? new ResizeObserver(syncBox) : null;
+    if (target && observer) observer.observe(target);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      observer?.disconnect();
+    };
+  }, [block.id, pageRef, syncBox]);
+
+  useEffect(() => {
+    window.addEventListener("resize", syncBox);
+    window.addEventListener("scroll", syncBox, true);
+    return () => {
+      window.removeEventListener("resize", syncBox);
+      window.removeEventListener("scroll", syncBox, true);
+    };
+  }, [syncBox]);
+
+  if (!box) return null;
+
+  const onPointerDown = (event: ReactPointerEvent<HTMLElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+    const pageElement = pageRef.current;
+    if (!pageElement) return;
+    const target = findBlockElement(pageElement, block.id);
+    if (!target) return;
+    event.currentTarget.setPointerCapture(event.pointerId);
+    const pageRect = pageElement.getBoundingClientRect();
+    const contentRect =
+      pageElement.querySelector<HTMLElement>(".k-page__content")?.getBoundingClientRect() ??
+      pageRect;
+    const scale = pageElement.offsetWidth > 0 ? pageRect.width / pageElement.offsetWidth : 1;
+    const pxPerMm = 96 / 25.4;
+    const targetRect = target.getBoundingClientRect();
+    const initial: BlockFrame = block.frame ?? {
+      x: (targetRect.left - contentRect.left) / scale / pxPerMm,
+      y: (targetRect.top - contentRect.top) / scale / pxPerMm,
+      width: targetRect.width / scale / pxPerMm,
+      height: Math.max(8, targetRect.height / scale / pxPerMm),
+    };
+    const resize = event.currentTarget.dataset["resize"] === "true";
+    const startX = event.clientX;
+    const startY = event.clientY;
+    const move = (moveEvent: PointerEvent) => {
+      const dx = (moveEvent.clientX - startX) / scale / pxPerMm;
+      const dy = (moveEvent.clientY - startY) / scale / pxPerMm;
+      const next = resize
+        ? {
+            ...initial,
+            width: Math.max(8, initial.width + dx),
+            height: Math.max(8, initial.height + dy),
+          }
+        : { ...initial, x: initial.x + dx, y: initial.y + dy };
+      if (snapGrid) {
+        next.x = Math.round(next.x);
+        next.y = Math.round(next.y);
+        next.width = Math.round(next.width);
+        next.height = Math.round(next.height);
+      }
+      updateBlock(pageId, block.id, { frame: next });
+    };
+    const stop = () => {
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerup", stop);
+      syncBox();
+    };
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", stop, { once: true });
+  };
+
+  return (
+    <div
+      className="k-editor-transform-overlay"
+      style={{ left: box.left, top: box.top, width: box.width, height: box.height }}
+      aria-label={`Moldura de composição do bloco ${block.type}`}
+      onClick={(event) => event.stopPropagation()}
+      onDoubleClick={(event) => {
+        event.stopPropagation();
+        if (["text", "heading", "quote", "caption", "box"].includes(block.type)) onEdit();
+      }}
+    >
+      <div
+        className="k-editor-transform-surface"
+        data-testid="block-drag-surface"
+        data-resize="false"
+        aria-label={`Mover bloco ${block.type}`}
+        onPointerDown={onPointerDown}
+      />
+      <button
+        type="button"
+        className="k-editor-transform-handle"
+        data-testid="block-resize-handle"
+        data-resize="true"
+        aria-label={`Redimensionar bloco ${block.type}`}
+        onPointerDown={onPointerDown}
+        onPointerUp={(event) => event.stopPropagation()}
+      />
+    </div>
+  );
+}
+
 /** Uma página no editor: seleção, overlays de produção e detecção de overflow. */
 export function PageCanvas({
   book,
@@ -225,6 +361,7 @@ export function PageCanvas({
     updateTable,
     removeBlock,
     duplicateBlock,
+    snapGrid,
   } = useEditor();
   const ref = useRef<HTMLDivElement>(null);
   const [editingBlockId, setEditingBlockId] = useState<string | null>(null);
@@ -332,6 +469,19 @@ export function PageCanvas({
             pageId={page.id}
             block={selectedBlock}
             updateBlock={updateBlock}
+          />
+        ) : null}
+        {active && selectedBlock && !["image", "table", "sheet"].includes(selectedBlock.type) ? (
+          <BlockTransformOverlay
+            pageRef={ref}
+            pageId={page.id}
+            block={selectedBlock}
+            updateBlock={updateBlock}
+            onEdit={() => {
+              if (["text", "heading", "quote", "caption", "box"].includes(selectedBlock.type))
+                setEditingBlockId(selectedBlock.id);
+            }}
+            snapGrid={snapGrid}
           />
         ) : null}
         {active && selectedBlock?.type === "table" ? (

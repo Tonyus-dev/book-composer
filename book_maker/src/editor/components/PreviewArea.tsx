@@ -88,7 +88,7 @@ export function PreviewArea() {
         className="flex min-h-full w-full items-center justify-center p-12"
         onClick={() => undefined}
       >
-        <BookRoot tokens={book.tokens}>
+        <BookRoot tokens={book.tokens} fonts={book.fonts}>
           <div
             className="flex items-start gap-0"
             style={{

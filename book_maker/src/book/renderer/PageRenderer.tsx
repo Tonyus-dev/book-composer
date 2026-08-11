@@ -67,6 +67,11 @@ export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function
     .join(" ");
 
   const templateProps = { page, meta: book.meta, folio, verso };
+  const pageStyle = {
+    ...style,
+    ...(page.settings.pageColor ? { background: page.settings.pageColor } : {}),
+    ...(page.settings.pageColor ? { "--page-color": page.settings.pageColor } : {}),
+  } as CSSProperties;
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     const block = (event.target as HTMLElement).closest<HTMLElement>("[data-block-id]");
     const blockId = block?.dataset["blockId"];
@@ -86,7 +91,7 @@ export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function
     <section
       ref={ref}
       className={classes}
-      style={style}
+      style={pageStyle}
       data-page-id={page.id}
       data-folio={folio}
       data-fixed={page.fixed ? "true" : undefined}
