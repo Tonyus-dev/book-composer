@@ -85,6 +85,31 @@
   outline-width: 0.5mm;
 }
 
+/* Redimensionamento direto de imagem no canvas. */
+.k-editor-resize-overlay {
+  position: absolute;
+  z-index: 40;
+  box-sizing: border-box;
+  border: 0.5mm solid color-mix(in oklab, #b953dc 78%, transparent);
+  pointer-events: none;
+}
+
+.k-editor-resize-handle {
+  position: absolute;
+  right: -7px;
+  bottom: -7px;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  background: #b953dc;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 45%);
+  cursor: nwse-resize;
+  pointer-events: auto;
+  touch-action: none;
+}
+
 /* Overflow nunca é escondido: ele é sinalizado. */
 .k-editor-page[data-overflow="true"] {
   box-shadow: 0 0 0 2px #be185d;
