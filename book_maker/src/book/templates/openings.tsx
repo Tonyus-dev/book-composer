@@ -1,5 +1,5 @@
 import { BlockList } from "../renderer/BlockRenderer";
-import { BrandLockup } from "../components/BookComponents";
+import { BrandLockup, ResolvedImage } from "../components/BookComponents";
 import {
   findImage,
   findPrimaryImage,
@@ -7,7 +7,6 @@ import {
   withoutBlock,
   type TemplateProps,
 } from "./types";
-import { resolveAssetSrc } from "../../lib/assets/registry";
 
 /** COVER — imagem full bleed + master do lockup. O wordmark nunca é recriado com fonte. */
 export function CoverTemplate({ page, meta }: TemplateProps) {
@@ -18,9 +17,9 @@ export function CoverTemplate({ page, meta }: TemplateProps) {
     <>
       {art ? (
         <div className="k-bleed" data-block-id={art.id}>
-          <img
+          <ResolvedImage
             className="k-bleed--img"
-            src={resolveAssetSrc(art.src)}
+            src={art.src}
             alt={art.alt}
             style={{ objectPosition: `${art.objectX ?? 50}% ${art.objectY ?? 50}%` }}
           />
@@ -57,9 +56,9 @@ export function PartOpeningTemplate({ page }: TemplateProps) {
     <>
       {art ? (
         <div className="k-bleed" data-block-id={art.id}>
-          <img
+          <ResolvedImage
             className="k-bleed--img"
-            src={resolveAssetSrc(art.src)}
+            src={art.src}
             alt={art.alt}
             style={{ objectPosition: `${art.objectX ?? 50}% ${art.objectY ?? 50}%` }}
           />
@@ -103,8 +102,8 @@ export function ChapterOpeningTemplate({ page }: TemplateProps) {
       <div className="k-chapter--side" style={{ ["--band-w" as string]: art?.width ?? "34%" }}>
         <div className="k-chapter__band" data-block-id={art?.id}>
           {art ? (
-            <img
-              src={resolveAssetSrc(art.src)}
+            <ResolvedImage
+              src={art.src}
               alt={art.alt}
               style={{ objectPosition: `${art.objectX ?? 50}% ${art.objectY ?? 50}%` }}
             />
@@ -126,8 +125,8 @@ export function ChapterOpeningTemplate({ page }: TemplateProps) {
         style={{ ["--band-h" as string]: art?.height ?? "40%" }}
       >
         {art ? (
-          <img
-            src={resolveAssetSrc(art.src)}
+          <ResolvedImage
+            src={art.src}
             alt={art.alt}
             style={{ objectPosition: `${art.objectX ?? 50}% ${art.objectY ?? 50}%` }}
           />

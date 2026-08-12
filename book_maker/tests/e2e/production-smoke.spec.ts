@@ -239,6 +239,10 @@ test("editor, canonical cover migration, IndexedDB assets, reload, offline and p
 test("real PDF accepts legacy portable JSON and has the fixture page count", async ({
   page,
 }, testInfo) => {
+  const consoleErrors: string[] = [];
+  page.on("console", (message) => {
+    if (message.type() === "error") consoleErrors.push(message.text());
+  });
   await page.addInitScript((book) => {
     window.__KALLISTIS_BOOK__ = book;
   }, fixture);
@@ -250,11 +254,16 @@ test("real PDF accepts legacy portable JSON and has the fixture page count", asy
   expect((await stat(output)).size).toBeGreaterThan(0);
   expect(bytes.subarray(0, 5).toString()).toBe("%PDF-");
   expect(bytes.toString("latin1").match(/\/Type\s*\/Page\b/g)?.length).toBe(fixture.pages.length);
+  expect(consoleErrors.filter((message) => /Hydration failed/i.test(message))).toEqual([]);
 });
 
 test("blank is empty and preserves a manual composition in reload, print and PDF", async ({
   page,
 }, testInfo) => {
+  const consoleErrors: string[] = [];
+  page.on("console", (message) => {
+    if (message.type() === "error") consoleErrors.push(message.text());
+  });
   await seedBookOnce(page);
   await page.goto("/");
   const blankAddButtons = page.getByRole("button", {
@@ -336,6 +345,7 @@ test("blank is empty and preserves a manual composition in reload, print and PDF
   await expect(page.locator("html")).toHaveAttribute("data-print-ready", "true");
   const printedBlank = page.locator(".k-page[data-template='blank']");
   await expect(printedBlank.locator("[data-block-id]")).toHaveCount(4);
+  await expect(page.locator('img[src=""]')).toHaveCount(0);
   await expect(
     page.locator("[class*='k-editor-'], [data-testid='block-drag-surface']"),
   ).toHaveCount(0);
@@ -344,4 +354,7 @@ test("blank is empty and preserves a manual composition in reload, print and PDF
   const pdf = await readFile(output);
   expect(pdf.subarray(0, 5).toString()).toBe("%PDF-");
   expect(pdf.length).toBeGreaterThan(0);
+  expect(consoleErrors.filter((message) => /empty string.*src attribute/i.test(message))).toEqual(
+    [],
+  );
 });

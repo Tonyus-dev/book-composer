@@ -1,5 +1,5 @@
 import { BlockList } from "../renderer/BlockRenderer";
-import { resolveAssetSrc } from "../../lib/assets/registry";
+import { ResolvedImage } from "../components/BookComponents";
 import type { TemplateProps } from "./types";
 
 /** Prancheta livre: nenhum conteúdo implícito; frames usam a geometria física da página. */
@@ -13,9 +13,9 @@ export function BlankTemplate({ page }: TemplateProps) {
       {fullBleed.map((block) =>
         block.type === "image" ? (
           <div key={block.id} className="k-bleed" data-block-id={block.id}>
-            <img
+            <ResolvedImage
               className="k-bleed--img"
-              src={resolveAssetSrc(block.src)}
+              src={block.src}
               alt={block.alt}
               style={{
                 objectFit: block.fit ?? "cover",

@@ -1,7 +1,7 @@
 import type { CSSProperties, ChangeEvent } from "react";
 import type { SheetDocument, SheetElement, SheetPage } from "../types";
 import { evaluateSheetFormulas } from "../sheetFormula";
-import { resolveAssetSrc } from "../../lib/assets/registry";
+import { ResolvedImage } from "../components/BookComponents";
 import { useBookRender } from "./context";
 
 function styleFor(element: SheetElement): CSSProperties {
@@ -192,9 +192,7 @@ export function SheetElementRenderer({
         style={style}
         data-sheet-element-id={element.id}
       >
-        {element.source ? (
-          <img src={resolveAssetSrc(element.source)} alt={element.alt ?? ""} />
-        ) : null}
+        {element.source ? <ResolvedImage src={element.source} alt={element.alt ?? ""} /> : null}
       </div>
     );
   if (element.type === "group") return null;
