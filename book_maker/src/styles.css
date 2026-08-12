@@ -63,38 +63,38 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --background: #fffdf2;
+  --foreground: #000000;
+  --card: #fffdf2;
+  --card-foreground: #000000;
+  --popover: #fffdf2;
+  --popover-foreground: #000000;
+  --primary: #d25d38;
+  --primary-foreground: #fffdf2;
+  --secondary: #1e3545;
+  --secondary-foreground: #fffdf2;
+  --muted: #fffdf2;
+  --muted-foreground: #000000;
+  --accent: #1e3545;
+  --accent-foreground: #fffdf2;
+  --destructive: #d25d38;
+  --destructive-foreground: #fffdf2;
+  --border: #000000;
+  --input: #000000;
+  --ring: #d25d38;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --sidebar: #fffdf2;
+  --sidebar-foreground: #000000;
+  --sidebar-primary: #d25d38;
+  --sidebar-primary-foreground: #fffdf2;
+  --sidebar-accent: #1e3545;
+  --sidebar-accent-foreground: #fffdf2;
+  --sidebar-border: #000000;
+  --sidebar-ring: #d25d38;
 }
 
 .dark {
@@ -141,4 +141,43 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 1px solid #d25d38;
+    outline-offset: 1px;
+  }
+}
+
+/* A marca do editor não muda ao alternar o modo de interface. */
+.dark {
+  --background: #fffdf2;
+  --foreground: #000000;
+  --card: #fffdf2;
+  --card-foreground: #000000;
+  --popover: #fffdf2;
+  --popover-foreground: #000000;
+  --primary: #d25d38;
+  --primary-foreground: #fffdf2;
+  --secondary: #1e3545;
+  --secondary-foreground: #fffdf2;
+  --muted: #fffdf2;
+  --muted-foreground: #000000;
+  --accent: #1e3545;
+  --accent-foreground: #fffdf2;
+  --destructive: #d25d38;
+  --destructive-foreground: #fffdf2;
+  --border: #000000;
+  --input: #000000;
+  --ring: #d25d38;
+  --sidebar: #fffdf2;
+  --sidebar-foreground: #000000;
+  --sidebar-primary: #d25d38;
+  --sidebar-primary-foreground: #fffdf2;
+  --sidebar-accent: #1e3545;
+  --sidebar-accent-foreground: #fffdf2;
+  --sidebar-border: #000000;
+  --sidebar-ring: #d25d38;
 }

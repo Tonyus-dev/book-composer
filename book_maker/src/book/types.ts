@@ -5,7 +5,6 @@
  */
 
 export type TemplateId =
-  | "blank"
   | "cover"
   | "front_matter"
   | "toc"
@@ -20,7 +19,6 @@ export type TemplateId =
   | "map_page";
 
 export const TEMPLATE_LABELS: Record<TemplateId, string> = {
-  blank: "BLANK",
   cover: "COVER",
   front_matter: "FRONT MATTER",
   toc: "TOC",
@@ -59,6 +57,11 @@ export interface BlockFrame {
 
 export interface BaseBlock {
   id: string;
+  /** Estado de edição do objeto; não altera o conteúdo editorial. */
+  locked?: boolean;
+  hidden?: boolean;
+  rotation?: number;
+  groupId?: string;
   /** Bloco pode ocupar uma coluna ou a largura total da caixa de texto. */
   span?: BlockSpan;
   /** Espaço editorial antes/depois, em mm. */
@@ -88,6 +91,12 @@ export interface TextBlock extends BaseBlock {
   boxColor?: string;
   boxOpacity?: number;
   boxGrain?: number;
+  /** Controles tipográficos locais do Free Canvas; ausentes herdam os tokens. */
+  fontSize?: string;
+  fontWeight?: number;
+  fontStyle?: "normal" | "italic";
+  lineHeight?: string | number;
+  color?: string;
 }
 
 export interface HeadingBlock extends BaseBlock {

@@ -64,6 +64,11 @@ export function BodyText({ block }: { block: TextBlock }) {
       style={{
         maxWidth: block.width,
         textAlign: block.align === "justify" ? "justify" : block.align,
+        fontSize: block.fontSize,
+        fontWeight: block.fontWeight,
+        fontStyle: block.fontStyle,
+        lineHeight: block.lineHeight,
+        color: block.color,
         ...(boxOpacity > 0 || boxGrain > 0
           ? {
               backgroundColor: `color-mix(in srgb, ${boxColor} ${boxOpacity}%, transparent)`,

@@ -238,10 +238,8 @@ export function AssetBrowser() {
           onSave={(recipe, mode, label) => saveEdit(editing, recipe, mode, label)}
         />
       ) : null}
-      <div className="border-b border-border px-3 py-2">
-        <h2 className="mb-2 text-[11px] font-semibold tracking-[0.18em] text-muted-foreground uppercase">
-          Assets
-        </h2>
+      <div className="k-editor-panel-title border-b border-border px-3 py-2">
+        <h2 className="mb-2 text-[11px] font-semibold tracking-[0.18em] uppercase">Assets</h2>
         <input
           value={query}
           onChange={(event) => setQuery(event.target.value)}
@@ -265,7 +263,7 @@ export function AssetBrowser() {
           type="button"
           disabled={busy}
           onClick={() => fileRef.current?.click()}
-          className="w-full border border-primary bg-primary px-2 py-1 text-[11px] font-medium text-primary-foreground disabled:opacity-60"
+          className="k-editor-primary-action w-full border px-2 py-1 text-[11px] font-medium disabled:opacity-60"
         >
           {busy ? "importando…" : "Enviar imagens locais"}
         </button>
@@ -392,6 +390,23 @@ export function AssetBrowser() {
                     >
                       Renomear
                     </button>
+                    <label className="flex items-center gap-1 text-[9px] text-muted-foreground">
+                      <span className="sr-only">Organizar imagem em categoria</span>
+                      <select
+                        aria-label={`Categoria de ${item.label}`}
+                        value={item.category}
+                        onChange={(event) =>
+                          updateAsset(item.uploaded!.id, { category: event.target.value })
+                        }
+                        className="border border-border bg-input/40 px-1 py-px text-[9px] text-foreground"
+                      >
+                        {ASSET_CATEGORIES.map((entry) => (
+                          <option key={entry.id} value={entry.id}>
+                            {entry.label}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
                     <button
                       type="button"
                       onClick={() => {
@@ -401,9 +416,9 @@ export function AssetBrowser() {
                             : "Remover este asset do projeto?";
                         if (window.confirm(warn)) removeAsset(item.uploaded!.id);
                       }}
-                      className="border border-border px-1 text-[9px] text-muted-foreground hover:bg-accent"
+                      className="border border-destructive px-1 text-[9px] text-destructive hover:bg-accent"
                     >
-                      Remover
+                      Excluir imagem
                     </button>
                   </div>
                 </div>

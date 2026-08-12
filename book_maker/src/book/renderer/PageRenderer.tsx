@@ -4,6 +4,21 @@ import { TEMPLATES } from "../templates";
 import { PageFooterNote, PageHeader, PageNumber } from "../components/BookComponents";
 import { useBookRender } from "./context";
 
+export type PageControl =
+  "header" | "footer" | "pageNumber" | "title" | "subtitle" | "eyebrow" | "templateMeta";
+
+function pageControlForTarget(target: HTMLElement): PageControl | null {
+  if (target.closest(".k-runhead")) return "header";
+  if (target.closest(".k-footnote")) return "footer";
+  if (target.closest(".k-folio")) return "pageNumber";
+  if (target.closest(".k-cover__sub")) return "subtitle";
+  if (target.closest(".k-cover__foot")) return "templateMeta";
+  if (target.closest(".k-eyebrow, .k-part__label, .k-chapter__number")) return "eyebrow";
+  if (target.closest(".k-cover__product, .k-part__title, .k-chapter__title, .k-h1, .k-h2, .k-h3"))
+    return "title";
+  return null;
+}
+
 export interface PageRenderProps {
   book: Book;
   page: Page;
@@ -15,6 +30,8 @@ export interface PageRenderProps {
   children?: React.ReactNode;
   onClick?: () => void;
   onDoubleClick?: (blockId: string | null) => void;
+  onPointerDown?: (event: React.PointerEvent<HTMLElement>) => void;
+  onSelectPageControl?: (control: PageControl) => void;
   onDragOver?: (event: React.DragEvent<HTMLElement>) => void;
   onDrop?: (event: React.DragEvent<HTMLElement>) => void;
   /** sinalização de overflow (editor); não afeta o livro impresso */
@@ -43,6 +60,8 @@ export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function
     children,
     onClick,
     onDoubleClick,
+    onPointerDown,
+    onSelectPageControl,
     onDragOver,
     onDrop,
     overflow,
@@ -66,7 +85,10 @@ export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function
     .filter(Boolean)
     .join(" ");
 
-  const templateProps = { page, meta: book.meta, folio, verso };
+  const renderPage = page.blocks.some((block) => block.hidden)
+    ? { ...page, blocks: page.blocks.filter((block) => !block.hidden) }
+    : page;
+  const templateProps = { page: renderPage, meta: book.meta, folio, verso };
   const pageStyle = {
     ...style,
     ...(page.settings.pageColor ? { background: page.settings.pageColor } : {}),
@@ -78,6 +100,12 @@ export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function
     if (interactive && blockId) {
       event.stopPropagation();
       onSelectBlock?.(blockId);
+      return;
+    }
+    const pageControl = pageControlForTarget(event.target as HTMLElement);
+    if (interactive && pageControl) {
+      event.stopPropagation();
+      onSelectPageControl?.(pageControl);
       return;
     }
     onClick?.();
@@ -99,6 +127,7 @@ export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function
       data-overflow={overflow ? "true" : undefined}
       onClick={interactive ? handleClick : onClick}
       onDoubleClick={interactive ? handleDoubleClick : undefined}
+      onPointerDown={interactive ? onPointerDown : undefined}
       onDragOver={interactive ? onDragOver : undefined}
       onDrop={interactive ? onDrop : undefined}
       aria-label={`Página ${folio}${page.title ? ` — ${page.title}` : ""}`}

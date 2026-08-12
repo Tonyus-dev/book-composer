@@ -11,7 +11,6 @@ import {
 } from "./editorial";
 import { ProfileTemplate, TablePageTemplate } from "./reference";
 import { FullArtTemplate, MapPageTemplate } from "./visual";
-import { BlankTemplate } from "./blank";
 
 export interface TemplateDefinition {
   id: TemplateId;
@@ -26,15 +25,6 @@ export interface TemplateDefinition {
 }
 
 export const TEMPLATES: Record<TemplateId, TemplateDefinition> = {
-  blank: {
-    id: "blank",
-    label: "Página em branco",
-    component: BlankTemplate,
-    usesContentBox: false,
-    variants: ["default"],
-    defaultColumns: 1,
-    register: "referencia",
-  },
   cover: {
     id: "cover",
     label: "Capa",

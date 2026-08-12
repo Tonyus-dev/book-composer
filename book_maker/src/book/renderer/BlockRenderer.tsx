@@ -126,6 +126,7 @@ export function BlockRenderer({ block }: { block: Block }) {
     style.zIndex = 10;
   }
   if (block.fontFamily) style.fontFamily = `"${block.fontFamily.replace(/["\\]/g, "")}"`;
+  if (block.rotation) style.transform = `rotate(${block.rotation}deg)`;
   const className = [
     "k-block",
     `k-block--${block.type}`,

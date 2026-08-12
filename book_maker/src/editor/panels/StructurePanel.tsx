@@ -84,15 +84,6 @@ function PageRow({ page, index }: { page: Page; index: number }) {
         </button>
         <button
           type="button"
-          onClick={() => addPage(page.id, "blank")}
-          aria-label="Adicionar Página em branco depois"
-          title="Página em branco"
-          className="p-1 text-muted-foreground hover:text-foreground"
-        >
-          BLANK
-        </button>
-        <button
-          type="button"
           onClick={() => duplicatePage(page.id)}
           aria-label="Duplicar página"
           className="p-1 text-muted-foreground hover:text-foreground"
@@ -141,10 +132,8 @@ export function StructurePanel() {
 
   return (
     <div className="flex h-full flex-col overflow-hidden">
-      <div className="flex items-center justify-between border-b border-border px-3 py-2">
-        <h2 className="text-[11px] font-semibold tracking-[0.18em] text-muted-foreground uppercase">
-          Livro
-        </h2>
+      <div className="k-editor-panel-title flex items-center justify-between border-b border-border px-3 py-2">
+        <h2 className="text-[11px] font-semibold tracking-[0.18em] uppercase">Livro</h2>
         <span className="text-[10px] text-muted-foreground">{book.pages.length} pág.</span>
       </div>
 
