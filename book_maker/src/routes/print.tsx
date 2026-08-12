@@ -35,14 +35,10 @@ export const Route = createFileRoute("/print")({
 function PrintView() {
   const [, refreshAssets] = useState(0);
   const { src } = useSearch({ from: "/print" });
-  const initialInjected =
-    typeof window !== "undefined"
-      ? (window as unknown as { __KALLISTIS_BOOK__?: unknown }).__KALLISTIS_BOOK__
-      : undefined;
-  const [book, setBook] = useState<Book>(() =>
-    initialInjected ? normalizeBook(initialInjected) : canonicalBook,
-  );
-  const [sourceResolved, setSourceResolved] = useState(Boolean(initialInjected) || !src);
+  // O primeiro render precisa ser idêntico no SSR e no browser. O livro
+  // injetado/local é resolvido no efeito abaixo, depois da hidratação.
+  const [book, setBook] = useState<Book>(() => canonicalBook);
+  const [sourceResolved, setSourceResolved] = useState(false);
 
   useEffect(() => {
     const refresh = () => refreshAssets((value) => value + 1);

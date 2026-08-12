@@ -1,7 +1,7 @@
 import { BlockList } from "../renderer/BlockRenderer";
 import { findImage, withoutBlock, type TemplateProps } from "./types";
 import type { ImageBlock } from "../types";
-import { resolveAssetSrc } from "../../lib/assets/registry";
+import { ResolvedImage } from "../components/BookComponents";
 
 function Portrait({ block, auto }: { block: ImageBlock; auto?: boolean }) {
   return (
@@ -11,8 +11,8 @@ function Portrait({ block, auto }: { block: ImageBlock; auto?: boolean }) {
       style={{ margin: 0 }}
     >
       {block.src ? (
-        <img
-          src={resolveAssetSrc(block.src)}
+        <ResolvedImage
+          src={block.src}
           alt={block.alt}
           style={{
             objectFit: block.fit ?? "cover",

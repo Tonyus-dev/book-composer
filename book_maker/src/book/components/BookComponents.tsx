@@ -2,7 +2,7 @@
  * Componentes editoriais do LIVRO.
  * Não importam nada da UI do editor (Tailwind/shadcn) — apenas CSS editorial.
  */
-import type { CSSProperties, ReactNode } from "react";
+import type { ComponentProps, CSSProperties, ReactNode } from "react";
 import type {
   BoxBlock,
   CaptionBlock,
@@ -28,6 +28,14 @@ const BOX_TITLES: Record<BoxBlock["kind"], string> = {
   mestre: "Mestre",
   atencao: "Atenção",
 };
+
+export function ResolvedImage({
+  src,
+  ...props
+}: { src?: string } & Omit<ComponentProps<"img">, "src">) {
+  const resolvedSrc = resolveAssetSrc(src);
+  return resolvedSrc ? <img {...props} src={resolvedSrc} /> : null;
+}
 
 export function BookHeading({ block }: { block: HeadingBlock }) {
   const Tag = `h${block.level + 1}` as unknown as "h2";
@@ -76,6 +84,7 @@ export function BodyText({ block }: { block: TextBlock }) {
 
 export function BookImage({ block }: { block: ImageBlock }) {
   const position = block.position ?? "flow";
+  const src = resolveAssetSrc(block.src);
   return (
     <figure
       className={`k-figure k-figure--${position}`}
@@ -90,8 +99,8 @@ export function BookImage({ block }: { block: ImageBlock }) {
         } as React.CSSProperties
       }
     >
-      {block.src ? (
-        <img src={resolveAssetSrc(block.src)} alt={block.alt} />
+      {src ? (
+        <img src={src} alt={block.alt} />
       ) : (
         <div className="k-image-placeholder" aria-label={block.alt || "Imagem"}>
           {block.alt || "Imagem"}
@@ -326,9 +335,9 @@ export function BookToc({ block }: { block: TocBlock }) {
 
 export function BrandLockup({ block }: { block: LockupBlock }) {
   return (
-    <img
+    <ResolvedImage
       className="k-lockup"
-      src={resolveAssetSrc(block.src)}
+      src={block.src}
       alt={block.alt}
       style={{ ["--lockup-w" as string]: block.width ?? "60mm" }}
     />

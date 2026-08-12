@@ -325,6 +325,7 @@ export function AssetBrowser() {
       <div className="grid flex-1 grid-cols-2 content-start gap-2 overflow-y-auto p-2">
         {items.map((item) => {
           const uses = item.uploaded ? assetUsage(item.uploaded.id) : 0;
+          const previewSrc = resolveAssetSrc(item.src);
           return (
             <div key={item.key} className="border border-border">
               <button
@@ -345,12 +346,14 @@ export function AssetBrowser() {
                 title={item.note ?? item.label}
                 className="group block w-full text-left hover:opacity-90"
               >
-                <img
-                  src={resolveAssetSrc(item.src)}
-                  alt={item.label}
-                  loading="lazy"
-                  className="aspect-4/5 w-full object-cover"
-                />
+                {previewSrc ? (
+                  <img
+                    src={previewSrc}
+                    alt={item.label}
+                    loading="lazy"
+                    className="aspect-4/5 w-full object-cover"
+                  />
+                ) : null}
                 <span className="block px-1.5 pt-1 text-[10px] leading-tight text-muted-foreground group-hover:text-foreground">
                   {item.label}
                 </span>

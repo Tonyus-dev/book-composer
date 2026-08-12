@@ -1,6 +1,6 @@
 import { BlockList } from "../renderer/BlockRenderer";
 import { findImage, withoutBlock, type TemplateProps } from "./types";
-import { resolveAssetSrc } from "../../lib/assets/registry";
+import { ResolvedImage } from "../components/BookComponents";
 
 /** FULL_ART — arte entre ~50% e 100% da página. Ritmo e imersão. */
 export function FullArtTemplate({ page }: TemplateProps) {
@@ -20,9 +20,9 @@ export function FullArtTemplate({ page }: TemplateProps) {
     return (
       <>
         <div className="k-bleed" data-block-id={art.id}>
-          <img
+          <ResolvedImage
             className="k-bleed--img"
-            src={resolveAssetSrc(art.src)}
+            src={art.src}
             alt={art.alt}
             style={{ objectPosition: `${art.objectX ?? 50}% ${art.objectY ?? 50}%` }}
           />
@@ -35,8 +35,8 @@ export function FullArtTemplate({ page }: TemplateProps) {
   return (
     <div style={{ display: "grid", gridTemplateRows: "auto 1fr", height: "100%", gap: "5mm" }}>
       <div data-block-id={art.id} style={{ height: art.height ?? "62%" }}>
-        <img
-          src={resolveAssetSrc(art.src)}
+        <ResolvedImage
+          src={art.src}
           alt={art.alt}
           style={{
             width: "100%",
@@ -71,8 +71,8 @@ export function MapPageTemplate({ page }: TemplateProps) {
       </div>
       {map ? (
         <figure data-block-id={map.id} style={{ margin: "0 0 4mm", height: map.height ?? "52%" }}>
-          <img
-            src={resolveAssetSrc(map.src)}
+          <ResolvedImage
+            src={map.src}
             alt={map.alt}
             style={{
               width: "100%",
