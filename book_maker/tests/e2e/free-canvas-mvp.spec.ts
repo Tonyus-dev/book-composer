@@ -4,6 +4,9 @@ const storageKey = "kallistis.book-builder.project.v2.default";
 
 test("Free Canvas MVP compõe, transforma, amplia e persiste frames", async ({ page }) => {
   await page.goto("/");
+  await expect(page.locator('link[rel="icon"]')).toHaveAttribute("href", "/kallistis-favicon.svg");
+  const faviconResponse = await page.request.get("/kallistis-favicon.svg");
+  expect(faviconResponse.status()).toBe(200);
   await expect(page.getByTestId("frame-tool")).toBeVisible();
   await expect(page.getByRole("tab", { name: "Páginas" })).toHaveAttribute("aria-selected", "true");
   await page.getByRole("tab", { name: "Assets" }).click();
