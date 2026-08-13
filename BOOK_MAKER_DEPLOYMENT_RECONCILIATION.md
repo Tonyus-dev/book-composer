@@ -48,7 +48,7 @@ O master `40716546938c0c9212e734e14bb3783f345c8b89` foi publicado manualmente a 
 
 ## PR #7 e comportamento esperado
 
-**PR7_HEAD:** `2a0abb4f77620c4b008ae4875c3259129edb557f` antes deste relatório.
+**PR7_HEAD:** `2d7d8b6` (`2d7d8b6` é o HEAD publicado desta atualização da PR).
 
 A PR endurece o deploy para aceitar apenas `workflow_run` originado de `push` no `master`, no mesmo repositório, com CI verde. O checkout usa o `head_sha` do workflow aprovado e o job verifica o SHA antes do build/deploy. `workflow_dispatch` permanece apenas como fallback manual no `master`; as permissões são `contents: read`.
 
