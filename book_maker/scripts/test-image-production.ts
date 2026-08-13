@@ -119,15 +119,15 @@ const genericLegacy = coverBook(1772, 2599, "overlay");
 delete genericLegacy.pages[0]!.coverMode;
 assert.equal(normalizeBook(genericLegacy).pages[0]!.coverMode, undefined);
 
-const blank = createEmptyPage("blank");
-assert.equal(TEMPLATES.blank.label, "Página em branco");
-assert.equal(TEMPLATES.blank.usesContentBox, false);
-assert.deepEqual(blank.blocks, []);
-assert.equal(blank.title, undefined);
-assert.deepEqual(blank.settings, {
-  header: false,
+const freeCanvasPage = createEmptyPage("narrative");
+assert.equal(TEMPLATES.narrative.label, "Narrativa");
+assert.equal(TEMPLATES.narrative.usesContentBox, true);
+assert.deepEqual(freeCanvasPage.blocks, []);
+assert.equal(freeCanvasPage.title, "Nova página");
+assert.deepEqual(freeCanvasPage.settings, {
+  header: true,
   footer: false,
-  pageNumber: false,
+  pageNumber: true,
   columns: 1,
   background: "paper",
   fullBleed: false,

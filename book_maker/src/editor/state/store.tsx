@@ -48,6 +48,7 @@ import {
   type ProductionPlan,
 } from "../../lib/persistence/production-plan";
 import { assetRef, registerBookAssets } from "../../lib/assets/registry";
+import { deleteAssetBlob } from "../../lib/assets/local-store";
 import { syncLocalAssets } from "../../lib/assets/cloud-upload";
 import { buildReport, fingerprint } from "../../lib/preflight/report";
 import type { PreflightIssue, PreflightReport } from "../../lib/preflight/types";
@@ -73,7 +74,7 @@ import {
 export type ViewMode = "page" | "spread" | "light";
 
 const RHYTHM_CONFIG_KEY = "kallistis.rhythm-config.v1";
-export type ZoomValue = 0.5 | 0.75 | 1 | "fit";
+export type ZoomValue = number | "fit";
 
 export interface Overlays {
   rulers: boolean;
@@ -97,6 +98,7 @@ interface EditorContextValue {
   selectedBlockId: string | null;
   view: ViewMode;
   zoom: ZoomValue;
+  frameToolActive: boolean;
   overlays: Overlays;
   status: SaveStatus;
   overflowPages: Record<string, boolean>;
@@ -118,12 +120,14 @@ interface EditorContextValue {
   toggleRhythmStrip: () => void;
   setView: (view: ViewMode) => void;
   setZoom: (zoom: ZoomValue) => void;
+  setFrameToolActive: (active: boolean) => void;
   toggleOverlay: (key: keyof Overlays) => void;
   selectPage: (pageId: string) => void;
   selectBlock: (blockId: string | null) => void;
   reportOverflow: (pageId: string, overflowing: boolean) => void;
   updatePage: (pageId: string, patch: Partial<Omit<Page, "id">>) => void;
   updatePageSettings: (pageId: string, patch: Partial<PageSettings>) => void;
+  clearPage: (pageId: string) => void;
   togglePageFixed: (pageId: string) => void;
   setTemplate: (pageId: string, template: TemplateId) => void;
   updateBlock: (pageId: string, blockId: string, patch: Record<string, unknown>) => void;
@@ -151,6 +155,9 @@ interface EditorContextValue {
   updateAsset: (assetId: string, patch: Partial<Omit<BookAsset, "id">>) => void;
   removeAsset: (assetId: string) => void;
   assetUsage: (assetId: string) => number;
+  toggleBlockHidden: (pageId: string, blockId: string) => void;
+  toggleBlockLocked: (pageId: string, blockId: string) => void;
+  moveBlockToIndex: (pageId: string, blockId: string, index: number) => void;
   openPreflight: () => void;
   closePreflight: () => void;
   runPreflight: () => void;
@@ -222,6 +229,7 @@ export function EditorProvider({ children }: { children: ReactNode }) {
   const [selectedBlockId, setSelectedBlockId] = useState<string | null>(null);
   const [view, setView] = useState<ViewMode>("page");
   const [zoom, setZoom] = useState<ZoomValue>("fit");
+  const [frameToolActive, setFrameToolActive] = useState(false);
   const [status, setStatus] = useState<SaveStatus>("idle");
   const [overflowPages, setOverflowPages] = useState<Record<string, boolean>>({});
   const [measured, setMeasured] = useState<MeasuredSnapshot | null>(null);
@@ -458,6 +466,7 @@ export function EditorProvider({ children }: { children: ReactNode }) {
       selectedBlockId,
       view,
       zoom,
+      frameToolActive,
       overlays,
       status,
       overflowPages,
@@ -484,6 +493,7 @@ export function EditorProvider({ children }: { children: ReactNode }) {
       toggleRhythmStrip: () => setShowRhythmStrip((prev) => !prev),
       setView,
       setZoom,
+      setFrameToolActive,
       toggleOverlay: (key) => setOverlays((prev) => ({ ...prev, [key]: !prev[key] })),
       selectPage,
       selectBlock: setSelectedBlockId,
@@ -500,6 +510,20 @@ export function EditorProvider({ children }: { children: ReactNode }) {
             settings: { ...page.settings, ...patch },
           })),
         ),
+      clearPage: (pageId) =>
+        (() => {
+          setBook((prev) =>
+            withPage(prev, pageId, (page) => ({
+              ...page,
+              blocks: [],
+              title: undefined,
+              subtitle: undefined,
+              eyebrow: undefined,
+              settings: { ...page.settings, header: false, footer: false, pageNumber: false },
+            })),
+          );
+          if (pageId === selectedPageId) setSelectedBlockId(null);
+        })(),
       togglePageFixed: (pageId) =>
         setBook((prev) => withPage(prev, pageId, (page) => ({ ...page, fixed: !page.fixed }))),
       setTemplate: (pageId, template) =>
@@ -525,7 +549,7 @@ export function EditorProvider({ children }: { children: ReactNode }) {
           withPage(prev, pageId, (page) => ({
             ...page,
             blocks: page.blocks.map((block) =>
-              block.id === blockId ? ({ ...block, ...patch } as Block) : block,
+              block.id === blockId && !block.locked ? ({ ...block, ...patch } as Block) : block,
             ),
           })),
         ),
@@ -642,7 +666,7 @@ export function EditorProvider({ children }: { children: ReactNode }) {
         setBook((prev) =>
           withPage(prev, pageId, (page) => ({
             ...page,
-            blocks: page.blocks.filter((block) => block.id !== blockId),
+            blocks: page.blocks.filter((block) => block.id !== blockId || block.locked),
           })),
         ),
       moveBlock: (pageId, blockId, direction) =>
@@ -657,25 +681,57 @@ export function EditorProvider({ children }: { children: ReactNode }) {
             return { ...page, blocks };
           }),
         ),
+      moveBlockToIndex: (pageId, blockId, index) =>
+        setBook((prev) =>
+          withPage(prev, pageId, (page) => {
+            const from = page.blocks.findIndex((block) => block.id === blockId);
+            if (from < 0) return page;
+            const blocks = [...page.blocks];
+            const [block] = blocks.splice(from, 1);
+            blocks.splice(Math.max(0, Math.min(index, blocks.length)), 0, block!);
+            return { ...page, blocks };
+          }),
+        ),
+      toggleBlockHidden: (pageId, blockId) =>
+        setBook((prev) =>
+          withPage(prev, pageId, (page) => ({
+            ...page,
+            blocks: page.blocks.map((block) =>
+              block.id === blockId ? { ...block, hidden: !block.hidden } : block,
+            ),
+          })),
+        ),
+      toggleBlockLocked: (pageId, blockId) =>
+        setBook((prev) =>
+          withPage(prev, pageId, (page) => ({
+            ...page,
+            blocks: page.blocks.map((block) =>
+              block.id === blockId ? { ...block, locked: !block.locked } : block,
+            ),
+          })),
+        ),
       addPage: (afterPageId, template = "narrative") =>
-        setBook((prev) => {
-          const index = prev.pages.findIndex((page) => page.id === afterPageId);
-          const reference = prev.pages[index];
+        (() => {
+          const reference = book.pages[book.pages.findIndex((page) => page.id === afterPageId)];
           const page = createEmptyPage(template, reference);
-          const pages = [...prev.pages];
-          pages.splice(index + 1, 0, page);
-          const nodes = prev.nodes.map((node) =>
-            node.pageIds.includes(afterPageId)
-              ? {
-                  ...node,
-                  pageIds: node.pageIds.flatMap((id) =>
-                    id === afterPageId ? [id, page.id] : [id],
-                  ),
-                }
-              : node,
-          );
-          return { ...prev, pages, nodes };
-        }),
+          setBook((prev) => {
+            const index = prev.pages.findIndex((page) => page.id === afterPageId);
+            const pages = [...prev.pages];
+            pages.splice(index + 1, 0, page);
+            const nodes = prev.nodes.map((node) =>
+              node.pageIds.includes(afterPageId)
+                ? {
+                    ...node,
+                    pageIds: node.pageIds.flatMap((id) =>
+                      id === afterPageId ? [id, page.id] : [id],
+                    ),
+                  }
+                : node,
+            );
+            return { ...prev, pages, nodes };
+          });
+          setSelectedPageId(page.id);
+        })(),
       duplicatePage: (pageId) =>
         setBook((prev) => {
           const index = prev.pages.findIndex((page) => page.id === pageId);
@@ -733,11 +789,20 @@ export function EditorProvider({ children }: { children: ReactNode }) {
           ),
         })),
       /* Remover asset não apaga blocos: o aviso editorial sinaliza o id órfão. */
-      removeAsset: (assetId) =>
+      removeAsset: (assetId) => {
+        const asset = book.assets?.find((item) => item.id === assetId);
+        const localKey =
+          asset?.storage?.kind === "local"
+            ? asset.storage.key
+            : asset?.storage?.kind === "r2"
+              ? asset.storage.localKey
+              : undefined;
+        if (localKey) void deleteAssetBlob(localKey).catch(() => undefined);
         setBook((prev) => ({
           ...prev,
-          assets: (prev.assets ?? []).filter((asset) => asset.id !== assetId),
-        })),
+          assets: (prev.assets ?? []).filter((item) => item.id !== assetId),
+        }));
+      },
       assetUsage: (assetId) => {
         const ref = assetRef(assetId);
         return book.pages.reduce(
@@ -962,6 +1027,7 @@ export function EditorProvider({ children }: { children: ReactNode }) {
     zoom,
     productionPlan,
     projectId,
+    frameToolActive,
   ]);
 
   return <EditorContext.Provider value={value}>{children}</EditorContext.Provider>;

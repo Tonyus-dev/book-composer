@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent, RefObject } from "react";
 import type { Block, BlockFrame, Book, ImageBlock, Page } from "../../book/types";
-import { PageRenderer } from "../../book/renderer/PageRenderer";
+import { PageRenderer, type PageControl } from "../../book/renderer/PageRenderer";
 import { BookRenderContext } from "../../book/renderer/context";
-import { useEditor, type Overlays } from "../state/store";
+import { nextId, useEditor, type Overlays } from "../state/store";
 import { normalizeTableBlock } from "../../book/tableModel";
 import { TableEditorOverlay } from "./TableEditorOverlay";
 import { InlineTextEditorOverlay } from "./InlineTextEditorOverlay";
@@ -136,6 +136,8 @@ function RulerOverlay({
 
 type ResizeBox = { left: number; top: number; width: number; height: number };
 
+type FrameDraft = { frame: BlockFrame; box: ResizeBox };
+
 function findBlockElement(pageElement: HTMLElement, blockId: string) {
   return Array.from(pageElement.querySelectorAll<HTMLElement>("[data-block-id]")).find(
     (element) => element.dataset["blockId"] === blockId,
@@ -229,6 +231,8 @@ function ImageResizeOverlay({
     const startOffsetX = block.offsetX ?? 0;
     const startOffsetY = block.offsetY ?? 0;
     const isMove = event.currentTarget.dataset["resize"] === "false";
+    const handle = event.currentTarget.dataset["handle"] ?? "se";
+    const initialFrame = block.frame;
     const keepRatio = event.shiftKey;
     const ratio = startHeight > 0 ? startWidth / startHeight : 1;
 
@@ -261,23 +265,52 @@ function ImageResizeOverlay({
         Math.min(maxHeight, startHeight + (moveEvent.clientY - startY) / scale),
       );
       if (isMove) {
-        updateBlock(pageId, block.id, {
-          offsetX: Math.max(
-            -100,
-            Math.min(100, startOffsetX + ((moveEvent.clientX - startX) / pageRect.width) * 100),
-          ),
-          offsetY: Math.max(
-            -100,
-            Math.min(100, startOffsetY + ((moveEvent.clientY - startY) / pageRect.height) * 100),
-          ),
-        });
+        if (initialFrame) {
+          updateBlock(pageId, block.id, {
+            frame: {
+              ...initialFrame,
+              x: initialFrame.x + (moveEvent.clientX - startX) / scale / CSS_PX_PER_MM,
+              y: initialFrame.y + (moveEvent.clientY - startY) / scale / CSS_PX_PER_MM,
+            },
+          });
+        } else {
+          updateBlock(pageId, block.id, {
+            offsetX: Math.max(
+              -100,
+              Math.min(100, startOffsetX + ((moveEvent.clientX - startX) / pageRect.width) * 100),
+            ),
+            offsetY: Math.max(
+              -100,
+              Math.min(100, startOffsetY + ((moveEvent.clientY - startY) / pageRect.height) * 100),
+            ),
+          });
+        }
         return;
       }
       if (keepRatio) height = Math.min(maxHeight, width / ratio);
-      updateBlock(pageId, block.id, {
-        width: `${Math.round((width / CSS_PX_PER_MM) * 10) / 10}mm`,
-        height: `${Math.round((height / CSS_PX_PER_MM) * 10) / 10}mm`,
-      });
+      if (initialFrame) {
+        const dx = (moveEvent.clientX - startX) / scale / CSS_PX_PER_MM;
+        const dy = (moveEvent.clientY - startY) / scale / CSS_PX_PER_MM;
+        const next = { ...initialFrame };
+        if (handle.includes("w")) {
+          next.x = initialFrame.x + dx;
+          next.width = Math.max(10, initialFrame.width - dx);
+        } else {
+          next.width = Math.max(10, initialFrame.width + dx);
+        }
+        if (handle.includes("n")) {
+          next.y = initialFrame.y + dy;
+          next.height = Math.max(10, initialFrame.height - dy);
+        } else {
+          next.height = Math.max(10, initialFrame.height + dy);
+        }
+        updateBlock(pageId, block.id, { frame: next });
+      } else {
+        updateBlock(pageId, block.id, {
+          width: `${Math.round((width / CSS_PX_PER_MM) * 10) / 10}mm`,
+          height: `${Math.round((height / CSS_PX_PER_MM) * 10) / 10}mm`,
+        });
+      }
     };
     const onPointerUp = () => {
       window.removeEventListener("pointermove", onPointerMove);
@@ -349,15 +382,19 @@ function ImageResizeOverlay({
         onPointerUp={() => cleanupDragRef.current?.()}
         onPointerCancel={() => cleanupDragRef.current?.()}
       />
-      <button
-        type="button"
-        className="k-editor-resize-handle"
-        data-testid="image-resize-handle"
-        aria-label="Redimensionar imagem"
-        onPointerDown={handlePointerDown}
-        onPointerUp={() => cleanupDragRef.current?.()}
-        onPointerCancel={() => cleanupDragRef.current?.()}
-      />
+      {(["nw", "ne", "sw", "se"] as const).map((handle) => (
+        <button
+          key={handle}
+          type="button"
+          className="k-editor-resize-handle"
+          data-handle={handle}
+          data-testid={handle === "se" ? "image-resize-handle" : `image-resize-handle-${handle}`}
+          aria-label={`Redimensionar imagem pelo canto ${handle}`}
+          onPointerDown={handlePointerDown}
+          onPointerUp={() => cleanupDragRef.current?.()}
+          onPointerCancel={() => cleanupDragRef.current?.()}
+        />
+      ))}
     </div>
   );
 }
@@ -444,6 +481,7 @@ function BlockTransformOverlay({
       height: Math.max(8, targetRect.height / scale / pxPerMm),
     };
     const resize = event.currentTarget.dataset["resize"] === "true";
+    const handle = event.currentTarget.dataset["handle"] ?? "se";
     const startX = event.clientX;
     const startY = event.clientY;
     const move = (moveEvent: PointerEvent) => {
@@ -455,13 +493,21 @@ function BlockTransformOverlay({
       }
       const dx = (moveEvent.clientX - startX) / scale / pxPerMm;
       const dy = (moveEvent.clientY - startY) / scale / pxPerMm;
-      const next = resize
-        ? {
-            ...initial,
-            width: Math.max(8, initial.width + dx),
-            height: Math.max(8, initial.height + dy),
-          }
-        : { ...initial, x: initial.x + dx, y: initial.y + dy };
+      const next = resize ? { ...initial } : { ...initial, x: initial.x + dx, y: initial.y + dy };
+      if (resize) {
+        if (handle.includes("w")) {
+          next.x = initial.x + dx;
+          next.width = Math.max(8, initial.width - dx);
+        } else {
+          next.width = Math.max(8, initial.width + dx);
+        }
+        if (handle.includes("n")) {
+          next.y = initial.y + dy;
+          next.height = Math.max(8, initial.height - dy);
+        } else {
+          next.height = Math.max(8, initial.height + dy);
+        }
+      }
       if (snapGrid) {
         next.x = Math.round(next.x);
         next.y = Math.round(next.y);
@@ -513,16 +559,20 @@ function BlockTransformOverlay({
         onPointerUp={() => cleanupDragRef.current?.()}
         onPointerCancel={() => cleanupDragRef.current?.()}
       />
-      <button
-        type="button"
-        className="k-editor-transform-handle"
-        data-testid="block-resize-handle"
-        data-resize="true"
-        aria-label={`Redimensionar bloco ${block.type}`}
-        onPointerDown={onPointerDown}
-        onPointerUp={() => cleanupDragRef.current?.()}
-        onPointerCancel={() => cleanupDragRef.current?.()}
-      />
+      {(["nw", "ne", "sw", "se"] as const).map((handle) => (
+        <button
+          key={handle}
+          type="button"
+          className="k-editor-transform-handle"
+          data-testid={handle === "se" ? "block-resize-handle" : `block-resize-handle-${handle}`}
+          data-handle={handle}
+          data-resize="true"
+          aria-label={`Redimensionar bloco ${block.type} pelo canto ${handle}`}
+          onPointerDown={onPointerDown}
+          onPointerUp={() => cleanupDragRef.current?.()}
+          onPointerCancel={() => cleanupDragRef.current?.()}
+        />
+      ))}
     </div>
   );
 }
@@ -545,6 +595,11 @@ export function PageCanvas({
     selectedBlockId,
     selectBlock,
     selectPage,
+    addBlock,
+    updatePage,
+    updatePageSettings,
+    frameToolActive,
+    setFrameToolActive,
     reportOverflow,
     overflowPages,
     updateBlock,
@@ -555,12 +610,122 @@ export function PageCanvas({
   } = useEditor();
   const ref = useRef<HTMLDivElement>(null);
   const [editingBlockId, setEditingBlockId] = useState<string | null>(null);
+  const [frameDraft, setFrameDraft] = useState<FrameDraft | null>(null);
+  const [selectedPageControl, setSelectedPageControl] = useState<PageControl | null>(null);
   const [rulerPoint, setRulerPoint] = useState<{
     x: number;
     y: number;
     xMm: number;
     yMm: number;
   } | null>(null);
+
+  const selectBlockFromCanvas = useCallback(
+    (blockId: string | null) => {
+      setSelectedPageControl(null);
+      selectBlock(blockId);
+    },
+    [selectBlock],
+  );
+
+  const handleFramePointerDown = (event: ReactPointerEvent<HTMLElement>) => {
+    if (!active || !frameToolActive) return;
+    const target = event.target as HTMLElement;
+    if (target.closest("[data-block-id]")) return;
+    const pageElement = ref.current;
+    const contentElement =
+      pageElement?.querySelector<HTMLElement>(".k-page__content") ?? pageElement;
+    if (!pageElement || !contentElement) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const pointerTarget = event.currentTarget;
+    const pointerId = event.pointerId;
+    pointerTarget.setPointerCapture(pointerId);
+    const pageRect = pageElement.getBoundingClientRect();
+    const contentRect = contentElement.getBoundingClientRect();
+    const scale = pageElement.offsetWidth > 0 ? pageRect.width / pageElement.offsetWidth : 1;
+    const pxPerMm = 96 / 25.4;
+    const contentWidth = contentRect.width / scale / pxPerMm;
+    const contentHeight = contentRect.height / scale / pxPerMm;
+    const startX = Math.max(
+      0,
+      Math.min(contentWidth - 10, (event.clientX - contentRect.left) / scale / pxPerMm),
+    );
+    const startY = Math.max(
+      0,
+      Math.min(contentHeight - 10, (event.clientY - contentRect.top) / scale / pxPerMm),
+    );
+    const startPageX = (event.clientX - pageRect.left) / scale;
+    const startPageY = (event.clientY - pageRect.top) / scale;
+    const stop = () => {
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerup", stop);
+      window.removeEventListener("pointercancel", stop);
+      try {
+        if (pointerTarget.hasPointerCapture(pointerId))
+          pointerTarget.releasePointerCapture(pointerId);
+      } catch {
+        /* ponteiro já liberado pelo navegador */
+      }
+      const endX = Math.max(
+        startX + 10,
+        Math.min(contentWidth, (lastClientX - contentRect.left) / scale / pxPerMm),
+      );
+      const endY = Math.max(
+        startY + 10,
+        Math.min(contentHeight, (lastClientY - contentRect.top) / scale / pxPerMm),
+      );
+      const frame = {
+        x: Math.round(startX * 10) / 10,
+        y: Math.round(startY * 10) / 10,
+        width: Math.round((endX - startX) * 10) / 10,
+        height: Math.round((endY - startY) * 10) / 10,
+      };
+      setFrameDraft({
+        frame,
+        box: {
+          left: startPageX,
+          top: startPageY,
+          width: (endX - startX) * pxPerMm,
+          height: (endY - startY) * pxPerMm,
+        },
+      });
+      setFrameToolActive(false);
+    };
+    let lastClientX = event.clientX;
+    let lastClientY = event.clientY;
+    const move = (moveEvent: PointerEvent) => {
+      if (moveEvent.buttons === 0) {
+        stop();
+        return;
+      }
+      lastClientX = moveEvent.clientX;
+      lastClientY = moveEvent.clientY;
+    };
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", stop, { once: true });
+    window.addEventListener("pointercancel", stop, { once: true });
+  };
+
+  const createDraftBlock = (kind: "text" | "image") => {
+    if (!frameDraft) return;
+    const id = nextId("frame");
+    const block: Block =
+      kind === "text"
+        ? { id, type: "text", content: "", role: "body", align: "start", frame: frameDraft.frame }
+        : {
+            id,
+            type: "image",
+            src: "",
+            alt: "Imagem do frame",
+            fit: "cover",
+            position: "flow",
+            frame: frameDraft.frame,
+          };
+    addBlock(page.id, block);
+    selectBlockFromCanvas(id);
+    if (kind === "text") setEditingBlockId(id);
+    setFrameDraft(null);
+  };
 
   useEffect(() => {
     const node = ref.current;
@@ -597,48 +762,141 @@ export function PageCanvas({
     const target = (event.target as HTMLElement).closest<HTMLElement>("[data-recipe-slot]");
     const blockId = target?.closest<HTMLElement>("[data-block-id]")?.dataset["blockId"];
     const block = page.blocks.find((item) => item.id === blockId);
-    if (!target || !block || block.type !== "image") return;
-    const slot = target.dataset["recipeSlot"] ?? "";
-    if (
-      !["portrait", "image", "hero-image", "map", "symbol"].some(
-        (kind) => slot === kind || slot.startsWith(`${kind}-`),
-      )
-    ) {
-      return;
-    }
     try {
       const asset = JSON.parse(raw) as { src?: string; label?: string; effectivePpi?: number };
       if (!asset.src) return;
       event.preventDefault();
-      updateBlock(page.id, block.id, {
+      if (target && block?.type === "image") {
+        const slot = target.dataset["recipeSlot"] ?? "";
+        if (
+          !["portrait", "image", "hero-image", "map", "symbol"].some(
+            (kind) => slot === kind || slot.startsWith(`${kind}-`),
+          )
+        )
+          return;
+        updateBlock(page.id, block.id, {
+          src: asset.src,
+          alt: asset.label ?? block.alt,
+          ...(asset.effectivePpi ? { effectivePpi: asset.effectivePpi } : {}),
+        });
+        return;
+      }
+      const pageElement = ref.current;
+      const contentElement =
+        pageElement?.querySelector<HTMLElement>(".k-page__content") ?? pageElement;
+      if (!pageElement || !contentElement) return;
+      const pageRect = pageElement.getBoundingClientRect();
+      const contentRect = contentElement.getBoundingClientRect();
+      const scale = pageElement.offsetWidth > 0 ? pageRect.width / pageElement.offsetWidth : 1;
+      const pxPerMm = 96 / 25.4;
+      const width = Math.min(54, contentRect.width / scale / pxPerMm);
+      const height = Math.min(62, contentRect.height / scale / pxPerMm);
+      const x = Math.max(
+        0,
+        Math.min(
+          contentRect.width / scale / pxPerMm - width,
+          (event.clientX - contentRect.left) / scale / pxPerMm - width / 2,
+        ),
+      );
+      const y = Math.max(
+        0,
+        Math.min(
+          contentRect.height / scale / pxPerMm - height,
+          (event.clientY - contentRect.top) / scale / pxPerMm - height / 2,
+        ),
+      );
+      const image: ImageBlock = {
+        id: nextId("frame-image"),
+        type: "image",
         src: asset.src,
-        alt: asset.label ?? block.alt,
+        alt: asset.label ?? "Imagem",
+        fit: "cover",
+        position: "flow",
+        frame: { x, y, width, height },
         ...(asset.effectivePpi ? { effectivePpi: asset.effectivePpi } : {}),
-      });
+      };
+      addBlock(page.id, image);
+      selectBlockFromCanvas(image.id);
     } catch {
       /* clipboard de asset inválido não altera o documento */
     }
   };
 
   useEffect(() => {
-    if (!active || !selectedBlockId) return;
+    if (!active || (!selectedBlockId && !selectedPageControl)) return;
     const onKeyDown = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement | null;
       if (target && /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)) return;
       if (event.key === "Delete") {
         event.preventDefault();
-        removeBlock(page.id, selectedBlockId);
-        selectBlock(null);
+        if (selectedPageControl) {
+          if (
+            selectedPageControl === "header" ||
+            selectedPageControl === "footer" ||
+            selectedPageControl === "pageNumber"
+          ) {
+            updatePageSettings(page.id, { [selectedPageControl]: false });
+          } else if (selectedPageControl === "title") {
+            updatePage(page.id, { title: "" });
+          } else if (selectedPageControl === "subtitle") {
+            updatePage(page.id, { subtitle: undefined });
+          } else if (selectedPageControl === "eyebrow") {
+            updatePage(page.id, { eyebrow: undefined });
+          } else if (selectedPageControl === "templateMeta") {
+            updatePage(page.id, { coverMode: "art-only" });
+          }
+          setSelectedPageControl(null);
+          return;
+        }
+        if (selectedBlockId) removeBlock(page.id, selectedBlockId);
+        selectBlockFromCanvas(null);
         return;
       }
-      if (event.key.toLowerCase() === "d" && (event.metaKey || event.ctrlKey)) {
+      if (
+        selectedBlockId &&
+        (event.key === "ArrowLeft" ||
+          event.key === "ArrowRight" ||
+          event.key === "ArrowUp" ||
+          event.key === "ArrowDown")
+      ) {
+        event.preventDefault();
+        const block = page.blocks.find((item) => item.id === selectedBlockId);
+        if (!block?.frame || block.locked) return;
+        const distance = event.shiftKey ? 5 : 1;
+        const delta =
+          event.key === "ArrowLeft"
+            ? { x: -distance }
+            : event.key === "ArrowRight"
+              ? { x: distance }
+              : event.key === "ArrowUp"
+                ? { y: -distance }
+                : { y: distance };
+        updateBlock(page.id, block.id, {
+          frame: {
+            ...block.frame,
+            x: block.frame.x + (delta.x ?? 0),
+            y: block.frame.y + (delta.y ?? 0),
+          },
+        });
+      }
+      if (selectedBlockId && event.key.toLowerCase() === "d" && (event.metaKey || event.ctrlKey)) {
         event.preventDefault();
         duplicateBlock(page.id, selectedBlockId);
       }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [active, duplicateBlock, page.id, removeBlock, selectBlock, selectedBlockId]);
+  }, [
+    active,
+    duplicateBlock,
+    page.id,
+    removeBlock,
+    selectBlockFromCanvas,
+    selectedBlockId,
+    selectedPageControl,
+    updatePage,
+    updatePageSettings,
+  ]);
 
   useEffect(() => {
     const node = ref.current;
@@ -657,7 +915,7 @@ export function PageCanvas({
       value={{
         interactive: true,
         selectedBlockId,
-        onSelectBlock: selectBlock,
+        onSelectBlock: selectBlockFromCanvas,
         onSheetValueChange: (blockId, key, value) => {
           const block = page.blocks.find((item) => item.id === blockId);
           if (!block || block.type !== "sheet") return;
@@ -673,7 +931,15 @@ export function PageCanvas({
         page={page}
         index={index}
         className={`k-editor-page${active ? " k-editor-page--active" : ""}`}
-        onClick={() => selectPage(page.id)}
+        onClick={() => {
+          setSelectedPageControl(null);
+          selectPage(page.id);
+        }}
+        onPointerDown={handleFramePointerDown}
+        onSelectPageControl={(control) => {
+          setSelectedPageControl(control);
+          selectBlock(null);
+        }}
         onDoubleClick={(blockId) => {
           if (!active || !blockId) return;
           const target = page.blocks.find((block) => block.id === blockId);
@@ -682,7 +948,11 @@ export function PageCanvas({
           }
         }}
         onDragOver={(event) => {
-          if ((event.target as HTMLElement).closest("[data-recipe-slot]")) event.preventDefault();
+          if (
+            (event.target as HTMLElement).closest("[data-recipe-slot]") ||
+            event.dataTransfer.types.includes("application/x-kallistis-asset")
+          )
+            event.preventDefault();
         }}
         onDrop={handleAssetDrop}
         overflow={Boolean(overflowPages[page.id])}
@@ -734,6 +1004,27 @@ export function PageCanvas({
             updateBlock={updateBlock}
             onClose={() => setEditingBlockId(null)}
           />
+        ) : null}
+        {active && frameDraft ? (
+          <div
+            className="k-editor-frame-draft"
+            style={frameDraft.box}
+            aria-label="Novo frame"
+            onPointerDown={(event) => event.stopPropagation()}
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="k-editor-frame-draft__actions" role="group" aria-label="Tipo de frame">
+              <button type="button" onClick={() => createDraftBlock("text")}>
+                TEXTO
+              </button>
+              <button type="button" onClick={() => createDraftBlock("image")}>
+                IMAGEM
+              </button>
+              <button type="button" onClick={() => setFrameDraft(null)} aria-label="Cancelar frame">
+                ×
+              </button>
+            </div>
+          </div>
         ) : null}
       </PageRenderer>
     </BookRenderContext.Provider>

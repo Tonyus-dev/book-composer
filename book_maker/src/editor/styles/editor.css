@@ -3,6 +3,99 @@
 
 .k-editor-workspace {
   position: relative;
+  background: #fffdf2;
+  color: #000;
+}
+
+.k-editor-panel-title {
+  background: #1e3545;
+  color: #fffdf2;
+}
+
+.k-editor-page-indicator {
+  border-color: #d25d38;
+  background: #d25d38;
+  color: #fffdf2;
+}
+
+.k-editor-sidebar-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+}
+
+.k-editor-sidebar-tabs button {
+  padding: 9px 5px;
+  border-bottom: 2px solid transparent;
+  color: var(--muted-foreground);
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.k-editor-sidebar-tabs button:hover,
+.k-editor-sidebar-tabs button.is-active {
+  color: var(--foreground);
+  border-bottom-color: var(--primary);
+}
+
+.k-editor-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 30px;
+  padding: 4px 12px;
+  border-top: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted-foreground);
+  font-size: 10px;
+}
+
+.k-editor-context-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 30px;
+  padding: 4px 10px;
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+  font-size: 10px;
+}
+
+.k-editor-context-toolbar button {
+  padding: 3px 7px;
+  border: 1px solid var(--border);
+}
+
+.k-editor-context-toolbar button:hover { background: var(--accent); }
+
+.k-editor-status-bar button {
+  min-width: 18px;
+  color: var(--foreground);
+}
+
+@media (max-width: 900px) {
+  .k-editor-status-bar span:nth-child(3) { display: none; }
+}
+
+.k-editor-primary-action {
+  border-color: #d25d38;
+  background: #d25d38;
+  color: #fffdf2;
+}
+
+.k-editor-primary-action:hover {
+  background: #1e3545;
+  color: #fffdf2;
+}
+
+.k-editor-view-tab--spread.bg-primary,
+.k-editor-view-tab--light.bg-primary {
+  border-color: #1e3545;
+  background: #1e3545;
+  color: #fffdf2;
 }
 
 .k-editor-side-panel {
@@ -436,8 +529,6 @@
 
 .k-editor-resize-handle {
   position: absolute;
-  right: -7px;
-  bottom: -7px;
   width: 14px;
   height: 14px;
   padding: 0;
@@ -448,6 +539,34 @@
   cursor: nwse-resize;
   pointer-events: auto;
   touch-action: none;
+}
+
+.k-editor-resize-handle[data-handle="nw"],
+.k-editor-transform-handle[data-handle="nw"] {
+  top: -7px;
+  left: -7px;
+  cursor: nwse-resize;
+}
+
+.k-editor-resize-handle[data-handle="ne"],
+.k-editor-transform-handle[data-handle="ne"] {
+  top: -7px;
+  right: -7px;
+  cursor: nesw-resize;
+}
+
+.k-editor-resize-handle[data-handle="sw"],
+.k-editor-transform-handle[data-handle="sw"] {
+  bottom: -7px;
+  left: -7px;
+  cursor: nesw-resize;
+}
+
+.k-editor-resize-handle[data-handle="se"],
+.k-editor-transform-handle[data-handle="se"] {
+  right: -7px;
+  bottom: -7px;
+  cursor: nwse-resize;
 }
 
 .k-editor-transform-overlay {
@@ -469,8 +588,6 @@
 
 .k-editor-transform-handle {
   position: absolute;
-  right: -7px;
-  bottom: -7px;
   width: 14px;
   height: 14px;
   padding: 0;
@@ -481,6 +598,42 @@
   cursor: nwse-resize;
   pointer-events: auto;
   touch-action: none;
+}
+
+.k-editor-frame-draft {
+  position: absolute;
+  z-index: 48;
+  box-sizing: border-box;
+  border: 1px dashed #542869;
+  background: rgb(185 83 220 / 10%);
+  pointer-events: auto;
+}
+
+.k-editor-frame-draft__actions {
+  position: absolute;
+  top: -31px;
+  left: 0;
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid #b953dc;
+  background: #17121b;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 32%);
+  white-space: nowrap;
+}
+
+.k-editor-frame-draft__actions button {
+  padding: 3px 7px;
+  border: 1px solid transparent;
+  color: #fff;
+  background: transparent;
+  font: 10px/1.1 system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.k-editor-frame-draft__actions button:hover {
+  border-color: #d99beb;
+  background: #b953dc;
 }
 
 .k-sheet-designer {
@@ -784,8 +937,62 @@
 
 .k-editor-page[data-fixed="true"] {
   box-shadow:
-    0 0 0 1.2mm #b953dc,
+    0 0 0 1.2mm #d25d38,
     0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Paleta definitiva do editor: seleção, guias e estados de ação. */
+.k-editor-page [data-selected="true"] {
+  outline-color: #d25d38;
+}
+
+.k-editor-transform-overlay,
+.k-editor-resize-overlay,
+.k-editor-frame-draft {
+  border-color: #d25d38;
+}
+
+.k-editor-transform-handle,
+.k-editor-resize-handle,
+.k-editor-table-graphic-handle {
+  background: #d25d38;
+}
+
+.k-editor-image-mode-toolbar,
+.k-editor-frame-draft__actions {
+  border-color: #d25d38;
+  background: #1e3545;
+}
+
+.k-editor-image-mode-toolbar button:hover,
+.k-editor-image-mode-toolbar button.is-active,
+.k-editor-frame-draft__actions button:hover {
+  border-color: #d25d38;
+  background: #d25d38;
+}
+
+.k-editor-ruler__top,
+.k-editor-ruler__left {
+  border-color: #1e3545;
+  background: color-mix(in srgb, #fffdf2 94%, transparent);
+}
+
+.k-editor-ruler__tick,
+.k-editor-ruler__marker,
+.k-editor-ruler__center {
+  color: #1e3545;
+  background-color: #1e3545;
+}
+
+.k-editor-ruler__bleed-label,
+.k-editor-ruler__readout {
+  border-color: #d25d38;
+  background: #d25d38;
+  color: #fffdf2;
+}
+
+.k-editor-page[data-overflow="true"] {
+  box-shadow: 0 0 0 2px #d25d38;
 }
 
 @media print {

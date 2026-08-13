@@ -144,10 +144,13 @@ export function Toolbar() {
     setView,
     zoom,
     setZoom,
+    frameToolActive,
+    setFrameToolActive,
     overlays,
     toggleOverlay,
     status,
     selectedPage,
+    clearPage,
     updatePage,
     setTemplate,
     addBlock,
@@ -379,7 +382,7 @@ export function Toolbar() {
                   ? "Mesa de luz: ritmo, densidade e distribuição de arte no livro inteiro"
                   : undefined
               }
-              className={`border px-2 py-1 text-[11px] ${
+              className={`k-editor-view-tab k-editor-view-tab--${mode} border px-2 py-1 text-[11px] ${
                 view === mode
                   ? "border-primary bg-primary text-primary-foreground"
                   : "border-border hover:bg-accent"
@@ -476,6 +479,29 @@ export function Toolbar() {
           </div>
         </details>
 
+        <button
+          type="button"
+          data-testid="frame-tool"
+          aria-pressed={frameToolActive}
+          title="Desenhe uma caixa e escolha TEXTO ou IMAGEM"
+          onClick={() => setFrameToolActive(!frameToolActive)}
+          className={`border px-2 py-1 text-[11px] ${frameToolActive ? "border-primary bg-primary text-primary-foreground" : "border-primary bg-primary/10 hover:bg-accent"}`}
+        >
+          + FRAME
+        </button>
+        <button
+          type="button"
+          data-testid="clear-page"
+          title="Remove a composição e os elementos opcionais desta página"
+          onClick={() => {
+            if (window.confirm("Limpar todos os elementos desta página?"))
+              clearPage(selectedPage.id);
+          }}
+          className="border border-border px-2 py-1 text-[11px] hover:bg-accent"
+        >
+          Limpar página
+        </button>
+
         <div className="flex items-center gap-1">
           <button
             type="button"
@@ -503,23 +529,27 @@ export function Toolbar() {
           </button>
         </div>
 
-        <div className="flex items-center gap-1">
-          {OVERLAY_LABELS.map((entry) => (
-            <button
-              key={entry.key}
-              type="button"
-              aria-pressed={overlays[entry.key]}
-              onClick={() => toggleOverlay(entry.key)}
-              className={`border px-2 py-1 text-[11px] ${
-                overlays[entry.key]
-                  ? "border-primary text-foreground"
-                  : "border-border text-muted-foreground hover:bg-accent"
-              }`}
-            >
-              {entry.label}
-            </button>
-          ))}
-        </div>
+        <details className="relative">
+          <summary className="cursor-pointer list-none border border-border px-2 py-1 text-[11px] hover:bg-accent">
+            Visualização ▾
+          </summary>
+          <div className="absolute left-0 top-full z-50 grid min-w-[150px] gap-1 border border-border bg-card p-2 shadow-xl">
+            {OVERLAY_LABELS.map((entry) => (
+              <label key={entry.key} className="flex items-center gap-2 px-1 py-1 text-[11px]">
+                <input
+                  type="checkbox"
+                  checked={overlays[entry.key]}
+                  onChange={() => toggleOverlay(entry.key)}
+                />
+                {entry.label}
+              </label>
+            ))}
+            <label className="flex items-center gap-2 px-1 py-1 text-[11px]">
+              <input type="checkbox" checked={snapGrid} onChange={toggleSnapGrid} />
+              Grid 1 mm
+            </label>
+          </div>
+        </details>
 
         <label className="flex items-center gap-1 text-[11px] text-muted-foreground">
           Inserir
@@ -663,7 +693,7 @@ export function Toolbar() {
           <button
             type="button"
             onClick={() => void downloadPortableBookJson(book)}
-            className="border border-border px-2 py-1 text-[11px] hover:bg-accent"
+            className="k-editor-primary-action border px-2 py-1 text-[11px]"
           >
             Exportar projeto portátil
           </button>
@@ -723,7 +753,7 @@ export function Toolbar() {
           <button
             type="button"
             onClick={openPrint}
-            className="border border-primary bg-primary px-2 py-1 text-[11px] font-medium text-primary-foreground"
+            className="k-editor-primary-action border px-2 py-1 text-[11px] font-medium"
           >
             Modo impressão
           </button>

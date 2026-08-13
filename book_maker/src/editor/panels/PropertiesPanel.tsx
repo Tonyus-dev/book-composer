@@ -82,6 +82,27 @@ function fontOptions(book: { fonts?: { family: string }[] }) {
 function BlockProperties({ block }: { block: Block }) {
   const { book, selectedPage, updateBlock, removeBlock, moveBlock } = useEditor();
   const patch = (values: Record<string, unknown>) => updateBlock(selectedPage.id, block.id, values);
+  const pageMm = (value: string) => Number.parseFloat(value) || 0;
+  const contentWidth = Math.max(
+    0,
+    pageMm(book.tokens.pageWidth) -
+      pageMm(book.tokens.marginInner) -
+      pageMm(book.tokens.marginOuter),
+  );
+  const contentHeight = Math.max(
+    0,
+    pageMm(book.tokens.pageHeight) -
+      pageMm(book.tokens.marginTop) -
+      pageMm(book.tokens.marginBottom),
+  );
+  const alignFrame = (axis: "x" | "y", position: "start" | "center" | "end") => {
+    if (!block.frame) return;
+    const total = axis === "x" ? contentWidth : contentHeight;
+    const size = axis === "x" ? block.frame.width : block.frame.height;
+    const value =
+      position === "start" ? 0 : position === "center" ? (total - size) / 2 : total - size;
+    patch({ frame: { ...block.frame, [axis]: Math.max(0, Math.round(value * 10) / 10) } });
+  };
 
   return (
     <>
@@ -153,6 +174,14 @@ function BlockProperties({ block }: { block: Block }) {
               }}
             />
           ))}
+          <TextField
+            label="Rotação (°)"
+            value={String(block.rotation ?? 0)}
+            onChange={(value) => {
+              const number = Number(value);
+              if (Number.isFinite(number)) patch({ rotation: number });
+            }}
+          />
         </div>
         {block.frame ? (
           <button
@@ -168,6 +197,61 @@ function BlockProperties({ block }: { block: Block }) {
           </p>
         )}
       </PanelSection>
+
+      {block.frame ? (
+        <PanelSection title="Alinhamento do elemento">
+          <div className="grid grid-cols-3 gap-1">
+            <button
+              type="button"
+              className="border border-border px-1 py-1 text-[10px] hover:bg-accent"
+              onClick={() => alignFrame("x", "start")}
+              title="Alinhar à esquerda da área de composição"
+            >
+              Esquerda
+            </button>
+            <button
+              type="button"
+              className="border border-border px-1 py-1 text-[10px] hover:bg-accent"
+              onClick={() => alignFrame("x", "center")}
+              title="Centralizar horizontalmente"
+            >
+              Centro H
+            </button>
+            <button
+              type="button"
+              className="border border-border px-1 py-1 text-[10px] hover:bg-accent"
+              onClick={() => alignFrame("x", "end")}
+              title="Alinhar à direita da área de composição"
+            >
+              Direita
+            </button>
+            <button
+              type="button"
+              className="border border-border px-1 py-1 text-[10px] hover:bg-accent"
+              onClick={() => alignFrame("y", "start")}
+              title="Alinhar ao topo da área de composição"
+            >
+              Topo
+            </button>
+            <button
+              type="button"
+              className="border border-border px-1 py-1 text-[10px] hover:bg-accent"
+              onClick={() => alignFrame("y", "center")}
+              title="Centralizar verticalmente"
+            >
+              Centro V
+            </button>
+            <button
+              type="button"
+              className="border border-border px-1 py-1 text-[10px] hover:bg-accent"
+              onClick={() => alignFrame("y", "end")}
+              title="Alinhar à base da área de composição"
+            >
+              Base
+            </button>
+          </div>
+        </PanelSection>
+      ) : null}
 
       <PanelSection title="Tipografia local">
         <SelectField
@@ -216,6 +300,42 @@ function BlockProperties({ block }: { block: Block }) {
               { value: "end", label: "Direita" },
             ]}
             onChange={(value) => patch({ align: value })}
+          />
+          <TextField
+            label="Tamanho da fonte"
+            value={block.fontSize ?? ""}
+            placeholder="ex. 12pt"
+            onChange={(value) => patch({ fontSize: value || undefined })}
+          />
+          <SelectField
+            label="Peso"
+            value={String(block.fontWeight ?? 400) as "400" | "600" | "700"}
+            options={[
+              { value: "400", label: "Normal" },
+              { value: "600", label: "Semibold" },
+              { value: "700", label: "Negrito" },
+            ]}
+            onChange={(value) => patch({ fontWeight: Number(value) })}
+          />
+          <SelectField
+            label="Estilo"
+            value={block.fontStyle ?? "normal"}
+            options={[
+              { value: "normal", label: "Normal" },
+              { value: "italic", label: "Itálico" },
+            ]}
+            onChange={(value) => patch({ fontStyle: value })}
+          />
+          <TextField
+            label="Entrelinha"
+            value={String(block.lineHeight ?? "")}
+            placeholder="ex. 1.25"
+            onChange={(value) => patch({ lineHeight: value || undefined })}
+          />
+          <ColorField
+            label="Cor do texto"
+            value={block.color ?? "#17140f"}
+            onChange={(value) => patch({ color: value })}
           />
           <TextField
             label="Largura máxima"
@@ -665,7 +785,7 @@ export function PropertiesPanel() {
 
   return (
     <div className="flex h-full flex-col overflow-y-auto">
-      <div className="flex items-center gap-1 border-b border-border px-2 py-1">
+      <div className="k-editor-panel-title flex items-center gap-1 border-b border-border px-2 py-1">
         <button
           type="button"
           aria-pressed={tab === "properties"}

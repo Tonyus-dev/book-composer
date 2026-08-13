@@ -17,9 +17,10 @@ function mmValue(token: string) {
  * O zoom é apenas visual: não altera dimensões editoriais internas.
  */
 export function PreviewArea() {
-  const { book, view, zoom, selectedPage, selectedPageIndex, selectPage } = useEditor();
+  const { book, view, zoom, setZoom, selectedPage, selectedPageIndex, selectPage } = useEditor();
   const containerRef = useRef<HTMLDivElement>(null);
   const [fitScale, setFitScale] = useState(0.5);
+  const [zoomOrigin, setZoomOrigin] = useState({ x: 50, y: 50 });
 
   const pageWidthPx = mmValue(book.tokens.pageWidth) * MM_TO_PX;
   const pageHeightPx = mmValue(book.tokens.pageHeight) * MM_TO_PX;
@@ -53,6 +54,27 @@ export function PreviewArea() {
 
   const scale = zoom === "fit" ? fitScale : zoom;
 
+  const handleWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    const current = zoom === "fit" ? fitScale : zoom;
+    const next = Math.max(0.25, Math.min(2, current * Math.exp(-event.deltaY * 0.001)));
+    const wrapper = event.currentTarget.querySelector<HTMLElement>("[data-editor-page-stage]");
+    if (wrapper) {
+      const rect = wrapper.getBoundingClientRect();
+      setZoomOrigin({
+        x: Math.max(
+          0,
+          Math.min(100, ((event.clientX - rect.left) / Math.max(1, rect.width)) * 100),
+        ),
+        y: Math.max(
+          0,
+          Math.min(100, ((event.clientY - rect.top) / Math.max(1, rect.height)) * 100),
+        ),
+      });
+    }
+    setZoom(Math.round(next * 100) / 100);
+  };
+
   const goto = useCallback(
     (delta: number) => {
       const step = view === "spread" ? 2 : 1;
@@ -83,17 +105,23 @@ export function PreviewArea() {
   if (view === "light") return <LightTable />;
 
   return (
-    <div ref={containerRef} className="relative flex-1 overflow-auto bg-muted/20">
+    <div
+      ref={containerRef}
+      className="relative flex-1 overflow-auto bg-muted/20"
+      onWheel={handleWheel}
+      data-testid="editor-canvas"
+    >
       <div
         className="flex min-h-full w-full items-center justify-center p-12"
         onClick={() => undefined}
       >
         <BookRoot tokens={book.tokens} fonts={book.fonts}>
           <div
+            data-editor-page-stage
             className="flex items-start gap-0"
             style={{
               transform: `scale(${scale})`,
-              transformOrigin: "center center",
+              transformOrigin: `${zoomOrigin.x}% ${zoomOrigin.y}%`,
               width: pageWidthPx * columns,
               height: pageHeightPx,
             }}
@@ -114,33 +142,11 @@ export function PreviewArea() {
         </BookRoot>
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-3 flex justify-center">
-        <div className="pointer-events-auto flex items-center gap-2 rounded-sm border border-border bg-card/95 px-3 py-1.5 text-xs text-muted-foreground">
-          <button
-            type="button"
-            className="px-2 py-0.5 hover:text-foreground"
-            onClick={() => goto(-1)}
-            aria-label={view === "spread" ? "Spread anterior" : "Página anterior"}
-          >
-            ←
-          </button>
-          <span className="tabular-nums">
-            {view === "spread"
-              ? `${spread.left !== null ? folioFor(book, spread.left) : "—"} · ${
-                  spread.right !== null ? folioFor(book, spread.right) : "—"
-                }`
-              : `fólio ${folioFor(book, selectedPageIndex)} de ${book.pages.length}`}
-          </span>
-          <button
-            type="button"
-            className="px-2 py-0.5 hover:text-foreground"
-            onClick={() => goto(1)}
-            aria-label={view === "spread" ? "Próximo spread" : "Próxima página"}
-          >
-            →
-          </button>
-          <span className="ml-2 opacity-60">{Math.round(scale * 100)}%</span>
-        </div>
+      <div
+        className="absolute inset-x-0 bottom-2 flex justify-center text-[10px] text-muted-foreground"
+        aria-hidden="true"
+      >
+        {view === "spread" ? "Spread" : "Canvas"}
       </div>
     </div>
   );

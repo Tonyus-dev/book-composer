@@ -14,7 +14,7 @@ import { useEditor } from "../state/store";
 
 const SEVERITY_CLASS: Record<PreflightSeverity, string> = {
   error: "text-destructive",
-  warning: "text-[#c08b2b]",
+  warning: "text-destructive",
   info: "text-muted-foreground",
 };
 

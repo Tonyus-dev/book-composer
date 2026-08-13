@@ -166,6 +166,7 @@ test("editor, canonical cover migration, IndexedDB assets, reload, offline and p
     height: number,
     color: readonly [number, number, number],
   ) => {
+    await page.getByRole("tab", { name: "Assets" }).click();
     await input.setInputFiles({
       name,
       mimeType: "image/png",
@@ -257,7 +258,7 @@ test("real PDF accepts legacy portable JSON and has the fixture page count", asy
   expect(consoleErrors.filter((message) => /Hydration failed/i.test(message))).toEqual([]);
 });
 
-test("blank is empty and preserves a manual composition in reload, print and PDF", async ({
+test("narrative page can be cleared and preserves a manual composition in reload, print and PDF", async ({
   page,
 }, testInfo) => {
   const consoleErrors: string[] = [];
@@ -266,21 +267,19 @@ test("blank is empty and preserves a manual composition in reload, print and PDF
   });
   await seedBookOnce(page);
   await page.goto("/");
-  const blankAddButtons = page.getByRole("button", {
-    name: "Adicionar Página em branco depois",
+  const narrativeAddButtons = page.getByRole("button", {
+    name: "Adicionar página depois",
     exact: true,
   });
-  await expect(blankAddButtons).toHaveCount(1);
-  await blankAddButtons.click();
-  await expect(blankAddButtons).toHaveCount(2);
-  const blankThumbnail = page.locator("button .k-page[data-template='blank']");
+  await narrativeAddButtons.first().click();
+  const blankThumbnail = page.locator("button .k-page[data-template='narrative']").last();
   await blankThumbnail.locator("xpath=ancestor::button[1]").click();
-  const blankPage = page.locator(".k-editor-page[data-template='blank']");
+  const blankPage = page.locator(".k-editor-page.k-editor-page--active");
   await expect(blankPage).toBeVisible();
   await expect(blankPage.locator("[data-block-id]")).toHaveCount(0);
-  await expect(blankPage.locator(".k-page__content, .k-page-number, .k-page-header")).toHaveCount(
-    0,
-  );
+  page.once("dialog", (dialog) => dialog.accept());
+  await page.getByTestId("clear-page").click();
+  await expect(blankPage.locator(".k-runhead, .k-folio, .k-footnote")).toHaveCount(0);
 
   const insert = page.getByLabel("Inserir bloco", { exact: true });
   await insert.selectOption("heading");
@@ -290,6 +289,7 @@ test("blank is empty and preserves a manual composition in reload, print and PDF
   await page.getByLabel("X (mm)").fill("12");
   await page.getByLabel("Y (mm)").fill("180");
   await insert.selectOption("image");
+  await page.getByRole("tab", { name: "Assets" }).click();
   await page.locator('input[type="file"][accept*="image/jpeg"]').setInputFiles({
     name: "blank-center.svg",
     mimeType: "image/svg+xml",
@@ -315,7 +315,7 @@ test("blank is empty and preserves a manual composition in reload, print and PDF
         const raw = localStorage.getItem(key);
         if (!raw) return null;
         const blank = JSON.parse(raw).pages.find(
-          (candidate: { template?: string }) => candidate.template === "blank",
+          (candidate: { template?: string }) => candidate.template === "narrative",
         );
         return blank?.blocks?.length ?? null;
       }, storageKey),
@@ -329,21 +329,23 @@ test("blank is empty and preserves a manual composition in reload, print and PDF
     storageKey,
   );
   const savedBlank = savedBook.pages.find(
-    (candidate: { template?: string }) => candidate.template === "blank",
+    (candidate: { template?: string }) => candidate.template === "narrative",
   );
   expect(savedBlank.blocks).toHaveLength(4);
   expect(
     savedBlank.blocks.map((block: { frame?: unknown }) => block.frame).filter(Boolean),
   ).toHaveLength(4);
   await page.reload();
-  await expect(blankAddButtons).toHaveCount(2);
-  await blankThumbnail.locator("xpath=ancestor::button[1]").click();
+  await page
+    .locator(`button .k-page[data-page-id="${savedBlank.id}"]`)
+    .locator("xpath=ancestor::button[1]")
+    .click();
   await expect(blankPage.locator("[data-block-id]")).toHaveCount(4);
   await expect(blankPage.locator(".k-block--text")).toHaveAttribute("style", /top: 180mm/);
 
   await page.goto("/print");
   await expect(page.locator("html")).toHaveAttribute("data-print-ready", "true");
-  const printedBlank = page.locator(".k-page[data-template='blank']");
+  const printedBlank = page.locator(".k-page[data-template='narrative']").last();
   await expect(printedBlank.locator("[data-block-id]")).toHaveCount(4);
   await expect(page.locator('img[src=""]')).toHaveCount(0);
   await expect(
