@@ -40,6 +40,7 @@ export interface WorkerEnv {
   OWNER_PASSWORD?: string;
   SESSION_SECRET?: string;
   APP_VERSION?: string;
+  GIT_SHA?: string;
 }
 
 const REPOSITORY = "Tonyus-dev/kallistis_producao";
@@ -491,6 +492,7 @@ export async function handleApiRequest(
     return json({
       ok: true,
       version: env.APP_VERSION ?? "development",
+      gitSha: env.GIT_SHA ?? null,
       storage: env.DB ? "d1" : "local-only",
       assets: env.R2_ASSETS ? "r2" : "local-only",
       privateApi: env.OWNER_PASSWORD && env.SESSION_SECRET ? "owner" : "blocked",
