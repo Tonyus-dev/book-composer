@@ -62,6 +62,7 @@ export function EditorLayout() {
     typeof window === "undefined" ? true : window.matchMedia("(min-width: 1100px)").matches,
   );
   const [leftTab, setLeftTab] = useState<"pages" | "assets" | "layers">("pages");
+  const [focusMode, setFocusMode] = useState(false);
   const [leftPanelRatio, setLeftPanelRatio] = useState(() => {
     if (typeof window === "undefined") return 52;
     const raw = window.localStorage.getItem("kallistis.book-builder.left-panel-ratio.v1");
@@ -145,7 +146,9 @@ export function EditorLayout() {
 
   return (
     <EditorProvider>
-      <div className="flex h-screen flex-col overflow-hidden bg-background text-foreground">
+      <div
+        className={`flex h-screen flex-col overflow-hidden bg-background text-foreground${focusMode ? " k-editor-focus-mode" : ""}`}
+      >
         <Toolbar />
         <div className="k-editor-workspace flex min-h-0 flex-1">
           <aside
@@ -201,6 +204,15 @@ export function EditorLayout() {
                 onClick={() => setLeftPanelOpen((open) => !open)}
               >
                 ☰ <span>Estrutura e assets</span>
+              </button>
+              <button
+                type="button"
+                className="k-editor-panel-toggle"
+                aria-pressed={focusMode}
+                onClick={() => setFocusMode((value) => !value)}
+                title="Recolher ou reabrir painéis laterais"
+              >
+                {focusMode ? "Sair do foco" : "Foco no canvas"}
               </button>
               <button
                 type="button"

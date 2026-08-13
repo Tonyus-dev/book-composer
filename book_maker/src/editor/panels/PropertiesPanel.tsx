@@ -28,6 +28,8 @@ import {
 import { GuidePanel } from "./GuidePanel";
 import { fileToBookFont, ACCEPTED_FONT_EXTENSIONS } from "../../lib/assets/upload";
 import { nextId } from "../state/store";
+import { effectiveImagePpi } from "../../lib/preflight/static-rules";
+import { lookupAsset, resolutionSeverity } from "../../lib/assets/registry";
 
 const TOKEN_FIELDS: { key: keyof BookTokens; label: string }[] = [
   { key: "pageWidth", label: "Largura" },
@@ -102,6 +104,13 @@ function BlockProperties({ block }: { block: Block }) {
     const value =
       position === "start" ? 0 : position === "center" ? (total - size) / 2 : total - size;
     patch({ frame: { ...block.frame, [axis]: Math.max(0, Math.round(value * 10) / 10) } });
+  };
+  const presetFrame = (axis: "x" | "y", ratio: number) => {
+    if (!block.frame) return;
+    const total = axis === "x" ? contentWidth : contentHeight;
+    const size = axis === "x" ? block.frame.width : block.frame.height;
+    const value = Math.max(0, Math.min(total - size, total * ratio - size / 2));
+    patch({ frame: { ...block.frame, [axis]: Math.round(value * 10) / 10 } });
   };
 
   return (
@@ -197,6 +206,35 @@ function BlockProperties({ block }: { block: Block }) {
           </p>
         )}
       </PanelSection>
+
+      {block.frame ? (
+        <PanelSection title="Presets de posicionamento">
+          <p className="mb-2 text-[10px] text-muted-foreground">Referência: área útil da página.</p>
+          <div className="grid grid-cols-3 gap-1">
+            {[
+              ["Esq.", "x", 0],
+              ["1/4", "x", 0.25],
+              ["Centro", "x", 0.5],
+              ["3/4", "x", 0.75],
+              ["Dir.", "x", 1],
+              ["Topo", "y", 0],
+              ["1/4", "y", 0.25],
+              ["Meio", "y", 0.5],
+              ["3/4", "y", 0.75],
+              ["Base", "y", 1],
+            ].map(([label, axis, ratio]) => (
+              <button
+                key={`${axis}-${label}`}
+                type="button"
+                className="border border-border px-1 py-1 text-[10px] hover:bg-accent"
+                onClick={() => presetFrame(axis as "x" | "y", ratio as number)}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </PanelSection>
+      ) : null}
 
       {block.frame ? (
         <PanelSection title="Alinhamento do elemento">
@@ -687,8 +725,16 @@ function TableProperties({ block }: { block: TableBlock }) {
 }
 
 function ImageProperties({ block }: { block: ImageBlock }) {
-  const { selectedPage, updateBlock } = useEditor();
+  const { book, selectedPage, updateBlock } = useEditor();
   const patch = (values: Record<string, unknown>) => updateBlock(selectedPage.id, block.id, values);
+  const asset = lookupAsset(block.src);
+  const pixels = asset ? { width: asset.pixelWidth, height: asset.pixelHeight } : null;
+  const ppi = effectiveImagePpi(book, selectedPage, block);
+  const severity = ppi ? resolutionSeverity(ppi) : null;
+  const widthMm = block.frame?.width ?? (Number.parseFloat(block.width ?? "0") || 0);
+  const heightMm = block.frame?.height ?? (Number.parseFloat(block.height ?? "0") || 0);
+  const maxWidth300 = pixels ? Math.round((pixels.width / 300) * 25.4 * 10) / 10 : 0;
+  const maxHeight300 = pixels ? Math.round((pixels.height / 300) * 25.4 * 10) / 10 : 0;
   return (
     <PanelSection title="Imagem">
       <TextField label="Source" value={block.src} onChange={(value) => patch({ src: value })} />
@@ -727,6 +773,61 @@ function ImageProperties({ block }: { block: ImageBlock }) {
         value={block.objectX ?? 50}
         onChange={(value) => patch({ objectX: value })}
       />
+      <RangeField
+        label="Feather / blur de borda"
+        min={0}
+        max={48}
+        value={block.feather ?? 0}
+        onChange={(value) => patch({ feather: value || undefined })}
+      />
+      <SelectField
+        label="Direção do blur"
+        value={block.featherDirection ?? "all"}
+        options={[
+          { value: "all", label: "Todas as bordas" },
+          { value: "top", label: "Topo" },
+          { value: "right", label: "Direita" },
+          { value: "bottom", label: "Base" },
+          { value: "left", label: "Esquerda" },
+        ]}
+        onChange={(value) => patch({ featherDirection: value })}
+      />
+      <div
+        className="mb-2 border border-border bg-muted/20 p-2 text-[10px] leading-relaxed"
+        data-testid="image-ppi-panel"
+      >
+        <strong className="block tracking-[0.14em] uppercase">PPI de impressão</strong>
+        <span className="block">
+          Pixels: {pixels ? `${pixels.width} × ${pixels.height}` : "não catalogado"}
+        </span>
+        <span className="block">
+          Layout:{" "}
+          {widthMm && heightMm ? `${widthMm} × ${heightMm} mm` : "dimensão física não definida"}
+        </span>
+        <span
+          className={
+            severity === "error"
+              ? "text-destructive"
+              : severity === "warning"
+                ? "text-[#a45a16]"
+                : "text-[#246b4a]"
+          }
+        >
+          PPI efetivo: {ppi ?? "—"} ·{" "}
+          {severity === "error"
+            ? "Error"
+            : severity === "warning"
+              ? "Warning"
+              : ppi
+                ? "OK"
+                : "aguardando dimensão"}
+        </span>
+        {pixels ? (
+          <span className="block">
+            A 300 PPI: até {maxWidth300} × {maxHeight300} mm
+          </span>
+        ) : null}
+      </div>
       <RangeField
         label="Crop Y"
         min={0}

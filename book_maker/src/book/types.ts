@@ -128,6 +128,9 @@ export interface ImageBlock extends BaseBlock {
   fullBleed?: boolean;
   /** ppi efetivo declarado — usado apenas para warning editorial. */
   effectivePpi?: number;
+  /** Acabamento visual da máscara no print e no editor. */
+  feather?: number;
+  featherDirection?: "all" | "top" | "right" | "bottom" | "left";
 }
 
 export interface QuoteBlock extends BaseBlock {

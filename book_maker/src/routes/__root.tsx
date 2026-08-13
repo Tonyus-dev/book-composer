@@ -84,6 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Ferramenta editorial local-first para compor, revisar e exportar o Livro Básico do RPG KALLISTIS em PDF 1:1.",
       },
       { name: "author", content: "Nomos Ludens" },
+      { name: "theme-color", content: "#1E3545" },
       { property: "og:title", content: "KALLISTIS Book Maker" },
       {
         property: "og:description",
@@ -99,10 +100,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         rel: "icon",
-        href: "/assets/branding/KALLISTIS_symbol_master.jpg",
-        type: "image/jpeg",
+        href: "/kallistis-favicon.svg",
+        type: "image/svg+xml",
       },
-      { rel: "apple-touch-icon", href: "/assets/branding/KALLISTIS_symbol_master.jpg" },
+      { rel: "apple-touch-icon", href: "/kallistis-favicon.svg" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
