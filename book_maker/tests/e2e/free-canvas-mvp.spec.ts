@@ -12,6 +12,28 @@ test("Free Canvas MVP compõe, transforma, amplia e persiste frames", async ({ p
   await expect(page.getByTestId("layers-panel")).toBeVisible();
   await page.getByRole("tab", { name: "Páginas" }).click();
   await expect(page.getByTestId("status-bar")).toBeVisible();
+  await page.getByRole("button", { name: "Foco no canvas" }).click();
+  await expect(page.locator(".k-editor-focus-mode")).toHaveCount(1);
+  await page.getByRole("button", { name: "Sair do foco" }).click();
+  const projectMenu = page.locator("details").filter({ hasText: "Projeto" }).first();
+  await projectMenu.locator("summary").click();
+  await expect(projectMenu.getByText("Exportar JSON do projeto", { exact: true })).toBeVisible();
+  await expect(projectMenu.getByText("Importar JSON do projeto", { exact: true })).toBeVisible();
+  const downloadPromise = page.waitForEvent("download");
+  await projectMenu.getByText("Exportar JSON do projeto", { exact: true }).click();
+  await expect((await downloadPromise).suggestedFilename()).toMatch(/\.json$/);
+  await projectMenu.locator("summary").click();
+  const importPayload = await page.evaluate((key) => localStorage.getItem(key) ?? "{}", storageKey);
+  page.once("dialog", (dialog) => dialog.accept());
+  await page
+    .locator('input[type="file"][accept="application/json"]')
+    .first()
+    .setInputFiles({
+      name: "roundtrip.json",
+      mimeType: "application/json",
+      buffer: Buffer.from(importPayload),
+    });
+  await expect(page.getByTestId("frame-tool")).toBeVisible();
   const templateField = page.getByLabel("Template");
   await expect(templateField.locator("option")).toHaveCount(12);
   await expect(templateField.locator("option", { hasText: /branco/i })).toHaveCount(0);
@@ -59,10 +81,35 @@ test("Free Canvas MVP compõe, transforma, amplia e persiste frames", async ({ p
   await page.getByRole("tab", { name: "Assets" }).click();
   await page.locator("button[draggable='true']").first().click({ force: true });
   await expect(editorPage.locator(".k-block--image img, .k-image-placeholder")).toHaveCount(1);
-
-  await editorPage.getByTestId("image-resize-handle-nw").click();
+  await expect(page.getByTestId("image-ppi-panel")).toBeVisible();
+  const ppiBeforeResize = await page.getByTestId("image-ppi-panel").textContent();
+  await page.getByLabel("WIDTH (mm)").fill("20");
+  await expect(page.getByTestId("image-ppi-panel")).not.toHaveText(ppiBeforeResize ?? "");
+  await page.getByText(/Feather \/ blur de borda/).click();
+  await expect(page.getByText("Direção do blur", { exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Centro", exact: true }).click();
+  await page.getByRole("button", { name: "1/4", exact: true }).first().click();
+  await page.getByRole("button", { name: "3/4", exact: true }).first().click();
+  const composedPageId = await page.evaluate((key) => {
+    const saved = JSON.parse(localStorage.getItem(key) ?? "null");
+    return saved.pages.find((item: { blocks?: Array<{ content?: string }> }) =>
+      item.blocks?.some((block) => block.content === "KALLISTIS"),
+    )?.id;
+  }, storageKey);
+  await page.goto("/print");
+  await expect(page.locator("html")).toHaveAttribute("data-print-ready", "true");
+  await expect(page.locator(".k-page .k-block--image")).toHaveCount(1);
+  await page.goto("/");
+  await page.getByRole("tab", { name: "Páginas" }).click();
+  await page
+    .locator(`button .k-page[data-page-id="${composedPageId}"]`)
+    .locator("xpath=ancestor::button[1]")
+    .click();
+  const reloadedEditorPage = page.locator(`.k-editor-page[data-page-id="${composedPageId}"]`);
+  await reloadedEditorPage.locator(".k-block--image").click({ force: true });
+  await reloadedEditorPage.getByTestId("image-resize-handle-nw").click();
   await page.keyboard.press("Delete");
-  await expect(editorPage.locator(".k-block--image")).toHaveCount(0);
+  await expect(reloadedEditorPage.locator(".k-block--image")).toHaveCount(0);
   await expect
     .poll(() =>
       page.evaluate((key) => {
@@ -81,17 +128,17 @@ test("Free Canvas MVP compõe, transforma, amplia e persiste frames", async ({ p
   await expect(page.getByText(/%$/, { exact: false }).last()).not.toHaveText(beforeZoom ?? "");
 
   await page.reload();
-  const composedPageId = await page.evaluate((key) => {
+  const persistedPageId = await page.evaluate((key) => {
     const saved = JSON.parse(localStorage.getItem(key) ?? "null");
     return saved.pages.find((candidate: { blocks?: Array<{ content?: string }> }) =>
       candidate.blocks?.some((block) => block.content === "KALLISTIS"),
     )?.id;
   }, storageKey);
   const reloadedNarrativeThumbnail = page.locator(
-    `button .k-page[data-page-id="${composedPageId}"]`,
+    `button .k-page[data-page-id="${persistedPageId}"]`,
   );
   await reloadedNarrativeThumbnail.locator("xpath=ancestor::button[1]").click();
-  const reloadedBlank = page.locator(`.k-editor-page[data-page-id="${composedPageId}"]`);
+  const reloadedBlank = page.locator(`.k-editor-page[data-page-id="${persistedPageId}"]`);
   await expect(
     reloadedBlank.locator(".k-block--text").filter({ hasText: "KALLISTIS" }),
   ).toHaveCount(1);

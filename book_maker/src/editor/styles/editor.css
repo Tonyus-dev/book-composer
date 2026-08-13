@@ -25,6 +25,25 @@
   background: var(--card);
 }
 
+.k-editor-focus-mode .k-editor-side-panel {
+  display: none;
+}
+
+.k-editor-focus-mode .k-editor-panel-toggle:first-child,
+.k-editor-focus-mode .k-editor-panel-toggle--right {
+  opacity: .75;
+}
+
+.k-editor-focus-mode header {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  gap: 6px;
+}
+
+.k-editor-focus-mode .k-editor-context-toolbar {
+  min-height: 26px;
+}
+
 .k-editor-sidebar-tabs button {
   padding: 9px 5px;
   border-bottom: 2px solid transparent;

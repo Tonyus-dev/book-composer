@@ -90,6 +90,13 @@ export function BodyText({ block }: { block: TextBlock }) {
 export function BookImage({ block }: { block: ImageBlock }) {
   const position = block.position ?? "flow";
   const src = resolveAssetSrc(block.src);
+  const feather = Math.max(0, Math.min(48, block.feather ?? 0));
+  const direction = block.featherDirection ?? "all";
+  const maskImage = feather
+    ? direction === "all"
+      ? `radial-gradient(ellipse at center, #000 ${Math.max(0, 50 - feather)}%, transparent 100%)`
+      : `linear-gradient(to ${direction === "bottom" ? "bottom" : direction === "top" ? "bottom" : direction === "left" ? "right" : "left"}, ${direction === "top" || direction === "left" ? "transparent" : "#000"} 0%, #000 ${feather}%, #000 ${100 - feather}%, ${direction === "bottom" || direction === "right" ? "transparent" : "#000"} 100%)`
+    : undefined;
   return (
     <figure
       className={`k-figure k-figure--${position}`}
@@ -101,6 +108,7 @@ export function BookImage({ block }: { block: ImageBlock }) {
           "--fig-pos": `${block.objectX ?? 50}% ${block.objectY ?? 50}%`,
           "--fig-offset-x": `${block.offsetX ?? 0}%`,
           "--fig-offset-y": `${block.offsetY ?? 0}%`,
+          ...(maskImage ? { maskImage, WebkitMaskImage: maskImage } : {}),
         } as React.CSSProperties
       }
     >

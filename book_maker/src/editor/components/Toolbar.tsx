@@ -627,14 +627,14 @@ export function Toolbar() {
                 }
                 className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
               >
-                Salvar projeto
+                Exportar JSON do projeto
               </button>
               <button
                 type="button"
                 onClick={() => fileRef.current?.click()}
                 className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
               >
-                Abrir projeto
+                Importar JSON do projeto
               </button>
               <button
                 type="button"
@@ -713,7 +713,9 @@ export function Toolbar() {
               const file = event.target.files?.[0];
               if (!file) return;
               try {
-                replaceBook(await readBookFromFile(file));
+                if (window.confirm("Importar este JSON e substituir o projeto atual?")) {
+                  replaceBook(await readBookFromFile(file));
+                }
               } catch (error) {
                 console.error(error);
                 window.alert("Arquivo de projeto inválido.");
