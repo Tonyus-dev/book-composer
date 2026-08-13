@@ -50,9 +50,10 @@ O teste E2E continua cobrindo o fluxo de composição livre já homologado: abri
 ## Publicação
 
 - branch: `feat/book-maker-final-operator-polish`;
-- commit: será preenchido após o commit final;
-- push: será preenchido após a publicação;
-- PR: será preenchida após a abertura no GitHub;
+- commit de implementação: `af22cc6` (`feat(book-maker): replace Lovable favicon`);
+- push: concluído em `origin/feat/book-maker-final-operator-polish`;
+- PR: [#6 — feat(book-maker): replace Lovable favicon](https://github.com/Tonyus-dev/kallistis-book/pull/6);
+- CI remoto: PASS — build, lint, typecheck, testes, build de produção e E2E completo;
 - merge: não realizado;
 - deploy: não realizado.
 
