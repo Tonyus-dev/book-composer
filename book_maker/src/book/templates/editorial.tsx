@@ -4,9 +4,16 @@ import { firstOfType, type TemplateProps } from "./types";
 
 /** FRONT_MATTER — ficha técnica, créditos, notas. Uma coluna, muito limpo. */
 export function FrontMatterTemplate({ page }: TemplateProps) {
+  const dedication = page.variant === "dedication";
+  const titlePage = page.variant === "title-page";
+  const hasOwnHeading = page.blocks.some(
+    (block) => block.type === "heading" && block.text === page.title,
+  );
   return (
-    <div className="k-flow">
-      {page.title ? (
+    <div
+      className={`k-flow${dedication ? " k-dedication" : ""}${titlePage ? " k-title-page" : ""}`}
+    >
+      {page.title && !hasOwnHeading && !dedication && !titlePage ? (
         <h1 className="k-h2" style={{ marginTop: 0 }}>
           {page.title}
         </h1>
@@ -32,6 +39,21 @@ export function TocTemplate({ page }: TemplateProps) {
 export function NarrativeTemplate({ page }: TemplateProps) {
   return (
     <div className="k-flow">
+      <BlockList blocks={page.blocks} />
+    </div>
+  );
+}
+
+/** TIMELINE_MILESTONE — marcos como navegação histórica, sem quebrar o fluxo em cards. */
+export function TimelineMilestoneTemplate({ page }: TemplateProps) {
+  return (
+    <div className="k-timeline-milestone k-flow">
+      {page.title &&
+      !page.blocks.some((block) => block.type === "heading" && block.text === page.title) ? (
+        <h1 className="k-h2" style={{ marginTop: 0 }}>
+          {page.title}
+        </h1>
+      ) : null}
       <BlockList blocks={page.blocks} />
     </div>
   );

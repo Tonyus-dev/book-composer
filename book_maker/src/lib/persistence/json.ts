@@ -59,6 +59,40 @@ export async function downloadPortableBookJson(
   downloadBookJson(await portableBook(book), filename);
 }
 
+/** Salva uma cópia portátil com escolha explícita de pasta e nome quando suportado. */
+export async function savePortableBookAs(book: Book, suggestedName: string): Promise<void> {
+  const portable = await portableBook(book);
+  const content = serializeBook(portable);
+  const picker = (
+    window as Window & {
+      showSaveFilePicker?: (options?: {
+        suggestedName?: string;
+        types?: Array<{ description: string; accept: Record<string, string[]> }>;
+      }) => Promise<{
+        createWritable: () => Promise<{
+          write: (data: string) => Promise<void>;
+          close: () => Promise<void>;
+        }>;
+      }>;
+    }
+  ).showSaveFilePicker;
+
+  if (picker) {
+    const handle = await picker({
+      suggestedName,
+      types: [{ description: "Projeto KALLISTIS", accept: { "application/json": [".json"] } }],
+    });
+    const writable = await handle.createWritable();
+    await writable.write(content);
+    await writable.close();
+    return;
+  }
+
+  const filename = window.prompt("Nome do arquivo:", suggestedName)?.trim();
+  if (!filename) return;
+  downloadBookJson(portable, filename.endsWith(".json") ? filename : `${filename}.json`);
+}
+
 export function downloadPageJson(page: Page, filename = "kallistis-page.json") {
   const blob = new Blob([JSON.stringify({ format: "kallistis.page.v1", page }, null, 2)], {
     type: "application/json",

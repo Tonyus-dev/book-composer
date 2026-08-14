@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img" aria-labelledby="title desc">
+  <title id="title">Referência de escala dos colossos</title>
+  <desc id="desc">Silhueta humana de referência ao lado de três marcas de escala sem proporção numérica.</desc>
+  <rect width="720" height="420" fill="#f4f0e8"/>
+  <g stroke="#542869" stroke-width="3" fill="none">
+    <path d="M90 360h560"/><path d="M170 360V70M330 360V38M490 360V18"/>
+    <path d="M155 70h30M315 38h30M475 18h30"/>
+  </g>
+  <g fill="#542869">
+    <circle cx="90" cy="292" r="13"/><path d="M83 306h14l9 37h-32zM78 343h24l-5 17H83z"/>
+  </g>
+  <g font-family="Georgia,serif" font-size="23" fill="#241e1d">
+    <text x="55" y="395">figura humana</text><text x="130" y="55">referência</text>
+    <text x="285" y="395">colossal</text><text x="445" y="395">colossal</text><text x="585" y="395">colossal</text>
+    <text x="45" y="35" fill="#542869">escala relativa · sem medida numérica canonizada</text>
+  </g>
+</svg>

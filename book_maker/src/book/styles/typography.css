@@ -17,7 +17,9 @@
 
 .k-h1,
 .k-h2,
-.k-h3 {
+.k-h3,
+.k-h4,
+.k-h5 {
   font-family: var(--font-display);
   color: var(--k-purple);
   font-weight: 600;
@@ -44,6 +46,29 @@
   margin-top: 3.4mm;
   margin-bottom: 1mm;
   font-weight: 600;
+}
+
+.k-h4,
+.k-h5 {
+  font-family: var(--font-display);
+  font-size: var(--h3-size);
+  line-height: 1.2;
+  margin-top: 2.4mm;
+  margin-bottom: 0.8mm;
+  font-weight: 600;
+  color: var(--k-purple);
+}
+
+.k-h5 {
+  font-size: calc(var(--h3-size) * 0.92);
+  font-weight: 500;
+}
+
+.k-heading--compact {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  font-size: 60% !important;
+  line-height: 1 !important;
 }
 
 .k-eyebrow {
@@ -140,7 +165,9 @@
 }
 .k-page--obsidian .k-h1,
 .k-page--obsidian .k-h2,
-.k-page--obsidian .k-h3 {
+.k-page--obsidian .k-h3,
+.k-page--obsidian .k-h4,
+.k-page--obsidian .k-h5 {
   color: var(--k-paper);
 }
 .k-page--obsidian .k-eyebrow {

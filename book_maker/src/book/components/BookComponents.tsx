@@ -3,6 +3,7 @@
  * Não importam nada da UI do editor (Tailwind/shadcn) — apenas CSS editorial.
  */
 import type { ComponentProps, CSSProperties, ReactNode } from "react";
+import { Fragment } from "react";
 import type {
   BoxBlock,
   CaptionBlock,
@@ -42,7 +43,9 @@ export function BookHeading({ block }: { block: HeadingBlock }) {
   return (
     <>
       {block.eyebrow ? <p className="k-eyebrow">{block.eyebrow}</p> : null}
-      <Tag className={`k-h${block.level}`}>{block.text}</Tag>
+      <Tag className={`k-h${block.level}${block.compact ? " k-heading--compact" : ""}`}>
+        {block.text}
+      </Tag>
     </>
   );
 }
@@ -92,6 +95,7 @@ export function BookImage({ block }: { block: ImageBlock }) {
   const src = resolveAssetSrc(block.src);
   const feather = Math.max(0, Math.min(48, block.feather ?? 0));
   const direction = block.featherDirection ?? "all";
+  const cropWindow = block.cropWindow;
   const maskImage = feather
     ? direction === "all"
       ? `radial-gradient(ellipse at center, #000 ${Math.max(0, 50 - feather)}%, transparent 100%)`
@@ -99,15 +103,19 @@ export function BookImage({ block }: { block: ImageBlock }) {
     : undefined;
   return (
     <figure
-      className={`k-figure k-figure--${position}`}
+      className={`k-figure k-figure--${position}${block.centered ? " k-figure--centered" : ""}`}
       style={
         {
           "--fig-w": block.width,
           "--fig-h": block.height,
           "--fig-fit": block.fit ?? "cover",
-          "--fig-pos": `${block.objectX ?? 50}% ${block.objectY ?? 50}%`,
+          "--fig-pos": cropWindow
+            ? `${cropWindow.x + cropWindow.width / 2}% ${cropWindow.y + cropWindow.height / 2}%`
+            : `${block.objectX ?? 50}% ${block.objectY ?? 50}%`,
           "--fig-offset-x": `${block.offsetX ?? 0}%`,
           "--fig-offset-y": `${block.offsetY ?? 0}%`,
+          ...(block.frameAspectRatio ? { aspectRatio: String(block.frameAspectRatio) } : {}),
+          ...(block.mirror ? { transform: "scaleX(-1)" } : {}),
           ...(maskImage ? { maskImage, WebkitMaskImage: maskImage } : {}),
         } as React.CSSProperties
       }
@@ -216,7 +224,7 @@ export function BookTable({ block }: { block: TableBlock }) {
             rowSpan={cell.rowSpan}
             style={cellStyle}
           >
-            {cell.content}
+            {renderTableCellContent(cell.content)}
           </Cell>
         );
       })}
@@ -241,7 +249,7 @@ export function BookTable({ block }: { block: TableBlock }) {
             <col
               key={column.id}
               data-table-column-id={column.id}
-              style={{ width: `${(column.width ?? 1 / table.columns.length) * 100}%` }}
+              style={{ width: `${(column.width ?? 1 / table.columns.length) * 100}%`, minWidth: 0 }}
             />
           ))}
         </colgroup>
@@ -274,6 +282,25 @@ export function BookTable({ block }: { block: TableBlock }) {
       ))}
     </div>
   );
+}
+
+/**
+ * Quebra suave apenas em palavras longas de tabelas. O <wbr> não adiciona
+ * caracteres ao texto extraído, mas permite que cabeçalhos portugueses como
+ * "Dificuldade" permaneçam dentro da largura física sem overflow horizontal.
+ */
+function renderTableCellContent(content: string): ReactNode {
+  return content.split(/(\s+)/u).map((part, index) => {
+    if (/^\s*$/u.test(part) || part.length <= 7) return part;
+    const split = Math.ceil(part.length / 2);
+    return (
+      <Fragment key={`${part}-${index}`}>
+        {part.slice(0, split)}
+        <wbr />
+        {part.slice(split)}
+      </Fragment>
+    );
+  });
 }
 
 export function BookBox({ block }: { block: BoxBlock }) {

@@ -38,7 +38,7 @@ test("Free Canvas MVP compõe, transforma, amplia e persiste frames", async ({ p
     });
   await expect(page.getByTestId("frame-tool")).toBeVisible();
   const templateField = page.getByLabel("Template");
-  await expect(templateField.locator("option")).toHaveCount(12);
+  await expect(templateField.locator("option")).toHaveCount(13);
   await expect(templateField.locator("option", { hasText: /branco/i })).toHaveCount(0);
 
   const narrativeAdd = page.getByRole("button", { name: "Adicionar página depois", exact: true });

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+  <title id="title">Economia de ação por rodada</title>
+  <desc id="desc">Uma rodada com Movimento, Ação, Reação e ações livres.</desc>
+  <rect width="900" height="420" fill="#f0f0f0"/>
+  <path d="M105 210h690" stroke="#363636" stroke-width="3"/>
+  <g fill="#363636" stroke="#f0f0f0" stroke-width="5">
+    <circle cx="180" cy="210" r="74"/><circle cx="370" cy="210" r="74"/><circle cx="560" cy="210" r="74"/><circle cx="750" cy="210" r="74"/>
+  </g>
+  <g fill="#fdfdfd" font-family="Georgia,serif" text-anchor="middle">
+    <text x="180" y="205" font-size="32">AM</text><text x="180" y="235" font-size="20">menor</text>
+    <text x="370" y="205" font-size="32">AP</text><text x="370" y="235" font-size="20">principal</text>
+    <text x="560" y="205" font-size="32">AR</text><text x="560" y="235" font-size="20">reação</text>
+    <text x="750" y="205" font-size="32">AL</text><text x="750" y="235" font-size="20">livre</text>
+  </g>
+  <g font-family="Georgia,serif" font-size="26" fill="#1f1f1f">
+    <text x="78" y="80" fill="#363636">uma rodada</text>
+    <text x="78" y="350">Movimento permanece como recurso próprio da rodada.</text>
+  </g>
+</svg>

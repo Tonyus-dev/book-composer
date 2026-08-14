@@ -3,6 +3,7 @@
 .k-table-wrap {
   position: relative;
   margin: 3mm 0 4.5mm;
+  box-sizing: border-box;
   break-inside: avoid;
   page-break-inside: avoid;
 }
@@ -37,8 +38,17 @@
   page-break-inside: auto;
 }
 
+/* A tabela canônica de namol tem duas colunas e, em rules_2col, o cálculo
+   fechado do Chromium acrescenta 1mm ao envelope. Reserva essa folga sem
+   alterar conteúdo, pesos ou a largura das demais tabelas. */
+.k-table-wrap[data-table-id="src-38548f24c30c266d3c7b"] .k-table {
+  width: calc(100% - 1mm);
+}
+
 .k-table {
   width: 100%;
+  box-sizing: border-box;
+  table-layout: fixed;
   border-collapse: collapse;
   font-family: var(--font-functional);
   font-size: var(--table-size);
@@ -91,7 +101,13 @@
 .k-table tbody td,
 .k-table tfoot td,
 .k-table tfoot th {
+  box-sizing: border-box;
   border-color: var(--table-border-color, var(--k-border));
+  min-width: 0;
+  max-width: none;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: manual;
 }
 
 .k-table[data-table-border="none"] th,

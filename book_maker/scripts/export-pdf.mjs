@@ -13,8 +13,9 @@
  * O PDF sai 1:1 com os tokens físicos do livro (preferCSSPageSize + @page).
  * PREFLIGHT: se o livro tiver ERROR, a exportação de produção para e explica.
  */
-import { readFile, writeFile, mkdir, readdir, access } from "node:fs/promises";
+import { readFile, writeFile, mkdir, readdir, access, mkdtemp, rm, rename } from "node:fs/promises";
 import { spawn } from "node:child_process";
+import os from "node:os";
 import path from "node:path";
 import process from "node:process";
 import { chromium } from "playwright";
@@ -143,6 +144,17 @@ async function launchChromium() {
   }
 }
 
+async function runPdfUnite(inputs, output) {
+  await new Promise((resolve, reject) => {
+    const child = spawn("pdfunite", [...inputs, output], { stdio: "inherit" });
+    child.once("error", reject);
+    child.once("exit", (code) => {
+      if (code === 0) resolve();
+      else reject(new Error(`pdfunite terminou com código ${code ?? "desconhecido"}`));
+    });
+  });
+}
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const book = args.in ? JSON.parse(await readFile(path.resolve(args.in), "utf8")) : null;
@@ -258,14 +270,58 @@ async function main() {
     }
 
     const outPath = outPathEarly;
-
-    await page.pdf({
-      path: outPath,
+    const pdfOptions = {
       printBackground: true,
-      preferCSSPageSize: true,
+      // Explicit paper dimensions keep Chromium from applying a document-
+      // wide shrink-to-fit to the 400-sheet print flow.
+      preferCSSPageSize: false,
+      width: size?.width ?? "150mm",
+      height: size?.height ?? "220mm",
+      scale: 1,
       margin: { top: "0", right: "0", bottom: "0", left: "0" },
       tagged: false,
-    });
+    };
+
+    /*
+     * Chromium lays out a very long print flow with a silent shrink-to-fit.
+     * The route itself remains correct, but a 400-sheet PDF then receives
+     * undersized pages. Render bounded chunks at the exact physical size and
+     * concatenate them; each chunk keeps the same PageRenderer/CSS path.
+     */
+    const chunkSize = 50;
+    if (pages > chunkSize) {
+      const tempDir = await mkdtemp(path.join(os.tmpdir(), "kallistis-v15-pdf-"));
+      const chunkPaths = [];
+      try {
+        for (let start = 0; start < pages; start += chunkSize) {
+          const end = Math.min(start + chunkSize, pages);
+          await page.goto(`${args.url}/print`, {
+            waitUntil: "domcontentloaded",
+            timeout: args.timeout,
+          });
+          await page.waitForSelector("html[data-print-ready='true']", { timeout: args.timeout });
+          await page.emulateMedia({ media: "print" });
+          await page.evaluate(
+            ({ from, to }) => {
+              document.querySelectorAll(".k-print-sheet").forEach((sheet, index) => {
+                if (index < from || index >= to) sheet.remove();
+              });
+            },
+            { from: start, to: end },
+          );
+          const chunkPath = path.join(tempDir, `chunk-${String(start).padStart(4, "0")}.pdf`);
+          await page.pdf({ path: chunkPath, ...pdfOptions });
+          chunkPaths.push(chunkPath);
+        }
+        const mergedPath = path.join(tempDir, "merged.pdf");
+        await runPdfUnite(chunkPaths, mergedPath);
+        await rename(mergedPath, outPath);
+      } finally {
+        await rm(tempDir, { recursive: true, force: true });
+      }
+    } else {
+      await page.pdf({ path: outPath, ...pdfOptions });
+    }
 
     console.log(
       `[export:pdf] ${pages} páginas · folha ${size?.width ?? "?"} x ${size?.height ?? "?"} → ${outPath}`,

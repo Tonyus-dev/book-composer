@@ -15,6 +15,7 @@ import {
 } from "../../book/sheetModel";
 import {
   downloadPortableBookJson,
+  savePortableBookAs,
   downloadPageJson,
   readBookFromFile,
   readPageFromFile,
@@ -161,6 +162,7 @@ export function Toolbar() {
     switchLocalProject,
     insertPage,
     resetToDemo,
+    saveNow,
     preflight,
     preflightRunning,
     runPreflight,
@@ -604,6 +606,16 @@ export function Toolbar() {
                     ? "erro de sync · salvo localmente"
                     : "salvo localmente"}
           </span>
+          <button
+            type="button"
+            data-testid="save-project"
+            onClick={() => void saveNow()}
+            disabled={status === "saving"}
+            className="k-editor-primary-action border px-3 py-1 text-[11px] font-semibold disabled:opacity-60"
+            title="Salvar imediatamente o estado atual localmente e, quando disponível, na nuvem"
+          >
+            {status === "saving" ? "Salvando…" : "Salvar"}
+          </button>
           <details className="relative">
             <summary className="cursor-pointer list-none border border-border px-2 py-1 text-[11px] hover:bg-accent">
               Projeto ▾
@@ -628,6 +640,20 @@ export function Toolbar() {
                 className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
               >
                 Exportar JSON do projeto
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  void savePortableBookAs(
+                    book,
+                    `${book.meta.title || "kallistis-projeto"}.json`,
+                  ).catch((error) => {
+                    window.alert(`Não foi possível salvar a cópia: ${String(error)}`);
+                  })
+                }
+                className="k-editor-primary-action border px-2 py-1 text-left text-[11px]"
+              >
+                Salvar como…
               </button>
               <button
                 type="button"

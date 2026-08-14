@@ -25,6 +25,19 @@
   width: var(--fig-w, 100%);
 }
 
+.k-figure--overlay-right {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: var(--fig-w, 30%);
+  margin: 0;
+}
+
+.k-figure--centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .k-figure img {
   display: block;
   width: 100%;

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Grade tática ortogonal</title>
+  <desc id="desc">Esquema de células quadradas com linha de visão, flanco e terreno difícil.</desc>
+  <rect width="900" height="560" fill="#f0f0f0"/>
+  <g stroke="#363636" stroke-width="2" fill="none">
+    <path d="M80 80h440v360H80z"/>
+    <path d="M135 80v360M190 80v360M245 80v360M300 80v360M355 80v360M410 80v360M465 80v360M80 135h440M80 190h440M80 245h440M80 300h440M80 355h440M80 410h440" opacity=".55"/>
+    <path d="M162 217L382 217" stroke="#b7b7b7" stroke-width="8" opacity=".8"/>
+    <path d="M327 162l55 55-55 55" stroke="#b7b7b7" stroke-width="5"/>
+    <path d="M437 272l55 55-55 55" stroke="#515151" stroke-width="5"/>
+    <path d="M590 145h220v150H590z" stroke="#515151" stroke-dasharray="8 8"/>
+    <path d="M590 350h220v90H590z" stroke="#363636" stroke-dasharray="4 6"/>
+  </g>
+  <g fill="#363636">
+    <circle cx="162" cy="217" r="17"/><circle cx="382" cy="217" r="17"/>
+    <circle cx="437" cy="327" r="17"/>
+  </g>
+  <g font-family="Georgia,serif" font-size="24" fill="#1f1f1f">
+    <text x="610" y="180">linha de visão</text>
+    <text x="610" y="225">flanco / reação</text>
+    <text x="610" y="390">terreno difícil</text>
+    <text x="92" y="500" fill="#363636">grade ortogonal · células quadradas</text>
+  </g>
+</svg>

@@ -51,3 +51,30 @@
   --h3-size: 11pt;
   --micro-size: 7pt;
 }
+
+/* Cópia de pré-impressão: a direção de arte continua a mesma, mas o miolo
+   sai em tinta monocromática. O editor e os projetos históricos permanecem
+   com a paleta original. */
+.k-book.k-print--grayscale {
+  --k-purple: #555555;
+  --k-obsidian: #0b0b0b;
+  --k-paper: #fbfbfb;
+  --k-magenta: #777777;
+  --k-violet: #777777;
+  --k-green: #666666;
+  --k-green-text: #555555;
+  --k-lime: #888888;
+  --k-gold: #777777;
+  --k-ink: #191919;
+  --k-muted: #606060;
+  --k-border: #d0d0d0;
+  --k-field: #eeeeee;
+  --k-field-strong: #e2e2e2;
+}
+
+/* Os derivados de pré-impressão já são DEVICEGRAY. Não aplicar um filtro CSS
+   no exportador: Chromium tende a rasterizar a imagem filtrada como RGB +
+   soft-mask, mesmo quando o arquivo fonte tem um único canal. */
+.k-book.k-print--grayscale img {
+  filter: none;
+}

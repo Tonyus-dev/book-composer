@@ -117,9 +117,12 @@ export function ProfileTemplate({ page }: TemplateProps) {
 
 /** TABLE_PAGE — referência de mesa. Tabela editorial, nunca planilha. */
 export function TablePageTemplate({ page }: TemplateProps) {
+  const hasOwnHeading = page.blocks.some(
+    (block) => block.type === "heading" && block.text === page.title,
+  );
   return (
     <div className={`k-flow${page.settings.columns === 2 ? " k-flow--2col" : ""}`}>
-      {page.title ? (
+      {page.title && !hasOwnHeading ? (
         <h1 className="k-h2" style={{ marginTop: 0, marginBottom: "4mm" }}>
           {page.title}
         </h1>

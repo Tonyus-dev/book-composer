@@ -46,6 +46,31 @@ function PrintView() {
     return () => window.removeEventListener("kallistis-asset-ready", refresh);
   }, []);
 
+  /*
+   * Internal compositor bridge used by the materialization engine. It keeps
+   * measurement inside the real PrintView/PageRenderer without reloading the
+   * application for every candidate page. It is an event-only bridge: no UI,
+   * persistence, mock data, or production project state is changed.
+   */
+  useEffect(() => {
+    const materialize = (event: Event) => {
+      const detail = (event as CustomEvent<{ book?: unknown; revision?: number }>).detail;
+      if (!detail?.book) return;
+      try {
+        document.documentElement.dataset["printReady"] = "false";
+        if (detail.revision !== undefined) {
+          document.documentElement.dataset["materializerRevision"] = String(detail.revision);
+        }
+        setBook(normalizeBook(detail.book));
+        setSourceResolved(true);
+      } catch (error) {
+        console.error("[kallistis] JSON de materialização inválido", error);
+      }
+    };
+    window.addEventListener("kallistis-materializer-book", materialize);
+    return () => window.removeEventListener("kallistis-materializer-book", materialize);
+  }, []);
+
   /* Assets embutidos no JSON precisam estar mapeados antes de pintar as páginas. */
   registerBookAssets(book.assets);
 
@@ -160,7 +185,11 @@ function PrintView() {
   }, [sourceResolved, book]);
 
   return (
-    <BookRoot tokens={book.tokens} fonts={book.fonts} className="k-print">
+    <BookRoot
+      tokens={book.tokens}
+      fonts={book.fonts}
+      className={`k-print${book.meta.prepressGrayscale ? " k-print--grayscale" : ""}`}
+    >
       {book.pages.map((page, index) => (
         <div key={page.id} className="k-print-sheet" data-page-index={index}>
           <PageRenderer book={book} page={page} index={index} />
