@@ -10,7 +10,9 @@ export function FrontMatterTemplate({ page }: TemplateProps) {
     (block) => block.type === "heading" && block.text === page.title,
   );
   return (
-    <div className={`k-flow${dedication ? " k-dedication" : ""}${titlePage ? " k-title-page" : ""}`}>
+    <div
+      className={`k-flow${dedication ? " k-dedication" : ""}${titlePage ? " k-title-page" : ""}`}
+    >
       {page.title && !hasOwnHeading && !dedication && !titlePage ? (
         <h1 className="k-h2" style={{ marginTop: 0 }}>
           {page.title}
@@ -46,8 +48,11 @@ export function NarrativeTemplate({ page }: TemplateProps) {
 export function TimelineMilestoneTemplate({ page }: TemplateProps) {
   return (
     <div className="k-timeline-milestone k-flow">
-      {page.title && !page.blocks.some((block) => block.type === "heading" && block.text === page.title) ? (
-        <h1 className="k-h2" style={{ marginTop: 0 }}>{page.title}</h1>
+      {page.title &&
+      !page.blocks.some((block) => block.type === "heading" && block.text === page.title) ? (
+        <h1 className="k-h2" style={{ marginTop: 0 }}>
+          {page.title}
+        </h1>
       ) : null}
       <BlockList blocks={page.blocks} />
     </div>

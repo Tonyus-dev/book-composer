@@ -57,9 +57,8 @@ export function PartOpeningTemplate({ page }: TemplateProps) {
   const titleBlock = firstOfType(page.blocks, "heading");
   const claim = firstOfType(page.blocks, "text");
   const title = titleBlock?.text ?? page.title;
-  const titleContent = title === "PARTE I — O MUNDO PARTIDO"
-    ? <>PARTE I — O&nbsp;MUNDO PARTIDO</>
-    : title;
+  const titleContent =
+    title === "PARTE I — O MUNDO PARTIDO" ? <>PARTE I — O&nbsp;MUNDO PARTIDO</> : title;
   return (
     <>
       {art ? (
@@ -154,7 +153,9 @@ export function ChapterOpeningTemplate({ page }: TemplateProps) {
                       transform: block.mirror ? "scaleX(-1)" : undefined,
                     }}
                   />
-                  {block.caption ? <figcaption className="k-caption">{block.caption}</figcaption> : null}
+                  {block.caption ? (
+                    <figcaption className="k-caption">{block.caption}</figcaption>
+                  ) : null}
                 </figure>
               ))}
             </div>

@@ -63,12 +63,19 @@ export async function downloadPortableBookJson(
 export async function savePortableBookAs(book: Book, suggestedName: string): Promise<void> {
   const portable = await portableBook(book);
   const content = serializeBook(portable);
-  const picker = (window as Window & {
-    showSaveFilePicker?: (options?: {
-      suggestedName?: string;
-      types?: Array<{ description: string; accept: Record<string, string[]> }>;
-    }) => Promise<{ createWritable: () => Promise<{ write: (data: string) => Promise<void>; close: () => Promise<void> }> }>;
-  }).showSaveFilePicker;
+  const picker = (
+    window as Window & {
+      showSaveFilePicker?: (options?: {
+        suggestedName?: string;
+        types?: Array<{ description: string; accept: Record<string, string[]> }>;
+      }) => Promise<{
+        createWritable: () => Promise<{
+          write: (data: string) => Promise<void>;
+          close: () => Promise<void>;
+        }>;
+      }>;
+    }
+  ).showSaveFilePicker;
 
   if (picker) {
     const handle = await picker({

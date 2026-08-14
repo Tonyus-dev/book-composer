@@ -43,7 +43,9 @@ export function BookHeading({ block }: { block: HeadingBlock }) {
   return (
     <>
       {block.eyebrow ? <p className="k-eyebrow">{block.eyebrow}</p> : null}
-      <Tag className={`k-h${block.level}${block.compact ? " k-heading--compact" : ""}`}>{block.text}</Tag>
+      <Tag className={`k-h${block.level}${block.compact ? " k-heading--compact" : ""}`}>
+        {block.text}
+      </Tag>
     </>
   );
 }

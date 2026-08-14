@@ -295,14 +295,20 @@ async function main() {
       try {
         for (let start = 0; start < pages; start += chunkSize) {
           const end = Math.min(start + chunkSize, pages);
-          await page.goto(`${args.url}/print`, { waitUntil: "domcontentloaded", timeout: args.timeout });
+          await page.goto(`${args.url}/print`, {
+            waitUntil: "domcontentloaded",
+            timeout: args.timeout,
+          });
           await page.waitForSelector("html[data-print-ready='true']", { timeout: args.timeout });
           await page.emulateMedia({ media: "print" });
-          await page.evaluate(({ from, to }) => {
-            document.querySelectorAll(".k-print-sheet").forEach((sheet, index) => {
-              if (index < from || index >= to) sheet.remove();
-            });
-          }, { from: start, to: end });
+          await page.evaluate(
+            ({ from, to }) => {
+              document.querySelectorAll(".k-print-sheet").forEach((sheet, index) => {
+                if (index < from || index >= to) sheet.remove();
+              });
+            },
+            { from: start, to: end },
+          );
           const chunkPath = path.join(tempDir, `chunk-${String(start).padStart(4, "0")}.pdf`);
           await page.pdf({ path: chunkPath, ...pdfOptions });
           chunkPaths.push(chunkPath);

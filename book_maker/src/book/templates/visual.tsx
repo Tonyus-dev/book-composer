@@ -50,23 +50,27 @@ export function FullArtTemplate({ page }: TemplateProps) {
             className="k-bleed--img"
             src={art.src}
             alt={art.alt}
-            style={spreadSide ? {
-              position: "absolute",
-              top: 0,
-              left: spreadSide === "right" ? "-100%" : 0,
-              height: "100%",
-              // The source is 4:3 while the two-sheet envelope is slightly
-              // wider; use the full two-page width so the outer edges never
-              // expose the paper background.
-              width: "200%",
-              maxWidth: "none",
-              objectFit: "cover",
-              objectPosition: "center",
-              display: "block",
-            } : {
-              objectFit: art.fit ?? "cover",
-              objectPosition: `${art.objectX ?? 50}% ${art.objectY ?? 50}%`,
-            }}
+            style={
+              spreadSide
+                ? {
+                    position: "absolute",
+                    top: 0,
+                    left: spreadSide === "right" ? "-100%" : 0,
+                    height: "100%",
+                    // The source is 4:3 while the two-sheet envelope is slightly
+                    // wider; use the full two-page width so the outer edges never
+                    // expose the paper background.
+                    width: "200%",
+                    maxWidth: "none",
+                    objectFit: "cover",
+                    objectPosition: "center",
+                    display: "block",
+                  }
+                : {
+                    objectFit: art.fit ?? "cover",
+                    objectPosition: `${art.objectX ?? 50}% ${art.objectY ?? 50}%`,
+                  }
+            }
           />
         </div>
         {art.caption ? <p className="k-art__caption">{art.caption}</p> : null}

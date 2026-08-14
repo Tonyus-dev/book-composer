@@ -5,11 +5,21 @@ import crypto from "node:crypto";
 import path from "node:path";
 
 const root = process.cwd();
-const project = path.join(root, "projects/kallistis-materializado-completo-v1.4-400p-candidate.json");
-const source = "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/MANUSCRITO_CONGELADO/MANUSCRITO_CONGELADO.md";
+const project = path.join(
+  root,
+  "projects/kallistis-materializado-completo-v1.4-400p-candidate.json",
+);
+const source =
+  "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/MANUSCRITO_CONGELADO/MANUSCRITO_CONGELADO.md";
 const pdf = path.join(root, "KALLISTIS_Manual_do_Mundo_v1.4_400p_CANDIDATO.pdf");
-const materializerReport = path.join(root, "projects/kallistis-materializado-completo-v1.4-400p-candidate.report.json");
-const manifestPath = path.join(root, "projects/kallistis-materializado-completo-v1.4-400p-candidate.prepress-manifest.json");
+const materializerReport = path.join(
+  root,
+  "projects/kallistis-materializado-completo-v1.4-400p-candidate.report.json",
+);
+const manifestPath = path.join(
+  root,
+  "projects/kallistis-materializado-completo-v1.4-400p-candidate.prepress-manifest.json",
+);
 
 const book = JSON.parse(readFileSync(project, "utf8"));
 const report = JSON.parse(readFileSync(materializerReport, "utf8"));
@@ -19,10 +29,18 @@ const manuscriptSha = crypto.createHash("sha256").update(sourceBytes).digest("he
 const sourceText = sourceBytes.toString("utf8");
 
 function command(name, args) {
-  try { return execFileSync(name, args, { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }); }
-  catch { return ""; }
+  try {
+    return execFileSync(name, args, { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] });
+  } catch {
+    return "";
+  }
 }
-function normalize(value) { return String(value ?? "").normalize("NFKC").replace(/\s+/g, " ").trim(); }
+function normalize(value) {
+  return String(value ?? "")
+    .normalize("NFKC")
+    .replace(/\s+/g, " ")
+    .trim();
+}
 
 const info = command("pdfinfo", [pdf]);
 const pagesMatch = info.match(/^Pages:\s+(\d+)/m);
@@ -30,28 +48,49 @@ const totalPages = Number(pagesMatch?.[1] ?? 0);
 const pdfOpens = Boolean(pagesMatch);
 const pdfSize = statSync(pdf).size;
 const text = command("pdftotext", ["-layout", pdf, "-"]);
-const pdfTextCheck = ["KALLISTIS — MANUAL DO MUNDO", "Bestiário do Cristal Partido", "MI NAM. MI RAAR."].every((needle) => text.includes(needle));
+const pdfTextCheck = [
+  "KALLISTIS — MANUAL DO MUNDO",
+  "Bestiário do Cristal Partido",
+  "MI NAM. MI RAAR.",
+].every((needle) => text.includes(needle));
 const imageList = command("pdfimages", ["-list", pdf]);
-const imageRows = imageList.split("\n").slice(2).filter((line) => line.trim());
-const nonGray = imageRows.filter((line) => !/^\s*\S+\s+\S+\s+\S+\s+\S+\s+\S+\s+gray\s+/i.test(line));
+const imageRows = imageList
+  .split("\n")
+  .slice(2)
+  .filter((line) => line.trim());
+const nonGray = imageRows.filter(
+  (line) => !/^\s*\S+\s+\S+\s+\S+\s+\S+\s+\S+\s+gray\s+/i.test(line),
+);
 const rgbImages = imageRows.filter((line) => /\s+rgb\s+/i.test(line)).length;
 const cmykImages = imageRows.filter((line) => /\s+cmyk\s+/i.test(line)).length;
-const fonts = command("pdffonts", [pdf]).split("\n").slice(2).filter((line) => line.trim());
-const fontEmbedding = fonts.length > 0 && fonts.every((line) => /\byes\s+yes\s+yes\s+\d+\s+\d+\s*$/u.test(line.trim())) ? "PASS" : "FAIL";
+const fonts = command("pdffonts", [pdf])
+  .split("\n")
+  .slice(2)
+  .filter((line) => line.trim());
+const fontEmbedding =
+  fonts.length > 0 && fonts.every((line) => /\byes\s+yes\s+yes\s+\d+\s+\d+\s*$/u.test(line.trim()))
+    ? "PASS"
+    : "FAIL";
 
-const pagesWithImages = book.pages.filter((page) => page.blocks.some((block) => block.type === "image")).length;
+const pagesWithImages = book.pages.filter((page) =>
+  page.blocks.some((block) => block.type === "image"),
+).length;
 let maxTextRun = 0;
 let currentTextRun = 0;
 let underfilled = 0;
 for (const page of book.pages) {
   const hasImage = page.blocks.some((block) => block.type === "image");
   const fill = Number(page.materialization?.pageFillRatio ?? 1);
-  if (!hasImage) { currentTextRun += 1; maxTextRun = Math.max(maxTextRun, currentTextRun); }
-  else currentTextRun = 0;
+  if (!hasImage) {
+    currentTextRun += 1;
+    maxTextRun = Math.max(maxTextRun, currentTextRun);
+  } else currentTextRun = 0;
   if (!hasImage && fill > 0 && fill < 0.6 && page.editorialFamily !== "FEATURE") underfilled += 1;
 }
 const mixedPartPages = book.pages.filter((page) => {
-  const parts = new Set(page.blocks.map((block) => block.materialization?.part ?? page.part).filter(Boolean));
+  const parts = new Set(
+    page.blocks.map((block) => block.materialization?.part ?? page.part).filter(Boolean),
+  );
   return parts.size > 1;
 }).length;
 const diagnostics = report.diagnostics ?? {};
@@ -120,15 +159,21 @@ const hardGates = {
   fonts: fontEmbedding === "PASS",
   grayscale: rgbImages === 0 && cmykImages === 0 && nonGray.length === 0,
   crossPart: mixedPartPages === 0,
-  materializer: report.verdict === "PASS" && Number(diagnostics.TARGET_PAGE_COUNT_MISMATCH ?? 1) === 0,
+  materializer:
+    report.verdict === "PASS" && Number(diagnostics.TARGET_PAGE_COUNT_MISMATCH ?? 1) === 0,
   visual: reportObject.visualReview.status === "PASS",
 };
 const rhythmGates = { maxTextRun: maxTextRun <= 5, underfilled: underfilled < 25 };
-reportObject.verdict = Object.values(hardGates).every(Boolean) && Object.values(rhythmGates).every(Boolean) ? "PASS" : "INCIDENT";
+reportObject.verdict =
+  Object.values(hardGates).every(Boolean) && Object.values(rhythmGates).every(Boolean)
+    ? "PASS"
+    : "INCIDENT";
 reportObject.productReady = reportObject.verdict === "PASS";
 reportObject.hardGates = hardGates;
 reportObject.rhythmGates = rhythmGates;
-reportObject.incidentReasons = Object.entries({ ...hardGates, ...rhythmGates }).filter(([, pass]) => !pass).map(([key]) => key);
+reportObject.incidentReasons = Object.entries({ ...hardGates, ...rhythmGates })
+  .filter(([, pass]) => !pass)
+  .map(([key]) => key);
 
 const outJson = path.join(root, "KALLISTIS_Manual_do_Mundo_v1.4_400p_CANDIDATO.report.json");
 writeFileSync(outJson, JSON.stringify(reportObject, null, 2) + "\n");
@@ -153,5 +198,8 @@ const lines = [
   `INTERIOR_COLORSPACE=${reportObject.pdfChecks.interiorColorspace}`,
   `INCIDENT_REASONS=${reportObject.incidentReasons.join(",") || "none"}`,
 ];
-writeFileSync(path.join(root, "KALLISTIS_Manual_do_Mundo_v1.4_400p_CANDIDATO.report.md"), lines.join("\n") + "\n");
+writeFileSync(
+  path.join(root, "KALLISTIS_Manual_do_Mundo_v1.4_400p_CANDIDATO.report.md"),
+  lines.join("\n") + "\n",
+);
 console.log(lines.join("\n"));

@@ -90,7 +90,9 @@ const freeze = {
   project: projectPath,
   projectSha256: sha256(JSON.stringify(book)),
   pageCount: 87,
-  pageHashes: Object.fromEntries(pages.map((current, index) => [String(index + 1).padStart(3, "0"), pageHash(current)])),
+  pageHashes: Object.fromEntries(
+    pages.map((current, index) => [String(index + 1).padStart(3, "0"), pageHash(current)]),
+  ),
   permittedCorrections: [
     "p60-fenda-moved-to-p59",
     "p60-fenda-context",
@@ -102,4 +104,10 @@ const freeze = {
 
 await writeFile(projectPath, `${JSON.stringify(book, null, 2)}\n`, "utf8");
 await writeFile(freezePath, `${JSON.stringify(freeze, null, 2)}\n`, "utf8");
-console.log(JSON.stringify({ projectPath, freezePath, projectSha256: freeze.projectSha256, pageCount: freeze.pageCount }, null, 2));
+console.log(
+  JSON.stringify(
+    { projectPath, freezePath, projectSha256: freeze.projectSha256, pageCount: freeze.pageCount },
+    null,
+    2,
+  ),
+);
