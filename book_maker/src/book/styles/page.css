@@ -40,6 +40,48 @@
   column-fill: auto;
 }
 
+/* Em páginas de referência, a linha continua indivisível, mas o envelope da
+   tabela pode atravessar a coluna. Isso evita deixar uma continuação curta
+   isolada enquanto a coluna seguinte permanece vazia. */
+.k-page--rules .k-block--table,
+.k-page--rules_2col .k-block--table,
+.k-page--rules .k-block--table .k-table-wrap,
+.k-page--rules_2col .k-block--table .k-table-wrap {
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+/* Compactação controlada de referência: mantém 9.5/8.5pt, reduz apenas
+   intervalos repetidos entre headings, parágrafos e linhas de tabela. */
+.k-page--rules .k-h2,
+.k-page--rules_2col .k-h2 {
+  margin-top: 2.5mm;
+  margin-bottom: 0.8mm;
+}
+
+.k-page--rules .k-h3,
+.k-page--rules .k-h4,
+.k-page--rules .k-h5,
+.k-page--rules_2col .k-h3,
+.k-page--rules_2col .k-h4,
+.k-page--rules_2col .k-h5 {
+  margin-top: 1.8mm;
+  margin-bottom: 0.5mm;
+}
+
+.k-page--rules .k-table-wrap,
+.k-page--rules_2col .k-table-wrap {
+  margin-top: 1mm;
+  margin-bottom: 1.5mm;
+}
+
+.k-page--rules .k-table--compact tbody td,
+.k-page--rules .k-table--compact thead th,
+.k-page--rules_2col .k-table--compact tbody td,
+.k-page--rules_2col .k-table--compact thead th {
+  padding: 0.7mm 1.1mm;
+}
+
 .k-block {
   break-inside: avoid-column;
 }
@@ -131,6 +173,16 @@
   display: block;
 }
 
+/* Full art must be anchored to the physical sheet, not to a text column.
+   The centered envelope also keeps the two halves of a spread continuous
+   when the template is rendered through the print route. */
+.k-page--full_art .k-bleed {
+  width: calc(var(--page-width) + (var(--bleed) * 2));
+  height: calc(var(--page-height) + (var(--bleed) * 2));
+  inset: calc(var(--bleed) * -1);
+  transform: none;
+}
+
 /* Quebras editoriais */
 .k-break-before {
   break-before: page;
@@ -146,6 +198,7 @@
 .k-part {
   position: absolute;
   inset: 0;
+  box-sizing: border-box;
   display: grid;
   align-content: end;
   padding: var(--margin-top) var(--margin-outer) var(--margin-bottom) var(--margin-inner);
@@ -156,6 +209,16 @@
   height: 0.8mm;
   background: var(--k-lime);
   margin-bottom: 6mm;
+}
+
+.k-part__copy {
+  box-sizing: border-box;
+  width: fit-content;
+  max-width: 118mm;
+  padding: 3mm 4mm 3.5mm;
+  background: rgba(8, 8, 14, 0.72);
+  border-left: 1mm solid var(--k-lime);
+  box-shadow: 0 2mm 8mm rgba(8, 8, 14, 0.28);
 }
 
 .k-part__label {
@@ -169,7 +232,7 @@
 
 .k-part__title {
   font-family: var(--font-display);
-  font-size: 40pt;
+  font-size: 31pt;
   line-height: 1;
   font-weight: 600;
   margin: 0 0 6mm;
@@ -186,6 +249,76 @@
   margin: 0;
   color: var(--k-paper);
   text-shadow: 0 0 4mm rgba(0, 0, 0, 0.6);
+}
+
+/* Gramática visual adaptada do fixture editorial legado: composição sem moldura decorativa. */
+.k-page--composition-part-hero .k-part__title {
+  max-width: 112mm;
+}
+
+.k-dedication {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 18mm;
+}
+
+.k-dedication .k-body {
+  max-width: 104mm;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.k-title-page {
+  min-height: 100%;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.k-title-page .k-body {
+  max-width: 96mm;
+  text-align: center;
+}
+
+.k-timeline-milestone {
+  position: relative;
+  padding-left: 10mm;
+}
+
+.k-timeline-milestone::before {
+  content: "";
+  position: absolute;
+  top: 2mm;
+  bottom: 0;
+  left: 3mm;
+  width: 0.35mm;
+  background: var(--k-border);
+}
+
+.k-timeline-milestone .k-h3 {
+  position: relative;
+  margin-top: 6mm;
+  padding-bottom: 1mm;
+  border-bottom: 0.35mm solid var(--k-border);
+}
+
+.k-timeline-milestone .k-h3::before {
+  content: "";
+  position: absolute;
+  left: -10mm;
+  top: 0.7em;
+  width: 5mm;
+  height: 0.35mm;
+  background: var(--k-purple);
+}
+
+.k-page--composition-text-feature .k-body p:only-child {
+  max-width: 102mm;
+  margin-inline: auto;
+  text-align: left;
 }
 
 /* Capa */
@@ -247,6 +380,65 @@
   line-height: 1.4;
   color: var(--k-paper);
   text-shadow: 0 0 6mm rgba(8, 8, 14, 0.9);
+}
+
+/* Abertura do Bestiário: a arte ocupa a página inteira e o texto canônico
+   permanece vivo em uma faixa de leitura sobre a parte mais escura da cena. */
+.k-bestiary-opening__panel {
+  position: absolute;
+  z-index: 2;
+  left: var(--margin-outer);
+  right: var(--margin-outer);
+  bottom: var(--margin-bottom);
+  max-height: 104mm;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 4.5mm 5mm 4mm;
+  color: var(--k-paper);
+  background: rgb(8 8 14 / 88%);
+  border-left: 1.2mm solid var(--k-lime);
+  box-shadow: 0 1.5mm 5mm rgb(0 0 0 / 32%);
+  font-size: 9.5pt;
+  line-height: 12.5pt;
+}
+
+.k-bestiary-opening__panel .k-h1,
+.k-bestiary-opening__panel .k-h2,
+.k-bestiary-opening__panel .k-h3,
+.k-bestiary-opening__panel .k-h4,
+.k-bestiary-opening__panel .k-h5 {
+  color: var(--k-paper);
+}
+
+.k-bestiary-opening__panel .k-h1 {
+  font-size: 20pt;
+  line-height: 1.02;
+  margin-bottom: 2mm;
+}
+
+.k-bestiary-opening__panel .k-h2 {
+  font-size: 12.5pt;
+  line-height: 1.08;
+  margin-top: 3mm;
+  margin-bottom: 1mm;
+}
+
+.k-bestiary-opening__panel .k-h3,
+.k-bestiary-opening__panel .k-h4,
+.k-bestiary-opening__panel .k-h5 {
+  font-size: 10pt;
+  line-height: 1.1;
+  margin-top: 2mm;
+  margin-bottom: 0.7mm;
+}
+
+.k-bestiary-opening__panel .k-body p {
+  text-align: left;
+}
+
+.k-bestiary-opening__panel .k-body p + p {
+  text-indent: 0;
+  margin-top: 1.2mm;
 }
 
 /* Perfil (Povos, Ofícios, NPCs) */
@@ -618,4 +810,92 @@
 .k-chapter--side .k-chapter__band {
   height: 100%;
   margin-bottom: 0;
+}
+
+/* Povos, Ofícios e Bestiário: grade física de identidade + apoio contextual. */
+.k-chapter--quadrant {
+  display: grid;
+  grid-template-columns: 48mm minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  column-gap: 5mm;
+  row-gap: 4mm;
+  height: 100%;
+  min-width: 0;
+}
+
+.k-quadrant-visual {
+  width: 48mm;
+  min-width: 0;
+}
+
+.k-quadrant-art {
+  box-sizing: border-box;
+  width: 48mm;
+  height: 72mm;
+  padding: 1.6mm;
+  margin: 0;
+  overflow: hidden;
+  border: 0.45mm solid var(--k-purple);
+  background:
+    radial-gradient(circle at 18% 22%, rgb(84 40 105 / 0.1) 0 0.45px, transparent 0.75px),
+    linear-gradient(145deg, #ece7dd, #faf7f0 48%, #e1dcd2);
+  background-size: 5px 5px, auto;
+  break-inside: avoid;
+  position: relative;
+}
+
+.k-quadrant-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.k-quadrant-copy {
+  min-width: 0;
+  min-height: 0;
+}
+
+.k-quadrant-rest {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+
+.k-quadrant-rest .k-flow {
+  height: auto;
+}
+
+.k-quadrant-support-stack {
+  display: grid;
+  gap: 2mm;
+  margin-top: 2mm;
+}
+
+.k-quadrant-support {
+  box-sizing: border-box;
+  width: 48mm;
+  height: 27mm;
+  padding: 1.2mm;
+  margin: 0;
+  overflow: hidden;
+  border: 0.3mm solid color-mix(in srgb, var(--k-purple) 62%, transparent);
+  background:
+    radial-gradient(circle at 68% 30%, rgb(84 40 105 / 0.08) 0 0.45px, transparent 0.75px),
+    #eeeae2;
+  background-size: 5px 5px;
+  break-inside: avoid;
+}
+
+.k-quadrant-support--symbol {
+  width: 22mm;
+  height: 22mm;
+}
+
+.k-quadrant-support img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: 50% 50%;
 }

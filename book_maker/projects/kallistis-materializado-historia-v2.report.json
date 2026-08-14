@@ -1,0 +1,209 @@
+{
+  "verdict": "PASS",
+  "scope": "HISTORIA",
+  "generatedAt": "2026-08-13T23:51:58.599Z",
+  "engine": {
+    "generatedBy": "kallistis-materializer",
+    "materializationVersion": 2,
+    "paginationPolicy": {
+      "targetBookPages": 320,
+      "softMaximumBookPages": 360,
+      "hardWarningBookPages": 420
+    },
+    "imageCadence": {
+      "targetInterval": 4,
+      "minimumInterval": 3,
+      "maximumInterval": 5
+    },
+    "manuscriptTotalWords": 90768,
+    "softMaxTextRun": 5,
+    "hardMaxTextRun": 7
+  },
+  "input": {
+    "manuscript": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/MANUSCRITO_CONGELADO/MANUSCRITO_CONGELADO.md",
+    "manuscriptSha256": "95cecb8fb9b8468cd2680c2113885841d599ed353ab018e7fc49f1fcbf853d67",
+    "catalog": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/00_CATALOGO_MESTRE_PRODUCAO_KALLISTIS_REV1.md",
+    "catalogSha256": "04ea301b8d4eebd616a25deca1c4aba8ae3f3a8a22561fbd6f683bca2d783627",
+    "sourceStartLine": 1,
+    "sourceEndLine": 1591
+  },
+  "output": {
+    "project": "/home/tonyus-dev/Projetos/kallistis-book/book_maker/projects/kallistis-materializado-historia-v2.json",
+    "originalProject": "/home/tonyus-dev/Projetos/kallistis-book/book_maker/projects/kallistis-livro-basico.json",
+    "originalProjectSha256": "6dc62bec7366e556d07019c7368bb0891ee9c88d05378cfbc4e2de84c6ffb13d"
+  },
+  "visualGate": {
+    "passed": true,
+    "justification": null
+  },
+  "warnings": [
+    "PROJECTED_BOOK_PAGES_WARNING"
+  ],
+  "diagnostics": {
+    "TOTAL_PAGES": 40,
+    "TEXT_ONLY_PAGES": 30,
+    "TOTAL_WORDS_SCOPE": 8088,
+    "BODY_TEXT_PAGES": 26,
+    "BODY_WORDS_PER_PAGE_MEAN": 221.85,
+    "BODY_WORDS_PER_PAGE_MEDIAN": 219,
+    "PAGES_WITH_IMAGES": 10,
+    "PAGES_WITH_TABLES": 1,
+    "PAGES_WITH_MAPS": 0,
+    "PAGES_WITH_REVIEW_FLAGS": 0,
+    "EDITORIAL_FAMILY_COUNTS": {
+      "TITLE_PAGE": 1,
+      "COPYRIGHT_EXPEDIENTE": 1,
+      "DEDICATION": 1,
+      "INTRODUCTION": 1,
+      "PART_OPENING": 1,
+      "NARRATIVE": 35
+    },
+    "TITLE_PAGE_PAGES": 1,
+    "COPYRIGHT_EXPEDIENTE_PAGES": 1,
+    "DEDICATION_PAGES": 1,
+    "INTRODUCTION_PAGES": 1,
+    "PART_OPENING_PAGES": 1,
+    "NARRATIVE_PAGES": 35,
+    "IMAGE_INTERVAL_MEAN": 3.55,
+    "IMAGE_INTERVAL_MEDIAN": 4,
+    "FIRST_IMAGE_PAGE": 5,
+    "LAST_IMAGE_PAGE": 39,
+    "TRAILING_TEXT_PAGES": 1,
+    "TEXT_RUNS": [
+      {
+        "startPage": 1,
+        "endPage": 4,
+        "length": 4
+      },
+      {
+        "startPage": 7,
+        "endPage": 9,
+        "length": 3
+      },
+      {
+        "startPage": 11,
+        "endPage": 13,
+        "length": 3
+      },
+      {
+        "startPage": 15,
+        "endPage": 17,
+        "length": 3
+      },
+      {
+        "startPage": 19,
+        "endPage": 21,
+        "length": 3
+      },
+      {
+        "startPage": 23,
+        "endPage": 25,
+        "length": 3
+      },
+      {
+        "startPage": 27,
+        "endPage": 29,
+        "length": 3
+      },
+      {
+        "startPage": 31,
+        "endPage": 33,
+        "length": 3
+      },
+      {
+        "startPage": 35,
+        "endPage": 38,
+        "length": 4
+      },
+      {
+        "startPage": 40,
+        "endPage": 40,
+        "length": 1
+      }
+    ],
+    "MAX_CONSECUTIVE_TEXT_PAGES": 4,
+    "WORDS_PER_TEXT_PAGE_MEAN": 221.85,
+    "WORDS_PER_TEXT_PAGE_MEDIAN": 219,
+    "PAGE_FILL_MEAN": 0.8969,
+    "UNDERFILLED_PAGES_LT_60_PERCENT": 5,
+    "OVERFLOW_PAGES": 0,
+    "UNUSED_VALID_HISTORY_ASSETS": [
+      "História do Mundo Partido",
+      "A escrita contínua",
+      "As primeiras frestas controladas",
+      "Kethrell e a doutrina da recomposição",
+      "Os Outros",
+      "Daeren",
+      "A profecia de Thaeraen"
+    ],
+    "USED_HISTORY_ASSETS": [
+      {
+        "heading": "Prólogo — A velha e a Fresta",
+        "sha256": "e1db36db28c181e1e6bfc19b3a6cf9f558925ffb5b4457c1cb049f35de84e695"
+      },
+      {
+        "heading": "PARTE I — O MUNDO PARTIDO",
+        "sha256": "403c9be0f92c8e129dbd69afad68d6ab6ac634e12450cd5bc9a5230059d2ef1b"
+      },
+      {
+        "heading": "Manesh — O Mundo da Luz",
+        "sha256": "1e618ac5136cd5a612e107134a8bb3e60a309049e18ad03e9e7fc72037c5312b"
+      },
+      {
+        "heading": "Thuvel — O Mundo da Escuridão",
+        "sha256": "5884f64463aa603cb8add0cdae1dee98f6c1d0af28446dada86a463d27a4802b"
+      },
+      {
+        "heading": "Luz, Escuridão e Sombra",
+        "sha256": "5edb45520acced383e4e2cfdabf04842d2ec7be4fe71d211205c32a542516d1b"
+      },
+      {
+        "heading": "O Grande Cristal — Antes Que Houvesse Dois Mundos",
+        "sha256": "a1c9bdc41c3a8aab064fdd33ce1e5ec210f926848029d5654066dae5d39d9994"
+      },
+      {
+        "heading": "Mirveth — Uma Pessoa Inteira",
+        "sha256": "dcd05a2690dea84f54012cfc247b27f55511dffa270531eefa5a5ab358eb15bf"
+      },
+      {
+        "heading": "Vethari — Relação Sem Apagamento",
+        "sha256": "6f860801931a72cc3391bba87398bf8cae5003ff66a266729cf8d51e7a58cbd0"
+      },
+      {
+        "heading": "Pedr’alma",
+        "sha256": "d300db9458c83144403fb6e628b77eb19854ffbffde3d4315247d8175161c4d2"
+      },
+      {
+        "heading": "Lar · Cidade · Companhia",
+        "sha256": "685cf35083aad7d4cd7c487a957f77991f7149f645bc25e52727704343e84b35"
+      }
+    ],
+    "USED_HISTORY_ASSET_SHA_COUNT": 10,
+    "USED_HISTORY_ASSET_SHA_UNIQUE": 10,
+    "PROJECTED_BOOK_PAGES_TEXTUAL": 409.15,
+    "PROJECTED_BOOK_PAGES_CURRENT": 448.9,
+    "PROJECTED_BOOK_PAGES_DENSE": 363.07,
+    "VERTICAL_SPACE_TEXT_PERCENT": 79.43,
+    "VERTICAL_SPACE_BLOCK_GAPS_PERCENT": 6.89,
+    "VERTICAL_SPACE_HEADINGS_PERCENT": 7.92,
+    "VERTICAL_SPACE_IMAGES_PERCENT": 5.76,
+    "SOFT_MAX_TEXT_RUN": 5,
+    "HARD_MAX_TEXT_RUN": 7,
+    "SOURCE_BLOCK_TEXT_MISMATCHES": 0,
+    "SOURCE_WORDS_LOST": 0,
+    "SOURCE_WORDS_ADDED": 0,
+    "DUPLICATE_FRAGMENT_OCCURRENCES": 0,
+    "FRAGMENT_SEQUENCE_ERRORS": 0,
+    "MANUSCRIPT_TEXT_CHANGED": 0,
+    "MANUSCRIPT_BLOCKS_LOST": 0,
+    "MANUSCRIPT_BLOCKS_DUPLICATED": 0,
+    "PAGE_OVERFLOW": 0,
+    "ORPHAN_HEADINGS": 0,
+    "BROKEN_TABLE_ROWS": 0,
+    "SOURCE_ORDER_CHANGED": 0,
+    "ASSETS_MODIFIED": 0,
+    "ORIGINAL_PROJECT_OVERWRITTEN": 0,
+    "MANUSCRIPT_BLOCKS_TOTAL": 602,
+    "MANUSCRIPT_BLOCKS_MATERIALIZED": 602
+  }
+}

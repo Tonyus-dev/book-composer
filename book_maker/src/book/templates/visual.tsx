@@ -7,6 +7,7 @@ export function FullArtTemplate({ page }: TemplateProps) {
   const art = findImage(page.blocks);
   const rest = withoutBlock(page.blocks, art);
   const fullBleed = page.settings.fullBleed || art?.fullBleed;
+  const spreadSide = art?.spreadSide;
 
   if (!art) {
     return (
@@ -17,14 +18,55 @@ export function FullArtTemplate({ page }: TemplateProps) {
   }
 
   if (fullBleed) {
+    if (page.variant === "bestiary-opening") {
+      return (
+        <>
+          <div className="k-bleed" data-block-id={art.id}>
+            <ResolvedImage
+              className="k-bleed--img"
+              src={art.src}
+              alt={art.alt}
+              style={{
+                objectFit: art.fit ?? "cover",
+                objectPosition: `${art.objectX ?? 50}% ${art.objectY ?? 50}%`,
+                transform: art.mirror ? "scaleX(-1)" : undefined,
+              }}
+            />
+          </div>
+          <div className="k-bestiary-opening__panel" data-full-art-copy="true">
+            <BlockList blocks={rest} />
+          </div>
+        </>
+      );
+    }
     return (
       <>
-        <div className="k-bleed" data-block-id={art.id}>
+        <div
+          className="k-bleed"
+          data-block-id={art.id}
+          style={spreadSide ? { overflow: "hidden" } : undefined}
+        >
           <ResolvedImage
             className="k-bleed--img"
             src={art.src}
             alt={art.alt}
-            style={{ objectPosition: `${art.objectX ?? 50}% ${art.objectY ?? 50}%` }}
+            style={spreadSide ? {
+              position: "absolute",
+              top: 0,
+              left: spreadSide === "right" ? "-100%" : 0,
+              height: "100%",
+              // The source is 4:3 while the two-sheet envelope is slightly
+              // wider; use the full two-page width so the outer edges never
+              // expose the paper background.
+              width: "200%",
+              maxWidth: "none",
+              objectFit: "cover",
+              objectPosition: "center",
+              display: "block",
+            } : {
+              objectFit: art.fit ?? "cover",
+              objectPosition: `${art.objectX ?? 50}% ${art.objectY ?? 50}%`,
+            }}
           />
         </div>
         {art.caption ? <p className="k-art__caption">{art.caption}</p> : null}

@@ -1,0 +1,72 @@
+{
+  "generatedAt": "2026-08-14T14:46:03.293Z",
+  "product": "KALLISTIS — Manual do Mundo",
+  "candidate": "/home/tonyus-dev/Projetos/kallistis-book/book_maker/projects/kallistis-materializado-completo-v1.4-400p-candidate.json",
+  "pdf": "/home/tonyus-dev/Projetos/kallistis-book/book_maker/KALLISTIS_Manual_do_Mundo_v1.4_400p_CANDIDATO.pdf",
+  "manuscript": {
+    "sha256": "95cecb8fb9b8468cd2680c2113885841d599ed353ab018e7fc49f1fcbf853d67",
+    "expectedSha256": "95cecb8fb9b8468cd2680c2113885841d599ed353ab018e7fc49f1fcbf853d67",
+    "shaMatch": true,
+    "sourceWords": 90768,
+    "blocksTotal": 2764,
+    "blocksMaterialized": 2764,
+    "sourceWordsLost": 0,
+    "sourceWordsAdded": 0,
+    "textChanged": 0,
+    "pdfTextCheck": "PASS"
+  },
+  "pdfChecks": {
+    "opens": true,
+    "totalPages": 400,
+    "sizeBytes": 39364743,
+    "sizeGate": true,
+    "interiorColorspace": "DEVICEGRAY",
+    "rgbImages": 0,
+    "cmykImages": 0,
+    "nonGrayImageRows": 0,
+    "fontEmbedding": "PASS"
+  },
+  "editorialChecks": {
+    "pagesWithImages": 101,
+    "maxConsecutiveTextPages": 32,
+    "underfilledNonFeaturePages": 26,
+    "crossPartMixedPages": 0,
+    "targetPages": 400,
+    "materializerTargetMismatch": 0,
+    "pages1to53ContentChanged": 0,
+    "pages1to53LayoutChanged": 0,
+    "pages1to53AssetChanged": 0
+  },
+  "visualReview": {
+    "status": "PASS",
+    "evidence": [
+      "key-render/bestiary-293.png",
+      "contact-sheets/",
+      "front matter, Part VII transition and page 400 inspected"
+    ]
+  },
+  "verdict": "INCIDENT",
+  "productReady": false,
+  "hardGates": {
+    "totalPages": true,
+    "pdfOpens": true,
+    "pdfSize": true,
+    "manuscriptSha": true,
+    "blocks": true,
+    "words": true,
+    "pdfText": true,
+    "fonts": true,
+    "grayscale": true,
+    "crossPart": true,
+    "materializer": true,
+    "visual": true
+  },
+  "rhythmGates": {
+    "maxTextRun": false,
+    "underfilled": false
+  },
+  "incidentReasons": [
+    "maxTextRun",
+    "underfilled"
+  ]
+}

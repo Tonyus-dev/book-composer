@@ -7,6 +7,7 @@ import {
   NarrativeTemplate,
   QuoteLayoutTemplate,
   RulesTemplate,
+  TimelineMilestoneTemplate,
   TocTemplate,
 } from "./editorial";
 import { ProfileTemplate, TablePageTemplate } from "./reference";
@@ -66,7 +67,7 @@ export const TEMPLATES: Record<TemplateId, TemplateDefinition> = {
     label: "Abertura de Capítulo",
     component: ChapterOpeningTemplate,
     usesContentBox: true,
-    variants: ["image-top", "image-side"],
+    variants: ["image-top", "image-side", "quadrant-image"],
     defaultColumns: 1,
     register: "abertura",
   },
@@ -120,7 +121,7 @@ export const TEMPLATES: Record<TemplateId, TemplateDefinition> = {
     label: "Arte",
     component: FullArtTemplate,
     usesContentBox: false,
-    variants: ["default"],
+    variants: ["default", "bestiary-opening"],
     defaultColumns: 1,
     register: "abertura",
   },
@@ -132,6 +133,15 @@ export const TEMPLATES: Record<TemplateId, TemplateDefinition> = {
     variants: ["default"],
     defaultColumns: 1,
     register: "referencia",
+  },
+  timeline_milestone: {
+    id: "timeline_milestone",
+    label: "Marco histórico",
+    component: TimelineMilestoneTemplate,
+    usesContentBox: true,
+    variants: ["default"],
+    defaultColumns: 1,
+    register: "literario",
   },
 };
 

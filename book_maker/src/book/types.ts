@@ -16,7 +16,8 @@ export type TemplateId =
   | "table_page"
   | "quote_layout"
   | "full_art"
-  | "map_page";
+  | "map_page"
+  | "timeline_milestone";
 
 export const TEMPLATE_LABELS: Record<TemplateId, string> = {
   cover: "COVER",
@@ -31,6 +32,7 @@ export const TEMPLATE_LABELS: Record<TemplateId, string> = {
   quote_layout: "QUOTE",
   full_art: "ART",
   map_page: "MAP",
+  timeline_milestone: "TIMELINE",
 };
 
 /** Variantes de composição por template (o editor escolhe, nunca a automação). */
@@ -38,12 +40,38 @@ export type PageVariant =
   | "default"
   | "image-top"
   | "image-side"
+  | "quadrant-image"
   | "portrait-left"
   | "portrait-right"
   | "portrait-bottom"
   | "dual-portrait"
   | "inline-block"
-  | "full-page";
+  | "full-page"
+  | "title-page"
+  | "copyright"
+  | "dedication"
+  | "introduction"
+  | "bestiary-opening";
+
+export type EditorialComposition =
+  | "PART_HERO"
+  | "IMAGE_TOP"
+  | "SIDE_ART_LEFT"
+  | "SIDE_ART_RIGHT"
+  | "SIDE_ART_PAIR"
+  | "POVO_OPENING"
+  | "OFICIO_CULTURAL_OPENING"
+  | "BESTIARY_ENTRY"
+  | "MAP_PAGE"
+  | "MAP_SPREAD"
+  | "GEOGRAPHY_OPENING"
+  | "PEDRALMA_OPENING"
+  | "FINAL_CLOSURE"
+  | "TENSION_OPENING"
+  | "TENSION_CONTINUATION"
+  | "TEXT_FLOW"
+  | "TEXT_FEATURE"
+  | "TIMELINE_MILESTONE";
 
 export type BlockAlign = "start" | "center" | "end" | "justify";
 export type BlockSpan = "column" | "full";
@@ -75,6 +103,32 @@ export interface BaseBlock {
   frame?: BlockFrame;
   /** Família tipográfica local; vazio herda a tipografia do documento. */
   fontFamily?: string;
+  /** Proveniência opcional de uma materialização editorial determinística. */
+  materialization?: MaterializationBlockMetadata;
+}
+
+export interface MaterializationBlockMetadata {
+  generatedBy: "kallistis-materializer";
+  materializationVersion: 1;
+  scope: "HISTORIA" | "MUNDO" | "REGRAS" | "ALL";
+  sourceBlockId?: string;
+  sourceStartLine?: number;
+  sourceEndLine?: number;
+  sourceRaw?: string;
+  sourceType?: string;
+  sourceFragmentIndex?: number;
+  sourceFragmentCount?: number;
+  assetSourceBlockId?: string;
+  wordCount?: number;
+  generated?: boolean;
+  assetStatus?: "COVERED_HIGH" | "COVERED_MEDIUM" | "MAP_TABLE_DIAGRAM";
+  assetCatalogReference?: string;
+  semanticAnchor?: string;
+  allowedHeadingIds?: string[];
+  allowedWindow?: string;
+  semanticAnchorHeadingId?: string | null;
+  layoutRole?: "EDITORIAL_IMAGE" | "SHARED_EDITORIAL_IMAGE" | "QUADRANT_IMAGE" | "SUPPORT_IMAGE";
+  semanticPairId?: string;
 }
 
 export type TextRole = "body" | "lead" | "dialogue" | "credits" | "note";
@@ -101,13 +155,14 @@ export interface TextBlock extends BaseBlock {
 
 export interface HeadingBlock extends BaseBlock {
   type: "heading";
-  level: 1 | 2 | 3;
+  level: 1 | 2 | 3 | 4 | 5;
   text: string;
   eyebrow?: string;
+  compact?: boolean;
 }
 
 export type ImageFit = "contain" | "cover";
-export type ImagePosition = "flow" | "left" | "right" | "top" | "bottom" | "full";
+export type ImagePosition = "flow" | "left" | "right" | "top" | "bottom" | "full" | "overlay-right";
 
 export interface ImageBlock extends BaseBlock {
   type: "image";
@@ -118,6 +173,8 @@ export interface ImageBlock extends BaseBlock {
   /** object-position em porcentagem (crop). */
   objectX?: number;
   objectY?: number;
+  /** espelha horizontalmente a arte sem alterar o arquivo-fonte. */
+  mirror?: boolean;
   /** deslocamento visual em porcentagem do frame, aplicado pela composição direta. */
   offsetX?: number;
   offsetY?: number;
@@ -125,12 +182,20 @@ export interface ImageBlock extends BaseBlock {
   width?: string;
   height?: string;
   position?: ImagePosition;
+  centered?: boolean;
   fullBleed?: boolean;
   /** ppi efetivo declarado — usado apenas para warning editorial. */
   effectivePpi?: number;
   /** Acabamento visual da máscara no print e no editor. */
   feather?: number;
   featherDirection?: "all" | "top" | "right" | "bottom" | "left";
+  cropWindow?: { x: number; y: number; width: number; height: number };
+  frameAspectRatio?: number;
+  layoutRole?: "EDITORIAL_IMAGE" | "SHARED_EDITORIAL_IMAGE" | "QUADRANT_IMAGE" | "SUPPORT_IMAGE";
+  quadrant?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
+  semanticPairId?: string;
+  /** lado de uma imagem horizontal que atravessa duas páginas consecutivas. */
+  spreadSide?: "left" | "right";
 }
 
 export interface QuoteBlock extends BaseBlock {
@@ -534,11 +599,14 @@ export interface Page {
   id: string;
   template: TemplateId;
   variant?: PageVariant | undefined;
+  editorialComposition?: EditorialComposition;
   /** metadados editoriais usados por header/footer */
   part?: string | undefined;
   chapter?: string | undefined;
   title?: string | undefined;
   subtitle?: string | undefined;
+  /** triagem futura sem alterar conteúdo nem paginação. */
+  futureProductRole?: "CORE" | "GM_CANDIDATE" | "PLAYER_REFERENCE" | "UNDECIDED";
   /** Capa pronta não recebe título, autoria ou lockup sobre a arte. */
   coverMode?: "art-only" | "overlay";
   eyebrow?: string | undefined;
@@ -548,6 +616,30 @@ export interface Page {
   recipeInstance?: RecipeInstance;
   settings: PageSettings;
   blocks: Block[];
+  /** Proveniência opcional da página gerada; ausente nas páginas manuais. */
+  materialization?: MaterializationPageMetadata;
+}
+
+export interface MaterializationPageMetadata {
+  generatedBy: "kallistis-materializer";
+  materializationVersion: number;
+  scope: "HISTORIA" | "MUNDO" | "REGRAS" | "PARTES_I_IV" | "COMPLETO" | "ALL";
+  sourceStartLine?: number;
+  sourceEndLine?: number;
+  sourceBlockIds: string[];
+  sourceContentHash: string;
+  autoGenerated: true;
+  reviewFlags: string[];
+  editorialFamily?:
+    | "TITLE_PAGE"
+    | "COPYRIGHT_EXPEDIENTE"
+    | "DEDICATION"
+    | "INTRODUCTION"
+    | "PART_OPENING"
+    | "NARRATIVE";
+  pageFillRatio?: number;
+  wordCount?: number;
+  compositionFamily?: EditorialComposition;
 }
 
 /** Nó da árvore do livro. Agrupa páginas; não duplica conteúdo. */
@@ -586,6 +678,8 @@ export interface BookMeta {
   author: string;
   imprint: string;
   edition: string;
+  /** Pré-impressão da cópia candidata: miolo monocromático real. */
+  prepressGrayscale?: boolean;
   /** número da primeira página impressa (a capa normalmente não numera) */
   firstFolio: number;
 }

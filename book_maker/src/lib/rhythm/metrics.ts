@@ -47,6 +47,7 @@ const CLASS_BY_TEMPLATE: Record<TemplateId, RhythmClass> = {
   quote_layout: "narrative",
   full_art: "art",
   map_page: "map",
+  timeline_milestone: "opening",
 };
 
 export interface PageRhythm {

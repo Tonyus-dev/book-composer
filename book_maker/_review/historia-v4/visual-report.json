@@ -1,0 +1,119 @@
+{
+  "generatedAt": "2026-08-14T01:02:10.488Z",
+  "project": "projects/kallistis-materializado-historia-v4.json",
+  "route": "http://127.0.0.1:5174/print",
+  "requiredScreenshots": [
+    {
+      "key": "dedicacao",
+      "folio": 3,
+      "pageId": "historia-page-0003",
+      "file": "_review/historia-v4/pages/003-dedicacao.png",
+      "template": "front_matter",
+      "variant": "dedication",
+      "compositionFamily": "TEXT_FEATURE",
+      "heading": "Dedicatória"
+    },
+    {
+      "key": "prologo",
+      "folio": 5,
+      "pageId": "historia-page-0005",
+      "file": "_review/historia-v4/pages/005-prologo.png",
+      "template": "chapter_opening",
+      "variant": "image-top",
+      "compositionFamily": "IMAGE_TOP",
+      "heading": "Prólogo — A velha e a Fresta"
+    },
+    {
+      "key": "parte_i",
+      "folio": 6,
+      "pageId": "historia-page-0006",
+      "file": "_review/historia-v4/pages/006-parte_i.png",
+      "template": "part_opening",
+      "variant": "default",
+      "compositionFamily": "PART_HERO",
+      "heading": "PARTE I — O MUNDO PARTIDO"
+    },
+    {
+      "key": "manesh",
+      "folio": 7,
+      "pageId": "historia-page-0007",
+      "file": "_review/historia-v4/pages/007-manesh.png",
+      "template": "chapter_opening",
+      "variant": "image-top",
+      "compositionFamily": "IMAGE_TOP",
+      "heading": "Manesh — O Mundo da Luz"
+    },
+    {
+      "key": "imagem_lateral",
+      "folio": 9,
+      "pageId": "historia-page-0009",
+      "file": "_review/historia-v4/pages/009-imagem_lateral.png",
+      "template": "chapter_opening",
+      "variant": "image-side",
+      "compositionFamily": "SIDE_ART_PAIR",
+      "heading": "Luz, Escuridão e Sombra"
+    },
+    {
+      "key": "pedralma",
+      "folio": 14,
+      "pageId": "historia-page-0014",
+      "file": "_review/historia-v4/pages/014-pedralma.png",
+      "template": "chapter_opening",
+      "variant": "image-side",
+      "compositionFamily": "SIDE_ART_RIGHT",
+      "heading": "Pedr’alma"
+    },
+    {
+      "key": "marco",
+      "folio": 17,
+      "pageId": "historia-page-0017",
+      "file": "_review/historia-v4/pages/017-marco.png",
+      "template": "timeline_milestone",
+      "variant": "default",
+      "compositionFamily": "TIMELINE_MILESTONE",
+      "heading": "A história em Marcos"
+    },
+    {
+      "key": "cronologia",
+      "folio": 50,
+      "pageId": "historia-page-0050",
+      "file": "_review/historia-v4/pages/050-cronologia.png",
+      "template": "table_page",
+      "variant": "default",
+      "compositionFamily": "TEXT_FEATURE",
+      "heading": "Cronologia consolidada por Marcos"
+    },
+    {
+      "key": "texto",
+      "folio": 18,
+      "pageId": "historia-page-0018",
+      "file": "_review/historia-v4/pages/018-texto.png",
+      "template": "narrative",
+      "variant": "default",
+      "compositionFamily": "TEXT_FLOW",
+      "heading": "Os seres da União"
+    }
+  ],
+  "compositionCounts": {
+    "PART_HERO": 1,
+    "IMAGE_TOP": 10,
+    "SIDE_ART_LEFT": 0,
+    "SIDE_ART_RIGHT": 2,
+    "SIDE_ART_PAIR": 8,
+    "TEXT_FLOW": 19,
+    "TEXT_FEATURE": 4,
+    "TIMELINE_MILESTONE": 8
+  },
+  "gates": {
+    "invalidImagePlacements": 0,
+    "pageOverflow": 0,
+    "orphanHeadings": 0
+  },
+  "inspection": "PASS",
+  "inspectionNotes": [
+    "Contrast box applied to full-bleed part title and claim.",
+    "Sparse HISTORIA pages receive an approved editorial transition image.",
+    "Shared semantic images repeat at Isenna, Os Outros and Lightbringers occurrences.",
+    "Required print compositions remain readable and semantically placed."
+  ]
+}

@@ -14,7 +14,11 @@ function pageControlForTarget(target: HTMLElement): PageControl | null {
   if (target.closest(".k-cover__sub")) return "subtitle";
   if (target.closest(".k-cover__foot")) return "templateMeta";
   if (target.closest(".k-eyebrow, .k-part__label, .k-chapter__number")) return "eyebrow";
-  if (target.closest(".k-cover__product, .k-part__title, .k-chapter__title, .k-h1, .k-h2, .k-h3"))
+  if (
+    target.closest(
+      ".k-cover__product, .k-part__title, .k-chapter__title, .k-h1, .k-h2, .k-h3, .k-h4, .k-h5",
+    )
+  )
     return "title";
   return null;
 }
@@ -80,6 +84,9 @@ export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function
     verso ? "k-page--verso" : "k-page--recto",
     page.settings.background === "obsidian" ? "k-page--obsidian" : "",
     definition.register === "referencia" ? "k-page--rules" : "",
+    page.materialization?.compositionFamily
+      ? `k-page--composition-${page.materialization.compositionFamily.toLowerCase().replaceAll("_", "-")}`
+      : "",
     className ?? "",
   ]
     .filter(Boolean)

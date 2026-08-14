@@ -25,6 +25,8 @@
     "test:authoring": "bun scripts/test-authoring.ts",
     "test:sheet": "bun scripts/test-sheet.ts",
     "test:image": "bun scripts/test-image-production.ts",
+    "materialize:historia": "bun scripts/materialize-manuscript.mjs --scope HISTORIA",
+    "test:materializer": "bun scripts/test-materializer.mjs",
     "format": "prettier --write ."
   },
   "dependencies": {

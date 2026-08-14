@@ -1,0 +1,311 @@
+{
+  "verdict": "PASS",
+  "scope": "HISTORIA",
+  "generatedAt": "2026-08-14T00:02:45.196Z",
+  "engine": {
+    "generatedBy": "kallistis-materializer",
+    "materializationVersion": 3,
+    "paginationPolicy": {
+      "targetBookPages": 320,
+      "softMaximumBookPages": 360,
+      "hardWarningBookPages": 420
+    },
+    "imageCadence": {
+      "targetInterval": 4,
+      "minimumInterval": 3,
+      "maximumInterval": 5
+    },
+    "manuscriptTotalWords": 90768,
+    "softMaxTextRun": 5,
+    "hardMaxTextRun": 7
+  },
+  "input": {
+    "manuscript": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/MANUSCRITO_CONGELADO/MANUSCRITO_CONGELADO.md",
+    "manuscriptSha256": "95cecb8fb9b8468cd2680c2113885841d599ed353ab018e7fc49f1fcbf853d67",
+    "catalog": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/00_CATALOGO_MESTRE_PRODUCAO_KALLISTIS_REV1.md",
+    "catalogSha256": "04ea301b8d4eebd616a25deca1c4aba8ae3f3a8a22561fbd6f683bca2d783627",
+    "sourceStartLine": 1,
+    "sourceEndLine": 1591
+  },
+  "output": {
+    "project": "/home/tonyus-dev/Projetos/kallistis-book/book_maker/projects/kallistis-materializado-historia-v3.json",
+    "originalProject": "/home/tonyus-dev/Projetos/kallistis-book/book_maker/projects/kallistis-livro-basico.json",
+    "originalProjectSha256": "6dc62bec7366e556d07019c7368bb0891ee9c88d05378cfbc4e2de84c6ffb13d"
+  },
+  "visualGate": {
+    "passed": true,
+    "semanticCorrectness": true,
+    "cadenceSoft": true,
+    "justification": null
+  },
+  "warnings": [
+    "PROJECTED_BOOK_PAGES_WARNING",
+    "BODY_IMAGE_CADENCE_SOFT_WARNING"
+  ],
+  "diagnostics": {
+    "TOTAL_PAGES": 40,
+    "TEXT_ONLY_PAGES": 34,
+    "TOTAL_WORDS_SCOPE": 8088,
+    "BODY_TEXT_PAGES": 30,
+    "BODY_WORDS_PER_PAGE_MEAN": 218.03,
+    "BODY_WORDS_PER_PAGE_MEDIAN": 208,
+    "PAGES_WITH_IMAGES": 6,
+    "PAGES_WITH_TABLES": 1,
+    "PAGES_WITH_MAPS": 0,
+    "PAGES_WITH_REVIEW_FLAGS": 0,
+    "EDITORIAL_FAMILY_COUNTS": {
+      "TITLE_PAGE": 1,
+      "COPYRIGHT_EXPEDIENTE": 1,
+      "DEDICATION": 1,
+      "INTRODUCTION": 1,
+      "PART_OPENING": 1,
+      "NARRATIVE": 35
+    },
+    "TITLE_PAGE_PAGES": 1,
+    "COPYRIGHT_EXPEDIENTE_PAGES": 1,
+    "DEDICATION_PAGES": 1,
+    "INTRODUCTION_PAGES": 1,
+    "PART_OPENING_PAGES": 1,
+    "NARRATIVE_PAGES": 35,
+    "IMAGE_INTERVAL_MEAN": 5.57,
+    "IMAGE_INTERVAL_MEDIAN": 14,
+    "BODY_IMAGE_INTERVAL_MEAN": 5.4,
+    "BODY_IMAGE_INTERVAL_MEDIAN": 14,
+    "FIRST_IMAGE_PAGE": 5,
+    "LAST_IMAGE_PAGE": 32,
+    "TRAILING_TEXT_PAGES": 8,
+    "TEXT_RUNS": [
+      {
+        "startPage": 1,
+        "endPage": 4,
+        "length": 4
+      },
+      {
+        "startPage": 7,
+        "endPage": 9,
+        "length": 3
+      },
+      {
+        "startPage": 11,
+        "endPage": 23,
+        "length": 13
+      },
+      {
+        "startPage": 25,
+        "endPage": 27,
+        "length": 3
+      },
+      {
+        "startPage": 29,
+        "endPage": 31,
+        "length": 3
+      },
+      {
+        "startPage": 33,
+        "endPage": 40,
+        "length": 8
+      }
+    ],
+    "BODY_TEXT_RUNS": [
+      {
+        "startPage": 7,
+        "endPage": 9,
+        "length": 3
+      },
+      {
+        "startPage": 11,
+        "endPage": 23,
+        "length": 13
+      },
+      {
+        "startPage": 25,
+        "endPage": 27,
+        "length": 3
+      },
+      {
+        "startPage": 29,
+        "endPage": 31,
+        "length": 3
+      },
+      {
+        "startPage": 33,
+        "endPage": 40,
+        "length": 8
+      }
+    ],
+    "MAX_CONSECUTIVE_TEXT_PAGES": 13,
+    "BODY_MAX_CONSECUTIVE_TEXT_PAGES": 13,
+    "WORDS_PER_TEXT_PAGE_MEAN": 218.03,
+    "WORDS_PER_TEXT_PAGE_MEDIAN": 208,
+    "PAGE_FILL_MEAN": 0.8765,
+    "UNDERFILLED_PAGES_LT_60_PERCENT": 6,
+    "OVERFLOW_PAGES": 0,
+    "UNUSED_VALID_HISTORY_ASSETS": [
+      "Manesh — O Mundo da Luz",
+      "Thuvel — O Mundo da Escuridão",
+      "Luz, Escuridão e Sombra",
+      "O Grande Cristal — Antes Que Houvesse Dois Mundos",
+      "Mirveth — Uma Pessoa Inteira",
+      "Vethari — Relação Sem Apagamento",
+      "Lar · Cidade · Companhia",
+      "História do Mundo Partido",
+      "As primeiras frestas controladas",
+      "Kethrell e a doutrina da recomposição",
+      "Daeren"
+    ],
+    "USED_HISTORY_ASSETS": [
+      {
+        "heading": "Prólogo — A velha e a Fresta",
+        "sha256": "e1db36db28c181e1e6bfc19b3a6cf9f558925ffb5b4457c1cb049f35de84e695"
+      },
+      {
+        "heading": "PARTE I — O MUNDO PARTIDO",
+        "sha256": "403c9be0f92c8e129dbd69afad68d6ab6ac634e12450cd5bc9a5230059d2ef1b"
+      },
+      {
+        "heading": "Pedr’alma",
+        "sha256": "d300db9458c83144403fb6e628b77eb19854ffbffde3d4315247d8175161c4d2"
+      },
+      {
+        "heading": "A escrita contínua",
+        "sha256": "9d5ba02324170b5c62d5d1c97014fe382a69d20ad215743606b7ac08adcf4365"
+      },
+      {
+        "heading": "Os Outros",
+        "sha256": "a0576c36225a182e39d4707724c306669f2bb8344a3c04a45895645931d228ed"
+      },
+      {
+        "heading": "A profecia de Thaeraen",
+        "sha256": "4af9ac8918226535592b2d562d4c36cf62bb5ae77c648bfabfb8318ce6d3d161"
+      }
+    ],
+    "USED_HISTORY_ASSET_SHA_COUNT": 6,
+    "USED_HISTORY_ASSET_SHA_UNIQUE": 6,
+    "PROJECTED_BOOK_PAGES_TEXTUAL": 416.3,
+    "PROJECTED_BOOK_PAGES_CURRENT": 448.9,
+    "PROJECTED_BOOK_PAGES_DENSE": 363.07,
+    "VERTICAL_SPACE_TEXT_PERCENT": 81.35,
+    "VERTICAL_SPACE_BLOCK_GAPS_PERCENT": 6.8,
+    "VERTICAL_SPACE_HEADINGS_PERCENT": 8.11,
+    "VERTICAL_SPACE_IMAGES_PERCENT": 3.74,
+    "SOFT_MAX_TEXT_RUN": 5,
+    "HARD_MAX_TEXT_RUN": 7,
+    "SOURCE_BLOCK_TEXT_MISMATCHES": 0,
+    "SOURCE_WORDS_LOST": 0,
+    "SOURCE_WORDS_ADDED": 0,
+    "DUPLICATE_FRAGMENT_OCCURRENCES": 0,
+    "FRAGMENT_SEQUENCE_ERRORS": 0,
+    "MANUSCRIPT_TEXT_CHANGED": 0,
+    "MANUSCRIPT_BLOCKS_LOST": 0,
+    "MANUSCRIPT_BLOCKS_DUPLICATED": 0,
+    "PAGE_OVERFLOW": 0,
+    "ORPHAN_HEADINGS": 0,
+    "BROKEN_TABLE_ROWS": 0,
+    "SOURCE_ORDER_CHANGED": 0,
+    "ASSETS_MODIFIED": 0,
+    "ORIGINAL_PROJECT_OVERWRITTEN": 0,
+    "INVALID_IMAGE_PLACEMENTS": 0,
+    "SEMANTIC_IMAGE_PLACEMENTS": [
+      {
+        "page": 5,
+        "asset": "/assets/handoff/approved/p004_velha_e_fresta_pb.png",
+        "semanticAnchor": "Prólogo — A velha e a Fresta",
+        "allowedHeadingIds": [
+          "src-b8a684f6941c495a7bdd"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "Prólogo — A velha e a Fresta",
+        "actualHeadingIds": [
+          "src-f1286cf56dc73ec2773f",
+          "src-b8a684f6941c495a7bdd"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 6,
+        "asset": "/assets/handoff/approved/p005_cristal_partido_pb.png",
+        "semanticAnchor": "PARTE I — O MUNDO PARTIDO",
+        "allowedHeadingIds": [
+          "src-bc687787f2bfacb58bfa"
+        ],
+        "allowedWindow": "SAME_H1",
+        "actualH2": "PARTE I — O MUNDO PARTIDO",
+        "actualHeadingIds": [
+          "src-bc687787f2bfacb58bfa"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 10,
+        "asset": "/assets/handoff/approved/p013_pedralma_monolito_pb.png",
+        "semanticAnchor": "Pedr’alma",
+        "allowedHeadingIds": [
+          "src-011858638e1e6f2fafb0"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "Pedr’alma",
+        "actualHeadingIds": [
+          "src-bc687787f2bfacb58bfa",
+          "src-011858638e1e6f2fafb0"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 24,
+        "asset": "/assets/handoff/approved/p019_silmain_pb.png",
+        "semanticAnchor": "Silmain / escrita contínua",
+        "allowedHeadingIds": [
+          "src-59516b8a6795027cb3b5"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-bc687787f2bfacb58bfa",
+          "src-ddd00f7154ecbf6abddc",
+          "src-b3eb06616b423790181b",
+          "src-59516b8a6795027cb3b5"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 28,
+        "asset": "/assets/handoff/approved/p024_025_outros_lightbringers_pb.jpg",
+        "semanticAnchor": "Os Outros / Lightbringers",
+        "allowedHeadingIds": [
+          "src-74d7a07640cb5ee12473",
+          "src-dcfb8aa4d8316962abce",
+          "src-3e8a6249d2c203e4dbe5",
+          "src-bb0b73f955622ef60f9b"
+        ],
+        "allowedWindow": "ALLOWED_HEADINGS",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-bc687787f2bfacb58bfa",
+          "src-ddd00f7154ecbf6abddc",
+          "src-4a3012686592770c98a5",
+          "src-74d7a07640cb5ee12473"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 32,
+        "asset": "/assets/handoff/approved/p028_029_thaeraen_tempo_escolha_pb.jpeg",
+        "semanticAnchor": "Thaeraen / Tempo da Escolha",
+        "allowedHeadingIds": [
+          "src-0ee0ec65e5e3735d24d0"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-bc687787f2bfacb58bfa",
+          "src-ddd00f7154ecbf6abddc",
+          "src-a10c3071bb9b915e4b0c",
+          "src-0ee0ec65e5e3735d24d0"
+        ],
+        "semanticStatus": "EXACT"
+      }
+    ],
+    "MANUSCRIPT_BLOCKS_TOTAL": 602,
+    "MANUSCRIPT_BLOCKS_MATERIALIZED": 602
+  }
+}
