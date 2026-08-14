@@ -1,0 +1,19 @@
+{
+  "name": "KALLISTIS Book Maker",
+  "short_name": "KALLISTIS",
+  "description": "Editor local-first do Livro Básico de KALLISTIS.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f1eb",
+  "theme_color": "#1E3545",
+  "icons": [
+    {
+      "src": "/kallistis-favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

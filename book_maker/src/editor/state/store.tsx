@@ -169,6 +169,7 @@ interface EditorContextValue {
   switchLocalProject: (projectId: string, book: Book) => void;
   insertPage: (page: Page) => void;
   resetToDemo: () => void;
+  saveNow: () => Promise<boolean>;
   saveRecipe: (recipe: BookRecipe) => void;
   createPageFromRecipe: (afterPageId: string, recipe: BookRecipe) => void;
   deleteRecipe: (recipeId: string) => void;
@@ -256,6 +257,41 @@ export function EditorProvider({ children }: { children: ReactNode }) {
   const cloudRevisionRef = useRef<number | null>(null);
   const cloudReadyRef = useRef(false);
   const skipCloudSaveRef = useRef(false);
+
+  const saveNow = useCallback(async () => {
+    setStatus("saving");
+    const localSaved = saveLocalBook(book, projectId);
+    if (!localSaved) {
+      setStatus("error");
+      return false;
+    }
+    if (!cloudReady || skipCloudSaveRef.current) {
+      skipCloudSaveRef.current = false;
+      setStatus("saved");
+      return true;
+    }
+    const cloudBook = await syncLocalAssets(book, cloudProjectIdRef.current);
+    if (!cloudBook) {
+      setStatus("offline");
+      return true;
+    }
+    const result = await saveCloudSnapshot(
+      cloudProjectIdRef.current,
+      book.meta.title,
+      cloudBook,
+      cloudRevisionRef.current,
+    );
+    if (result.kind === "ok") {
+      cloudRevisionRef.current = result.revision;
+      if (cloudBook !== book) setBookState(cloudBook);
+      setStatus("saved");
+      return true;
+    }
+    if (result.kind === "conflict") setStatus("conflict");
+    else if (result.kind === "unauthorized" || result.kind === "unavailable") setStatus("offline");
+    else setStatus("error");
+    return true;
+  }, [book, cloudReady, projectId]);
 
   useEffect(() => {
     const refresh = () => refreshAssets((value) => value + 1);
@@ -882,6 +918,7 @@ export function EditorProvider({ children }: { children: ReactNode }) {
         setSelectedPageId(normalized.pages[0]!.id);
         setSelectedBlockId(null);
       },
+      saveNow,
       saveRecipe: (recipe) =>
         setBook((prev) => ({
           ...prev,
