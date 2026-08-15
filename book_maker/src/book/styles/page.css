@@ -88,11 +88,13 @@
 
 .k-block--span-full {
   column-span: all;
+  clear: both;
   break-inside: auto;
 }
 
 .k-block--text {
   break-inside: auto;
+  overflow-wrap: anywhere;
 }
 
 /* Header editorial */
@@ -762,6 +764,9 @@
 .k-chapter__band {
   position: relative;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   height: var(--band-h, 40%);
   margin-bottom: 6mm;
   overflow: hidden;
@@ -769,6 +774,7 @@
 
 .k-chapter__band img {
   width: 100%;
+  max-width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;

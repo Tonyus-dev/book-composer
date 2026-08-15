@@ -30,8 +30,11 @@ import {
   loadLocalBook,
   type LocalProjectSummary,
 } from "../../lib/persistence/local";
-
-const BLOCK_CLIPBOARD_KEY = "kallistis.book-builder.block-clipboard.v1";
+import {
+  getWorkFileName,
+  openWorkFile,
+  saveBookToWorkFile,
+} from "../../lib/persistence/work-file";
 
 const OVERLAY_LABELS: { key: keyof Overlays; label: string }[] = [
   { key: "rulers", label: "Réguas" },
@@ -150,6 +153,9 @@ export function Toolbar() {
     overlays,
     toggleOverlay,
     status,
+    lastSavedAt,
+    reviewMode,
+    toggleReviewMode,
     selectedPage,
     clearPage,
     updatePage,
@@ -157,6 +163,9 @@ export function Toolbar() {
     addBlock,
     selectBlock,
     selectedBlock,
+    copySelectedBlocks,
+    pasteBlocks,
+    hasBlockClipboard,
     replaceBook,
     projectId,
     switchLocalProject,
@@ -176,9 +185,16 @@ export function Toolbar() {
     redo,
     snapGrid,
     toggleSnapGrid,
+    smartGuides,
+    toggleSmartGuides,
+    snapEnabled,
+    toggleSnapEnabled,
+    cursorGuides,
+    toggleCursorGuides,
   } = useEditor();
   const fileRef = useRef<HTMLInputElement>(null);
   const pageFileRef = useRef<HTMLInputElement>(null);
+  const visualizationMenuRef = useRef<HTMLDetailsElement>(null);
   const [newTableOpen, setNewTableOpen] = useState(false);
   const [elementsOpen, setElementsOpen] = useState(false);
   const [newTableColumns, setNewTableColumns] = useState("3");
@@ -196,20 +212,68 @@ export function Toolbar() {
   const [formTitle, setFormTitle] = useState("Ficha de personagem");
   const [formColumns, setFormColumns] = useState<1 | 2>(1);
   const [sheetPreset, setSheetPreset] = useState("blank");
+  const [workFileSaving, setWorkFileSaving] = useState(false);
+  const [workFileName, setWorkFileName] = useState<string | null>(null);
   const { errors, warnings, infos } = preflight.summary;
+  const savedTime = lastSavedAt
+    ? new Intl.DateTimeFormat("pt-BR", { hour: "2-digit", minute: "2-digit" }).format(lastSavedAt)
+    : null;
+
+  useEffect(() => {
+    let mounted = true;
+    void getWorkFileName().then((name) => {
+      if (mounted && name) setWorkFileName(name);
+    });
+    const onFileEvent = (event: Event) => {
+      const detail = (event as CustomEvent<{ fileName?: string }>).detail;
+      if (detail?.fileName) setWorkFileName(detail.fileName);
+    };
+    window.addEventListener("kallistis-work-file-saved", onFileEvent);
+    window.addEventListener("kallistis-work-file-opened", onFileEvent);
+    return () => {
+      mounted = false;
+      window.removeEventListener("kallistis-work-file-saved", onFileEvent);
+      window.removeEventListener("kallistis-work-file-opened", onFileEvent);
+    };
+  }, []);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
-      if (!(event.metaKey || event.ctrlKey) || event.key.toLowerCase() !== "z") return;
+      if (!(event.metaKey || event.ctrlKey)) return;
       const target = event.target as HTMLElement | null;
-      if (target && /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)) return;
+      if (
+        target &&
+        (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName))
+      )
+        return;
+      const key = event.key.toLowerCase();
+      if (key !== "z" && key !== "y") return;
       event.preventDefault();
-      if (event.shiftKey) redo();
+      if (event.key.toLowerCase() === "y" || event.shiftKey) redo();
       else undo();
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [redo, undo]);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement | null;
+      if (
+        target &&
+        (target.isContentEditable ||
+          /^(TEXTAREA|SELECT)$/.test(target.tagName) ||
+          (target.tagName === "INPUT" && (target as HTMLInputElement).type !== "checkbox"))
+      )
+        return;
+      if (!event.shiftKey || event.metaKey || event.ctrlKey || event.altKey) return;
+      if (event.key.toLowerCase() !== "g") return;
+      event.preventDefault();
+      toggleCursorGuides();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [toggleCursorGuides]);
   const asciiPreview = useMemo(() => {
     if (authoringOpen !== "ascii" || !authoringText.trim()) return null;
     const parsed = parseAsciiLayout(authoringText);
@@ -314,26 +378,6 @@ export function Toolbar() {
     setNewProjectOpen(true);
   };
 
-  const copySelectedBlock = () => {
-    if (!selectedBlock) {
-      window.alert("Selecione um bloco antes de copiar.");
-      return;
-    }
-    window.localStorage.setItem(BLOCK_CLIPBOARD_KEY, JSON.stringify(selectedBlock));
-  };
-
-  const pasteCopiedBlock = () => {
-    try {
-      const raw = JSON.parse(window.localStorage.getItem(BLOCK_CLIPBOARD_KEY) ?? "null") as Block;
-      if (!raw || typeof raw.id !== "string" || typeof raw.type !== "string") throw new Error();
-      const pasted = cloneBlockForInsert(raw, 0);
-      addBlock(selectedPage.id, pasted);
-      selectBlock(pasted.id);
-    } catch {
-      window.alert("Nenhum bloco válido foi copiado entre os projetos.");
-    }
-  };
-
   const exportCurrentPage = () => {
     const filename = `${selectedPage.title?.replace(/[^a-z0-9]+/gi, "-") || "pagina"}.json`;
     downloadPageJson(selectedPage, filename);
@@ -350,9 +394,39 @@ export function Toolbar() {
     if (cloned[0]) selectBlock(cloned[0].id);
   };
 
+  const saveWorkingFile = async () => {
+    setWorkFileSaving(true);
+    try {
+      await saveNow();
+      const fileName = await saveBookToWorkFile(book);
+      window.dispatchEvent(new CustomEvent("kallistis-work-file-saved", { detail: { fileName } }));
+    } catch (error) {
+      if ((error as DOMException | undefined)?.name !== "AbortError") {
+        window.alert(`O projeto foi salvo localmente, mas o arquivo de trabalho não foi gravado.\n\n${String(error)}`);
+      }
+    } finally {
+      setWorkFileSaving(false);
+    }
+  };
+
+  const openWorkingFile = async () => {
+    try {
+      const file = await openWorkFile();
+      if (!window.confirm("Abrir este JSON e substituir o projeto atual?")) return;
+      replaceBook(await readBookFromFile(file));
+      setWorkFileName(file.name);
+      window.dispatchEvent(
+        new CustomEvent("kallistis-work-file-opened", { detail: { fileName: file.name } }),
+      );
+    } catch (error) {
+      if ((error as DOMException | undefined)?.name === "AbortError") return;
+      window.alert(`Não foi possível abrir o arquivo de trabalho.\n\n${String(error)}`);
+    }
+  };
+
   return (
     <>
-      <header className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-border bg-card px-3 py-2">
+      <header className="k-editor-toolbar flex flex-wrap items-center gap-x-3 gap-y-2 border-b border-border bg-card px-3 py-2">
         <div className="flex min-w-[220px] items-center gap-3">
           <span className="text-[13px] font-semibold tracking-[0.2em] text-foreground uppercase">
             Kallistis Book Maker
@@ -361,9 +435,9 @@ export function Toolbar() {
           <div className="min-w-0 leading-tight">
             <div
               className="truncate text-[11px] font-medium text-foreground"
-              title={book.meta.title}
+              title={workFileName ?? "Arquivo de trabalho não vinculado"}
             >
-              {book.meta.title}
+              {workFileName ?? "Arquivo de trabalho não vinculado"}
             </div>
             {book.meta.edition ? (
               <div className="truncate text-[10px] text-muted-foreground" title={book.meta.edition}>
@@ -373,45 +447,96 @@ export function Toolbar() {
           </div>
         </div>
 
-        <div className="flex items-center gap-1">
-          {(["page", "spread", "light"] as const).map((mode) => (
-            <button
-              key={mode}
-              type="button"
-              onClick={() => setView(mode)}
-              title={
-                mode === "light"
-                  ? "Mesa de luz: ritmo, densidade e distribuição de arte no livro inteiro"
-                  : undefined
-              }
-              className={`k-editor-view-tab k-editor-view-tab--${mode} border px-2 py-1 text-[11px] ${
-                view === mode
-                  ? "border-primary bg-primary text-primary-foreground"
-                  : "border-border hover:bg-accent"
-              }`}
-            >
-              {mode === "page" ? "Página" : mode === "spread" ? "Spread" : "Mesa de luz"}
-            </button>
-          ))}
-        </div>
-
-        <label className="flex items-center gap-1 text-[11px] text-muted-foreground">
-          Zoom
-          <select
-            value={String(zoom)}
-            onChange={(event) => {
-              const raw = event.target.value;
-              setZoom(raw === "fit" ? "fit" : (Number(raw) as ZoomValue));
-            }}
-            className="border border-border bg-input/40 px-1.5 py-1 text-[11px] text-foreground"
-          >
-            {ZOOMS.map((value) => (
-              <option key={String(value)} value={String(value)}>
-                {value === "fit" ? "Ajustar" : `${Number(value) * 100}%`}
-              </option>
+        <details ref={visualizationMenuRef} className="relative">
+          <summary className="cursor-pointer list-none border border-border px-2 py-1 text-[11px] hover:bg-accent">
+            Visualização ▾
+          </summary>
+          <div className="absolute left-0 top-full z-50 grid min-w-[190px] gap-2 border border-border bg-card p-2 shadow-xl">
+            <div className="grid grid-cols-3 gap-1">
+              {(["page", "spread", "light"] as const).map((mode) => (
+                <button
+                  key={mode}
+                  type="button"
+                  onClick={() => setView(mode)}
+                  title={
+                    mode === "light"
+                      ? "Mesa de luz: ritmo, densidade e distribuição de arte no livro inteiro"
+                      : undefined
+                  }
+                  className={`k-editor-view-tab k-editor-view-tab--${mode} border px-2 py-1 text-[11px] ${
+                    view === mode
+                      ? "border-primary bg-primary text-primary-foreground"
+                      : "border-border hover:bg-accent"
+                  }`}
+                >
+                  {mode === "page" ? "Página" : mode === "spread" ? "Spread" : "Mesa"}
+                </button>
+              ))}
+            </div>
+            <label className="flex items-center justify-between gap-2 text-[11px] text-muted-foreground">
+              Zoom
+              <select
+                value={String(zoom)}
+                onChange={(event) => {
+                  const raw = event.target.value;
+                  setZoom(raw === "fit" ? "fit" : (Number(raw) as ZoomValue));
+                }}
+                className="border border-border bg-input/40 px-1.5 py-1 text-[11px] text-foreground"
+              >
+                {ZOOMS.map((value) => (
+                  <option key={String(value)} value={String(value)}>
+                    {value === "fit" ? "Ajustar página" : `${Number(value) * 100}%`}
+                  </option>
+                ))}
+              </select>
+            </label>
+            {OVERLAY_LABELS.map((entry) => (
+              <label key={entry.key} className="flex items-center gap-2 px-1 text-[11px]">
+                <input
+                  type="checkbox"
+                  checked={overlays[entry.key]}
+                  onChange={() => toggleOverlay(entry.key)}
+                />
+                {entry.label}
+              </label>
             ))}
-          </select>
-        </label>
+            <label className="flex items-center gap-2 px-1 text-[11px]">
+              <input type="checkbox" checked={snapGrid} onChange={toggleSnapGrid} />
+              Grade 1 mm
+            </label>
+            <label className="flex items-center gap-2 px-1 text-[11px]">
+              <input type="checkbox" checked={smartGuides} onChange={toggleSmartGuides} />
+              Smart Guides
+            </label>
+            <label className="flex items-center gap-2 px-1 text-[11px]">
+              <input type="checkbox" checked={snapEnabled} onChange={toggleSnapEnabled} />
+              Snap
+            </label>
+            <label className="flex items-center gap-2 px-1 text-[11px]">
+              <input type="checkbox" checked={cursorGuides} onChange={toggleCursorGuides} />
+              Guias do cursor
+            </label>
+            <button
+              type="button"
+              data-testid="review-mode-toggle"
+              aria-pressed={reviewMode}
+              onClick={() => {
+                toggleReviewMode();
+                visualizationMenuRef.current?.removeAttribute("open");
+              }}
+              className={`border px-2 py-1 text-left text-[11px] ${reviewMode ? "border-primary bg-primary text-primary-foreground" : "border-border hover:bg-accent"}`}
+            >
+              {reviewMode ? "✓ Modo revisão ativo" : "Modo revisão"}
+            </button>
+            <button
+              type="button"
+              onClick={openPrint}
+              className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
+            >
+              Modo impressão
+            </button>
+          </div>
+        </details>
 
         <div className="flex items-center gap-1">
           <button
@@ -434,16 +559,15 @@ export function Toolbar() {
           >
             ↷
           </button>
-          <button
-            type="button"
-            data-testid="snap-grid-toggle"
-            aria-pressed={snapGrid}
-            title="Alinhar objetos à grade de 1 mm"
-            onClick={toggleSnapGrid}
-            className={`border px-2 py-1 text-[11px] ${snapGrid ? "border-primary bg-primary/10" : "border-border hover:bg-accent"}`}
-          >
-            Grade 1 mm
-          </button>
+          {snapGrid ? (
+            <span
+              data-testid="snap-grid-indicator"
+              className="k-editor-toolbar-indicator"
+              title="Snap ativo: alinhar objetos à grade de 1 mm. Desative no menu Visualização."
+            >
+              Grade · 1 mm
+            </span>
+          ) : null}
         </div>
 
         <details
@@ -455,6 +579,16 @@ export function Toolbar() {
             Inserir elemento ▾
           </summary>
           <div className="absolute left-0 top-full z-50 mt-1 grid min-w-[180px] gap-1 border border-border bg-card p-2 shadow-xl">
+            <button
+              type="button"
+              className="border border-primary px-2 py-1 text-left text-[11px] hover:bg-accent"
+              onClick={() => {
+                setFrameToolActive(true);
+                setElementsOpen(false);
+              }}
+            >
+              Desenhar frame
+            </button>
             {[
               ["shape:frame", "Moldura"],
               ["shape:window", "Janela / caixa"],
@@ -481,96 +615,51 @@ export function Toolbar() {
           </div>
         </details>
 
-        <button
-          type="button"
-          data-testid="frame-tool"
-          aria-pressed={frameToolActive}
-          title="Desenhe uma caixa e escolha TEXTO ou IMAGEM"
-          onClick={() => setFrameToolActive(!frameToolActive)}
-          className={`border px-2 py-1 text-[11px] ${frameToolActive ? "border-primary bg-primary text-primary-foreground" : "border-primary bg-primary/10 hover:bg-accent"}`}
-        >
-          + FRAME
-        </button>
-        <button
-          type="button"
-          data-testid="clear-page"
-          title="Remove a composição e os elementos opcionais desta página"
-          onClick={() => {
-            if (window.confirm("Limpar todos os elementos desta página?"))
-              clearPage(selectedPage.id);
-          }}
-          className="border border-border px-2 py-1 text-[11px] hover:bg-accent"
-        >
-          Limpar página
-        </button>
-
-        <div className="flex items-center gap-1">
-          <button
-            type="button"
-            className="border border-border px-2 py-1 text-[11px] hover:bg-accent"
-            onClick={() => setAuthoringOpen("smart")}
-            title="Importa texto, TSV, CSV ou Markdown como conteúdo editorial"
-          >
-            Colar inteligente
-          </button>
-          <button
-            type="button"
-            className="border border-border px-2 py-1 text-[11px] hover:bg-accent"
-            onClick={() => setAuthoringOpen("ascii")}
-            title="Cria uma composição a partir de uma notação ASCII simples"
-          >
-            Layout ASCII
-          </button>
-          <button
-            type="button"
-            className="border border-border px-2 py-1 text-[11px] hover:bg-accent"
-            onClick={() => setAuthoringOpen("recipes")}
-            title="Salvar e reaplicar receitas editoriais"
-          >
-            Receitas
-          </button>
-        </div>
-
         <details className="relative">
           <summary className="cursor-pointer list-none border border-border px-2 py-1 text-[11px] hover:bg-accent">
-            Visualização ▾
+            Ferramentas ▾
           </summary>
-          <div className="absolute left-0 top-full z-50 grid min-w-[150px] gap-1 border border-border bg-card p-2 shadow-xl">
-            {OVERLAY_LABELS.map((entry) => (
-              <label key={entry.key} className="flex items-center gap-2 px-1 py-1 text-[11px]">
-                <input
-                  type="checkbox"
-                  checked={overlays[entry.key]}
-                  onChange={() => toggleOverlay(entry.key)}
-                />
-                {entry.label}
-              </label>
-            ))}
-            <label className="flex items-center gap-2 px-1 py-1 text-[11px]">
-              <input type="checkbox" checked={snapGrid} onChange={toggleSnapGrid} />
-              Grid 1 mm
-            </label>
+          <div className="absolute left-0 top-full z-50 grid min-w-[180px] gap-1 border border-border bg-card p-2 shadow-xl">
+            <button
+              type="button"
+              data-testid="clear-page"
+              title="Remove a composição e os elementos opcionais desta página"
+              onClick={() => {
+                if (window.confirm("Limpar todos os elementos desta página?"))
+                  clearPage(selectedPage.id);
+              }}
+              className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
+            >
+              Limpar página
+            </button>
+            <button
+              type="button"
+              className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
+              onClick={() => setAuthoringOpen("smart")}
+              title="Importa texto, TSV, CSV ou Markdown como conteúdo editorial"
+            >
+              Colar inteligente
+            </button>
+            <button
+              type="button"
+              className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
+              onClick={() => setAuthoringOpen("ascii")}
+              title="Cria uma composição a partir de uma notação ASCII simples"
+            >
+              Layout ASCII
+            </button>
+            <button
+              type="button"
+              className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
+              onClick={() => setAuthoringOpen("recipes")}
+              title="Salvar e reaplicar receitas editoriais"
+            >
+              Receitas
+            </button>
           </div>
         </details>
 
-        <label className="flex items-center gap-1 text-[11px] text-muted-foreground">
-          Inserir
-          <select
-            aria-label="Inserir bloco"
-            value=""
-            onChange={(event) => {
-              if (event.target.value) insert(event.target.value as BlockType);
-            }}
-            className="border border-border bg-input/40 px-1.5 py-1 text-[11px] text-foreground"
-          >
-            <option value="">bloco…</option>
-            {NEW_BLOCKS.map((entry) => (
-              <option key={entry.type} value={entry.type}>
-                {entry.label}
-              </option>
-            ))}
-          </select>
-        </label>
+        <span className="sr-only">Inserção adicional disponível no menu Inserir.</span>
 
         <div className="ml-auto flex items-center gap-2">
           <button
@@ -587,34 +676,51 @@ export function Toolbar() {
           <button
             type="button"
             onClick={openPreflight}
-            className="text-[10px] text-muted-foreground tabular-nums hover:text-foreground"
+            className="k-editor-preflight-summary"
+            aria-label={`Preflight: ${errors} erros, ${warnings} avisos, ${infos} informações`}
+            title={`${errors} Errors · ${warnings} Warnings · ${infos} Info. Abrir relatório de preflight.`}
           >
-            <span className={errors > 0 ? "text-destructive" : ""}>{errors} Errors</span>
-            {` ${warnings} Warnings ${infos} Info`}
+            <span className={errors > 0 ? "text-destructive" : "text-[#246b4a]"} aria-hidden="true">
+              {errors > 0 ? "✕" : "✓"}
+            </span>
+            <span className={errors > 0 ? "text-destructive" : ""}>{errors}</span>
+            <span
+              className={warnings > 0 ? "text-[#a45a16]" : "text-muted-foreground"}
+              aria-hidden="true"
+            >
+              ⚠
+            </span>
+            <span>{warnings}</span>
+            <span className="text-muted-foreground" aria-hidden="true">
+              ⓘ
+            </span>
+            <span>{infos}</span>
           </button>
           <span
-            className="text-[10px] text-muted-foreground"
+            className="k-editor-save-indicator"
             title="O autosave local continua ativo mesmo sem a nuvem."
           >
             {status === "saving"
-              ? "sincronizando…"
+              ? "● Salvando…"
               : status === "conflict"
-                ? "conflito de versão"
+                ? "● Conflito"
                 : status === "offline"
-                  ? "offline · salvo localmente"
-                  : status === "error"
-                    ? "erro de sync · salvo localmente"
-                    : "salvo localmente"}
+                  ? "● Offline · salvo"
+                : status === "error"
+                    ? "● Erro · salvo"
+                    : savedTime
+                      ? `● Salvo às ${savedTime}`
+                      : "● Aguardando salvamento"}
           </span>
           <button
             type="button"
             data-testid="save-project"
-            onClick={() => void saveNow()}
-            disabled={status === "saving"}
+            onClick={() => void saveWorkingFile()}
+            disabled={workFileSaving}
             className="k-editor-primary-action border px-3 py-1 text-[11px] font-semibold disabled:opacity-60"
-            title="Salvar imediatamente o estado atual localmente e, quando disponível, na nuvem"
+            title="Salvar no arquivo de trabalho e também no armazenamento local"
           >
-            {status === "saving" ? "Salvando…" : "Salvar"}
+            {workFileSaving || status === "saving" ? "Salvando…" : "Salvar"}
           </button>
           <details className="relative">
             <summary className="cursor-pointer list-none border border-border px-2 py-1 text-[11px] hover:bg-accent">
@@ -657,10 +763,11 @@ export function Toolbar() {
               </button>
               <button
                 type="button"
-                onClick={() => fileRef.current?.click()}
+                onClick={() => void openWorkingFile()}
                 className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
+                title="Abre o JSON e vincula o arquivo para o Salvar e o autosave"
               >
-                Importar JSON do projeto
+                Abrir JSON do projeto
               </button>
               <button
                 type="button"
@@ -671,18 +778,19 @@ export function Toolbar() {
               </button>
               <button
                 type="button"
-                onClick={copySelectedBlock}
+                onClick={copySelectedBlocks}
                 disabled={!selectedBlock}
                 className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent disabled:opacity-40"
               >
-                Copiar bloco selecionado
+                Copiar seleção
               </button>
               <button
                 type="button"
-                onClick={pasteCopiedBlock}
+                onClick={() => pasteBlocks(selectedPage.id)}
+                disabled={!hasBlockClipboard}
                 className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
               >
-                Colar bloco de outro projeto
+                Colar seleção
               </button>
               <button
                 type="button"
@@ -697,6 +805,16 @@ export function Toolbar() {
                 className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
               >
                 Importar folha neste projeto
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  if (window.confirm("Descartar o projeto local e voltar à maquete de desenvolvimento?"))
+                    resetToDemo();
+                }}
+                className="border border-border px-2 py-1 text-left text-[11px] text-muted-foreground hover:bg-accent"
+              >
+                Restaurar maquete
               </button>
               <button
                 type="button"
@@ -716,20 +834,6 @@ export function Toolbar() {
               </button>
             </div>
           </details>
-          <button
-            type="button"
-            onClick={() => void downloadPortableBookJson(book)}
-            className="k-editor-primary-action border px-2 py-1 text-[11px]"
-          >
-            Exportar projeto portátil
-          </button>
-          <button
-            type="button"
-            onClick={() => fileRef.current?.click()}
-            className="border border-border px-2 py-1 text-[11px] hover:bg-accent"
-          >
-            Abrir projeto
-          </button>
           <input
             ref={fileRef}
             type="file"
@@ -741,6 +845,12 @@ export function Toolbar() {
               try {
                 if (window.confirm("Importar este JSON e substituir o projeto atual?")) {
                   replaceBook(await readBookFromFile(file));
+                  setWorkFileName(file.name);
+                  window.dispatchEvent(
+                    new CustomEvent("kallistis-work-file-opened", {
+                      detail: { fileName: file.name },
+                    }),
+                  );
                 }
               } catch (error) {
                 console.error(error);
@@ -766,25 +876,6 @@ export function Toolbar() {
               event.target.value = "";
             }}
           />
-          <button
-            type="button"
-            onClick={() => {
-              if (
-                window.confirm("Descartar o projeto local e voltar à maquete de desenvolvimento?")
-              )
-                resetToDemo();
-            }}
-            className="border border-border px-2 py-1 text-[11px] text-muted-foreground hover:bg-accent"
-          >
-            Restaurar maquete
-          </button>
-          <button
-            type="button"
-            onClick={openPrint}
-            className="k-editor-primary-action border px-2 py-1 text-[11px] font-medium"
-          >
-            Modo impressão
-          </button>
           {!import.meta.env.DEV ? (
             <button
               type="button"

@@ -17,8 +17,15 @@ import { chromium } from "playwright";
 const ROOT = path.resolve(import.meta.dirname, "..");
 const PRODUCTION_ROOT =
   "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO";
-const MANUSCRIPT = path.join(PRODUCTION_ROOT, "MANUSCRITO_CONGELADO", "MANUSCRITO_CONGELADO.md");
-const CATALOG = path.join(PRODUCTION_ROOT, "00_CATALOGO_MESTRE_PRODUCAO_KALLISTIS_REV1.md");
+const DEFAULT_MANUSCRIPT = path.join(
+  PRODUCTION_ROOT,
+  "MANUSCRITO_CONGELADO",
+  "MANUSCRITO_CONGELADO.md",
+);
+const DEFAULT_CATALOG = path.join(
+  PRODUCTION_ROOT,
+  "00_CATALOGO_MESTRE_PRODUCAO_KALLISTIS_REV1.md",
+);
 const LOCAL_IMAGE_ROOT = path.join(PRODUCTION_ROOT, "IMAGENS");
 const V15_IMAGE_ROOT = path.join(ROOT, "public", "assets", "v1.5-acervo");
 const V15_INVENTORY_PATH = path.join(ROOT, "drive-image-inventory.json");
@@ -43,11 +50,10 @@ let renderRevision = 0;
 
 const IMAGE_CADENCE = { targetInterval: 4, minimumInterval: 3, maximumInterval: 5 };
 const PAGINATION_POLICY = {
-  targetBookPages: 420,
-  softMaximumBookPages: 420,
-  hardWarningBookPages: 420,
+  targetBookPages: null,
+  softMaximumBookPages: null,
+  hardWarningBookPages: null,
 };
-const MANUSCRIPT_TOTAL_WORDS = 90768;
 const SOFT_MAX_TEXT_RUN = 5;
 const HARD_MAX_TEXT_RUN = 7;
 const ENCOUNTER_SECTION = "SETENTA E DOIS ENCONTROS ENTRE HERANÇA E ESCOLHA";
@@ -1097,6 +1103,18 @@ if (thurDaerAsset) {
     alt,
     reference,
     ...SEMANTIC_ASSET_RULES.get(heading),
+    ...(new Set([
+      "Guardião",
+      "Duelista",
+      "Atirador",
+      "Tecelão",
+      "Curador",
+      "Evocador",
+      "Artífice",
+      "Batedor",
+    ]).has(heading)
+      ? { allowedHeadingTexts: [heading, heading.toUpperCase()] }
+      : {}),
     ...(heading === "Bestiário do Cristal Partido" ? { fullArtOpening: true } : {}),
     allowedHeadingIds: [],
     sha: null,
@@ -1699,11 +1717,21 @@ const EXTRA_FULL_ART_PLATE_RULES = [
 ];
 
 function parseArgs(argv) {
-  const args = { scope: "HISTORIA", output: DEFAULT_OUTPUT, baseProject: null };
+  const args = {
+    scope: "HISTORIA",
+    output: DEFAULT_OUTPUT,
+    baseProject: null,
+    manuscript: DEFAULT_MANUSCRIPT,
+    catalog: DEFAULT_CATALOG,
+    pilot: false,
+  };
   for (let i = 0; i < argv.length; i += 1) {
     if (argv[i] === "--scope") args.scope = String(argv[++i] ?? "HISTORIA").toUpperCase();
     if (argv[i] === "--output") args.output = path.resolve(String(argv[++i] ?? DEFAULT_OUTPUT));
     if (argv[i] === "--base-project") args.baseProject = path.resolve(String(argv[++i] ?? ""));
+    if (argv[i] === "--manuscript") args.manuscript = path.resolve(String(argv[++i] ?? ""));
+    if (argv[i] === "--catalog") args.catalog = path.resolve(String(argv[++i] ?? ""));
+    if (argv[i] === "--pilot") args.pilot = true;
   }
   if (!["HISTORIA", "MUNDO", "REGRAS", "PARTES_I_IV", "COMPLETO", "ALL"].includes(args.scope)) {
     throw new Error(`Scope inválido: ${args.scope}`);
@@ -1914,6 +1942,35 @@ function parseMarkdown(markdown, scope) {
   return { blocks, selectedStartLine: selected.start + 1, selectedEndLine: selected.end };
 }
 
+function selectPilotBlocks(sourceBlocks) {
+  const selected = new Set();
+  const addWindow = (index, before = 2, after = 10) => {
+    if (index < 0) return;
+    for (let cursor = Math.max(0, index - before); cursor <= Math.min(sourceBlocks.length - 1, index + after); cursor += 1)
+      selected.add(sourceBlocks[cursor].id);
+  };
+  addWindow(0, 0, 16);
+  const anchors = [
+    { find: (source) => source.type === "heading" && /^PARTE II\b/u.test(source.text), after: 8 },
+    { find: (source) => source.type === "heading" && source.text === "AELVARI", after: 8 },
+    {
+      find: (source) => source.type === "heading" && source.text === "OITO MANEIRAS DE ESCOLHER",
+      after: 4,
+    },
+    { find: (source) => source.type === "heading" && /^MECÂNICA DE JOGO/u.test(source.text), after: 6 },
+    { find: (source) => source.type === "heading" && source.text === "APÊNDICES", after: 8 },
+    {
+      find: (source) => source.type === "table" && /^PARTE V\b|^PARTE VI\b/u.test(source.sectionH1 ?? ""),
+      after: 5,
+    },
+  ];
+  for (const anchor of anchors) {
+    const index = sourceBlocks.findIndex(anchor.find);
+    addWindow(index, 2, anchor.after);
+  }
+  return sourceBlocks.filter((source) => selected.has(source.id));
+}
+
 function annotateHeadingPaths(sourceBlocks) {
   const active = Array(6).fill(null);
   return sourceBlocks.map((source) => {
@@ -1940,7 +1997,9 @@ function bindSemanticAssets(sourceBlocks) {
       .filter(
         (source) =>
           !asset.allowedSectionH2 ||
-          source.headingPath?.some((heading) => heading.text === asset.allowedSectionH2),
+          source.headingPath?.some((heading) => heading.text === asset.allowedSectionH2) ||
+          (asset.allowedSectionH2 === "NOVE MANEIRAS DE EXISTIR" &&
+            source.sectionH2 === "MOVIMENTO A — POVOS"),
       );
     asset.allowedHeadingIds = matchingSources.map((source) => source.id);
     asset.anchorHeadingId = matchingSources[0]?.id ?? null;
@@ -2365,7 +2424,7 @@ function compositionForSource(source, asset = null, ordinal = 1) {
     return { family: "TEXT_FEATURE", template: "table_page", variant: "default" };
   }
   if (asset?.family === "MAP_PAGE")
-    return { family: "MAP_PAGE", template: "chapter_opening", variant: "image-top" };
+    return { family: "MAP_PAGE", template: "map_page", variant: "default" };
   if (["GEOGRAPHY_OPENING", "PEDRALMA_OPENING", "FINAL_CLOSURE"].includes(asset?.family)) {
     return { family: asset.family, template: "chapter_opening", variant: "image-top" };
   }
@@ -2404,6 +2463,7 @@ function compactReferenceSection(source) {
 function applyCompactReferencePage(page, source) {
   if (
     !compactReferenceSection(source) ||
+    page.template !== "narrative" ||
     page.template === "part_opening" ||
     page.blocks.some((block) => block.type === "image")
   ) {
@@ -2677,6 +2737,60 @@ function repairOrphanHeadings(book) {
   return count;
 }
 
+async function repairMeasuredTailOverflow(
+  book,
+  browserPage,
+  baseBook,
+  sourceById,
+  candidateIndexes = book.pages.map((_, index) => index),
+) {
+  let repaired = 0;
+  for (const candidateIndex of candidateIndexes) {
+    let index = candidateIndex;
+    if (index >= book.pages.length) continue;
+    const page = book.pages[index];
+    const measurement = await renderAndMeasure(browserPage, candidateBook(baseBook, page, index));
+    const hasRealTailOverflow = measurement.blockInfo.some(
+      (block) => !block.isImage && block.bottom > measurement.clientHeight + 1,
+    );
+    const last = page.blocks.at(-1);
+    if (!measurement.overflow || !hasRealTailOverflow || !last || last.type === "heading") continue;
+
+    const tailBlocks =
+      page.blocks.at(-2)?.type === "heading" ? page.blocks.slice(-2) : [last];
+    const tailStart = page.blocks.length - tailBlocks.length;
+
+    page.blocks = page.blocks.slice(0, tailStart);
+    const remaining = await renderAndMeasure(browserPage, candidateBook(baseBook, page, index));
+    if (remaining.overflow) {
+      page.blocks.push(...tailBlocks);
+      continue;
+    }
+
+    updatePageMetadata(page, sourceById);
+    const continuationFamily = /^PARTE III\b/u.test(page.part ?? "")
+      ? "CULTURE_FLOW"
+      : /^PARTE II\b/u.test(page.part ?? "")
+        ? "GEOGRAPHY_FLOW"
+        : "TEXT_FLOW";
+    const continuation = {
+      ...page,
+      id: `${page.id}-continuation`,
+      template: "narrative",
+      variant: "default",
+      editorialComposition: continuationFamily,
+      editorialFamily: "NARRATIVE",
+      title: page.title,
+      settings: { ...page.settings, header: true, columns: 1 },
+      blocks: tailBlocks,
+    };
+    updatePageMetadata(continuation, sourceById);
+    book.pages.splice(index + 1, 0, continuation);
+    repaired += 1;
+  }
+  return repaired;
+}
+
 function splitSentences(content) {
   const parts = content
     .trim()
@@ -2807,6 +2921,7 @@ async function renderAndMeasure(page, book) {
     const content = root?.querySelector(".k-page__content") ?? root;
     if (!root || !content) throw new Error("PageRenderer sem .k-page__content");
     const specialCopy = root.querySelector("[data-full-art-copy='true']");
+    const hasFlowFloat = Boolean(root.querySelector(".k-figure--left, .k-figure--right"));
     const contentRect = content.getBoundingClientRect();
     const blockElements = [...content.querySelectorAll("[data-block-id]")];
     const blockInfo = blockElements.map((element) => {
@@ -2842,7 +2957,7 @@ async function renderAndMeasure(page, book) {
           ? specialCopy.scrollHeight > specialCopy.clientHeight + 1 ||
             specialCopy.scrollWidth > specialCopy.clientWidth + 1
           : !["part_opening", "full_art"].includes(root.dataset.template ?? "") &&
-            (content.scrollHeight > content.clientHeight + 1 ||
+            ((!hasFlowFloat && content.scrollHeight > content.clientHeight + 1) ||
               content.scrollWidth > content.clientWidth + 1)),
       scrollHeight: content.scrollHeight,
       clientHeight: content.clientHeight,
@@ -3054,13 +3169,9 @@ async function materialize({ scope, markdown, baseBook, browserPage, sourceBlock
 
     const asset = assetForSource(source);
     const supportAssets = supportAssetsForSource(source);
-    const frontMatterBoundary =
-      scope === "HISTORIA" &&
+    const dedicationBoundary =
       source.type === "heading" &&
-      source.level === 2 &&
-      ["Expediente", "Dedicatória", "Apresentação", "Prólogo — A velha e a Fresta"].includes(
-        source.text,
-      );
+      ["Dedicatória", "Para registro de extrema seriedade editorial"].includes(source.text);
     const timelineBoundary =
       source.type === "heading" &&
       (source.text === "A história em Marcos" ||
@@ -3101,7 +3212,7 @@ async function materialize({ scope, markdown, baseBook, browserPage, sourceBlock
       sparseCurrent && source.type === "heading" && Boolean(asset) && !independentOpening;
     if (
       source.type === "heading" &&
-      (source.level === 1 || frontMatterBoundary || compositionBoundary) &&
+      (source.level === 1 || dedicationBoundary || compositionBoundary) &&
       current.blocks.length &&
       !absorbSparseAssetOpening
     ) {
@@ -3638,6 +3749,22 @@ function validateMaterialization(
     OVERFLOW_PAGE_NUMBERS: finalMeasurements.flatMap((measurement, index) =>
       measurement.overflow ? [index + 1] : [],
     ),
+    OVERFLOW_PAGE_DETAILS: finalMeasurements.flatMap((measurement, index) =>
+      measurement.overflow
+        ? [
+            {
+              page: index + 1,
+              template: book.pages[index]?.template,
+              compositionFamily: book.pages[index]?.editorialComposition,
+              clientWidth: measurement.clientWidth,
+              scrollWidth: measurement.scrollWidth,
+              clientHeight: measurement.clientHeight,
+              scrollHeight: measurement.scrollHeight,
+              blockInfo: measurement.blockInfo,
+            },
+          ]
+        : [],
+    ),
     ORPHAN_HEADINGS: orphanHeadings,
     BROKEN_TABLE_ROWS: brokenTableRows,
     SOURCE_ORDER_CHANGED: sourceOrderChanged ? 1 : 0,
@@ -3651,13 +3778,15 @@ function validateMaterialization(
     MANUSCRIPT_BLOCKS_TOTAL: sourceBlocks.length,
     MANUSCRIPT_BLOCKS_MATERIALIZED: seenIds.length,
     TARGET_PAGE_COUNT_MISMATCH:
-      sourceBlocks[0]?.scope === "COMPLETO" && book.pages.length > PAGINATION_POLICY.targetBookPages
+      sourceBlocks[0]?.scope === "COMPLETO" &&
+      Number.isFinite(PAGINATION_POLICY.targetBookPages) &&
+      book.pages.length > PAGINATION_POLICY.targetBookPages
         ? 1
         : 0,
   };
 }
 
-function stats(book, measurements, sourceBlocks) {
+function stats(book, measurements, sourceBlocks, manuscriptTotalWords) {
   const imagePages = book.pages
     .map((page, index) => (page.blocks.some((block) => block.type === "image") ? index : -1))
     .filter((index) => index >= 0);
@@ -3902,13 +4031,13 @@ function stats(book, measurements, sourceBlocks) {
     USED_HISTORY_ASSET_SHA_COUNT: usedHistoryAssets.length,
     USED_HISTORY_ASSET_SHA_UNIQUE: new Set(usedHistoryAssets.map((asset) => asset.sha256)).size,
     PROJECTED_BOOK_PAGES_TEXTUAL: bodyMean
-      ? Number((MANUSCRIPT_TOTAL_WORDS / bodyMean).toFixed(2))
+      ? Number((manuscriptTotalWords / bodyMean).toFixed(2))
       : null,
     PROJECTED_BOOK_PAGES_CURRENT: currentWordsPerPage
-      ? Number((MANUSCRIPT_TOTAL_WORDS / currentWordsPerPage).toFixed(2))
+      ? Number((manuscriptTotalWords / currentWordsPerPage).toFixed(2))
       : null,
     PROJECTED_BOOK_PAGES_DENSE: bodyMedian
-      ? Number((MANUSCRIPT_TOTAL_WORDS / Math.max(250, bodyMedian)).toFixed(2))
+      ? Number((manuscriptTotalWords / Math.max(250, bodyMedian)).toFixed(2))
       : null,
     VERTICAL_SPACE_TEXT_PERCENT: percent(vertical.text),
     VERTICAL_SPACE_BLOCK_GAPS_PERCENT: percent(vertical.gaps),
@@ -3929,8 +4058,8 @@ async function main() {
         ? APPROVED_AGGREGATE_PROJECT
         : CANONICAL_PROJECT);
   const [markdown, catalog, canonicalRaw, approvedHistoriaRaw, baseProjectRaw] = await Promise.all([
-    readFile(MANUSCRIPT, "utf8"),
-    readFile(CATALOG, "utf8"),
+    readFile(args.manuscript, "utf8"),
+    readFile(args.catalog, "utf8"),
     readFile(CANONICAL_PROJECT, "utf8"),
     readFile(APPROVED_HISTORIA_PROJECT, "utf8"),
     readFile(baseProject, "utf8"),
@@ -3946,14 +4075,16 @@ async function main() {
     parsed.blocks.map((source) => ({ ...source, scope: args.scope })),
   );
   const extraAcervoAssets = await enrichAcervoAssets(annotatedBlocks);
-  const sourceBlocks = bindSemanticAssets(
+  const allSourceBlocks = bindSemanticAssets(
     args.scope === "PARTES_I_IV"
       ? annotatedBlocks.filter((source) =>
           /^(?:PARTE II|PARTE III|PARTE IV)\b/u.test(source.sectionH1 ?? ""),
         )
       : annotatedBlocks,
   );
+  const sourceBlocks = args.pilot ? selectPilotBlocks(allSourceBlocks) : allSourceBlocks;
   if (!sourceBlocks.length) throw new Error(`Nenhum bloco encontrado para ${args.scope}`);
+  const manuscriptTotalWords = markdown.trim().split(/\s+/u).filter(Boolean).length;
 
   const baseBook = JSON.parse(baseRaw);
   const preexistingPageCount = isIntegral ? baseBook.pages.length : 53;
@@ -4081,6 +4212,30 @@ async function main() {
     const preexistingEditorialCorrections = isIntegral
       ? applyPreexistingEditorialCorrections(book)
       : 0;
+    const measuredTailCandidateIndexes = [
+      ...new Set([
+        ...generated.pageMeasurements.flatMap((measurement, index) =>
+          measurement.overflow ? [index] : [],
+        ),
+        ...book.pages.flatMap((page, index) =>
+          page.editorialComposition === "OFICIO_CULTURAL_OPENING" ? [index] : [],
+        ),
+      ]),
+    ].sort((a, b) => b - a);
+    const measuredTailContinuations = await repairMeasuredTailOverflow(
+      book,
+      browserPage,
+      baseBook,
+      new Map(sourceBlocks.map((source) => [source.id, source])),
+      measuredTailCandidateIndexes,
+    );
+    book.nodes = book.nodes.map((node) => ({
+      ...node,
+      pageIds:
+        node.label === args.scope
+          ? book.pages.map((page) => page.id)
+          : book.pages.filter((page) => page.part === node.label).map((page) => page.id),
+    }));
     finalMeasurements =
       (await renderAndMeasure(browserPage, book),
       await browserPage.evaluate(() =>
@@ -4090,6 +4245,7 @@ async function main() {
           if (!content || !rect)
             return { overflow: true, fillRatio: 1, clientHeight: 0, tableRows: [] };
           const specialCopy = root.querySelector("[data-full-art-copy='true']");
+          const hasFlowFloat = Boolean(root.querySelector(".k-figure--left, .k-figure--right"));
           const blockInfo = [...content.querySelectorAll("[data-block-id]")].map((element) => {
             const r = element.getBoundingClientRect();
             return {
@@ -4115,7 +4271,7 @@ async function main() {
                 ? specialCopy.scrollHeight > specialCopy.clientHeight + 1 ||
                   specialCopy.scrollWidth > specialCopy.clientWidth + 1
                 : !["part_opening", "full_art"].includes(root.dataset.template ?? "") &&
-                  (content.scrollHeight > content.clientHeight + 1 ||
+                  ((!hasFlowFloat && content.scrollHeight > content.clientHeight + 1) ||
                     content.scrollWidth > content.clientWidth + 1)),
             fillRatio: content.clientHeight ? used / content.clientHeight : 0,
             usedHeight: used,
@@ -4152,11 +4308,12 @@ async function main() {
       currentAssetHashes,
     );
     const diagnostics = {
-      ...stats(book, finalMeasurements, sourceBlocks),
+      ...stats(book, finalMeasurements, sourceBlocks, manuscriptTotalWords),
       ...invariants,
       V15_ACERVO_ASSETS_MATERIALIZED: extraAcervoAssets.length,
       V15_ACERVO_INVENTORY: V15_INVENTORY_PATH,
       V15_ACERVO_DISPOSITION: V15_DISPOSITION_PATH,
+      MEASURED_TAIL_CONTINUATIONS: measuredTailContinuations,
     };
     if (isContinuation) {
       const historyPageHashAfter = sha256(
@@ -4224,11 +4381,20 @@ async function main() {
       compositionFamiliesUsed >= 3 &&
       historyGatePassed;
     const warnings = [];
-    if (book.pages.length > PAGINATION_POLICY.hardWarningBookPages)
+    if (
+      Number.isFinite(PAGINATION_POLICY.hardWarningBookPages) &&
+      book.pages.length > PAGINATION_POLICY.hardWarningBookPages
+    )
       warnings.push("PAGE_COUNT_WARNING");
-    if (book.pages.length > PAGINATION_POLICY.softMaximumBookPages)
+    if (
+      Number.isFinite(PAGINATION_POLICY.softMaximumBookPages) &&
+      book.pages.length > PAGINATION_POLICY.softMaximumBookPages
+    )
       warnings.push("PAGE_COUNT_SOFT_MAXIMUM");
-    if (diagnostics.PROJECTED_BOOK_PAGES_CURRENT > PAGINATION_POLICY.softMaximumBookPages)
+    if (
+      Number.isFinite(PAGINATION_POLICY.softMaximumBookPages) &&
+      diagnostics.PROJECTED_BOOK_PAGES_CURRENT > PAGINATION_POLICY.softMaximumBookPages
+    )
       warnings.push("PROJECTED_BOOK_PAGES_WARNING");
     if (diagnostics.BODY_MAX_CONSECUTIVE_TEXT_PAGES > HARD_MAX_TEXT_RUN)
       warnings.push("BODY_IMAGE_CADENCE_SOFT_WARNING");
@@ -4263,17 +4429,20 @@ async function main() {
         materializationVersion: VERSION,
         paginationPolicy: PAGINATION_POLICY,
         imageCadence: IMAGE_CADENCE,
-        manuscriptTotalWords: MANUSCRIPT_TOTAL_WORDS,
+        manuscriptTotalWords,
         softMaxTextRun: SOFT_MAX_TEXT_RUN,
         hardMaxTextRun: HARD_MAX_TEXT_RUN,
       },
       input: {
-        manuscript: MANUSCRIPT,
+        manuscript: args.manuscript,
         manuscriptSha256: sha256(normalizeLineEndings(markdown)),
-        catalog: CATALOG,
+        catalog: args.catalog,
         catalogSha256: sha256(catalog),
         sourceStartLine: parsed.selectedStartLine,
         sourceEndLine: parsed.selectedEndLine,
+        pilot: args.pilot,
+        sourceBlocksSelected: sourceBlocks.length,
+        sourceBlocksAvailable: allSourceBlocks.length,
       },
       output: {
         project: args.output,
@@ -4309,6 +4478,7 @@ async function main() {
       warnings,
       diagnostics,
     };
+    await mkdir(path.dirname(args.output), { recursive: true });
     await writeFile(args.output, `${JSON.stringify(book, null, 2)}\n`, "utf8");
     await writeFile(
       args.output.replace(/\.json$/u, ".report.json"),

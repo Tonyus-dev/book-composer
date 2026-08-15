@@ -34,6 +34,7 @@ export interface PageRenderProps {
   children?: React.ReactNode;
   onClick?: () => void;
   onDoubleClick?: (blockId: string | null) => void;
+  onContextMenu?: (event: React.MouseEvent<HTMLElement>) => void;
   onPointerDown?: (event: React.PointerEvent<HTMLElement>) => void;
   onSelectPageControl?: (control: PageControl) => void;
   onDragOver?: (event: React.DragEvent<HTMLElement>) => void;
@@ -64,6 +65,7 @@ export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function
     children,
     onClick,
     onDoubleClick,
+    onContextMenu,
     onPointerDown,
     onSelectPageControl,
     onDragOver,
@@ -106,7 +108,9 @@ export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function
     const blockId = block?.dataset["blockId"];
     if (interactive && blockId) {
       event.stopPropagation();
-      onSelectBlock?.(blockId);
+      onSelectBlock?.(blockId, {
+        additive: event.shiftKey || event.metaKey || event.ctrlKey,
+      });
       return;
     }
     const pageControl = pageControlForTarget(event.target as HTMLElement);
@@ -134,6 +138,7 @@ export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function
       data-overflow={overflow ? "true" : undefined}
       onClick={interactive ? handleClick : onClick}
       onDoubleClick={interactive ? handleDoubleClick : undefined}
+      onContextMenu={interactive ? onContextMenu : undefined}
       onPointerDown={interactive ? onPointerDown : undefined}
       onDragOver={interactive ? onDragOver : undefined}
       onDrop={interactive ? onDrop : undefined}

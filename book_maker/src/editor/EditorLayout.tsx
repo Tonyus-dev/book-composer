@@ -11,19 +11,25 @@ import { getAuthSession } from "../lib/auth";
 import { useEffect, useRef, useState } from "react";
 import { useEditor } from "./state/store";
 import type { PointerEvent as ReactPointerEvent } from "react";
+import type { PageGuide, ReviewState } from "../lib/persistence/production-plan";
 import "./styles/editor.css";
 
 function WorkspaceStatusBar() {
-  const { book, selectedPageIndex, zoom, setZoom, status, preflight } = useEditor();
+  const { book, selectedPageIndex, zoom, setZoom, status, lastSavedAt, preflight } = useEditor();
   const summary = preflight.summary;
+  const savedTime = lastSavedAt
+    ? new Intl.DateTimeFormat("pt-BR", { hour: "2-digit", minute: "2-digit" }).format(lastSavedAt)
+    : null;
   return (
     <footer className="k-editor-status-bar" data-testid="status-bar">
       <span>
         {status === "saving"
           ? "salvando…"
           : status === "offline"
-            ? "offline · salvo localmente"
-            : "salvo localmente"}
+            ? `offline · salvo localmente${savedTime ? ` às ${savedTime}` : ""}`
+            : savedTime
+              ? `salvo localmente às ${savedTime}`
+              : "aguardando salvamento"}
       </span>
       <span>
         Página {selectedPageIndex + 1} / {book.pages.length}
@@ -49,6 +55,69 @@ function WorkspaceStatusBar() {
         </button>
       </span>
     </footer>
+  );
+}
+
+const REVIEW_AXES: { key: keyof PageGuide["review"]; label: string }[] = [
+  { key: "text", label: "Texto" },
+  { key: "art", label: "Arte" },
+  { key: "layout", label: "Layout" },
+];
+
+function ReviewBar() {
+  const {
+    reviewMode,
+    book,
+    selectedPage,
+    selectedPageIndex,
+    selectedPageGuide,
+    selectPage,
+    updatePageGuide,
+  } = useEditor();
+  if (!reviewMode) return null;
+
+  const move = (delta: number) => {
+    const next = book.pages[selectedPageIndex + delta];
+    if (next) selectPage(next.id);
+  };
+  const toggleAxis = (axis: keyof PageGuide["review"]) => {
+    const current = selectedPageGuide.review[axis];
+    const next: ReviewState = current === "approved" ? "pending" : "approved";
+    updatePageGuide(selectedPage.id, {
+      review: { ...selectedPageGuide.review, [axis]: next },
+    });
+  };
+
+  return (
+    <div className="k-editor-review-bar" data-testid="review-bar" role="toolbar" aria-label="Revisão página a página">
+      <strong>Revisão</strong>
+      <button type="button" onClick={() => move(-1)} disabled={selectedPageIndex === 0}>
+        ← Anterior
+      </button>
+      <span className="k-editor-review-bar__page">
+        Página {selectedPageIndex + 1} / {book.pages.length}
+      </span>
+      <button
+        type="button"
+        onClick={() => move(1)}
+        disabled={selectedPageIndex === book.pages.length - 1}
+      >
+        Próxima →
+      </button>
+      <span className="k-editor-review-bar__divider" aria-hidden="true" />
+      {REVIEW_AXES.map((axis) => (
+        <button
+          key={axis.key}
+          type="button"
+          aria-pressed={selectedPageGuide.review[axis.key] === "approved"}
+          className={selectedPageGuide.review[axis.key] === "approved" ? "is-approved" : ""}
+          onClick={() => toggleAxis(axis.key)}
+          title={`Marcar ${axis.label.toLowerCase()} desta página como revisado`}
+        >
+          {selectedPageGuide.review[axis.key] === "approved" ? "✓" : "○"} {axis.label}
+        </button>
+      ))}
+    </div>
   );
 }
 
@@ -154,7 +223,7 @@ export function EditorLayout() {
           <aside
             id="k-editor-left-panel"
             ref={leftPanelRef}
-            className={`k-editor-side-panel k-editor-side-panel--left flex w-[268px] shrink-0 flex-col border-r border-border bg-card ${leftPanelOpen ? "is-open" : "is-closed"}`}
+            className={`k-editor-side-panel k-editor-side-panel--left flex w-[224px] shrink-0 flex-col border-r border-border bg-card ${leftPanelOpen ? "is-open" : "is-closed"}`}
             aria-hidden={!leftPanelOpen}
           >
             <div className="flex min-h-0 flex-1 flex-col">
@@ -225,12 +294,13 @@ export function EditorLayout() {
               </button>
             </div>
             <ContextToolbar />
+            <ReviewBar />
             <PreviewArea />
           </main>
 
           <aside
             id="k-editor-right-panel"
-            className={`k-editor-side-panel k-editor-side-panel--right w-[300px] shrink-0 border-l border-border bg-card ${rightPanelOpen ? "is-open" : "is-closed"}`}
+            className={`k-editor-side-panel k-editor-side-panel--right w-[260px] shrink-0 border-l border-border bg-card ${rightPanelOpen ? "is-open" : "is-closed"}`}
             aria-hidden={!rightPanelOpen}
           >
             <PropertiesPanel />

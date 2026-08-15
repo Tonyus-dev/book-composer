@@ -90,9 +90,163 @@
 
 .k-editor-context-toolbar button:hover { background: var(--accent); }
 
+.k-editor-selection-chip {
+  padding: 3px 6px;
+  border: 1px solid color-mix(in oklab, var(--primary) 45%, var(--border));
+  background: color-mix(in oklab, var(--primary) 8%, transparent);
+}
+
+.k-editor-review-bar {
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 4px 10px;
+  border-bottom: 1px solid color-mix(in oklab, var(--primary) 30%, var(--border));
+  background: color-mix(in oklab, var(--primary) 7%, var(--card));
+  color: var(--foreground);
+  font-size: 10px;
+}
+
+.k-editor-review-bar button {
+  padding: 3px 7px;
+  border: 1px solid var(--border);
+}
+
+.k-editor-review-bar button:hover:not(:disabled),
+.k-editor-review-bar button.is-approved {
+  border-color: var(--primary);
+  background: color-mix(in oklab, var(--primary) 14%, transparent);
+}
+
+.k-editor-review-bar button:disabled {
+  cursor: not-allowed;
+  opacity: .45;
+}
+
+.k-editor-review-bar__page {
+  min-width: 92px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.k-editor-review-bar__divider {
+  width: 1px;
+  height: 18px;
+  margin: 0 2px;
+  background: var(--border);
+}
+
+.k-editor-context-menu {
+  position: fixed;
+  z-index: 200;
+  display: grid;
+  min-width: 190px;
+  max-height: min(80vh, 520px);
+  overflow: auto;
+  padding: 4px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 25%);
+  color: var(--foreground);
+  font-size: 11px;
+}
+
+.k-editor-context-menu__item {
+  padding: 5px 8px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.k-editor-context-menu__item:hover:not(:disabled) {
+  background: var(--accent);
+}
+
+.k-editor-context-menu__item:disabled {
+  cursor: not-allowed;
+  opacity: .45;
+}
+
+.k-editor-context-menu__separator {
+  height: 1px;
+  margin: 4px 0;
+  background: var(--border);
+}
+
+.k-editor-context-menu__label {
+  padding: 4px 8px 2px;
+  color: var(--muted-foreground);
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
 .k-editor-status-bar button {
   min-width: 18px;
   color: var(--foreground);
+}
+
+.k-editor-preflight-summary,
+.k-editor-save-indicator,
+.k-editor-toolbar-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  white-space: nowrap;
+  color: var(--muted-foreground);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.k-editor-preflight-summary:hover {
+  color: var(--foreground);
+}
+
+.k-editor-toolbar-indicator {
+  padding: 3px 5px;
+  border: 1px solid color-mix(in oklab, var(--primary) 45%, var(--border));
+  background: color-mix(in oklab, var(--primary) 8%, transparent);
+  color: var(--foreground);
+}
+
+.k-editor-readonly-field {
+  border-color: color-mix(in oklab, var(--border) 70%, #8a8a8a);
+  background: color-mix(in oklab, var(--muted) 70%, transparent);
+  color: var(--muted-foreground);
+  cursor: default;
+}
+
+.k-editor-readonly-field:focus-visible {
+  outline: 1px solid var(--muted-foreground);
+  outline-offset: 1px;
+}
+
+.k-editor-property-section__summary::-webkit-details-marker {
+  display: none;
+}
+
+.k-editor-property-section__summary:hover {
+  color: var(--foreground);
+}
+
+.k-editor-page-row__select:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+}
+
+.k-editor-page-row.is-selected .k-thumb,
+.k-editor-page-row.is-selected .k-editor-page-row__select > div {
+  outline: 1px solid var(--primary);
+  outline-offset: 1px;
+}
+
+.k-editor-template-chip {
+  border-color: color-mix(in oklab, var(--border) 75%, transparent);
+  color: color-mix(in oklab, var(--muted-foreground) 78%, transparent);
+  font-size: 8px;
+  letter-spacing: .1em;
+  opacity: .8;
 }
 
 @media (max-width: 900px) {
@@ -239,6 +393,50 @@
   pointer-events: none;
   inset: 0;
   z-index: 5;
+}
+
+.k-editor-smart-guides {
+  position: absolute;
+  z-index: 45;
+  inset: 0;
+  pointer-events: none;
+}
+
+.k-editor-smart-guide {
+  position: absolute;
+  color: #d25d38;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.k-editor-smart-guide--x {
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-left: 1px dashed #d25d38;
+}
+
+.k-editor-smart-guide--x span {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  white-space: nowrap;
+}
+
+.k-editor-smart-guide--y {
+  right: 0;
+  left: 0;
+  height: 0;
+  border-top: 1px dashed #d25d38;
+}
+
+.k-editor-smart-guide--y span {
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  white-space: nowrap;
 }
 
 .k-overlay--margins {

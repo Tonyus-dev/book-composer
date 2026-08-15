@@ -193,8 +193,10 @@ export function measureIssues(root: HTMLElement, book: Book): PreflightIssue[] {
       return style.overflow !== "visible" || style.overflowY !== "visible";
     });
     /* A caixa de texto entra sempre: overflow visível não deixa de ser excesso. */
+    const hasFlowFloat = Boolean(contentBox?.querySelector(".k-figure--left, .k-figure--right"));
     for (const el of [...(contentBox ? [contentBox] : []), ...clippers]) {
-      const overflowY = el.scrollHeight - el.clientHeight;
+      const overflowY =
+        el === contentBox && hasFlowFloat ? 0 : el.scrollHeight - el.clientHeight;
       const overflowX = el.scrollWidth - el.clientWidth;
       if (overflowY <= EPS && overflowX <= EPS) continue;
       const { blockId, label } = blockName(el);

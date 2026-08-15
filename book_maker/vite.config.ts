@@ -7,6 +7,16 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  vite: {
+    /* O JSON editorial é o arquivo de trabalho do editor. Salvá-lo não pode
+       ser interpretado pelo Vite como alteração de código/HMR, senão a página
+       atual é desmontada e a seleção volta para o primeiro fólio. */
+    server: {
+      watch: {
+        ignored: ["**/projects/kallistis-manual-do-mundo-reconstrucao.json"],
+      },
+    },
+  },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
