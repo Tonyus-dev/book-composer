@@ -46,6 +46,20 @@
   object-position: var(--fig-pos, 50% 50%);
 }
 
+/* Uma moldura física é a área real do objeto. Sem esta contenção, imagens
+   inseridas no fluxo podem conservar altura natural e escapar visualmente da
+   caixa depois de um arraste no canvas. */
+.k-block--framed > .k-figure {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.k-block--framed > .k-figure img {
+  height: 100%;
+}
+
 .k-caption {
   font-family: var(--font-functional);
   font-size: 7.6pt;

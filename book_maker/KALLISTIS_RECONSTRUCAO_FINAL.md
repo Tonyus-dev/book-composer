@@ -1,0 +1,60 @@
+KALLISTIS_REBUILD=PASS_MATERIALIZATION_INCIDENT_CHARACTER_SHEET
+BOOK_MAKER_ROOT=/home/tonyus-dev/Projetos/kallistis-book/book_maker
+BOOK_MAKER_HEAD=e493534 (branch fix/book-maker-production-deploy; sem commit/push nesta execução)
+BOOK_MAKER_CHANGED=YES
+TEXT_SOURCE=/home/tonyus-dev/Downloads/KALLISTIS_MANUSCRITO_CONGELADO.md
+TEXT_SOURCE_SHA256=da7bdf3177b8bb34e8b9df5ca33361c6f451681732be64c458078a4c2da2deca
+TEXT_SOURCE_CHANGED=NO
+REFERENCE_PORTABLE=/home/tonyus-dev/Downloads/kallistis-book.portable (2).json
+REFERENCE_PORTABLE_CHANGED=NO
+NEW_PROJECT=projects/kallistis-manual-do-mundo-reconstrucao.json
+SCHEMA_VERSION=1
+FINAL_PAGE_COUNT=424
+PART_I=46
+PART_II=43
+PART_III=96
+PART_IV=39
+PART_V=56
+PART_VI=123
+APPENDICES=8
+CHARACTER_SHEET=INCIDENT — ZIP F01–F22 localizado; quatro páginas nativas ainda não materializadas
+TEXT_COVERAGE=PASS — 4.454 blocos; mismatch=0; lost=0; added=0; duplicateFragments=0
+TABLES=PASS — 131 páginas com tabelas; brokenRows=0; PDF table-overflow=0 após correção
+IMAGES_RESOLVED=136/166 hashes únicos; 160 blocos; semantic placements inválidos=0
+IMAGES_MISSING=30 hashes aprovados/usable sem slot/uso final; sem substituição inventada
+PORTABILITY=PASS — export portable real e reimport UI real retornaram 423 pág.
+MANUAL_OPEN_TEST=PASS — importação UI real do projeto integral mostrou 423 pág.
+MANUAL_EDIT_TEST=PASS — piloto UI real editado e salvo/reaberto com marcador [PILOTO_EDITADO_REAL]
+SAVE_REOPEN_TEST=PASS — projeto integral salvo e reaberto no editor real com 423 pág.
+EXPORT_IMPORT_TEST=PASS — portable exportado no UI e reimportado no UI com 423 pág.
+PDF_EXPORT=PASS — /tmp/kallistis-reconstrucao.pdf; 423 páginas; 0 Errors no preflight
+FILES_CHANGED=scripts/materialize-manuscript.mjs; src/book/styles/page.css; src/lib/preflight/measure.ts; drive-image-inventory.json; drive-image-disposition.csv
+FILES_CREATED=KALLISTIS_RECONSTRUCAO_ARQUEOLOGIA.md; KALLISTIS_RECONSTRUCAO_ASSETS.tsv; KALLISTIS_RECONSTRUCAO_COVERAGE.md; KALLISTIS_RECONSTRUCAO_PAGE_STATUS.tsv; KALLISTIS_RECONSTRUCAO_FINAL.md; scripts/write-reconstruction-reports.mjs; projects/kallistis-manual-do-mundo-reconstrucao.json; projects/kallistis-manual-do-mundo-reconstrucao.report.json; projects/kallistis-reconstrucao-piloto.json; projects/kallistis-reconstrucao-piloto.report.json
+INCIDENTS=CHARACTER_SHEET_INCIDENT; profile/quote_layout não roteados; cobertura visual integral página a página ainda pendente
+PENDING_VISUAL_REVIEW=YES — amostras reais auditadas; revisão visual integral de 423 páginas ainda não encerrada
+PENDING_ASSETS=YES — 30 hashes unassigned/needs human review; não usados automaticamente
+FINAL_VERDICT=INCIDENT — materialização, portabilidade e PDF passam, mas ficha nativa obrigatória e revisão visual integral ainda não passam
+
+TEMPLATES_EXISTENTES=13 — cover, front_matter, toc, part_opening, chapter_opening, narrative, rules_2col, profile, table_page, quote_layout, full_art, map_page, timeline_milestone
+TEMPLATES_ACESSIVEIS_AO_MATERIALIZADOR=9 — front_matter, chapter_opening, part_opening, timeline_milestone, narrative, table_page, full_art, map_page, rules_2col
+TEMPLATES_USADOS={"front_matter":2,"narrative":173,"chapter_opening":76,"part_opening":6,"timeline_milestone":8,"table_page":1,"full_art":21,"map_page":2,"rules_2col":135}
+DISTRIBUICAO_ATUAL={"front_matter":2,"narrative":173,"chapter_opening":76,"part_opening":6,"timeline_milestone":8,"table_page":1,"full_art":21,"map_page":2,"rules_2col":135}
+DISTRIBUICAO_VARIANTES={"title-page":1,"dedication":1,"default":343,"image-top":27,"image-side":15,"full-page":2,"quadrant-image":34,"bestiary-opening":1}
+NARRATIVE_VERDICT=ADEQUADO para lore/geografia/cultura contínuos; inadequado quando recebe tabela pequena que deveria ter papel table_page
+RULES_2COL_VERDICT=ADEQUADO para regra/procedimento/lista/tabela/referência densa; fallback anterior mascarava diferenças
+CHAPTER_OPENING_VERDICT=ADEQUADO; image-top/image-side/quadrant-image produziram hierarquia e imagem funcionais nas amostras
+TEMPLATES_SUBUTILIZADOS=cover,toc,profile,quote_layout,table_page
+ROTEAMENTOS_INADEQUADOS_ENCONTRADOS=MAP_PAGE→chapter_opening; imagem-less Part V/VI→rules_2col; ofícios uppercase sem asset; tabela pequena em narrative
+MUDANCA_MINIMA_FEITA=preservar template semântico; MAP_PAGE→map_page; aliases uppercase somente nos 8 ofícios; contenção de chapter band; clear:both em span-full table
+PAGINAS_REVALIDADAS=423 páginas no materializador; amostras p.3,p.37,p.88,p.90,p.100,p.186,p.214,p.229,p.241,p.242,p.264,p.267,p.288,p.404; PDF 423 páginas
+VISUAL_VERDICT=ROUTING_PROBLEM corrigido; sem prova de TEMPLATE_LIMITATION estrutural; pending full visual review
+
+UNUSED_TEMPLATES=cover,toc,profile,quote_layout
+COMPATIBLE_CONTENT_FOUND_FOR_UNUSED=cover:NÃO; toc:NÃO como slot-fonte explícito; profile:SIM POSSIBLE_ROUTING_GAP; quote_layout:SIM POSSIBLE_ROUTING_GAP
+NARRATIVE_AUDIT=PASS com ressalva: lore p.37, geografia p.88, cultura p.186; p.214 tabela cabe mas papel editorial é FAIL
+RULES_2COL_AUDIT=PASS: p.241 regra/procedimento, p.242 criação, p.267 tabela, p.264 referência densa; hierarquia/densidade adequadas
+CHAPTER_OPENING_AUDIT=PASS: p.3 abertura, p.100 povo, p.90 geografia, p.288 bestiário; variações visuais funcionais
+FALLBACK_PATH_FOUND=YES — SOURCE CONTENT→CLASSIFICATION→EDITORIAL ROLE→TEMPLATE SELECTION→VARIANT; perdas documentadas acima
+EDITORIAL_INFORMATION_LOST_AT=applyCompactReferencePage e ausência de branches profile/quote_layout; caso MAP_PAGE na seleção de template; aliases de asset case-sensitive
+DIAGNOSIS=ROUTING_PROBLEM
+MINIMAL_CORRECTION=aplicada e revalidada; manter distribuição sem perseguir porcentagem ideal

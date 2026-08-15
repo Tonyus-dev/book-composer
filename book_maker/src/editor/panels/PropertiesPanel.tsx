@@ -20,6 +20,7 @@ import {
   AreaField,
   ColorField,
   PanelSection,
+  ReadOnlyField,
   RangeField,
   SelectField,
   TextField,
@@ -862,6 +863,7 @@ export function PropertiesPanel() {
     book,
     selectedPage,
     selectedBlock,
+    selectedBlockIds,
     updatePage,
     updatePageSettings,
     setTemplate,
@@ -876,6 +878,38 @@ export function PropertiesPanel() {
   const [tab, setTab] = useState<"properties" | "guide">("properties");
   const definition = TEMPLATES[selectedPage.template];
   const issues = issuesForPage(selectedPage.id);
+  const blockLabel = selectedBlock
+    ? selectedBlock.type === "image"
+      ? selectedBlock.alt || "Imagem"
+      : selectedBlock.type === "heading"
+        ? selectedBlock.text || "Título"
+        : selectedBlock.type === "shape"
+          ? "Shape"
+          : selectedBlock.type === "text"
+            ? selectedBlock.recipeSlotLabel || "Texto"
+            : selectedBlock.type
+    : null;
+  const blockTypeLabel = selectedBlock
+    ? selectedBlock.type === "heading"
+      ? "Título"
+      : selectedBlock.type === "image"
+        ? "Imagem"
+        : selectedBlock.type === "text"
+          ? "Texto"
+          : selectedBlock.type === "shape"
+            ? "Shape"
+            : selectedBlock.type === "quote"
+              ? "Citação"
+              : selectedBlock.type === "box"
+                ? "Box"
+                : selectedBlock.type
+    : null;
+  const contextTitle =
+    selectedBlockIds.length > 1
+      ? `Grupo · ${selectedBlockIds.length} elementos`
+      : selectedBlock
+        ? `${blockTypeLabel} · ${blockLabel}`
+        : `Página · ${definition.label}`;
 
   const tabClass = (active: boolean) =>
     `border-b-2 px-3 py-1 text-[11px] tracking-[0.18em] uppercase ${
@@ -887,6 +921,12 @@ export function PropertiesPanel() {
   return (
     <div className="flex h-full flex-col overflow-y-auto">
       <div className="k-editor-panel-title flex items-center gap-1 border-b border-border px-2 py-1">
+        <h2
+          className="min-w-0 flex-1 truncate px-1 text-[11px] font-semibold tracking-[0.12em] uppercase"
+          title={contextTitle}
+        >
+          {contextTitle}
+        </h2>
         <button
           type="button"
           aria-pressed={tab === "properties"}
@@ -956,6 +996,7 @@ export function PropertiesPanel() {
                 >
                   {selectedPage.fixed ? "🔒 Composição fixada" : "○ Fixar composição"}
                 </button>
+                <ReadOnlyField label="ID da página · somente leitura" value={selectedPage.id} />
                 <SelectField
                   label="Template"
                   value={selectedPage.template}

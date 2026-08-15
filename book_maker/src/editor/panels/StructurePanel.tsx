@@ -37,8 +37,10 @@ function PageRow({ page, index }: { page: Page; index: number }) {
     <div
       ref={setNodeRef}
       style={{ transform: CSS.Transform.toString(transform), transition }}
-      className={`group flex items-center gap-2 border-l-2 px-2 py-1.5 text-xs ${
-        selected ? "border-l-primary bg-accent/60" : "border-l-transparent hover:bg-accent/30"
+      className={`k-editor-page-row group flex items-center gap-2 border-l-2 px-2 py-1.5 text-xs ${
+        selected
+          ? "is-selected border-l-primary bg-accent/60"
+          : "border-l-transparent hover:bg-accent/30"
       } ${isDragging ? "opacity-60" : ""}`}
     >
       <button
@@ -54,7 +56,9 @@ function PageRow({ page, index }: { page: Page; index: number }) {
       <button
         type="button"
         onClick={() => selectPage(page.id)}
-        className="flex min-w-0 flex-1 items-center gap-2 text-left"
+        className="k-editor-page-row__select flex min-w-0 flex-1 items-center gap-2 text-left"
+        aria-current={selected ? "page" : undefined}
+        data-testid={`page-row-${page.id}`}
       >
         <PageThumbnail book={book} page={page} index={index} />
         <span className="min-w-0 flex-1">
@@ -63,7 +67,7 @@ function PageRow({ page, index }: { page: Page; index: number }) {
             {page.title ?? TEMPLATE_LABELS[page.template]}
           </span>
           <span className="mt-0.5 flex items-center gap-1.5 text-[10px] text-muted-foreground">
-            <span className="border border-border px-1 py-px tracking-widest">
+            <span className="k-editor-template-chip border px-1 py-px tracking-widest">
               {TEMPLATE_LABELS[page.template]}
             </span>
             <span className="tabular-nums">{folioFor(book, index)}</span>

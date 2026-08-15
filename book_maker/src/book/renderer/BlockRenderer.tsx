@@ -112,7 +112,7 @@ function recipeSlotIsEmpty(block: Block): boolean {
 
 /** Envelope de bloco: span, espaçamento editorial, identificação e (só no editor) seleção. */
 export function BlockRenderer({ block }: { block: Block }) {
-  const { interactive, selectedBlockId, onSelectBlock } = useBookRender();
+  const { interactive, selectedBlockId, selectedBlockIds, onSelectBlock } = useBookRender();
   const style: CSSProperties = {
     marginTop: block.spaceBefore ? `${block.spaceBefore}mm` : undefined,
     marginBottom: block.spaceAfter ? `${block.spaceAfter}mm` : undefined,
@@ -130,6 +130,7 @@ export function BlockRenderer({ block }: { block: Block }) {
   const className = [
     "k-block",
     `k-block--${block.type}`,
+    block.frame ? "k-block--framed" : "",
     block.span === "full" ? "k-block--span-full" : "",
   ]
     .filter(Boolean)
@@ -149,12 +150,18 @@ export function BlockRenderer({ block }: { block: Block }) {
       className={className}
       style={style}
       data-block-id={block.id}
-      data-selected={interactive && selectedBlockId === block.id ? "true" : undefined}
+      data-selected={
+        interactive && (selectedBlockIds?.includes(block.id) || selectedBlockId === block.id)
+          ? "true"
+          : undefined
+      }
       onClick={
         interactive
           ? (event) => {
               event.stopPropagation();
-              onSelectBlock?.(block.id);
+              onSelectBlock?.(block.id, {
+                additive: event.shiftKey || event.metaKey || event.ctrlKey,
+              });
             }
           : undefined
       }

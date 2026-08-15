@@ -142,12 +142,6 @@ export function PreviewArea() {
         </BookRoot>
       </div>
 
-      <div
-        className="absolute inset-x-0 bottom-2 flex justify-center text-[10px] text-muted-foreground"
-        aria-hidden="true"
-      >
-        {view === "spread" ? "Spread" : "Canvas"}
-      </div>
     </div>
   );
 }

@@ -15,6 +15,7 @@ export function LayersPanel() {
   const {
     selectedPage,
     selectedBlockId,
+    selectedBlockIds,
     selectBlock,
     moveBlockToIndex,
     toggleBlockHidden,
@@ -38,7 +39,7 @@ export function LayersPanel() {
             <div
               key={block.id}
               className={`group flex items-center gap-1 border px-1 py-1 text-[11px] ${
-                selectedBlockId === block.id
+                selectedBlockIds.includes(block.id) || selectedBlockId === block.id
                   ? "border-primary bg-primary/10"
                   : "border-transparent hover:bg-accent"
               }`}
@@ -47,7 +48,11 @@ export function LayersPanel() {
                 type="button"
                 aria-label={`Selecionar camada ${labelFor(block)}`}
                 className="flex min-w-0 flex-1 items-center gap-1 text-left"
-                onClick={() => selectBlock(block.id)}
+                onClick={(event) =>
+                  selectBlock(block.id, {
+                    additive: event.shiftKey || event.metaKey || event.ctrlKey,
+                  })
+                }
               >
                 <GripVertical className="size-3 shrink-0 text-muted-foreground" />
                 <span className="truncate">{labelFor(block)}</span>

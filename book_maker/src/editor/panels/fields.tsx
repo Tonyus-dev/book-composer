@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 
 export function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
@@ -32,6 +32,20 @@ export function TextField({
         value={value}
         placeholder={placeholder}
         onChange={(event) => onChange(event.target.value)}
+      />
+    </Field>
+  );
+}
+
+export function ReadOnlyField({ label, value }: { label: string; value: string }) {
+  return (
+    <Field label={label}>
+      <input
+        className="k-editor-readonly-field w-full border px-2 py-1 text-xs"
+        value={value}
+        readOnly
+        aria-readonly="true"
+        tabIndex={0}
       />
     </Field>
   );
@@ -167,12 +181,20 @@ export function RangeField({
 }
 
 export function PanelSection({ title, children }: { title: string; children: ReactNode }) {
+  const [open, setOpen] = useState(true);
   return (
-    <section className="border-b border-border px-3 py-3">
-      <h3 className="mb-2 text-[11px] font-semibold tracking-[0.18em] text-muted-foreground uppercase">
-        {title}
-      </h3>
-      {children}
-    </section>
+    <details
+      className="k-editor-property-section border-b border-border px-3 py-2.5"
+      open={open}
+      onToggle={(event) => setOpen(event.currentTarget.open)}
+    >
+      <summary className="k-editor-property-section__summary flex cursor-pointer list-none items-center justify-between gap-2 text-[11px] font-semibold tracking-[0.18em] text-muted-foreground uppercase">
+        <span>{title}</span>
+        <span aria-hidden="true" className="text-[12px] tracking-normal">
+          {open ? "⌄" : "›"}
+        </span>
+      </summary>
+      <div className="pt-2">{children}</div>
+    </details>
   );
 }

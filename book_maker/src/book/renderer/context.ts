@@ -8,7 +8,8 @@ import { createContext, useContext } from "react";
 export interface BookRenderContextValue {
   interactive: boolean;
   selectedBlockId?: string | null;
-  onSelectBlock?: (blockId: string) => void;
+  selectedBlockIds?: string[];
+  onSelectBlock?: (blockId: string, modifiers?: { additive?: boolean }) => void;
   onSheetValueChange?: (blockId: string, key: string, value: string | number | boolean) => void;
 }
 

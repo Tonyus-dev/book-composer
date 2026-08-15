@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-14T21:47:11.364Z",
+  "generatedAt": "2026-08-15T10:48:37.187Z",
   "sourceRoot": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS",
   "noImageGeneration": true,
   "totalRasterFiles": 447,
-  "selectedForV15": 12,
+  "selectedForV15": 73,
   "inventory": [
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/CRIATURAS_BESTIARIO/01_DRAGAO_CRISTALINO_COLOSSAL__e85da577e9.png",
@@ -19,9 +19,11 @@
       "relativePath": "CRIATURAS_BESTIARIO/01_DRAKO_DE_CRISTAL__461bb8c257.png",
       "sha256": "461bb8c2579170eb5b61be2b2daaad99ad67be44b1ef79c8c26827d89a431669",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Drako de Cristal"
+      ],
+      "materializedSrc": "/assets/complete/bestiary/plates/drako-cristal.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/CRIATURAS_BESTIARIO/07_BESTIARIO_DO_CRISTAL_PARTIDO__9dd416e94c.png",
@@ -55,9 +57,11 @@
       "relativePath": "CRIATURAS_BESTIARIO/CRIATURA_BAU_ARMADILHA_PREDADOR_v01__482782ad0b.png",
       "sha256": "482782ad0bcb66b1ae60fc95f85da03157740cfac232e610d3d3a7ebe22d3caa",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "O NÚCLEO DE RESOLUÇÃO"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/482782ad0bcb66b1ae60fc95.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/CRIATURAS_BESTIARIO/CRIATURA_CAO_LEAO_DAS_BRASAS_ERRANTES_v01__e3a2d9e714.png",
@@ -73,9 +77,11 @@
       "relativePath": "CRIATURAS_BESTIARIO/CRIATURA_CUBO_GELATINOSO_KALLISTIS_v01__976f891e37.png",
       "sha256": "976f891e378af69174cec8d103b1a222be9a85d462a4e8f5fd5b8534ecb8c56d",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Gelatídeo Prismático"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/976f891e378af69174cec8d1.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/CRIATURAS_BESTIARIO/CRIATURA_DEVORADOR_PSIQUICO_CEFALOIDE_V01__88cf1901d0.png",
@@ -100,9 +106,11 @@
       "relativePath": "CRIATURAS_BESTIARIO/CRIATURA_DRAKO_DA_BRASA_VENTRAL_V01__6205dd6173.png",
       "sha256": "6205dd61739f478fbeceb072948ab57df31d04ceab45e6d2b4bf8a979dee7965",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Drako da Brasa Ventral"
+      ],
+      "materializedSrc": "/assets/complete/bestiary/plates/drako-brasa.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/CRIATURAS_BESTIARIO/CRIATURA_DRAKO_DA_BRASA_VENTRAL_V02__087dd3fd7b.png",
@@ -181,18 +189,22 @@
       "relativePath": "HISTORIA_COSMOLOGIA/04_velarim_e_magia__1140ea2d78.png",
       "sha256": "1140ea2d7878a1c0005a01bb2cad093c6f38f2dcd3b1dd20d460e993d96bf8a5",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "O que é magia"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/1140ea2d7878a1c0005a01bb.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/HISTORIA_COSMOLOGIA/04_velarim_e_magia__c92d0e7250.webp",
       "relativePath": "HISTORIA_COSMOLOGIA/04_velarim_e_magia__c92d0e7250.webp",
       "sha256": "c92d0e7250f4505b9c84b883fb882fe70eef6c7448bb68726c34d8ba68f059a8",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Som, ortografia e pronúncia"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/c92d0e7250f4505b9c84b883.webp"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/HISTORIA_COSMOLOGIA/07_MIRVETH_MANESH__dcd05a2690.png",
@@ -264,9 +276,11 @@
       "relativePath": "HISTORIA_COSMOLOGIA/V05_VELARIM_COMO_RELACAO_A__3b0ebfe781.png",
       "sha256": "3b0ebfe781b00e0708818687f6e77614b7f59778f8b272aabf6e6edd7a590774",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Princípios invioláveis"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/3b0ebfe781b00e0708818687.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/HISTORIA_COSMOLOGIA/V05_VELARIM_COMO_RELACAO_B__8240ca09d1.png",
@@ -408,9 +422,11 @@
       "relativePath": "KALLISTIS_LIVRO/_INGEST_APROVADAS/02_p033_fenda_fratura_dos_mundos__89fbfa2d65.png",
       "sha256": "89fbfa2d65c88f5b4275cbdcf7a71ee8e6300a19f61def067b092620c630e2fb",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Estados da Fenda"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/89fbfa2d65c88f5b4275cbdc.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/_INGEST_APROVADAS/03_mapa_regional_mundo_da_escuridao__eff9388d40.jpg",
@@ -480,9 +496,11 @@
       "relativePath": "KALLISTIS_LIVRO/_INGEST_APROVADAS/06_p047_thur_daer_cidade_no_cristal__3be48f2a5c.png",
       "sha256": "3be48f2a5c75fabb6da01f3c386aa86a277a0391d54a9370a40fbe44130bc374",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Thur-Daer"
+      ],
+      "materializedSrc": "/assets/partes/thur-daer.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/_INGEST_APROVADAS/07_cristal_no_vazio__3d04340aff.jpg",
@@ -822,9 +840,11 @@
       "relativePath": "KALLISTIS_LIVRO/01_VELHA_E_FRESTA-86e145b200cd.png",
       "sha256": "1142ce903651a3e65b2a701b55f0860c22ed4d7c7c873a30081af5538fe49971",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "FENDAS E TRAVESSIAS"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/1142ce903651a3e65b2a701b.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/01_VELHA_E_FRESTA.png",
@@ -903,18 +923,22 @@
       "relativePath": "KALLISTIS_LIVRO/02_FAMILIA_OBSERVADORES_PAGINA_INTEIRA (copy 1).png",
       "sha256": "a970b0170442d49e0e61f908cbf00f90c1ef7cff2eacd877cf6c07b02abbbeba",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Observador Prismático"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/a970b0170442d49e0e61f908.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/02_HIDROGRAFIA_LUZ (copy 1).png",
       "relativePath": "KALLISTIS_LIVRO/02_HIDROGRAFIA_LUZ (copy 1).png",
       "sha256": "c919c4525c5ad9b0924661e08450df331699a8e78d5470d55394f869bec75a0a",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Hidrografia Canônica: Rio, Lagos e Mar"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/c919c4525c5ad9b0924661e0.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/02_HIDROGRAFIA_LUZ__837df967.png",
@@ -1038,18 +1062,22 @@
       "relativePath": "KALLISTIS_LIVRO/03_MONTES_ESTRADA_QUARTZO (copy 1).png",
       "sha256": "75b5c900a9434c564e2db6998cf28a43d86b248c3c2e7add7265ea3303c4df62",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Montes do Norte"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/75b5c900a9434c564e2db699.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/03_MONTES_NORTE_ESTRADA_QUARTZO (copy 1).png",
       "relativePath": "KALLISTIS_LIVRO/03_MONTES_NORTE_ESTRADA_QUARTZO (copy 1).png",
       "sha256": "6761d07bdb5ea3161b97f64a6fbcadca271fa9321b9939361d694d9481b4d6d5",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Estrada do Quartzo"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/6761d07bdb5ea3161b97f64a.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/03_POVO_DRAKEN_BW.png",
@@ -1074,18 +1102,22 @@
       "relativePath": "KALLISTIS_LIVRO/04_KRAV_NAM_BAIXIO_ESCURIDAO (copy 1).png",
       "sha256": "3d5e9b0f770cebffc0b98e4bd8bfcfadbc6541343d79e7fd756cc2fa314e5b37",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Krav-Nam"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/3d5e9b0f770cebffc0b98e4b.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/04_KRAV_NAM_BAIXIO_ESCURIDAO__78a91cdd.png",
       "relativePath": "KALLISTIS_LIVRO/04_KRAV_NAM_BAIXIO_ESCURIDAO__78a91cdd.png",
       "sha256": "78a91cdd2394cfaef5cc66a699a575a59fed8c8ffdeb5aa171acee8b23b59215",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Baixio da Névoa Ferida"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/78a91cdd2394cfaef5cc66a6.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/04_NOMOS.png",
@@ -1110,9 +1142,11 @@
       "relativePath": "KALLISTIS_LIVRO/04_SOLDADO_DE_JURAMENTO_QUEBRADO (copy 1).png",
       "sha256": "5beaeaad355c8e24e11c8d066a5b1920d9fa94e55474c79a924ff08cf9ac1d5b",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Veios do Juramento"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/5beaeaad355c8e24e11c8d06.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/04_TECELAO_T3.png",
@@ -1155,9 +1189,11 @@
       "relativePath": "KALLISTIS_LIVRO/05_BOSQUE_DOS_ECOS (copy 1).png",
       "sha256": "79c232e2ca189cfaa6aa32b05dff20a495808428c5e786a7e7525a0a16d70c1d",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Bosque dos Ecos"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/79c232e2ca189cfaa6aa32b0.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/05_BOSQUE_DOS_ECOS__a340d6f3.png",
@@ -1191,9 +1227,11 @@
       "relativePath": "KALLISTIS_LIVRO/05_EVOCACOES (copy 1).png",
       "sha256": "7d2fd551b1babb6128e8a2295dcb62abde0c6757254b569fc8e7de640794ee8c",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "EVOCAÇÕES"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/7d2fd551b1babb6128e8a229.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/05_LIVRES.png",
@@ -1236,9 +1274,11 @@
       "relativePath": "KALLISTIS_LIVRO/06_CONDUZINDO_KALLISTIS (copy 1).png",
       "sha256": "cf9f8d8f53c91ebff1859e66ebed75b185e2c6a5303638496975a12dd70616c4",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Estrutura de cena"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/cf9f8d8f53c91ebff1859e66.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/06_DOREOS.png",
@@ -1308,9 +1348,11 @@
       "relativePath": "KALLISTIS_LIVRO/06_SILMARI (copy 1).png",
       "sha256": "3aab5f1e53860cf111b12bfe09003f0583545ca7753dc9c884c26d39ec2cc3a3",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Silmari"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/3aab5f1e53860cf111b12bfe.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/06_SILMARI__99eeae0d.png",
@@ -1364,9 +1406,11 @@
       "relativePath": "KALLISTIS_LIVRO/07_FENDA_KETHRELL_DUAS_MANIFESTACOES (copy 1).png",
       "sha256": "cea1aa926677465d42e8e9d9f68cc95996fca85a8355c4d4d51fd8a774f428af",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Quatro Fatores de Instabilidade"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/cea1aa926677465d42e8e9d9.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/07_MIRVETH_MANESH-0048be09b431.png",
@@ -1593,18 +1637,22 @@
       "relativePath": "KALLISTIS_LIVRO/12_SILMAIN-baba8ded091a.png",
       "sha256": "72d1fb677416ad009e6417ae08a8edce50a25e696c992db688c4baf4dbb0cdd8",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Silmain"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/72d1fb677416ad009e6417ae.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/12_SILMAIN.png",
       "relativePath": "KALLISTIS_LIVRO/12_SILMAIN.png",
       "sha256": "9d5ba02324170b5c62d5d1c97014fe382a69d20ad215743606b7ac08adcf4365",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "A ambiguidade obrigatória de silmain"
+      ],
+      "materializedSrc": "/assets/handoff/approved/p019_silmain_pb.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/13_PRIMEIRAS_FRESTAS-46e6d8379783.png",
@@ -1678,9 +1726,11 @@
       "relativePath": "KALLISTIS_LIVRO/15_OUTROS_LIGHTBRINGERS.jpg",
       "sha256": "a0576c36225a182e39d4707724c306669f2bb8344a3c04a45895645931d228ed",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Lightbringer"
+      ],
+      "materializedSrc": "/assets/handoff/approved/p024_025_outros_lightbringers_pb.jpg"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/16_DAEREN_THAVIN_ISENNA-3ea38319200e.png",
@@ -1743,18 +1793,22 @@
       "relativePath": "KALLISTIS_LIVRO/18_SERPENTE_DO_LEITO_ESCRITO.png",
       "sha256": "f7c8227efb65d92066179a34382e8501a56785d8cfc326e9628bba8bde828cb3",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Rio do Leito Escrito"
+      ],
+      "materializedSrc": "/assets/complete/bestiary/serpente.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/28_LOBO_DA_NEVOA_FERIDA_CANDIDATO.png",
       "relativePath": "KALLISTIS_LIVRO/28_LOBO_DA_NEVOA_FERIDA_CANDIDATO.png",
       "sha256": "9ba4e27070e61c681a1f425bb3b72a987dfe925c251a464b59e7e122031569ec",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Krav-Nam e O Baixio da Névoa Ferida"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/9ba4e27070e61c681a1f425b.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/283b8c1c-68f3-405c-b67c-b5b20f9f3b54.png",
@@ -1797,9 +1851,11 @@
       "relativePath": "KALLISTIS_LIVRO/48_JARDIM_DE_UMA_SO_MEMORIA_CANDIDATO (copy 1).png",
       "sha256": "43516f6f24c0bca4ba955a8027cc0b482443974f28acb911296254bb8aa0172c",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Veios do Juramento e Jardins de Memória"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/43516f6f24c0bca4ba955a80.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/49_CATEDRAL_DA_TRANSPARENCIA_CANDIDATO.png",
@@ -2139,9 +2195,11 @@
       "relativePath": "KALLISTIS_LIVRO/aliança_no_templo_de_cristal.png",
       "sha256": "0eca09f8dc7b2f5870a473a53ce70ddc419309f7c78cb0392043df35689e549c",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Morte, templos e autoridade"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/0eca09f8dc7b2f5870a473a5.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/arquimaga_na_catedral_de_cristal.png",
@@ -2285,9 +2343,11 @@
       "relativePath": "KALLISTIS_LIVRO/cidadela_cristalina_dos_céus.png",
       "sha256": "3c0d8c440f53782c915405b8c39f80ddb193684fc5caca30927585dafa51bb29",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Pedr’alma urbana"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/3c0d8c440f53782c915405b8.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/Cópia de 04_p037_bosque_dos_ecos_memoria.png",
@@ -2348,9 +2408,11 @@
       "relativePath": "KALLISTIS_LIVRO/Cópia de P031_O_CINTURAO_DAS_FRESTAS.png",
       "sha256": "6cf699142641d2055e9f2795e9dbbc948e3f36fa23c60d723accf954a8d53473",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "O Cinturão das Frestas"
+      ],
+      "materializedSrc": "/assets/partes/parte-ii-cinturao.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/Cópia de P033_A_FENDA_DE_KETHRELL.png",
@@ -2375,9 +2437,11 @@
       "relativePath": "KALLISTIS_LIVRO/Cópia de P039_MONTES_DO_NORTE_E_ESTRADA_DO_QUARTZO.png",
       "sha256": "9e8951e7ebe3d04c852c86282869604164f64f7c17c9e6039b883d82b09f4f86",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Montes do Norte e Estrada do Quartzo"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/9e8951e7ebe3d04c852c8628.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/Cópia de P041_KRAV_NAM_E_O_BAIXIO_DA_NEVOA_FERIDA.png",
@@ -2393,36 +2457,44 @@
       "relativePath": "KALLISTIS_LIVRO/Cópia de P043_SILMARI.png",
       "sha256": "1b776ed1a7c3781b7a99c35144186b06a1bfc89be59134470a4a00c2ed84c367",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Geografia da Luz — Cidades e enclaves"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/1b776ed1a7c3781b7a99c351.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/Cópia de P044_FORTALEZA_DE_KRAVOR.png",
       "relativePath": "KALLISTIS_LIVRO/Cópia de P044_FORTALEZA_DE_KRAVOR.png",
       "sha256": "ac59ea3830f82d5d691d4a7bdb07112bb9bf08fc8f3f04abae5cac272117456c",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Fortaleza de Kravor"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/ac59ea3830f82d5d691d4a7b.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/Cópia de P045_REFUGIO_DOS_OUTROS.png",
       "relativePath": "KALLISTIS_LIVRO/Cópia de P045_REFUGIO_DOS_OUTROS.png",
       "sha256": "ef911ce9af2752d073194cfcc0986fc1c35dca5125c8bd4e535dbdbbff4fc901",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Refúgio dos Outros"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/ef911ce9af2752d073194cfc.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/Cópia de P046_NIMARIS.png",
       "relativePath": "KALLISTIS_LIVRO/Cópia de P046_NIMARIS.png",
       "sha256": "6c6a2e79a6447c55bd9a8c29ec8a52a762a3a1ca9ebc06b41bc5908407adad07",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Nimaris"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/6c6a2e79a6447c55bd9a8c29.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/Cópia de P047_THUR_DAER.png",
@@ -2438,27 +2510,33 @@
       "relativePath": "KALLISTIS_LIVRO/Cópia de P048_KRAV_NAM_O_JURAMENTO_VIOLADO.png",
       "sha256": "375e0d33b9b1d37f9cded09ba167b69c674597154127995bb5e521b17f80093d",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Krav-Nam: O Juramento Violado"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/375e0d33b9b1d37f9cded09b.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/Cópia de P049_RESSONARIO_DE_VAEL.png",
       "relativePath": "KALLISTIS_LIVRO/Cópia de P049_RESSONARIO_DE_VAEL.png",
       "sha256": "8ba4b57c5643f701d92f749cd6452e4a5be627a186893ab8f6e90f667f1ec35c",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Ressonário de Vael"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/8ba4b57c5643f701d92f749c.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/Cópia de P055_DIRETORIA_REGIONAL_E_CONFEDERACAO_TACITA.png",
       "relativePath": "KALLISTIS_LIVRO/Cópia de P055_DIRETORIA_REGIONAL_E_CONFEDERACAO_TACITA.png",
       "sha256": "5b060dc3cecafd0c4bdcd1284c29946ab89c81441f08ef624bb0b0ef24dab1dc",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "O que está prestes a acontecer"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/5b060dc3cecafd0c4bdcd128.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/Cópia de P057_O_ESTADO_POLITICO_ATUAL.png",
@@ -2600,9 +2678,11 @@
       "relativePath": "KALLISTIS_LIVRO/D03_FIGURA_VIAJANTE_EM_DIAGONAL.png",
       "sha256": "de5010d1fbe1caa5c85edcf13a05b1acdd915f18482f37956e9b5caaf3887800",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Voz sem caricatura"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/de5010d1fbe1caa5c85edcf1.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/D04_EVOCACAO_PRESENCA_AUTONOMA.png",
@@ -2708,9 +2788,11 @@
       "relativePath": "KALLISTIS_LIVRO/forja_arcana_na_catedral_de_cristal.png",
       "sha256": "feb73dd8ce62e746a1797d4c65961d954ecfaa756228d9cc052c59f5e4f94361",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Kelvhen, Yssaneth e Vhurrak"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/forja-kelvhen.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/fortaleza_monolítica_sobre_os_penhascos.png",
@@ -2948,9 +3030,11 @@
       "relativePath": "KALLISTIS_LIVRO/HP-37_01_F_tradi_o_e_incerteza.png",
       "sha256": "528329ec8fe80fb1ba7698f2f981f3e0447e707799d6964ce9cfce0b4b5eb100",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "O que não é determinado"
+      ],
+      "materializedSrc": "/assets/partes/encerramento-final.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/HP-42_01_Pedr_alma_no_uso_de_Velarim_ltima_gera_o.png",
@@ -3002,9 +3086,11 @@
       "relativePath": "KALLISTIS_LIVRO/KALLISTIS_MESA_DOS_OFICIOS_PEDRALMA_SEM_FUNDO.png",
       "sha256": "21af07a7c7ee95185b8f13eec598bde8b8672eabe20483b2e3ad0f94bdd1bd52",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Interlúdio — POVO NÃO É DESTINO"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/21af07a7c7ee95185b8f13ee.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/KALLISTIS_QUARTA_CAPA_CONCEITO_v01 (copy 1).png",
@@ -3074,36 +3160,44 @@
       "relativePath": "KALLISTIS_LIVRO/KIMG-0050__PLATE_OBS_DERIVACOES_OBSERVADORES_V01.png",
       "sha256": "ef01ea0c12f6954bc860c2ebd7cfe677f238a6589e5c8d0b6a5cedb673cfb4c9",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Observadores — quando perceber se torna anatomia"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/ef01ea0c12f6954bc860c2eb.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/KIMG-0051__PLATE_OBS_DERIVACOES_OBSERVADORES_V02.png",
       "relativePath": "KALLISTIS_LIVRO/KIMG-0051__PLATE_OBS_DERIVACOES_OBSERVADORES_V02.png",
       "sha256": "976086e7acbd69e669bcb7b78561f9dc6f92367971b248a18bd36a3efd09678a",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Observadores — quando perceber se torna anatomia"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/976086e7acbd69e669bcb7b7.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/KIMG-0052__PLATE_OBS_DERIVACOES_OBSERVADORES_V03.png",
       "relativePath": "KALLISTIS_LIVRO/KIMG-0052__PLATE_OBS_DERIVACOES_OBSERVADORES_V03.png",
       "sha256": "c80e8c4b1097317c2ccc9994e565fd519bf9fa8f12876587496831098f380254",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Observadores — quando perceber se torna anatomia"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/c80e8c4b1097317c2ccc9994.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/KIMG-0053__PLATE_OBS_DERIVACOES_OBSERVADORES_V04.png",
       "relativePath": "KALLISTIS_LIVRO/KIMG-0053__PLATE_OBS_DERIVACOES_OBSERVADORES_V04.png",
       "sha256": "a4ae9f9488870787eb3ea0764262fad0552d204f37acf4223200c29039ab4385",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Observadores — quando perceber se torna anatomia"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/a4ae9f9488870787eb3ea076.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/KIMG-0054__PLATE_OBS_DERIVACOES_OBSERVADORES_V05.png",
@@ -3128,90 +3222,110 @@
       "relativePath": "KALLISTIS_LIVRO/KIMG-0057__PLATE_OBS_DERIVACOES_OBSERVADORES_V08.png",
       "sha256": "5928b9d9f95425727848d4f6c08cc6218d016d4c72590635151a550a6bf6cbe4",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Observadores — quando perceber se torna anatomia"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/5928b9d9f95425727848d4f6.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/KIMG-0058__PLATE_BR_GUARDIOES_DA_MATA_V01.png",
       "relativePath": "KALLISTIS_LIVRO/KIMG-0058__PLATE_BR_GUARDIOES_DA_MATA_V01.png",
       "sha256": "43a7f338ea4556f4709a6e88055659cf98398fb11a50182c48e12d81cef7db4b",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Guardiões, presenças e assombrações de matriz brasileira"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/43a7f338ea4556f4709a6e88.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/KIMG-0059__PLATE_BR_GUARDIOES_DA_MATA_V02.png",
       "relativePath": "KALLISTIS_LIVRO/KIMG-0059__PLATE_BR_GUARDIOES_DA_MATA_V02.png",
       "sha256": "80ec7b734bfdce2d68fbed16ca867fa970d0acaa9baafa218c330d733d8b6c29",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Guardiões, presenças e assombrações de matriz brasileira"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/80ec7b734bfdce2d68fbed16.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/KIMG-0060__PLATE_BR_GUARDIOES_DA_MATA_V03.png",
       "relativePath": "KALLISTIS_LIVRO/KIMG-0060__PLATE_BR_GUARDIOES_DA_MATA_V03.png",
       "sha256": "23de8f504d529057c1b68be5067efe8bf04b7738cb526ad3fe6bf54666dc5d3c",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Guardiões, presenças e assombrações de matriz brasileira"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/23de8f504d529057c1b68be5.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/KIMG-0061__PLATE_BR_GUARDIOES_DA_MATA_V04.png",
       "relativePath": "KALLISTIS_LIVRO/KIMG-0061__PLATE_BR_GUARDIOES_DA_MATA_V04.png",
       "sha256": "750c15a5705ccbbe34bb01840a7236648aee7307e702ee874bc6ac0a603f224d",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Guardiões, presenças e assombrações de matriz brasileira"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/750c15a5705ccbbe34bb0184.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/KIMG-0062__PLATE_BR_GUARDIOES_DA_MATA_V05.png",
       "relativePath": "KALLISTIS_LIVRO/KIMG-0062__PLATE_BR_GUARDIOES_DA_MATA_V05.png",
       "sha256": "a7c1f7baf34df935c94c086e099759f95ab9cba584f728ea83f4fd1eb312d2d6",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Guardiões, presenças e assombrações de matriz brasileira"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/a7c1f7baf34df935c94c086e.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/KIMG-0063__PLATE_BR_ENTIDADES_FLUVIAIS_V01.png",
       "relativePath": "KALLISTIS_LIVRO/KIMG-0063__PLATE_BR_ENTIDADES_FLUVIAIS_V01.png",
       "sha256": "823f10e62d0d5de26f28f56bf1507d6031fb003d26d17c9224cb07824448a87c",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Guardiões, presenças e assombrações de matriz brasileira"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/823f10e62d0d5de26f28f56b.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/KIMG-0064__PLATE_BR_MALDICOES_E_ASSOMBRACOES_V01.png",
       "relativePath": "KALLISTIS_LIVRO/KIMG-0064__PLATE_BR_MALDICOES_E_ASSOMBRACOES_V01.png",
       "sha256": "a0eebf487b0a8191e3283dcb2f3592b7343f9e8bd83e12168101859b9261c71b",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Guardiões, presenças e assombrações de matriz brasileira"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/a0eebf487b0a8191e3283dcb.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/KIMG-0065__PLATE_BR_MALDICOES_E_ASSOMBRACOES_V02.png",
       "relativePath": "KALLISTIS_LIVRO/KIMG-0065__PLATE_BR_MALDICOES_E_ASSOMBRACOES_V02.png",
       "sha256": "47a78ab5350d20bc850ceda7c41b8b5f29395f791a7c73ebe20df8ccdbd95ce9",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Guardiões, presenças e assombrações de matriz brasileira"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/47a78ab5350d20bc850ceda7.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/KIMG-0072__PERSONAGENS_SEIS_ANTAGONISTAS_V01.png",
       "relativePath": "KALLISTIS_LIVRO/KIMG-0072__PERSONAGENS_SEIS_ANTAGONISTAS_V01.png",
       "sha256": "6c5ce6686dc9898171d863c76479d0248203c6965d35548a0531c484adbdc80a",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "O que os personagens fazem"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/6c5ce6686dc9898171d863c7.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/mercado_fantástico_sob_o_monólito_de_cristal.png",
@@ -3238,9 +3352,11 @@
       "relativePath": "KALLISTIS_LIVRO/OPEN-002_POVOS_COMUNIDADES_CAMINHOS (copy 1).png",
       "sha256": "963acd32953691bb3415ceaf1b3bdfe94d04fb95f5dd448df1366d1269e0584e",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Distribuição dos Povos"
+      ],
+      "materializedSrc": "/assets/partes/parte-iii-povos.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/OPEN-003_VELARIM (copy 1).png",
@@ -3319,18 +3435,22 @@
       "relativePath": "KALLISTIS_LIVRO/P040_GEOGRAFIA_DA_ESCURIDAO_VALE_DE_THUR_DAER.png",
       "sha256": "9800bb4437b65b311db8d160ebf07d88efabfadfc83450e6a0421289857bab33",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Geografia da Escuridão: Vale de Thur-Daer"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/thur-daer-pb.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/P042_VEIOS_DO_JURAMENTO_E_JARDINS_DE_MEMORIA.png",
       "relativePath": "KALLISTIS_LIVRO/P042_VEIOS_DO_JURAMENTO_E_JARDINS_DE_MEMORIA.png",
       "sha256": "180a38acf9d433bf1007f771ac3d847a9a6844b31adfce48394efc706e33b8d4",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "Jardins de Memória"
+      ],
+      "materializedSrc": "/assets/v1.5-acervo/180a38acf9d433bf1007f771.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/p046_nimaris.jpg",
@@ -3490,9 +3610,11 @@
       "relativePath": "KALLISTIS_LIVRO/V04_PEDRALMA_MONUMENTAL (copy 1).png",
       "sha256": "92ef5b4f76a8253dbbc34a35d0a903597167b80e060c55b28fe2ad35c653c6c1",
       "byteIdenticalDuplicateOf": null,
-      "disposition": "REVIEW_REQUIRED",
-      "contexts": [],
-      "materializedSrc": null
+      "disposition": "USED",
+      "contexts": [
+        "A Pedr’alma e a definição de lar"
+      ],
+      "materializedSrc": "/assets/partes/pedralma-monumental.png"
     },
     {
       "path": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/IMAGENS/KALLISTIS_LIVRO/V05_VELARIM_COMO_RELACAO_A (copy 1).png",

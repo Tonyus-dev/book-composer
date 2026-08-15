@@ -1,110 +1,273 @@
-# KALLISTIS BOOK BUILDER
+# KALLISTIS Book Maker
 
-Ferramenta editorial local-first para composição visual e exportação do Livro Básico do RPG
-KALLISTIS. O modelo editorial leve vive em um `Book` serializável, com metadados no
-`localStorage`, blobs locais no IndexedDB, preflight profissional, mesa de luz editorial e
-exportação física via Chromium. O trim é **140 × 210 mm**, com **5 mm de sangria por lado**;
-a página full bleed mede **150 × 220 mm**.
+Ferramenta editorial visual para materializar, compor, revisar e preparar livros estruturados para publicação. O projeto nasceu durante a produção de **KALLISTIS — Manual do Mundo**, que continua sendo seu caso de uso original.
 
-## Requisitos
+<!-- TODO public clone: add a sanitized current screenshot of the editor. -->
 
-- Node.js 20+ (ver `.nvmrc`) e [Bun](https://bun.sh) (ou npm)
+## O que é
 
-## Desenvolvimento local
+O KALLISTIS Book Maker combina materialização automatizada, templates editoriais, edição manual visual, preflight e exportação de projetos portáteis. O editor trabalha sobre um modelo `Book` serializável e renderiza a mesma estrutura no canvas, no modo de impressão e na exportação PDF.
 
-```sh
-git clone <url-do-repositorio>
-cd kallistis-book-builder
-bun install
-bun run dev          # editor em http://localhost:8080
+Ele não é um CMS genérico, um editor de texto comum ou um clone visual de outra ferramenta. É uma bancada editorial orientada à composição de livros.
+
+## Por que ele existe
+
+Livros estruturados repetem tarefas que podem ser automatizadas, mas decisões de hierarquia, ritmo, imagem e composição ainda precisam de julgamento humano. O Book Maker faz a parte repetitiva e deixa o ajuste editorial final visível e direto no canvas.
+
+## Estado atual
+
+Ferramenta funcional em desenvolvimento ativo, utilizada na produção editorial de KALLISTIS e ainda em evolução. Build e testes automatizados são importantes, mas não substituem a validação manual do editor, do preflight e da saída impressa.
+
+## Principais recursos
+
+### Implementado
+
+- páginas, spreads e mesa de luz;
+- templates editoriais e variantes de composição;
+- navegação por Páginas, Assets e Camadas;
+- edição visual de blocos, seleção direta, drag e resize;
+- copy/paste nativo de elementos, inclusive multiseleção e grupos;
+- multiseleção, agrupamento, bloqueio, alinhamento e distribuição;
+- smart guides, snap de composição, réguas, margens, sangria, área segura e grade;
+- guias do cursor opcionais, sem participação na saída editorial;
+- propriedades contextuais de página e elemento;
+- preflight estático e medição de layout;
+- persistência local, projetos nomeados e JSON portátil;
+- modo de impressão em `/print` e exportação PDF por Chromium.
+
+### Experimental ou dependente do ambiente
+
+- fontes e assets importados dependem do navegador e do armazenamento local disponível;
+- upload remoto, D1 e R2 dependem da configuração do Worker e das credenciais do ambiente;
+- validação de impressão física continua sendo uma etapa editorial própria.
+
+### Planejado ou pendente
+
+- screenshot sanitizado da interface para o futuro clone público;
+- decisão de licença e seleção do conteúdo redistribuível;
+- exemplos públicos independentes do acervo privado de KALLISTIS.
+
+## Interface
+
+A interface mantém o canvas no centro, a navegação de páginas/assets/camadas à esquerda e as propriedades à direita. A toolbar superior prioriza ações frequentes e agrupa visualização, inserção, ferramentas e projeto em menus.
+
+O painel direito acompanha a seleção real do editor:
+
+- sem bloco selecionado: propriedades da página;
+- bloco selecionado: propriedades do tipo correspondente;
+- múltiplos blocos: contexto de grupo e ações de composição.
+
+Seções de propriedades são recolhíveis. Campos editáveis têm foco e aparência de formulário; identificadores herdados ou somente leitura permanecem discretos e não podem ser alterados.
+
+## Fluxo editorial
+
+```text
+conteúdo estruturado
+        ↓
+materialização
+        ↓
+templates editoriais
+        ↓
+páginas e spreads
+        ↓
+edição visual humana
+        ↓
+preflight
+        ↓
+modo de impressão / PDF / projeto portátil
 ```
 
-Rotas: `/` (editor) e `/print` (renderização limpa usada pelo exportador).
+O materializador cuida do trabalho repetitivo; o editor humano conserva a decisão editorial final. A meta é produzir a maior parte da página automaticamente e tornar os ajustes restantes rápidos e diretos no canvas.
 
-O template **Página em branco** cria uma prancheta física de 140 × 210 mm com zero blocos,
-sem cabeçalho, rodapé, fólio ou composição automática. Blocos existentes podem usar frames em
-milímetros diretamente sobre o trim, integrar spreads e alcançar a sangria quando `fullBleed`
-for escolhido; os mesmos frames são usados no editor, em `/print` e no PDF.
+## Materialização automática
 
-Scripts úteis:
+O materializador existente fica em `scripts/materialize-manuscript.mjs`. Ele recebe conteúdo estruturado, catálogo e projeto-base conforme os argumentos do script e produz um `Book` serializável. Os comandos específicos de materialização são destinados ao acervo editorial do projeto de trabalho; um futuro clone público deverá fornecer seus próprios exemplos sanitizados.
 
-```sh
-bun run lint         # ESLint
-bun run typecheck    # TypeScript
-bun run test         # testes de contratos editoriais
-bun run build        # build de produção (client + worker)
-bun run test:e2e     # Chromium real contra servidor local: editor, IndexedDB, /print e PDF
-bun run preview      # pré-visualiza o build
+## Templates
+
+Os templates são declarados em `src/book/templates.ts` e tipados em `src/book/types.ts`. A implementação atual inclui famílias para capa, front matter, sumário, abertura de parte, abertura de capítulo, narrativa, regras em duas colunas, perfil, tabela, citação, arte, mapa e marco de cronologia.
+
+O template é uma decisão editorial, não apenas uma decoração. Variantes, composição, conteúdo e assets devem continuar coerentes entre si.
+
+## Edição manual
+
+O fluxo manual prioriza:
+
+```text
+selecionar → editar → arrastar → alinhar → agrupar → bloquear → salvar
 ```
 
-## Exportação de PDF
+Atalhos e interações nativas existentes incluem seleção aditiva com `Shift`/`Ctrl`/`Cmd`, agrupamento com `Ctrl/Cmd + G`, menu contextual, drag, resize e `Shift + G` para alternar as guias do cursor.
 
-```sh
-bun run export:pdf                                   # usa o demo-book
-bun run export:pdf -- --in book.json                 # a partir de um JSON exportado do editor
-bun run export:pdf -- --in book.json --out dist/export/livro.pdf
-bun run export:pdf -- --force                        # ignora o gate de preflight (ERROR)
-```
+`Ctrl/Cmd + C` e `Ctrl/Cmd + V` copiam elementos para uma clipboard interna da sessão. O paste cria novos IDs, preserva posições relativas e referências de assets, pode ser feito em outra página e participa do histórico como uma única operação. Campos de texto e propriedades continuam usando o clipboard nativo do navegador.
 
-“Exportar projeto portátil” gera, sob demanda, JSON autocontido com os bytes locais. O autosave
-normal e os snapshots cloud guardam apenas metadados e referências; JSONs legados com Data URL
-continuam aceitos e são migrados para IndexedDB somente depois da gravação ser confirmada.
-O exportador grava o PDF e o relatório de preflight (`.json` / `.html`) na pasta de saída
-(`dist/export/` por padrão, ignorada pelo Git). Na primeira execução, instale o Chromium do
-Playwright: `bunx playwright install chromium`.
+As guias do cursor são uma preferência do editor armazenada localmente. Elas mostram duas linhas auxiliares no canvas, não entram no projeto editorial e não aparecem no PDF ou na impressão. Smart guides, snap, margens, área segura e equal spacing são mecanismos distintos.
 
-## Deploy na Cloudflare
+## Assets e camadas
 
-O build usa Nitro com o preset `cloudflare-module` e gera automaticamente
-`.output/server/wrangler.json`. O binding D1 de produção é declarado em `wrangler.jsonc` e a
-migration versionada vive em `migrations/0001_initial.sql`.
+Assets podem ser inspecionados no painel próprio e blocos podem ser selecionados pela aba Camadas. O estado de visibilidade, bloqueio e ordem pertence ao modelo do projeto quando suportado pelo bloco. Assets locais usam o armazenamento do navegador até que uma operação remota seja confirmada.
 
-```sh
-bunx wrangler login
-bun run deploy       # build + wrangler deploy usando o manifesto gerado
-bun run worker:dry-run # valida o pacote sem publicar
-bun run worker:dev   # executa localmente no runtime Workers
-bun run db:migrate   # aplica migrations no D1 remoto autenticado
-```
+## Smart guides e ferramentas de composição
 
-O nome do Worker vem de `package.json` (`kallistis-book-builder`). Para publicar via GitHub
-Actions, defina os secrets do repositório:
+O editor oferece réguas, grade opcional de 1 mm, snap, guias de centro/borda, margens, sangria, área segura, colunas e baseline. O menu `Visualização` concentra essas opções junto de zoom, página, spread, mesa de luz e modo de impressão.
 
-- `CLOUDFLARE_API_TOKEN` — token com permissão _Workers Scripts: Edit_
-- `CLOUDFLARE_ACCOUNT_ID` — ID da conta Cloudflare
+O foco no canvas recolhe temporariamente os painéis laterais e pode ser desativado para restaurar o estado anterior da interface.
 
-Cloudflare Access não é usado nesta versão por decisão do proprietário. As APIs privadas usam
-single-owner auth: configure os secrets `OWNER_PASSWORD` e `SESSION_SECRET` exclusivamente no
-Worker. A sessão é um cookie HttpOnly, Secure e SameSite=Strict; a senha nunca vai para o bundle,
-localStorage ou query string. `GITHUB_TOKEN`, quando configurado como secret do Worker, é usado
-apenas server-side para leitura de `Tonyus-dev/kallistis_producao` (`main`) nos prefixes canônicos.
+## Preflight
 
-R2 é o destino dos assets importados e snapshots. O binding `R2_ASSETS` usa o bucket
-`kallistis-book-assets`; uploads locais permanecem no IndexedDB até o upload ser confirmado e
-então recebem referência R2 leve. D1 mantém metadados, revisões e fallback JSON compatível.
-PPI não é propriedade intrínseca do arquivo: o preflight o calcula a partir dos pixels originais
-e da geometria física de cada uso, sem upscale ou reamostragem silenciosa. O limite defensivo de
-4 MB por imagem permanece nesta mudança.
+O preflight combina regras estáticas com medições de layout. Ele sinaliza, entre outros problemas, overflow, assets ausentes ou inadequados, resolução efetiva, imagens fora da composição e ocorrências editoriais relevantes. Um erro real deve ser revisado antes da exportação de produção; a ferramenta não corrige conteúdo silenciosamente.
 
-## GitHub Actions
+O relatório pode ser consultado no editor e exportado em JSON ou HTML.
 
-- `.github/workflows/ci.yml` — instalação congelada, lint, typecheck, testes, build e Playwright
-  Chromium (`test:e2e`), nessa ordem
-- `.github/workflows/deploy.yml` — deploy manual na Cloudflare via `workflow_dispatch`
+## Projetos portáteis
 
-O gate reproduz exatamente:
+O menu `Projeto` permite criar projetos locais, abrir snapshots, importar e exportar JSON portátil. O salvamento normal mantém o projeto no armazenamento local do navegador; o botão `Salvar` também grava o arquivo de trabalho escolhido pelo usuário quando a File System Access API está disponível.
 
-```sh
+Projetos legados continuam sendo normalizados pelo carregador. O formato deve ser tratado como contrato serializável e versionável, não como banco privado do editor.
+
+## Instalação
+
+Requisitos verificados:
+
+- Node.js 22, conforme `.nvmrc`;
+- Bun, usado pelo lockfile e pelos scripts do projeto;
+- Chromium do Playwright para exportação PDF e testes E2E.
+
+```bash
+git clone <repository-url>
+cd <repository-directory>
 bun install --frozen-lockfile
-bun run lint
+bunx playwright install chromium
+```
+
+A URL acima é intencionalmente um placeholder: a URL do futuro clone público ainda não foi definida.
+
+## Como executar
+
+Para iniciar o editor local:
+
+```bash
+bun run dev -- --host 127.0.0.1 --port 4173
+```
+
+Abra `http://127.0.0.1:4173/`. A rota `/` é o editor e `/print` é a renderização limpa usada na preparação de impressão e PDF.
+
+O script `scripts/abrir-kallistis-book-maker.sh` também existe para o launcher local do ambiente de trabalho; ele não é necessário para uma instalação portátil.
+
+## Desenvolvimento
+
+Scripts principais:
+
+```bash
 bun run typecheck
 bun run test
 bun run build
-bunx playwright install --with-deps chromium
-bun run test:e2e
+bun run preview
 ```
 
-## Stack
+`bun run dev` inicia o Vite. O projeto usa TanStack Start, React, TypeScript, Tailwind CSS, dnd-kit e Playwright, além do runtime Nitro para o pacote Cloudflare.
 
-TanStack Start · React 19 · TypeScript · Tailwind CSS v4 · shadcn/ui · dnd-kit · Playwright ·
-Cloudflare Workers
+## Build
+
+```bash
+bun run build
+```
+
+O build gera os artefatos client, SSR e Worker em diretórios ignorados pelo Git. O deploy é uma operação separada e requer configuração explícita de Cloudflare; este README não autoriza publicação.
+
+## Testes
+
+```bash
+bun run typecheck
+bun run test
+```
+
+Os testes de contrato cobrem modelos de tabela, authoring, sheets e imagens. O comando `bun run test:e2e` também existe e usa Chromium real, mas a suíte atual ainda contém dois cenários legados que esperam controles da toolbar anterior; eles precisam ser migrados para os menus atuais antes de serem tratados como gate verde. Instale o navegador antes do E2E quando necessário.
+
+`bun run lint` executa ESLint, porém o checkout de trabalho atual ainda contém erros históricos de formatação Prettier fora desta missão. O lint não é apresentado aqui como gate verde.
+
+O resultado automatizado não substitui a abertura real do aplicativo, a navegação por páginas, a revisão de propriedades, o teste de salvar/reabrir e a inspeção da saída impressa.
+
+## Estrutura do projeto
+
+```text
+.
+├── src/
+│   ├── book/           # modelo, templates e renderer editorial
+│   ├── editor/         # canvas, toolbar e painéis
+│   ├── lib/            # preflight, assets e persistência
+│   └── routes/         # editor e modo de impressão
+├── projects/           # projetos Book serializáveis do ambiente de trabalho
+├── public/             # manifesto, favicon e assets locais
+├── scripts/            # materialização, testes e exportação
+├── tests/e2e/          # fluxos no navegador
+├── migrations/         # migrações D1 versionadas
+├── docs/               # documentação de apoio
+└── package.json
+```
+
+## Exportação e projeto portátil
+
+Exportação PDF:
+
+```bash
+bun run export:pdf -- --in projects/<book>.json --out dist/export/livro.pdf
+```
+
+O exportador abre `/print`, aguarda a renderização, executa o gate de preflight e grava o PDF e os relatórios. Um livro com `ERROR` interrompe a exportação de produção; `--force` existe para uma decisão consciente de diagnóstico.
+
+Exportação e importação JSON também estão disponíveis no menu `Projeto` do editor.
+
+## Filosofia de design
+
+O Book Maker segue três princípios curtos:
+
+1. automação resolve o trabalho repetitivo, sem substituir julgamento editorial;
+2. capacidades existentes devem ser reutilizadas antes de criar novas camadas;
+3. a interação deve permanecer compreensível, pequena e verificável.
+
+### Ponytail
+
+O melhor código é aquele que nunca precisou ser escrito. O projeto prefere soluções nativas, mudanças estreitas e abstrações somente quando resolvem um problema real que a arquitetura atual não resolve.
+
+## Limitações atuais
+
+- o editor depende de navegador moderno para persistência local e File System Access;
+- recursos remotos exigem configuração própria de Worker, D1, R2 e autenticação;
+- o acervo visual e textual atual não constitui automaticamente um pacote redistribuível;
+- não há licença pública declarada;
+- a qualidade final da composição ainda exige revisão humana e preflight.
+
+## Roadmap
+
+O próximo passo de distribuição é preparar um clone público sanitizado, com exemplos independentes, screenshot seguro, licença definida e validação de instalação limpa. A checklist operacional está em [`docs/PUBLIC_CLONE_CHECKLIST.md`](docs/PUBLIC_CLONE_CHECKLIST.md).
+
+Melhorias de edição continuam sendo guiadas por problemas observados no fluxo real, não por uma porcentagem ideal de templates ou por redesign amplo.
+
+## Origem do projeto
+
+O Book Maker foi criado para atender a produção de **KALLISTIS — Manual do Mundo**. KALLISTIS explica a origem e o primeiro corpus editorial; o produto documentado aqui é a ferramenta de composição.
+
+## Futuro repositório público
+
+Este repositório é atualmente o ambiente de produção do Book Maker.
+
+Antes de uma distribuição pública será criado um clone sanitizado, no qual serão revisados separadamente:
+
+- configurações locais;
+- dados sensíveis;
+- conteúdo editorial privado;
+- assets de KALLISTIS;
+- arquivos temporários;
+- dados de desenvolvimento;
+- licença e termos de distribuição.
+
+A sanitização não faz parte do runtime ou da arquitetura do Book Maker.
+
+## Conteúdo e assets de KALLISTIS
+
+O checkout de trabalho contém código, projetos, textos, imagens e artefatos de produção. A presença de um arquivo no checkout não significa que ele possa ser redistribuído. O futuro clone deve separar software, conteúdo autoral de KALLISTIS e assets de terceiros antes de publicar qualquer material.
+
+## Licença
+
+A licença para a futura distribuição pública do Book Maker ainda será definida antes da publicação do repositório sanitizado. Nenhuma licença permissiva é concedida por este README.

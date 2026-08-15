@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import type { PointerEvent as ReactPointerEvent, RefObject } from "react";
 import type { Block, BlockFrame, Book, ImageBlock, Page } from "../../book/types";
 import { PageRenderer, type PageControl } from "../../book/renderer/PageRenderer";
 import { BookRenderContext } from "../../book/renderer/context";
-import { nextId, useEditor, type Overlays } from "../state/store";
+import { nextId, useEditor, type Overlays, type SelectionModifiers } from "../state/store";
 import { normalizeTableBlock } from "../../book/tableModel";
 import { TableEditorOverlay } from "./TableEditorOverlay";
 import { InlineTextEditorOverlay } from "./InlineTextEditorOverlay";
@@ -109,34 +110,218 @@ function RulerOverlay({
       <div className="k-editor-ruler__bleed-label" aria-hidden="true">
         Sangria {bleedMm} mm
       </div>
-      {point ? (
+    </div>
+  );
+}
+
+function CursorGuideOverlay({
+  point,
+}: {
+  point: { x: number; y: number; xMm: number; yMm: number } | null;
+}) {
+  if (!point) return null;
+  return (
+    <div className="k-editor-ruler k-editor-cursor-guides" aria-hidden="true">
+      <span
+        className="k-editor-ruler__crosshair k-editor-ruler__crosshair--vertical"
+        style={{ left: point.x }}
+      />
+      <span
+        className="k-editor-ruler__crosshair k-editor-ruler__crosshair--horizontal"
+        style={{ top: point.y }}
+      />
+      <output
+        className="k-editor-ruler__readout"
+        data-testid="ruler-readout"
+        style={{ left: point.x, top: point.y }}
+      >
+        X {point.xMm.toFixed(1)} mm · Y {point.yMm.toFixed(1)} mm
+      </output>
+    </div>
+  );
+}
+
+type ContextMenuState = { x: number; y: number } | null;
+
+function CanvasContextMenu({
+  state,
+  selectedPage,
+  selectedBlock,
+  selectedBlockIds,
+  onClose,
+  onEdit,
+  onDuplicate,
+  onCopy,
+  onPaste,
+  hasBlockClipboard,
+  onGroup,
+  onUngroup,
+  onLock,
+  onDelete,
+  onAlign,
+  onDistribute,
+  onTidy,
+  onMoveLayer,
+  onInsert,
+  onToggleMargins,
+}: {
+  state: ContextMenuState;
+  selectedPage: Page;
+  selectedBlock: Block | null;
+  selectedBlockIds: string[];
+  onClose: () => void;
+  onEdit: () => void;
+  onDuplicate: () => void;
+  onCopy: () => void;
+  onPaste: () => void;
+  hasBlockClipboard: boolean;
+  onGroup: () => void;
+  onUngroup: () => void;
+  onLock: () => void;
+  onDelete: () => void;
+  onAlign: (value: "left" | "center-x" | "right" | "top" | "center-y" | "bottom") => void;
+  onDistribute: (axis: "horizontal" | "vertical") => void;
+  onTidy: () => void;
+  onMoveLayer: (direction: -1 | 1) => void;
+  onInsert: (type: "text" | "image" | "box") => void;
+  onToggleMargins: () => void;
+}) {
+  useEffect(() => {
+    if (!state) return;
+    const close = () => onClose();
+    const key = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    document.addEventListener("pointerdown", close);
+    document.addEventListener("keydown", key);
+    return () => {
+      document.removeEventListener("pointerdown", close);
+      document.removeEventListener("keydown", key);
+    };
+  }, [onClose, state]);
+
+  if (!state || typeof document === "undefined") return null;
+  const multiple = selectedBlockIds.length > 1;
+  const hasGroup = selectedBlockIds.some((id) =>
+    selectedPage.blocks.some((block) => block.id === id && block.groupId),
+  );
+  const allLocked = selectedBlockIds.length > 0 && selectedBlockIds.every((id) =>
+    selectedPage.blocks.some((block) => block.id === id && block.locked),
+  );
+  const action = (callback: () => void) => () => {
+    callback();
+    onClose();
+  };
+  const button = (label: string, callback: () => void, disabled = false) => (
+    <button
+      type="button"
+      disabled={disabled}
+      className="k-editor-context-menu__item"
+      onClick={action(callback)}
+    >
+      {label}
+    </button>
+  );
+  return createPortal(
+    <div
+      className="k-editor-context-menu"
+      style={{
+        left: `${Math.max(8, Math.min(state.x || 0, window.innerWidth - 210))}px`,
+        top: `${Math.max(8, Math.min(state.y || 0, window.innerHeight - 250))}px`,
+      }}
+      role="menu"
+      aria-label="Menu contextual do canvas"
+      onPointerDown={(event) => event.stopPropagation()}
+      onContextMenu={(event) => event.preventDefault()}
+    >
+      {selectedBlock ? button("Editar", onEdit, !["text", "heading", "quote", "caption", "box"].includes(selectedBlock.type)) : null}
+      {selectedBlockIds.length ? button("Copiar", onCopy) : null}
+      {button("Colar", onPaste, !hasBlockClipboard)}
+      {selectedBlock ? button("Duplicar", onDuplicate) : null}
+      {multiple ? button("Agrupar", onGroup) : null}
+      {hasGroup ? button("Desagrupar", onUngroup) : null}
+      {multiple ? (
         <>
-          <span
-            className="k-editor-ruler__crosshair k-editor-ruler__crosshair--vertical"
-            style={{ left: point.x }}
-            aria-hidden="true"
-          />
-          <span
-            className="k-editor-ruler__crosshair k-editor-ruler__crosshair--horizontal"
-            style={{ top: point.y }}
-            aria-hidden="true"
-          />
-          <output
-            className="k-editor-ruler__readout"
-            data-testid="ruler-readout"
-            style={{ left: point.x, top: point.y }}
-          >
-            X {point.xMm.toFixed(1)} mm · Y {point.yMm.toFixed(1)} mm
-          </output>
+          <div className="k-editor-context-menu__separator" />
+          <div className="k-editor-context-menu__label">Alinhar</div>
+          {button("À esquerda", () => onAlign("left"))}
+          {button("Centro horizontal", () => onAlign("center-x"))}
+          {button("À direita", () => onAlign("right"))}
+          {button("Ao topo", () => onAlign("top"))}
+          {button("Centro vertical", () => onAlign("center-y"))}
+          {button("À base", () => onAlign("bottom"))}
+          {button("Distribuir horizontal", () => onDistribute("horizontal"))}
+          {button("Distribuir vertical", () => onDistribute("vertical"))}
+          <div className="k-editor-context-menu__separator" />
+          <div className="k-editor-context-menu__label">Organizar</div>
+          {button("Espaçar igualmente horizontal", () => onDistribute("horizontal"))}
+          {button("Espaçar igualmente vertical", () => onDistribute("vertical"))}
+          {button("Arrumar automaticamente", onTidy)}
         </>
       ) : null}
-    </div>
+      {selectedBlockIds.length ? (
+        <>
+          <div className="k-editor-context-menu__separator" />
+          {button(allLocked ? "Desbloquear" : "Bloquear", onLock)}
+          {selectedBlock ? button("Trazer para frente", () => onMoveLayer(1)) : null}
+          {selectedBlock ? button("Enviar para trás", () => onMoveLayer(-1)) : null}
+          {button("Excluir", onDelete)}
+        </>
+      ) : (
+        <>
+          {button("Inserir texto", () => onInsert("text"))}
+          {button("Inserir imagem", () => onInsert("image"))}
+          {button("Inserir box", () => onInsert("box"))}
+          {button("Mostrar/ocultar margens", onToggleMargins)}
+        </>
+      )}
+    </div>,
+    document.body,
   );
 }
 
 type ResizeBox = { left: number; top: number; width: number; height: number };
 
 type FrameDraft = { frame: BlockFrame; box: ResizeBox };
+type SmartGuide = { axis: "x" | "y"; position: number; label: string };
+type SnapCandidate = { value: number; guidePosition: number; label: string; priority: number };
+type SnapResult = { frame: BlockFrame; guides: SmartGuide[] };
+
+function SmartGuidesOverlay({
+  guides,
+  book,
+  pageIndex,
+}: {
+  guides: SmartGuide[];
+  book: Book;
+  pageIndex: number;
+}) {
+  if (!guides.length) return null;
+  const width = mmValue(book.tokens.pageWidth);
+  const height = mmValue(book.tokens.pageHeight);
+  const marginInner = mmValue(book.tokens.marginInner);
+  const marginOuter = mmValue(book.tokens.marginOuter);
+  const marginTop = mmValue(book.tokens.marginTop);
+  const verso = (pageIndex + book.meta.firstFolio) % 2 === 0;
+  const contentLeft = verso ? marginOuter : marginInner;
+  return (
+    <div className="k-editor-smart-guides" aria-live="polite">
+      {guides.map((guide, index) => (
+        <div
+          key={`${guide.axis}-${guide.position}-${index}`}
+          className={`k-editor-smart-guide k-editor-smart-guide--${guide.axis}`}
+          style={
+            guide.axis === "x"
+              ? { left: `${((contentLeft + guide.position) / Math.max(1, width)) * 100}%` }
+              : { top: `${((marginTop + guide.position) / Math.max(1, height)) * 100}%` }
+          }
+        >
+          <span>{guide.label}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 function findBlockElement(pageElement: HTMLElement, blockId: string) {
   return Array.from(pageElement.querySelectorAll<HTMLElement>("[data-block-id]")).find(
@@ -150,19 +335,43 @@ function ImageResizeOverlay({
   pageId,
   block,
   updateBlock,
+  snapFrame,
+  onGuidesChange,
+  smartGuides,
+  snapEnabled,
 }: {
   pageRef: RefObject<HTMLDivElement | null>;
   pageId: string;
   block: ImageBlock;
   updateBlock: (pageId: string, blockId: string, patch: Record<string, unknown>) => void;
+  snapFrame?: (
+    blockId: string,
+    frame: BlockFrame,
+    selectedIds: string[],
+    movingBounds?: BlockFrame,
+  ) => SnapResult;
+  onGuidesChange?: (guides: SmartGuide[]) => void;
+  smartGuides: boolean;
+  snapEnabled: boolean;
 }) {
   const [box, setBox] = useState<ResizeBox | null>(null);
   const [cropMode, setCropMode] = useState(false);
   const cleanupDragRef = useRef<(() => void) | null>(null);
+  const geometryKey = [
+    block.frame?.x,
+    block.frame?.y,
+    block.frame?.width,
+    block.frame?.height,
+    block.offsetX,
+    block.offsetY,
+    block.width,
+    block.height,
+  ].join("|");
 
   const syncBox = useCallback(() => {
     const pageElement = pageRef.current;
     if (!pageElement) return;
+    if (block.locked) return;
     const target = findBlockElement(pageElement, block.id);
     if (!target) {
       setBox(null);
@@ -190,7 +399,7 @@ function ImageResizeOverlay({
       window.cancelAnimationFrame(frame);
       observer?.disconnect();
     };
-  }, [block.id, pageRef, syncBox]);
+  }, [block.id, pageRef, syncBox, geometryKey]);
 
   useEffect(() => {
     window.addEventListener("resize", syncBox);
@@ -212,12 +421,16 @@ function ImageResizeOverlay({
     if (!pageElement) return;
     const target = findBlockElement(pageElement, block.id);
     if (!target) return;
+    if (block.locked) return;
     cleanupDragRef.current?.();
     const pointerTarget = event.currentTarget;
     const pointerId = event.pointerId;
     pointerTarget.setPointerCapture(pointerId);
 
     const pageRect = pageElement.getBoundingClientRect();
+    const contentRect =
+      pageElement.querySelector<HTMLElement>(".k-page__content")?.getBoundingClientRect() ??
+      pageRect;
     const targetRect = target.getBoundingClientRect();
     const scale = pageElement.offsetWidth > 0 ? pageRect.width / pageElement.offsetWidth : 1;
     const startWidth = targetRect.width / scale;
@@ -228,11 +441,17 @@ function ImageResizeOverlay({
     const startY = event.clientY;
     const startObjectX = block.objectX ?? 50;
     const startObjectY = block.objectY ?? 50;
-    const startOffsetX = block.offsetX ?? 0;
-    const startOffsetY = block.offsetY ?? 0;
     const isMove = event.currentTarget.dataset["resize"] === "false";
     const handle = event.currentTarget.dataset["handle"] ?? "se";
-    const initialFrame = block.frame;
+    // “Mover caixa” deve mover o objeto inteiro. Para uma imagem que ainda
+    // está no fluxo, o primeiro arraste materializa a geometria atual como
+    // moldura física; offsetX/offsetY fica reservado ao enquadramento interno.
+    const initialFrame = block.frame ?? {
+      x: (targetRect.left - contentRect.left) / scale / CSS_PX_PER_MM,
+      y: (targetRect.top - contentRect.top) / scale / CSS_PX_PER_MM,
+      width: targetRect.width / scale / CSS_PX_PER_MM,
+      height: Math.max(10, targetRect.height / scale / CSS_PX_PER_MM),
+    };
     const keepRatio = event.shiftKey;
     const ratio = startHeight > 0 ? startWidth / startHeight : 1;
 
@@ -265,26 +484,18 @@ function ImageResizeOverlay({
         Math.min(maxHeight, startHeight + (moveEvent.clientY - startY) / scale),
       );
       if (isMove) {
-        if (initialFrame) {
-          updateBlock(pageId, block.id, {
-            frame: {
-              ...initialFrame,
-              x: initialFrame.x + (moveEvent.clientX - startX) / scale / CSS_PX_PER_MM,
-              y: initialFrame.y + (moveEvent.clientY - startY) / scale / CSS_PX_PER_MM,
-            },
-          });
-        } else {
-          updateBlock(pageId, block.id, {
-            offsetX: Math.max(
-              -100,
-              Math.min(100, startOffsetX + ((moveEvent.clientX - startX) / pageRect.width) * 100),
-            ),
-            offsetY: Math.max(
-              -100,
-              Math.min(100, startOffsetY + ((moveEvent.clientY - startY) / pageRect.height) * 100),
-            ),
-          });
-        }
+        const rawFrame = {
+          ...initialFrame,
+          x: initialFrame.x + (moveEvent.clientX - startX) / scale / CSS_PX_PER_MM,
+          y: initialFrame.y + (moveEvent.clientY - startY) / scale / CSS_PX_PER_MM,
+        };
+        const snapped = snapFrame
+          ? snapFrame(block.id, rawFrame, [block.id])
+          : { frame: rawFrame, guides: [] };
+        onGuidesChange?.(smartGuides ? snapped.guides : []);
+        updateBlock(pageId, block.id, {
+          frame: snapEnabled ? snapped.frame : rawFrame,
+        });
         return;
       }
       if (keepRatio) height = Math.min(maxHeight, width / ratio);
@@ -403,34 +614,58 @@ function BlockTransformOverlay({
   pageRef,
   pageId,
   block,
+  selectedBlockIds,
+  selectedBlocks,
   updateBlock,
+  snapFrame,
+  onGuidesChange,
   onEdit,
   snapGrid,
+  smartGuides,
+  snapEnabled,
 }: {
   pageRef: RefObject<HTMLDivElement | null>;
   pageId: string;
   block: Block;
+  selectedBlockIds: string[];
+  selectedBlocks: Block[];
   updateBlock: (pageId: string, blockId: string, patch: Record<string, unknown>) => void;
+  snapFrame?: (
+    blockId: string,
+    frame: BlockFrame,
+    selectedIds: string[],
+    movingBounds?: BlockFrame,
+  ) => SnapResult;
+  onGuidesChange?: (guides: SmartGuide[]) => void;
   onEdit: () => void;
   snapGrid: boolean;
+  smartGuides: boolean;
+  snapEnabled: boolean;
 }) {
   const [box, setBox] = useState<ResizeBox | null>(null);
   const cleanupDragRef = useRef<(() => void) | null>(null);
   const syncBox = useCallback(() => {
     const pageElement = pageRef.current;
     if (!pageElement) return;
+    const targets = selectedBlockIds
+      .map((id) => findBlockElement(pageElement, id))
+      .filter((element): element is HTMLElement => Boolean(element));
     const target = findBlockElement(pageElement, block.id);
-    if (!target) return setBox(null);
+    if (!target || !targets.length) return setBox(null);
     const pageRect = pageElement.getBoundingClientRect();
-    const targetRect = target.getBoundingClientRect();
+    const rects = targets.map((element) => element.getBoundingClientRect());
+    const left = Math.min(...rects.map((rect) => rect.left));
+    const top = Math.min(...rects.map((rect) => rect.top));
+    const right = Math.max(...rects.map((rect) => rect.right));
+    const bottom = Math.max(...rects.map((rect) => rect.bottom));
     const scale = pageElement.offsetWidth > 0 ? pageRect.width / pageElement.offsetWidth : 1;
     setBox({
-      left: (targetRect.left - pageRect.left) / scale,
-      top: (targetRect.top - pageRect.top) / scale,
-      width: targetRect.width / scale,
-      height: targetRect.height / scale,
+      left: (left - pageRect.left) / scale,
+      top: (top - pageRect.top) / scale,
+      width: (right - left) / scale,
+      height: (bottom - top) / scale,
     });
-  }, [block.id, pageRef]);
+  }, [block.id, pageRef, selectedBlockIds]);
 
   useLayoutEffect(() => {
     const frame = window.requestAnimationFrame(syncBox);
@@ -463,6 +698,7 @@ function BlockTransformOverlay({
     if (!pageElement) return;
     const target = findBlockElement(pageElement, block.id);
     if (!target) return;
+    if (block.locked) return;
     cleanupDragRef.current?.();
     const pointerTarget = event.currentTarget;
     const pointerId = event.pointerId;
@@ -484,6 +720,34 @@ function BlockTransformOverlay({
     const handle = event.currentTarget.dataset["handle"] ?? "se";
     const startX = event.clientX;
     const startY = event.clientY;
+    let lastDx = 0;
+    let lastDy = 0;
+    const groupFrames = selectedBlockIds.length > 1
+      ? selectedBlocks.flatMap((item) => {
+          const element = findBlockElement(pageElement, item.id);
+          if (!element) return [];
+          const rect = element.getBoundingClientRect();
+          const frame = item.frame ?? {
+            x: (rect.left - contentRect.left) / scale / pxPerMm,
+            y: (rect.top - contentRect.top) / scale / pxPerMm,
+            width: rect.width / scale / pxPerMm,
+            height: Math.max(8, rect.height / scale / pxPerMm),
+          };
+          return [{ item, frame }];
+        })
+      : [];
+    const initialGroupBounds = groupFrames.length
+      ? {
+          x: Math.min(...groupFrames.map(({ frame }) => frame.x)),
+          y: Math.min(...groupFrames.map(({ frame }) => frame.y)),
+          width:
+            Math.max(...groupFrames.map(({ frame }) => frame.x + frame.width)) -
+            Math.min(...groupFrames.map(({ frame }) => frame.x)),
+          height:
+            Math.max(...groupFrames.map(({ frame }) => frame.y + frame.height)) -
+            Math.min(...groupFrames.map(({ frame }) => frame.y)),
+        }
+      : null;
     const move = (moveEvent: PointerEvent) => {
       // Recupera o estado caso o navegador entregue um pointermove sem
       // pointerup após o cursor deixar a área do editor.
@@ -494,6 +758,33 @@ function BlockTransformOverlay({
       const dx = (moveEvent.clientX - startX) / scale / pxPerMm;
       const dy = (moveEvent.clientY - startY) / scale / pxPerMm;
       const next = resize ? { ...initial } : { ...initial, x: initial.x + dx, y: initial.y + dy };
+      if (!resize && selectedBlockIds.length > 1) {
+        const rawPrimary = { ...initial, x: initial.x + dx, y: initial.y + dy };
+        const movingBounds = initialGroupBounds
+          ? { ...initialGroupBounds, x: initialGroupBounds.x + dx, y: initialGroupBounds.y + dy }
+          : undefined;
+        const snapped = snapFrame
+          ? snapFrame(block.id, rawPrimary, selectedBlockIds, movingBounds)
+          : { frame: rawPrimary, guides: [] };
+        onGuidesChange?.(smartGuides ? snapped.guides : []);
+        const targetFrame = snapEnabled ? snapped.frame : rawPrimary;
+        const correctionX = targetFrame.x - rawPrimary.x;
+        const correctionY = targetFrame.y - rawPrimary.y;
+        groupFrames.forEach(({ item, frame }) => {
+          if (!item.locked) {
+            updateBlock(pageId, item.id, {
+              frame: {
+                ...frame,
+                x: frame.x + dx + correctionX,
+                y: frame.y + dy + correctionY,
+              },
+            });
+          }
+        });
+        lastDx = dx;
+        lastDy = dy;
+        return;
+      }
       if (resize) {
         if (handle.includes("w")) {
           next.x = initial.x + dx;
@@ -514,7 +805,11 @@ function BlockTransformOverlay({
         next.width = Math.round(next.width);
         next.height = Math.round(next.height);
       }
-      updateBlock(pageId, block.id, { frame: next });
+      const snapped = !resize && snapFrame
+        ? snapFrame(block.id, next, selectedBlockIds)
+        : { frame: next, guides: [] };
+      onGuidesChange?.(smartGuides ? snapped.guides : []);
+      updateBlock(pageId, block.id, { frame: snapEnabled ? snapped.frame : next });
     };
     const stop = () => {
       window.removeEventListener("pointermove", move);
@@ -528,6 +823,7 @@ function BlockTransformOverlay({
         /* o ponteiro pode já ter sido liberado pelo navegador */
       }
       if (cleanupDragRef.current === stop) cleanupDragRef.current = null;
+      onGuidesChange?.([]);
       syncBox();
     };
     cleanupDragRef.current = stop;
@@ -541,7 +837,11 @@ function BlockTransformOverlay({
     <div
       className="k-editor-transform-overlay"
       style={{ left: box.left, top: box.top, width: box.width, height: box.height }}
-      aria-label={`Moldura de composição do bloco ${block.type}`}
+      aria-label={
+        selectedBlockIds.length > 1
+          ? `Moldura da seleção com ${selectedBlockIds.length} elementos`
+          : `Moldura de composição do bloco ${block.type}`
+      }
       onClick={(event) => event.stopPropagation()}
       onDoubleClick={(event) => {
         event.stopPropagation();
@@ -559,7 +859,8 @@ function BlockTransformOverlay({
         onPointerUp={() => cleanupDragRef.current?.()}
         onPointerCancel={() => cleanupDragRef.current?.()}
       />
-      {(["nw", "ne", "sw", "se"] as const).map((handle) => (
+      {selectedBlockIds.length === 1
+        ? (["nw", "ne", "sw", "se"] as const).map((handle) => (
         <button
           key={handle}
           type="button"
@@ -572,7 +873,8 @@ function BlockTransformOverlay({
           onPointerUp={() => cleanupDragRef.current?.()}
           onPointerCancel={() => cleanupDragRef.current?.()}
         />
-      ))}
+      ))
+        : null}
     </div>
   );
 }
@@ -593,6 +895,7 @@ export function PageCanvas({
     overlays,
     selectedBlock,
     selectedBlockId,
+    selectedBlockIds,
     selectBlock,
     selectPage,
     addBlock,
@@ -606,23 +909,58 @@ export function PageCanvas({
     updateTable,
     removeBlock,
     duplicateBlock,
+    copySelectedBlocks,
+    pasteBlocks,
+    hasBlockClipboard,
+    groupBlocks,
+    ungroupBlocks,
+    moveBlocksBy,
+    toggleBlocksLocked,
+    alignBlocks,
+    distributeBlocks,
+    tidyBlocks,
+    moveBlock,
+    toggleOverlay,
     snapGrid,
+    smartGuides: smartGuidesEnabled,
+    snapEnabled,
+    cursorGuides,
   } = useEditor();
   const ref = useRef<HTMLDivElement>(null);
   const [editingBlockId, setEditingBlockId] = useState<string | null>(null);
   const [frameDraft, setFrameDraft] = useState<FrameDraft | null>(null);
   const [selectedPageControl, setSelectedPageControl] = useState<PageControl | null>(null);
+  const [contextMenu, setContextMenu] = useState<ContextMenuState>(null);
+  const [smartGuides, setSmartGuides] = useState<SmartGuide[]>([]);
   const [rulerPoint, setRulerPoint] = useState<{
     x: number;
     y: number;
     xMm: number;
     yMm: number;
   } | null>(null);
+  const lastPastePointRef = useRef<{ x: number; y: number } | null>(null);
+
+  const recordPastePoint = useCallback((clientX: number, clientY: number) => {
+    const pageElement = ref.current;
+    const contentElement =
+      pageElement?.querySelector<HTMLElement>(".k-page__content") ?? pageElement;
+    if (!pageElement || !contentElement) return;
+    const pageRect = pageElement.getBoundingClientRect();
+    const contentRect = contentElement.getBoundingClientRect();
+    const scale = pageElement.offsetWidth > 0 ? pageRect.width / pageElement.offsetWidth : 1;
+    const pxPerMm = CSS_PX_PER_MM;
+    const contentWidth = contentRect.width / scale / pxPerMm;
+    const contentHeight = contentRect.height / scale / pxPerMm;
+    lastPastePointRef.current = {
+      x: Math.max(0, Math.min(contentWidth, (clientX - contentRect.left) / scale / pxPerMm)),
+      y: Math.max(0, Math.min(contentHeight, (clientY - contentRect.top) / scale / pxPerMm)),
+    };
+  }, []);
 
   const selectBlockFromCanvas = useCallback(
-    (blockId: string | null) => {
+    (blockId: string | null, modifiers?: SelectionModifiers) => {
       setSelectedPageControl(null);
-      selectBlock(blockId);
+      selectBlock(blockId, modifiers);
     },
     [selectBlock],
   );
@@ -727,9 +1065,274 @@ export function PageCanvas({
     setFrameDraft(null);
   };
 
+  const insertContextBlock = (type: "text" | "image" | "box") => {
+    if (!contextMenu) return;
+    const pageElement = ref.current;
+    const contentElement =
+      pageElement?.querySelector<HTMLElement>(".k-page__content") ?? pageElement;
+    if (!pageElement || !contentElement) return;
+    const pageRect = pageElement.getBoundingClientRect();
+    const contentRect = contentElement.getBoundingClientRect();
+    const scale = pageElement.offsetWidth > 0 ? pageRect.width / pageElement.offsetWidth : 1;
+    const pxPerMm = 96 / 25.4;
+    const width = type === "box" ? 62 : 54;
+    const height = type === "box" ? 34 : 24;
+    const frame = {
+      x: Math.max(0, (contextMenu.x - contentRect.left) / scale / pxPerMm - width / 2),
+      y: Math.max(0, (contextMenu.y - contentRect.top) / scale / pxPerMm - height / 2),
+      width,
+      height,
+    };
+    const block: Block =
+      type === "text"
+        ? { id: nextId("context-text"), type, content: "Novo texto.", role: "body", frame }
+        : type === "image"
+          ? { id: nextId("context-image"), type, src: "", alt: "Imagem", fit: "cover", position: "flow", frame }
+          : { id: nextId("context-box"), type, kind: "regra", title: "Novo box", content: "Conteúdo.", frame };
+    addBlock(page.id, block);
+    selectBlockFromCanvas(block.id);
+    if (type === "text") setEditingBlockId(block.id);
+    setContextMenu(null);
+  };
+
+  const snapFrame = useCallback(
+    (
+      blockId: string,
+      frame: BlockFrame,
+      selectedIds: string[],
+      currentMovingBounds?: BlockFrame,
+    ): SnapResult => {
+      const pageElement = ref.current;
+      const contentElement =
+        pageElement?.querySelector<HTMLElement>(".k-page__content") ?? pageElement;
+      if (!pageElement || !contentElement) return { frame, guides: [] };
+      const pageRect = pageElement.getBoundingClientRect();
+      const contentRect = contentElement.getBoundingClientRect();
+      const scale = pageElement.offsetWidth > 0 ? pageRect.width / pageElement.offsetWidth : 1;
+      const pxPerMm = 96 / 25.4;
+      const contentWidth = contentRect.width / scale / pxPerMm;
+      const contentHeight = contentRect.height / scale / pxPerMm;
+      const pageWidthMm = mmValue(book.tokens.pageWidth);
+      const pageHeightMm = mmValue(book.tokens.pageHeight);
+      const marginInnerMm = mmValue(book.tokens.marginInner);
+      const marginOuterMm = mmValue(book.tokens.marginOuter);
+      const marginTopMm = mmValue(book.tokens.marginTop);
+      const verso = (index + book.meta.firstFolio) % 2 === 0;
+      const contentLeftMm = verso ? marginOuterMm : marginInnerMm;
+      const pageCenterXInContent = pageWidthMm / 2 - contentLeftMm;
+      const pageCenterYInContent = pageHeightMm / 2 - marginTopMm;
+      const measured = (id: string): BlockFrame | null => {
+        const element = findBlockElement(pageElement, id);
+        if (!element) return null;
+        const rect = element.getBoundingClientRect();
+        return {
+          x: (rect.left - contentRect.left) / scale / pxPerMm,
+          y: (rect.top - contentRect.top) / scale / pxPerMm,
+          width: rect.width / scale / pxPerMm,
+          height: Math.max(8, rect.height / scale / pxPerMm),
+        };
+      };
+      const movingFrames = selectedIds.length > 1
+        ? page.blocks
+            .filter((item) => selectedIds.includes(item.id) && !item.hidden)
+            .map((item) => item.frame ?? measured(item.id))
+            .filter((item): item is BlockFrame => Boolean(item))
+        : [frame];
+      const movingBounds: BlockFrame = currentMovingBounds ?? {
+        x: Math.min(...movingFrames.map((item) => item.x)),
+        y: Math.min(...movingFrames.map((item) => item.y)),
+        width:
+          Math.max(...movingFrames.map((item) => item.x + item.width)) -
+          Math.min(...movingFrames.map((item) => item.x)),
+        height:
+          Math.max(...movingFrames.map((item) => item.y + item.height)) -
+          Math.min(...movingFrames.map((item) => item.y)),
+      };
+      const otherFrames = page.blocks
+        .filter((item) => item.id !== blockId && !selectedIds.includes(item.id) && !item.hidden)
+        .map((item) => item.frame ?? measured(item.id))
+        .filter((item): item is BlockFrame => Boolean(item));
+      const safeInset = 5;
+      const xCandidates: SnapCandidate[] = [
+        { value: 0, guidePosition: 0, label: "margem esquerda", priority: 3 },
+        {
+          value: contentWidth - movingBounds.width,
+          guidePosition: contentWidth,
+          label: "margem direita",
+          priority: 3,
+        },
+        {
+          value: pageCenterXInContent - movingBounds.width / 2,
+          guidePosition: pageCenterXInContent,
+          label: "centro vertical",
+          priority: 0,
+        },
+        { value: safeInset, guidePosition: safeInset, label: "área segura esquerda", priority: 4 },
+        {
+          value: contentWidth - safeInset - movingBounds.width,
+          guidePosition: contentWidth - safeInset,
+          label: "área segura direita",
+          priority: 4,
+        },
+      ];
+      const yCandidates: SnapCandidate[] = [
+        { value: 0, guidePosition: 0, label: "margem superior", priority: 3 },
+        {
+          value: contentHeight - movingBounds.height,
+          guidePosition: contentHeight,
+          label: "margem inferior",
+          priority: 3,
+        },
+        {
+          value: pageCenterYInContent - movingBounds.height / 2,
+          guidePosition: pageCenterYInContent,
+          label: "centro horizontal",
+          priority: 0,
+        },
+        { value: safeInset, guidePosition: safeInset, label: "área segura superior", priority: 4 },
+        {
+          value: contentHeight - safeInset - movingBounds.height,
+          guidePosition: contentHeight - safeInset,
+          label: "área segura inferior",
+          priority: 4,
+        },
+      ];
+      otherFrames.forEach((other) => {
+        xCandidates.push(
+          { value: other.x, guidePosition: other.x, label: "borda esquerda", priority: 1 },
+          {
+            value: other.x + other.width - movingBounds.width,
+            guidePosition: other.x + other.width,
+            label: "borda direita",
+            priority: 1,
+          },
+          {
+            value: other.x + other.width / 2 - movingBounds.width / 2,
+            guidePosition: other.x + other.width / 2,
+            label: "mesmo centro",
+            priority: 1,
+          },
+        );
+        yCandidates.push(
+          { value: other.y, guidePosition: other.y, label: "topo alinhado", priority: 1 },
+          {
+            value: other.y + other.height - movingBounds.height,
+            guidePosition: other.y + other.height,
+            label: "base alinhada",
+            priority: 1,
+          },
+          {
+            value: other.y + other.height / 2 - movingBounds.height / 2,
+            guidePosition: other.y + other.height / 2,
+            label: "mesmo centro",
+            priority: 1,
+          },
+        );
+      });
+      const sortedX = [...otherFrames].sort((a, b) => a.x - b.x);
+      for (let index = 0; index + 1 < sortedX.length; index += 1) {
+        const first = sortedX[index]!;
+        const second = sortedX[index + 1]!;
+        const available = second.x - (first.x + first.width) - movingBounds.width;
+        if (available >= 0) {
+          const gap = available / 2;
+          xCandidates.push(
+            {
+              value: first.x + first.width + gap,
+              guidePosition: first.x + first.width + gap + movingBounds.width / 2,
+              label: `espaçamento ${gap.toFixed(1)} mm`,
+              priority: 2,
+            },
+            {
+              value: second.x - movingBounds.width - gap,
+              guidePosition: second.x - gap - movingBounds.width / 2,
+              label: `espaçamento ${gap.toFixed(1)} mm`,
+              priority: 2,
+            },
+          );
+        }
+      }
+      const sortedY = [...otherFrames].sort((a, b) => a.y - b.y);
+      for (let index = 0; index + 1 < sortedY.length; index += 1) {
+        const first = sortedY[index]!;
+        const second = sortedY[index + 1]!;
+        const available = second.y - (first.y + first.height) - movingBounds.height;
+        if (available >= 0) {
+          const gap = available / 2;
+          yCandidates.push(
+            {
+              value: first.y + first.height + gap,
+              guidePosition: first.y + first.height + gap + movingBounds.height / 2,
+              label: `espaçamento ${gap.toFixed(1)} mm`,
+              priority: 2,
+            },
+            {
+              value: second.y - movingBounds.height - gap,
+              guidePosition: second.y - gap - movingBounds.height / 2,
+              label: `espaçamento ${gap.toFixed(1)} mm`,
+              priority: 2,
+            },
+          );
+        }
+      }
+      const choose = (value: number, candidates: SnapCandidate[]) => {
+        const nearest = candidates.reduce((best, candidate) => {
+          const candidateDistance = Math.abs(candidate.value - value);
+          const bestDistance = Math.abs(best.value - value);
+          if (candidateDistance < bestDistance - 0.01) return candidate;
+          if (Math.abs(candidateDistance - bestDistance) <= 0.01) {
+            return candidate.priority < best.priority ? candidate : best;
+          }
+          return best;
+        });
+        return Math.abs(nearest.value - value) <= 2.2 ? nearest : null;
+      };
+      const x = choose(movingBounds.x, xCandidates);
+      const y = choose(movingBounds.y, yCandidates);
+      const snappedX = x ? Math.max(0, x.value) : movingBounds.x;
+      const snappedY = y ? Math.max(0, y.value) : movingBounds.y;
+      return {
+        frame: {
+          ...frame,
+          x: frame.x + snappedX - movingBounds.x,
+          y: frame.y + snappedY - movingBounds.y,
+        },
+        guides: [
+          ...(x ? [{ axis: "x" as const, position: x.guidePosition, label: x.label }] : []),
+          ...(y ? [{ axis: "y" as const, position: y.guidePosition, label: y.label }] : []),
+        ],
+      };
+    },
+    [
+      book.meta.firstFolio,
+      book.tokens.marginInner,
+      book.tokens.marginOuter,
+      book.tokens.marginTop,
+      book.tokens.pageHeight,
+      book.tokens.pageWidth,
+      index,
+      page.blocks,
+    ],
+  );
+
+  const handleContextMenu = (event: React.MouseEvent<HTMLElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+    recordPastePoint(event.clientX, event.clientY);
+    const blockId = (event.target as HTMLElement).closest<HTMLElement>("[data-block-id]")?.dataset[
+      "blockId"
+    ];
+    const selectionOverlay = (event.target as HTMLElement).closest(
+      ".k-editor-transform-overlay, .k-editor-image-crop-surface",
+    );
+    if (blockId && !selectedBlockIds.includes(blockId)) selectBlockFromCanvas(blockId);
+    if (!blockId && !selectionOverlay) selectBlockFromCanvas(null);
+    setContextMenu({ x: event.clientX, y: event.clientY });
+  };
+
   useEffect(() => {
     const node = ref.current;
-    if (!active || !overlays.rulers || !node) {
+    if (!active || !node) {
       setRulerPoint(null);
       return;
     }
@@ -754,7 +1357,7 @@ export function PageCanvas({
       node.removeEventListener("pointermove", move);
       node.removeEventListener("pointerleave", leave);
     };
-  }, [active, book.tokens.pageHeight, book.tokens.pageWidth, overlays.rulers, page.id]);
+  }, [active, book.tokens.pageHeight, book.tokens.pageWidth, page.id]);
 
   const handleAssetDrop = (event: React.DragEvent<HTMLElement>) => {
     const raw = event.dataTransfer.getData("application/x-kallistis-asset");
@@ -823,10 +1426,33 @@ export function PageCanvas({
   };
 
   useEffect(() => {
-    if (!active || (!selectedBlockId && !selectedPageControl)) return;
+    if (!active) return;
     const onKeyDown = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement | null;
-      if (target && /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)) return;
+      if (
+        target &&
+        (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName))
+      )
+        return;
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setEditingBlockId(null);
+        setSelectedPageControl(null);
+        selectBlockFromCanvas(null);
+        return;
+      }
+      if (event.metaKey || event.ctrlKey) {
+        if (event.key.toLowerCase() === "c" && selectedBlockIds.length) {
+          event.preventDefault();
+          copySelectedBlocks();
+          return;
+        }
+        if (event.key.toLowerCase() === "v" && hasBlockClipboard) {
+          event.preventDefault();
+          pasteBlocks(page.id, lastPastePointRef.current ?? undefined);
+          return;
+        }
+      }
       if (event.key === "Delete") {
         event.preventDefault();
         if (selectedPageControl) {
@@ -848,12 +1474,14 @@ export function PageCanvas({
           setSelectedPageControl(null);
           return;
         }
-        if (selectedBlockId) removeBlock(page.id, selectedBlockId);
+        if (selectedBlockIds.length) {
+          selectedBlockIds.forEach((blockId) => removeBlock(page.id, blockId));
+        }
         selectBlockFromCanvas(null);
         return;
       }
       if (
-        selectedBlockId &&
+        selectedBlockIds.length > 0 &&
         (event.key === "ArrowLeft" ||
           event.key === "ArrowRight" ||
           event.key === "ArrowUp" ||
@@ -871,13 +1499,12 @@ export function PageCanvas({
               : event.key === "ArrowUp"
                 ? { y: -distance }
                 : { y: distance };
-        updateBlock(page.id, block.id, {
-          frame: {
-            ...block.frame,
-            x: block.frame.x + (delta.x ?? 0),
-            y: block.frame.y + (delta.y ?? 0),
-          },
-        });
+        moveBlocksBy(page.id, selectedBlockIds, delta.x ?? 0, delta.y ?? 0);
+      }
+      if (selectedBlockIds.length > 1 && event.key.toLowerCase() === "g" && (event.metaKey || event.ctrlKey)) {
+        event.preventDefault();
+        if (event.shiftKey) ungroupBlocks(page.id, selectedBlockIds);
+        else groupBlocks(page.id, selectedBlockIds);
       }
       if (selectedBlockId && event.key.toLowerCase() === "d" && (event.metaKey || event.ctrlKey)) {
         event.preventDefault();
@@ -889,11 +1516,18 @@ export function PageCanvas({
   }, [
     active,
     duplicateBlock,
+    copySelectedBlocks,
+    hasBlockClipboard,
     page.id,
     removeBlock,
+    groupBlocks,
+    ungroupBlocks,
+    moveBlocksBy,
     selectBlockFromCanvas,
     selectedBlockId,
+    selectedBlockIds,
     selectedPageControl,
+    pasteBlocks,
     updatePage,
     updatePageSettings,
   ]);
@@ -915,6 +1549,7 @@ export function PageCanvas({
       value={{
         interactive: true,
         selectedBlockId,
+        selectedBlockIds,
         onSelectBlock: selectBlockFromCanvas,
         onSheetValueChange: (blockId, key, value) => {
           const block = page.blocks.find((item) => item.id === blockId);
@@ -935,7 +1570,11 @@ export function PageCanvas({
           setSelectedPageControl(null);
           selectPage(page.id);
         }}
-        onPointerDown={handleFramePointerDown}
+        onPointerDown={(event) => {
+          recordPastePoint(event.clientX, event.clientY);
+          handleFramePointerDown(event);
+        }}
+        onContextMenu={handleContextMenu}
         onSelectPageControl={(control) => {
           setSelectedPageControl(control);
           selectBlock(null);
@@ -958,26 +1597,40 @@ export function PageCanvas({
         overflow={Boolean(overflowPages[page.id])}
       >
         <OverlayLayers overlays={overlays} />
+        {active ? <SmartGuidesOverlay guides={smartGuides} book={book} pageIndex={index} /> : null}
         {active && overlays.rulers ? <RulerOverlay book={book} point={rulerPoint} /> : null}
-        {active && selectedBlock?.type === "image" ? (
+        {active && cursorGuides ? <CursorGuideOverlay point={rulerPoint} /> : null}
+        {active && selectedBlockIds.length === 1 && selectedBlock?.type === "image" ? (
           <ImageResizeOverlay
             pageRef={ref}
             pageId={page.id}
             block={selectedBlock}
             updateBlock={updateBlock}
+            snapFrame={snapFrame}
+            onGuidesChange={setSmartGuides}
+            smartGuides={smartGuidesEnabled}
+            snapEnabled={snapEnabled}
           />
         ) : null}
-        {active && selectedBlock && !["image", "table", "sheet"].includes(selectedBlock.type) ? (
+        {active &&
+        selectedBlock &&
+        (selectedBlockIds.length > 1 || !["image", "table", "sheet"].includes(selectedBlock.type)) ? (
           <BlockTransformOverlay
             pageRef={ref}
             pageId={page.id}
             block={selectedBlock}
+            selectedBlockIds={selectedBlockIds}
+            selectedBlocks={page.blocks.filter((item) => selectedBlockIds.includes(item.id))}
             updateBlock={updateBlock}
+            snapFrame={snapFrame}
+            onGuidesChange={setSmartGuides}
             onEdit={() => {
               if (["text", "heading", "quote", "caption", "box"].includes(selectedBlock.type))
                 setEditingBlockId(selectedBlock.id);
             }}
             snapGrid={snapGrid}
+            smartGuides={smartGuidesEnabled}
+            snapEnabled={snapEnabled}
           />
         ) : null}
         {active && selectedBlock?.type === "table" ? (
@@ -1027,6 +1680,35 @@ export function PageCanvas({
           </div>
         ) : null}
       </PageRenderer>
+      <CanvasContextMenu
+        state={contextMenu}
+        selectedPage={page}
+        selectedBlock={selectedBlock}
+        selectedBlockIds={selectedBlockIds}
+        onClose={() => setContextMenu(null)}
+        onEdit={() => {
+          if (selectedBlock && ["text", "heading", "quote", "caption", "box"].includes(selectedBlock.type))
+            setEditingBlockId(selectedBlock.id);
+        }}
+        onDuplicate={() => {
+          if (selectedBlock) duplicateBlock(page.id, selectedBlock.id);
+        }}
+        onCopy={copySelectedBlocks}
+        onPaste={() => pasteBlocks(page.id, lastPastePointRef.current ?? undefined)}
+        hasBlockClipboard={hasBlockClipboard}
+        onGroup={() => groupBlocks(page.id, selectedBlockIds)}
+        onUngroup={() => ungroupBlocks(page.id, selectedBlockIds)}
+        onLock={() => toggleBlocksLocked(page.id, selectedBlockIds)}
+        onDelete={() => selectedBlockIds.forEach((blockId) => removeBlock(page.id, blockId))}
+        onAlign={(alignment) => alignBlocks(page.id, selectedBlockIds, alignment)}
+        onDistribute={(axis) => distributeBlocks(page.id, selectedBlockIds, axis)}
+        onTidy={() => tidyBlocks(page.id, selectedBlockIds)}
+        onMoveLayer={(direction) => {
+          if (selectedBlock) moveBlock(page.id, selectedBlock.id, direction);
+        }}
+        onInsert={insertContextBlock}
+        onToggleMargins={() => toggleOverlay("margins")}
+      />
     </BookRenderContext.Provider>
   );
 }
