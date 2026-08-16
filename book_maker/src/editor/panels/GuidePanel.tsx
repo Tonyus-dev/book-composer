@@ -30,8 +30,11 @@ const REVIEW_AXES: { key: keyof PageGuide["review"]; label: string }[] = [
  * Persistido em localStorage via EditorContext.
  */
 export function GuidePanel() {
-  const { selectedPage, selectedPageGuide, updatePageGuide } = useEditor();
+  const { book, selectedPage, selectedPageGuide, updatePageGuide } = useEditor();
   const pageId = selectedPage.id;
+  const plannedAssets = (book.productionPlan?.assignments ?? []).filter((assignment) =>
+    assignment.pageIds.includes(pageId),
+  );
 
   const patchGuide = useCallback(
     (patch: Partial<PageGuide>) => {
@@ -104,9 +107,49 @@ export function GuidePanel() {
       <PanelSection title="Identificação">
         <p className="text-[11px] text-muted-foreground">
           Página <span className="font-mono text-foreground">{pageId}</span> — direção editorial
-          registrada localmente. Estes dados não entram em <span className="font-mono">/print</span>{" "}
-          nem no PDF.
+          registrada no plano do projeto. O plano automático é consumido pela materialização e fica
+          disponível no <span className="font-mono">/print</span> para auditoria.
         </p>
+      </PanelSection>
+
+      <PanelSection title="Plano automático">
+        <div className="space-y-2 text-[11px] text-muted-foreground" data-testid="generated-plan">
+          <p>
+            Perfil:{" "}
+            <span className="font-mono text-foreground">{book.productionPlan?.profile ?? "—"}</span>
+          </p>
+          <p>
+            Meta:{" "}
+            <span className="font-mono text-foreground">
+              {book.productionPlan?.targetBookPages ?? "—"} páginas
+            </span>
+          </p>
+          {plannedAssets.length > 0 ? (
+            <ul className="space-y-2">
+              {plannedAssets.map((assignment) => (
+                <li
+                  key={`${assignment.sourceBlockId}:${assignment.src}`}
+                  className="border border-border bg-input/30 p-2"
+                >
+                  <p className="font-medium text-foreground">{assignment.alt}</p>
+                  <p>
+                    Função: {assignment.role} · família: {assignment.family}
+                  </p>
+                  <p>Motivo: {assignment.matchedTerms.join(", ") || "associação editorial"}</p>
+                  <p className="truncate" title={assignment.reference}>
+                    Fonte: {assignment.reference}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>Nenhuma imagem planejada para esta página.</p>
+          )}
+          <p>
+            {book.productionPlan?.unusedApprovedAssets?.length ?? 0} assets aprovados não usados ·{" "}
+            {book.productionPlan?.pendingAssets?.length ?? 0} pendentes de revisão.
+          </p>
+        </div>
       </PanelSection>
 
       <PanelSection title="Status">

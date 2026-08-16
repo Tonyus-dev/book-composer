@@ -303,6 +303,40 @@ export function Toolbar() {
     window.open("/print", "_blank", "noopener");
   };
 
+  /**
+   * Gera o PDF pelo fluxo nativo do navegador, sempre depois de salvar o
+   * snapshot atual. A rota /print continua sendo a única fonte de render:
+   * o Chromium oferece "Salvar como PDF" no diálogo de impressão.
+   */
+  const generatePdf = async () => {
+    if (errors > 0) {
+      const proceed = window.confirm(
+        `PREFLIGHT: ${errors} ERROR(S) no livro.\n\n` +
+          "O diálogo nativo pode permitir salvar um PDF com conteúdo cortado ou asset ausente.\n\n" +
+          "Continuar mesmo assim?",
+      );
+      if (!proceed) {
+        openPreflight();
+        return;
+      }
+    }
+    // A janela precisa continuar controlável para navegar após o saveNow.
+    const printWindow = window.open("about:blank", "_blank");
+    if (!printWindow) {
+      window.alert("Não foi possível abrir a janela de PDF. Permita pop-ups para este aplicativo.");
+      return;
+    }
+    try {
+      const saved = await saveNow();
+      if (!saved) throw new Error("O snapshot atual não pôde ser salvo.");
+      const query = new URLSearchParams({ project: projectId, autoprint: "1" });
+      printWindow.location.href = `/print?${query.toString()}`;
+    } catch (error) {
+      printWindow.close();
+      window.alert(`Não foi possível preparar o PDF.\n\n${String(error)}`);
+    }
+  };
+
   const insert = (type: BlockType | `shape:${ShapeKind}`) => {
     if (typeof type === "string" && type.startsWith("shape:")) {
       const shape = makeShape(type.slice("shape:".length) as ShapeKind);
@@ -721,6 +755,15 @@ export function Toolbar() {
             title="Salvar no arquivo de trabalho e também no armazenamento local"
           >
             {workFileSaving || status === "saving" ? "Salvando…" : "Salvar"}
+          </button>
+          <button
+            type="button"
+            data-testid="generate-pdf"
+            onClick={() => void generatePdf()}
+            className="border border-border px-2 py-1 text-[11px] hover:bg-accent"
+            title="Salva o estado atual e abre o diálogo nativo para salvar como PDF"
+          >
+            Gerar PDF
           </button>
           <details className="relative">
             <summary className="cursor-pointer list-none border border-border px-2 py-1 text-[11px] hover:bg-accent">

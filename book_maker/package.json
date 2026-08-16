@@ -25,6 +25,7 @@
     "test:authoring": "bun scripts/test-authoring.ts",
     "test:sheet": "bun scripts/test-sheet.ts",
     "test:image": "bun scripts/test-image-production.ts",
+    "assets:manifest": "bun scripts/build-editorial-asset-manifest.mjs KALLISTIS_RECONSTRUCAO_ASSETS.tsv public/editorial-asset-manifest.json",
     "materialize:historia": "bun scripts/materialize-manuscript.mjs --scope HISTORIA",
     "test:materializer": "bun scripts/test-materializer.mjs",
     "format": "prettier --write ."

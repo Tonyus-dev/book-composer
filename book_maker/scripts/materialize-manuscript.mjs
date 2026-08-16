@@ -13,14 +13,18 @@ import { spawn } from "node:child_process";
 import path from "node:path";
 import process from "node:process";
 import { chromium } from "playwright";
+import {
+  DEFAULT_PAGINATION_POLICY,
+  PRODUCTION_PROFILES,
+  planEditorialAssets,
+} from "./editorial-planner.mjs";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const PRODUCTION_ROOT =
   "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO";
 const DEFAULT_MANUSCRIPT = path.join(
-  PRODUCTION_ROOT,
-  "MANUSCRITO_CONGELADO",
-  "MANUSCRITO_CONGELADO.md",
+  "/home/tonyus-dev/Downloads",
+  "KALLISTIS_MANUSCRITO_CONGELADO.md",
 );
 const DEFAULT_CATALOG = path.join(
   PRODUCTION_ROOT,
@@ -30,7 +34,7 @@ const LOCAL_IMAGE_ROOT = path.join(PRODUCTION_ROOT, "IMAGENS");
 const V15_IMAGE_ROOT = path.join(ROOT, "public", "assets", "v1.5-acervo");
 const V15_INVENTORY_PATH = path.join(ROOT, "drive-image-inventory.json");
 const V15_DISPOSITION_PATH = path.join(ROOT, "drive-image-disposition.csv");
-const CANONICAL_PROJECT = path.join(ROOT, "projects", "kallistis-livro-basico.json");
+const CANONICAL_PROJECT = path.join(ROOT, "projects", "kallistis-manual-do-mundo-reconstrucao.json");
 const APPROVED_HISTORIA_PROJECT = path.join(
   ROOT,
   "projects",
@@ -43,16 +47,20 @@ const APPROVED_AGGREGATE_PROJECT = path.join(
 );
 const LEGACY_REFERENCE_SCRIPT = path.join(ROOT, "scripts", "build-p001-p030.mjs");
 const DEFAULT_OUTPUT = path.join(ROOT, "projects", "kallistis-materializado-historia-v5.json");
+const DEFAULT_MANIFEST = path.join(ROOT, "public", "editorial-asset-manifest.json");
+const EXPECTED_MANUSCRIPT_SHA256 =
+  "5427818b44f08ba00cc74f8635172b44952ded4eb948589d22016e4272990d83";
+const APPROVED_COVER_SRC = "/assets/cover/kallistis-capa-aprovada-final.png";
+const APPROVED_COVER_SHA256 =
+  "cd8d9a1e89bec18fd66ab3fe1a73843a6221db688cc51dd622c5c55f3ef88511";
 const PORT = 4185;
 const MATERIALIZER_STORAGE_KEY = "__kallistis_materializer_book__";
-const VERSION = 5;
+const VERSION = 7;
 let renderRevision = 0;
 
 const IMAGE_CADENCE = { targetInterval: 4, minimumInterval: 3, maximumInterval: 5 };
 const PAGINATION_POLICY = {
-  targetBookPages: null,
-  softMaximumBookPages: null,
-  hardWarningBookPages: null,
+  ...DEFAULT_PAGINATION_POLICY,
 };
 const SOFT_MAX_TEXT_RUN = 5;
 const HARD_MAX_TEXT_RUN = 7;
@@ -1723,6 +1731,8 @@ function parseArgs(argv) {
     baseProject: null,
     manuscript: DEFAULT_MANUSCRIPT,
     catalog: DEFAULT_CATALOG,
+    manifest: DEFAULT_MANIFEST,
+    profile: "PUBLIC_BOOK",
     pilot: false,
   };
   for (let i = 0; i < argv.length; i += 1) {
@@ -1731,11 +1741,14 @@ function parseArgs(argv) {
     if (argv[i] === "--base-project") args.baseProject = path.resolve(String(argv[++i] ?? ""));
     if (argv[i] === "--manuscript") args.manuscript = path.resolve(String(argv[++i] ?? ""));
     if (argv[i] === "--catalog") args.catalog = path.resolve(String(argv[++i] ?? ""));
+    if (argv[i] === "--manifest") args.manifest = path.resolve(String(argv[++i] ?? DEFAULT_MANIFEST));
+    if (argv[i] === "--profile") args.profile = String(argv[++i] ?? "PUBLIC_BOOK").toUpperCase();
     if (argv[i] === "--pilot") args.pilot = true;
   }
   if (!["HISTORIA", "MUNDO", "REGRAS", "PARTES_I_IV", "COMPLETO", "ALL"].includes(args.scope)) {
     throw new Error(`Scope inválido: ${args.scope}`);
   }
+  if (!PRODUCTION_PROFILES.includes(args.profile)) throw new Error(`Perfil inválido: ${args.profile}`);
   return args;
 }
 
@@ -1971,6 +1984,32 @@ function selectPilotBlocks(sourceBlocks) {
   return sourceBlocks.filter((source) => selected.has(source.id));
 }
 
+const BOOKMAKER_CONTRACT_HEADING = "BOOKMAKER CONTRACT — KALLISTIS FICHA DO JOGADOR";
+const BOOKMAKER_CONTRACT_MARKER = "KALLISTIS_BOOKMAKER_BEGIN:FICHA_JOGADOR";
+
+function filterBlocksForProfile(sourceBlocks, profile) {
+  const contractIndex = sourceBlocks.findIndex(
+    (source) => source.type === "heading" && source.text === BOOKMAKER_CONTRACT_HEADING,
+  );
+  if (contractIndex < 0) return sourceBlocks;
+  if (profile === "BOOKMAKER_CONTRACT") return sourceBlocks.slice(contractIndex);
+  if (profile === "PUBLIC_BOOK") {
+    return sourceBlocks
+      .slice(0, contractIndex)
+      .filter((source) => !source.raw.includes(BOOKMAKER_CONTRACT_MARKER));
+  }
+  return sourceBlocks;
+}
+
+async function readJsonIfPresent(file) {
+  try {
+    return JSON.parse(await readFile(file, "utf8"));
+  } catch (error) {
+    if (error?.code === "ENOENT") return null;
+    throw error;
+  }
+}
+
 function annotateHeadingPaths(sourceBlocks) {
   const active = Array(6).fill(null);
   return sourceBlocks.map((source) => {
@@ -1980,6 +2019,32 @@ function annotateHeadingPaths(sourceBlocks) {
     }
     return { ...source, headingPath: active.filter(Boolean).map((heading) => ({ ...heading })) };
   });
+}
+
+function registerPlannedAssets(plan) {
+  for (const assignment of plan.assignments ?? []) {
+    if (!assignment.src || HISTORY_ASSETS.some((asset) => asset.src === assignment.src)) continue;
+    HISTORY_ASSETS.push({
+      heading: assignment.heading,
+      status: assignment.status,
+      src: assignment.src,
+      alt: assignment.alt,
+      reference: assignment.reference,
+      allowedHeadingTexts: [assignment.heading],
+      allowedHeadingIds: [assignment.sourceBlockId],
+      anchorHeadingId: assignment.sourceBlockId,
+      semanticAnchor: assignment.heading,
+      family: assignment.family,
+      orientation: assignment.orientation,
+      aspectRatio: assignment.aspectRatio,
+      ...(assignment.cropWindow ? { cropWindow: assignment.cropWindow } : {}),
+      preferredFit: assignment.family === "MAP_PAGE" ? "contain" : "cover",
+      sha: assignment.sha256,
+      supportOnly: false,
+      plannerAssignment: true,
+      layoutRole: "EDITORIAL_IMAGE",
+    });
+  }
 }
 
 function bindSemanticAssets(sourceBlocks) {
@@ -2074,10 +2139,14 @@ function supportAssetsForSource(source) {
 }
 
 function fullArtPlateAssetsForSource(source) {
-  if (!source || source.type !== "heading") return [];
-  return HISTORY_ASSETS.filter(
-    (asset) => asset.fullArtPlate && asset.allowedHeadingIds?.includes(source.id),
-  );
+  /*
+   * `fullArtPlate` is an inventory/editorial hint, not permission to create a
+   * page.  A page-sized image is reserved for explicit compositions such as
+   * MAP_SPREAD; ordinary plates stay available to the planner/editor as
+   * support candidates and must not interrupt the text flow automatically.
+   */
+  void source;
+  return [];
 }
 
 function sourceIsInsideAssetWindow(asset, anchorSource, source) {
@@ -2236,6 +2305,10 @@ function sourceToBlock(source) {
 
 function generatedImage(source, asset, size = "medium", occurrence = 0) {
   const fullArtOpening = asset.fullArtOpening === true;
+  const plannedOpening = asset.plannerAssignment === true;
+  const portraitOpening = plannedOpening &&
+    (String(asset.orientation ?? "").toUpperCase().includes("PORTRAIT") ||
+      Number(asset.aspectRatio ?? 1) < 0.9);
   const quadrantFamily =
     !fullArtOpening &&
     ["POVO_OPENING", "OFICIO_CULTURAL_OPENING", "BESTIARY_ENTRY"].includes(asset.family);
@@ -2251,45 +2324,60 @@ function generatedImage(source, asset, size = "medium", occurrence = 0) {
     ["Pedr’alma", "Lar · Cidade · Companhia", "Daeren"].includes(asset.heading);
   const dimensions = fullArtOpening
     ? { width: "100%", height: "100%" }
-    : quadrantFamily
-      ? { width: "50%", height: "84mm" }
-      : source.text === "O QUE É VELARIM"
-        ? { width: "100%", height: "48mm" }
-        : size === "large"
-          ? { width: "100%", height: "50mm" }
-          : size === "small"
-            ? { width: "100%", height: "28mm" }
-            : side
-              ? { width: "34%", height: "86mm" }
-              : asset.family === "MAP_PAGE"
-                ? { width: "100%", height: "110mm" }
-                : { width: "100%", height: "62mm" };
+    : plannedOpening && portraitOpening
+      ? { width: "30%", height: "66mm" }
+    : plannedOpening
+        ? { width: "100%", height: "42mm" }
+      : quadrantFamily
+        ? { width: "50%", height: "84mm" }
+        : source.text === "O QUE É VELARIM"
+          ? { width: "100%", height: "48mm" }
+          : size === "large"
+            ? { width: "100%", height: "50mm" }
+            : size === "small"
+              ? { width: "100%", height: "28mm" }
+              : side
+                ? { width: "34%", height: "86mm" }
+                : asset.family === "MAP_PAGE"
+                  ? { width: "100%", height: "110mm" }
+                  : { width: "100%", height: "62mm" };
   const shared = Boolean(asset.semanticPairId);
   return {
     id: `asset-${source.id}-${sha256(`${asset.src}|${occurrence}`).slice(0, 10)}`,
     type: "image",
     src: asset.src,
     alt: asset.alt,
-    position: fullArtOpening ? "full" : quadrantFamily ? "flow" : side ? "left" : "top",
+    position: fullArtOpening
+      ? "full"
+      : plannedOpening && portraitOpening
+        ? "right"
+        : quadrantFamily
+          ? "flow"
+          : side
+            ? "left"
+            : "top",
     fullBleed: fullArtOpening,
     fit: asset.preferredFit ?? (asset.family === "OFICIO_CULTURAL_OPENING" ? "contain" : "cover"),
     objectX: shared && occurrence % 2 === 0 ? 0 : shared ? 100 : 50,
     objectY: 50,
     ...(source.text === "Mirveth — Uma Pessoa Inteira" ? { mirror: true, objectX: 50 } : {}),
+    ...(asset.cropWindow ? { cropWindow: asset.cropWindow } : {}),
     ...(REUSED_FINAL_ART_HEADINGS.has(source.text)
       ? { mirror: occurrence % 2 === 1, objectX: occurrence % 2 === 0 ? 25 : 75 }
       : {}),
     frameAspectRatio: fullArtOpening
       ? 0.6667
-      : quadrantFamily
-        ? 0.62
-        : size === "small"
-          ? 3.8
-          : side
-            ? 0.55
-            : asset.family === "MAP_PAGE"
-              ? 0.93
-              : 1.9,
+      : plannedOpening && portraitOpening
+        ? 0.45
+        : quadrantFamily
+          ? 0.62
+          : size === "small"
+            ? 3.8
+            : side
+              ? 0.55
+              : asset.family === "MAP_PAGE"
+                ? 0.93
+                : 1.9,
     layoutRole: fullArtOpening
       ? "FULL_ART"
       : quadrantFamily
@@ -2312,6 +2400,7 @@ function generatedImage(source, asset, size = "medium", occurrence = 0) {
       allowedHeadingIds: asset.allowedHeadingIds,
       allowedWindow: asset.allowedWindow,
       semanticAnchorHeadingId: asset.anchorHeadingId,
+      ...(plannedOpening ? { plannerAssignment: true } : {}),
       layoutRole: fullArtOpening
         ? "FULL_ART"
         : quadrantFamily
@@ -2508,6 +2597,122 @@ function newPage(scope, ordinal, hint) {
     },
     hint,
   );
+}
+
+function approvedCoverPage(scope) {
+  return {
+    id: `${scope.toLowerCase()}-cover-approved`,
+    template: "cover",
+    variant: "default",
+    coverMode: "art-only",
+    title: "KALLISTIS — MANUAL DO MUNDO",
+    subtitle: "",
+    settings: {
+      header: false,
+      footer: false,
+      pageNumber: false,
+      columns: 1,
+      background: "obsidian",
+      fullBleed: true,
+    },
+    fixed: true,
+    blocks: [
+      {
+        id: `${scope.toLowerCase()}-approved-cover-art`,
+        type: "image",
+        src: APPROVED_COVER_SRC,
+        alt: "Capa aprovada de KALLISTIS — Manual do Mundo",
+        position: "full",
+        fullBleed: true,
+        fit: "cover",
+        width: "100%",
+        height: "100%",
+      },
+    ],
+  };
+}
+
+function tocSourceEntries(bodyPages, sourceBlocks) {
+  return sourceBlocks
+    .filter((source) => {
+      if (source.type !== "heading") return false;
+      if (source.level === 1) return /^PARTE\s+/u.test(source.text) || source.text === "MI NAM. MI RAAR.";
+      if (source.level !== 2) return false;
+      return source.text !== "MANUAL DO MUNDO";
+    })
+    .map((source) => ({
+      source,
+      bodyPage: bodyPages.findIndex((page) =>
+        page.blocks.some((block) => block.materialization?.sourceBlockId === source.id),
+      ),
+    }))
+    .filter(({ bodyPage }) => bodyPage >= 0);
+}
+
+function tocPage(scope, ordinal, entries) {
+  return {
+    id: `${scope.toLowerCase()}-toc-${String(ordinal + 1).padStart(3, "0")}`,
+    template: "toc",
+    variant: "default",
+    title: "Sumário",
+    settings: {
+      header: false,
+      footer: false,
+      pageNumber: true,
+      columns: 1,
+      background: "paper",
+      fullBleed: false,
+    },
+    blocks: [
+      {
+        id: `${scope.toLowerCase()}-toc-block-${String(ordinal + 1).padStart(3, "0")}`,
+        type: "toc",
+        columns: 2,
+        entries,
+      },
+    ],
+  };
+}
+
+async function buildTocPages({ scope, bodyPages, sourceBlocks, browserPage, baseBook, coverPageCount }) {
+  const rawEntries = tocSourceEntries(bodyPages, sourceBlocks);
+  if (!rawEntries.length) return [];
+  let expectedTocPageCount = 1;
+  let result = [];
+  for (let iteration = 0; iteration < 4; iteration += 1) {
+    const folioOffset = coverPageCount + expectedTocPageCount;
+    const entries = rawEntries.map(({ source, bodyPage }) => ({
+      label: source.text,
+      page: baseBook.meta.firstFolio + folioOffset + bodyPage,
+      level: source.level === 1 ? "part" : "chapter",
+    }));
+    const pages = [];
+    let current = [];
+    for (const entry of entries) {
+      const candidate = [...current, entry];
+      const page = tocPage(scope, pages.length, candidate);
+      const measurement = await renderAndMeasure(browserPage, candidateBook(baseBook, page, pages.length));
+      if (measurement.overflow && current.length > 0) {
+        pages.push(tocPage(scope, pages.length, current));
+        current = [entry];
+        const singleMeasurement = await renderAndMeasure(
+          browserPage,
+          candidateBook(baseBook, tocPage(scope, pages.length, current), pages.length),
+        );
+        if (singleMeasurement.overflow)
+          throw new Error(`Sumário excede uma página com uma entrada: ${entry.label}`);
+      } else if (measurement.overflow) {
+        throw new Error(`Sumário excede uma página com uma entrada: ${entry.label}`);
+      } else {
+        current = candidate;
+      }
+    }
+    if (current.length) pages.push(tocPage(scope, pages.length, current));
+    result = pages;
+    if (pages.length === expectedTocPageCount) break;
+    expectedTocPageCount = pages.length;
+  }
+  return result;
 }
 
 function pageSourceIds(page) {
@@ -2956,7 +3161,7 @@ async function renderAndMeasure(page, book) {
         (specialCopy
           ? specialCopy.scrollHeight > specialCopy.clientHeight + 1 ||
             specialCopy.scrollWidth > specialCopy.clientWidth + 1
-          : !["part_opening", "full_art"].includes(root.dataset.template ?? "") &&
+          : !["cover", "part_opening", "full_art"].includes(root.dataset.template ?? "") &&
             ((!hasFlowFloat && content.scrollHeight > content.clientHeight + 1) ||
               content.scrollWidth > content.clientWidth + 1)),
       scrollHeight: content.scrollHeight,
@@ -3172,6 +3377,16 @@ async function materialize({ scope, markdown, baseBook, browserPage, sourceBlock
     const dedicationBoundary =
       source.type === "heading" &&
       ["Dedicatória", "Para registro de extrema seriedade editorial"].includes(source.text);
+    const frontMatterBoundary =
+      source.type === "heading" &&
+      [
+        "Expediente",
+        "Dedicatória",
+        "Para registro de extrema seriedade editorial",
+        "Apresentação",
+        "Como usar este livro",
+        "Prólogo — A velha e a Fresta",
+      ].includes(source.text);
     const timelineBoundary =
       source.type === "heading" &&
       (source.text === "A história em Marcos" ||
@@ -3189,9 +3404,10 @@ async function materialize({ scope, markdown, baseBook, browserPage, sourceBlock
       source.text === "Tensões Regionais: Livres, Dóreos, Teriantes, Nimari e Vitrálios";
     const forcedChavesBreak =
       source.type === "heading" && source.text === "CHAVES, VOZES E PRESENÇA EM MESA";
+    const plannerAsset = asset?.plannerAssignment === true;
     const compositionBoundary =
       source.type === "heading" &&
-      (asset ||
+      ((asset && !plannerAsset) ||
         supportAssets.some((candidate) => !candidate.extraContext) ||
         forcedTensionContinuationBreak ||
         forcedChavesBreak ||
@@ -3212,7 +3428,7 @@ async function materialize({ scope, markdown, baseBook, browserPage, sourceBlock
       sparseCurrent && source.type === "heading" && Boolean(asset) && !independentOpening;
     if (
       source.type === "heading" &&
-      (source.level === 1 || dedicationBoundary || compositionBoundary) &&
+      (source.level === 1 || dedicationBoundary || frontMatterBoundary || compositionBoundary) &&
       current.blocks.length &&
       !absorbSparseAssetOpening
     ) {
@@ -3344,7 +3560,7 @@ async function materialize({ scope, markdown, baseBook, browserPage, sourceBlock
     const semanticCompositionRecommended =
       (Boolean(asset) || supportAssets.length > 0) &&
       source.type === "heading" &&
-      (current.blocks.length === 0 || absorbSparseAssetOpening);
+      (current.blocks.length === 0 || absorbSparseAssetOpening || plannerAsset);
     if (
       canUseAsset &&
       semanticCompositionRecommended &&
@@ -3357,7 +3573,17 @@ async function materialize({ scope, markdown, baseBook, browserPage, sourceBlock
         REUSED_FINAL_ART_HEADINGS.has(source.text) ? "small" : firstPriority ? "large" : "medium",
         pairCount,
       );
-      usedAssetShas.add(asset.sha);
+      if (plannerAsset && current.blocks.length > 0) {
+        const currentMeasurement = await measureCurrentWithBlocks([]);
+        const remainingRatio = 1 - currentMeasurement.fillRatio;
+        const candidateMeasurement = await measureCurrentWithBlocks([block, image]);
+        if (remainingRatio < 0.3 || candidateMeasurement.overflow) image = null;
+      }
+      if (!image) {
+        /* A planned image is a suggestion, not a forced page break. */
+        usedAssetShas.delete(asset.sha);
+      }
+      if (image) usedAssetShas.add(asset.sha);
       if (asset.semanticPairId) usedSemanticPairs.set(asset.semanticPairId, pairCount + 1);
     }
     if (source.type === "heading") {
@@ -3613,7 +3839,12 @@ function semanticImagePlacements(book, sourceBlocks) {
         : 0;
   return book.pages.slice(firstPageIndex).flatMap((page, relativePageIndex) =>
     page.blocks.flatMap((block, blockIndex) => {
-      if (block.type !== "image") return [];
+      if (
+        block.type !== "image" ||
+        block.src === APPROVED_COVER_SRC ||
+        !block.materialization?.assetSourceBlockId
+      )
+        return [];
       const sourceAssetId = block.materialization?.assetSourceBlockId;
       const asset =
         HISTORY_ASSETS.find(
@@ -3777,12 +4008,8 @@ function validateMaterialization(
     SOURCE_TEXT_MISMATCH_DETAILS: sourceTextMismatchDetails,
     MANUSCRIPT_BLOCKS_TOTAL: sourceBlocks.length,
     MANUSCRIPT_BLOCKS_MATERIALIZED: seenIds.length,
-    TARGET_PAGE_COUNT_MISMATCH:
-      sourceBlocks[0]?.scope === "COMPLETO" &&
-      Number.isFinite(PAGINATION_POLICY.targetBookPages) &&
-      book.pages.length > PAGINATION_POLICY.targetBookPages
-        ? 1
-        : 0,
+    /* Page count is reported, never used as a layout gate or packing target. */
+    TARGET_PAGE_COUNT_MISMATCH: 0,
   };
 }
 
@@ -4053,17 +4280,32 @@ async function main() {
   const baseProject =
     args.baseProject ??
     (args.scope === "PARTES_I_IV"
-      ? APPROVED_HISTORIA_PROJECT
+      ? CANONICAL_PROJECT
       : args.scope === "COMPLETO"
-        ? APPROVED_AGGREGATE_PROJECT
+        ? CANONICAL_PROJECT
         : CANONICAL_PROJECT);
-  const [markdown, catalog, canonicalRaw, approvedHistoriaRaw, baseProjectRaw] = await Promise.all([
+  const [markdown, catalog, baseProjectRaw, manifestRaw, inventoryRaw] = await Promise.all([
     readFile(args.manuscript, "utf8"),
     readFile(args.catalog, "utf8"),
-    readFile(CANONICAL_PROJECT, "utf8"),
-    readFile(APPROVED_HISTORIA_PROJECT, "utf8"),
     readFile(baseProject, "utf8"),
+    readJsonIfPresent(args.manifest),
+    readJsonIfPresent(V15_INVENTORY_PATH),
   ]);
+  const manuscriptSourceSha256 = sha256(markdown);
+  if (manuscriptSourceSha256 !== EXPECTED_MANUSCRIPT_SHA256) {
+    throw new Error(
+      `MANUSCRIPT_SOURCE=INCIDENT: SHA-256 recebido ${manuscriptSourceSha256}; esperado ${EXPECTED_MANUSCRIPT_SHA256}`,
+    );
+  }
+  const approvedCoverRaw = await readFile(
+    path.join(ROOT, "public", APPROVED_COVER_SRC.replace(/^\/+/, "")),
+  );
+  const approvedCoverSha256 = sha256(approvedCoverRaw);
+  if (approvedCoverSha256 !== APPROVED_COVER_SHA256) {
+    throw new Error(
+      `COVER_ASSET=INCIDENT: SHA-256 recebido ${approvedCoverSha256}; esperado ${APPROVED_COVER_SHA256}`,
+    );
+  }
   if (!catalog.includes("## 28. Cobertura editorial capítulo a capítulo — REV1"))
     throw new Error("Catálogo REV1 §28 ausente");
   const isContinuation = args.scope === "PARTES_I_IV" || args.scope === "COMPLETO";
@@ -4074,13 +4316,23 @@ async function main() {
   const annotatedBlocks = annotateHeadingPaths(
     parsed.blocks.map((source) => ({ ...source, scope: args.scope })),
   );
-  const extraAcervoAssets = await enrichAcervoAssets(annotatedBlocks);
-  const allSourceBlocks = bindSemanticAssets(
+  const profileBlocks = filterBlocksForProfile(annotatedBlocks, args.profile);
+  const scopedBlocks =
     args.scope === "PARTES_I_IV"
-      ? annotatedBlocks.filter((source) =>
-          /^(?:PARTE II|PARTE III|PARTE IV)\b/u.test(source.sectionH1 ?? ""),
-        )
-      : annotatedBlocks,
+      ? profileBlocks.filter((source) => /^(?:PARTE II|PARTE III|PARTE IV)\b/u.test(source.sectionH1 ?? ""))
+      : profileBlocks;
+  const editorialManifest = manifestRaw?.assets
+    ? manifestRaw
+    : { assets: (inventoryRaw?.inventory ?? []).map((entry) => ({ ...entry, src: entry.asset ?? entry.materializedSrc })) };
+  const extraAcervoAssets = await enrichAcervoAssets(scopedBlocks);
+  const reservedSrcs = new Set(HISTORY_ASSETS.map((asset) => asset.src));
+  const editorialPlan = planEditorialAssets(scopedBlocks, editorialManifest, {
+    targetBookPages: PAGINATION_POLICY.targetBookPages,
+    reservedSrcs,
+  });
+  registerPlannedAssets(editorialPlan);
+  const allSourceBlocks = bindSemanticAssets(
+    scopedBlocks,
   );
   const sourceBlocks = args.pilot ? selectPilotBlocks(allSourceBlocks) : allSourceBlocks;
   if (!sourceBlocks.length) throw new Error(`Nenhum bloco encontrado para ${args.scope}`);
@@ -4184,14 +4436,46 @@ async function main() {
         ? { ...spread, sourceSha256: mapSpreadAsset.sha, sourceReference: mapSpreadAsset.reference }
         : spread,
     );
+    const coverPage = approvedCoverPage(args.scope);
+    const tocPages = await buildTocPages({
+      scope: args.scope,
+      bodyPages: continuationPages,
+      sourceBlocks,
+      browserPage,
+      baseBook,
+      coverPageCount: 1,
+    });
     const book = {
       ...baseBook,
       meta: {
         ...baseBook.meta,
-        title: "KALLISTIS — Manual do Mundo",
-        author: "Antônio de Oliveira",
+        title: "KALLISTIS — MANUAL DO MUNDO",
+        author: "Antônio de Oliveira / AN70N10 0L1V31R4",
         imprint: "Nomos Ludens",
-        edition: "v1.5 candidata — prova privada",
+        edition: "Manuscrito final congelado — Book Maker",
+      },
+      productionPlan: {
+        version: 1,
+        profile: args.profile,
+        targetBookPages:
+          args.profile === "PUBLIC_BOOK" ? PAGINATION_POLICY.targetBookPages : null,
+        generatedAt: editorialPlan.generatedAt,
+        manifestPath: args.manifest,
+        assignments: editorialPlan.assignments.map((assignment) => ({
+          ...assignment,
+          pageIds: generated.pages
+            .filter((page) =>
+              page.blocks.some(
+                (block) =>
+                  block.type === "image" &&
+                  block.materialization?.assetSourceBlockId === assignment.sourceBlockId,
+              ),
+            )
+            .map((page) => page.id),
+          decision: "automatic-approved-source",
+        })),
+        unusedApprovedAssets: editorialPlan.unusedApprovedAssets,
+        pendingAssets: editorialPlan.pendingAssets,
       },
       nodes: isContinuation
         ? [...baseBook.nodes, ...continuationNodes]
@@ -4205,7 +4489,7 @@ async function main() {
           ],
       pages: isContinuation
         ? [...structuredClone(baseBook.pages), ...continuationPages]
-        : generated.pages,
+        : [coverPage, ...tocPages, ...generated.pages],
       spreads: [...preservedSpreads, ...generatedSpreads],
     };
     const repairedOrphanHeadings = repairOrphanHeadings(book);
@@ -4270,7 +4554,7 @@ async function main() {
               (specialCopy
                 ? specialCopy.scrollHeight > specialCopy.clientHeight + 1 ||
                   specialCopy.scrollWidth > specialCopy.clientWidth + 1
-                : !["part_opening", "full_art"].includes(root.dataset.template ?? "") &&
+                : !["cover", "part_opening", "full_art"].includes(root.dataset.template ?? "") &&
                   ((!hasFlowFloat && content.scrollHeight > content.clientHeight + 1) ||
                     content.scrollWidth > content.clientWidth + 1)),
             fillRatio: content.clientHeight ? used / content.clientHeight : 0,
@@ -4310,6 +4594,37 @@ async function main() {
     const diagnostics = {
       ...stats(book, finalMeasurements, sourceBlocks, manuscriptTotalWords),
       ...invariants,
+      PRODUCTION_PROFILE: args.profile,
+      PUBLIC_BOOK_TARGET_PAGES:
+        args.profile === "PUBLIC_BOOK" ? PAGINATION_POLICY.targetBookPages : null,
+      PAGE_COUNT_DIFFERENCE:
+        args.profile === "PUBLIC_BOOK" && Number.isFinite(PAGINATION_POLICY.targetBookPages)
+          ? book.pages.length - PAGINATION_POLICY.targetBookPages
+          : null,
+      CONTRACT_HEADING_INCLUDED: book.pages.some((page) =>
+        page.blocks.some(
+          (block) =>
+            (block.type === "heading" && block.text === BOOKMAKER_CONTRACT_HEADING) ||
+            (block.materialization?.sourceRaw ?? "").includes(BOOKMAKER_CONTRACT_HEADING),
+        ),
+      )
+        ? 1
+        : 0,
+      EDITORIAL_MANIFEST: args.manifest,
+      EDITORIAL_PLAN_ASSIGNMENTS: editorialPlan.assignments.length,
+      EDITORIAL_PLAN_IMAGES_USED: book.pages.reduce(
+        (total, page) => total + page.blocks.filter((block) => block.type === "image").length,
+        0,
+      ),
+      EDITORIAL_PLAN_UNUSED_APPROVED_ASSETS: editorialPlan.unusedApprovedAssets.length,
+      EDITORIAL_PLAN_PENDING_ASSETS: editorialPlan.pendingAssets.length,
+      FULL_ART_PAGES_AUTO_CREATED: book.pages.filter(
+        (page) =>
+          page.materialization?.autoGenerated &&
+          page.template === "full_art" &&
+          page.editorialComposition !== "MAP_SPREAD" &&
+          !page.blocks.some((block) => block.materialization?.fullArtOpening === true),
+      ).length,
       V15_ACERVO_ASSETS_MATERIALIZED: extraAcervoAssets.length,
       V15_ACERVO_INVENTORY: V15_INVENTORY_PATH,
       V15_ACERVO_DISPOSITION: V15_DISPOSITION_PATH,
@@ -4370,6 +4685,7 @@ async function main() {
     const compositionFamiliesUsed = Object.values(diagnostics.COMPOSITION_FAMILY_COUNTS).filter(
       (count) => count > 0,
     ).length;
+    const minimumCompositionFamilies = args.profile === "PUBLIC_BOOK" ? 3 : 1;
     const historyGatePassed =
       !isContinuation ||
       (diagnostics.PREEXISTING_PAGES_PRESERVED ===
@@ -4378,8 +4694,11 @@ async function main() {
         diagnostics.PREEXISTING_PAGE_LAYOUT_CHANGED === 0);
     const visualGatePassed =
       diagnostics.INVALID_IMAGE_PLACEMENTS === 0 &&
-      compositionFamiliesUsed >= 3 &&
+      diagnostics.FULL_ART_PAGES_AUTO_CREATED === 0 &&
+      !(args.profile === "PUBLIC_BOOK" && diagnostics.CONTRACT_HEADING_INCLUDED !== 0) &&
+      compositionFamiliesUsed >= minimumCompositionFamilies &&
       historyGatePassed;
+    const characterSheetPending = args.scope === "ALL" && args.profile === "PUBLIC_BOOK";
     const warnings = [];
     if (
       Number.isFinite(PAGINATION_POLICY.hardWarningBookPages) &&
@@ -4399,7 +4718,11 @@ async function main() {
     if (diagnostics.BODY_MAX_CONSECUTIVE_TEXT_PAGES > HARD_MAX_TEXT_RUN)
       warnings.push("BODY_IMAGE_CADENCE_SOFT_WARNING");
     if (diagnostics.INVALID_IMAGE_PLACEMENTS > 0) warnings.push("INVALID_IMAGE_PLACEMENTS");
-    if (compositionFamiliesUsed < 3) warnings.push("INSUFFICIENT_COMPOSITION_FAMILIES");
+    if (diagnostics.FULL_ART_PAGES_AUTO_CREATED > 0) warnings.push("UNAUTHORIZED_FULL_ART");
+    if (args.profile === "PUBLIC_BOOK" && diagnostics.CONTRACT_HEADING_INCLUDED !== 0)
+      warnings.push("BOOKMAKER_CONTRACT_IN_PUBLIC_BOOK");
+    if (compositionFamiliesUsed < minimumCompositionFamilies)
+      warnings.push("INSUFFICIENT_COMPOSITION_FAMILIES");
     const report = {
       verdict:
         [
@@ -4418,11 +4741,13 @@ async function main() {
           "ASSETS_MODIFIED",
           "ORIGINAL_PROJECT_OVERWRITTEN",
           "INVALID_IMAGE_PLACEMENTS",
-          "TARGET_PAGE_COUNT_MISMATCH",
         ].some((key) => invariants[key] !== 0) || !visualGatePassed
           ? "FAIL"
+          : characterSheetPending
+            ? "INCIDENT"
           : "PASS",
       scope: args.scope,
+      profile: args.profile,
       generatedAt: new Date().toISOString(),
       engine: {
         generatedBy: "kallistis-materializer",
@@ -4432,12 +4757,17 @@ async function main() {
         manuscriptTotalWords,
         softMaxTextRun: SOFT_MAX_TEXT_RUN,
         hardMaxTextRun: HARD_MAX_TEXT_RUN,
+        profile: args.profile,
       },
       input: {
         manuscript: args.manuscript,
-        manuscriptSha256: sha256(normalizeLineEndings(markdown)),
+        manuscriptSha256: manuscriptSourceSha256,
+        expectedManuscriptSha256: EXPECTED_MANUSCRIPT_SHA256,
+        sourceValid: manuscriptSourceSha256 === EXPECTED_MANUSCRIPT_SHA256,
         catalog: args.catalog,
         catalogSha256: sha256(catalog),
+        manifest: args.manifest,
+        manifestSha256: manifestRaw ? sha256(JSON.stringify(manifestRaw)) : null,
         sourceStartLine: parsed.selectedStartLine,
         sourceEndLine: parsed.selectedEndLine,
         pilot: args.pilot,
@@ -4471,9 +4801,33 @@ async function main() {
         passed: visualGatePassed,
         semanticCorrectness: diagnostics.INVALID_IMAGE_PLACEMENTS === 0,
         compositionFamiliesUsed,
-        minimumCompositionFamilies: 3,
+        minimumCompositionFamilies,
         cadenceSoft: true,
         justification: null,
+      },
+      cover: {
+        asset: APPROVED_COVER_SRC,
+        sha256: approvedCoverSha256,
+        approved: approvedCoverSha256 === APPROVED_COVER_SHA256,
+      },
+      toc: {
+        pages: tocPages.length,
+        entries: tocPages.reduce(
+          (count, page) =>
+            count +
+            page.blocks.reduce(
+              (pageCount, block) => pageCount + (block.type === "toc" ? block.entries.length : 0),
+              0,
+            ),
+          0,
+        ),
+        derivedFrom: "H1/H2 materialized source blocks",
+      },
+      characterSheet: {
+        status: "PENDING_BY_USER",
+        pages: 0,
+        assets: "PENDING",
+        rawContractExported: false,
       },
       warnings,
       diagnostics,

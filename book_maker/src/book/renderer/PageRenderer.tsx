@@ -98,6 +98,9 @@ export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function
     ? { ...page, blocks: page.blocks.filter((block) => !block.hidden) }
     : page;
   const templateProps = { page: renderPage, meta: book.meta, folio, verso };
+  const planAssignments = (book.productionPlan?.assignments ?? []).filter((assignment) =>
+    assignment.pageIds.includes(page.id),
+  );
   const pageStyle = {
     ...style,
     ...(page.settings.pageColor ? { background: page.settings.pageColor } : {}),
@@ -136,6 +139,11 @@ export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function
       data-folio={folio}
       data-fixed={page.fixed ? "true" : undefined}
       data-overflow={overflow ? "true" : undefined}
+      data-production-profile={book.productionPlan?.profile}
+      data-production-plan-status={planAssignments.length > 0 ? "planned" : "unplanned"}
+      data-production-plan-assets={
+        planAssignments.map((assignment) => assignment.src).join(" ") || undefined
+      }
       onClick={interactive ? handleClick : onClick}
       onDoubleClick={interactive ? handleDoubleClick : undefined}
       onContextMenu={interactive ? onContextMenu : undefined}

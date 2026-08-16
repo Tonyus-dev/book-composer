@@ -14,8 +14,10 @@ const description =
   "Rota de impressão limpa do KALLISTIS Book Builder: apenas páginas do livro, sem interface de editor.";
 
 export const Route = createFileRoute("/print")({
-  validateSearch: (search: Record<string, unknown>): { src?: string } =>
-    typeof search["src"] === "string" ? { src: search["src"] } : {},
+  validateSearch: (search: Record<string, unknown>): { src?: string; autoprint?: boolean } => ({
+      ...(typeof search["src"] === "string" ? { src: search["src"] } : {}),
+      ...(search["autoprint"] === "1" ? { autoprint: true } : {}),
+    }),
   head: () => ({
     meta: [
       { title },
@@ -34,7 +36,7 @@ export const Route = createFileRoute("/print")({
  */
 function PrintView() {
   const [, refreshAssets] = useState(0);
-  const { src } = useSearch({ from: "/print" });
+  const { src, autoprint } = useSearch({ from: "/print" });
   // O primeiro render precisa ser idêntico no SSR e no browser. O livro
   // injetado/local é resolvido no efeito abaixo, depois da hidratação.
   const [book, setBook] = useState<Book>(() => canonicalBook);
@@ -177,12 +179,15 @@ function PrintView() {
         return;
       }
       if (!cancelled) document.documentElement.dataset["printReady"] = "true";
+      if (!cancelled && autoprint) {
+        window.setTimeout(() => window.print(), 120);
+      }
     };
     void flag();
     return () => {
       cancelled = true;
     };
-  }, [sourceResolved, book]);
+  }, [autoprint, sourceResolved, book]);
 
   return (
     <BookRoot

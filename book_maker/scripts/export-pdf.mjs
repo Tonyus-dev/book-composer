@@ -69,7 +69,10 @@ function reportHtml(report) {
 async function isUp(url) {
   try {
     const response = await fetch(url, { method: "GET" });
-    return response.ok || response.status < 500;
+    /* Um 404 de outro serviço local não é um servidor válido do Book Maker.
+       Aceitar qualquer status abaixo de 500 fazia o exportador reutilizar o
+       Apache/Cauldron em :8080 e esperar `data-print-ready` indefinidamente. */
+    return response.ok;
   } catch {
     return false;
   }

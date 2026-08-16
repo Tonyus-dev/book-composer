@@ -217,6 +217,9 @@ export function normalizeBook(input: unknown): Book {
       : [],
     sheetTemplates: Array.isArray(book.sheetTemplates) ? book.sheetTemplates : [],
     sheetInstances: Array.isArray(book.sheetInstances) ? book.sheetInstances : [],
+    ...(book.productionPlan && typeof book.productionPlan === "object"
+      ? { productionPlan: book.productionPlan }
+      : {}),
   };
 }
 
