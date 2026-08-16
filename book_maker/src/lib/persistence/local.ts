@@ -96,17 +96,21 @@ export function saveLocalBook(book: Book, projectId = getActiveLocalProjectId())
   if (typeof window === "undefined") return false;
   try {
     const serialized = JSON.stringify(bookSnapshot(book));
-    window.localStorage.setItem(projectStorageKey(projectId), serialized);
-    if (projectId === "default") {
-      try {
-        window.localStorage.setItem(STORAGE_KEY, serialized);
-      } catch (legacyError) {
-        /* O snapshot v2 é a fonte atual. Uma cópia v1 duplicaria livros grandes
-           e pode exceder a quota sem invalidar o salvamento principal. */
-        if (!(legacyError instanceof DOMException && legacyError.name === "QuotaExceededError")) {
-          throw legacyError;
-        }
+    const storageKey = projectStorageKey(projectId);
+    try {
+      window.localStorage.setItem(storageKey, serialized);
+    } catch (error) {
+      /* Projetos grandes podem ter uma cópia v1 antiga ocupando a quota.
+         Remova somente essa chave legada e tente novamente a fonte v2. */
+      if (projectId !== "default" || !(error instanceof DOMException && error.name === "QuotaExceededError")) {
+        throw error;
       }
+      window.localStorage.removeItem(STORAGE_KEY);
+      window.localStorage.setItem(storageKey, serialized);
+    }
+    if (projectId === "default") {
+      /* Nunca duplicar um livro grande: v1 permanece apenas como fallback de leitura. */
+      window.localStorage.removeItem(STORAGE_KEY);
     }
     registerProject(projectId, book.meta.title);
     return true;

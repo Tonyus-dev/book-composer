@@ -35,10 +35,10 @@ export function TocTemplate({ page }: TemplateProps) {
   );
 }
 
-/** NARRATIVE — registro literário. Uma coluna, EB Garamond, respiro. */
+/** NARRATIVE — registro literário; duas colunas quando a página pedir. */
 export function NarrativeTemplate({ page }: TemplateProps) {
   return (
-    <div className="k-flow">
+    <div className={`k-flow${page.settings.columns === 2 ? " k-flow--2col" : ""}`}>
       <BlockList blocks={page.blocks} />
     </div>
   );

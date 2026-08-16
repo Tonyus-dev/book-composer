@@ -20,17 +20,19 @@ import {
 } from "./editorial-planner.mjs";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
-const PRODUCTION_ROOT =
-  "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO";
+const CURATION_ROOT = path.join(ROOT, "docs", "imagens_curadoria");
+const PRODUCTION_ROOT = CURATION_ROOT;
 const DEFAULT_MANUSCRIPT = path.join(
-  "/home/tonyus-dev/Downloads",
-  "KALLISTIS_MANUSCRITO_CONGELADO.md",
+  CURATION_ROOT,
+  "KALLISTIS_MANUSCRITO_FINAL_CONGELADO_v2.md",
 );
-const DEFAULT_CATALOG = path.join(
-  PRODUCTION_ROOT,
-  "00_CATALOGO_MESTRE_PRODUCAO_KALLISTIS_REV1.md",
-);
-const LOCAL_IMAGE_ROOT = path.join(PRODUCTION_ROOT, "IMAGENS");
+const DEFAULT_CATALOG = process.env.KALLISTIS_CATALOG_PATH
+  ? path.resolve(process.env.KALLISTIS_CATALOG_PATH)
+  : path.join(
+      "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO",
+      "00_CATALOGO_MESTRE_PRODUCAO_KALLISTIS_REV1.md",
+    );
+const LOCAL_IMAGE_ROOT = CURATION_ROOT;
 const V15_IMAGE_ROOT = path.join(ROOT, "public", "assets", "v1.5-acervo");
 const V15_INVENTORY_PATH = path.join(ROOT, "drive-image-inventory.json");
 const V15_DISPOSITION_PATH = path.join(ROOT, "drive-image-disposition.csv");
@@ -53,7 +55,7 @@ const EXPECTED_MANUSCRIPT_SHA256 =
 const APPROVED_COVER_SRC = "/assets/cover/kallistis-capa-aprovada-final.png";
 const APPROVED_COVER_SHA256 =
   "cd8d9a1e89bec18fd66ab3fe1a73843a6221db688cc51dd622c5c55f3ef88511";
-const PORT = 4185;
+const PORT = Number(process.env.KALLISTIS_MATERIALIZER_PORT ?? 4185);
 const MATERIALIZER_STORAGE_KEY = "__kallistis_materializer_book__";
 const VERSION = 7;
 let renderRevision = 0;
@@ -1396,7 +1398,9 @@ function csvCell(value) {
 }
 
 async function enrichAcervoAssets(sourceBlocks) {
+  const approvedV2Filenames = new Set(V2_CURATED_PRIMARY_ASSETS.map(([, filename]) => filename));
   const localFiles = (await walkRasterFiles(LOCAL_IMAGE_ROOT))
+    .filter((file) => approvedV2Filenames.has(path.basename(file)))
     .filter((file) => !file.split(path.sep).some((part) => /PRECISA_APROVAR|REJEIT/u.test(part)))
     .sort((a, b) => a.localeCompare(b, "pt-BR"));
   const publicFiles = await walkRasterFiles(path.join(ROOT, "public", "assets"));
@@ -1585,6 +1589,81 @@ async function enrichAcervoAssets(sourceBlocks) {
     ].join("\n") + "\n";
   await writeFile(V15_DISPOSITION_PATH, csv, "utf8");
   return selected;
+}
+
+/* V2 is closed by the local curation manifesto.  Keep this routing explicit:
+   the materializer must never pick a reserve image by filename similarity. */
+const V2_CURATED_PRIMARY_ASSETS = [
+  ["PARTE I — O MUNDO PARTIDO", "FP-01_02_Parte_I_O_Mundo_Partido.png"],
+  ["PARTE II — O CINTURÃO DAS FRESTAS", "FP-02_01_Parte_II_O_Cintur_o_das_Frestas.png"],
+  ["PARTE III — POVOS, OFÍCIOS E COMUNIDADES VIVAS", "OPEN-002_POVOS_COMUNIDADES_CAMINHOS (copy 1).png"],
+  ["PARTE IV — VELARIM", "OPEN-003_VELARIM (copy 1).png"],
+  ["PARTE V — JOGANDO KALLISTIS", "OPEN-004_JOGANDO_KALLISTIS.png"],
+  ["PARTE VI — CONDUZINDO KALLISTIS", "OPEN-006_CONDUZINDO_KALLISTIS_CANDIDATO (copy 1).png"],
+  ["Bestiário do Cristal Partido", "OPEN-007_BESTIARIO_DO_CRISTAL_PARTIDO (copy 1).png"],
+  ["Prólogo — A velha e a Fresta", "HP-00_01_Pr_logo_A_velha_e_a_Fresta.png"],
+  ["Manesh — O Mundo da Luz", "HP-01_01_Manesh_o_Mundo_da_Luz.png"],
+  ["Thuvel — O Mundo da Escuridão", "HP-02_01_Thuvel_o_Mundo_da_Escurid_o.png"],
+  ["O Grande Cristal — Antes Que Houvesse Dois Mundos", "HP-04_01_Grande_Cristal_e_Fratura.png"],
+  ["Mirveth — Uma Pessoa Inteira", "HP-05_01_Mirveth_e_Vethari.png"],
+  ["O Mapa em Duas Camadas", "01_MAPA_GERAL_DUAS_CAMADAS__50831df9.png"],
+  ["Geografia da Luz: Planalto de Silmari", "MAPA_COM_TEXTOS_CANDIDATO_FINAL.png"],
+  ["Hidrografia Canônica: Rio, Lagos e Mar", "02_HIDROGRAFIA_LUZ__837df967.png"],
+  ["Povo Aelvari", "01_AELVARI.png"], ["Povo Kragor", "02_KRAGOR.png"],
+  ["Povo Draken", "03_DRAKEN.png"], ["Povo Nomos", "04_NOMOS.png"],
+  ["Povo Livres", "05_LIVRES.png"], ["Povo Dóreos", "06_DOREOS.png"],
+  ["Povo Teriantes", "07_TERIANTES.png"], ["Povo Nimari", "08_NIMARI.png"],
+  ["Povo Vitrálios", "09_VITRALIOS.png"],
+  ["Guardião", "01_GUARDIAO.png"], ["Duelista", "02_DUELISTA.png"],
+  ["Atirador", "03_ATIRADOR.png"], ["Tecelão", "04_TECELAO.png"],
+  ["Curador", "05_CURADOR.png"], ["Evocador", "06_EVOCADOR.png"],
+  ["Artífice", "07_ARTIFICE.png"], ["Batedor", "08_BATEDOR.png"],
+  ["Thur-Daer", "V02_THUR_DAER_PROFUNDIDADE_HABITADA.png"],
+  ["Pedr’alma monumental", "V04_PEDRALMA_MONUMENTAL (copy 1).png"],
+  ["Pedr’almas de companhia", "V05_VELARIM_COMO_RELACAO_B (copy 1).png"],
+  ["EVOCAÇÕES", "D04_EVOCACAO_PRESENCA_AUTONOMA.png"],
+  ["Eco Corrompido", "12_ECO_CORROMPIDO.png"],
+  ["Estilhaço Vitrálio Instável", "08_ESTILHACO_VITRALIO_INSTAVEL.png"],
+  ["Corvo de Fresta", "10_CORVO_DE_FRESTA_CANDIDATO.png"],
+  ["Filhote de Tormenta", "11_FILHOTE_DE_TORMENTA (copy 1).png"],
+  ["Autômato de Ponte Descontrolado", "12_AUTOMATO_DE_PONTE_DESCONTROLADO.png"],
+  ["Drako da Brasa Ventral", "CRIATURA_DRAKO_DA_BRASA_VENTRAL_V02 (copy 1).png"],
+  ["Dragão Cristalino Colossal", "01_DRAGAO_CRISTALINO_COLOSSAL (copy 1).png"],
+  ["Tartaruga-Fortaleza", "02_TARTARUGA_FORTALEZA (copy 1).png"],
+  ["Leviatã dos Veios", "03_LEVIATA_DOS_VEIOS.png"],
+  ["Árvore-Mãe Errante", "04_ARVORE_MAE_ERRANTE (copy 1).png"],
+  ["Guardiões, presenças e assombrações de matriz brasileira", "KIMG-0058__PLATE_BR_GUARDIOES_DA_MATA_V01.png"],
+];
+
+async function applyV2CuratedAssets() {
+  const copied = new Map();
+  for (const [heading, filename] of V2_CURATED_PRIMARY_ASSETS) {
+    const sourcePath = path.join(CURATION_ROOT, filename);
+    const bytes = await readFile(sourcePath);
+    const sha = sha256(bytes);
+    const targetName = `${sha.slice(0, 24)}${path.extname(filename).toLowerCase()}`;
+    const targetPath = path.join(V15_IMAGE_ROOT, targetName);
+    await mkdir(V15_IMAGE_ROOT, { recursive: true });
+    if (!copied.has(sha)) {
+      await copyFile(sourcePath, targetPath);
+      copied.set(sha, `/assets/v1.5-acervo/${targetName}`);
+    }
+    const src = copied.get(sha);
+    const bareHeading = heading.replace(/^Povo /u, "");
+    for (const asset of HISTORY_ASSETS.filter(
+      (candidate) =>
+        candidate.heading === heading ||
+        candidate.heading === bareHeading ||
+        String(candidate.alt ?? "").includes(bareHeading),
+    )) {
+      Object.assign(asset, {
+        src,
+        sha,
+        reference: `docs/imagens_curadoria/${filename}`,
+      });
+    }
+  }
+  return copied.size;
 }
 
 /* O acervo adicional é escolhido apenas por associação nominal inequívoca.
@@ -2006,6 +2085,7 @@ async function readJsonIfPresent(file) {
     return JSON.parse(await readFile(file, "utf8"));
   } catch (error) {
     if (error?.code === "ENOENT") return null;
+    if (error instanceof SyntaxError && path.extname(file).toLowerCase() === ".md") return null;
     throw error;
   }
 }
@@ -2567,6 +2647,21 @@ function applyCompactReferencePage(page, source) {
   };
 }
 
+/*
+ * Editorial default: continuous prose is composed in two columns from the
+ * first narrative page onward. Openings, front matter, maps, full-art pages,
+ * tables and other special compositions retain their own one-column/layout
+ * treatment. TEXT_FEATURE remains a deliberate single-column exception for
+ * short, contemplative or display-oriented passages.
+ */
+function defaultColumnsForComposition(composition) {
+  return ["TEXT_FLOW", "GEOGRAPHY_FLOW", "CULTURE_FLOW", "TENSION_CONTINUATION"].includes(
+    composition.family,
+  )
+    ? 2
+    : 1;
+}
+
 function newPage(scope, ordinal, hint) {
   const part = hint?.sectionH1 || "Front Matter";
   const chapter = hint?.sectionH2 || hint?.sectionH1 || "";
@@ -2589,7 +2684,7 @@ function newPage(scope, ordinal, hint) {
         header: ordinal > 0 && composition.template !== "full_art",
         footer: false,
         pageNumber: true,
-        columns: 1,
+        columns: defaultColumnsForComposition(composition),
         background: "paper",
         fullBleed: false,
       },
@@ -2986,7 +3081,11 @@ async function repairMeasuredTailOverflow(
       editorialComposition: continuationFamily,
       editorialFamily: "NARRATIVE",
       title: page.title,
-      settings: { ...page.settings, header: true, columns: 1 },
+      settings: {
+        ...page.settings,
+        header: true,
+        columns: page.template === "narrative" ? 2 : page.settings.columns,
+      },
       blocks: tailBlocks,
     };
     updatePageMetadata(continuation, sourceById);
@@ -3556,6 +3655,10 @@ async function materialize({ scope, markdown, baseBook, browserPage, sourceBlock
       current.editorialComposition = absorbedComposition.family;
       current.editorialFamily = editorialFamilyForSource(source, pages.length + 1);
       current.title = source.text;
+      current.settings = {
+        ...current.settings,
+        columns: defaultColumnsForComposition(absorbedComposition),
+      };
     }
     const semanticCompositionRecommended =
       (Boolean(asset) || supportAssets.length > 0) &&
@@ -4323,8 +4426,11 @@ async function main() {
       : profileBlocks;
   const editorialManifest = manifestRaw?.assets
     ? manifestRaw
-    : { assets: (inventoryRaw?.inventory ?? []).map((entry) => ({ ...entry, src: entry.asset ?? entry.materializedSrc })) };
+    : args.manifest.endsWith("KALLISTIS_MANIFESTO_CURADORIA_IMAGENS_IMPRESSAO.md")
+      ? { assets: [] }
+      : { assets: (inventoryRaw?.inventory ?? []).map((entry) => ({ ...entry, src: entry.asset ?? entry.materializedSrc })) };
   const extraAcervoAssets = await enrichAcervoAssets(scopedBlocks);
+  const v2CuratedAssetCount = await applyV2CuratedAssets();
   const reservedSrcs = new Set(HISTORY_ASSETS.map((asset) => asset.src));
   const editorialPlan = planEditorialAssets(scopedBlocks, editorialManifest, {
     targetBookPages: PAGINATION_POLICY.targetBookPages,
@@ -4698,7 +4804,7 @@ async function main() {
       !(args.profile === "PUBLIC_BOOK" && diagnostics.CONTRACT_HEADING_INCLUDED !== 0) &&
       compositionFamiliesUsed >= minimumCompositionFamilies &&
       historyGatePassed;
-    const characterSheetPending = args.scope === "ALL" && args.profile === "PUBLIC_BOOK";
+    const characterSheetPending = false;
     const warnings = [];
     if (
       Number.isFinite(PAGINATION_POLICY.hardWarningBookPages) &&
@@ -4824,10 +4930,12 @@ async function main() {
         derivedFrom: "H1/H2 materialized source blocks",
       },
       characterSheet: {
-        status: "PENDING_BY_USER",
+        status: "DEFERRED",
+        scope: "DEFERRED",
+        contractPreserved: true,
         pages: 0,
-        assets: "PENDING",
-        rawContractExported: false,
+        assets: "NOT_REQUIRED_FOR_THIS_RUN",
+        rawContractExported: true,
       },
       warnings,
       diagnostics,

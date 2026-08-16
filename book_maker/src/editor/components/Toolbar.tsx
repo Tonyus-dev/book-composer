@@ -19,6 +19,7 @@ import {
   downloadPageJson,
   readBookFromFile,
   readPageFromFile,
+  serializeBook,
 } from "../../lib/persistence/json";
 import { useEditor, nextId, type Overlays, type ZoomValue } from "../state/store";
 import { RecipeDialog } from "./RecipeDialog";
@@ -214,6 +215,7 @@ export function Toolbar() {
   const [sheetPreset, setSheetPreset] = useState("blank");
   const [workFileSaving, setWorkFileSaving] = useState(false);
   const [workFileName, setWorkFileName] = useState<string | null>(null);
+  const [optimizedPdfBusy, setOptimizedPdfBusy] = useState(false);
   const { errors, warnings, infos } = preflight.summary;
   const savedTime = lastSavedAt
     ? new Intl.DateTimeFormat("pt-BR", { hour: "2-digit", minute: "2-digit" }).format(lastSavedAt)
@@ -334,6 +336,68 @@ export function Toolbar() {
     } catch (error) {
       printWindow.close();
       window.alert(`Não foi possível preparar o PDF.\n\n${String(error)}`);
+    }
+  };
+
+  /**
+   * Ponte UI → pipeline de produção de PDF.
+   *
+   * Serializa o estado atual do editor, envia para `/api/export-from-snapshot`,
+   * que grava em /tmp e dispara `scripts/export-pdf.mjs` (Playwright + chunks
+   * + pdfunite + Ghostscript /printer). O PDF binário volta como download
+   * direto. Sem fallback para canonicalBook: se o snapshot não chega, falha.
+   */
+  const exportOptimizedPdf = async () => {
+    if (errors > 0) {
+      const proceed = window.confirm(
+        `PREFLIGHT: ${errors} ERROR(S) no livro.\n\n` +
+          "O PDF de produção pode perder conteúdo.\n\nContinuar mesmo assim?",
+      );
+      if (!proceed) {
+        openPreflight();
+        return;
+      }
+    }
+    const saved = await saveNow();
+    if (!saved) {
+      window.alert("Não foi possível salvar o snapshot atual antes da exportação.");
+      return;
+    }
+    setOptimizedPdfBusy(true);
+    try {
+      const bookJson = JSON.parse(serializeBook(book)) as unknown;
+      const response = await fetch("/api/export-from-snapshot", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ book: bookJson }),
+      });
+      if (!response.ok) {
+        const errorPayload = await response.json().catch(() => null);
+        const reason =
+          (errorPayload as { error?: string; message?: string } | null)?.error ??
+          `http_${response.status}`;
+        const detail =
+          (errorPayload as { message?: string } | null)?.message ??
+          (errorPayload as { stderrTail?: string } | null)?.stderrTail ??
+          "";
+        window.alert(
+          `Exportação otimizada indisponível (${reason}).${detail ? `\n\n${detail}` : ""}`,
+        );
+        return;
+      }
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = `kallistis-${book.meta.title || "export"}-${Date.now()}.pdf`;
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      window.alert(`Não foi possível gerar o PDF otimizado.\n\n${String(error)}`);
+    } finally {
+      setOptimizedPdfBusy(false);
     }
   };
 
@@ -764,6 +828,16 @@ export function Toolbar() {
             title="Salva o estado atual e abre o diálogo nativo para salvar como PDF"
           >
             Gerar PDF
+          </button>
+          <button
+            type="button"
+            data-testid="export-optimized-pdf"
+            disabled={optimizedPdfBusy}
+            onClick={() => void exportOptimizedPdf()}
+            className="border border-border px-2 py-1 text-[11px] hover:bg-accent disabled:opacity-50"
+            title="Exporta o estado atual pelo pipeline de produção (Playwright + Ghostscript /printer) — mesmo snapshot do editor chega ao PDF final."
+          >
+            {optimizedPdfBusy ? "Exportando…" : "Exportar PDF Otimizado"}
           </button>
           <details className="relative">
             <summary className="cursor-pointer list-none border border-border px-2 py-1 text-[11px] hover:bg-accent">

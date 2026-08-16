@@ -40,6 +40,17 @@
   column-fill: auto;
 }
 
+/* Texto narrativo balanceia as duas colunas; o fluxo sequencial deixava uma
+   coluna cheia e a outra curta em páginas com muitos blocos pequenos. */
+.k-page--narrative .k-flow--2col {
+  column-fill: balance;
+}
+
+/* Um título no rodapé da primeira coluna é uma quebra editorial ruim. */
+.k-page--narrative .k-flow--2col .k-block--heading {
+  break-after: avoid-column;
+}
+
 /* Em páginas de referência, a linha continua indivisível, mas o envelope da
    tabela pode atravessar a coluna. Isso evita deixar uma continuação curta
    isolada enquanto a coluna seguinte permanece vazia. */
