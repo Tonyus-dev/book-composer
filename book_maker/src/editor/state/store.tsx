@@ -314,7 +314,11 @@ function layoutItems(page: Page, requestedIds: string[]): LayoutItem[] {
   return items;
 }
 
-function moveLayoutItems(page: Page, items: LayoutItem[], positions: Map<string, { x: number; y: number }>) {
+function moveLayoutItems(
+  page: Page,
+  items: LayoutItem[],
+  positions: Map<string, { x: number; y: number }>,
+) {
   const itemByBlockId = new Map<string, LayoutItem>();
   items.forEach((item) => item.blockIds.forEach((blockId) => itemByBlockId.set(blockId, item)));
   return page.blocks.map((block) => {
@@ -465,6 +469,8 @@ export function EditorProvider({ children }: { children: ReactNode }) {
       const seedBookId = productionPlanForBookId(nextBook);
       if (planLocal) {
         setProductionPlanState(planLocal);
+      } else if (nextBook.productionPlan) {
+        setProductionPlanState(normalizeProductionPlan(nextBook.productionPlan, seedBookId));
       } else {
         fetch("/projects/kallistis-production-plan.json", { cache: "no-store" })
           .then((response) => (response.ok ? response.json() : null))
@@ -637,7 +643,9 @@ export function EditorProvider({ children }: { children: ReactNode }) {
         return;
       }
       const relatedIds = block.groupId
-        ? selectedPage.blocks.filter((item) => item.groupId === block.groupId).map((item) => item.id)
+        ? selectedPage.blocks
+            .filter((item) => item.groupId === block.groupId)
+            .map((item) => item.id)
         : [blockId];
       if (modifiers.additive) {
         setSelectedBlockIds((current) => {
@@ -645,7 +653,7 @@ export function EditorProvider({ children }: { children: ReactNode }) {
           const next = allPresent
             ? current.filter((id) => !relatedIds.includes(id))
             : [...current, ...relatedIds.filter((id) => !current.includes(id))];
-          setSelectedBlockId(next.includes(blockId) ? blockId : next[0] ?? null);
+          setSelectedBlockId(next.includes(blockId) ? blockId : (next[0] ?? null));
           return next;
         });
         return;
@@ -972,22 +980,14 @@ export function EditorProvider({ children }: { children: ReactNode }) {
           Number.parseFloat(book.tokens.marginBottom);
         const minX = frames.length ? Math.min(...frames.map((frame) => frame.x)) : 0;
         const minY = frames.length ? Math.min(...frames.map((frame) => frame.y)) : 0;
-        const maxX = frames.length
-          ? Math.max(...frames.map((frame) => frame.x + frame.width))
-          : 0;
-        const maxY = frames.length
-          ? Math.max(...frames.map((frame) => frame.y + frame.height))
-          : 0;
+        const maxX = frames.length ? Math.max(...frames.map((frame) => frame.x + frame.width)) : 0;
+        const maxY = frames.length ? Math.max(...frames.map((frame) => frame.y + frame.height)) : 0;
         const fallbackX = point?.x ?? minX + 5;
         const fallbackY = point?.y ?? minY + 5;
         const requestedDx = frames.length ? fallbackX - (minX + maxX) / 2 : 5;
         const requestedDy = frames.length ? fallbackY - (minY + maxY) / 2 : 5;
-        const dx = frames.length
-          ? Math.max(-minX, Math.min(contentWidth - maxX, requestedDx))
-          : 5;
-        const dy = frames.length
-          ? Math.max(-minY, Math.min(contentHeight - maxY, requestedDy))
-          : 5;
+        const dx = frames.length ? Math.max(-minX, Math.min(contentWidth - maxX, requestedDx)) : 5;
+        const dy = frames.length ? Math.max(-minY, Math.min(contentHeight - maxY, requestedDy)) : 5;
         const pastedIds = clones.map((clone) => clone.id);
         const positioned = clones.map((clone) =>
           clone.frame
@@ -1171,7 +1171,9 @@ export function EditorProvider({ children }: { children: ReactNode }) {
             verso ? prev.tokens.marginOuter : prev.tokens.marginInner,
           );
           const pageCenterX = Number.parseFloat(prev.tokens.pageWidth) / 2 - contentLeft;
-          const pageCenterY = Number.parseFloat(prev.tokens.pageHeight) / 2 - Number.parseFloat(prev.tokens.marginTop);
+          const pageCenterY =
+            Number.parseFloat(prev.tokens.pageHeight) / 2 -
+            Number.parseFloat(prev.tokens.marginTop);
           const dx = axis === "vertical" ? 0 : pageCenterX - (minX + maxRight) / 2;
           const dy = axis === "horizontal" ? 0 : pageCenterY - (minY + maxBottom) / 2;
           const positions = new Map<string, { x: number; y: number }>();
@@ -1216,7 +1218,10 @@ export function EditorProvider({ children }: { children: ReactNode }) {
       tidyBlocks: (pageId, requestedIds) =>
         setBook((prev) =>
           withPage(prev, pageId, (page) => {
-            const selected = layoutItems(page, requestedIds?.length ? requestedIds : selectedBlockIds);
+            const selected = layoutItems(
+              page,
+              requestedIds?.length ? requestedIds : selectedBlockIds,
+            );
             const movable = selected.filter((item) => !item.locked);
             if (movable.length < 2) return page;
             const xSpread =
@@ -1228,13 +1233,18 @@ export function EditorProvider({ children }: { children: ReactNode }) {
             const axis = ySpread >= xSpread ? "vertical" : "horizontal";
             const ordered = [...movable].sort((a, b) => {
               const primary = axis === "vertical" ? a.frame.y - b.frame.y : a.frame.x - b.frame.x;
-              return primary || (axis === "vertical" ? a.frame.x - b.frame.x : a.frame.y - b.frame.y);
+              return (
+                primary || (axis === "vertical" ? a.frame.x - b.frame.x : a.frame.y - b.frame.y)
+              );
             });
             const start = axis === "vertical" ? ordered[0]!.frame.y : ordered[0]!.frame.x;
-            const end = axis === "vertical"
-              ? ordered[ordered.length - 1]!.frame.y + ordered[ordered.length - 1]!.frame.height
-              : ordered[ordered.length - 1]!.frame.x + ordered[ordered.length - 1]!.frame.width;
-            const sizes = ordered.map((item) => axis === "vertical" ? item.frame.height : item.frame.width);
+            const end =
+              axis === "vertical"
+                ? ordered[ordered.length - 1]!.frame.y + ordered[ordered.length - 1]!.frame.height
+                : ordered[ordered.length - 1]!.frame.x + ordered[ordered.length - 1]!.frame.width;
+            const sizes = ordered.map((item) =>
+              axis === "vertical" ? item.frame.height : item.frame.width,
+            );
             const gaps = ordered.slice(1).map((item, index) => {
               const previous = ordered[index]!.frame;
               return axis === "vertical"
@@ -1245,15 +1255,19 @@ export function EditorProvider({ children }: { children: ReactNode }) {
             const sortedGaps = [...nonNegativeGaps].sort((a, b) => a - b);
             const medianGap = sortedGaps.length
               ? sortedGaps[Math.floor(sortedGaps.length / 2)]!
-              : Math.max(0, (end - start - sizes.reduce((sum, size) => sum + size, 0)) / (ordered.length - 1));
+              : Math.max(
+                  0,
+                  (end - start - sizes.reduce((sum, size) => sum + size, 0)) / (ordered.length - 1),
+                );
             const availableGap = Math.max(
               0,
               (end - start - sizes.reduce((sum, size) => sum + size, 0)) / (ordered.length - 1),
             );
             const gap = Math.min(medianGap, availableGap);
-            const crossStart = axis === "vertical"
-              ? Math.min(...ordered.map((item) => item.frame.x))
-              : Math.min(...ordered.map((item) => item.frame.y));
+            const crossStart =
+              axis === "vertical"
+                ? Math.min(...ordered.map((item) => item.frame.x))
+                : Math.min(...ordered.map((item) => item.frame.y));
             let cursor = start;
             const positions = new Map<string, { x: number; y: number }>();
             ordered.forEach((item, index) => {

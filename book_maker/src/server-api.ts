@@ -474,6 +474,102 @@ async function serveProjectAsset(env: WorkerEnv, projectId: string, assetId: str
   });
 }
 
+/**
+ * Bridge entre o estado atual do editor e o pipeline de produção de PDF.
+ *
+ * Recebe o Book JSON que o editor acabou de salvar, escreve em /tmp,
+ * dispara `scripts/export-pdf.mjs` (Playwright + pdfunite + Ghostscript)
+ * e devolve o PDF binário. Disponível SOMENTE em ambiente Node — em
+ * Cloudflare Workers retorna 503 para forçar o uso de `--in` em CI.
+ *
+ * Sem fallback silencioso: se o snapshot não chega, a exportação falha.
+ */
+async function exportFromSnapshot(request: Request): Promise<Response> {
+  if (typeof globalThis.process?.versions?.node !== "string") {
+    return json(
+      {
+        ok: false,
+        error: "export_from_snapshot_dev_only",
+        message:
+          "Esta rota só está disponível em ambiente Node (vite dev). Em produção use `npm run export:pdf -- --in <arquivo>`.",
+      },
+      503,
+    );
+  }
+  let body: Record<string, unknown> | null;
+  try {
+    body = (await request.json()) as Record<string, unknown>;
+  } catch {
+    return badRequest("invalid_json");
+  }
+  const book = body?.["book"];
+  if (!book || typeof book !== "object" || !Array.isArray((book as { pages?: unknown }).pages)) {
+    return badRequest("book_required");
+  }
+  const fs = await import("node:fs/promises");
+  const path = await import("node:path");
+  const { spawn } = await import("node:child_process");
+
+  const snapshotPath = path.join(
+    "/tmp",
+    `kallistis-snapshot-${Date.now()}-${Math.random().toString(36).slice(2, 8)}.json`,
+  );
+  const outputPath = path.join(
+    "/tmp",
+    `kallistis-export-${Date.now()}-${Math.random().toString(36).slice(2, 8)}.pdf`,
+  );
+  await fs.writeFile(snapshotPath, JSON.stringify(book), "utf8");
+
+  // Resolve o script relativo ao working directory (vite dev roda em book_maker/)
+  const scriptPath = path.resolve(process.cwd(), "scripts", "export-pdf.mjs");
+  const child = spawn("node", [scriptPath, "--in", snapshotPath, "--out", outputPath], {
+    stdio: ["ignore", "pipe", "pipe"],
+  });
+  let stderrTail = "";
+  child.stderr.on("data", (chunk) => {
+    stderrTail += chunk.toString();
+    if (stderrTail.length > 4096) stderrTail = stderrTail.slice(-4096);
+  });
+  const exitCode: number | null = await new Promise((resolve) => {
+    child.on("exit", (code) => resolve(code));
+    child.on("error", () => resolve(-1));
+  });
+  if (exitCode !== 0) {
+    await fs.unlink(snapshotPath).catch(() => undefined);
+    return json(
+      { ok: false, error: "export_failed", exitCode, stderrTail },
+      500,
+    );
+  }
+  let pdfBytes: Buffer;
+  try {
+    pdfBytes = await fs.readFile(outputPath);
+  } catch (error) {
+    await fs.unlink(snapshotPath).catch(() => undefined);
+    return json(
+      { ok: false, error: "pdf_not_found", message: String(error) },
+      500,
+    );
+  }
+  // Cleanup tmp files (best-effort)
+  await fs.unlink(snapshotPath).catch(() => undefined);
+  await fs.unlink(outputPath).catch(() => undefined);
+
+  const filename = `kallistis-${Date.now()}.pdf`;
+  // Converte o Buffer do Node para Uint8Array aceito pelo construtor Response.
+  // O cast é necessário porque o lib.dom.d.ts desta versão ainda não aceita
+  // Uint8Array<ArrayBufferLike> diretamente em BodyInit.
+  const pdfBody = new Uint8Array(pdfBytes.buffer, pdfBytes.byteOffset, pdfBytes.byteLength);
+  return new Response(pdfBody as unknown as BodyInit, {
+    status: 200,
+    headers: {
+      "content-type": "application/pdf",
+      "content-disposition": `attachment; filename="${filename}"`,
+      "cache-control": "no-store",
+    },
+  });
+}
+
 export async function handleApiRequest(
   request: Request,
   env: WorkerEnv = {},
@@ -487,6 +583,9 @@ export async function handleApiRequest(
   }
   if (url.pathname === "/api/auth/session" && request.method === "GET") {
     return json({ ok: true, authenticated: await isAuthorized(request, env) });
+  }
+  if (url.pathname === "/api/export-from-snapshot" && request.method === "POST") {
+    return exportFromSnapshot(request);
   }
   if (url.pathname === "/api/health" && request.method === "GET") {
     return json({

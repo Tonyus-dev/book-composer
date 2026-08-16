@@ -155,6 +155,9 @@ export function BlockRenderer({ block }: { block: Block }) {
           ? "true"
           : undefined
       }
+      data-asset-status={block.materialization?.assetStatus}
+      data-asset-reference={block.materialization?.assetCatalogReference}
+      data-asset-source-block={block.materialization?.assetSourceBlockId}
       onClick={
         interactive
           ? (event) => {
@@ -181,8 +184,8 @@ export function BlockRenderer({ block }: { block: Block }) {
 export function BlockList({ blocks }: { blocks: Block[] }) {
   return (
     <>
-      {blocks.map((block) => (
-        <BlockRenderer key={block.id} block={block} />
+      {blocks.map((block, index) => (
+        <BlockRenderer key={`${block.id}-${index}`} block={block} />
       ))}
     </>
   );

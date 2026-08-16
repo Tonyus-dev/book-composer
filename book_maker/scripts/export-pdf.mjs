@@ -69,7 +69,10 @@ function reportHtml(report) {
 async function isUp(url) {
   try {
     const response = await fetch(url, { method: "GET" });
-    return response.ok || response.status < 500;
+    /* Um 404 de outro serviço local não é um servidor válido do Book Maker.
+       Aceitar qualquer status abaixo de 500 fazia o exportador reutilizar o
+       Apache/Cauldron em :8080 e esperar `data-print-ready` indefinidamente. */
+    return response.ok;
   } catch {
     return false;
   }
@@ -153,6 +156,45 @@ async function runPdfUnite(inputs, output) {
       else reject(new Error(`pdfunite terminou com código ${code ?? "desconhecido"}`));
     });
   });
+}
+
+/**
+ * Recompacta o PDF final com Ghostscript (-dPDFSETTINGS=/printer) para
+ * eliminar bitmaps não-comprimidos que o Chromium embute a partir de PNGs
+ * grandes. Sem isso, um livro de 423 páginas pode chegar a 350+ MB;
+ * com isso, a queda típica é ~90% sem perda visível para impressão.
+ * Idempotente e opcional: pula silenciosamente se `gs` não estiver disponível.
+ */
+async function runGhostscriptRecompress(input, output) {
+  try {
+    await access("/usr/bin/gs");
+  } catch {
+    return false;
+  }
+  const tmpPath = `${output}.gs.pdf`;
+  await new Promise((resolve, reject) => {
+    const child = spawn(
+      "gs",
+      [
+        "-sDEVICE=pdfwrite",
+        "-dCompatibilityLevel=1.4",
+        "-dPDFSETTINGS=/printer",
+        "-dNOPAUSE",
+        "-dQUIET",
+        "-dBATCH",
+        `-sOutputFile=${tmpPath}`,
+        input,
+      ],
+      { stdio: "inherit" },
+    );
+    child.once("error", reject);
+    child.once("exit", (code) => {
+      if (code === 0) resolve();
+      else reject(new Error(`ghostscript terminou com código ${code ?? "desconhecido"}`));
+    });
+  });
+  await rename(tmpPath, output);
+  return true;
 }
 
 async function main() {
@@ -242,7 +284,9 @@ async function main() {
       }
     }
 
-    // Tamanho físico derivado dos tokens do livro (trim + 2 x bleed).
+    // PRINT V2 exports the trim as the physical PDF page. Bleed remains an
+    // internal layout token for full-bleed artwork, but must not enlarge the
+    // MediaBox beyond the requested 140 x 210 mm book format.
     const size = await page.evaluate(() => {
       const root = document.querySelector(".k-book");
       if (!root) return null;
@@ -255,17 +299,15 @@ async function main() {
       };
       const w = numeric(s.getPropertyValue("--page-width"));
       const h = numeric(s.getPropertyValue("--page-height"));
-      const b = numeric(s.getPropertyValue("--bleed"));
-      if (!w || !h || !b) return null;
-      if (w.u !== b.u || h.u !== b.u) return null;
+      if (!w || !h) return null;
       return {
-        width: `${w.n + 2 * b.n}${w.u}`,
-        height: `${h.n + 2 * b.n}${h.u}`,
+        width: `${w.n}${w.u}`,
+        height: `${h.n}${h.u}`,
       };
     });
     if (size) {
       await page.addStyleTag({
-        content: `@page { size: ${size.width} ${size.height}; margin: 0; }`,
+        content: `@page { size: ${size.width} ${size.height}; margin: 0; } .k-print-sheet { width: ${size.width} !important; height: ${size.height} !important; } .k-print-sheet > .k-page { left: 0 !important; top: 0 !important; }`,
       });
     }
 
@@ -275,8 +317,8 @@ async function main() {
       // Explicit paper dimensions keep Chromium from applying a document-
       // wide shrink-to-fit to the 400-sheet print flow.
       preferCSSPageSize: false,
-      width: size?.width ?? "150mm",
-      height: size?.height ?? "220mm",
+      width: size?.width ?? "140mm",
+      height: size?.height ?? "210mm",
       scale: 1,
       margin: { top: "0", right: "0", bottom: "0", left: "0" },
       tagged: false,
@@ -322,6 +364,9 @@ async function main() {
     } else {
       await page.pdf({ path: outPath, ...pdfOptions });
     }
+
+    const recompressed = await runGhostscriptRecompress(outPath, outPath);
+    if (recompressed) console.log("[export:pdf] recompactado com Ghostscript /printer");
 
     console.log(
       `[export:pdf] ${pages} páginas · folha ${size?.width ?? "?"} x ${size?.height ?? "?"} → ${outPath}`,

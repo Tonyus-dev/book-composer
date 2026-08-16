@@ -129,6 +129,9 @@ export interface MaterializationBlockMetadata {
   semanticAnchorHeadingId?: string | null;
   layoutRole?: "EDITORIAL_IMAGE" | "SHARED_EDITORIAL_IMAGE" | "QUADRANT_IMAGE" | "SUPPORT_IMAGE";
   semanticPairId?: string;
+  /** seleção planejada; usado para auditoria e explicação no editor/print. */
+  fullArtOpening?: boolean;
+  plannerAssignment?: boolean;
 }
 
 export type TextRole = "body" | "lead" | "dialogue" | "credits" | "note";
@@ -642,6 +645,42 @@ export interface MaterializationPageMetadata {
   compositionFamily?: EditorialComposition;
 }
 
+export interface ProductionPlanAssignment {
+  sourceBlockId: string;
+  heading: string;
+  section: string;
+  src: string;
+  sha256?: string | null;
+  alt: string;
+  reference: string;
+  status: string;
+  family: string;
+  role: string;
+  score: number;
+  matchedTerms: string[];
+  maxRepetitions: number;
+  cropWindow?: { x: number; y: number; width: number; height: number };
+  pageIds: string[];
+  decision: string;
+}
+
+/** Plano persistente produzido pelo materializador, dentro do Book JSON. */
+export interface BookProductionPlan {
+  version: 1;
+  profile: "PUBLIC_BOOK" | "BOOKMAKER_CONTRACT" | "INTERNAL_PRODUCTION";
+  targetBookPages: number | null;
+  generatedAt: string;
+  manifestPath: string;
+  assignments: ProductionPlanAssignment[];
+  unusedApprovedAssets: Array<{ src: string; sha256?: string | null; label: string }>;
+  pendingAssets: Array<{
+    src: string | null;
+    sha256?: string | null;
+    label: string;
+    status: string;
+  }>;
+}
+
 /** Nó da árvore do livro. Agrupa páginas; não duplica conteúdo. */
 export interface SectionNode {
   id: string;
@@ -728,6 +767,8 @@ export interface Book {
   /** modelos e instâncias de documentos preenchíveis, sem separar do projeto editorial. */
   sheetTemplates?: SheetTemplate[];
   sheetInstances?: SheetInstance[];
+  /** plano editorial efetivamente consumido pela materialização. */
+  productionPlan?: BookProductionPlan;
 }
 
 export type RecipeScope = "page" | "spread";

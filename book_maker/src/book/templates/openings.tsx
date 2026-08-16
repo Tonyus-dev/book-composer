@@ -138,11 +138,11 @@ export function ChapterOpeningTemplate({ page }: TemplateProps) {
           ) : null}
           {support.length ? (
             <div className="k-quadrant-support-stack">
-              {support.map((block) => (
+              {support.map((block, index) => (
                 <figure
                   className={`k-quadrant-support${block.alt.toLowerCase().includes("símbolo") ? " k-quadrant-support--symbol" : ""}`}
                   data-block-id={block.id}
-                  key={block.id}
+                  key={`${block.id}-${index}`}
                 >
                   <ResolvedImage
                     src={block.src}

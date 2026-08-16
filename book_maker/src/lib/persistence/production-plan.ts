@@ -1,4 +1,4 @@
-import type { Book } from "../../book/types";
+import type { Book, ProductionPlanAssignment } from "../../book/types";
 
 /**
  * PRODUCTION PLAN — direção editorial por página.
@@ -43,6 +43,18 @@ export interface ProductionPlan {
   version: 1;
   bookId: string;
   pages: Record<string, PageGuide>;
+  profile?: "PUBLIC_BOOK" | "BOOKMAKER_CONTRACT" | "INTERNAL_PRODUCTION";
+  targetBookPages?: number | null;
+  generatedAt?: string;
+  manifestPath?: string;
+  assignments?: ProductionPlanAssignment[];
+  unusedApprovedAssets?: Array<{ src: string; sha256?: string | null; label: string }>;
+  pendingAssets?: Array<{
+    src: string | null;
+    sha256?: string | null;
+    label: string;
+    status: string;
+  }>;
 }
 
 export const GUIDE_STATUS_LABEL: Record<GuideStatus, string> = {
@@ -162,7 +174,28 @@ export function normalizeProductionPlan(input: unknown, fallbackBookId: string):
       pages[pageId] = normalizePageGuide(entry);
     }
   }
-  return { version: 1, bookId, pages };
+  const profile =
+    raw.profile === "PUBLIC_BOOK" ||
+    raw.profile === "BOOKMAKER_CONTRACT" ||
+    raw.profile === "INTERNAL_PRODUCTION"
+      ? raw.profile
+      : undefined;
+  return {
+    version: 1,
+    bookId,
+    pages,
+    ...(profile ? { profile } : {}),
+    ...(typeof raw.targetBookPages === "number" || raw.targetBookPages === null
+      ? { targetBookPages: raw.targetBookPages }
+      : {}),
+    ...(typeof raw.generatedAt === "string" ? { generatedAt: raw.generatedAt } : {}),
+    ...(typeof raw.manifestPath === "string" ? { manifestPath: raw.manifestPath } : {}),
+    ...(Array.isArray(raw.assignments) ? { assignments: raw.assignments } : {}),
+    ...(Array.isArray(raw.unusedApprovedAssets)
+      ? { unusedApprovedAssets: raw.unusedApprovedAssets }
+      : {}),
+    ...(Array.isArray(raw.pendingAssets) ? { pendingAssets: raw.pendingAssets } : {}),
+  };
 }
 
 const STORAGE_KEY = "kallistis.book-builder.production-plan.v1";

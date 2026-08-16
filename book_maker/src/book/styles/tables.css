@@ -41,8 +41,14 @@
 /* A tabela canônica de namol tem duas colunas e, em rules_2col, o cálculo
    fechado do Chromium acrescenta 1mm ao envelope. Reserva essa folga sem
    alterar conteúdo, pesos ou a largura das demais tabelas. */
-.k-table-wrap[data-table-id="src-38548f24c30c266d3c7b"] .k-table {
+.k-table-wrap[data-table-id="src-5114eccaf679ee044a0f"] .k-table {
   width: calc(100% - 1mm);
+}
+
+.k-table-wrap[data-table-id="src-5114eccaf679ee044a0f"] .k-table--compact th,
+.k-table-wrap[data-table-id="src-5114eccaf679ee044a0f"] .k-table--compact td {
+  padding-left: 1.3mm;
+  padding-right: 1.3mm;
 }
 
 .k-table {

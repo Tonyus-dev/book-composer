@@ -1,0 +1,4381 @@
+{
+  "verdict": "INCIDENT",
+  "scope": "ALL",
+  "profile": "PUBLIC_BOOK",
+  "generatedAt": "2026-08-15T23:49:04.995Z",
+  "engine": {
+    "generatedBy": "kallistis-materializer",
+    "materializationVersion": 7,
+    "paginationPolicy": {
+      "targetBookPages": 400,
+      "softMaximumBookPages": 420,
+      "hardWarningBookPages": 450
+    },
+    "imageCadence": {
+      "targetInterval": 4,
+      "minimumInterval": 3,
+      "maximumInterval": 5
+    },
+    "manuscriptTotalWords": 94950,
+    "softMaxTextRun": 5,
+    "hardMaxTextRun": 7,
+    "profile": "PUBLIC_BOOK"
+  },
+  "input": {
+    "manuscript": "/home/tonyus-dev/Downloads/KALLISTIS_MANUSCRITO_FINAL_CONGELADO_v2.md",
+    "manuscriptSha256": "5427818b44f08ba00cc74f8635172b44952ded4eb948589d22016e4272990d83",
+    "expectedManuscriptSha256": "5427818b44f08ba00cc74f8635172b44952ded4eb948589d22016e4272990d83",
+    "sourceValid": true,
+    "catalog": "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO/00_CATALOGO_MESTRE_PRODUCAO_KALLISTIS_REV1.md",
+    "catalogSha256": "04ea301b8d4eebd616a25deca1c4aba8ae3f3a8a22561fbd6f683bca2d783627",
+    "manifest": "/home/tonyus-dev/Projetos/kallistis-book/book_maker/public/editorial-asset-manifest.json",
+    "manifestSha256": "4f6be9a4008ce5f06a0181a1d3c66cd4c5f77f22dfeeae6e82535d02ff7195bb",
+    "sourceStartLine": 1,
+    "sourceEndLine": 11778,
+    "pilot": false,
+    "sourceBlocksSelected": 4382,
+    "sourceBlocksAvailable": 4382
+  },
+  "output": {
+    "project": "/home/tonyus-dev/Projetos/kallistis-book/book_maker/projects/KALLISTIS_manual_do_mundo_final_book.json",
+    "originalProject": "/home/tonyus-dev/Projetos/kallistis-book/book_maker/projects/kallistis-manual-do-mundo-reconstrucao.json",
+    "originalProjectSha256": "0272ceb06092b3567abccf04dfda283deb11783b042e1032921f30e63720ff3a"
+  },
+  "legacyReference": {
+    "project": "/home/tonyus-dev/Projetos/kallistis-book/book_maker/projects/kallistis-manual-do-mundo-reconstrucao.json",
+    "implementation": "/home/tonyus-dev/Projetos/kallistis-book/book_maker/scripts/build-p001-p030.mjs",
+    "componentsReused": [
+      "PageRenderer",
+      "PartOpeningTemplate",
+      "ChapterOpeningTemplate",
+      "object-position/objectX",
+      "140x210mm token grid"
+    ],
+    "componentsAdapted": [
+      "image-top sizing",
+      "image-side composition",
+      "front matter dedication anchoring",
+      "timeline milestone rhythm",
+      "shared editorial image pair metadata"
+    ]
+  },
+  "visualGate": {
+    "passed": true,
+    "semanticCorrectness": true,
+    "compositionFamiliesUsed": 15,
+    "minimumCompositionFamilies": 3,
+    "cadenceSoft": true,
+    "justification": null
+  },
+  "cover": {
+    "asset": "/assets/cover/kallistis-capa-aprovada-final.png",
+    "sha256": "cd8d9a1e89bec18fd66ab3fe1a73843a6221db688cc51dd622c5c55f3ef88511",
+    "approved": true
+  },
+  "toc": {
+    "pages": 4,
+    "entries": 128,
+    "derivedFrom": "H1/H2 materialized source blocks"
+  },
+  "characterSheet": {
+    "status": "PENDING_BY_USER",
+    "pages": 0,
+    "assets": "PENDING",
+    "rawContractExported": false
+  },
+  "warnings": [
+    "PROJECTED_BOOK_PAGES_WARNING",
+    "BODY_IMAGE_CADENCE_SOFT_WARNING"
+  ],
+  "diagnostics": {
+    "TOTAL_PAGES": 394,
+    "TEXT_ONLY_PAGES": 264,
+    "TOTAL_WORDS_SCOPE": 85972,
+    "BODY_TEXT_PAGES": 255,
+    "BODY_WORDS_PER_PAGE_MEAN": 244.1,
+    "BODY_WORDS_PER_PAGE_MEDIAN": 262,
+    "PAGES_WITH_IMAGES": 130,
+    "PAGES_WITH_TABLES": 133,
+    "PAGES_WITH_MAPS": 3,
+    "PAGES_WITH_REVIEW_FLAGS": 0,
+    "EDITORIAL_FAMILY_COUNTS": {
+      "TITLE_PAGE": 1,
+      "COPYRIGHT_EXPEDIENTE": 1,
+      "DEDICATION": 1,
+      "INTRODUCTION": 1,
+      "PART_OPENING": 6,
+      "NARRATIVE": 379
+    },
+    "TITLE_PAGE_PAGES": 1,
+    "COPYRIGHT_EXPEDIENTE_PAGES": 1,
+    "DEDICATION_PAGES": 1,
+    "INTRODUCTION_PAGES": 1,
+    "PART_OPENING_PAGES": 6,
+    "NARRATIVE_PAGES": 379,
+    "GENERIC_NARRATIVE_DEFAULT_PAGES": 63,
+    "PART_HERO_PAGES": 6,
+    "IMAGE_TOP_PAGES": 17,
+    "SIDE_ART_PAGES": 2,
+    "SIDE_ART_PAIR_PAGES": 12,
+    "TEXT_FLOW_PAGES": 63,
+    "TEXT_FEATURE_PAGES": 5,
+    "TIMELINE_MILESTONE_PAGES": 8,
+    "COMPOSITION_FAMILY_COUNTS": {
+      "PART_HERO": 6,
+      "IMAGE_TOP": 17,
+      "SIDE_ART_LEFT": 0,
+      "SIDE_ART_RIGHT": 2,
+      "SIDE_ART_PAIR": 12,
+      "MAP_PAGE": 2,
+      "MAP_SPREAD": 0,
+      "GEOGRAPHY_OPENING": 4,
+      "POVO_OPENING": 9,
+      "OFICIO_CULTURAL_OPENING": 9,
+      "BESTIARY_ENTRY": 17,
+      "PEDRALMA_OPENING": 2,
+      "GEOGRAPHY_FLOW": 31,
+      "CULTURE_FLOW": 70,
+      "TEXT_FLOW": 63,
+      "TEXT_FEATURE": 5,
+      "TIMELINE_MILESTONE": 8
+    },
+    "FUTURE_PRODUCT_ROLE_COUNTS": {
+      "CORE": 0,
+      "GM_CANDIDATE": 0,
+      "PLAYER_REFERENCE": 0,
+      "UNDECIDED": 0
+    },
+    "IMAGE_INTERVAL_MEAN": 3,
+    "IMAGE_INTERVAL_MEDIAN": 3,
+    "BODY_IMAGE_INTERVAL_MEAN": 3.05,
+    "BODY_IMAGE_INTERVAL_MEDIAN": 3,
+    "FIRST_IMAGE_PAGE": 1,
+    "LAST_IMAGE_PAGE": 393,
+    "TRAILING_TEXT_PAGES": 1,
+    "TEXT_RUNS": [
+      {
+        "startPage": 2,
+        "endPage": 5,
+        "length": 4
+      },
+      {
+        "startPage": 8,
+        "endPage": 8,
+        "length": 1
+      },
+      {
+        "startPage": 10,
+        "endPage": 10,
+        "length": 1
+      },
+      {
+        "startPage": 17,
+        "endPage": 17,
+        "length": 1
+      },
+      {
+        "startPage": 22,
+        "endPage": 23,
+        "length": 2
+      },
+      {
+        "startPage": 26,
+        "endPage": 29,
+        "length": 4
+      },
+      {
+        "startPage": 32,
+        "endPage": 35,
+        "length": 4
+      },
+      {
+        "startPage": 39,
+        "endPage": 39,
+        "length": 1
+      },
+      {
+        "startPage": 45,
+        "endPage": 45,
+        "length": 1
+      },
+      {
+        "startPage": 54,
+        "endPage": 54,
+        "length": 1
+      },
+      {
+        "startPage": 56,
+        "endPage": 57,
+        "length": 2
+      },
+      {
+        "startPage": 61,
+        "endPage": 62,
+        "length": 2
+      },
+      {
+        "startPage": 65,
+        "endPage": 65,
+        "length": 1
+      },
+      {
+        "startPage": 70,
+        "endPage": 70,
+        "length": 1
+      },
+      {
+        "startPage": 86,
+        "endPage": 87,
+        "length": 2
+      },
+      {
+        "startPage": 89,
+        "endPage": 89,
+        "length": 1
+      },
+      {
+        "startPage": 91,
+        "endPage": 92,
+        "length": 2
+      },
+      {
+        "startPage": 95,
+        "endPage": 95,
+        "length": 1
+      },
+      {
+        "startPage": 97,
+        "endPage": 99,
+        "length": 3
+      },
+      {
+        "startPage": 101,
+        "endPage": 102,
+        "length": 2
+      },
+      {
+        "startPage": 104,
+        "endPage": 106,
+        "length": 3
+      },
+      {
+        "startPage": 108,
+        "endPage": 109,
+        "length": 2
+      },
+      {
+        "startPage": 111,
+        "endPage": 113,
+        "length": 3
+      },
+      {
+        "startPage": 115,
+        "endPage": 116,
+        "length": 2
+      },
+      {
+        "startPage": 118,
+        "endPage": 119,
+        "length": 2
+      },
+      {
+        "startPage": 121,
+        "endPage": 122,
+        "length": 2
+      },
+      {
+        "startPage": 124,
+        "endPage": 126,
+        "length": 3
+      },
+      {
+        "startPage": 128,
+        "endPage": 129,
+        "length": 2
+      },
+      {
+        "startPage": 132,
+        "endPage": 135,
+        "length": 4
+      },
+      {
+        "startPage": 137,
+        "endPage": 138,
+        "length": 2
+      },
+      {
+        "startPage": 140,
+        "endPage": 141,
+        "length": 2
+      },
+      {
+        "startPage": 143,
+        "endPage": 144,
+        "length": 2
+      },
+      {
+        "startPage": 146,
+        "endPage": 147,
+        "length": 2
+      },
+      {
+        "startPage": 149,
+        "endPage": 151,
+        "length": 3
+      },
+      {
+        "startPage": 153,
+        "endPage": 154,
+        "length": 2
+      },
+      {
+        "startPage": 156,
+        "endPage": 157,
+        "length": 2
+      },
+      {
+        "startPage": 159,
+        "endPage": 160,
+        "length": 2
+      },
+      {
+        "startPage": 165,
+        "endPage": 165,
+        "length": 1
+      },
+      {
+        "startPage": 168,
+        "endPage": 169,
+        "length": 2
+      },
+      {
+        "startPage": 172,
+        "endPage": 181,
+        "length": 10
+      },
+      {
+        "startPage": 183,
+        "endPage": 186,
+        "length": 4
+      },
+      {
+        "startPage": 188,
+        "endPage": 192,
+        "length": 5
+      },
+      {
+        "startPage": 194,
+        "endPage": 194,
+        "length": 1
+      },
+      {
+        "startPage": 199,
+        "endPage": 230,
+        "length": 32
+      },
+      {
+        "startPage": 233,
+        "endPage": 245,
+        "length": 13
+      },
+      {
+        "startPage": 247,
+        "endPage": 253,
+        "length": 7
+      },
+      {
+        "startPage": 255,
+        "endPage": 261,
+        "length": 7
+      },
+      {
+        "startPage": 264,
+        "endPage": 264,
+        "length": 1
+      },
+      {
+        "startPage": 266,
+        "endPage": 283,
+        "length": 18
+      },
+      {
+        "startPage": 285,
+        "endPage": 286,
+        "length": 2
+      },
+      {
+        "startPage": 288,
+        "endPage": 288,
+        "length": 1
+      },
+      {
+        "startPage": 291,
+        "endPage": 294,
+        "length": 4
+      },
+      {
+        "startPage": 297,
+        "endPage": 300,
+        "length": 4
+      },
+      {
+        "startPage": 302,
+        "endPage": 309,
+        "length": 8
+      },
+      {
+        "startPage": 311,
+        "endPage": 311,
+        "length": 1
+      },
+      {
+        "startPage": 315,
+        "endPage": 323,
+        "length": 9
+      },
+      {
+        "startPage": 325,
+        "endPage": 328,
+        "length": 4
+      },
+      {
+        "startPage": 330,
+        "endPage": 358,
+        "length": 29
+      },
+      {
+        "startPage": 360,
+        "endPage": 360,
+        "length": 1
+      },
+      {
+        "startPage": 364,
+        "endPage": 364,
+        "length": 1
+      },
+      {
+        "startPage": 368,
+        "endPage": 372,
+        "length": 5
+      },
+      {
+        "startPage": 377,
+        "endPage": 392,
+        "length": 16
+      },
+      {
+        "startPage": 394,
+        "endPage": 394,
+        "length": 1
+      }
+    ],
+    "BODY_TEXT_RUNS": [
+      {
+        "startPage": 17,
+        "endPage": 17,
+        "length": 1
+      },
+      {
+        "startPage": 22,
+        "endPage": 23,
+        "length": 2
+      },
+      {
+        "startPage": 26,
+        "endPage": 29,
+        "length": 4
+      },
+      {
+        "startPage": 32,
+        "endPage": 35,
+        "length": 4
+      },
+      {
+        "startPage": 39,
+        "endPage": 39,
+        "length": 1
+      },
+      {
+        "startPage": 45,
+        "endPage": 45,
+        "length": 1
+      },
+      {
+        "startPage": 54,
+        "endPage": 54,
+        "length": 1
+      },
+      {
+        "startPage": 56,
+        "endPage": 57,
+        "length": 2
+      },
+      {
+        "startPage": 61,
+        "endPage": 62,
+        "length": 2
+      },
+      {
+        "startPage": 65,
+        "endPage": 65,
+        "length": 1
+      },
+      {
+        "startPage": 70,
+        "endPage": 70,
+        "length": 1
+      },
+      {
+        "startPage": 86,
+        "endPage": 87,
+        "length": 2
+      },
+      {
+        "startPage": 89,
+        "endPage": 89,
+        "length": 1
+      },
+      {
+        "startPage": 91,
+        "endPage": 92,
+        "length": 2
+      },
+      {
+        "startPage": 95,
+        "endPage": 95,
+        "length": 1
+      },
+      {
+        "startPage": 97,
+        "endPage": 99,
+        "length": 3
+      },
+      {
+        "startPage": 101,
+        "endPage": 102,
+        "length": 2
+      },
+      {
+        "startPage": 104,
+        "endPage": 106,
+        "length": 3
+      },
+      {
+        "startPage": 108,
+        "endPage": 109,
+        "length": 2
+      },
+      {
+        "startPage": 111,
+        "endPage": 113,
+        "length": 3
+      },
+      {
+        "startPage": 115,
+        "endPage": 116,
+        "length": 2
+      },
+      {
+        "startPage": 118,
+        "endPage": 119,
+        "length": 2
+      },
+      {
+        "startPage": 121,
+        "endPage": 122,
+        "length": 2
+      },
+      {
+        "startPage": 124,
+        "endPage": 126,
+        "length": 3
+      },
+      {
+        "startPage": 128,
+        "endPage": 129,
+        "length": 2
+      },
+      {
+        "startPage": 132,
+        "endPage": 135,
+        "length": 4
+      },
+      {
+        "startPage": 137,
+        "endPage": 138,
+        "length": 2
+      },
+      {
+        "startPage": 140,
+        "endPage": 141,
+        "length": 2
+      },
+      {
+        "startPage": 143,
+        "endPage": 144,
+        "length": 2
+      },
+      {
+        "startPage": 146,
+        "endPage": 147,
+        "length": 2
+      },
+      {
+        "startPage": 149,
+        "endPage": 151,
+        "length": 3
+      },
+      {
+        "startPage": 153,
+        "endPage": 154,
+        "length": 2
+      },
+      {
+        "startPage": 156,
+        "endPage": 157,
+        "length": 2
+      },
+      {
+        "startPage": 159,
+        "endPage": 160,
+        "length": 2
+      },
+      {
+        "startPage": 165,
+        "endPage": 165,
+        "length": 1
+      },
+      {
+        "startPage": 168,
+        "endPage": 169,
+        "length": 2
+      },
+      {
+        "startPage": 172,
+        "endPage": 181,
+        "length": 10
+      },
+      {
+        "startPage": 183,
+        "endPage": 186,
+        "length": 4
+      },
+      {
+        "startPage": 188,
+        "endPage": 192,
+        "length": 5
+      },
+      {
+        "startPage": 194,
+        "endPage": 194,
+        "length": 1
+      },
+      {
+        "startPage": 199,
+        "endPage": 230,
+        "length": 32
+      },
+      {
+        "startPage": 233,
+        "endPage": 245,
+        "length": 13
+      },
+      {
+        "startPage": 247,
+        "endPage": 253,
+        "length": 7
+      },
+      {
+        "startPage": 255,
+        "endPage": 261,
+        "length": 7
+      },
+      {
+        "startPage": 264,
+        "endPage": 264,
+        "length": 1
+      },
+      {
+        "startPage": 266,
+        "endPage": 283,
+        "length": 18
+      },
+      {
+        "startPage": 285,
+        "endPage": 286,
+        "length": 2
+      },
+      {
+        "startPage": 288,
+        "endPage": 288,
+        "length": 1
+      },
+      {
+        "startPage": 291,
+        "endPage": 294,
+        "length": 4
+      },
+      {
+        "startPage": 297,
+        "endPage": 300,
+        "length": 4
+      },
+      {
+        "startPage": 302,
+        "endPage": 309,
+        "length": 8
+      },
+      {
+        "startPage": 311,
+        "endPage": 311,
+        "length": 1
+      },
+      {
+        "startPage": 315,
+        "endPage": 323,
+        "length": 9
+      },
+      {
+        "startPage": 325,
+        "endPage": 328,
+        "length": 4
+      },
+      {
+        "startPage": 330,
+        "endPage": 358,
+        "length": 29
+      },
+      {
+        "startPage": 360,
+        "endPage": 360,
+        "length": 1
+      },
+      {
+        "startPage": 364,
+        "endPage": 364,
+        "length": 1
+      },
+      {
+        "startPage": 368,
+        "endPage": 372,
+        "length": 5
+      },
+      {
+        "startPage": 377,
+        "endPage": 392,
+        "length": 16
+      },
+      {
+        "startPage": 394,
+        "endPage": 394,
+        "length": 1
+      }
+    ],
+    "MAX_CONSECUTIVE_TEXT_PAGES": 32,
+    "BODY_MAX_CONSECUTIVE_TEXT_PAGES": 32,
+    "WORDS_PER_TEXT_PAGE_MEAN": 244.1,
+    "WORDS_PER_TEXT_PAGE_MEDIAN": 262,
+    "PAGE_FILL_MEAN": 0.8877,
+    "UNDERFILLED_PAGES_LT_60_PERCENT": 33,
+    "OVERFLOW_PAGES": 0,
+    "UNUSED_VALID_HISTORY_ASSETS": [
+      "O Grande Cristal — Antes Que Houvesse Dois Mundos",
+      "PARTE IV — MEMÓRIA, PEDR’ALMA E FÉ",
+      "O Mapa em Duas Camadas",
+      "Tensões Regionais: Aelvari, Kragor, Draken e Nomos",
+      "AELVARI",
+      "KRAGOR",
+      "DRAKEN",
+      "NOMOS",
+      "LIVRES",
+      "DÓREOS",
+      "TERIANTES",
+      "VITRÁLIOS",
+      "PARTE VI — JOGANDO KALLISTIS",
+      "PARTE VII — CONDUZINDO KALLISTIS",
+      "Guardião",
+      "Duelista",
+      "Atirador",
+      "Tecelão",
+      "Curador",
+      "Evocador",
+      "Artífice",
+      "Batedor",
+      "Bestiário do Cristal Partido",
+      "Leviatã dos Veios",
+      "Devorador Psíquico Cefalóide",
+      "Autômato de Ponte Descontrolado",
+      "Observadores — quando perceber se torna anatomia",
+      "Observadores — quando perceber se torna anatomia",
+      "Observadores — quando perceber se torna anatomia",
+      "Observadores — quando perceber se torna anatomia",
+      "Observadores — quando perceber se torna anatomia",
+      "Guardiões, presenças e assombrações de matriz brasileira",
+      "Guardiões, presenças e assombrações de matriz brasileira",
+      "Guardiões, presenças e assombrações de matriz brasileira",
+      "Guardiões, presenças e assombrações de matriz brasileira",
+      "Guardiões, presenças e assombrações de matriz brasileira",
+      "Guardiões, presenças e assombrações de matriz brasileira",
+      "Guardiões, presenças e assombrações de matriz brasileira",
+      "Guardiões, presenças e assombrações de matriz brasileira",
+      "MANUAL DO MUNDO",
+      "O Grande Cristal — Antes Que Houvesse Dois Mundos",
+      "Tensões Regionais: Aelvari, Kragor, Draken e Nomos",
+      "ESCALA E CONSTRUÇÃO DE ENCONTROS"
+    ],
+    "IMAGES_USED": [
+      {
+        "heading": "Prólogo — A velha e a Fresta",
+        "sha256": "e1db36db28c181e1e6bfc19b3a6cf9f558925ffb5b4457c1cb049f35de84e695"
+      },
+      {
+        "heading": "PARTE I — O MUNDO PARTIDO",
+        "sha256": "403c9be0f92c8e129dbd69afad68d6ab6ac634e12450cd5bc9a5230059d2ef1b"
+      },
+      {
+        "heading": "Manesh — O Mundo da Luz",
+        "sha256": "1e618ac5136cd5a612e107134a8bb3e60a309049e18ad03e9e7fc72037c5312b"
+      },
+      {
+        "heading": "Thuvel — O Mundo da Escuridão",
+        "sha256": "5884f64463aa603cb8add0cdae1dee98f6c1d0af28446dada86a463d27a4802b"
+      },
+      {
+        "heading": "Luz, Escuridão e Sombra",
+        "sha256": "5edb45520acced383e4e2cfdabf04842d2ec7be4fe71d211205c32a542516d1b"
+      },
+      {
+        "heading": "Mirveth — Uma Pessoa Inteira",
+        "sha256": "dcd05a2690dea84f54012cfc247b27f55511dffa270531eefa5a5ab358eb15bf"
+      },
+      {
+        "heading": "Vethari — Relação Sem Apagamento",
+        "sha256": "6f860801931a72cc3391bba87398bf8cae5003ff66a266729cf8d51e7a58cbd0"
+      },
+      {
+        "heading": "Pedr’alma",
+        "sha256": "d300db9458c83144403fb6e628b77eb19854ffbffde3d4315247d8175161c4d2"
+      },
+      {
+        "heading": "Lar · Cidade · Companhia",
+        "sha256": "685cf35083aad7d4cd7c487a957f77991f7149f645bc25e52727704343e84b35"
+      },
+      {
+        "heading": "História do Mundo Partido",
+        "sha256": "38cbbd6b7bc1482595125b67d0c436ea87b1791ca1c7e7ebd3f6ff60def8c362"
+      },
+      {
+        "heading": "A escrita contínua",
+        "sha256": "9d5ba02324170b5c62d5d1c97014fe382a69d20ad215743606b7ac08adcf4365"
+      },
+      {
+        "heading": "As primeiras frestas controladas",
+        "sha256": "3bc9478999faa5847675f6965caf3111dbb5eebbe90327875e93ae52445fd55c"
+      },
+      {
+        "heading": "Kethrell e a doutrina da recomposição",
+        "sha256": "5b1ff7223133b71e6309363fb7dbddfdf54e19c63596989455b1aaaa86a658f2"
+      },
+      {
+        "heading": "Os Outros",
+        "sha256": "a0576c36225a182e39d4707724c306669f2bb8344a3c04a45895645931d228ed"
+      },
+      {
+        "heading": "Daeren",
+        "sha256": "3e1c215951a49b6cd3134da80764c34ed25e7cd0e7ec3fe984f843bdc123f3f8"
+      },
+      {
+        "heading": "A profecia de Thaeraen",
+        "sha256": "4af9ac8918226535592b2d562d4c36cf62bb5ae77c648bfabfb8318ce6d3d161"
+      },
+      {
+        "heading": "PARTE II — O CINTURÃO DAS FRESTAS",
+        "sha256": "6cf699142641d2055e9f2795e9dbbc948e3f36fa23c60d723accf954a8d53473"
+      },
+      {
+        "heading": "PARTE III — POVOS, COMUNIDADES E CAMINHOS",
+        "sha256": "963acd32953691bb3415ceaf1b3bdfe94d04fb95f5dd448df1366d1269e0584e"
+      },
+      {
+        "heading": "A Fenda de Kethrell",
+        "sha256": "d76f091db2c482bc1815b3265334406c2bc0edcb92acc854529eb1f8e042c58f"
+      },
+      {
+        "heading": "Geografia da Luz: Planalto de Silmari",
+        "sha256": "99eeae0d3b10229d0eed45b01d535164f7935cc885539eecc70dfea5de32b885"
+      },
+      {
+        "heading": "Geografia da Escuridão: Vale de Thur-Daer",
+        "sha256": "9800bb4437b65b311db8d160ebf07d88efabfadfc83450e6a0421289857bab33"
+      },
+      {
+        "heading": "Rotas Oficiais",
+        "sha256": "a77fe74196e4b4a919c4967e5a095cf1137ee54254050ef5194ea42d6cab003e"
+      },
+      {
+        "heading": "Rotas Clandestinas e Comércio",
+        "sha256": "913c9bd89ab9d50de1cac78ec572b0503ec1cae901ffed27c7985497cf8f954d"
+      },
+      {
+        "heading": "O Estado Político Atual",
+        "sha256": "59c58b32ecc54aea86f4a124186d407e9fe4a0bb28a612d01fb78a22a13d726b"
+      },
+      {
+        "heading": "NIMARI",
+        "sha256": "b419d2d44da95ca8657e6a1e3f37c137e32ccd0cfff8df02e82c82e8d8bd9ca7"
+      },
+      {
+        "heading": "OITO MANEIRAS DE ESCOLHER",
+        "sha256": "cc91c31596276e5986f84f05a6268382c4627da52d93850e1add2e860a2ff6c6"
+      },
+      {
+        "heading": "Definição cultural de Pedr’alma",
+        "sha256": "92ef5b4f76a8253dbbc34a35d0a903597167b80e060c55b28fe2ad35c653c6c1"
+      },
+      {
+        "heading": "Pedra, símbolo e identidade",
+        "sha256": "d300db9458c83144403fb6e628b77eb19854ffbffde3d4315247d8175161c4d2"
+      },
+      {
+        "heading": "Pedr’almas familiares",
+        "sha256": "685cf35083aad7d4cd7c487a957f77991f7149f645bc25e52727704343e84b35"
+      },
+      {
+        "heading": "Pedr’almas de companhia",
+        "sha256": "39c991c5d4512515a10f41b2f803b0c190d3c58453883583513c6bcc8e8f8e4b"
+      },
+      {
+        "heading": "A pergunta que atravessa a passagem",
+        "sha256": "528329ec8fe80fb1ba7698f2f981f3e0447e707799d6964ce9cfce0b4b5eb100"
+      },
+      {
+        "heading": "PARTE V — VELARIM",
+        "sha256": "d6a4a389c6d9978e498994cce94b9925f0fe837e0f9e1b0c76314b028f19a58e"
+      },
+      {
+        "heading": "O QUE É VELARIM",
+        "sha256": "d6a4a389c6d9978e498994cce94b9925f0fe837e0f9e1b0c76314b028f19a58e"
+      },
+      {
+        "heading": "Pedr’alma no uso de Velarim",
+        "sha256": "39c991c5d4512515a10f41b2f803b0c190d3c58453883583513c6bcc8e8f8e4b"
+      },
+      {
+        "heading": "Bestiário do Cristal Partido",
+        "sha256": "9b2ca02ba60b3ae546b9e58d07c099794fd5f2dda7eb7e468195d310cadf9e35"
+      },
+      {
+        "heading": "Drakos — a forma dracônica que não é Povo",
+        "sha256": "aecb1b840849f07201a12ec6ccef15338b64782118432d544b46bd98a5782500"
+      },
+      {
+        "heading": "Dragão Cristalino Colossal",
+        "sha256": "e85da577e91287647e97e2dbd00b3e54e0286c84baf9478e71e2f494764eb796"
+      },
+      {
+        "heading": "Tartaruga-Fortaleza",
+        "sha256": "6f46eb97e78fc9adf637a069ee2e66fdfad22faf93726f72d0b743c6fa3a08d8"
+      },
+      {
+        "heading": "Leviatã dos Veios",
+        "sha256": "e3fd4744e03d67c218f059f8fdab2a5ac568b8214fea95dd43cfd339acd606e6"
+      },
+      {
+        "heading": "Árvore-Mãe Errante",
+        "sha256": "cb023b49e19ac3d612e0fc86fa10fa2dc33be06cea94d13e602ffe4579316420"
+      },
+      {
+        "heading": "Estilhaço Vitrálio Instável",
+        "sha256": "07f9124754874628aed8d557db31108627ff467131b54b1e211c606f41c8495f"
+      },
+      {
+        "heading": "Corvo de Fresta",
+        "sha256": "a688afcd178175d4a400d5da15faf235ad36f578c1102e07666e0cd937cb9d1d"
+      },
+      {
+        "heading": "Filhote de Tormenta",
+        "sha256": "0a96681692e4c8a671ad514567a046d5d36345526443541fb8b3f6856789649f"
+      },
+      {
+        "heading": "Autômato de Ponte Descontrolado",
+        "sha256": "1cfec7343790bd24f036324fab00a9ba7eaecdb208c302809c16670eb5728813"
+      },
+      {
+        "heading": "Eco Corrompido",
+        "sha256": "77c23e25c9e6fecae4f614a6b1a7e8c52aa067c7fa65b478a46ee8e3dfc1f8b0"
+      },
+      {
+        "heading": "Serpente do Leito Escrito",
+        "sha256": "f7c8227efb65d92066179a34382e8501a56785d8cfc326e9628bba8bde828cb3"
+      },
+      {
+        "heading": "Cão-Leão das Brasas Errantes",
+        "sha256": "e3a2d9e714c732911783422405c50c0b18ae0589ae70004ad8cde4a7f300d861"
+      },
+      {
+        "heading": "Pato de Pressão Ressonante",
+        "sha256": "019af1d209c97999b979efdc1f55621fc9515623a86866f86eb0ee7ffc6d2e6c"
+      },
+      {
+        "heading": "Roedor dos Veios Fulminantes",
+        "sha256": "781901a8b18f6cbb8ee2602f3d63e2061dba764f5f28f1e44a2470f67e340f61"
+      },
+      {
+        "heading": "Devorador Psíquico Cefalóide",
+        "sha256": "88cf1901d052fe61f09a4bb1a1c70c0b25f5c306d0cfdec90bbb743161f5b838"
+      },
+      {
+        "heading": "Guardião",
+        "sha256": "3ade014e079c5ac6e31851a002986adc7052b041ee6f1ed7ac0df3c8201af9eb"
+      },
+      {
+        "heading": "Duelista",
+        "sha256": "cc91c31596276e5986f84f05a6268382c4627da52d93850e1add2e860a2ff6c6"
+      },
+      {
+        "heading": "Atirador",
+        "sha256": "fb9862098d3d3b404eef3ac5dc156ae8b03121340cd2a74c6efda4a1319badf1"
+      },
+      {
+        "heading": "Tecelão",
+        "sha256": "25d04251a03b61699eac808ee6255a77be8de6d56a6edfe0e9aa5695c79857df"
+      },
+      {
+        "heading": "Curador",
+        "sha256": "90dc653b9a224d2b77bc06e3ec29e0d4e3ea381b2497e59c8e78cba311abf307"
+      },
+      {
+        "heading": "Evocador",
+        "sha256": "9b091877794b4d0e2d701cb6a744871387a53d0726a99ec462020ca81ee5b9f5"
+      },
+      {
+        "heading": "Artífice",
+        "sha256": "8cb70416d2c77829d258f75724febbf787605df0f0e89cb6665609c810c0a6a2"
+      },
+      {
+        "heading": "Batedor",
+        "sha256": "a6060bfcb22cb362f3f4fda523f5d85e5f47576c474bdfc1a327891393776769"
+      },
+      {
+        "heading": "COMBATE E GRADE ORTOGONAL",
+        "sha256": "0f4714f9de4741b40a54980f29bf0e1014a2558ba515565c3257eb47c3893ab3"
+      },
+      {
+        "heading": "Rodada",
+        "sha256": "0839deb188f3d040a5b56b7439a7ac975dd17bbd7f1cdefe37c5d4e9041bd4f4"
+      },
+      {
+        "heading": "Dano e potência",
+        "sha256": "9e4d98ca888057fa663d80e50cd4ed9b0dffa362924178a029d6c2fa28418cf4"
+      },
+      {
+        "heading": "APÊNDICES",
+        "sha256": "c2d881b645501b8344e59efa461df8f6f1f37208ab9b48ab767d33c3f284f7b3"
+      },
+      {
+        "heading": "AELVARI",
+        "sha256": "3222c48689598013b0113bc84a6713fabe9a025919f3cf81eea7a69e116239d6"
+      },
+      {
+        "heading": "KRAGOR",
+        "sha256": "20e93c280243a1e5e886531ecb6456d27c42ae2752184c233ec0b32e0df4b11a"
+      },
+      {
+        "heading": "DRAKEN",
+        "sha256": "6819d70e2b47050c82c4c251bff77f4008f92050d5d812e8abe8a71d0f6fc710"
+      },
+      {
+        "heading": "NOMOS",
+        "sha256": "ad3529b61c94ba630b960b52666a9b5cc80825961924dd1b896e62457dd929bf"
+      },
+      {
+        "heading": "LIVRES",
+        "sha256": "db3498c88e22824facf5b86b661d78392802ec158ad7a48276e4d86e2ae80000"
+      },
+      {
+        "heading": "DÓREOS",
+        "sha256": "5089d586221475b6cb169a4d8419806fc116b69d1cb82bfd1867b97c44e991b5"
+      },
+      {
+        "heading": "TERIANTES",
+        "sha256": "773e44c98b31d47fc0a65dd8d0de7cb6de45d60e9499456dd90dc8802fe0e7e5"
+      },
+      {
+        "heading": "NIMARI",
+        "sha256": "a5440ced0b77947b509cf6acf6ffbc6f4b8830b897fd23efdf2a01a0d27af6ff"
+      },
+      {
+        "heading": "VITRÁLIOS",
+        "sha256": "703d714b7588b2504f89886d064ae37139e818954c6c5ee96fa93540e648ce51"
+      },
+      {
+        "heading": "Dragão Cristalino Colossal",
+        "sha256": "e85da577e91287647e97e2dbd00b3e54e0286c84baf9478e71e2f494764eb796"
+      },
+      {
+        "heading": "Leviatã dos Veios",
+        "sha256": "6d69946a93911849a6e6daaf8f2d40b669f6a244ab0a2391c8ef1ebf8efe4c17"
+      },
+      {
+        "heading": "Árvore-Mãe Errante",
+        "sha256": "cb023b49e19ac3d612e0fc86fa10fa2dc33be06cea94d13e602ffe4579316420"
+      },
+      {
+        "heading": "Drakos — a forma dracônica que não é Povo",
+        "sha256": "461bb8c2579170eb5b61be2b2daaad99ad67be44b1ef79c8c26827d89a431669"
+      },
+      {
+        "heading": "Distribuição dos Povos",
+        "sha256": "963acd32953691bb3415ceaf1b3bdfe94d04fb95f5dd448df1366d1269e0584e"
+      },
+      {
+        "heading": "Nimari",
+        "sha256": "b419d2d44da95ca8657e6a1e3f37c137e32ccd0cfff8df02e82c82e8d8bd9ca7"
+      },
+      {
+        "heading": "Vitrálios",
+        "sha256": "703d714b7588b2504f89886d064ae37139e818954c6c5ee96fa93540e648ce51"
+      },
+      {
+        "heading": "Kelvhen, Yssaneth e Vhurrak",
+        "sha256": "feb73dd8ce62e746a1797d4c65961d954ecfaa756228d9cc052c59f5e4f94361"
+      },
+      {
+        "heading": "Antes que houvesse dois mundos",
+        "sha256": "5d287cb61ee2988c452c0e848a8760eaf923fb561c2cf51fefdc23e38dc22d92"
+      },
+      {
+        "heading": "O Mundo da Luz",
+        "sha256": "acba636f48cf11c08144a03b1c240f0d9dda0c2dab884036479cf1edbb96dad0"
+      },
+      {
+        "heading": "O Mundo da Escuridão",
+        "sha256": "ee09524034dd435e0ee777741e2c06e0fa883e3a182cdbdab413c095a17a0c1e"
+      },
+      {
+        "heading": "O nascimento das sociedades",
+        "sha256": "67527dc2d6c6e92814ddb6223c3cdae0789d06f9f872e4087325698a78ea8497"
+      },
+      {
+        "heading": "O que foi preservado",
+        "sha256": "11e82c67360f9a20df244a78ee045fb1fe25977d732188fc063cb0073971da81"
+      },
+      {
+        "heading": "O que foi perdido",
+        "sha256": "3ee68c808a211a2a2314d7ca177510131a739714ebf547cbcb9a9c7f5bf5e85d"
+      },
+      {
+        "heading": "A descoberta dos nascimentos correspondentes",
+        "sha256": "d76f091db2c482bc1815b3265334406c2bc0edcb92acc854529eb1f8e042c58f"
+      },
+      {
+        "heading": "Os Trocados",
+        "sha256": "c4fb19c76c18376f4110ea0128476c5b0c7ad5761753810c46c24f107fc78153"
+      },
+      {
+        "heading": "Os Lightbringers",
+        "sha256": "66c0dd4c3f006896046401e36faabe7aa09c1d7cfda265f3c342f7ce2522a978"
+      },
+      {
+        "heading": "O presente da campanha",
+        "sha256": "45453b65d345ad8e7c7041a707c2139fab980956f4cf029aa0d91cb0badb9712"
+      },
+      {
+        "heading": "O que está prestes a acontecer",
+        "sha256": "5b060dc3cecafd0c4bdcd1284c29946ab89c81441f08ef624bb0b0ef24dab1dc"
+      },
+      {
+        "heading": "Quatro Fatores de Instabilidade",
+        "sha256": "cea1aa926677465d42e8e9d9f68cc95996fca85a8355c4d4d51fd8a774f428af"
+      },
+      {
+        "heading": "Estados da Fenda",
+        "sha256": "89fbfa2d65c88f5b4275cbdcf7a71ee8e6300a19f61def067b092620c630e2fb"
+      },
+      {
+        "heading": "Bosque dos Ecos",
+        "sha256": "79c232e2ca189cfaa6aa32b05dff20a495808428c5e786a7e7525a0a16d70c1d"
+      },
+      {
+        "heading": "Rio do Leito Escrito",
+        "sha256": "f7c8227efb65d92066179a34382e8501a56785d8cfc326e9628bba8bde828cb3"
+      },
+      {
+        "heading": "Montes do Norte",
+        "sha256": "75b5c900a9434c564e2db6998cf28a43d86b248c3c2e7add7265ea3303c4df62"
+      },
+      {
+        "heading": "Estrada do Quartzo",
+        "sha256": "6761d07bdb5ea3161b97f64a6fbcadca271fa9321b9939361d694d9481b4d6d5"
+      },
+      {
+        "heading": "Krav-Nam",
+        "sha256": "3d5e9b0f770cebffc0b98e4bd8bfcfadbc6541343d79e7fd756cc2fa314e5b37"
+      },
+      {
+        "heading": "Baixio da Névoa Ferida",
+        "sha256": "78a91cdd2394cfaef5cc66a699a575a59fed8c8ffdeb5aa171acee8b23b59215"
+      },
+      {
+        "heading": "Veios do Juramento",
+        "sha256": "5beaeaad355c8e24e11c8d066a5b1920d9fa94e55474c79a924ff08cf9ac1d5b"
+      },
+      {
+        "heading": "Jardins de Memória",
+        "sha256": "180a38acf9d433bf1007f771ac3d847a9a6844b31adfce48394efc706e33b8d4"
+      },
+      {
+        "heading": "Silmari",
+        "sha256": "3aab5f1e53860cf111b12bfe09003f0583545ca7753dc9c884c26d39ec2cc3a3"
+      },
+      {
+        "heading": "Fortaleza de Kravor",
+        "sha256": "ac59ea3830f82d5d691d4a7bdb07112bb9bf08fc8f3f04abae5cac272117456c"
+      },
+      {
+        "heading": "Refúgio dos Outros",
+        "sha256": "ef911ce9af2752d073194cfcc0986fc1c35dca5125c8bd4e535dbdbbff4fc901"
+      },
+      {
+        "heading": "Nimaris",
+        "sha256": "6c6a2e79a6447c55bd9a8c29ec8a52a762a3a1ca9ebc06b41bc5908407adad07"
+      },
+      {
+        "heading": "Thur-Daer",
+        "sha256": "3be48f2a5c75fabb6da01f3c386aa86a277a0391d54a9370a40fbe44130bc374"
+      },
+      {
+        "heading": "Ressonário de Vael",
+        "sha256": "8ba4b57c5643f701d92f749cd6452e4a5be627a186893ab8f6e90f667f1ec35c"
+      },
+      {
+        "heading": "Princípios invioláveis",
+        "sha256": "3b0ebfe781b00e0708818687f6e77614b7f59778f8b272aabf6e6edd7a590774"
+      },
+      {
+        "heading": "Silmain",
+        "sha256": "72d1fb677416ad009e6417ae08a8edce50a25e696c992db688c4baf4dbb0cdd8"
+      },
+      {
+        "heading": "Pedr’alma urbana",
+        "sha256": "3c0d8c440f53782c915405b8c39f80ddb193684fc5caca30927585dafa51bb29"
+      },
+      {
+        "heading": "O que os personagens fazem",
+        "sha256": "6c5ce6686dc9898171d863c76479d0248203c6965d35548a0531c484adbdc80a"
+      },
+      {
+        "heading": "O NÚCLEO DE RESOLUÇÃO",
+        "sha256": "482782ad0bcb66b1ae60fc95f85da03157740cfac232e610d3d3a7ebe22d3caa"
+      },
+      {
+        "heading": "O que é magia",
+        "sha256": "1140ea2d7878a1c0005a01bb2cad093c6f38f2dcd3b1dd20d460e993d96bf8a5"
+      },
+      {
+        "heading": "EVOCAÇÕES",
+        "sha256": "7d2fd551b1babb6128e8a2295dcb62abde0c6757254b569fc8e7de640794ee8c"
+      },
+      {
+        "heading": "FENDAS E TRAVESSIAS",
+        "sha256": "1142ce903651a3e65b2a701b55f0860c22ed4d7c7c873a30081af5538fe49971"
+      },
+      {
+        "heading": "Estrutura de cena",
+        "sha256": "cf9f8d8f53c91ebff1859e66ebed75b185e2c6a5303638496975a12dd70616c4"
+      },
+      {
+        "heading": "Lightbringer",
+        "sha256": "a0576c36225a182e39d4707724c306669f2bb8344a3c04a45895645931d228ed"
+      },
+      {
+        "heading": "Drako de Cristal",
+        "sha256": "461bb8c2579170eb5b61be2b2daaad99ad67be44b1ef79c8c26827d89a431669"
+      },
+      {
+        "heading": "Drako da Brasa Ventral",
+        "sha256": "6205dd61739f478fbeceb072948ab57df31d04ceab45e6d2b4bf8a979dee7965"
+      },
+      {
+        "heading": "Observador Prismático",
+        "sha256": "a970b0170442d49e0e61f908cbf00f90c1ef7cff2eacd877cf6c07b02abbbeba"
+      },
+      {
+        "heading": "Gelatídeo Prismático",
+        "sha256": "976f891e378af69174cec8d103b1a222be9a85d462a4e8f5fd5b8534ecb8c56d"
+      },
+      {
+        "heading": "O Cinturão das Frestas",
+        "sha256": "6cf699142641d2055e9f2795e9dbbc948e3f36fa23c60d723accf954a8d53473"
+      },
+      {
+        "heading": "Hidrografia Canônica: Rio, Lagos e Mar",
+        "sha256": "c919c4525c5ad9b0924661e08450df331699a8e78d5470d55394f869bec75a0a"
+      },
+      {
+        "heading": "Montes do Norte e Estrada do Quartzo",
+        "sha256": "9e8951e7ebe3d04c852c86282869604164f64f7c17c9e6039b883d82b09f4f86"
+      },
+      {
+        "heading": "Krav-Nam e O Baixio da Névoa Ferida",
+        "sha256": "9ba4e27070e61c681a1f425bb3b72a987dfe925c251a464b59e7e122031569ec"
+      },
+      {
+        "heading": "Veios do Juramento e Jardins de Memória",
+        "sha256": "43516f6f24c0bca4ba955a8027cc0b482443974f28acb911296254bb8aa0172c"
+      },
+      {
+        "heading": "Geografia da Luz — Cidades e enclaves",
+        "sha256": "1b776ed1a7c3781b7a99c35144186b06a1bfc89be59134470a4a00c2ed84c367"
+      },
+      {
+        "heading": "Krav-Nam: O Juramento Violado",
+        "sha256": "375e0d33b9b1d37f9cded09ba167b69c674597154127995bb5e521b17f80093d"
+      },
+      {
+        "heading": "Interlúdio — POVO NÃO É DESTINO",
+        "sha256": "21af07a7c7ee95185b8f13eec598bde8b8672eabe20483b2e3ad0f94bdd1bd52"
+      },
+      {
+        "heading": "Voz sem caricatura",
+        "sha256": "de5010d1fbe1caa5c85edcf13a05b1acdd915f18482f37956e9b5caaf3887800"
+      },
+      {
+        "heading": "O que não é determinado",
+        "sha256": "528329ec8fe80fb1ba7698f2f981f3e0447e707799d6964ce9cfce0b4b5eb100"
+      },
+      {
+        "heading": "A Pedr’alma e a definição de lar",
+        "sha256": "92ef5b4f76a8253dbbc34a35d0a903597167b80e060c55b28fe2ad35c653c6c1"
+      },
+      {
+        "heading": "Morte, templos e autoridade",
+        "sha256": "0eca09f8dc7b2f5870a473a53ce70ddc419309f7c78cb0392043df35689e549c"
+      },
+      {
+        "heading": "Som, ortografia e pronúncia",
+        "sha256": "c92d0e7250f4505b9c84b883fb882fe70eef6c7448bb68726c34d8ba68f059a8"
+      },
+      {
+        "heading": "A ambiguidade obrigatória de silmain",
+        "sha256": "9d5ba02324170b5c62d5d1c97014fe382a69d20ad215743606b7ac08adcf4365"
+      },
+      {
+        "heading": "KALLISTIS",
+        "sha256": "31c54d2334da91e7dbcfc1c030509a04577b055cc25eda057d2c54f05dab6ec9"
+      },
+      {
+        "heading": "Expediente",
+        "sha256": "e13a90c6fa9fb0809a715af416f6a9f3afcd531d6e81874077493dfc433b24e2"
+      },
+      {
+        "heading": "O Mapa em Duas Camadas",
+        "sha256": "f895f8161e659c07b67a71e20a3bac6b9452e315654048ecfe0d889c14dfcb80"
+      },
+      {
+        "heading": "Distribuição dos Povos",
+        "sha256": "963acd32953691bb3415ceaf1b3bdfe94d04fb95f5dd448df1366d1269e0584e"
+      },
+      {
+        "heading": "PARTE III — POVOS, OFÍCIOS E COMUNIDADES VIVAS",
+        "sha256": "c2d881b645501b8344e59efa461df8f6f1f37208ab9b48ab767d33c3f284f7b3"
+      },
+      {
+        "heading": "Bestiário do Cristal Partido",
+        "sha256": "9b2ca02ba60b3ae546b9e58d07c099794fd5f2dda7eb7e468195d310cadf9e35"
+      }
+    ],
+    "IMAGES_UNUSED": [
+      "O Grande Cristal — Antes Que Houvesse Dois Mundos",
+      "PARTE IV — MEMÓRIA, PEDR’ALMA E FÉ",
+      "O Mapa em Duas Camadas",
+      "Tensões Regionais: Aelvari, Kragor, Draken e Nomos",
+      "AELVARI",
+      "KRAGOR",
+      "DRAKEN",
+      "NOMOS",
+      "LIVRES",
+      "DÓREOS",
+      "TERIANTES",
+      "VITRÁLIOS",
+      "PARTE VI — JOGANDO KALLISTIS",
+      "PARTE VII — CONDUZINDO KALLISTIS",
+      "Guardião",
+      "Duelista",
+      "Atirador",
+      "Tecelão",
+      "Curador",
+      "Evocador",
+      "Artífice",
+      "Batedor",
+      "Bestiário do Cristal Partido",
+      "Leviatã dos Veios",
+      "Devorador Psíquico Cefalóide",
+      "Autômato de Ponte Descontrolado",
+      "Observadores — quando perceber se torna anatomia",
+      "Observadores — quando perceber se torna anatomia",
+      "Observadores — quando perceber se torna anatomia",
+      "Observadores — quando perceber se torna anatomia",
+      "Observadores — quando perceber se torna anatomia",
+      "Guardiões, presenças e assombrações de matriz brasileira",
+      "Guardiões, presenças e assombrações de matriz brasileira",
+      "Guardiões, presenças e assombrações de matriz brasileira",
+      "Guardiões, presenças e assombrações de matriz brasileira",
+      "Guardiões, presenças e assombrações de matriz brasileira",
+      "Guardiões, presenças e assombrações de matriz brasileira",
+      "Guardiões, presenças e assombrações de matriz brasileira",
+      "Guardiões, presenças e assombrações de matriz brasileira",
+      "MANUAL DO MUNDO",
+      "O Grande Cristal — Antes Que Houvesse Dois Mundos",
+      "Tensões Regionais: Aelvari, Kragor, Draken e Nomos",
+      "ESCALA E CONSTRUÇÃO DE ENCONTROS"
+    ],
+    "USED_HISTORY_ASSETS": [
+      {
+        "heading": "Prólogo — A velha e a Fresta",
+        "sha256": "e1db36db28c181e1e6bfc19b3a6cf9f558925ffb5b4457c1cb049f35de84e695"
+      },
+      {
+        "heading": "PARTE I — O MUNDO PARTIDO",
+        "sha256": "403c9be0f92c8e129dbd69afad68d6ab6ac634e12450cd5bc9a5230059d2ef1b"
+      },
+      {
+        "heading": "Manesh — O Mundo da Luz",
+        "sha256": "1e618ac5136cd5a612e107134a8bb3e60a309049e18ad03e9e7fc72037c5312b"
+      },
+      {
+        "heading": "Thuvel — O Mundo da Escuridão",
+        "sha256": "5884f64463aa603cb8add0cdae1dee98f6c1d0af28446dada86a463d27a4802b"
+      },
+      {
+        "heading": "Luz, Escuridão e Sombra",
+        "sha256": "5edb45520acced383e4e2cfdabf04842d2ec7be4fe71d211205c32a542516d1b"
+      },
+      {
+        "heading": "Mirveth — Uma Pessoa Inteira",
+        "sha256": "dcd05a2690dea84f54012cfc247b27f55511dffa270531eefa5a5ab358eb15bf"
+      },
+      {
+        "heading": "Vethari — Relação Sem Apagamento",
+        "sha256": "6f860801931a72cc3391bba87398bf8cae5003ff66a266729cf8d51e7a58cbd0"
+      },
+      {
+        "heading": "Pedr’alma",
+        "sha256": "d300db9458c83144403fb6e628b77eb19854ffbffde3d4315247d8175161c4d2"
+      },
+      {
+        "heading": "Lar · Cidade · Companhia",
+        "sha256": "685cf35083aad7d4cd7c487a957f77991f7149f645bc25e52727704343e84b35"
+      },
+      {
+        "heading": "História do Mundo Partido",
+        "sha256": "38cbbd6b7bc1482595125b67d0c436ea87b1791ca1c7e7ebd3f6ff60def8c362"
+      },
+      {
+        "heading": "A escrita contínua",
+        "sha256": "9d5ba02324170b5c62d5d1c97014fe382a69d20ad215743606b7ac08adcf4365"
+      },
+      {
+        "heading": "As primeiras frestas controladas",
+        "sha256": "3bc9478999faa5847675f6965caf3111dbb5eebbe90327875e93ae52445fd55c"
+      },
+      {
+        "heading": "Kethrell e a doutrina da recomposição",
+        "sha256": "5b1ff7223133b71e6309363fb7dbddfdf54e19c63596989455b1aaaa86a658f2"
+      },
+      {
+        "heading": "Os Outros",
+        "sha256": "a0576c36225a182e39d4707724c306669f2bb8344a3c04a45895645931d228ed"
+      },
+      {
+        "heading": "Daeren",
+        "sha256": "3e1c215951a49b6cd3134da80764c34ed25e7cd0e7ec3fe984f843bdc123f3f8"
+      },
+      {
+        "heading": "A profecia de Thaeraen",
+        "sha256": "4af9ac8918226535592b2d562d4c36cf62bb5ae77c648bfabfb8318ce6d3d161"
+      },
+      {
+        "heading": "PARTE II — O CINTURÃO DAS FRESTAS",
+        "sha256": "6cf699142641d2055e9f2795e9dbbc948e3f36fa23c60d723accf954a8d53473"
+      },
+      {
+        "heading": "PARTE III — POVOS, COMUNIDADES E CAMINHOS",
+        "sha256": "963acd32953691bb3415ceaf1b3bdfe94d04fb95f5dd448df1366d1269e0584e"
+      },
+      {
+        "heading": "A Fenda de Kethrell",
+        "sha256": "d76f091db2c482bc1815b3265334406c2bc0edcb92acc854529eb1f8e042c58f"
+      },
+      {
+        "heading": "Geografia da Luz: Planalto de Silmari",
+        "sha256": "99eeae0d3b10229d0eed45b01d535164f7935cc885539eecc70dfea5de32b885"
+      },
+      {
+        "heading": "Geografia da Escuridão: Vale de Thur-Daer",
+        "sha256": "9800bb4437b65b311db8d160ebf07d88efabfadfc83450e6a0421289857bab33"
+      },
+      {
+        "heading": "Rotas Oficiais",
+        "sha256": "a77fe74196e4b4a919c4967e5a095cf1137ee54254050ef5194ea42d6cab003e"
+      },
+      {
+        "heading": "Rotas Clandestinas e Comércio",
+        "sha256": "913c9bd89ab9d50de1cac78ec572b0503ec1cae901ffed27c7985497cf8f954d"
+      },
+      {
+        "heading": "O Estado Político Atual",
+        "sha256": "59c58b32ecc54aea86f4a124186d407e9fe4a0bb28a612d01fb78a22a13d726b"
+      },
+      {
+        "heading": "NIMARI",
+        "sha256": "b419d2d44da95ca8657e6a1e3f37c137e32ccd0cfff8df02e82c82e8d8bd9ca7"
+      },
+      {
+        "heading": "OITO MANEIRAS DE ESCOLHER",
+        "sha256": "cc91c31596276e5986f84f05a6268382c4627da52d93850e1add2e860a2ff6c6"
+      },
+      {
+        "heading": "Definição cultural de Pedr’alma",
+        "sha256": "92ef5b4f76a8253dbbc34a35d0a903597167b80e060c55b28fe2ad35c653c6c1"
+      },
+      {
+        "heading": "Pedra, símbolo e identidade",
+        "sha256": "d300db9458c83144403fb6e628b77eb19854ffbffde3d4315247d8175161c4d2"
+      },
+      {
+        "heading": "Pedr’almas familiares",
+        "sha256": "685cf35083aad7d4cd7c487a957f77991f7149f645bc25e52727704343e84b35"
+      },
+      {
+        "heading": "Pedr’almas de companhia",
+        "sha256": "39c991c5d4512515a10f41b2f803b0c190d3c58453883583513c6bcc8e8f8e4b"
+      },
+      {
+        "heading": "A pergunta que atravessa a passagem",
+        "sha256": "528329ec8fe80fb1ba7698f2f981f3e0447e707799d6964ce9cfce0b4b5eb100"
+      },
+      {
+        "heading": "PARTE V — VELARIM",
+        "sha256": "d6a4a389c6d9978e498994cce94b9925f0fe837e0f9e1b0c76314b028f19a58e"
+      },
+      {
+        "heading": "O QUE É VELARIM",
+        "sha256": "d6a4a389c6d9978e498994cce94b9925f0fe837e0f9e1b0c76314b028f19a58e"
+      },
+      {
+        "heading": "Pedr’alma no uso de Velarim",
+        "sha256": "39c991c5d4512515a10f41b2f803b0c190d3c58453883583513c6bcc8e8f8e4b"
+      },
+      {
+        "heading": "Bestiário do Cristal Partido",
+        "sha256": "9b2ca02ba60b3ae546b9e58d07c099794fd5f2dda7eb7e468195d310cadf9e35"
+      },
+      {
+        "heading": "Drakos — a forma dracônica que não é Povo",
+        "sha256": "aecb1b840849f07201a12ec6ccef15338b64782118432d544b46bd98a5782500"
+      },
+      {
+        "heading": "Dragão Cristalino Colossal",
+        "sha256": "e85da577e91287647e97e2dbd00b3e54e0286c84baf9478e71e2f494764eb796"
+      },
+      {
+        "heading": "Tartaruga-Fortaleza",
+        "sha256": "6f46eb97e78fc9adf637a069ee2e66fdfad22faf93726f72d0b743c6fa3a08d8"
+      },
+      {
+        "heading": "Leviatã dos Veios",
+        "sha256": "e3fd4744e03d67c218f059f8fdab2a5ac568b8214fea95dd43cfd339acd606e6"
+      },
+      {
+        "heading": "Árvore-Mãe Errante",
+        "sha256": "cb023b49e19ac3d612e0fc86fa10fa2dc33be06cea94d13e602ffe4579316420"
+      },
+      {
+        "heading": "Estilhaço Vitrálio Instável",
+        "sha256": "07f9124754874628aed8d557db31108627ff467131b54b1e211c606f41c8495f"
+      },
+      {
+        "heading": "Corvo de Fresta",
+        "sha256": "a688afcd178175d4a400d5da15faf235ad36f578c1102e07666e0cd937cb9d1d"
+      },
+      {
+        "heading": "Filhote de Tormenta",
+        "sha256": "0a96681692e4c8a671ad514567a046d5d36345526443541fb8b3f6856789649f"
+      },
+      {
+        "heading": "Autômato de Ponte Descontrolado",
+        "sha256": "1cfec7343790bd24f036324fab00a9ba7eaecdb208c302809c16670eb5728813"
+      },
+      {
+        "heading": "Eco Corrompido",
+        "sha256": "77c23e25c9e6fecae4f614a6b1a7e8c52aa067c7fa65b478a46ee8e3dfc1f8b0"
+      },
+      {
+        "heading": "Serpente do Leito Escrito",
+        "sha256": "f7c8227efb65d92066179a34382e8501a56785d8cfc326e9628bba8bde828cb3"
+      },
+      {
+        "heading": "Cão-Leão das Brasas Errantes",
+        "sha256": "e3a2d9e714c732911783422405c50c0b18ae0589ae70004ad8cde4a7f300d861"
+      },
+      {
+        "heading": "Pato de Pressão Ressonante",
+        "sha256": "019af1d209c97999b979efdc1f55621fc9515623a86866f86eb0ee7ffc6d2e6c"
+      },
+      {
+        "heading": "Roedor dos Veios Fulminantes",
+        "sha256": "781901a8b18f6cbb8ee2602f3d63e2061dba764f5f28f1e44a2470f67e340f61"
+      },
+      {
+        "heading": "Devorador Psíquico Cefalóide",
+        "sha256": "88cf1901d052fe61f09a4bb1a1c70c0b25f5c306d0cfdec90bbb743161f5b838"
+      },
+      {
+        "heading": "Guardião",
+        "sha256": "3ade014e079c5ac6e31851a002986adc7052b041ee6f1ed7ac0df3c8201af9eb"
+      },
+      {
+        "heading": "Duelista",
+        "sha256": "cc91c31596276e5986f84f05a6268382c4627da52d93850e1add2e860a2ff6c6"
+      },
+      {
+        "heading": "Atirador",
+        "sha256": "fb9862098d3d3b404eef3ac5dc156ae8b03121340cd2a74c6efda4a1319badf1"
+      },
+      {
+        "heading": "Tecelão",
+        "sha256": "25d04251a03b61699eac808ee6255a77be8de6d56a6edfe0e9aa5695c79857df"
+      },
+      {
+        "heading": "Curador",
+        "sha256": "90dc653b9a224d2b77bc06e3ec29e0d4e3ea381b2497e59c8e78cba311abf307"
+      },
+      {
+        "heading": "Evocador",
+        "sha256": "9b091877794b4d0e2d701cb6a744871387a53d0726a99ec462020ca81ee5b9f5"
+      },
+      {
+        "heading": "Artífice",
+        "sha256": "8cb70416d2c77829d258f75724febbf787605df0f0e89cb6665609c810c0a6a2"
+      },
+      {
+        "heading": "Batedor",
+        "sha256": "a6060bfcb22cb362f3f4fda523f5d85e5f47576c474bdfc1a327891393776769"
+      },
+      {
+        "heading": "COMBATE E GRADE ORTOGONAL",
+        "sha256": "0f4714f9de4741b40a54980f29bf0e1014a2558ba515565c3257eb47c3893ab3"
+      },
+      {
+        "heading": "Rodada",
+        "sha256": "0839deb188f3d040a5b56b7439a7ac975dd17bbd7f1cdefe37c5d4e9041bd4f4"
+      },
+      {
+        "heading": "Dano e potência",
+        "sha256": "9e4d98ca888057fa663d80e50cd4ed9b0dffa362924178a029d6c2fa28418cf4"
+      },
+      {
+        "heading": "APÊNDICES",
+        "sha256": "c2d881b645501b8344e59efa461df8f6f1f37208ab9b48ab767d33c3f284f7b3"
+      },
+      {
+        "heading": "AELVARI",
+        "sha256": "3222c48689598013b0113bc84a6713fabe9a025919f3cf81eea7a69e116239d6"
+      },
+      {
+        "heading": "KRAGOR",
+        "sha256": "20e93c280243a1e5e886531ecb6456d27c42ae2752184c233ec0b32e0df4b11a"
+      },
+      {
+        "heading": "DRAKEN",
+        "sha256": "6819d70e2b47050c82c4c251bff77f4008f92050d5d812e8abe8a71d0f6fc710"
+      },
+      {
+        "heading": "NOMOS",
+        "sha256": "ad3529b61c94ba630b960b52666a9b5cc80825961924dd1b896e62457dd929bf"
+      },
+      {
+        "heading": "LIVRES",
+        "sha256": "db3498c88e22824facf5b86b661d78392802ec158ad7a48276e4d86e2ae80000"
+      },
+      {
+        "heading": "DÓREOS",
+        "sha256": "5089d586221475b6cb169a4d8419806fc116b69d1cb82bfd1867b97c44e991b5"
+      },
+      {
+        "heading": "TERIANTES",
+        "sha256": "773e44c98b31d47fc0a65dd8d0de7cb6de45d60e9499456dd90dc8802fe0e7e5"
+      },
+      {
+        "heading": "NIMARI",
+        "sha256": "a5440ced0b77947b509cf6acf6ffbc6f4b8830b897fd23efdf2a01a0d27af6ff"
+      },
+      {
+        "heading": "VITRÁLIOS",
+        "sha256": "703d714b7588b2504f89886d064ae37139e818954c6c5ee96fa93540e648ce51"
+      },
+      {
+        "heading": "Dragão Cristalino Colossal",
+        "sha256": "e85da577e91287647e97e2dbd00b3e54e0286c84baf9478e71e2f494764eb796"
+      },
+      {
+        "heading": "Leviatã dos Veios",
+        "sha256": "6d69946a93911849a6e6daaf8f2d40b669f6a244ab0a2391c8ef1ebf8efe4c17"
+      },
+      {
+        "heading": "Árvore-Mãe Errante",
+        "sha256": "cb023b49e19ac3d612e0fc86fa10fa2dc33be06cea94d13e602ffe4579316420"
+      },
+      {
+        "heading": "Drakos — a forma dracônica que não é Povo",
+        "sha256": "461bb8c2579170eb5b61be2b2daaad99ad67be44b1ef79c8c26827d89a431669"
+      },
+      {
+        "heading": "Distribuição dos Povos",
+        "sha256": "963acd32953691bb3415ceaf1b3bdfe94d04fb95f5dd448df1366d1269e0584e"
+      },
+      {
+        "heading": "Nimari",
+        "sha256": "b419d2d44da95ca8657e6a1e3f37c137e32ccd0cfff8df02e82c82e8d8bd9ca7"
+      },
+      {
+        "heading": "Vitrálios",
+        "sha256": "703d714b7588b2504f89886d064ae37139e818954c6c5ee96fa93540e648ce51"
+      },
+      {
+        "heading": "Kelvhen, Yssaneth e Vhurrak",
+        "sha256": "feb73dd8ce62e746a1797d4c65961d954ecfaa756228d9cc052c59f5e4f94361"
+      },
+      {
+        "heading": "Antes que houvesse dois mundos",
+        "sha256": "5d287cb61ee2988c452c0e848a8760eaf923fb561c2cf51fefdc23e38dc22d92"
+      },
+      {
+        "heading": "O Mundo da Luz",
+        "sha256": "acba636f48cf11c08144a03b1c240f0d9dda0c2dab884036479cf1edbb96dad0"
+      },
+      {
+        "heading": "O Mundo da Escuridão",
+        "sha256": "ee09524034dd435e0ee777741e2c06e0fa883e3a182cdbdab413c095a17a0c1e"
+      },
+      {
+        "heading": "O nascimento das sociedades",
+        "sha256": "67527dc2d6c6e92814ddb6223c3cdae0789d06f9f872e4087325698a78ea8497"
+      },
+      {
+        "heading": "O que foi preservado",
+        "sha256": "11e82c67360f9a20df244a78ee045fb1fe25977d732188fc063cb0073971da81"
+      },
+      {
+        "heading": "O que foi perdido",
+        "sha256": "3ee68c808a211a2a2314d7ca177510131a739714ebf547cbcb9a9c7f5bf5e85d"
+      },
+      {
+        "heading": "A descoberta dos nascimentos correspondentes",
+        "sha256": "d76f091db2c482bc1815b3265334406c2bc0edcb92acc854529eb1f8e042c58f"
+      },
+      {
+        "heading": "Os Trocados",
+        "sha256": "c4fb19c76c18376f4110ea0128476c5b0c7ad5761753810c46c24f107fc78153"
+      },
+      {
+        "heading": "Os Lightbringers",
+        "sha256": "66c0dd4c3f006896046401e36faabe7aa09c1d7cfda265f3c342f7ce2522a978"
+      },
+      {
+        "heading": "O presente da campanha",
+        "sha256": "45453b65d345ad8e7c7041a707c2139fab980956f4cf029aa0d91cb0badb9712"
+      },
+      {
+        "heading": "O que está prestes a acontecer",
+        "sha256": "5b060dc3cecafd0c4bdcd1284c29946ab89c81441f08ef624bb0b0ef24dab1dc"
+      },
+      {
+        "heading": "Quatro Fatores de Instabilidade",
+        "sha256": "cea1aa926677465d42e8e9d9f68cc95996fca85a8355c4d4d51fd8a774f428af"
+      },
+      {
+        "heading": "Estados da Fenda",
+        "sha256": "89fbfa2d65c88f5b4275cbdcf7a71ee8e6300a19f61def067b092620c630e2fb"
+      },
+      {
+        "heading": "Bosque dos Ecos",
+        "sha256": "79c232e2ca189cfaa6aa32b05dff20a495808428c5e786a7e7525a0a16d70c1d"
+      },
+      {
+        "heading": "Rio do Leito Escrito",
+        "sha256": "f7c8227efb65d92066179a34382e8501a56785d8cfc326e9628bba8bde828cb3"
+      },
+      {
+        "heading": "Montes do Norte",
+        "sha256": "75b5c900a9434c564e2db6998cf28a43d86b248c3c2e7add7265ea3303c4df62"
+      },
+      {
+        "heading": "Estrada do Quartzo",
+        "sha256": "6761d07bdb5ea3161b97f64a6fbcadca271fa9321b9939361d694d9481b4d6d5"
+      },
+      {
+        "heading": "Krav-Nam",
+        "sha256": "3d5e9b0f770cebffc0b98e4bd8bfcfadbc6541343d79e7fd756cc2fa314e5b37"
+      },
+      {
+        "heading": "Baixio da Névoa Ferida",
+        "sha256": "78a91cdd2394cfaef5cc66a699a575a59fed8c8ffdeb5aa171acee8b23b59215"
+      },
+      {
+        "heading": "Veios do Juramento",
+        "sha256": "5beaeaad355c8e24e11c8d066a5b1920d9fa94e55474c79a924ff08cf9ac1d5b"
+      },
+      {
+        "heading": "Jardins de Memória",
+        "sha256": "180a38acf9d433bf1007f771ac3d847a9a6844b31adfce48394efc706e33b8d4"
+      },
+      {
+        "heading": "Silmari",
+        "sha256": "3aab5f1e53860cf111b12bfe09003f0583545ca7753dc9c884c26d39ec2cc3a3"
+      },
+      {
+        "heading": "Fortaleza de Kravor",
+        "sha256": "ac59ea3830f82d5d691d4a7bdb07112bb9bf08fc8f3f04abae5cac272117456c"
+      },
+      {
+        "heading": "Refúgio dos Outros",
+        "sha256": "ef911ce9af2752d073194cfcc0986fc1c35dca5125c8bd4e535dbdbbff4fc901"
+      },
+      {
+        "heading": "Nimaris",
+        "sha256": "6c6a2e79a6447c55bd9a8c29ec8a52a762a3a1ca9ebc06b41bc5908407adad07"
+      },
+      {
+        "heading": "Thur-Daer",
+        "sha256": "3be48f2a5c75fabb6da01f3c386aa86a277a0391d54a9370a40fbe44130bc374"
+      },
+      {
+        "heading": "Ressonário de Vael",
+        "sha256": "8ba4b57c5643f701d92f749cd6452e4a5be627a186893ab8f6e90f667f1ec35c"
+      },
+      {
+        "heading": "Princípios invioláveis",
+        "sha256": "3b0ebfe781b00e0708818687f6e77614b7f59778f8b272aabf6e6edd7a590774"
+      },
+      {
+        "heading": "Silmain",
+        "sha256": "72d1fb677416ad009e6417ae08a8edce50a25e696c992db688c4baf4dbb0cdd8"
+      },
+      {
+        "heading": "Pedr’alma urbana",
+        "sha256": "3c0d8c440f53782c915405b8c39f80ddb193684fc5caca30927585dafa51bb29"
+      },
+      {
+        "heading": "O que os personagens fazem",
+        "sha256": "6c5ce6686dc9898171d863c76479d0248203c6965d35548a0531c484adbdc80a"
+      },
+      {
+        "heading": "O NÚCLEO DE RESOLUÇÃO",
+        "sha256": "482782ad0bcb66b1ae60fc95f85da03157740cfac232e610d3d3a7ebe22d3caa"
+      },
+      {
+        "heading": "O que é magia",
+        "sha256": "1140ea2d7878a1c0005a01bb2cad093c6f38f2dcd3b1dd20d460e993d96bf8a5"
+      },
+      {
+        "heading": "EVOCAÇÕES",
+        "sha256": "7d2fd551b1babb6128e8a2295dcb62abde0c6757254b569fc8e7de640794ee8c"
+      },
+      {
+        "heading": "FENDAS E TRAVESSIAS",
+        "sha256": "1142ce903651a3e65b2a701b55f0860c22ed4d7c7c873a30081af5538fe49971"
+      },
+      {
+        "heading": "Estrutura de cena",
+        "sha256": "cf9f8d8f53c91ebff1859e66ebed75b185e2c6a5303638496975a12dd70616c4"
+      },
+      {
+        "heading": "Lightbringer",
+        "sha256": "a0576c36225a182e39d4707724c306669f2bb8344a3c04a45895645931d228ed"
+      },
+      {
+        "heading": "Drako de Cristal",
+        "sha256": "461bb8c2579170eb5b61be2b2daaad99ad67be44b1ef79c8c26827d89a431669"
+      },
+      {
+        "heading": "Drako da Brasa Ventral",
+        "sha256": "6205dd61739f478fbeceb072948ab57df31d04ceab45e6d2b4bf8a979dee7965"
+      },
+      {
+        "heading": "Observador Prismático",
+        "sha256": "a970b0170442d49e0e61f908cbf00f90c1ef7cff2eacd877cf6c07b02abbbeba"
+      },
+      {
+        "heading": "Gelatídeo Prismático",
+        "sha256": "976f891e378af69174cec8d103b1a222be9a85d462a4e8f5fd5b8534ecb8c56d"
+      },
+      {
+        "heading": "O Cinturão das Frestas",
+        "sha256": "6cf699142641d2055e9f2795e9dbbc948e3f36fa23c60d723accf954a8d53473"
+      },
+      {
+        "heading": "Hidrografia Canônica: Rio, Lagos e Mar",
+        "sha256": "c919c4525c5ad9b0924661e08450df331699a8e78d5470d55394f869bec75a0a"
+      },
+      {
+        "heading": "Montes do Norte e Estrada do Quartzo",
+        "sha256": "9e8951e7ebe3d04c852c86282869604164f64f7c17c9e6039b883d82b09f4f86"
+      },
+      {
+        "heading": "Krav-Nam e O Baixio da Névoa Ferida",
+        "sha256": "9ba4e27070e61c681a1f425bb3b72a987dfe925c251a464b59e7e122031569ec"
+      },
+      {
+        "heading": "Veios do Juramento e Jardins de Memória",
+        "sha256": "43516f6f24c0bca4ba955a8027cc0b482443974f28acb911296254bb8aa0172c"
+      },
+      {
+        "heading": "Geografia da Luz — Cidades e enclaves",
+        "sha256": "1b776ed1a7c3781b7a99c35144186b06a1bfc89be59134470a4a00c2ed84c367"
+      },
+      {
+        "heading": "Krav-Nam: O Juramento Violado",
+        "sha256": "375e0d33b9b1d37f9cded09ba167b69c674597154127995bb5e521b17f80093d"
+      },
+      {
+        "heading": "Interlúdio — POVO NÃO É DESTINO",
+        "sha256": "21af07a7c7ee95185b8f13eec598bde8b8672eabe20483b2e3ad0f94bdd1bd52"
+      },
+      {
+        "heading": "Voz sem caricatura",
+        "sha256": "de5010d1fbe1caa5c85edcf13a05b1acdd915f18482f37956e9b5caaf3887800"
+      },
+      {
+        "heading": "O que não é determinado",
+        "sha256": "528329ec8fe80fb1ba7698f2f981f3e0447e707799d6964ce9cfce0b4b5eb100"
+      },
+      {
+        "heading": "A Pedr’alma e a definição de lar",
+        "sha256": "92ef5b4f76a8253dbbc34a35d0a903597167b80e060c55b28fe2ad35c653c6c1"
+      },
+      {
+        "heading": "Morte, templos e autoridade",
+        "sha256": "0eca09f8dc7b2f5870a473a53ce70ddc419309f7c78cb0392043df35689e549c"
+      },
+      {
+        "heading": "Som, ortografia e pronúncia",
+        "sha256": "c92d0e7250f4505b9c84b883fb882fe70eef6c7448bb68726c34d8ba68f059a8"
+      },
+      {
+        "heading": "A ambiguidade obrigatória de silmain",
+        "sha256": "9d5ba02324170b5c62d5d1c97014fe382a69d20ad215743606b7ac08adcf4365"
+      },
+      {
+        "heading": "KALLISTIS",
+        "sha256": "31c54d2334da91e7dbcfc1c030509a04577b055cc25eda057d2c54f05dab6ec9"
+      },
+      {
+        "heading": "Expediente",
+        "sha256": "e13a90c6fa9fb0809a715af416f6a9f3afcd531d6e81874077493dfc433b24e2"
+      },
+      {
+        "heading": "O Mapa em Duas Camadas",
+        "sha256": "f895f8161e659c07b67a71e20a3bac6b9452e315654048ecfe0d889c14dfcb80"
+      },
+      {
+        "heading": "Distribuição dos Povos",
+        "sha256": "963acd32953691bb3415ceaf1b3bdfe94d04fb95f5dd448df1366d1269e0584e"
+      },
+      {
+        "heading": "PARTE III — POVOS, OFÍCIOS E COMUNIDADES VIVAS",
+        "sha256": "c2d881b645501b8344e59efa461df8f6f1f37208ab9b48ab767d33c3f284f7b3"
+      },
+      {
+        "heading": "Bestiário do Cristal Partido",
+        "sha256": "9b2ca02ba60b3ae546b9e58d07c099794fd5f2dda7eb7e468195d310cadf9e35"
+      }
+    ],
+    "USED_HISTORY_ASSET_SHA_COUNT": 140,
+    "USED_HISTORY_ASSET_SHA_UNIQUE": 119,
+    "PROJECTED_BOOK_PAGES_TEXTUAL": 388.98,
+    "PROJECTED_BOOK_PAGES_CURRENT": 435.15,
+    "PROJECTED_BOOK_PAGES_DENSE": 362.4,
+    "VERTICAL_SPACE_TEXT_PERCENT": 72.4,
+    "VERTICAL_SPACE_BLOCK_GAPS_PERCENT": 8.19,
+    "VERTICAL_SPACE_HEADINGS_PERCENT": 8.55,
+    "VERTICAL_SPACE_IMAGES_PERCENT": 12.47,
+    "SOFT_MAX_TEXT_RUN": 5,
+    "HARD_MAX_TEXT_RUN": 7,
+    "SOURCE_BLOCK_TEXT_MISMATCHES": 0,
+    "SOURCE_WORDS_LOST": 0,
+    "SOURCE_WORDS_ADDED": 0,
+    "DUPLICATE_FRAGMENT_OCCURRENCES": 0,
+    "FRAGMENT_SEQUENCE_ERRORS": 0,
+    "MANUSCRIPT_TEXT_CHANGED": 0,
+    "MANUSCRIPT_BLOCKS_LOST": 0,
+    "MANUSCRIPT_BLOCKS_DUPLICATED": 0,
+    "PAGE_OVERFLOW": 0,
+    "OVERFLOW_PAGE_NUMBERS": [],
+    "OVERFLOW_PAGE_DETAILS": [],
+    "ORPHAN_HEADINGS": 0,
+    "BROKEN_TABLE_ROWS": 0,
+    "SOURCE_ORDER_CHANGED": 0,
+    "ASSETS_MODIFIED": 0,
+    "ORIGINAL_PROJECT_OVERWRITTEN": 0,
+    "INVALID_IMAGE_PLACEMENTS": 0,
+    "SEMANTIC_IMAGE_PLACEMENTS": [
+      {
+        "page": 6,
+        "asset": "/assets/branding/KALLISTIS_wordmark_master.jpg",
+        "semanticAnchor": "KALLISTIS",
+        "allowedHeadingIds": [
+          "src-2d3461b924d689ec6432"
+        ],
+        "allowedWindow": null,
+        "actualH2": "KALLISTIS",
+        "actualHeadingIds": [
+          "src-2d3461b924d689ec6432"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 7,
+        "asset": "/assets/branding/KALLISTIS_symbol_master.jpg",
+        "semanticAnchor": "Expediente",
+        "allowedHeadingIds": [
+          "src-478e5d33c08051ce79ce"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Expediente",
+        "actualHeadingIds": [
+          "src-2d3461b924d689ec6432",
+          "src-478e5d33c08051ce79ce"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 9,
+        "asset": "/assets/branding/KALLISTIS_wordmark_master.jpg",
+        "semanticAnchor": "KALLISTIS",
+        "allowedHeadingIds": [
+          "src-2d3461b924d689ec6432"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Dedicatória",
+        "actualHeadingIds": [
+          "src-2d3461b924d689ec6432",
+          "src-2e23a99477f74543d1d3",
+          "src-c122df5a570213b53e6f"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 11,
+        "asset": "/assets/handoff/approved/p004_velha_e_fresta_pb.png",
+        "semanticAnchor": "Prólogo — A velha e a Fresta",
+        "allowedHeadingIds": [
+          "src-ba00593d37f3b7402e47"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "Prólogo — A velha e a Fresta",
+        "actualHeadingIds": [
+          "src-2d3461b924d689ec6432",
+          "src-ba00593d37f3b7402e47"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 12,
+        "asset": "/assets/handoff/approved/p005_cristal_partido_pb.png",
+        "semanticAnchor": "PARTE I — O MUNDO PARTIDO",
+        "allowedHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3"
+        ],
+        "allowedWindow": "SAME_H1",
+        "actualH2": "PARTE I — O MUNDO PARTIDO",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 13,
+        "asset": "/assets/handoff/approved/p006_manesh_pb.png",
+        "semanticAnchor": "Manesh — O Mundo da Luz",
+        "allowedHeadingIds": [
+          "src-c540ac7f340b0c7d2782"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "Manesh — O Mundo da Luz",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-c540ac7f340b0c7d2782"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 14,
+        "asset": "/assets/handoff/approved/p007_thuvel_pb.png",
+        "semanticAnchor": "Thuvel — O Mundo da Escuridão",
+        "allowedHeadingIds": [
+          "src-6411a166c20ac6a96807"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "Thuvel — O Mundo da Escuridão",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-6411a166c20ac6a96807"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 15,
+        "asset": "/assets/handoff/approved/p008_009_luz_escuridao_sombra_pb.png",
+        "semanticAnchor": "Luz, Escuridão e Sombra / Kav",
+        "allowedHeadingIds": [
+          "src-331ecccf6aee7889e93d",
+          "src-3b7b53f6a47dc3f79d2f"
+        ],
+        "allowedWindow": "ALLOWED_H2S",
+        "actualH2": "Luz, Escuridão e Sombra",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-331ecccf6aee7889e93d"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 16,
+        "asset": "/assets/handoff/approved/p008_009_luz_escuridao_sombra_pb.png",
+        "semanticAnchor": "Luz, Escuridão e Sombra / Kav",
+        "allowedHeadingIds": [
+          "src-331ecccf6aee7889e93d",
+          "src-3b7b53f6a47dc3f79d2f"
+        ],
+        "allowedWindow": "ALLOWED_H2S",
+        "actualH2": "Kav — Sombra É Corrupção, Não Escuridão",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-3b7b53f6a47dc3f79d2f"
+        ],
+        "semanticStatus": "ALLOWED_ADJACENT"
+      },
+      {
+        "page": 18,
+        "asset": "/assets/handoff/approved/p011_mirveth_manesh_pb.png",
+        "semanticAnchor": "Mirveth",
+        "allowedHeadingIds": [
+          "src-046bccf237bc313a35c7"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "Mirveth — Uma Pessoa Inteira",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-046bccf237bc313a35c7"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 19,
+        "asset": "/assets/handoff/approved/p012_mirveth_thuvel_pb.png",
+        "semanticAnchor": "Vethari / contraponto Mirveth",
+        "allowedHeadingIds": [
+          "src-33fd55bc4741ad4761ab"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "Vethari — Relação Sem Apagamento",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-33fd55bc4741ad4761ab"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 20,
+        "asset": "/assets/handoff/approved/p017_dois_mundos_fratura_pb.png",
+        "semanticAnchor": "História do Mundo Partido / Dupla Herança / Fratura",
+        "allowedHeadingIds": [
+          "src-165baffd2ff9c1b76356"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "História do Mundo Partido",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-165baffd2ff9c1b76356"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 21,
+        "asset": "/assets/v1.5-acervo/5d287cb61ee2988c452c0e84.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-22e0c945620e60719e1c"
+        ],
+        "allowedWindow": null,
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-0ef14a88a2a2f3e66829",
+          "src-22e0c945620e60719e1c"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 24,
+        "asset": "/assets/v1.5-acervo/acba636f48cf11c08144a03b.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-a242f56eb54b445e394f",
+          "src-615f500a5108bbf635bc"
+        ],
+        "allowedWindow": null,
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-390d1c3316ca949cf646",
+          "src-a242f56eb54b445e394f"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 25,
+        "asset": "/assets/v1.5-acervo/ee09524034dd435e0ee77774.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-be17464a0307881c5fc7",
+          "src-c7b9d1bf8b8ad35ebcf4"
+        ],
+        "allowedWindow": null,
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-390d1c3316ca949cf646",
+          "src-be17464a0307881c5fc7"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 30,
+        "asset": "/assets/partes/povo-nimaris.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-bfd74048d4047665cc73",
+          "src-26045f753511d2be2dcc"
+        ],
+        "allowedWindow": null,
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-af57069f71af3ff796fc",
+          "src-076d4c0074ff91b9124f",
+          "src-bfd74048d4047665cc73"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 31,
+        "asset": "/assets/complete/support/peoples/vitralios-context.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-58aaaa31b466b1f46433",
+          "src-2c24ef6896758ba54481"
+        ],
+        "allowedWindow": null,
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-af57069f71af3ff796fc",
+          "src-076d4c0074ff91b9124f",
+          "src-58aaaa31b466b1f46433"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 31,
+        "asset": "/assets/v1.5-acervo/67527dc2d6c6e92814ddb622.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-b6a8e744a56dcbdd9a31"
+        ],
+        "allowedWindow": null,
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-af57069f71af3ff796fc",
+          "src-b6a8e744a56dcbdd9a31"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 36,
+        "asset": "/assets/handoff/approved/p019_silmain_pb.png",
+        "semanticAnchor": "Silmain / escrita contínua",
+        "allowedHeadingIds": [
+          "src-d13b328599bf4801e7ca"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-506a10d514d3a7ea3333",
+          "src-d13b328599bf4801e7ca"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 37,
+        "asset": "/assets/v1.5-acervo/11e82c67360f9a20df244a78.jpg",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-1bef2c852916e5c5222e"
+        ],
+        "allowedWindow": null,
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-506a10d514d3a7ea3333",
+          "src-d13b328599bf4801e7ca",
+          "src-1bef2c852916e5c5222e"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 37,
+        "asset": "/assets/v1.5-acervo/3ee68c808a211a2a2314d7ca.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-4229544aba18b662abf0"
+        ],
+        "allowedWindow": null,
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-506a10d514d3a7ea3333",
+          "src-d13b328599bf4801e7ca",
+          "src-4229544aba18b662abf0"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 38,
+        "asset": "/assets/handoff/approved/p020_primeiras_frestas_pb.jpg",
+        "semanticAnchor": "primeiras Frestas",
+        "allowedHeadingIds": [
+          "src-cc17227740a795c66a8b"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-506a10d514d3a7ea3333",
+          "src-cc17227740a795c66a8b"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 40,
+        "asset": "/assets/handoff/approved/p021_022_kethrell_faccao_cientifica_pb.jpg",
+        "semanticAnchor": "Restauração Científica / Kethrell",
+        "allowedHeadingIds": [
+          "src-fbea4cb1374ea0f678af"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-8463b9edfb71d03f7943",
+          "src-fbea4cb1374ea0f678af"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 41,
+        "asset": "/assets/partes/fenda-kethrell.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-3992eaac86c9bc82a1a8"
+        ],
+        "allowedWindow": null,
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-8463b9edfb71d03f7943",
+          "src-3992eaac86c9bc82a1a8"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 42,
+        "asset": "/assets/v1.5-acervo/c4fb19c76c18376f4110ea01.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-53ecb8fa52876e1ef72e"
+        ],
+        "allowedWindow": null,
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-8463b9edfb71d03f7943",
+          "src-53ecb8fa52876e1ef72e"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 43,
+        "asset": "/assets/handoff/approved/p024_025_outros_lightbringers_pb.jpg",
+        "semanticAnchor": "Os Outros / Lightbringers",
+        "allowedHeadingIds": [
+          "src-7645de52f1d6c064ad96",
+          "src-384b4e30b5a72b2cd8ee",
+          "src-9b99f307637935d4ef5d",
+          "src-ba5b503e71d55fb37119"
+        ],
+        "allowedWindow": "ALLOWED_HEADINGS",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-8463b9edfb71d03f7943",
+          "src-7645de52f1d6c064ad96"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 44,
+        "asset": "/assets/handoff/approved/p024_025_outros_lightbringers_pb.jpg",
+        "semanticAnchor": "Os Outros / Lightbringers",
+        "allowedHeadingIds": [
+          "src-7645de52f1d6c064ad96",
+          "src-384b4e30b5a72b2cd8ee",
+          "src-9b99f307637935d4ef5d",
+          "src-ba5b503e71d55fb37119"
+        ],
+        "allowedWindow": "ALLOWED_HEADINGS",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-8463b9edfb71d03f7943",
+          "src-9b99f307637935d4ef5d"
+        ],
+        "semanticStatus": "ALLOWED_ADJACENT"
+      },
+      {
+        "page": 44,
+        "asset": "/assets/v1.5-acervo/66c0dd4c3f006896046401e3.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-9b99f307637935d4ef5d",
+          "src-ba5b503e71d55fb37119"
+        ],
+        "allowedWindow": null,
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-8463b9edfb71d03f7943",
+          "src-9b99f307637935d4ef5d"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 46,
+        "asset": "/assets/handoff/approved/p026_027_daeren_thavin_isenna_pb.jpg",
+        "semanticAnchor": "Daeren / Thavin / Isenna",
+        "allowedHeadingIds": [
+          "src-37775e0f30fe28933327",
+          "src-ff04b191e28c2ba8b3f7",
+          "src-7f372a30417cd4995816"
+        ],
+        "allowedWindow": "ALLOWED_HEADINGS",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-757538593d5747057a27",
+          "src-37775e0f30fe28933327"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 47,
+        "asset": "/assets/handoff/approved/p026_027_daeren_thavin_isenna_pb.jpg",
+        "semanticAnchor": "Daeren / Thavin / Isenna",
+        "allowedHeadingIds": [
+          "src-37775e0f30fe28933327",
+          "src-ff04b191e28c2ba8b3f7",
+          "src-7f372a30417cd4995816"
+        ],
+        "allowedWindow": "ALLOWED_HEADINGS",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-757538593d5747057a27",
+          "src-ff04b191e28c2ba8b3f7"
+        ],
+        "semanticStatus": "ALLOWED_ADJACENT"
+      },
+      {
+        "page": 48,
+        "asset": "/assets/handoff/approved/p026_027_daeren_thavin_isenna_pb.jpg",
+        "semanticAnchor": "Daeren / Thavin / Isenna",
+        "allowedHeadingIds": [
+          "src-37775e0f30fe28933327",
+          "src-ff04b191e28c2ba8b3f7",
+          "src-7f372a30417cd4995816"
+        ],
+        "allowedWindow": "ALLOWED_HEADINGS",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-757538593d5747057a27",
+          "src-7f372a30417cd4995816"
+        ],
+        "semanticStatus": "ALLOWED_ADJACENT"
+      },
+      {
+        "page": 49,
+        "asset": "/assets/handoff/approved/p028_029_thaeraen_tempo_escolha_pb.jpeg",
+        "semanticAnchor": "Thaeraen / Tempo da Escolha",
+        "allowedHeadingIds": [
+          "src-b40a0959842adcd7a502"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-757538593d5747057a27",
+          "src-b40a0959842adcd7a502"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 50,
+        "asset": "/assets/v1.5-acervo/45453b65d345ad8e7c7041a7.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-3d5d58995134f84be248"
+        ],
+        "allowedWindow": null,
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-343899b840b14f5605d5",
+          "src-3d5d58995134f84be248"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 50,
+        "asset": "/assets/v1.5-acervo/acba636f48cf11c08144a03b.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-a242f56eb54b445e394f",
+          "src-615f500a5108bbf635bc"
+        ],
+        "allowedWindow": null,
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-343899b840b14f5605d5",
+          "src-615f500a5108bbf635bc"
+        ],
+        "semanticStatus": "ALLOWED_ADJACENT"
+      },
+      {
+        "page": 51,
+        "asset": "/assets/v1.5-acervo/ee09524034dd435e0ee77774.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-be17464a0307881c5fc7",
+          "src-c7b9d1bf8b8ad35ebcf4"
+        ],
+        "allowedWindow": null,
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-343899b840b14f5605d5",
+          "src-c7b9d1bf8b8ad35ebcf4"
+        ],
+        "semanticStatus": "ALLOWED_ADJACENT"
+      },
+      {
+        "page": 52,
+        "asset": "/assets/handoff/approved/p024_025_outros_lightbringers_pb.jpg",
+        "semanticAnchor": "Os Outros / Lightbringers",
+        "allowedHeadingIds": [
+          "src-7645de52f1d6c064ad96",
+          "src-384b4e30b5a72b2cd8ee",
+          "src-9b99f307637935d4ef5d",
+          "src-ba5b503e71d55fb37119"
+        ],
+        "allowedWindow": "ALLOWED_HEADINGS",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-343899b840b14f5605d5",
+          "src-384b4e30b5a72b2cd8ee"
+        ],
+        "semanticStatus": "ALLOWED_ADJACENT"
+      },
+      {
+        "page": 53,
+        "asset": "/assets/handoff/approved/p024_025_outros_lightbringers_pb.jpg",
+        "semanticAnchor": "Os Outros / Lightbringers",
+        "allowedHeadingIds": [
+          "src-7645de52f1d6c064ad96",
+          "src-384b4e30b5a72b2cd8ee",
+          "src-9b99f307637935d4ef5d",
+          "src-ba5b503e71d55fb37119"
+        ],
+        "allowedWindow": "ALLOWED_HEADINGS",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-343899b840b14f5605d5",
+          "src-ba5b503e71d55fb37119"
+        ],
+        "semanticStatus": "ALLOWED_ADJACENT"
+      },
+      {
+        "page": 53,
+        "asset": "/assets/v1.5-acervo/66c0dd4c3f006896046401e3.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-9b99f307637935d4ef5d",
+          "src-ba5b503e71d55fb37119"
+        ],
+        "allowedWindow": null,
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-343899b840b14f5605d5",
+          "src-ba5b503e71d55fb37119"
+        ],
+        "semanticStatus": "ALLOWED_ADJACENT"
+      },
+      {
+        "page": 55,
+        "asset": "/assets/handoff/approved/p005_cristal_partido_pb.png",
+        "semanticAnchor": "PARTE I — O MUNDO PARTIDO",
+        "allowedHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3"
+        ],
+        "allowedWindow": "SAME_H1",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-c0e44d2bde62ebfa72e3",
+          "src-822a10bcec4571981303",
+          "src-66f807af4f990d315412",
+          "src-d5263583947636ee516b"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 58,
+        "asset": "/assets/partes/parte-ii-cinturao.png",
+        "semanticAnchor": "Cinturão das Frestas",
+        "allowedHeadingIds": [
+          "src-99580e9b5900e7fe4442"
+        ],
+        "allowedWindow": "SAME_H1",
+        "actualH2": "PARTE II — O CINTURÃO DAS FRESTAS",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 59,
+        "asset": "/assets/partes/parte-ii-cinturao.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-d7188e77780355ef9e45"
+        ],
+        "allowedWindow": null,
+        "actualH2": "O Cinturão das Frestas",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-d7188e77780355ef9e45"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 60,
+        "asset": "/assets/partes/mapa-duas-camadas.png",
+        "semanticAnchor": "O Mapa em Duas Camadas",
+        "allowedHeadingIds": [
+          "src-2d0f1f2e528fe7285722"
+        ],
+        "allowedWindow": null,
+        "actualH2": "O Mapa em Duas Camadas",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-2d0f1f2e528fe7285722"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 63,
+        "asset": "/assets/v1.5-acervo/cea1aa926677465d42e8e9d9.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-bc8bd81b7a783c36a6ae"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Quatro Fatores de Instabilidade",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-bc8bd81b7a783c36a6ae"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 64,
+        "asset": "/assets/v1.5-acervo/89fbfa2d65c88f5b4275cbdc.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-fdab32ef7d13752d45f3"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Estados da Fenda",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-fdab32ef7d13752d45f3"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 66,
+        "asset": "/assets/partes/silmari.png",
+        "semanticAnchor": "Planalto de Silmari",
+        "allowedHeadingIds": [
+          "src-3d20783964c5ec498a44"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "Geografia da Luz: Planalto de Silmari",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-3d20783964c5ec498a44"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 67,
+        "asset": "/assets/v1.5-acervo/79c232e2ca189cfaa6aa32b0.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-7f2a5d4948266b6d19c7"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Geografia da Luz: Planalto de Silmari",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-3d20783964c5ec498a44",
+          "src-7f2a5d4948266b6d19c7"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 68,
+        "asset": "/assets/complete/bestiary/serpente.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-d2e6ee33962cd92daa9a"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Geografia da Luz: Planalto de Silmari",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-3d20783964c5ec498a44",
+          "src-d2e6ee33962cd92daa9a"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 69,
+        "asset": "/assets/v1.5-acervo/c919c4525c5ad9b0924661e0.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-5c58238989089506b009"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Geografia da Luz: Planalto de Silmari",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-3d20783964c5ec498a44",
+          "src-5c58238989089506b009"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 71,
+        "asset": "/assets/v1.5-acervo/9e8951e7ebe3d04c852c8628.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-b45dcf2a53c716b48a54"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Geografia da Luz: Planalto de Silmari",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-3d20783964c5ec498a44",
+          "src-b45dcf2a53c716b48a54"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 71,
+        "asset": "/assets/v1.5-acervo/75b5c900a9434c564e2db699.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-215b4101310f9081d40b"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Geografia da Luz: Planalto de Silmari",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-3d20783964c5ec498a44",
+          "src-b45dcf2a53c716b48a54",
+          "src-215b4101310f9081d40b"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 72,
+        "asset": "/assets/v1.5-acervo/6761d07bdb5ea3161b97f64a.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-0622fc534867438d63e9"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Geografia da Luz: Planalto de Silmari",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-3d20783964c5ec498a44",
+          "src-b45dcf2a53c716b48a54",
+          "src-0622fc534867438d63e9"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 73,
+        "asset": "/assets/v1.5-acervo/thur-daer-pb.png",
+        "semanticAnchor": "Vale de Thur-Daer",
+        "allowedHeadingIds": [
+          "src-93e285e2e4b760f5b9df"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "Geografia da Escuridão: Vale de Thur-Daer",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-93e285e2e4b760f5b9df"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 74,
+        "asset": "/assets/v1.5-acervo/9ba4e27070e61c681a1f425b.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-d03669dcc60477aeccf3"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Geografia da Escuridão: Vale de Thur-Daer",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-93e285e2e4b760f5b9df",
+          "src-d03669dcc60477aeccf3"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 74,
+        "asset": "/assets/v1.5-acervo/3d5e9b0f770cebffc0b98e4b.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-14c930a2b4c3a5da8a4b"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Geografia da Escuridão: Vale de Thur-Daer",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-93e285e2e4b760f5b9df",
+          "src-d03669dcc60477aeccf3",
+          "src-14c930a2b4c3a5da8a4b"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 75,
+        "asset": "/assets/v1.5-acervo/78a91cdd2394cfaef5cc66a6.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-7a912191a1a662a07e5b"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Geografia da Escuridão: Vale de Thur-Daer",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-93e285e2e4b760f5b9df",
+          "src-d03669dcc60477aeccf3",
+          "src-7a912191a1a662a07e5b"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 76,
+        "asset": "/assets/v1.5-acervo/43516f6f24c0bca4ba955a80.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-fd7575e8f339571cc184"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Geografia da Escuridão: Vale de Thur-Daer",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-93e285e2e4b760f5b9df",
+          "src-fd7575e8f339571cc184"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 76,
+        "asset": "/assets/v1.5-acervo/5beaeaad355c8e24e11c8d06.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-91a490b9fdf32976d368"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Geografia da Escuridão: Vale de Thur-Daer",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-93e285e2e4b760f5b9df",
+          "src-fd7575e8f339571cc184",
+          "src-91a490b9fdf32976d368"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 77,
+        "asset": "/assets/v1.5-acervo/180a38acf9d433bf1007f771.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-6219164023d1785a9b06"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Geografia da Escuridão: Vale de Thur-Daer",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-93e285e2e4b760f5b9df",
+          "src-fd7575e8f339571cc184",
+          "src-6219164023d1785a9b06"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 77,
+        "asset": "/assets/v1.5-acervo/1b776ed1a7c3781b7a99c351.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-108a81e9b82753c0127f"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Geografia da Luz — Cidades e enclaves",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-108a81e9b82753c0127f"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 78,
+        "asset": "/assets/v1.5-acervo/3aab5f1e53860cf111b12bfe.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-690244ce97826633b810"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Geografia da Luz — Cidades e enclaves",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-108a81e9b82753c0127f",
+          "src-690244ce97826633b810"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 79,
+        "asset": "/assets/v1.5-acervo/ac59ea3830f82d5d691d4a7b.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-97a32d0a31ad280886f6"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Geografia da Luz — Cidades e enclaves",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-108a81e9b82753c0127f",
+          "src-97a32d0a31ad280886f6"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 80,
+        "asset": "/assets/v1.5-acervo/ef911ce9af2752d073194cfc.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-24e94f627519694398f0"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Geografia da Luz — Cidades e enclaves",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-108a81e9b82753c0127f",
+          "src-24e94f627519694398f0"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 81,
+        "asset": "/assets/v1.5-acervo/6c6a2e79a6447c55bd9a8c29.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-d5d915dea79716d8e396"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Geografia da Luz — Cidades e enclaves",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-108a81e9b82753c0127f",
+          "src-d5d915dea79716d8e396"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 82,
+        "asset": "/assets/partes/thur-daer.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-e8b4ec638dc2e5ff1eb4"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Geografia da Escuridão — Cidades e enclaves",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-80c3994fa8e73ffdd341",
+          "src-e8b4ec638dc2e5ff1eb4"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 83,
+        "asset": "/assets/v1.5-acervo/375e0d33b9b1d37f9cded09b.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-558eac43532c74985102"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Geografia da Escuridão — Cidades e enclaves",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-80c3994fa8e73ffdd341",
+          "src-558eac43532c74985102"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 84,
+        "asset": "/assets/v1.5-acervo/8ba4b57c5643f701d92f749c.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-08c34242290677d73b2d"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Geografia da Escuridão — Cidades e enclaves",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-80c3994fa8e73ffdd341",
+          "src-08c34242290677d73b2d"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 85,
+        "asset": "/assets/v1.5-acervo/distribuicao-povos.png",
+        "semanticAnchor": "Distribuição dos Povos",
+        "allowedHeadingIds": [
+          "src-f536f08c2b417c543a8f"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Distribuição dos Povos",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-f536f08c2b417c543a8f"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 88,
+        "asset": "/assets/partes/rotas-oficiais.png",
+        "semanticAnchor": "Rotas Oficiais",
+        "allowedHeadingIds": [
+          "src-742e15d95263570cbfe7"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "Rotas Oficiais",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-742e15d95263570cbfe7"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 90,
+        "asset": "/assets/partes/rotas-clandestinas.png",
+        "semanticAnchor": "Rotas Clandestinas e Comércio",
+        "allowedHeadingIds": [
+          "src-7b8df69e5aa901722806"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "Rotas Clandestinas e Comércio",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-7b8df69e5aa901722806"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 93,
+        "asset": "/assets/partes/estado-politico.jpg",
+        "semanticAnchor": "Estado Político Atual",
+        "allowedHeadingIds": [
+          "src-6008abe911612e0b56cc"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "O Estado Político Atual",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-6008abe911612e0b56cc"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 94,
+        "asset": "/assets/v1.5-acervo/5b060dc3cecafd0c4bdcd128.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-1d9c19c2d43e1b711414"
+        ],
+        "allowedWindow": null,
+        "actualH2": "O que está prestes a acontecer",
+        "actualHeadingIds": [
+          "src-99580e9b5900e7fe4442",
+          "src-1d9c19c2d43e1b711414"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 96,
+        "asset": "/assets/partes/simbolos-oficios.png",
+        "semanticAnchor": "PARTE III — POVOS, OFÍCIOS E COMUNIDADES VIVAS",
+        "allowedHeadingIds": [
+          "src-6936c663379055d9dda0"
+        ],
+        "allowedWindow": null,
+        "actualH2": "PARTE III — POVOS, OFÍCIOS E COMUNIDADES VIVAS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 100,
+        "asset": "/assets/complete/support/peoples/aelvari-context.png",
+        "semanticAnchor": "Povo Aelvari",
+        "allowedHeadingIds": [
+          "src-c14c588ea7d10708968a"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO A — POVOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-9934ab7b667e81d43f21",
+          "src-c14c588ea7d10708968a"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 103,
+        "asset": "/assets/complete/support/peoples/kragor-context.png",
+        "semanticAnchor": "Povo Kragor",
+        "allowedHeadingIds": [
+          "src-5aa26169f029b85d76a2"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO A — POVOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-9934ab7b667e81d43f21",
+          "src-5aa26169f029b85d76a2"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 107,
+        "asset": "/assets/complete/support/peoples/draken-context.png",
+        "semanticAnchor": "Povo Draken",
+        "allowedHeadingIds": [
+          "src-dc5b5f4e53cbff5d7c27"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO A — POVOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-9934ab7b667e81d43f21",
+          "src-dc5b5f4e53cbff5d7c27"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 110,
+        "asset": "/assets/complete/support/peoples/nomos-context.png",
+        "semanticAnchor": "Povo Nomos",
+        "allowedHeadingIds": [
+          "src-091f2c24eaac95661262"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO A — POVOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-9934ab7b667e81d43f21",
+          "src-091f2c24eaac95661262"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 114,
+        "asset": "/assets/complete/support/peoples/livres-context.png",
+        "semanticAnchor": "Povo Livres",
+        "allowedHeadingIds": [
+          "src-114645c7568b9151e1dd"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO A — POVOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-9934ab7b667e81d43f21",
+          "src-114645c7568b9151e1dd"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 117,
+        "asset": "/assets/complete/support/peoples/doreos-context.png",
+        "semanticAnchor": "Povo Dóreos",
+        "allowedHeadingIds": [
+          "src-8745ce2f1267f3ebf0a0"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO A — POVOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-9934ab7b667e81d43f21",
+          "src-8745ce2f1267f3ebf0a0"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 120,
+        "asset": "/assets/complete/support/peoples/teriantes-context.png",
+        "semanticAnchor": "Povo Teriantes",
+        "allowedHeadingIds": [
+          "src-42942a02acf82dc987b6"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO A — POVOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-9934ab7b667e81d43f21",
+          "src-42942a02acf82dc987b6"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 123,
+        "asset": "/assets/complete/support/peoples/nimari-context.png",
+        "semanticAnchor": "Povo Nimari",
+        "allowedHeadingIds": [
+          "src-7e1c3032773e61027fc3"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO A — POVOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-9934ab7b667e81d43f21",
+          "src-7e1c3032773e61027fc3"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 127,
+        "asset": "/assets/complete/support/peoples/vitralios-context.png",
+        "semanticAnchor": "Povo Vitrálios",
+        "allowedHeadingIds": [
+          "src-7439df2812b53239fd90"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO A — POVOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-9934ab7b667e81d43f21",
+          "src-7439df2812b53239fd90"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 130,
+        "asset": "/assets/v1.5-acervo/21af07a7c7ee95185b8f13ee.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-cd5b2454789cc269b885"
+        ],
+        "allowedWindow": null,
+        "actualH2": "MOVIMENTO A — POVOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-9934ab7b667e81d43f21",
+          "src-cd5b2454789cc269b885"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 131,
+        "asset": "/assets/partes/oficio-duelista.png",
+        "semanticAnchor": "Ofícios e escolhas",
+        "allowedHeadingIds": [
+          "src-b784338ff7cd373f964e"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "MOVIMENTO B — OFÍCIOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-adaae0a4ecc4d45c1930",
+          "src-b784338ff7cd373f964e"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 136,
+        "asset": "/assets/complete/offices/guardiao.png",
+        "semanticAnchor": "Ofício Guardião",
+        "allowedHeadingIds": [
+          "src-48c516ea179acebfdd57"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO B — OFÍCIOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-adaae0a4ecc4d45c1930",
+          "src-48c516ea179acebfdd57"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 139,
+        "asset": "/assets/complete/offices/duelista.png",
+        "semanticAnchor": "Ofício Duelista",
+        "allowedHeadingIds": [
+          "src-da53f92499769158bc54"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO B — OFÍCIOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-adaae0a4ecc4d45c1930",
+          "src-da53f92499769158bc54"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 142,
+        "asset": "/assets/complete/offices/atirador.png",
+        "semanticAnchor": "Ofício Atirador",
+        "allowedHeadingIds": [
+          "src-1ea0a8f52ace96a6cf71"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO B — OFÍCIOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-adaae0a4ecc4d45c1930",
+          "src-1ea0a8f52ace96a6cf71"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 145,
+        "asset": "/assets/complete/offices/tecelao.png",
+        "semanticAnchor": "Ofício Tecelão",
+        "allowedHeadingIds": [
+          "src-ee0ad664c851607dc55a"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO B — OFÍCIOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-adaae0a4ecc4d45c1930",
+          "src-ee0ad664c851607dc55a"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 148,
+        "asset": "/assets/complete/offices/curador.png",
+        "semanticAnchor": "Ofício Curador",
+        "allowedHeadingIds": [
+          "src-9c97875c17d548af7c16"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO B — OFÍCIOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-adaae0a4ecc4d45c1930",
+          "src-9c97875c17d548af7c16"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 152,
+        "asset": "/assets/complete/offices/evocador.png",
+        "semanticAnchor": "Ofício Evocador",
+        "allowedHeadingIds": [
+          "src-3126ce88253d31cf4b32"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO B — OFÍCIOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-adaae0a4ecc4d45c1930",
+          "src-3126ce88253d31cf4b32"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 155,
+        "asset": "/assets/complete/offices/artifice.png",
+        "semanticAnchor": "Ofício Artífice",
+        "allowedHeadingIds": [
+          "src-54ec66235b5346087dfc"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO B — OFÍCIOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-adaae0a4ecc4d45c1930",
+          "src-54ec66235b5346087dfc"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 158,
+        "asset": "/assets/complete/offices/batedor.png",
+        "semanticAnchor": "Ofício Batedor",
+        "allowedHeadingIds": [
+          "src-ce2505b318105204838d"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO B — OFÍCIOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-adaae0a4ecc4d45c1930",
+          "src-ce2505b318105204838d"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 161,
+        "asset": "/assets/v1.5-acervo/de5010d1fbe1caa5c85edcf1.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-5c4a0f47e2e9b2c61241"
+        ],
+        "allowedWindow": null,
+        "actualH2": "MOVIMENTO B — OFÍCIOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-adaae0a4ecc4d45c1930",
+          "src-974b817218e60186cd91",
+          "src-5c4a0f47e2e9b2c61241"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 162,
+        "asset": "/assets/partes/encerramento-final.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-305a320fe32f5747a5a0"
+        ],
+        "allowedWindow": null,
+        "actualH2": "MOVIMENTO B — OFÍCIOS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-adaae0a4ecc4d45c1930",
+          "src-974b817218e60186cd91",
+          "src-305a320fe32f5747a5a0"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 163,
+        "asset": "/assets/handoff/approved/p013_pedralma_monolito_pb.png",
+        "semanticAnchor": "Pedr’alma",
+        "allowedHeadingIds": [
+          "src-43fc0c0f1981ec955947"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "MOVIMENTO C — COMUNIDADES VIVAS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-5d45022adf419a2c792f",
+          "src-43fc0c0f1981ec955947"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 164,
+        "asset": "/assets/handoff/approved/p014_pedralma_escalas_pb.png",
+        "semanticAnchor": "Lar · Cidade · Companhia",
+        "allowedHeadingIds": [
+          "src-37078373e6d264c729f2"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "MOVIMENTO C — COMUNIDADES VIVAS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-5d45022adf419a2c792f",
+          "src-37078373e6d264c729f2"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 166,
+        "asset": "/assets/partes/pedralma-monumental.png",
+        "semanticAnchor": "Definição cultural de Pedr’alma",
+        "allowedHeadingIds": [
+          "src-0d7e452ab66013791818"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "MOVIMENTO C — COMUNIDADES VIVAS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-5d45022adf419a2c792f",
+          "src-0d7e452ab66013791818"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 167,
+        "asset": "/assets/partes/pedralma-monumental.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-554668ea22593a9d3b10"
+        ],
+        "allowedWindow": null,
+        "actualH2": "MOVIMENTO C — COMUNIDADES VIVAS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-5d45022adf419a2c792f",
+          "src-554668ea22593a9d3b10"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 170,
+        "asset": "/assets/partes/pedralma-velarim.png",
+        "semanticAnchor": "Pedr’almas de companhia",
+        "allowedHeadingIds": [
+          "src-8c6bca131b0fd512c61a"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "MOVIMENTO C — COMUNIDADES VIVAS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-5d45022adf419a2c792f",
+          "src-8c6bca131b0fd512c61a"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 171,
+        "asset": "/assets/v1.5-acervo/3c0d8c440f53782c915405b8.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-a369d033cbfd00c142f9"
+        ],
+        "allowedWindow": null,
+        "actualH2": "MOVIMENTO C — COMUNIDADES VIVAS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-5d45022adf419a2c792f",
+          "src-a369d033cbfd00c142f9"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 182,
+        "asset": "/assets/v1.5-acervo/forja-kelvhen.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-62c630a8d97e299c905c"
+        ],
+        "allowedWindow": null,
+        "actualH2": "MOVIMENTO C — COMUNIDADES VIVAS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-5d45022adf419a2c792f",
+          "src-62c630a8d97e299c905c"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 187,
+        "asset": "/assets/v1.5-acervo/0eca09f8dc7b2f5870a473a5.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-97ae0522f9416d9ab75e"
+        ],
+        "allowedWindow": null,
+        "actualH2": "MOVIMENTO C — COMUNIDADES VIVAS",
+        "actualHeadingIds": [
+          "src-6936c663379055d9dda0",
+          "src-5d45022adf419a2c792f",
+          "src-97ae0522f9416d9ab75e"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 193,
+        "asset": "/assets/v1.5-acervo/c92d0e7250f4505b9c84b883.webp",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-be39be935d27a5957f6f"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Som, ortografia e pronúncia",
+        "actualHeadingIds": [
+          "src-160e39ce3126bcad1265",
+          "src-be39be935d27a5957f6f"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 195,
+        "asset": "/assets/complete/parte-v-velarim.png",
+        "semanticAnchor": "O que é Velarim",
+        "allowedHeadingIds": [
+          "src-c2823d85cee8fdd553ba"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "O QUE É VELARIM",
+        "actualHeadingIds": [
+          "src-160e39ce3126bcad1265",
+          "src-c2823d85cee8fdd553ba"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 196,
+        "asset": "/assets/v1.5-acervo/3b0ebfe781b00e0708818687.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-1b46cb4e79e3555b72b3"
+        ],
+        "allowedWindow": null,
+        "actualH2": "O QUE É VELARIM",
+        "actualHeadingIds": [
+          "src-160e39ce3126bcad1265",
+          "src-c2823d85cee8fdd553ba",
+          "src-1b46cb4e79e3555b72b3"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 197,
+        "asset": "/assets/v1.5-acervo/72d1fb677416ad009e6417ae.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-da7ef33f9a836b6fc39c"
+        ],
+        "allowedWindow": null,
+        "actualH2": "SOM E ESCRITA",
+        "actualHeadingIds": [
+          "src-160e39ce3126bcad1265",
+          "src-4129c216164cc3d3a27b",
+          "src-da7ef33f9a836b6fc39c"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 198,
+        "asset": "/assets/handoff/approved/p019_silmain_pb.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-966ce8d4e5e364896b10"
+        ],
+        "allowedWindow": null,
+        "actualH2": "SOM E ESCRITA",
+        "actualHeadingIds": [
+          "src-160e39ce3126bcad1265",
+          "src-4129c216164cc3d3a27b",
+          "src-966ce8d4e5e364896b10"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 231,
+        "asset": "/assets/v1.5-acervo/6c5ce6686dc9898171d863c7.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-32ae451fbb14987cdb13"
+        ],
+        "allowedWindow": null,
+        "actualH2": "PRINCÍPIOS DO JOGO",
+        "actualHeadingIds": [
+          "src-8f0eefd4b370e0dcf5fb",
+          "src-aa7306e1135db29ea746",
+          "src-32ae451fbb14987cdb13"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 232,
+        "asset": "/assets/v1.5-acervo/482782ad0bcb66b1ae60fc95.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-ce4bfdd915a837a76c72"
+        ],
+        "allowedWindow": null,
+        "actualH2": "O NÚCLEO DE RESOLUÇÃO",
+        "actualHeadingIds": [
+          "src-8f0eefd4b370e0dcf5fb",
+          "src-ce4bfdd915a837a76c72"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 246,
+        "asset": "/assets/v1.5-acervo/1140ea2d7878a1c0005a01bb.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-ad41d4151c642009a48f"
+        ],
+        "allowedWindow": null,
+        "actualH2": "MAGIAS",
+        "actualHeadingIds": [
+          "src-8f0eefd4b370e0dcf5fb",
+          "src-21ba97c9903bd2de313f",
+          "src-ad41d4151c642009a48f"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 254,
+        "asset": "/assets/v1.5-acervo/7d2fd551b1babb6128e8a229.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-f5932a238b60e6b1c331"
+        ],
+        "allowedWindow": null,
+        "actualH2": "EVOCAÇÕES",
+        "actualHeadingIds": [
+          "src-8f0eefd4b370e0dcf5fb",
+          "src-f5932a238b60e6b1c331"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 262,
+        "asset": "/assets/complete/diagrams/grid-tatico.svg",
+        "semanticAnchor": "Combate e grade ortogonal",
+        "allowedHeadingIds": [
+          "src-04c91f6ae17210515d73"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "COMBATE E GRADE ORTOGONAL",
+        "actualHeadingIds": [
+          "src-8f0eefd4b370e0dcf5fb",
+          "src-04c91f6ae17210515d73"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 263,
+        "asset": "/assets/complete/diagrams/economia-acao.svg",
+        "semanticAnchor": "Rodada",
+        "allowedHeadingIds": [
+          "src-3b9b9f26c013ad9ca31d"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "COMBATE E GRADE ORTOGONAL",
+        "actualHeadingIds": [
+          "src-8f0eefd4b370e0dcf5fb",
+          "src-04c91f6ae17210515d73",
+          "src-3b9b9f26c013ad9ca31d"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 265,
+        "asset": "/assets/complete/diagrams/fluxo-dano.svg",
+        "semanticAnchor": "Dano e potência",
+        "allowedHeadingIds": [
+          "src-c7c0a3f85a1f5a8a6f97"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "COMBATE E GRADE ORTOGONAL",
+        "actualHeadingIds": [
+          "src-8f0eefd4b370e0dcf5fb",
+          "src-04c91f6ae17210515d73",
+          "src-c7c0a3f85a1f5a8a6f97"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 284,
+        "asset": "/assets/v1.5-acervo/1142ce903651a3e65b2a701b.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-9579d7c58fdce14bfc93"
+        ],
+        "allowedWindow": null,
+        "actualH2": "FENDAS E TRAVESSIAS",
+        "actualHeadingIds": [
+          "src-8f0eefd4b370e0dcf5fb",
+          "src-9579d7c58fdce14bfc93"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 287,
+        "asset": "/assets/v1.5-acervo/cf9f8d8f53c91ebff1859e66.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-8634a67fa1c95e0e3d36"
+        ],
+        "allowedWindow": null,
+        "actualH2": "REGRAS DO MESTRE",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-527f084cb8c333ab4610",
+          "src-8634a67fa1c95e0e3d36"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 289,
+        "asset": "/assets/handoff/approved/p024_025_outros_lightbringers_pb.jpg",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-c76a60cdfbf952bcc0f2"
+        ],
+        "allowedWindow": null,
+        "actualH2": "REFERÊNCIA RÁPIDA DE ADVERSÁRIOS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-b3ac4baeaf30b3fa42dd",
+          "src-c76a60cdfbf952bcc0f2"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 290,
+        "asset": "/assets/complete/bestiary/eco-corrompido.png",
+        "semanticAnchor": "Eco Corrompido",
+        "allowedHeadingIds": [
+          "src-83e2542d3889e3b2b9f1",
+          "src-46fd2fb27a5142fa9822"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "REFERÊNCIA RÁPIDA DE ADVERSÁRIOS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-b3ac4baeaf30b3fa42dd",
+          "src-83e2542d3889e3b2b9f1"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 295,
+        "asset": "/assets/partes/povo-nimaris.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-bfd74048d4047665cc73",
+          "src-26045f753511d2be2dcc"
+        ],
+        "allowedWindow": null,
+        "actualH2": "SETENTA E DOIS ENCONTROS ENTRE HERANÇA E ESCOLHA",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-979518046664de31d360",
+          "src-26045f753511d2be2dcc"
+        ],
+        "semanticStatus": "ALLOWED_ADJACENT"
+      },
+      {
+        "page": 296,
+        "asset": "/assets/complete/support/peoples/vitralios-context.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-58aaaa31b466b1f46433",
+          "src-2c24ef6896758ba54481"
+        ],
+        "allowedWindow": null,
+        "actualH2": "SETENTA E DOIS ENCONTROS ENTRE HERANÇA E ESCOLHA",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-979518046664de31d360",
+          "src-2c24ef6896758ba54481"
+        ],
+        "semanticStatus": "ALLOWED_ADJACENT"
+      },
+      {
+        "page": 301,
+        "asset": "/assets/complete/bestiary/bestiario-abertura.png",
+        "semanticAnchor": "Bestiário do Cristal Partido",
+        "allowedHeadingIds": [
+          "src-790415fc6a0dc25de8f3"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Bestiário do Cristal Partido",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-790415fc6a0dc25de8f3"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 310,
+        "asset": "/assets/complete/bestiary/estilhaco.png",
+        "semanticAnchor": "Estilhaço Vitrálio Instável",
+        "allowedHeadingIds": [
+          "src-2615451d3a33421cc2f8"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "LACAIOS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-3e0942807833388077ec",
+          "src-2615451d3a33421cc2f8"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 312,
+        "asset": "/assets/complete/bestiary/corvo.png",
+        "semanticAnchor": "Corvo de Fresta",
+        "allowedHeadingIds": [
+          "src-0e2cb037669ebec9ebd9"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "LACAIOS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-3e0942807833388077ec",
+          "src-0e2cb037669ebec9ebd9"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 313,
+        "asset": "/assets/complete/bestiary/filhote.png",
+        "semanticAnchor": "Filhote de Tormenta",
+        "allowedHeadingIds": [
+          "src-a768f02765f611a455ae"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "LACAIOS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-3e0942807833388077ec",
+          "src-a768f02765f611a455ae"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 314,
+        "asset": "/assets/complete/bestiary/automato.png",
+        "semanticAnchor": "Autômato de Ponte Descontrolado",
+        "allowedHeadingIds": [
+          "src-643760b1a03aefafcf20"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "LACAIOS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-3e0942807833388077ec",
+          "src-643760b1a03aefafcf20"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 324,
+        "asset": "/assets/complete/bestiary/eco-corrompido.png",
+        "semanticAnchor": "Eco Corrompido",
+        "allowedHeadingIds": [
+          "src-83e2542d3889e3b2b9f1",
+          "src-46fd2fb27a5142fa9822"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "ADVERSÁRIOS COMUNS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-8eb8be142c6c233f6152",
+          "src-46fd2fb27a5142fa9822"
+        ],
+        "semanticStatus": "ALLOWED_ADJACENT"
+      },
+      {
+        "page": 329,
+        "asset": "/assets/complete/bestiary/serpente.png",
+        "semanticAnchor": "Serpente do Leito Escrito",
+        "allowedHeadingIds": [
+          "src-f86941200771ac2c4b79"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "ADVERSÁRIOS COMUNS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-8eb8be142c6c233f6152",
+          "src-f86941200771ac2c4b79"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 359,
+        "asset": "/assets/complete/bestiary/drakos.png",
+        "semanticAnchor": "Drakos",
+        "allowedHeadingIds": [
+          "src-49ffbff3d752f4f1b557"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "FAUNA, ENTIDADES E COLOSSAIS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-32047a16bdee49fc8c02",
+          "src-49ffbff3d752f4f1b557"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 359,
+        "asset": "/assets/complete/bestiary/plates/drako-cristal.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-ca03ef68f5aefaae38a6"
+        ],
+        "allowedWindow": null,
+        "actualH2": "FAUNA, ENTIDADES E COLOSSAIS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-32047a16bdee49fc8c02",
+          "src-49ffbff3d752f4f1b557",
+          "src-ca03ef68f5aefaae38a6"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 361,
+        "asset": "/assets/complete/bestiary/plates/drako-brasa.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-4f6f7761dc27715251fb"
+        ],
+        "allowedWindow": null,
+        "actualH2": "FAUNA, ENTIDADES E COLOSSAIS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-32047a16bdee49fc8c02",
+          "src-49ffbff3d752f4f1b557",
+          "src-4f6f7761dc27715251fb"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 362,
+        "asset": "/assets/v1.5-acervo/a970b0170442d49e0e61f908.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-f413430989a938de5cb3"
+        ],
+        "allowedWindow": null,
+        "actualH2": "FAUNA, ENTIDADES E COLOSSAIS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-32047a16bdee49fc8c02",
+          "src-29b73e7c41de28803824",
+          "src-f413430989a938de5cb3"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 363,
+        "asset": "/assets/complete/bestiary/dragao-cristalino.png",
+        "semanticAnchor": "Dragão Cristalino Colossal",
+        "allowedHeadingIds": [
+          "src-9e5538ec91a75646906b"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "FAUNA, ENTIDADES E COLOSSAIS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-32047a16bdee49fc8c02",
+          "src-efe2f11cd4b87fb7b838",
+          "src-9e5538ec91a75646906b"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 363,
+        "asset": "/assets/complete/support/bestiary/dragao-escala.png",
+        "semanticAnchor": "Dragão Cristalino Colossal",
+        "allowedHeadingIds": [
+          "src-9e5538ec91a75646906b"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "FAUNA, ENTIDADES E COLOSSAIS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-32047a16bdee49fc8c02",
+          "src-efe2f11cd4b87fb7b838",
+          "src-9e5538ec91a75646906b"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 365,
+        "asset": "/assets/complete/bestiary/tartaruga-fortaleza.png",
+        "semanticAnchor": "Tartaruga-Fortaleza",
+        "allowedHeadingIds": [
+          "src-05aa2bb7fda0b3863250"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "FAUNA, ENTIDADES E COLOSSAIS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-32047a16bdee49fc8c02",
+          "src-efe2f11cd4b87fb7b838",
+          "src-05aa2bb7fda0b3863250"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 366,
+        "asset": "/assets/complete/bestiary/leviata.png",
+        "semanticAnchor": "Leviatã dos Veios",
+        "allowedHeadingIds": [
+          "src-837ad6b84fe6915de9ab"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "FAUNA, ENTIDADES E COLOSSAIS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-32047a16bdee49fc8c02",
+          "src-efe2f11cd4b87fb7b838",
+          "src-837ad6b84fe6915de9ab"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 366,
+        "asset": "/assets/complete/support/bestiary/leviata-escala.png",
+        "semanticAnchor": "Leviatã dos Veios",
+        "allowedHeadingIds": [
+          "src-837ad6b84fe6915de9ab"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "FAUNA, ENTIDADES E COLOSSAIS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-32047a16bdee49fc8c02",
+          "src-efe2f11cd4b87fb7b838",
+          "src-837ad6b84fe6915de9ab"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 367,
+        "asset": "/assets/complete/bestiary/arvore-mae.png",
+        "semanticAnchor": "Árvore-Mãe Errante",
+        "allowedHeadingIds": [
+          "src-fa687f2d9662ff77aa2f"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "FAUNA, ENTIDADES E COLOSSAIS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-32047a16bdee49fc8c02",
+          "src-efe2f11cd4b87fb7b838",
+          "src-fa687f2d9662ff77aa2f"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 367,
+        "asset": "/assets/complete/support/bestiary/arvore-mae-escala.png",
+        "semanticAnchor": "Árvore-Mãe Errante",
+        "allowedHeadingIds": [
+          "src-fa687f2d9662ff77aa2f"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "FAUNA, ENTIDADES E COLOSSAIS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-32047a16bdee49fc8c02",
+          "src-efe2f11cd4b87fb7b838",
+          "src-fa687f2d9662ff77aa2f"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 373,
+        "asset": "/assets/complete/bestiary/cao-leao.png",
+        "semanticAnchor": "Cão-Leão das Brasas Errantes",
+        "allowedHeadingIds": [
+          "src-e5aaeaffdb582941d84c"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "FAUNA, ENTIDADES E COLOSSAIS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-32047a16bdee49fc8c02",
+          "src-dcc43069c7fcfee7e9d5",
+          "src-e5aaeaffdb582941d84c"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 374,
+        "asset": "/assets/complete/bestiary/pato.png",
+        "semanticAnchor": "Pato de Pressão Ressonante",
+        "allowedHeadingIds": [
+          "src-ebc484424607634c3b22"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "FAUNA, ENTIDADES E COLOSSAIS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-32047a16bdee49fc8c02",
+          "src-dcc43069c7fcfee7e9d5",
+          "src-ebc484424607634c3b22"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 375,
+        "asset": "/assets/complete/bestiary/roedor.png",
+        "semanticAnchor": "Roedor dos Veios Fulminantes",
+        "allowedHeadingIds": [
+          "src-4f26be3480b32b2e7624"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "FAUNA, ENTIDADES E COLOSSAIS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-32047a16bdee49fc8c02",
+          "src-dcc43069c7fcfee7e9d5",
+          "src-4f26be3480b32b2e7624"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 375,
+        "asset": "/assets/v1.5-acervo/976f891e378af69174cec8d1.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-970feea756093d43ce71"
+        ],
+        "allowedWindow": null,
+        "actualH2": "FAUNA, ENTIDADES E COLOSSAIS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-32047a16bdee49fc8c02",
+          "src-dcc43069c7fcfee7e9d5",
+          "src-970feea756093d43ce71"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 376,
+        "asset": "/assets/complete/bestiary/devorador.png",
+        "semanticAnchor": "Devorador Psíquico Cefalóide",
+        "allowedHeadingIds": [
+          "src-4e403bec1f586a07cc90"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "FAUNA, ENTIDADES E COLOSSAIS",
+        "actualHeadingIds": [
+          "src-27924e23b6c975bd2a9b",
+          "src-32047a16bdee49fc8c02",
+          "src-dcc43069c7fcfee7e9d5",
+          "src-4e403bec1f586a07cc90"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 393,
+        "asset": "/assets/complete/support/apendices/simbolos-oficios-referencia.png",
+        "semanticAnchor": "Apêndices",
+        "allowedHeadingIds": [
+          "src-ed3cf47908b00fa67bdb"
+        ],
+        "allowedWindow": "SAME_H1",
+        "actualH2": "Glossário essencial",
+        "actualHeadingIds": [
+          "src-ed3cf47908b00fa67bdb",
+          "src-c86fe73b406274515745"
+        ],
+        "semanticStatus": "EXACT"
+      }
+    ],
+    "SOURCE_TEXT_MISMATCH_DETAILS": [],
+    "MANUSCRIPT_BLOCKS_TOTAL": 4382,
+    "MANUSCRIPT_BLOCKS_MATERIALIZED": 4382,
+    "TARGET_PAGE_COUNT_MISMATCH": 0,
+    "PRODUCTION_PROFILE": "PUBLIC_BOOK",
+    "PUBLIC_BOOK_TARGET_PAGES": 400,
+    "PAGE_COUNT_DIFFERENCE": -6,
+    "CONTRACT_HEADING_INCLUDED": 0,
+    "EDITORIAL_MANIFEST": "/home/tonyus-dev/Projetos/kallistis-book/book_maker/public/editorial-asset-manifest.json",
+    "EDITORIAL_PLAN_ASSIGNMENTS": 10,
+    "EDITORIAL_PLAN_IMAGES_USED": 144,
+    "EDITORIAL_PLAN_UNUSED_APPROVED_ASSETS": 7,
+    "EDITORIAL_PLAN_PENDING_ASSETS": 288,
+    "FULL_ART_PAGES_AUTO_CREATED": 0,
+    "V15_ACERVO_ASSETS_MATERIALIZED": 73,
+    "V15_ACERVO_INVENTORY": "/home/tonyus-dev/Projetos/kallistis-book/book_maker/drive-image-inventory.json",
+    "V15_ACERVO_DISPOSITION": "/home/tonyus-dev/Projetos/kallistis-book/book_maker/drive-image-disposition.csv",
+    "MEASURED_TAIL_CONTINUATIONS": 1
+  }
+}

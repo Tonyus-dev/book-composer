@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ASSETS, ASSET_CATEGORIES } from "../../lib/assets/catalog";
 import type { BookAsset, ImageBlock } from "../../book/types";
 import { assetRef, formatBytes, resolveAssetSrc } from "../../lib/assets/registry";
@@ -15,6 +15,10 @@ import {
 import { cloudProjectId } from "../../lib/persistence/cloud";
 import { externalizeAsset } from "../../lib/persistence/local";
 import { findPrimaryImage } from "../../book/templates/types";
+import {
+  loadEditorialAssetManifest,
+  type EditorialAssetManifest,
+} from "../../lib/assets/editorial-manifest";
 
 /** Item unificado: catálogo estático (public/assets) + assets enviados. */
 interface BrowserItem {
@@ -26,6 +30,8 @@ interface BrowserItem {
   note?: string | undefined;
   effectivePpi?: number | undefined;
   uploaded?: BookAsset | undefined;
+  status?: string | undefined;
+  alreadyUsedOccurrences?: number | undefined;
 }
 
 /**
@@ -54,8 +60,13 @@ export function AssetBrowser() {
   const [sourceAssets, setSourceAssets] = useState<GitHubSourceAsset[]>([]);
   const [sourceOpen, setSourceOpen] = useState(false);
   const [sourceBusy, setSourceBusy] = useState(false);
+  const [manifest, setManifest] = useState<EditorialAssetManifest | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const uploadCategory = category === "all" ? "characters" : category;
+
+  useEffect(() => {
+    void loadEditorialAssetManifest().then(setManifest);
+  }, []);
 
   const items = useMemo(() => {
     const uploaded = book.assets ?? [];
@@ -76,14 +87,29 @@ export function AssetBrowser() {
         note: asset.note,
         effectivePpi: asset.effectivePpi,
       })),
+      ...(manifest?.assets ?? [])
+        .filter((asset) => !ASSETS.some((catalogAsset) => catalogAsset.src === asset.src))
+        .map((asset) => ({
+          key: `manifest:${asset.id}`,
+          src: asset.src,
+          label: asset.label,
+          category: asset.category,
+          note: asset.reference ?? undefined,
+          status: asset.status,
+          alreadyUsedOccurrences: asset.alreadyUsedOccurrences,
+        })),
     ];
     const term = query.trim().toLowerCase();
     return all
       .filter((item) => category === "all" || item.category === category)
       .filter((item) => item.label.toLowerCase().includes(term));
-  }, [category, query, book.assets]);
+  }, [category, query, book.assets, manifest]);
 
   const apply = (item: BrowserItem) => {
+    if (item.status && !["APPROVED", "USED", "COVERED_HIGH"].includes(item.status)) {
+      setError("Este asset está pendente de revisão e não pode ser usado automaticamente.");
+      return;
+    }
     if (selectedBlock && selectedBlock.type === "image") {
       updateBlock(selectedPage.id, selectedBlock.id, {
         src: item.src,
@@ -291,6 +317,19 @@ export function AssetBrowser() {
           Vão para <span className="text-foreground">{uploadCategory}</span> e ficam gravados no
           IndexedDB local (o JSON cotidiano guarda somente id + metadados).
         </p>
+        {manifest ? (
+          <div className="mt-2 border border-border bg-muted/20 p-2 text-[10px] text-muted-foreground">
+            <p className="font-medium text-foreground">Manifesto persistente</p>
+            <p>
+              {manifest.counts.approved} aprovados · {manifest.counts.pending} pendentes ·{" "}
+              {manifest.counts.rejected} rejeitados
+            </p>
+            <p>
+              {book.productionPlan?.unusedApprovedAssets?.length ?? 0} aprovados sem uso no plano
+              atual.
+            </p>
+          </div>
+        ) : null}
         {error ? <p className="mt-1 text-[10px] text-destructive">{error}</p> : null}
       </div>
 
@@ -342,7 +381,10 @@ export function AssetBrowser() {
                 }}
                 onClick={() => apply(item)}
                 title={item.note ?? item.label}
-                className="group block w-full text-left hover:opacity-90"
+                disabled={Boolean(
+                  item.status && !["APPROVED", "USED", "COVERED_HIGH"].includes(item.status),
+                )}
+                className="group block w-full text-left hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {previewSrc ? (
                   <img
@@ -356,6 +398,11 @@ export function AssetBrowser() {
                   {item.label}
                 </span>
               </button>
+              {item.status ? (
+                <p className="px-1.5 pb-1 text-[9px] text-muted-foreground">
+                  {item.status} · uso registrado: {item.alreadyUsedOccurrences ?? 0}
+                </p>
+              ) : null}
               {item.uploaded ? (
                 <div className="px-1.5 pb-1">
                   <p className="text-[9px] text-muted-foreground">
