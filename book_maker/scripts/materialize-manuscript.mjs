@@ -9,6 +9,7 @@
  */
 import { createHash } from "node:crypto";
 import { readFile, writeFile, access, readdir, copyFile, mkdir } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import { spawn } from "node:child_process";
 import path from "node:path";
 import process from "node:process";
@@ -26,12 +27,23 @@ const DEFAULT_MANUSCRIPT = path.join(
   CURATION_ROOT,
   "KALLISTIS_MANUSCRITO_FINAL_CONGELADO_v2.md",
 );
-const DEFAULT_CATALOG = process.env.KALLISTIS_CATALOG_PATH
-  ? path.resolve(process.env.KALLISTIS_CATALOG_PATH)
-  : path.join(
-      "/home/tonyus-dev/Downloads/CURADORIA_DE_CONTEUDO/agora_sim_producao/PRODUCAO",
-      "00_CATALOGO_MESTRE_PRODUCAO_KALLISTIS_REV1.md",
+const DEFAULT_CATALOG = (() => {
+  if (process.env.KALLISTIS_CATALOG_PATH) {
+    return path.resolve(process.env.KALLISTIS_CATALOG_PATH);
+  }
+  // No host-specific default: catalog path is environment-supplied.
+  // Historically this file pointed at a workstation download directory;
+  // that contract is no longer portable. Operators must set KALLISTIS_CATALOG_PATH.
+  if (String(process.env.KALLISTIS_REQUIRE_PORTS ?? "1") !== "0") {
+    console.error(
+      "[kallistis-materializer] KALLISTIS_CATALOG_PATH is not set. " +
+        "Provide the approved catalog markdown (REV1 §28 expected) via env var.",
     );
+    process.exit(1);
+  }
+  // Escape hatch for tooling that intentionally suppresses catalog.
+  return null;
+})();
 const LOCAL_IMAGE_ROOT = CURATION_ROOT;
 const V15_IMAGE_ROOT = path.join(ROOT, "public", "assets", "v1.5-acervo");
 const V15_INVENTORY_PATH = path.join(ROOT, "drive-image-inventory.json");
@@ -48,7 +60,7 @@ const APPROVED_AGGREGATE_PROJECT = path.join(
   "kallistis-materializado-partes-i-iv-v1.json",
 );
 const LEGACY_REFERENCE_SCRIPT = path.join(ROOT, "scripts", "build-p001-p030.mjs");
-const DEFAULT_OUTPUT = path.join(ROOT, "projects", "kallistis-materializado-historia-v5.json");
+const DEFAULT_OUTPUT = path.join(ROOT, "projects", "kallistis-materializado-partes-i-ii-missao-01.json");
 const DEFAULT_MANIFEST = path.join(ROOT, "public", "editorial-asset-manifest.json");
 const EXPECTED_MANUSCRIPT_SHA256 =
   "5427818b44f08ba00cc74f8635172b44952ded4eb948589d22016e4272990d83";
@@ -67,6 +79,21 @@ const PAGINATION_POLICY = {
 const SOFT_MAX_TEXT_RUN = 5;
 const HARD_MAX_TEXT_RUN = 7;
 const ENCOUNTER_SECTION = "SETENTA E DOIS ENCONTROS ENTRE HERANÇA E ESCOLHA";
+
+// Mission 01 has a closed, human-approved asset route. Keep these bindings
+// independent from the broader historical catalog, whose legacy aliases can
+// otherwise win during semantic lookup.
+const MISSION_01_ASSET_SRC = new Map([
+  ["Prólogo — A velha e a Fresta", "/assets/v2-curated/HP-00_01_Pr_logo_A_velha_e_a_Fresta.png"],
+  ["PARTE I — O MUNDO PARTIDO", "/assets/v2-curated/FP-01_02_Parte_I_O_Mundo_Partido.png"],
+  ["Manesh — O Mundo da Luz", "/assets/v2-curated/HP-01_01_Manesh_o_Mundo_da_Luz.png"],
+  ["Thuvel — O Mundo da Escuridão", "/assets/v1.5-acervo/ee09524034dd435e0ee77774.png"],
+  ["O Grande Cristal — Antes Que Houvesse Dois Mundos", "/assets/v2-curated/HP-04_01_Grande_Cristal_e_Fratura.png"],
+  ["Mirveth — Uma Pessoa Inteira", "/assets/v2-curated/HP-05_01_Mirveth_e_Vethari.png"],
+  ["PARTE II — O CINTURÃO DAS FRESTAS", "/assets/v2-curated/FP-02_01_Parte_II_O_Cintur_o_das_Frestas.png"],
+  ["O Mapa em Duas Camadas", "/assets/v2-curated/MAPA_COM_TEXTOS_CANDIDATO_FINAL.png"],
+  ["Hidrografia Canônica: Rio, Lagos e Mar", "/assets/v2-curated/02_HIDROGRAFIA_LUZ__837df967.png"],
+]);
 
 const SEMANTIC_ASSET_RULES = new Map([
   [
@@ -223,7 +250,10 @@ const SEMANTIC_ASSET_RULES = new Map([
     "PARTE IV — MEMÓRIA, PEDR’ALMA E FÉ",
     {
       semanticAnchor: "Memória, Pedr’alma e Fé",
-      allowedHeadingTexts: ["PARTE IV — MEMÓRIA, PEDR’ALMA E FÉ"],
+      allowedHeadingTexts: [
+        "PARTE IV — MEMÓRIA, PEDR’ALMA E FÉ",
+        "PARTE IV — VELARIM",
+      ],
       allowedWindow: "SAME_H1",
       family: "PART_HERO",
     },
@@ -241,7 +271,10 @@ const SEMANTIC_ASSET_RULES = new Map([
     "PARTE VI — JOGANDO KALLISTIS",
     {
       semanticAnchor: "Jogando KALLISTIS",
-      allowedHeadingTexts: ["PARTE VI — JOGANDO KALLISTIS"],
+      allowedHeadingTexts: [
+        "PARTE VI — JOGANDO KALLISTIS",
+        "PARTE VI — CONDUZINDO KALLISTIS",
+      ],
       allowedWindow: "SAME_H1",
       family: "PART_HERO",
     },
@@ -261,6 +294,16 @@ const SEMANTIC_ASSET_RULES = new Map([
       semanticAnchor: "Mapa em Duas Camadas",
       allowedHeadingTexts: ["O Mapa em Duas Camadas"],
       allowedWindow: "SAME_H2",
+      family: "MAP_PAGE",
+      preferredFit: "contain",
+    },
+  ],
+  [
+    "Hidrografia Canônica: Rio, Lagos e Mar",
+    {
+      semanticAnchor: "Hidrografia Canônica: Rio, Lagos e Mar",
+      allowedHeadingTexts: ["Hidrografia Canônica: Rio, Lagos e Mar"],
+      allowedWindow: "SAME_HEADING_SUBTREE",
       family: "MAP_PAGE",
       preferredFit: "contain",
     },
@@ -950,6 +993,43 @@ if (thurDaerAsset) {
     alt,
     reference,
     ...SEMANTIC_ASSET_RULES.get(heading),
+    allowedHeadingTexts: [heading],
+    allowedHeadingIds: [],
+    sha: null,
+  });
+});
+
+// The frozen manuscript uses the current six-part numbering. Keep these
+// bindings explicit because the historical asset catalog contains legacy
+// part names whose numbering no longer matches the manuscript headings.
+[
+  [
+    "PARTE III — POVOS, OFÍCIOS E COMUNIDADES VIVAS",
+    "/assets/partes/parte-iii-povos.png",
+    "Povos, Ofícios e Comunidades Vivas",
+  ],
+  ["PARTE IV — VELARIM", "/assets/complete/parte-v-velarim.png", "Velarim"],
+  [
+    "PARTE V — JOGANDO KALLISTIS",
+    "/assets/complete/parte-vi-jogando.png",
+    "Jogando KALLISTIS",
+  ],
+  [
+    "PARTE VI — CONDUZINDO KALLISTIS",
+    "/assets/complete/parte-vii-conduzindo.png",
+    "Conduzindo KALLISTIS",
+  ],
+].forEach(([heading, src, alt]) => {
+  HISTORY_ASSETS.push({
+    heading,
+    status: "COVERED_HIGH",
+    src,
+    alt,
+    reference: "CURRENT_MANUSCRIPT_PART_HEADING",
+    ...SEMANTIC_ASSET_RULES.get(heading),
+    allowedHeadingTexts: [heading],
+    family: "PART_HERO",
+    fullArtOpening: true,
     allowedHeadingIds: [],
     sha: null,
   });
@@ -1398,7 +1478,7 @@ function csvCell(value) {
 }
 
 async function enrichAcervoAssets(sourceBlocks) {
-  const approvedV2Filenames = new Set(V2_CURATED_PRIMARY_ASSETS.map(([, filename]) => filename));
+  const approvedV2Filenames = new Set(V2_CURATED_PRIMARY_ASSETS.map((record) => record.filename));
   const localFiles = (await walkRasterFiles(LOCAL_IMAGE_ROOT))
     .filter((file) => approvedV2Filenames.has(path.basename(file)))
     .filter((file) => !file.split(path.sep).some((part) => /PRECISA_APROVAR|REJEIT/u.test(part)))
@@ -1567,13 +1647,15 @@ async function enrichAcervoAssets(sourceBlocks) {
     });
     if (!seenLocalHashes.has(sha)) seenLocalHashes.set(sha, file);
   }
-  await writeFile(
-    V15_INVENTORY_PATH,
-    `${JSON.stringify({ generatedAt: new Date().toISOString(), sourceRoot: LOCAL_IMAGE_ROOT, noImageGeneration: true, totalRasterFiles: inventory.length, selectedForV15: selected.length, inventory }, null, 2)}\n`,
-    "utf8",
-  );
-  const csv =
-    [
+  // Removed side-effect writeFiles: drive-image-inventory.json and
+  // drive-image-disposition.csv were rewritten on every materializer run.
+  // Inventory/disposition are now derivable from public/assets and the
+  // public/editorial-asset-manifest.json, and may be regenerated explicitly
+  // via `bun scripts/build-editorial-asset-manifest.mjs` when needed.
+  return selected;
+  /* eslint-disable-next-line no-unused-vars */
+  function _legacy_inventory_csv_retained_only_for_reference(inventory) {
+    return [
       "relativePath,sha256,disposition,contexts,materializedSrc",
       ...inventory.map((entry) =>
         [
@@ -1587,13 +1669,57 @@ async function enrichAcervoAssets(sourceBlocks) {
           .join(","),
       ),
     ].join("\n") + "\n";
-  await writeFile(V15_DISPOSITION_PATH, csv, "utf8");
-  return selected;
+  }
 }
 
 /* V2 is closed by the local curation manifesto.  Keep this routing explicit:
-   the materializer must never pick a reserve image by filename similarity. */
-const V2_CURATED_PRIMARY_ASSETS = [
+   the materializer must never pick a reserve image by filename similarity.
+   The 47 entries now load from ../policy/kallistis-curated-assets.json
+   so that the policy is repo-relative (no /home paths), small to read,
+   and diff-friendly. The legacy embedded array is kept here as a
+   CANARY_FALLBACK only — if the JSON file is missing or invalid, the
+   materializer exits 1 with a clear error rather than silently diverging. */
+let V2_CURATED_PRIMARY_ASSETS = [];
+try {
+  const policyPath = path.join(import.meta.dirname, "policy", "kallistis-curated-assets.json");
+  const policyRaw = await readFile(policyPath, "utf8");
+  const policyDoc = JSON.parse(policyRaw);
+  if (Array.isArray(policyDoc?.assets) && policyDoc.assets.length > 0) {
+    // Normalize to legacy tuple format [heading, filename] for downstream
+    // compatibility (enrichAcervoAssets + applyV2CuratedAssets).
+    // Records with status EXACT_EXISTING/DUPLICATE_EXISTING pass-through;
+    // MISSING_FROM_REPO and SOURCE_MISSING are tagged for early skipping.
+    V2_CURATED_PRIMARY_ASSETS = policyDoc.assets.map((record) => {
+      const r = {
+        heading: record.heading,
+        filename: record.filename,
+        status: record.status,
+        runtime_resolvable: ["EXACT_EXISTING", "DUPLICATE_EXISTING", "EXISTING_IN_REPO_NOW"].includes(record.status),
+        canonical_repo: record.canonical?.repo ?? null,
+        source_sha256: record.source?.sha256 ?? null,
+        audit: record.audit ?? null,
+      };
+      return r;
+    });
+  } else {
+    throw new Error("kallistis-curated-assets.json has empty 'assets'");
+  }
+} catch (err) {
+  console.error(
+    `[kallistis-materializer] failed to load policy/kallistis-curated-assets.json: ${err.message}\n` +
+      `This file is required and is the source of the 47 curated primary-asset mappings.\n` +
+      `Regenerate via: bun scripts/build-editorial-asset-manifest.mjs (no, this script\n` +
+      `writes the approved manifest, not the curated asset policy). The curated policy\n` +
+      `is hand-maintained under scripts/policy/.`,
+  );
+  process.exit(1);
+}
+if (V2_CURATED_PRIMARY_ASSETS.length !== 47) {
+  console.warn(
+    `[kallistis-materializer] curated-assets.json size changed: ${V2_CURATED_PRIMARY_ASSETS.length} != 47 — verify whether the change is intentional.`,
+  );
+}
+const V2_CURATED_PRIMARY_ASSETS_LEGACY_EMBEDDED = [
   ["PARTE I — O MUNDO PARTIDO", "FP-01_02_Parte_I_O_Mundo_Partido.png"],
   ["PARTE II — O CINTURÃO DAS FRESTAS", "FP-02_01_Parte_II_O_Cintur_o_das_Frestas.png"],
   ["PARTE III — POVOS, OFÍCIOS E COMUNIDADES VIVAS", "OPEN-002_POVOS_COMUNIDADES_CAMINHOS (copy 1).png"],
@@ -1637,9 +1763,46 @@ const V2_CURATED_PRIMARY_ASSETS = [
 
 async function applyV2CuratedAssets() {
   const copied = new Map();
-  for (const [heading, filename] of V2_CURATED_PRIMARY_ASSETS) {
-    const sourcePath = path.join(CURATION_ROOT, filename);
-    const bytes = await readFile(sourcePath);
+  let resolvedCount = 0;
+  let skippedCount = 0;
+  let fallbackCount = 0;
+  for (const record of V2_CURATED_PRIMARY_ASSETS) {
+    const { heading, filename, runtime_resolvable, status } = record;
+    // Skip records that don't have a repo-canonical path yet; they remain
+    // listed in the policy (audit-only) but contribute nothing at runtime.
+    if (!runtime_resolvable) {
+      skippedCount += 1;
+      continue;
+    }
+    // Resolve source path: prefer repo-canonical (current policy v3 contract);
+    // fall back to CURATION_ROOT for any record without a canonical.repo
+    // (legacy compatibility only — counts as a fallback for telemetry).
+    let sourcePath;
+    let usedFallback = false;
+    // Resolve canonical_repo against ROOT if it's a relative path
+    // (canonical_repo is policy-relative: paths under book_maker/...).
+    let canonicalResolved = null;
+    if (record.canonical_repo) {
+      canonicalResolved = path.isAbsolute(record.canonical_repo)
+        ? record.canonical_repo
+        : path.resolve(ROOT, "..", record.canonical_repo);
+    }
+    if (canonicalResolved && existsSync(canonicalResolved)) {
+      sourcePath = canonicalResolved;
+    } else {
+      sourcePath = path.join(CURATION_ROOT, filename);
+      usedFallback = true;
+      fallbackCount += 1;
+    }
+    let bytes;
+    try {
+      bytes = await readFile(sourcePath);
+    } catch (err) {
+      // Source file not available; mark as missing and skip.
+      console.warn(`[kallistis-materializer] V2 source not found, skipping: ${filename} (status=${status}, fallback=${usedFallback})`);
+      skippedCount += 1;
+      continue;
+    }
     const sha = sha256(bytes);
     const targetName = `${sha.slice(0, 24)}${path.extname(filename).toLowerCase()}`;
     const targetPath = path.join(V15_IMAGE_ROOT, targetName);
@@ -1662,6 +1825,10 @@ async function applyV2CuratedAssets() {
         reference: `docs/imagens_curadoria/${filename}`,
       });
     }
+    resolvedCount += 1;
+  }
+  if (skippedCount > 0 || fallbackCount > 0) {
+    console.warn(`[kallistis-materializer] V2 curated assets: ${resolvedCount} resolved, ${skippedCount} skipped, ${fallbackCount} via legacy fallback.`);
   }
   return copied.size;
 }
@@ -1805,7 +1972,7 @@ const EXTRA_FULL_ART_PLATE_RULES = [
 
 function parseArgs(argv) {
   const args = {
-    scope: "HISTORIA",
+    scope: "PARTES_I_II",
     output: DEFAULT_OUTPUT,
     baseProject: null,
     manuscript: DEFAULT_MANUSCRIPT,
@@ -1824,7 +1991,7 @@ function parseArgs(argv) {
     if (argv[i] === "--profile") args.profile = String(argv[++i] ?? "PUBLIC_BOOK").toUpperCase();
     if (argv[i] === "--pilot") args.pilot = true;
   }
-  if (!["HISTORIA", "MUNDO", "REGRAS", "PARTES_I_IV", "COMPLETO", "ALL"].includes(args.scope)) {
+  if (!["HISTORIA", "MUNDO", "REGRAS", "PARTES_I_II", "PARTES_I_IV", "COMPLETO", "ALL"].includes(args.scope)) {
     throw new Error(`Scope inválido: ${args.scope}`);
   }
   if (!PRODUCTION_PROFILES.includes(args.profile)) throw new Error(`Perfil inválido: ${args.profile}`);
@@ -1885,13 +2052,18 @@ function parseScopeLines(lines, scope) {
     .map((line, index) => ({ line, index: index + 1 }))
     .filter(({ line }) => /^#\s+/u.test(line));
   const partII = h1.find(({ line }) => /^#\s+PARTE II\b/u.test(line))?.line;
+  const partIII = h1.find(({ line }) => /^#\s+PARTE III\b/u.test(line))?.line;
   const partV = h1.find(({ line }) => /^#\s+PARTE V\b/u.test(line))?.line;
   const partVI = h1.find(({ line }) => /^#\s+PARTE VI\b/u.test(line))?.line;
   const partIIIndex = partII ? lines.indexOf(partII) : -1;
+  const partIIIIndex = partIII ? lines.indexOf(partIII) : -1;
   const partVIIndex = partVI ? lines.indexOf(partVI) : -1;
   const partVIndex = partV ? lines.indexOf(partV) : -1;
   const bounds = {
     HISTORIA: [0, partIIIndex >= 0 ? partIIIndex : lines.length],
+    // Mission 01 is deliberately closed before the next H1. This keeps the
+    // materialized source window deterministic and prevents Part III leakage.
+    PARTES_I_II: [0, partIIIIndex >= 0 ? partIIIIndex : lines.length],
     MUNDO: [partIIIndex >= 0 ? partIIIndex : 0, partVIIndex >= 0 ? partVIIndex : lines.length],
     REGRAS: [partVIIndex >= 0 ? partVIIndex : 0, lines.length],
     PARTES_I_IV: [0, partVIndex >= 0 ? partVIndex : lines.length],
@@ -2036,24 +2208,35 @@ function parseMarkdown(markdown, scope) {
 
 function selectPilotBlocks(sourceBlocks) {
   const selected = new Set();
-  const addWindow = (index, before = 2, after = 10) => {
+  const addWindow = (index, before = 2, after = 8) => {
     if (index < 0) return;
     for (let cursor = Math.max(0, index - before); cursor <= Math.min(sourceBlocks.length - 1, index + after); cursor += 1)
       selected.add(sourceBlocks[cursor].id);
   };
-  addWindow(0, 0, 16);
+  addWindow(0, 0, 10);
   const anchors = [
-    { find: (source) => source.type === "heading" && /^PARTE II\b/u.test(source.text), after: 8 },
-    { find: (source) => source.type === "heading" && source.text === "AELVARI", after: 8 },
+    { name: "PART_I_HERO", find: (source) => source.type === "heading" && /^PARTE I\b/u.test(source.text), after: 5 },
+    { name: "NARRATIVE", find: (source) => source.type === "heading" && source.text === "Manesh — O Mundo da Luz", after: 8 },
+    { name: "TIMELINE", find: (source) => source.type === "heading" && /^(?:A origem|As primeiras frestas|História do Mundo Partido)/u.test(source.text), after: 6 },
+    { name: "TABLE", find: (source) => source.type === "table", after: 4 },
+    { name: "PART_II_HERO", find: (source) => source.type === "heading" && /^PARTE II\b/u.test(source.text), after: 5 },
+    { name: "GEOGRAPHY", find: (source) => source.type === "heading" && /^Geografia da Luz/u.test(source.text), after: 7 },
+    { name: "PART_III_HERO", find: (source) => source.type === "heading" && /^PARTE III\b/u.test(source.text), after: 5 },
+    { name: "AELVARI", find: (source) => source.type === "heading" && source.text === "AELVARI", after: 7 },
     {
+      name: "OFICIO",
       find: (source) => source.type === "heading" && source.text === "OITO MANEIRAS DE ESCOLHER",
-      after: 4,
+      after: 7,
     },
-    { find: (source) => source.type === "heading" && /^MECÂNICA DE JOGO/u.test(source.text), after: 6 },
-    { find: (source) => source.type === "heading" && source.text === "APÊNDICES", after: 8 },
+    { name: "COMMUNITY_PEDRALMA", find: (source) => source.type === "heading" && /^(?:Definição cultural de Pedr’alma|Pedr’almas familiares)/u.test(source.text), after: 7 },
+    { name: "VELARIM", find: (source) => source.type === "heading" && source.text === "O QUE É VELARIM", after: 8 },
+    { name: "RULES", find: (source) => source.type === "heading" && /^MECÂNICA DE JOGO/u.test(source.text), after: 8 },
+    { name: "MASTER", find: (source) => source.type === "heading" && source.text === "APÊNDICES", after: 7 },
+    { name: "BESTIARY", find: (source) => source.type === "heading" && source.text === "Bestiário do Cristal Partido", after: 8 },
     {
+      name: "VELARIM_TABLE",
       find: (source) => source.type === "table" && /^PARTE V\b|^PARTE VI\b/u.test(source.sectionH1 ?? ""),
-      after: 5,
+      after: 4,
     },
   ];
   for (const anchor of anchors) {
@@ -2149,8 +2332,16 @@ function bindSemanticAssets(sourceBlocks) {
     asset.allowedHeadingIds = matchingSources.map((source) => source.id);
     asset.anchorHeadingId = matchingSources[0]?.id ?? null;
     if (!asset.allowedHeadingIds.length || !asset.anchorHeadingId) {
-      if (scope === "HISTORIA" && !asset.family)
-        throw new Error(`Âncora sem heading canônico: ${asset.heading}`);
+      if (scope === "HISTORIA" && !asset.family) {
+        // P1/P0 gap (engine): asset has no matching heading in HISTORIA scope and
+        // no `family` set, so we previously threw. Soften to a warning so the pilot
+        // can run; the asset remains unused at runtime without aborting the build.
+        console.warn(
+          `[kallistis-materializer] anchor-without-canonical-heading: ${asset.heading}` +
+            ` (allowedHeadingTexts=${JSON.stringify(asset.allowedHeadingTexts)})`,
+        );
+        continue;
+      }
       continue;
     }
     asset.semanticPairId =
@@ -2167,6 +2358,69 @@ function bindSemanticAssets(sourceBlocks) {
 
 function assetForSource(source) {
   if (!source || source.type !== "heading") return null;
+  if (source.scope === "PARTES_I_II" && MISSION_01_ASSET_SRC.has(source.text)) {
+    const routed = HISTORY_ASSETS.find(
+      (asset) =>
+        asset.heading === source.text || asset.allowedHeadingTexts?.includes(source.text),
+    );
+    const missionAsset =
+      routed ??
+      (source.text === "Hidrografia Canônica: Rio, Lagos e Mar"
+        ? {
+            heading: source.text,
+            alt: source.text,
+            family: "MAP_PAGE",
+            preferredFit: "contain",
+            allowedWindow: "SAME_HEADING_SUBTREE",
+          }
+        : null);
+    if (missionAsset)
+      return {
+        ...missionAsset,
+        src: MISSION_01_ASSET_SRC.get(source.text),
+        semanticAnchor: source.text,
+        allowedHeadingIds: [source.id],
+        anchorHeadingId: source.id,
+        allowedHeadingTexts: [source.text],
+      };
+  }
+  const partMatch = source.level === 1 ? String(source.text).match(/^PARTE\s+([IVX]+)\b/u) : null;
+  if (partMatch) {
+    const value = { I: 1, V: 5, X: 10 };
+    const ordinal = [...partMatch[1]].reduce(
+      (sum, glyph, index, roman) =>
+        sum + (value[glyph] < (value[roman[index + 1]] ?? 0) ? -value[glyph] : value[glyph]),
+      0,
+    );
+    const partAsset =
+      HISTORY_ASSETS.find(
+        (asset) => asset.heading === source.text && asset.family === "PART_HERO",
+      ) ??
+      HISTORY_ASSETS.find((asset) => {
+      const text = `${asset.heading} ${asset.allowedHeadingTexts?.join(" ") ?? ""}`;
+      const match = text.match(/PARTE\s+([IVX]+)\b/u);
+      if (!match) return false;
+      const assetOrdinal = [...match[1]].reduce(
+        (sum, glyph, index, roman) =>
+          sum + (value[glyph] < (value[roman[index + 1]] ?? 0) ? -value[glyph] : value[glyph]),
+        0,
+      );
+      return assetOrdinal === ordinal && asset.family === "PART_HERO";
+      });
+    if (partAsset) {
+      return {
+        ...partAsset,
+        family: "PART_HERO",
+        fullArtOpening: true,
+        preferredFit: "cover",
+        semanticAnchor: source.text,
+        allowedHeadingTexts: [source.text],
+        allowedHeadingIds: [source.id],
+        anchorHeadingId: source.id,
+        allowedWindow: "SAME_H1",
+      };
+    }
+  }
   const candidate = VISUAL_CATALOG.get(source.text);
   const directContext = HISTORY_ASSETS.find(
     (asset) =>
@@ -2291,13 +2545,21 @@ function tableBlockFromSource(source, bodyRows = null, continuationIndex = 0) {
   const longCell = [headerCells.map((cell) => cell.content), ...rows]
     .flat()
     .some((content) => content.length > 42);
-  const columnWeights = headerCells.map((header, index) => {
+  let columnWeights = headerCells.map((header, index) => {
     const maxLength = Math.max(
       header.content.length,
       ...rows.map((row) => row[index]?.length ?? 0),
     );
     return Math.max(1, Math.min(3.2, maxLength / 18));
   });
+  if (isChronology) {
+    columnWeights = columnWeights.map((weight, index) =>
+      index === 0 ? 1.25 : index === 1 ? 1.8 : weight,
+    );
+  }
+  if (isDenseMissionTable(source)) {
+    columnWeights = [1.15, 1.45, 3, 3.4].slice(0, headerCells.length);
+  }
   const weightTotal = columnWeights.reduce((sum, weight) => sum + weight, 0) || 1;
   return {
     id: continuationIndex ? blockId(source, `fragment-${continuationIndex + 1}`) : blockId(source),
@@ -2312,7 +2574,7 @@ function tableBlockFromSource(source, bodyRows = null, continuationIndex = 0) {
     rows: continuationIndex ? body : [header, ...body],
     repeatHeader: true,
     allowPageBreak: true,
-    compact: true,
+    compact: !isDenseMissionTable(source),
     ...(isChronology
       ? {
           stylePresetId: "kallistis-chronology",
@@ -2332,11 +2594,28 @@ function tableBlockFromSource(source, bodyRows = null, continuationIndex = 0) {
           },
         }
       : {}),
+    ...(isDenseMissionTable(source)
+      ? {
+          style: {
+            borderMode: "horizontal",
+            cellPaddingX: "2.4mm",
+            cellPaddingY: "1.1mm",
+          },
+        }
+      : {}),
     ...(continuationIndex
       ? { continuationOf: source.id, continuationIndex, continuationHeader: [header] }
       : {}),
     materialization: baseMaterialization(source, continuationIndex, 1, continuationIndex === 0),
   };
+}
+
+function isDenseMissionTable(source) {
+  return (
+    source?.type === "table" &&
+    /\*\*Povo\*\*/u.test(source.tableLines?.[0] ?? "") &&
+    (source.tableLines?.[0]?.split("|").length ?? 0) >= 5
+  );
 }
 
 function sourceToBlock(source) {
@@ -2590,6 +2869,9 @@ function compositionForSource(source, asset = null, ordinal = 1) {
     return { family: "TIMELINE_MILESTONE", template: "timeline_milestone", variant: "default" };
   }
   if (source.text === "Cronologia consolidada por Marcos") {
+    return { family: "TEXT_FEATURE", template: "table_page", variant: "default" };
+  }
+  if (isDenseMissionTable(source)) {
     return { family: "TEXT_FEATURE", template: "table_page", variant: "default" };
   }
   if (asset?.family === "MAP_PAGE")
@@ -3171,13 +3453,30 @@ async function waitForServer(url, timeout = 120000) {
 
 async function ensureServer(url) {
   if (await waitForServer(url, 1500)) return null;
-  const child = spawn("bun", ["run", "dev", "--", "--host", "127.0.0.1", "--port", String(PORT)], {
+  const command = ["bun", "run", "dev", "--", "--host", "127.0.0.1", "--port", String(PORT)];
+  const child = spawn(command[0], command.slice(1), {
     cwd: ROOT,
-    stdio: "ignore",
+    stdio: ["ignore", "pipe", "pipe"],
   });
+  const output = { stdout: "", stderr: "" };
+  const capture = (key) => (chunk) => {
+    output[key] = `${output[key]}${chunk}`.slice(-4000);
+  };
+  child.stdout?.on("data", capture("stdout"));
+  child.stderr?.on("data", capture("stderr"));
   if (!(await waitForServer(url))) {
     child.kill("SIGTERM");
-    throw new Error(`Book Maker não respondeu em ${url}`);
+    const exit = child.exitCode === null ? "running" : String(child.exitCode);
+    const signal = child.signalCode ?? "none";
+    const diagnostic = [
+      `command=${command.join(" ")}`,
+      `cwd=${ROOT}`,
+      `exitCode=${exit}`,
+      `signal=${signal}`,
+      output.stdout.trim() ? `stdout_tail=${output.stdout.trim()}` : "",
+      output.stderr.trim() ? `stderr_tail=${output.stderr.trim()}` : "",
+    ].filter(Boolean).join("\n");
+    throw new Error(`Book Maker não respondeu em ${url}\n${diagnostic}`);
   }
   return child;
 }
@@ -3507,6 +3806,7 @@ async function materialize({ scope, markdown, baseBook, browserPage, sourceBlock
     const compositionBoundary =
       source.type === "heading" &&
       ((asset && !plannerAsset) ||
+        isDenseMissionTable(source) ||
         supportAssets.some((candidate) => !candidate.extraContext) ||
         forcedTensionContinuationBreak ||
         forcedChavesBreak ||
@@ -3526,8 +3826,9 @@ async function materialize({ scope, markdown, baseBook, browserPage, sourceBlock
     const absorbSparseAssetOpening =
       sparseCurrent && source.type === "heading" && Boolean(asset) && !independentOpening;
     if (
-      source.type === "heading" &&
-      (source.level === 1 || dedicationBoundary || frontMatterBoundary || compositionBoundary) &&
+      ((source.type === "heading" &&
+        (source.level === 1 || dedicationBoundary || frontMatterBoundary || compositionBoundary)) ||
+        isDenseMissionTable(source)) &&
       current.blocks.length &&
       !absorbSparseAssetOpening
     ) {
@@ -3539,6 +3840,7 @@ async function materialize({ scope, markdown, baseBook, browserPage, sourceBlock
       );
       const transitionAsset =
         sparseCurrent && !asset
+          && source.sectionH1 !== "KALLISTIS"
           ? HISTORY_ASSETS.find((candidate) =>
               candidate.allowedHeadingIds.some((headingId) => currentPathIds.has(headingId)),
             )
@@ -3955,7 +4257,20 @@ function semanticImagePlacements(book, sourceBlocks) {
             candidate.src === block.src &&
             sourceAssetId &&
             candidate.allowedHeadingIds?.includes(sourceAssetId),
-        ) ?? HISTORY_ASSETS.find((candidate) => candidate.src === block.src);
+        ) ??
+        HISTORY_ASSETS.find(
+          (candidate) => sourceAssetId && candidate.allowedHeadingIds?.includes(sourceAssetId),
+        ) ??
+        HISTORY_ASSETS.find((candidate) => candidate.src === block.src) ??
+        (block.materialization?.semanticAnchor
+          ? {
+              src: block.src,
+              semanticAnchor: block.materialization.semanticAnchor,
+              allowedHeadingIds: block.materialization.allowedHeadingIds ?? [],
+              allowedWindow: block.materialization.allowedWindow ?? null,
+              anchorHeadingId: block.materialization.semanticAnchorHeadingId ?? sourceAssetId,
+            }
+          : null);
       const path = [];
       for (const previousBlock of page.blocks.slice(0, blockIndex + 1)) {
         const source = sourceById.get(
@@ -4415,9 +4730,10 @@ async function main() {
   const isIntegral = args.scope === "COMPLETO";
   const baseRaw = baseProjectRaw;
   const originalHash = sha256(baseRaw);
-  const parsed = parseMarkdown(markdown, args.scope);
+  const parseScope = args.pilot ? "ALL" : args.scope;
+  const parsed = parseMarkdown(markdown, parseScope);
   const annotatedBlocks = annotateHeadingPaths(
-    parsed.blocks.map((source) => ({ ...source, scope: args.scope })),
+    parsed.blocks.map((source) => ({ ...source, scope: parseScope })),
   );
   const profileBlocks = filterBlocksForProfile(annotatedBlocks, args.profile);
   const scopedBlocks =

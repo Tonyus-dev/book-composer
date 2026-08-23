@@ -1,0 +1,957 @@
+{
+  "schemaVersion": 3,
+  "name": "kallistis-curated-assets",
+  "description": "Curated primary asset mappings (v3 = closure of 47/47). All 47 records now resolve to a repo-canonical path or are explicitly marked as audit-only.",
+  "format": {
+    "heading": "string (manuscript canonical)",
+    "filename": "string (legacy curation filename key)",
+    "source": "{ sha256, bytes, width, height } of the legacy source file, computed off-repo",
+    "status": "EXACT_EXISTING | DUPLICATE_EXISTING | MISSING_FROM_REPO | SOURCE_MISSING",
+    "canonical": "{ repo: 'book_maker/...', assetId: 'asset-<first-16-of-sha>' } (repo-relative)",
+    "aliases": "additional repo-relative paths with the same SHA",
+    "audit": "{ sha256, bytes, width, height, notes } for sources not yet versioned"
+  },
+  "invariants": [
+    "No 'canonical.repo' or 'aliases[].repo' may contain absolute paths (no /home, no /Downloads).",
+    "No 'canonical' field on records with status in {MISSING_FROM_REPO, SOURCE_MISSING}.",
+    "All records with status EXACT_EXISTING, DUPLICATE_EXISTING, or EXISTING_IN_REPO_NOW resolve without fallback at runtime.",
+    "Asset ID format: asset-<first-16-sha-chars>."
+  ],
+  "summary": {
+    "schemaVersion": 3,
+    "totalRecords": 47,
+    "byStatus": {
+      "EXISTING_IN_REPO_NOW": 13,
+      "DUPLICATE_EXISTING": 5,
+      "EXACT_EXISTING": 29
+    },
+    "byClassification": {
+      "NEWLY_VERSIONED": 13,
+      "REUSED_DUPLICATE": 5,
+      "REUSED_EXISTING": 29
+    },
+    "totalResolvedCanonicalBytes": 142263460
+  },
+  "assets": [
+    {
+      "heading": "PARTE I — O MUNDO PARTIDO",
+      "filename": "FP-01_02_Parte_I_O_Mundo_Partido.png",
+      "source": {
+        "sha256": "1adb4f5e12616958d1cd8ad886bc97c29c882608b8a02c5327b5e8c5245bd9ff",
+        "bytes": 3247054,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXISTING_IN_REPO_NOW",
+      "editorialRole": null,
+      "audit": {
+        "sha256": "1adb4f5e12616958d1cd8ad886bc97c29c882608b8a02c5327b5e8c5245bd9ff",
+        "bytes": 3247054,
+        "width": 1024,
+        "height": 1536,
+        "notes": "Previously MISSING_FROM_REPO; now copied to book_maker/public/assets/v2-curated/FP-01_02_Parte_I_O_Mundo_Partido.png on 2026-08-22 via bit-by-bit copy from off-repo curation."
+      },
+      "classification": "NEWLY_VERSIONED",
+      "canonical": {
+        "repo": "book_maker/public/assets/v2-curated/FP-01_02_Parte_I_O_Mundo_Partido.png",
+        "assetId": "asset-1adb4f5e12616958"
+      }
+    },
+    {
+      "heading": "PARTE II — O CINTURÃO DAS FRESTAS",
+      "filename": "FP-02_01_Parte_II_O_Cintur_o_das_Frestas.png",
+      "source": {
+        "sha256": "834fdd86d54569776d899e91e57c35ab7ffdc8a3cb81f96c4bd7b7a9f6a02162",
+        "bytes": 3609966,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXISTING_IN_REPO_NOW",
+      "editorialRole": null,
+      "audit": {
+        "sha256": "834fdd86d54569776d899e91e57c35ab7ffdc8a3cb81f96c4bd7b7a9f6a02162",
+        "bytes": 3609966,
+        "width": 1024,
+        "height": 1536,
+        "notes": "Previously MISSING_FROM_REPO; now copied to book_maker/public/assets/v2-curated/FP-02_01_Parte_II_O_Cintur_o_das_Frestas.png on 2026-08-22 via bit-by-bit copy from off-repo curation."
+      },
+      "classification": "NEWLY_VERSIONED",
+      "canonical": {
+        "repo": "book_maker/public/assets/v2-curated/FP-02_01_Parte_II_O_Cintur_o_das_Frestas.png",
+        "assetId": "asset-834fdd86d5456977"
+      }
+    },
+    {
+      "heading": "PARTE III — POVOS, OFÍCIOS E COMUNIDADES VIVAS",
+      "filename": "OPEN-002_POVOS_COMUNIDADES_CAMINHOS (copy 1).png",
+      "source": {
+        "sha256": "963acd32953691bb3415ceaf1b3bdfe94d04fb95f5dd448df1366d1269e0584e",
+        "bytes": 3252641,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "DUPLICATE_EXISTING",
+      "editorialRole": "PART_OPENING",
+      "canonical": {
+        "repo": "book_maker/public/assets/partes/parte-iii-povos.png",
+        "assetId": "asset-963acd32953691bb"
+      },
+      "aliases": [
+        {
+          "repo": "book_maker/public/assets/v1.5-acervo/distribuicao-povos.png",
+          "assetId": "asset-963acd32953691bb:distribuicao-povos.png"
+        }
+      ],
+      "classification": "REUSED_DUPLICATE"
+    },
+    {
+      "heading": "PARTE IV — VELARIM",
+      "filename": "OPEN-003_VELARIM (copy 1).png",
+      "source": {
+        "sha256": "d6a4a389c6d9978e498994cce94b9925f0fe837e0f9e1b0c76314b028f19a58e",
+        "bytes": 3183680,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "PART_DIVIDER",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/parte-v-velarim.png",
+        "assetId": "asset-d6a4a389c6d9978e"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "PARTE V — JOGANDO KALLISTIS",
+      "filename": "OPEN-004_JOGANDO_KALLISTIS.png",
+      "source": {
+        "sha256": "9ec600bd640991f515a56df86ce38bca8135b83bae8a095db0e7b77bd44fd529",
+        "bytes": 3548121,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "PART_DIVIDER",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/parte-vi-jogando.png",
+        "assetId": "asset-9ec600bd640991f5"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "PARTE VI — CONDUZINDO KALLISTIS",
+      "filename": "OPEN-006_CONDUZINDO_KALLISTIS_CANDIDATO (copy 1).png",
+      "source": {
+        "sha256": "a7ed1f3058911beb61e53614ba2d02c42c7af76fa43a6922ab3b6138e07d3103",
+        "bytes": 3101756,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "PART_DIVIDER",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/parte-vii-conduzindo.png",
+        "assetId": "asset-a7ed1f3058911beb"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Bestiário do Cristal Partido",
+      "filename": "OPEN-007_BESTIARIO_DO_CRISTAL_PARTIDO (copy 1).png",
+      "source": {
+        "sha256": "9b2ca02ba60b3ae546b9e58d07c099794fd5f2dda7eb7e468195d310cadf9e35",
+        "bytes": 3282318,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "DUPLICATE_EXISTING",
+      "editorialRole": "BESTIARY_PRIMARY",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/bestiary/bestiario-abertura.png",
+        "assetId": "asset-9b2ca02ba60b3ae5"
+      },
+      "aliases": [
+        {
+          "repo": "book_maker/public/assets/complete/bestiary/plates/bestiario-atmosfera.png",
+          "assetId": "asset-9b2ca02ba60b3ae5:bestiario-atmosfera.png"
+        }
+      ],
+      "classification": "REUSED_DUPLICATE"
+    },
+    {
+      "heading": "Prólogo — A velha e a Fresta",
+      "filename": "HP-00_01_Pr_logo_A_velha_e_a_Fresta.png",
+      "source": {
+        "sha256": "cb9d415382d7d522cbbfc8bc5df7a0b195cb2368fa8b2dc868a67ac9ed1d596b",
+        "bytes": 2449126,
+        "width": 1448,
+        "height": 1086
+      },
+      "status": "EXISTING_IN_REPO_NOW",
+      "editorialRole": null,
+      "audit": {
+        "sha256": "cb9d415382d7d522cbbfc8bc5df7a0b195cb2368fa8b2dc868a67ac9ed1d596b",
+        "bytes": 2449126,
+        "width": 1448,
+        "height": 1086,
+        "notes": "Previously MISSING_FROM_REPO; now copied to book_maker/public/assets/v2-curated/HP-00_01_Pr_logo_A_velha_e_a_Fresta.png on 2026-08-22 via bit-by-bit copy from off-repo curation."
+      },
+      "classification": "NEWLY_VERSIONED",
+      "canonical": {
+        "repo": "book_maker/public/assets/v2-curated/HP-00_01_Pr_logo_A_velha_e_a_Fresta.png",
+        "assetId": "asset-cb9d415382d7d522"
+      }
+    },
+    {
+      "heading": "Manesh — O Mundo da Luz",
+      "filename": "HP-01_01_Manesh_o_Mundo_da_Luz.png",
+      "source": {
+        "sha256": "c7eafef9733c050d1319017394fd4fc2d16540713519e46c1da7c066caaa1f89",
+        "bytes": 2916333,
+        "width": 1448,
+        "height": 1086
+      },
+      "status": "EXISTING_IN_REPO_NOW",
+      "editorialRole": null,
+      "audit": {
+        "sha256": "c7eafef9733c050d1319017394fd4fc2d16540713519e46c1da7c066caaa1f89",
+        "bytes": 2916333,
+        "width": 1448,
+        "height": 1086,
+        "notes": "Previously MISSING_FROM_REPO; now copied to book_maker/public/assets/v2-curated/HP-01_01_Manesh_o_Mundo_da_Luz.png on 2026-08-22 via bit-by-bit copy from off-repo curation."
+      },
+      "classification": "NEWLY_VERSIONED",
+      "canonical": {
+        "repo": "book_maker/public/assets/v2-curated/HP-01_01_Manesh_o_Mundo_da_Luz.png",
+        "assetId": "asset-c7eafef9733c050d"
+      }
+    },
+    {
+      "heading": "Thuvel — O Mundo da Escuridão",
+      "filename": "HP-02_01_Thuvel_o_Mundo_da_Escurid_o.png",
+      "source": {
+        "sha256": "ee09524034dd435e0ee777741e2c06e0fa883e3a182cdbdab413c095a17a0c1e",
+        "bytes": 2910493,
+        "width": 1448,
+        "height": 1086
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "PRIMARY_HERO",
+      "canonical": {
+        "repo": "book_maker/public/assets/v1.5-acervo/ee09524034dd435e0ee77774.png",
+        "assetId": "asset-ee09524034dd435e"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "O Grande Cristal — Antes Que Houvesse Dois Mundos",
+      "filename": "HP-04_01_Grande_Cristal_e_Fratura.png",
+      "source": {
+        "sha256": "f8eda493c0a2c5ea59af6c75355e50cca458fb9b8085622601acf94477fb9324",
+        "bytes": 2835630,
+        "width": 1448,
+        "height": 1086
+      },
+      "status": "EXISTING_IN_REPO_NOW",
+      "editorialRole": null,
+      "audit": {
+        "sha256": "f8eda493c0a2c5ea59af6c75355e50cca458fb9b8085622601acf94477fb9324",
+        "bytes": 2835630,
+        "width": 1448,
+        "height": 1086,
+        "notes": "Previously MISSING_FROM_REPO; now copied to book_maker/public/assets/v2-curated/HP-04_01_Grande_Cristal_e_Fratura.png on 2026-08-22 via bit-by-bit copy from off-repo curation."
+      },
+      "classification": "NEWLY_VERSIONED",
+      "canonical": {
+        "repo": "book_maker/public/assets/v2-curated/HP-04_01_Grande_Cristal_e_Fratura.png",
+        "assetId": "asset-f8eda493c0a2c5ea"
+      }
+    },
+    {
+      "heading": "Mirveth — Uma Pessoa Inteira",
+      "filename": "HP-05_01_Mirveth_e_Vethari.png",
+      "source": {
+        "sha256": "b842eed499a951a237fb73e662ce33cc932983ef803d60ae90056fbb02cdba6d",
+        "bytes": 2549279,
+        "width": 1448,
+        "height": 1086
+      },
+      "status": "EXISTING_IN_REPO_NOW",
+      "editorialRole": null,
+      "audit": {
+        "sha256": "b842eed499a951a237fb73e662ce33cc932983ef803d60ae90056fbb02cdba6d",
+        "bytes": 2549279,
+        "width": 1448,
+        "height": 1086,
+        "notes": "Previously MISSING_FROM_REPO; now copied to book_maker/public/assets/v2-curated/HP-05_01_Mirveth_e_Vethari.png on 2026-08-22 via bit-by-bit copy from off-repo curation."
+      },
+      "classification": "NEWLY_VERSIONED",
+      "canonical": {
+        "repo": "book_maker/public/assets/v2-curated/HP-05_01_Mirveth_e_Vethari.png",
+        "assetId": "asset-b842eed499a951a2"
+      }
+    },
+    {
+      "heading": "O Mapa em Duas Camadas",
+      "filename": "01_MAPA_GERAL_DUAS_CAMADAS__50831df9.png",
+      "source": {
+        "sha256": "50831df976dee0815711b8e2e9e40b9040158c1de2e89cf9f571d7db0e258afc",
+        "bytes": 4295676,
+        "width": 1536,
+        "height": 1024
+      },
+      "status": "EXISTING_IN_REPO_NOW",
+      "editorialRole": null,
+      "audit": {
+        "sha256": "50831df976dee0815711b8e2e9e40b9040158c1de2e89cf9f571d7db0e258afc",
+        "bytes": 4295676,
+        "width": 1536,
+        "height": 1024,
+        "notes": "Previously MISSING_FROM_REPO; now copied to book_maker/public/assets/v2-curated/01_MAPA_GERAL_DUAS_CAMADAS__50831df9.png on 2026-08-22 via bit-by-bit copy from off-repo curation."
+      },
+      "classification": "NEWLY_VERSIONED",
+      "canonical": {
+        "repo": "book_maker/public/assets/v2-curated/01_MAPA_GERAL_DUAS_CAMADAS__50831df9.png",
+        "assetId": "asset-50831df976dee081"
+      }
+    },
+    {
+      "heading": "Geografia da Luz: Planalto de Silmari",
+      "filename": "MAPA_COM_TEXTOS_CANDIDATO_FINAL.png",
+      "source": {
+        "sha256": "28ba1d31b8dea528348bbb3272d5a43aefeb0471c736c6c876f5c89268ab5380",
+        "bytes": 3513437,
+        "width": 1440,
+        "height": 1092
+      },
+      "status": "EXISTING_IN_REPO_NOW",
+      "editorialRole": null,
+      "audit": {
+        "sha256": "28ba1d31b8dea528348bbb3272d5a43aefeb0471c736c6c876f5c89268ab5380",
+        "bytes": 3513437,
+        "width": 1440,
+        "height": 1092,
+        "notes": "Previously MISSING_FROM_REPO; now copied to book_maker/public/assets/v2-curated/MAPA_COM_TEXTOS_CANDIDATO_FINAL.png on 2026-08-22 via bit-by-bit copy from off-repo curation."
+      },
+      "classification": "NEWLY_VERSIONED",
+      "canonical": {
+        "repo": "book_maker/public/assets/v2-curated/MAPA_COM_TEXTOS_CANDIDATO_FINAL.png",
+        "assetId": "asset-28ba1d31b8dea528"
+      }
+    },
+    {
+      "heading": "Hidrografia Canônica: Rio, Lagos e Mar",
+      "filename": "02_HIDROGRAFIA_LUZ__837df967.png",
+      "source": {
+        "sha256": "837df967e39c36522376b818ec427b4bdebddec2c377601547bbf83dde2cdcf1",
+        "bytes": 4458631,
+        "width": 1536,
+        "height": 1024
+      },
+      "status": "EXISTING_IN_REPO_NOW",
+      "editorialRole": null,
+      "audit": {
+        "sha256": "837df967e39c36522376b818ec427b4bdebddec2c377601547bbf83dde2cdcf1",
+        "bytes": 4458631,
+        "width": 1536,
+        "height": 1024,
+        "notes": "Previously MISSING_FROM_REPO; now copied to book_maker/public/assets/v2-curated/02_HIDROGRAFIA_LUZ__837df967.png on 2026-08-22 via bit-by-bit copy from off-repo curation."
+      },
+      "classification": "NEWLY_VERSIONED",
+      "canonical": {
+        "repo": "book_maker/public/assets/v2-curated/02_HIDROGRAFIA_LUZ__837df967.png",
+        "assetId": "asset-837df967e39c3652"
+      }
+    },
+    {
+      "heading": "Povo Aelvari",
+      "filename": "01_AELVARI.png",
+      "source": {
+        "sha256": "6fa1efc7d9ea2ae54647ce44a7a40da13bf18a6df83bc2639adb877ccd7ecc2a",
+        "bytes": 2892095,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "PART_OPENING",
+      "canonical": {
+        "repo": "book_maker/public/assets/partes/povo-aelvari.png",
+        "assetId": "asset-6fa1efc7d9ea2ae5"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Povo Kragor",
+      "filename": "02_KRAGOR.png",
+      "source": {
+        "sha256": "cc644573abc528fd1b8cdcc44e4f2100600ad57704d67aaf7e0aacf73a0e6fcf",
+        "bytes": 2829350,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "PART_OPENING",
+      "canonical": {
+        "repo": "book_maker/public/assets/partes/povo-kragor.png",
+        "assetId": "asset-cc644573abc528fd"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Povo Draken",
+      "filename": "03_DRAKEN.png",
+      "source": {
+        "sha256": "c6ff7488e4354cceb034963078ab6dcf9d5dfddb5694c72ac68072dc148cbfde",
+        "bytes": 3311717,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "PART_OPENING",
+      "canonical": {
+        "repo": "book_maker/public/assets/partes/povo-draken.png",
+        "assetId": "asset-c6ff7488e4354cce"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Povo Nomos",
+      "filename": "04_NOMOS.png",
+      "source": {
+        "sha256": "28b2817625d51c16e4a48fdd05fe9c4660780db1c214c507d8140a8e5467a807",
+        "bytes": 2126452,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "PART_OPENING",
+      "canonical": {
+        "repo": "book_maker/public/assets/partes/povo-nomos.png",
+        "assetId": "asset-28b2817625d51c16"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Povo Livres",
+      "filename": "05_LIVRES.png",
+      "source": {
+        "sha256": "0519577d1a7b9d23e53aadb82af710870323f108b26a9922a9e144a9c80086b4",
+        "bytes": 2859740,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "PART_OPENING",
+      "canonical": {
+        "repo": "book_maker/public/assets/partes/povo-livres.png",
+        "assetId": "asset-0519577d1a7b9d23"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Povo Dóreos",
+      "filename": "06_DOREOS.png",
+      "source": {
+        "sha256": "24d42dd52ca92ecd9bc4fcb6395f2142e5689426ccff8efe7f3ab094ae116f51",
+        "bytes": 2700388,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "PART_OPENING",
+      "canonical": {
+        "repo": "book_maker/public/assets/partes/povo-doreos.png",
+        "assetId": "asset-24d42dd52ca92ecd"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Povo Teriantes",
+      "filename": "07_TERIANTES.png",
+      "source": {
+        "sha256": "6a0df00c4307ab9ebc8ed361ffab6d36ab25f35ac8cdc2a492b1aeb76504192e",
+        "bytes": 3036318,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "PART_OPENING",
+      "canonical": {
+        "repo": "book_maker/public/assets/partes/povo-teriantes.png",
+        "assetId": "asset-6a0df00c4307ab9e"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Povo Nimari",
+      "filename": "08_NIMARI.png",
+      "source": {
+        "sha256": "b419d2d44da95ca8657e6a1e3f37c137e32ccd0cfff8df02e82c82e8d8bd9ca7",
+        "bytes": 2796082,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "PART_OPENING",
+      "canonical": {
+        "repo": "book_maker/public/assets/partes/povo-nimaris.png",
+        "assetId": "asset-b419d2d44da95ca8"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Povo Vitrálios",
+      "filename": "09_VITRALIOS.png",
+      "source": {
+        "sha256": "98fc176aea334ba1411562da36db08bbd19960781020c6db673d30857b1b3bd7",
+        "bytes": 2833811,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "PART_OPENING",
+      "canonical": {
+        "repo": "book_maker/public/assets/partes/povo-vitralios.png",
+        "assetId": "asset-98fc176aea334ba1"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Guardião",
+      "filename": "01_GUARDIAO.png",
+      "source": {
+        "sha256": "3ade014e079c5ac6e31851a002986adc7052b041ee6f1ed7ac0df3c8201af9eb",
+        "bytes": 1878608,
+        "width": 1254,
+        "height": 1254
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "OFFICE_PRIMARY",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/offices/guardiao.png",
+        "assetId": "asset-3ade014e079c5ac6"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Duelista",
+      "filename": "02_DUELISTA.png",
+      "source": {
+        "sha256": "cc91c31596276e5986f84f05a6268382c4627da52d93850e1add2e860a2ff6c6",
+        "bytes": 2327393,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "DUPLICATE_EXISTING",
+      "editorialRole": "OFFICE_PRIMARY",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/offices/duelista.png",
+        "assetId": "asset-cc91c31596276e59"
+      },
+      "aliases": [
+        {
+          "repo": "book_maker/public/assets/partes/oficio-duelista.png",
+          "assetId": "asset-cc91c31596276e59:oficio-duelista.png"
+        }
+      ],
+      "classification": "REUSED_DUPLICATE"
+    },
+    {
+      "heading": "Atirador",
+      "filename": "03_ATIRADOR.png",
+      "source": {
+        "sha256": "fb9862098d3d3b404eef3ac5dc156ae8b03121340cd2a74c6efda4a1319badf1",
+        "bytes": 2856604,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "OFFICE_PRIMARY",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/offices/atirador.png",
+        "assetId": "asset-fb9862098d3d3b40"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Tecelão",
+      "filename": "04_TECELAO.png",
+      "source": {
+        "sha256": "25d04251a03b61699eac808ee6255a77be8de6d56a6edfe0e9aa5695c79857df",
+        "bytes": 2975326,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "OFFICE_PRIMARY",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/offices/tecelao.png",
+        "assetId": "asset-25d04251a03b6169"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Curador",
+      "filename": "05_CURADOR.png",
+      "source": {
+        "sha256": "90dc653b9a224d2b77bc06e3ec29e0d4e3ea381b2497e59c8e78cba311abf307",
+        "bytes": 3270687,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "OFFICE_PRIMARY",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/offices/curador.png",
+        "assetId": "asset-90dc653b9a224d2b"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Evocador",
+      "filename": "06_EVOCADOR.png",
+      "source": {
+        "sha256": "9b091877794b4d0e2d701cb6a744871387a53d0726a99ec462020ca81ee5b9f5",
+        "bytes": 3237396,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "OFFICE_PRIMARY",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/offices/evocador.png",
+        "assetId": "asset-9b091877794b4d0e"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Artífice",
+      "filename": "07_ARTIFICE.png",
+      "source": {
+        "sha256": "8cb70416d2c77829d258f75724febbf787605df0f0e89cb6665609c810c0a6a2",
+        "bytes": 3017660,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "OFFICE_PRIMARY",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/offices/artifice.png",
+        "assetId": "asset-8cb70416d2c77829"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Batedor",
+      "filename": "08_BATEDOR.png",
+      "source": {
+        "sha256": "a6060bfcb22cb362f3f4fda523f5d85e5f47576c474bdfc1a327891393776769",
+        "bytes": 3071660,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "OFFICE_PRIMARY",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/offices/batedor.png",
+        "assetId": "asset-a6060bfcb22cb362"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Thur-Daer",
+      "filename": "V02_THUR_DAER_PROFUNDIDADE_HABITADA.png",
+      "source": {
+        "sha256": "4325b4ca4bc957b84e12a75beeea753b19c56469c59fe12524991208c08c7ad4",
+        "bytes": 3555264,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXISTING_IN_REPO_NOW",
+      "editorialRole": null,
+      "audit": {
+        "sha256": "4325b4ca4bc957b84e12a75beeea753b19c56469c59fe12524991208c08c7ad4",
+        "bytes": 3555264,
+        "width": 1024,
+        "height": 1536,
+        "notes": "Previously MISSING_FROM_REPO; now copied to book_maker/public/assets/v2-curated/V02_THUR_DAER_PROFUNDIDADE_HABITADA.png on 2026-08-22 via bit-by-bit copy from off-repo curation."
+      },
+      "classification": "NEWLY_VERSIONED",
+      "canonical": {
+        "repo": "book_maker/public/assets/v2-curated/V02_THUR_DAER_PROFUNDIDADE_HABITADA.png",
+        "assetId": "asset-4325b4ca4bc957b8"
+      }
+    },
+    {
+      "heading": "Pedr'alma monumental",
+      "filename": "V04_PEDRALMA_MONUMENTAL (copy 1).png",
+      "source": {
+        "sha256": "92ef5b4f76a8253dbbc34a35d0a903597167b80e060c55b28fe2ad35c653c6c1",
+        "bytes": 3277264,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "PART_OPENING",
+      "canonical": {
+        "repo": "book_maker/public/assets/partes/pedralma-monumental.png",
+        "assetId": "asset-92ef5b4f76a8253d"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Pedr'almas de companhia",
+      "filename": "V05_VELARIM_COMO_RELACAO_B (copy 1).png",
+      "source": {
+        "sha256": "8240ca09d19288f06576532bb1dfed3a81c413ad0021f6f48fba7848d086d5e1",
+        "bytes": 2833155,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXISTING_IN_REPO_NOW",
+      "editorialRole": null,
+      "audit": {
+        "sha256": "8240ca09d19288f06576532bb1dfed3a81c413ad0021f6f48fba7848d086d5e1",
+        "bytes": 2833155,
+        "width": 1024,
+        "height": 1536,
+        "notes": "Previously MISSING_FROM_REPO; now copied to book_maker/public/assets/v2-curated/V05_VELARIM_COMO_RELACAO_B (copy 1).png on 2026-08-22 via bit-by-bit copy from off-repo curation."
+      },
+      "classification": "NEWLY_VERSIONED",
+      "canonical": {
+        "repo": "book_maker/public/assets/v2-curated/V05_VELARIM_COMO_RELACAO_B (copy 1).png",
+        "assetId": "asset-8240ca09d19288f0"
+      }
+    },
+    {
+      "heading": "EVOCAÇÕES",
+      "filename": "D04_EVOCACAO_PRESENCA_AUTONOMA.png",
+      "source": {
+        "sha256": "6af3596b1af10ef340b7b9042a31ae2ada8a2fd4d73dbd966a929d1d803f5bf1",
+        "bytes": 2989545,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXISTING_IN_REPO_NOW",
+      "editorialRole": null,
+      "audit": {
+        "sha256": "6af3596b1af10ef340b7b9042a31ae2ada8a2fd4d73dbd966a929d1d803f5bf1",
+        "bytes": 2989545,
+        "width": 1024,
+        "height": 1536,
+        "notes": "Previously MISSING_FROM_REPO; now copied to book_maker/public/assets/v2-curated/D04_EVOCACAO_PRESENCA_AUTONOMA.png on 2026-08-22 via bit-by-bit copy from off-repo curation."
+      },
+      "classification": "NEWLY_VERSIONED",
+      "canonical": {
+        "repo": "book_maker/public/assets/v2-curated/D04_EVOCACAO_PRESENCA_AUTONOMA.png",
+        "assetId": "asset-6af3596b1af10ef3"
+      }
+    },
+    {
+      "heading": "Eco Corrompido",
+      "filename": "12_ECO_CORROMPIDO.png",
+      "source": {
+        "sha256": "77c23e25c9e6fecae4f614a6b1a7e8c52aa067c7fa65b478a46ee8e3dfc1f8b0",
+        "bytes": 3125492,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "BESTIARY_PRIMARY",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/bestiary/eco-corrompido.png",
+        "assetId": "asset-77c23e25c9e6feca"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Estilhaço Vitrálio Instável",
+      "filename": "08_ESTILHACO_VITRALIO_INSTAVEL.png",
+      "source": {
+        "sha256": "07f9124754874628aed8d557db31108627ff467131b54b1e211c606f41c8495f",
+        "bytes": 2130000,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "BESTIARY_PRIMARY",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/bestiary/estilhaco.png",
+        "assetId": "asset-07f9124754874628"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Corvo de Fresta",
+      "filename": "10_CORVO_DE_FRESTA_CANDIDATO.png",
+      "source": {
+        "sha256": "a688afcd178175d4a400d5da15faf235ad36f578c1102e07666e0cd937cb9d1d",
+        "bytes": 2666020,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "BESTIARY_PRIMARY",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/bestiary/corvo.png",
+        "assetId": "asset-a688afcd178175d4"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Filhote de Tormenta",
+      "filename": "11_FILHOTE_DE_TORMENTA (copy 1).png",
+      "source": {
+        "sha256": "0a96681692e4c8a671ad514567a046d5d36345526443541fb8b3f6856789649f",
+        "bytes": 3028703,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "BESTIARY_PRIMARY",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/bestiary/filhote.png",
+        "assetId": "asset-0a96681692e4c8a6"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Autômato de Ponte Descontrolado",
+      "filename": "12_AUTOMATO_DE_PONTE_DESCONTROLADO.png",
+      "source": {
+        "sha256": "1cfec7343790bd24f036324fab00a9ba7eaecdb208c302809c16670eb5728813",
+        "bytes": 3037986,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "BESTIARY_PRIMARY",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/bestiary/automato.png",
+        "assetId": "asset-1cfec7343790bd24"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Drako da Brasa Ventral",
+      "filename": "CRIATURA_DRAKO_DA_BRASA_VENTRAL_V02 (copy 1).png",
+      "source": {
+        "sha256": "087dd3fd7bf19187df983a41771318c58f0a7a1ecab61741c058a6321bf26401",
+        "bytes": 2633923,
+        "width": 1536,
+        "height": 1024
+      },
+      "status": "EXISTING_IN_REPO_NOW",
+      "editorialRole": null,
+      "audit": {
+        "sha256": "087dd3fd7bf19187df983a41771318c58f0a7a1ecab61741c058a6321bf26401",
+        "bytes": 2633923,
+        "width": 1536,
+        "height": 1024,
+        "notes": "Previously MISSING_FROM_REPO; now copied to book_maker/public/assets/v2-curated/CRIATURA_DRAKO_DA_BRASA_VENTRAL_V02 (copy 1).png on 2026-08-22 via bit-by-bit copy from off-repo curation."
+      },
+      "classification": "NEWLY_VERSIONED",
+      "canonical": {
+        "repo": "book_maker/public/assets/v2-curated/CRIATURA_DRAKO_DA_BRASA_VENTRAL_V02 (copy 1).png",
+        "assetId": "asset-087dd3fd7bf19187"
+      }
+    },
+    {
+      "heading": "Dragão Cristalino Colossal",
+      "filename": "01_DRAGAO_CRISTALINO_COLOSSAL (copy 1).png",
+      "source": {
+        "sha256": "e85da577e91287647e97e2dbd00b3e54e0286c84baf9478e71e2f494764eb796",
+        "bytes": 3399051,
+        "width": 1536,
+        "height": 1024
+      },
+      "status": "DUPLICATE_EXISTING",
+      "editorialRole": "BESTIARY_PRIMARY",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/bestiary/dragao-cristalino.png",
+        "assetId": "asset-e85da577e9128764"
+      },
+      "aliases": [
+        {
+          "repo": "book_maker/public/assets/complete/support/bestiary/dragao-escala.png",
+          "assetId": "asset-e85da577e9128764:dragao-escala.png"
+        }
+      ],
+      "classification": "REUSED_DUPLICATE"
+    },
+    {
+      "heading": "Tartaruga-Fortaleza",
+      "filename": "02_TARTARUGA_FORTALEZA (copy 1).png",
+      "source": {
+        "sha256": "6f46eb97e78fc9adf637a069ee2e66fdfad22faf93726f72d0b743c6fa3a08d8",
+        "bytes": 2475713,
+        "width": 1254,
+        "height": 1254
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "BESTIARY_PRIMARY",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/bestiary/tartaruga-fortaleza.png",
+        "assetId": "asset-6f46eb97e78fc9ad"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Leviatã dos Veios",
+      "filename": "03_LEVIATA_DOS_VEIOS.png",
+      "source": {
+        "sha256": "e3fd4744e03d67c218f059f8fdab2a5ac568b8214fea95dd43cfd339acd606e6",
+        "bytes": 3518955,
+        "width": 1536,
+        "height": 1024
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "BESTIARY_PRIMARY",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/bestiary/leviata.png",
+        "assetId": "asset-e3fd4744e03d67c2"
+      },
+      "classification": "REUSED_EXISTING"
+    },
+    {
+      "heading": "Árvore-Mãe Errante",
+      "filename": "04_ARVORE_MAE_ERRANTE (copy 1).png",
+      "source": {
+        "sha256": "cb023b49e19ac3d612e0fc86fa10fa2dc33be06cea94d13e602ffe4579316420",
+        "bytes": 3350773,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "DUPLICATE_EXISTING",
+      "editorialRole": "BESTIARY_PRIMARY",
+      "canonical": {
+        "repo": "book_maker/public/assets/complete/bestiary/arvore-mae.png",
+        "assetId": "asset-cb023b49e19ac3d6"
+      },
+      "aliases": [
+        {
+          "repo": "book_maker/public/assets/complete/support/bestiary/arvore-mae-escala.png",
+          "assetId": "asset-cb023b49e19ac3d6:arvore-mae-escala.png"
+        }
+      ],
+      "classification": "REUSED_DUPLICATE"
+    },
+    {
+      "heading": "Guardiões, presenças e assombrações de matriz brasileira",
+      "filename": "KIMG-0058__PLATE_BR_GUARDIOES_DA_MATA_V01.png",
+      "source": {
+        "sha256": "43a7f338ea4556f4709a6e88055659cf98398fb11a50182c48e12d81cef7db4b",
+        "bytes": 3066188,
+        "width": 1024,
+        "height": 1536
+      },
+      "status": "EXACT_EXISTING",
+      "editorialRole": "PRIMARY_HERO",
+      "canonical": {
+        "repo": "book_maker/public/assets/v1.5-acervo/43a7f338ea4556f4709a6e88.png",
+        "assetId": "asset-43a7f338ea4556f4"
+      },
+      "classification": "REUSED_EXISTING"
+    }
+  ]
+}

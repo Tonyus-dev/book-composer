@@ -85,7 +85,9 @@
   orphans: 2;
   widows: 2;
   text-align: justify;
-  hyphens: auto;
+  hyphens: none;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .k-body p + p {

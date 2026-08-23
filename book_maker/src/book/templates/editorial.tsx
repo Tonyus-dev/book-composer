@@ -9,6 +9,9 @@ export function FrontMatterTemplate({ page }: TemplateProps) {
   const hasOwnHeading = page.blocks.some(
     (block) => block.type === "heading" && block.text === page.title,
   );
+  const blocks = titlePage
+    ? page.blocks.filter((block) => !(block.type === "heading" && block.text === "KALLISTIS"))
+    : page.blocks;
   return (
     <div
       className={`k-flow${dedication ? " k-dedication" : ""}${titlePage ? " k-title-page" : ""}`}
@@ -18,7 +21,7 @@ export function FrontMatterTemplate({ page }: TemplateProps) {
           {page.title}
         </h1>
       ) : null}
-      <BlockList blocks={page.blocks} />
+      <BlockList blocks={blocks} />
     </div>
   );
 }

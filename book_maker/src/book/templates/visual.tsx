@@ -105,11 +105,12 @@ export function FullArtTemplate({ page }: TemplateProps) {
 export function MapPageTemplate({ page }: TemplateProps) {
   const map = findImage(page.blocks);
   const rest = withoutBlock(page.blocks, map);
+  const hasOwnHeading = rest.some((block) => block.type === "heading" && block.text === page.title);
   return (
     <div style={{ display: "grid", gridTemplateRows: "auto auto 1fr", height: "100%" }}>
       <div>
         {page.eyebrow ? <p className="k-eyebrow">{page.eyebrow}</p> : null}
-        {page.title ? (
+        {page.title && !hasOwnHeading ? (
           <h1 className="k-h2" style={{ marginTop: 0, marginBottom: "3mm" }}>
             {page.title}
           </h1>

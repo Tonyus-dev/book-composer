@@ -365,7 +365,11 @@ async function main() {
       await page.pdf({ path: outPath, ...pdfOptions });
     }
 
-    const recompressed = await runGhostscriptRecompress(outPath, outPath);
+    // Preserve Chromium's Unicode text map. Ghostscript's printer preset can
+    // convert the embedded web font to Type3 without a usable ToUnicode map.
+    const recompressed = process.env.KALLISTIS_PDF_RECOMPRESS === "1"
+      ? await runGhostscriptRecompress(outPath, outPath)
+      : false;
     if (recompressed) console.log("[export:pdf] recompactado com Ghostscript /printer");
 
     console.log(

@@ -105,7 +105,9 @@
 
 .k-block--text {
   break-inside: auto;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 
 /* Header editorial */
@@ -116,7 +118,7 @@
   right: var(--margin-outer);
   font-family: var(--font-functional);
   font-size: var(--micro-size);
-  letter-spacing: 0.14em;
+  letter-spacing: normal;
   text-transform: uppercase;
   color: var(--k-muted);
   border-bottom: 0.3mm solid var(--k-border);

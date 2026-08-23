@@ -3,7 +3,6 @@
  * Não importam nada da UI do editor (Tailwind/shadcn) — apenas CSS editorial.
  */
 import type { ComponentProps, CSSProperties, ReactNode } from "react";
-import { Fragment } from "react";
 import type {
   BoxBlock,
   CaptionBlock,
@@ -284,23 +283,8 @@ export function BookTable({ block }: { block: TableBlock }) {
   );
 }
 
-/**
- * Quebra suave apenas em palavras longas de tabelas. O <wbr> não adiciona
- * caracteres ao texto extraído, mas permite que cabeçalhos portugueses como
- * "Dificuldade" permaneçam dentro da largura física sem overflow horizontal.
- */
 function renderTableCellContent(content: string): ReactNode {
-  return content.split(/(\s+)/u).map((part, index) => {
-    if (/^\s*$/u.test(part) || part.length <= 7) return part;
-    const split = Math.ceil(part.length / 2);
-    return (
-      <Fragment key={`${part}-${index}`}>
-        {part.slice(0, split)}
-        <wbr />
-        {part.slice(split)}
-      </Fragment>
-    );
-  });
+  return <>{content}</>;
 }
 
 export function BookBox({ block }: { block: BoxBlock }) {

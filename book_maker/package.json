@@ -27,6 +27,7 @@
     "test:image": "bun scripts/test-image-production.ts",
     "assets:manifest": "bun scripts/build-editorial-asset-manifest.mjs KALLISTIS_RECONSTRUCAO_ASSETS.tsv public/editorial-asset-manifest.json",
     "materialize:historia": "bun scripts/materialize-manuscript.mjs --scope HISTORIA",
+    "materialize:velarim": "node scripts/materialize-velarim.mjs",
     "test:materializer": "bun scripts/test-materializer.mjs",
     "format": "prettier --write ."
   },
