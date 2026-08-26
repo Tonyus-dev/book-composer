@@ -87,17 +87,28 @@ export function AssetBrowser() {
         note: asset.note,
         effectivePpi: asset.effectivePpi,
       })),
-      ...(manifest?.assets ?? [])
-        .filter((asset) => !ASSETS.some((catalogAsset) => catalogAsset.src === asset.src))
-        .map((asset) => ({
-          key: `manifest:${asset.id}`,
-          src: asset.src,
-          label: asset.label,
-          category: asset.category,
-          note: asset.reference ?? undefined,
-          status: asset.status,
-          alreadyUsedOccurrences: asset.alreadyUsedOccurrences,
-        })),
+      // Manifesto: deduplicado por id (o manifesto canônico pode conter
+      // entradas com mesmo id por origem composta; cada React key precisa
+      // ser única entre irmãos). Preserva a primeira ocorrência.
+      ...(() => {
+        const seen = new Set<string>();
+        const out: BrowserItem[] = [];
+        for (const asset of manifest?.assets ?? []) {
+          if (seen.has(asset.id)) continue;
+          if (ASSETS.some((catalogAsset) => catalogAsset.src === asset.src)) continue;
+          seen.add(asset.id);
+          out.push({
+            key: `manifest:${asset.id}`,
+            src: asset.src,
+            label: asset.label,
+            category: asset.category,
+            note: asset.reference ?? undefined,
+            status: asset.status,
+            alreadyUsedOccurrences: asset.alreadyUsedOccurrences,
+          });
+        }
+        return out;
+      })(),
     ];
     const term = query.trim().toLowerCase();
     return all

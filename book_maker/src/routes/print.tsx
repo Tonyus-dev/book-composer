@@ -196,6 +196,19 @@ function PrintView() {
       fonts={book.fonts}
       className={`k-print${book.meta.prepressGrayscale ? " k-print--grayscale" : ""}`}
     >
+      {/*
+       * AUTOCONTIDO: declara o tamanho físico da página a partir dos
+       * tokens do projeto, sem o consumidor precisar conhecer o
+       * formato. PDF generators que respeitam CSS @page size (Chromium
+       * com preferCSSPageSize) produzem o PDF no tamanho exato do
+       * documento, seja A4, 140×210 ou personalizado.
+       *
+       * A folha física (.k-print-sheet) é fixada em trim+bleed pelo CSS;
+       * aqui forçamos trim-only para o @page size e anulamos o offset de
+       * sangria dentro da folha — o mesmo padrão usado pelo pipeline
+       * scripts/export-pdf.mjs.
+       */}
+      <style>{`@page { size: ${book.tokens.pageWidth} ${book.tokens.pageHeight}; margin: 0; } .k-print-sheet { width: ${book.tokens.pageWidth} !important; height: ${book.tokens.pageHeight} !important; } .k-print-sheet > .k-page { left: 0 !important; top: 0 !important; }`}</style>
       {book.pages.map((page, index) => (
         <div key={page.id} className="k-print-sheet" data-page-index={index}>
           <PageRenderer book={book} page={page} index={index} />
