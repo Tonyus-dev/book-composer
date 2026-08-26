@@ -15,8 +15,8 @@ const MIN_COLUMN_WIDTH = 0.08;
 
 export const BUILT_IN_TABLE_PRESETS: TableStylePreset[] = [
   {
-    id: "kallistis-editorial",
-    name: "KALLISTIS — Editorial",
+    id: "editorial",
+    name: "Editorial",
     style: {
       borderMode: "horizontal",
       borderWidth: "0.2mm",
@@ -33,8 +33,8 @@ export const BUILT_IN_TABLE_PRESETS: TableStylePreset[] = [
     },
   },
   {
-    id: "kallistis-mechanics",
-    name: "KALLISTIS — Mecânica",
+    id: "mechanics",
+    name: "Mecânica",
     style: {
       borderMode: "grid",
       borderWidth: "0.2mm",
@@ -50,8 +50,8 @@ export const BUILT_IN_TABLE_PRESETS: TableStylePreset[] = [
     },
   },
   {
-    id: "kallistis-chronology",
-    name: "KALLISTIS — Cronologia",
+    id: "chronology",
+    name: "Cronologia",
     style: {
       borderMode: "horizontal",
       borderWidth: "0.2mm",
@@ -68,8 +68,8 @@ export const BUILT_IN_TABLE_PRESETS: TableStylePreset[] = [
     },
   },
   {
-    id: "kallistis-reference",
-    name: "KALLISTIS — Referência",
+    id: "reference",
+    name: "Referência",
     style: {
       borderMode: "grid",
       borderWidth: "0.15mm",
@@ -86,8 +86,8 @@ export const BUILT_IN_TABLE_PRESETS: TableStylePreset[] = [
     },
   },
   {
-    id: "kallistis-minimal",
-    name: "KALLISTIS — Minimal",
+    id: "minimal",
+    name: "Minimal",
     style: {
       borderMode: "none",
       headerBackground: "transparent",

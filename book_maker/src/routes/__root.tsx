@@ -77,18 +77,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "KALLISTIS Book Maker" },
+      { title: "Book Maker" },
       {
         name: "description",
-        content:
-          "Ferramenta editorial local-first para compor, revisar e exportar o Livro Básico do RPG KALLISTIS em PDF 1:1.",
+        content: "Editor genérico de livros: componha, revise e exporte qualquer obra em PDF 1:1.",
       },
-      { name: "author", content: "Nomos Ludens" },
+      { name: "author", content: "Book Maker" },
       { name: "theme-color", content: "#1E3545" },
-      { property: "og:title", content: "KALLISTIS Book Maker" },
+      { property: "og:title", content: "Book Maker" },
       {
         property: "og:description",
-        content: "Composição editorial e exportação de PDF 1:1 do Livro Básico de KALLISTIS.",
+        content: "Composição editorial e exportação de PDF 1:1 para qualquer livro.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -109,7 +108,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Google+Sans:wght@400;500;600;700&family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Merriweather:opsz,wght@18..144,400..900&family=Nunito:wght@400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Google+Sans:wght@400;500;600;700&family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Merriweather:opsz,18..144,400..900&family=Nunito:wght@400;500;600;700&display=swap",
       },
     ],
   }),

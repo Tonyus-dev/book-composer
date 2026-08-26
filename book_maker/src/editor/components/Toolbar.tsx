@@ -31,11 +31,8 @@ import {
   loadLocalBook,
   type LocalProjectSummary,
 } from "../../lib/persistence/local";
-import {
-  getWorkFileName,
-  openWorkFile,
-  saveBookToWorkFile,
-} from "../../lib/persistence/work-file";
+import { getWorkFileName, openWorkFile, saveBookToWorkFile } from "../../lib/persistence/work-file";
+import { createEmptyBook, type EmptyBookInput } from "../../data/empty-book";
 
 const OVERLAY_LABELS: { key: keyof Overlays; label: string }[] = [
   { key: "rulers", label: "Réguas" },
@@ -45,6 +42,18 @@ const OVERLAY_LABELS: { key: keyof Overlays; label: string }[] = [
   { key: "columns", label: "Colunas" },
   { key: "baseline", label: "Baseline" },
 ];
+
+/** Presets de formato físico (em mm). Genéricos, sem identidade de marca. */
+const FORMAT_PRESETS: Record<
+  "A4" | "A5" | "Letter" | "6x9" | "140x210",
+  { width: number; height: number; bleed: number; label: string }
+> = {
+  A4: { width: 210, height: 297, bleed: 3, label: "A4 (210 × 297 mm)" },
+  A5: { width: 148, height: 210, bleed: 3, label: "A5 (148 × 210 mm)" },
+  Letter: { width: 215.9, height: 279.4, bleed: 3, label: "Letter (8.5 × 11 in)" },
+  "6x9": { width: 152.4, height: 228.6, bleed: 3, label: "6 × 9 in (152.4 × 228.6 mm)" },
+  "140x210": { width: 140, height: 210, bleed: 3, label: "140 × 210 mm" },
+};
 
 const ZOOMS: ZoomValue[] = ["fit", 0.5, 0.75, 1];
 
@@ -202,7 +211,15 @@ export function Toolbar() {
   const [newTableRows, setNewTableRows] = useState("5");
   const [newTableHeader, setNewTableHeader] = useState(true);
   const [newProjectOpen, setNewProjectOpen] = useState(false);
-  const [newProjectTitle, setNewProjectTitle] = useState("Novo projeto KALLISTIS");
+  const [newProjectTitle, setNewProjectTitle] = useState("");
+  const [newProjectAuthor, setNewProjectAuthor] = useState("");
+  const [newProjectFormat, setNewProjectFormat] = useState<
+    "A4" | "A5" | "Letter" | "6x9" | "140x210" | "custom"
+  >("A4");
+  const [newProjectWidthMm, setNewProjectWidthMm] = useState("210");
+  const [newProjectHeightMm, setNewProjectHeightMm] = useState("297");
+  const [newProjectBleedMm, setNewProjectBleedMm] = useState("3");
+  const [newProjectPageCount, setNewProjectPageCount] = useState(12);
   const [cloneSourceId, setCloneSourceId] = useState<string | null>(null);
   const [projectLibraryOpen, setProjectLibraryOpen] = useState(false);
   const [localProjects, setLocalProjects] = useState<LocalProjectSummary[]>([]);
@@ -243,10 +260,7 @@ export function Toolbar() {
     const onKeyDown = (event: KeyboardEvent) => {
       if (!(event.metaKey || event.ctrlKey)) return;
       const target = event.target as HTMLElement | null;
-      if (
-        target &&
-        (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName))
-      )
+      if (target && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)))
         return;
       const key = event.key.toLowerCase();
       if (key !== "z" && key !== "y") return;
@@ -426,25 +440,22 @@ export function Toolbar() {
     selectBlock(block.id);
   };
 
-  const createNewProject = (title: string, clearStored = false) => {
-    if (!title.trim()) return;
-    if (clearStored) clearLocalBook(projectId);
-    const page: Page = {
-      id: `page-${Date.now().toString(36)}`,
-      template: "narrative",
-      title: "Página 1",
-      settings: { ...selectedPage.settings, header: false, footer: false, pageNumber: false },
-      blocks: [],
+  const createNewProject = (
+    title: string,
+    options: EmptyBookInput & { clearStored?: boolean } = {},
+  ) => {
+    const finalTitle = title.trim() || "Sem título";
+    if (options.clearStored) clearLocalBook(projectId);
+    // Constrói do zero a partir de createEmptyBook (genérico) — NÃO herda
+    // tokens/tableStyles/recipes/productionPlan do livro atual.
+    const input: EmptyBookInput = {
+      title: finalTitle,
+      pageCount: options.pageCount ?? 1,
+      meta: { ...(options.meta ?? {}), edition: "Projeto editorial" },
     };
-    const nextBook = {
-      ...book,
-      meta: { ...book.meta, title: title.trim(), edition: "Projeto editorial" },
-      pages: [page],
-      nodes: [],
-      assets: [],
-      fonts: [],
-      spreads: [],
-    };
+    if (options.author !== undefined) input.author = options.author;
+    if (options.tokens !== undefined) input.tokens = options.tokens;
+    const nextBook = createEmptyBook(input);
     switchLocalProject(createLocalProjectId(), nextBook);
   };
 
@@ -500,7 +511,9 @@ export function Toolbar() {
       window.dispatchEvent(new CustomEvent("kallistis-work-file-saved", { detail: { fileName } }));
     } catch (error) {
       if ((error as DOMException | undefined)?.name !== "AbortError") {
-        window.alert(`O projeto foi salvo localmente, mas o arquivo de trabalho não foi gravado.\n\n${String(error)}`);
+        window.alert(
+          `O projeto foi salvo localmente, mas o arquivo de trabalho não foi gravado.\n\n${String(error)}`,
+        );
       }
     } finally {
       setWorkFileSaving(false);
@@ -804,7 +817,7 @@ export function Toolbar() {
                 ? "● Conflito"
                 : status === "offline"
                   ? "● Offline · salvo"
-                : status === "error"
+                  : status === "error"
                     ? "● Erro · salvo"
                     : savedTime
                       ? `● Salvo às ${savedTime}`
@@ -848,7 +861,13 @@ export function Toolbar() {
                 type="button"
                 onClick={() => {
                   setCloneSourceId(null);
-                  setNewProjectTitle("Novo projeto KALLISTIS");
+                  setNewProjectTitle("");
+                  setNewProjectAuthor("");
+                  setNewProjectFormat("A4");
+                  setNewProjectWidthMm("210");
+                  setNewProjectHeightMm("297");
+                  setNewProjectBleedMm("3");
+                  setNewProjectPageCount(12);
                   setNewProjectOpen(true);
                 }}
                 className="border border-border px-2 py-1 text-left text-[11px] hover:bg-accent"
@@ -926,7 +945,11 @@ export function Toolbar() {
               <button
                 type="button"
                 onClick={() => {
-                  if (window.confirm("Descartar o projeto local e voltar à maquete de desenvolvimento?"))
+                  if (
+                    window.confirm(
+                      "Descartar o projeto local e voltar à maquete de desenvolvimento?",
+                    )
+                  )
                     resetToDemo();
                 }}
                 className="border border-border px-2 py-1 text-left text-[11px] text-muted-foreground hover:bg-accent"
@@ -942,10 +965,10 @@ export function Toolbar() {
                     )
                   )
                     clearLocalBook(projectId);
-                  setNewProjectTitle("Novo projeto KALLISTIS");
+                  setNewProjectTitle("");
                   setNewProjectOpen(true);
                 }}
-                className="border border-destructive px-2 py-1 text-left text-[11px] text-destructive hover:bg-accent"
+                className="border border-destructive px-2 py-1 text-left text-[11px] text-destructive hover:bg-destructive hover:text-destructive-foreground"
               >
                 Excluir projeto local
               </button>
@@ -1010,7 +1033,7 @@ export function Toolbar() {
       {newProjectOpen ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/70 p-6">
           <form
-            className="w-[360px] border border-border bg-card p-4 shadow-xl"
+            className="w-[440px] max-h-[90vh] overflow-auto border border-border bg-card p-4 shadow-xl"
             onSubmit={(event) => {
               event.preventDefault();
               if (cloneSourceId) {
@@ -1018,28 +1041,138 @@ export function Toolbar() {
                 if (source) {
                   switchLocalProject(createLocalProjectId(), {
                     ...source,
-                    meta: { ...source.meta, title: newProjectTitle.trim() },
+                    meta: { ...source.meta, title: newProjectTitle.trim() || "Sem título" },
                   });
                 }
                 setCloneSourceId(null);
-              } else {
-                createNewProject(newProjectTitle);
+                setNewProjectOpen(false);
+                return;
               }
+              const w = Number.parseFloat(newProjectWidthMm) || 210;
+              const h = Number.parseFloat(newProjectHeightMm) || 297;
+              const bleed = Number.parseFloat(newProjectBleedMm) || 3;
+              const pageCount = Math.max(1, Math.min(newProjectPageCount, 1000));
+              const opts: EmptyBookInput & { clearStored?: boolean } = {
+                pageCount,
+                tokens: {
+                  pageWidth: `${w}mm`,
+                  pageHeight: `${h}mm`,
+                  bleed: `${bleed}mm`,
+                },
+                meta: { edition: "Projeto editorial" },
+              };
+              if (newProjectAuthor.trim()) opts.author = newProjectAuthor.trim();
+              createNewProject(newProjectTitle || "Sem título", opts);
               setNewProjectOpen(false);
             }}
           >
             <h2 className="mb-3 text-sm font-semibold">
-              {cloneSourceId ? "Clonar projeto" : "Novo projeto"}
+              {cloneSourceId ? "Clonar projeto" : "Novo livro"}
             </h2>
-            <label className="flex flex-col gap-1 text-xs">
-              Nome do projeto
-              <input
-                autoFocus
-                className="border border-border bg-input/40 px-2 py-1"
-                value={newProjectTitle}
-                onChange={(event) => setNewProjectTitle(event.target.value)}
-              />
-            </label>
+            {cloneSourceId ? null : (
+              <div className="grid grid-cols-2 gap-2 text-xs">
+                <label className="col-span-2 flex flex-col gap-1">
+                  Título
+                  <input
+                    autoFocus
+                    className="border border-border bg-input/40 px-2 py-1"
+                    value={newProjectTitle}
+                    onChange={(event) => setNewProjectTitle(event.target.value)}
+                    placeholder="Sem título"
+                  />
+                </label>
+                <label className="col-span-2 flex flex-col gap-1">
+                  Autor
+                  <input
+                    className="border border-border bg-input/40 px-2 py-1"
+                    value={newProjectAuthor}
+                    onChange={(event) => setNewProjectAuthor(event.target.value)}
+                    placeholder="Autor"
+                  />
+                </label>
+                <label className="col-span-2 flex flex-col gap-1">
+                  Formato
+                  <select
+                    className="border border-border bg-input/40 px-2 py-1"
+                    value={newProjectFormat}
+                    onChange={(event) => {
+                      const fmt = event.target.value as typeof newProjectFormat;
+                      setNewProjectFormat(fmt);
+                      if (fmt !== "custom") {
+                        const p = FORMAT_PRESETS[fmt];
+                        setNewProjectWidthMm(String(p.width));
+                        setNewProjectHeightMm(String(p.height));
+                        setNewProjectBleedMm(String(p.bleed));
+                      }
+                    }}
+                  >
+                    <option value="A4">{FORMAT_PRESETS.A4.label}</option>
+                    <option value="A5">{FORMAT_PRESETS.A5.label}</option>
+                    <option value="Letter">{FORMAT_PRESETS.Letter.label}</option>
+                    <option value="6x9">{FORMAT_PRESETS["6x9"].label}</option>
+                    <option value="140x210">{FORMAT_PRESETS["140x210"].label}</option>
+                    <option value="custom">Personalizado</option>
+                  </select>
+                </label>
+                <label className="flex flex-col gap-1">
+                  Largura (mm)
+                  <input
+                    type="number"
+                    step="0.1"
+                    min="50"
+                    max="1000"
+                    className="border border-border bg-input/40 px-2 py-1"
+                    value={newProjectWidthMm}
+                    onChange={(event) => {
+                      setNewProjectWidthMm(event.target.value);
+                      setNewProjectFormat("custom");
+                    }}
+                  />
+                </label>
+                <label className="flex flex-col gap-1">
+                  Altura (mm)
+                  <input
+                    type="number"
+                    step="0.1"
+                    min="50"
+                    max="1000"
+                    className="border border-border bg-input/40 px-2 py-1"
+                    value={newProjectHeightMm}
+                    onChange={(event) => {
+                      setNewProjectHeightMm(event.target.value);
+                      setNewProjectFormat("custom");
+                    }}
+                  />
+                </label>
+                <label className="flex flex-col gap-1">
+                  Sangria (mm)
+                  <input
+                    type="number"
+                    step="0.1"
+                    min="0"
+                    max="20"
+                    className="border border-border bg-input/40 px-2 py-1"
+                    value={newProjectBleedMm}
+                    onChange={(event) => setNewProjectBleedMm(event.target.value)}
+                  />
+                </label>
+                <label className="flex flex-col gap-1">
+                  Páginas iniciais
+                  <input
+                    type="number"
+                    min="1"
+                    max="1000"
+                    className="border border-border bg-input/40 px-2 py-1"
+                    value={newProjectPageCount}
+                    onChange={(event) =>
+                      setNewProjectPageCount(
+                        Math.max(1, Number.parseInt(event.target.value || "1", 10)),
+                      )
+                    }
+                  />
+                </label>
+              </div>
+            )}
             <div className="mt-4 flex justify-end gap-2">
               <button
                 type="button"
@@ -1055,7 +1188,7 @@ export function Toolbar() {
                 type="submit"
                 className="border border-primary bg-primary px-3 py-1 text-xs text-primary-foreground"
               >
-                {cloneSourceId ? "Criar cópia" : "Criar projeto"}
+                {cloneSourceId ? "Criar cópia" : "Criar livro"}
               </button>
             </div>
           </form>

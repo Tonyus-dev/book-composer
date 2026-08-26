@@ -1,51 +1,59 @@
 /*
- * KALLISTIS — design tokens do LIVRO.
- * Paleta normativa: Manual de Branding KALLISTIS v1.0, seção 06.
- * Formato editorial desta edição: 140 x 210 mm (trim) + 5 mm (bleed) → 150 x 220 mm (PDF).
- * Edição Definitiva v1.3.
- * Alterar aqui altera o livro inteiro. Não espalhar valores nos componentes.
+ * Book Maker — design tokens base do livro.
+ *
+ * Defaults neutros do engine: nenhum valor pertence a um projeto específico.
+ * Todo projeto deve sobrescrever estes tokens conforme o formato físico
+ * escolhido (A4, A5, Letter, 6×9", personalizado) e a identidade visual
+ * definida pelo autor/projeto.
+ *
+ * Projetos que precisam de uma paleta proprietária (ex.: uma edição de
+ * marca) podem definir seus próprios tokens via `book.tokens` no JSON do
+ * projeto; o CSS abaixo é apenas o piso genérico.
  */
 
 .k-book {
-  /* Paleta oficial */
-  --k-purple: #542869;
-  --k-obsidian: #08080e;
-  --k-paper: #fbfaf7;
-  --k-magenta: #be185d;
-  --k-violet: #b953dc;
-  --k-green: #518a1b;
-  --k-green-text: #386d17;
-  --k-lime: #a0b521;
-  --k-gold: #d6a11e;
+  /* Paleta neutra — preto/tinta, papel e um cinza de borda.
+     Projetos devem sobrescrever `--k-ink`, `--k-paper`, `--k-accent`
+     etc. através do JSON. */
+  --k-purple: #333333;
+  --k-obsidian: #0a0a0a;
+  --k-paper: #ffffff;
+  --k-magenta: #6b6b6b;
+  --k-violet: #8a8a8a;
+  --k-green: #2f6b2f;
+  --k-green-text: #234a23;
+  --k-lime: #6b6b2f;
+  --k-gold: #8a6b2f;
 
   /* Derivados editoriais (tinta, apoio, filetes) */
-  --k-ink: #191520;
-  --k-muted: #5d5666;
-  --k-border: #d9d4cc;
-  --k-field: #f3f0ea;
-  --k-field-strong: #ebe6dd;
+  --k-ink: #1a1a1a;
+  --k-muted: #6b6b6b;
+  --k-border: #d0d0d0;
+  --k-field: #f5f5f5;
+  --k-field-strong: #ebebeb;
 
-  /* Tipografia */
-  --font-display: "EB Garamond", "Garamond", "Times New Roman", serif;
-  --font-body: "EB Garamond", "Garamond", "Times New Roman", serif;
-  --font-functional: "Liberation Sans", Arial, Helvetica, sans-serif;
+  /* Tipografia com fallback genérico (sem fonte proprietária) */
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: Georgia, "Times New Roman", serif;
+  --font-functional: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 
-  /* Geometria física da página (Edição Definitiva v1.3) */
-  --page-width: 140mm;
-  --page-height: 210mm;
-  --bleed: 5mm;
-  --margin-inner: 16mm;
-  --margin-outer: 12mm;
-  --margin-top: 14mm;
-  --margin-bottom: 16mm;
+  /* Geometria física padrão: A4 (trim) + 3 mm bleed → 213×300 mm (PDF).
+     Sobrescreva em book.tokens para outros formatos. */
+  --page-width: 210mm;
+  --page-height: 297mm;
+  --bleed: 3mm;
+  --margin-inner: 18mm;
+  --margin-outer: 14mm;
+  --margin-top: 16mm;
+  --margin-bottom: 18mm;
   --column-gap: 6mm;
 
-  /* Escala tipográfica */
-  --body-size: 10pt;
-  --body-leading: 13.5pt;
+  /* Escala tipográfica padrão */
+  --body-size: 11pt;
+  --body-leading: 14pt;
   --rules-size: 9.5pt;
-  --rules-leading: 12.5pt;
-  --table-size: 8.5pt;
+  --rules-leading: 12pt;
+  --table-size: 9pt;
   --h1-size: 22pt;
   --h2-size: 14pt;
   --h3-size: 11pt;
@@ -53,12 +61,12 @@
 }
 
 /* Cópia de pré-impressão: a direção de arte continua a mesma, mas o miolo
-   sai em tinta monocromática. O editor e os projetos históricos permanecem
-   com a paleta original. */
+   sai em tinta monocromática. Variantes de projeto podem manter a paleta
+   original; este é apenas o piso monocromático do engine. */
 .k-book.k-print--grayscale {
   --k-purple: #555555;
   --k-obsidian: #0b0b0b;
-  --k-paper: #fbfbfb;
+  --k-paper: #ffffff;
   --k-magenta: #777777;
   --k-violet: #777777;
   --k-green: #666666;

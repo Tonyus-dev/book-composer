@@ -159,14 +159,14 @@ export function createKallistisCharacterSheet(
       "p1-brand",
       "text",
       { x: 10, y: 8, width: 70, height: 10 },
-      { text: "KALLISTIS", style: headingStyle },
+      { text: "", style: headingStyle },
     ),
     sheetElement(
       "p1-subtitle",
       "text",
       { x: 10, y: 17, width: 100, height: 5 },
       {
-        text: "Memória, Fratura e Escolha entre Dois Mundos",
+        text: "Modelo de ficha — personalize o título do projeto",
         style: { fontSize: 2.8, fontStyle: "italic" },
       },
     ),
@@ -373,14 +373,14 @@ export function createKallistisCharacterSheet(
 
   return {
     id,
-    name: "Ficha de Personagem KALLISTIS",
+    name: "Ficha de Personagem",
     version: 1,
     widthMm: 140,
     heightMm: 210,
     pages: [page1, page2],
     values: { base: 0, attribute: 0, skill: 0, weapon: 0, targetDef: 0 },
     formulas: { damage: "base + attribute + (skill * 2) + weapon - targetDef" },
-    templateId: "kallistis-character-sheet",
+    templateId: "character-sheet",
     mode: "design",
   };
 }

@@ -155,7 +155,7 @@ export const PageRenderer = forwardRef<HTMLDivElement, PageRenderProps>(function
       {page.settings.header ? (
         <PageHeader
           verso={verso}
-          left={`KALLISTIS${page.part ? ` · ${page.part}` : ""}`}
+          left={`${book.meta.title || ""}${page.part ? ` · ${page.part}` : ""}`.trim()}
           right={page.chapter ?? page.title ?? ""}
         />
       ) : null}

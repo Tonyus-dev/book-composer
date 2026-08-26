@@ -9,8 +9,11 @@ export function FrontMatterTemplate({ page }: TemplateProps) {
   const hasOwnHeading = page.blocks.some(
     (block) => block.type === "heading" && block.text === page.title,
   );
+  // Filtro de blocos: oculta headings cujo texto seja idêntico ao título
+  // da página (para evitar duplicação visual). Genérico — antes filtrava
+  // especificamente o texto "KALLISTIS", acoplado a um único projeto.
   const blocks = titlePage
-    ? page.blocks.filter((block) => !(block.type === "heading" && block.text === "KALLISTIS"))
+    ? page.blocks.filter((block) => !(block.type === "heading" && block.text === page.title))
     : page.blocks;
   return (
     <div

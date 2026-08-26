@@ -7,17 +7,17 @@ import { loadLocalBook, normalizeBook } from "../lib/persistence/local";
 import { registerBookAssets } from "../lib/assets/registry";
 import { buildReport } from "../lib/preflight/report";
 import { measureIssues } from "../lib/preflight/measure";
-import { canonicalBook } from "../data/canonical-book";
+import { emptyBook } from "../data/empty-book";
 
-const title = "KALLISTIS — impressão do Livro Básico";
+const title = "Book Maker — impressão";
 const description =
-  "Rota de impressão limpa do KALLISTIS Book Builder: apenas páginas do livro, sem interface de editor.";
+  "Rota de impressão genérica do Book Maker: renderiza apenas páginas do livro ativo, sem interface de editor.";
 
 export const Route = createFileRoute("/print")({
   validateSearch: (search: Record<string, unknown>): { src?: string; autoprint?: boolean } => ({
-      ...(typeof search["src"] === "string" ? { src: search["src"] } : {}),
-      ...(search["autoprint"] === "1" ? { autoprint: true } : {}),
-    }),
+    ...(typeof search["src"] === "string" ? { src: search["src"] } : {}),
+    ...(search["autoprint"] === "1" ? { autoprint: true } : {}),
+  }),
   head: () => ({
     meta: [
       { title },
@@ -39,7 +39,8 @@ function PrintView() {
   const { src, autoprint } = useSearch({ from: "/print" });
   // O primeiro render precisa ser idêntico no SSR e no browser. O livro
   // injetado/local é resolvido no efeito abaixo, depois da hidratação.
-  const [book, setBook] = useState<Book>(() => canonicalBook);
+  // Default = livro vazio genérico (sem KALLISTIS, sem nenhum projeto).
+  const [book, setBook] = useState<Book>(() => emptyBook);
   const [sourceResolved, setSourceResolved] = useState(false);
 
   useEffect(() => {

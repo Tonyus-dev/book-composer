@@ -888,26 +888,28 @@ export const CSS_VAR_BY_TOKEN: Record<keyof BookTokens, string> = {
 };
 
 export const DEFAULT_TOKENS: BookTokens = {
-  /* Edição Definitiva v1.3 — trim 140×210 mm + bleed 5 mm → PDF 150×220 mm. */
-  pageWidth: "140mm",
-  pageHeight: "210mm",
-  bleed: "5mm",
-  marginInner: "16mm",
-  marginOuter: "12mm",
-  marginTop: "14mm",
-  marginBottom: "16mm",
+  /* Defaults neutros do engine. Todo projeto deve sobrescrever conforme
+     o formato físico escolhido (A4, A5, Letter, 6×9", personalizado etc.).
+     Estes valores NÃO pertencem a nenhum projeto específico. */
+  pageWidth: "210mm",
+  pageHeight: "297mm",
+  bleed: "3mm",
+  marginInner: "18mm",
+  marginOuter: "14mm",
+  marginTop: "16mm",
+  marginBottom: "18mm",
   columnGap: "6mm",
-  bodySize: "10pt",
-  bodyLeading: "13.5pt",
+  bodySize: "11pt",
+  bodyLeading: "14pt",
   rulesSize: "9.5pt",
-  rulesLeading: "12.5pt",
-  tableSize: "8.5pt",
+  rulesLeading: "12pt",
+  tableSize: "9pt",
   h1Size: "22pt",
   h2Size: "14pt",
   h3Size: "11pt",
-  fontDisplay: '"EB Garamond", "Garamond", "Times New Roman", serif',
-  fontBody: '"EB Garamond", "Garamond", "Times New Roman", serif',
-  fontFunctional: '"Liberation Sans", Arial, Helvetica, sans-serif',
+  fontDisplay: 'Georgia, "Times New Roman", serif',
+  fontBody: 'Georgia, "Times New Roman", serif',
+  fontFunctional: 'system-ui, -apple-system, "Segoe UI", Arial, sans-serif',
 };
 
 /**

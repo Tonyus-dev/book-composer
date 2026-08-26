@@ -8,7 +8,10 @@ interface WorkFileHandle {
   getFile: () => Promise<File>;
   queryPermission?: (options?: { mode?: "read" | "readwrite" }) => Promise<Permission>;
   requestPermission?: (options?: { mode?: "read" | "readwrite" }) => Promise<Permission>;
-  createWritable: () => Promise<{ write: (content: string) => Promise<void>; close: () => Promise<void> }>;
+  createWritable: () => Promise<{
+    write: (content: string) => Promise<void>;
+    close: () => Promise<void>;
+  }>;
 }
 
 interface PickerWindow extends Window {
@@ -31,7 +34,8 @@ function openHandleDb(): Promise<IDBDatabase> {
     const request = indexedDB.open(DB_NAME, 1);
     request.onupgradeneeded = () => request.result.createObjectStore(STORE_NAME);
     request.onsuccess = () => resolve(request.result);
-    request.onerror = () => reject(request.error ?? new Error("Não foi possível abrir o vínculo do arquivo."));
+    request.onerror = () =>
+      reject(request.error ?? new Error("Não foi possível abrir o vínculo do arquivo."));
   });
 }
 
@@ -41,7 +45,8 @@ async function readHandle(): Promise<WorkFileHandle | null> {
   return new Promise((resolve, reject) => {
     const request = db.transaction(STORE_NAME, "readonly").objectStore(STORE_NAME).get(HANDLE_KEY);
     request.onsuccess = () => resolve((request.result as WorkFileHandle | undefined) ?? null);
-    request.onerror = () => reject(request.error ?? new Error("Não foi possível ler o arquivo de trabalho."));
+    request.onerror = () =>
+      reject(request.error ?? new Error("Não foi possível ler o arquivo de trabalho."));
   });
 }
 
@@ -60,7 +65,8 @@ async function writeHandle(handle: WorkFileHandle): Promise<void> {
     const transaction = db.transaction(STORE_NAME, "readwrite");
     transaction.objectStore(STORE_NAME).put(handle, HANDLE_KEY);
     transaction.oncomplete = () => resolve();
-    transaction.onerror = () => reject(transaction.error ?? new Error("Não foi possível guardar o vínculo do arquivo."));
+    transaction.onerror = () =>
+      reject(transaction.error ?? new Error("Não foi possível guardar o vínculo do arquivo."));
   });
 }
 
@@ -107,7 +113,9 @@ export async function openWorkFile(): Promise<File> {
   }
   const picker = (window as PickerWindow).showOpenFilePicker;
   if (!picker) {
-    throw new Error("Este navegador não permite vincular diretamente o arquivo de trabalho. Use Chromium/Chrome.");
+    throw new Error(
+      "Este navegador não permite vincular diretamente o arquivo de trabalho. Use Chromium/Chrome.",
+    );
   }
   const [handle] = await picker({
     multiple: false,
@@ -158,22 +166,28 @@ export async function saveBoundBookToWorkFile(book: Book): Promise<boolean> {
  * Grava o snapshot atual no arquivo escolhido pelo usuário. O handle fica
  * associado ao Book Maker para que os próximos cliques em Salvar reutilizem
  * exatamente o mesmo arquivo.
+ *
+ * `suggestedName` é derivado do `book.meta.title` (genérico); o caller pode
+ * sobrescrever. Não há mais nome KALLISTIS hardcoded.
  */
-export async function saveBookToWorkFile(
-  book: Book,
-  suggestedName = "kallistis-manual-do-mundo-reconstrucao.json",
-): Promise<string> {
-  if (typeof window === "undefined") throw new Error("O arquivo de trabalho só pode ser salvo no navegador.");
+export async function saveBookToWorkFile(book: Book, suggestedName?: string): Promise<string> {
+  if (typeof window === "undefined")
+    throw new Error("O arquivo de trabalho só pode ser salvo no navegador.");
   const picker = (window as PickerWindow).showSaveFilePicker;
   if (!picker) {
-    throw new Error("Este navegador não permite gravar diretamente no arquivo de trabalho. Use Chromium/Chrome.");
+    throw new Error(
+      "Este navegador não permite gravar diretamente no arquivo de trabalho. Use Chromium/Chrome.",
+    );
   }
+  const safeTitle = (book.meta.title || "projeto").trim();
+  const fallbackName = `${slugify(safeTitle)}.json`;
+  const finalSuggested = suggestedName ?? fallbackName;
 
   let handle = await readHandle();
   if (!handle || !(await ensureWritePermission(handle))) {
     handle = await picker({
-      suggestedName,
-      types: [{ description: "Projeto KALLISTIS", accept: { "application/json": [".json"] } }],
+      suggestedName: finalSuggested,
+      types: [{ description: "Projeto Book Maker", accept: { "application/json": [".json"] } }],
     });
     if (!(await ensureWritePermission(handle))) {
       throw new Error("Permissão de escrita não concedida para o arquivo de trabalho.");
@@ -182,4 +196,17 @@ export async function saveBookToWorkFile(
 
   await writeBookWithHandle(book, handle);
   return handle.name;
+}
+
+/** Slug simples para o nome sugerido do arquivo de trabalho. */
+function slugify(input: string): string {
+  return (
+    input
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-zA-Z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .toLowerCase()
+      .slice(0, 80) || "projeto"
+  );
 }

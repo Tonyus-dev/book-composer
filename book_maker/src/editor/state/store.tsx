@@ -29,6 +29,7 @@ import { TEMPLATES } from "../../book/templates";
 import { createEmptyPage } from "../../book/page-factory";
 import { demoBook } from "../../data/demo-book";
 import { canonicalBook } from "../../data/canonical-book";
+import { emptyBook } from "../../data/empty-book";
 import {
   getActiveLocalProjectId,
   loadLocalBook,
@@ -249,7 +250,9 @@ const EditorContext = createContext<EditorContextValue | null>(null);
 
 let idCounter = 0;
 const nextId = (prefix: string) => `${prefix}-${Date.now().toString(36)}-${(idCounter += 1)}`;
-const INITIAL_BOOK = normalizeBook(canonicalBook);
+/** Estado inicial do editor: livro vazio genérico (sem KALLISTIS, sem nenhum
+ *  projeto específico). O usuário abre/cria um projeto a partir daqui. */
+const INITIAL_BOOK = normalizeBook(emptyBook);
 
 function withPage(book: Book, pageId: string, transform: (page: Page) => Page): Book {
   return {
