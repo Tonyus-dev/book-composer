@@ -1,6 +1,7 @@
 import type { Book, Page } from "../../book/types";
 import { normalizeBook } from "./local";
 import { bookSnapshot } from "./local";
+import { persistWorkFileHandle } from "./work-file";
 import { getAssetBlob } from "../assets/local-store";
 
 /** JSON legível e diffável em Git: 2 espaços, chaves estáveis. */
@@ -85,6 +86,9 @@ export async function savePortableBookAs(book: Book, suggestedName: string): Pro
     const writable = await handle.createWritable();
     await writable.write(content);
     await writable.close();
+    // Persiste o handle para que o próximo "Salvar" (saveBookToWorkFile) use
+    // o MESMO arquivo. Sem isso, "Salvar" abriria o picker de novo.
+    await persistWorkFileHandle(handle as unknown as Parameters<typeof persistWorkFileHandle>[0]);
     return;
   }
 

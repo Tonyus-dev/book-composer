@@ -70,6 +70,11 @@ async function writeHandle(handle: WorkFileHandle): Promise<void> {
   });
 }
 
+/** Exportado para que savePortableBookAs possa persistir o handle do "Salvar como". */
+export async function persistWorkFileHandle(handle: WorkFileHandle): Promise<void> {
+  return writeHandle(handle);
+}
+
 async function ensureWritePermission(handle: WorkFileHandle): Promise<boolean> {
   const options = { mode: "readwrite" as const };
   const current = handle.queryPermission ? await handle.queryPermission(options) : "granted";
