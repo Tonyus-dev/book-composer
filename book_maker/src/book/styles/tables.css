@@ -62,6 +62,25 @@
   color: var(--table-text-color, var(--k-ink));
 }
 
+.k-table--technique-catalog {
+  width: 100%;
+  box-sizing: border-box;
+  table-layout: fixed;
+}
+
+.k-table--technique-catalog th,
+.k-table--technique-catalog td {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+.k-table--dense-records {
+  width: 100%;
+}
+
 .k-table col {
   min-width: 0;
 }

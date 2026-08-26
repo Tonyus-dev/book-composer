@@ -7,6 +7,15 @@ import type { ReactNode } from "react";
 
 const INLINE = /(\*\*[^*]+\*\*|\*[^*]+\*|\[[^\]]+\]\([^)]+\))/g;
 
+function sanitizeMarkdown(source: string) {
+  return source
+    .replace(/<!--[\s\S]*?-->/gu, "")
+    .replace(/^\s*#{1,6}\s+/gmu, "")
+    .replace(/`([^`]+)`/gu, "$1")
+    .replace(/\\\+/gu, "+")
+    .replace(/\\-/gu, "−");
+}
+
 function renderInline(text: string, keyPrefix: string): ReactNode[] {
   return text.split(INLINE).map((part, i) => {
     const key = `${keyPrefix}-${i}`;
@@ -29,7 +38,7 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
 }
 
 export function Markdown({ source }: { source: string }) {
-  const lines = source.replace(/\r\n/g, "\n").split("\n");
+  const lines = sanitizeMarkdown(source).replace(/\r\n/g, "\n").split("\n");
   const out: ReactNode[] = [];
   let paragraph: string[] = [];
   let list: { ordered: boolean; items: string[] } | null = null;

@@ -1,0 +1,11 @@
+{
+  "checkpoint": "V4_BEFORE_SURGICAL_FIX",
+  "generatedAt": "2026-08-24T04:39:45.731Z",
+  "headBefore": "9d2f163e56f8bedc1709a0c66f84c78a045984c2",
+  "project": "projects/KALLISTIS_MANUAL_DO_MUNDO_v4_REBUILD.json",
+  "projectSha256": "aa0ea08756a9a109b05765904781ab10a3e022474d8c035642a2c8d9c0f8f2fb",
+  "pdf": "dist/export/KALLISTIS_MANUAL_DO_MUNDO_v4_PROVA.pdf",
+  "pdfSha256": "cab9ba627f8c477d941b3ad61140cd48d3bc7907e67dfcbc774416a377b64822",
+  "canonicalManuscriptSha256": "0388e4238593471dd8a19ae387c9ff67099a948d08e2a74212e78a0381aa3ebe",
+  "status": "PRESERVED"
+}

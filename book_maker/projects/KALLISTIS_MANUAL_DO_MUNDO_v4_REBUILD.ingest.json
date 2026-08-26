@@ -1,0 +1,22 @@
+{
+  "checkpoint": "A_INGESTAO",
+  "generatedAt": "2026-08-24T03:16:00.653Z",
+  "manuscriptPath": "/home/tonyus-dev/Portifolio/kallistis-book/book_maker/KALLISTIS_LIVROS/KALLISTIS_MANUAL_DO_MUNDO/PACOTE_FINAL_RENDERIZACAO_MANUAL_DO_MUNDO/00_MANUSCRITO_CANONICO/KALLISTIS_MANUSCRITO_FONTE_UNICA_v3.1_FREEZE.md",
+  "manuscriptSha256": "0388e4238593471dd8a19ae387c9ff67099a948d08e2a74212e78a0381aa3ebe",
+  "manuscriptBytes": 1940526,
+  "manuscriptLines": 10798,
+  "normalizedManuscriptPath": "/home/tonyus-dev/Portifolio/kallistis-book/book_maker/tmp/rebuild-v4/KALLISTIS_MANUSCRITO_V4_NORMALIZADO.md",
+  "normalizedManuscriptSha256": "727a63583bb9c42d09dc2d49a4d241e7cf139fa3229add9184640f8bc76147b0",
+  "normalizedManuscriptBytes": 629304,
+  "normalizedManuscriptLines": 10798,
+  "base64SourceOccurrences": 62,
+  "base64MaterializedOccurrences": 0,
+  "base64TextNodes": 0,
+  "glyphAssets": 62,
+  "glyphManifest": "/home/tonyus-dev/Portifolio/kallistis-book/book_maker/KALLISTIS_LIVROS/KALLISTIS_MANUAL_DO_MUNDO/KALLISTIS_VELARIM_GLIFOS/MANIFESTO_GLIFOS.json",
+  "glyphManifestSha256": "e3a282c2613d0b44752a390bc9bad72aff1ef20620de34ee64680121fbcb70c8",
+  "glyphPublicRoot": "/home/tonyus-dev/Portifolio/kallistis-book/book_maker/public/assets/velarim/glifos",
+  "referencePdfPath": "/home/tonyus-dev/Portifolio/kallistis-book/book_maker/KALLISTIS_LIVROS/KALLISTIS_MANUAL_DO_MUNDO/PRONTOV1_compressed (1).pdf",
+  "referencePdfSha256": "4989306aea643fc2aabf7f45248fe957515a373f45c955dc987c370ca30eb793",
+  "status": "PASS"
+}

@@ -526,7 +526,14 @@ export function staticIssues(book: Book): PreflightIssue[] {
             continue;
           }
           const target = folioTargets.get(entry.page);
-          const labels = [target?.title, target?.chapter, target?.part].filter(Boolean) as string[];
+          const labels = [
+            target?.title,
+            target?.chapter,
+            target?.part,
+            ...(target?.blocks ?? [])
+              .filter((targetBlock) => targetBlock.type === "heading")
+              .map((targetBlock) => targetBlock.text),
+          ].filter(Boolean) as string[];
           if (target && !labels.some((label) => slug(label) === slug(entry.label))) {
             push(
               "toc-destination",

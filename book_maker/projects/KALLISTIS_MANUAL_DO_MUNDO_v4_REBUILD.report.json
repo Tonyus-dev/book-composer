@@ -1,0 +1,3360 @@
+{
+  "verdict": "FAIL",
+  "scope": "ALL",
+  "profile": "PUBLIC_BOOK",
+  "generatedAt": "2026-08-24T03:24:10.267Z",
+  "engine": {
+    "generatedBy": "kallistis-materializer",
+    "materializationVersion": 7,
+    "paginationPolicy": {
+      "targetBookPages": null,
+      "softMaximumBookPages": null,
+      "hardWarningBookPages": null
+    },
+    "imageCadence": {
+      "targetInterval": 4,
+      "minimumInterval": 3,
+      "maximumInterval": 5
+    },
+    "manuscriptTotalWords": 89503,
+    "softMaxTextRun": 5,
+    "hardMaxTextRun": 7,
+    "profile": "PUBLIC_BOOK"
+  },
+  "input": {
+    "manuscript": "/home/tonyus-dev/Portifolio/kallistis-book/book_maker/tmp/rebuild-v4/KALLISTIS_MANUSCRITO_V4_NORMALIZADO.md",
+    "manuscriptSha256": "727a63583bb9c42d09dc2d49a4d241e7cf139fa3229add9184640f8bc76147b0",
+    "expectedManuscriptSha256": "727a63583bb9c42d09dc2d49a4d241e7cf139fa3229add9184640f8bc76147b0",
+    "sourceValid": true,
+    "catalog": "/home/tonyus-dev/Portifolio/kallistis-book/book_maker/KALLISTIS_LIVROS/KALLISTIS_MANUAL_DO_MUNDO/PACOTE_FINAL_RENDERIZACAO_MANUAL_DO_MUNDO/01_REFERENCIAS_EDITORIAIS/KALLISTIS_MAPA_MESTRE_FECHAMENTO_V3.1.md",
+    "catalogSha256": "b1d4383a864dc301692a409fbbd26aa78d34b5b764f720a217367ea30b27db20",
+    "manifest": "/home/tonyus-dev/Portifolio/kallistis-book/book_maker/public/editorial-asset-manifest.json",
+    "manifestSha256": "4f6be9a4008ce5f06a0181a1d3c66cd4c5f77f22dfeeae6e82535d02ff7195bb",
+    "sourceStartLine": 1,
+    "sourceEndLine": 10798,
+    "pilot": false,
+    "sourceBlocksSelected": 4685,
+    "sourceBlocksAvailable": 4685
+  },
+  "output": {
+    "project": "/home/tonyus-dev/Portifolio/kallistis-book/book_maker/projects/KALLISTIS_MANUAL_DO_MUNDO_v4_REBUILD.json",
+    "originalProject": "/home/tonyus-dev/Portifolio/kallistis-book/book_maker/projects/kallistis-manual-do-mundo-reconstrucao.json",
+    "originalProjectSha256": "eeed61aa8fd4e3eeca4457498c396745a035a493aecd3616d4f6da38e0507ccc"
+  },
+  "legacyReference": {
+    "project": "/home/tonyus-dev/Portifolio/kallistis-book/book_maker/projects/kallistis-manual-do-mundo-reconstrucao.json",
+    "implementation": "/home/tonyus-dev/Portifolio/kallistis-book/book_maker/scripts/build-p001-p030.mjs",
+    "componentsReused": [
+      "PageRenderer",
+      "PartOpeningTemplate",
+      "ChapterOpeningTemplate",
+      "object-position/objectX",
+      "140x210mm token grid"
+    ],
+    "componentsAdapted": [
+      "image-top sizing",
+      "image-side composition",
+      "front matter dedication anchoring",
+      "timeline milestone rhythm",
+      "shared editorial image pair metadata"
+    ]
+  },
+  "visualGate": {
+    "passed": true,
+    "semanticCorrectness": true,
+    "compositionFamiliesUsed": 15,
+    "minimumCompositionFamilies": 3,
+    "cadenceSoft": true,
+    "justification": null
+  },
+  "cover": {
+    "asset": "/assets/cover/kallistis-capa-aprovada-final.png",
+    "sha256": "cd8d9a1e89bec18fd66ab3fe1a73843a6221db688cc51dd622c5c55f3ef88511",
+    "approved": true
+  },
+  "toc": {
+    "pages": 2,
+    "entries": 80,
+    "derivedFrom": "H1/H2 materialized source blocks"
+  },
+  "characterSheet": {
+    "status": "DEFERRED",
+    "scope": "DEFERRED",
+    "contractPreserved": true,
+    "pages": 0,
+    "assets": "NOT_REQUIRED_FOR_THIS_RUN",
+    "rawContractExported": true
+  },
+  "warnings": [
+    "BODY_IMAGE_CADENCE_SOFT_WARNING"
+  ],
+  "diagnostics": {
+    "TOTAL_PAGES": 327,
+    "TEXT_ONLY_PAGES": 242,
+    "TOTAL_WORDS_SCOPE": 87906,
+    "BODY_TEXT_PAGES": 237,
+    "BODY_WORDS_PER_PAGE_MEAN": 308.33,
+    "BODY_WORDS_PER_PAGE_MEDIAN": 336,
+    "PAGES_WITH_IMAGES": 85,
+    "PAGES_WITH_TABLES": 8,
+    "PAGES_WITH_MAPS": 4,
+    "PAGES_WITH_REVIEW_FLAGS": 0,
+    "EDITORIAL_FAMILY_COUNTS": {
+      "TITLE_PAGE": 1,
+      "COPYRIGHT_EXPEDIENTE": 1,
+      "DEDICATION": 1,
+      "INTRODUCTION": 1,
+      "PART_OPENING": 6,
+      "NARRATIVE": 314
+    },
+    "TITLE_PAGE_PAGES": 1,
+    "COPYRIGHT_EXPEDIENTE_PAGES": 1,
+    "DEDICATION_PAGES": 1,
+    "INTRODUCTION_PAGES": 1,
+    "PART_OPENING_PAGES": 6,
+    "NARRATIVE_PAGES": 314,
+    "GENERIC_NARRATIVE_DEFAULT_PAGES": 49,
+    "PART_HERO_PAGES": 6,
+    "IMAGE_TOP_PAGES": 13,
+    "SIDE_ART_PAGES": 2,
+    "SIDE_ART_PAIR_PAGES": 8,
+    "TEXT_FLOW_PAGES": 49,
+    "TEXT_FEATURE_PAGES": 6,
+    "TIMELINE_MILESTONE_PAGES": 8,
+    "COMPOSITION_FAMILY_COUNTS": {
+      "PART_HERO": 6,
+      "IMAGE_TOP": 13,
+      "SIDE_ART_LEFT": 0,
+      "SIDE_ART_RIGHT": 2,
+      "SIDE_ART_PAIR": 8,
+      "MAP_PAGE": 3,
+      "MAP_SPREAD": 0,
+      "GEOGRAPHY_OPENING": 3,
+      "POVO_OPENING": 9,
+      "OFICIO_CULTURAL_OPENING": 9,
+      "BESTIARY_ENTRY": 14,
+      "PEDRALMA_OPENING": 2,
+      "GEOGRAPHY_FLOW": 21,
+      "CULTURE_FLOW": 65,
+      "TEXT_FLOW": 49,
+      "TEXT_FEATURE": 6,
+      "TIMELINE_MILESTONE": 8
+    },
+    "FUTURE_PRODUCT_ROLE_COUNTS": {
+      "CORE": 0,
+      "GM_CANDIDATE": 0,
+      "PLAYER_REFERENCE": 0,
+      "UNDECIDED": 0
+    },
+    "IMAGE_INTERVAL_MEAN": 3.79,
+    "IMAGE_INTERVAL_MEDIAN": 3,
+    "BODY_IMAGE_INTERVAL_MEAN": 3.86,
+    "BODY_IMAGE_INTERVAL_MEDIAN": 3,
+    "FIRST_IMAGE_PAGE": 1,
+    "LAST_IMAGE_PAGE": 322,
+    "TRAILING_TEXT_PAGES": 5,
+    "TEXT_RUNS": [
+      {
+        "startPage": 2,
+        "endPage": 3,
+        "length": 2
+      },
+      {
+        "startPage": 6,
+        "endPage": 8,
+        "length": 3
+      },
+      {
+        "startPage": 15,
+        "endPage": 15,
+        "length": 1
+      },
+      {
+        "startPage": 19,
+        "endPage": 31,
+        "length": 13
+      },
+      {
+        "startPage": 33,
+        "endPage": 34,
+        "length": 2
+      },
+      {
+        "startPage": 36,
+        "endPage": 36,
+        "length": 1
+      },
+      {
+        "startPage": 38,
+        "endPage": 38,
+        "length": 1
+      },
+      {
+        "startPage": 40,
+        "endPage": 40,
+        "length": 1
+      },
+      {
+        "startPage": 42,
+        "endPage": 42,
+        "length": 1
+      },
+      {
+        "startPage": 44,
+        "endPage": 47,
+        "length": 4
+      },
+      {
+        "startPage": 50,
+        "endPage": 50,
+        "length": 1
+      },
+      {
+        "startPage": 52,
+        "endPage": 52,
+        "length": 1
+      },
+      {
+        "startPage": 54,
+        "endPage": 60,
+        "length": 7
+      },
+      {
+        "startPage": 64,
+        "endPage": 64,
+        "length": 1
+      },
+      {
+        "startPage": 66,
+        "endPage": 67,
+        "length": 2
+      },
+      {
+        "startPage": 69,
+        "endPage": 78,
+        "length": 10
+      },
+      {
+        "startPage": 80,
+        "endPage": 81,
+        "length": 2
+      },
+      {
+        "startPage": 83,
+        "endPage": 83,
+        "length": 1
+      },
+      {
+        "startPage": 85,
+        "endPage": 86,
+        "length": 2
+      },
+      {
+        "startPage": 88,
+        "endPage": 92,
+        "length": 5
+      },
+      {
+        "startPage": 94,
+        "endPage": 94,
+        "length": 1
+      },
+      {
+        "startPage": 96,
+        "endPage": 97,
+        "length": 2
+      },
+      {
+        "startPage": 99,
+        "endPage": 101,
+        "length": 3
+      },
+      {
+        "startPage": 103,
+        "endPage": 104,
+        "length": 2
+      },
+      {
+        "startPage": 106,
+        "endPage": 108,
+        "length": 3
+      },
+      {
+        "startPage": 110,
+        "endPage": 111,
+        "length": 2
+      },
+      {
+        "startPage": 113,
+        "endPage": 114,
+        "length": 2
+      },
+      {
+        "startPage": 116,
+        "endPage": 117,
+        "length": 2
+      },
+      {
+        "startPage": 119,
+        "endPage": 121,
+        "length": 3
+      },
+      {
+        "startPage": 123,
+        "endPage": 125,
+        "length": 3
+      },
+      {
+        "startPage": 127,
+        "endPage": 130,
+        "length": 4
+      },
+      {
+        "startPage": 132,
+        "endPage": 133,
+        "length": 2
+      },
+      {
+        "startPage": 135,
+        "endPage": 136,
+        "length": 2
+      },
+      {
+        "startPage": 138,
+        "endPage": 139,
+        "length": 2
+      },
+      {
+        "startPage": 141,
+        "endPage": 142,
+        "length": 2
+      },
+      {
+        "startPage": 144,
+        "endPage": 145,
+        "length": 2
+      },
+      {
+        "startPage": 147,
+        "endPage": 148,
+        "length": 2
+      },
+      {
+        "startPage": 150,
+        "endPage": 151,
+        "length": 2
+      },
+      {
+        "startPage": 153,
+        "endPage": 155,
+        "length": 3
+      },
+      {
+        "startPage": 158,
+        "endPage": 158,
+        "length": 1
+      },
+      {
+        "startPage": 160,
+        "endPage": 161,
+        "length": 2
+      },
+      {
+        "startPage": 163,
+        "endPage": 180,
+        "length": 18
+      },
+      {
+        "startPage": 183,
+        "endPage": 184,
+        "length": 2
+      },
+      {
+        "startPage": 195,
+        "endPage": 198,
+        "length": 4
+      },
+      {
+        "startPage": 200,
+        "endPage": 225,
+        "length": 26
+      },
+      {
+        "startPage": 228,
+        "endPage": 244,
+        "length": 17
+      },
+      {
+        "startPage": 246,
+        "endPage": 256,
+        "length": 11
+      },
+      {
+        "startPage": 258,
+        "endPage": 258,
+        "length": 1
+      },
+      {
+        "startPage": 262,
+        "endPage": 268,
+        "length": 7
+      },
+      {
+        "startPage": 270,
+        "endPage": 272,
+        "length": 3
+      },
+      {
+        "startPage": 274,
+        "endPage": 300,
+        "length": 27
+      },
+      {
+        "startPage": 305,
+        "endPage": 309,
+        "length": 5
+      },
+      {
+        "startPage": 314,
+        "endPage": 321,
+        "length": 8
+      },
+      {
+        "startPage": 323,
+        "endPage": 327,
+        "length": 5
+      }
+    ],
+    "BODY_TEXT_RUNS": [
+      {
+        "startPage": 7,
+        "endPage": 8,
+        "length": 1
+      },
+      {
+        "startPage": 15,
+        "endPage": 15,
+        "length": 1
+      },
+      {
+        "startPage": 19,
+        "endPage": 31,
+        "length": 13
+      },
+      {
+        "startPage": 33,
+        "endPage": 34,
+        "length": 2
+      },
+      {
+        "startPage": 36,
+        "endPage": 36,
+        "length": 1
+      },
+      {
+        "startPage": 38,
+        "endPage": 38,
+        "length": 1
+      },
+      {
+        "startPage": 40,
+        "endPage": 40,
+        "length": 1
+      },
+      {
+        "startPage": 42,
+        "endPage": 42,
+        "length": 1
+      },
+      {
+        "startPage": 44,
+        "endPage": 47,
+        "length": 4
+      },
+      {
+        "startPage": 50,
+        "endPage": 50,
+        "length": 1
+      },
+      {
+        "startPage": 52,
+        "endPage": 52,
+        "length": 1
+      },
+      {
+        "startPage": 54,
+        "endPage": 60,
+        "length": 7
+      },
+      {
+        "startPage": 64,
+        "endPage": 64,
+        "length": 1
+      },
+      {
+        "startPage": 66,
+        "endPage": 67,
+        "length": 2
+      },
+      {
+        "startPage": 69,
+        "endPage": 78,
+        "length": 10
+      },
+      {
+        "startPage": 80,
+        "endPage": 81,
+        "length": 2
+      },
+      {
+        "startPage": 83,
+        "endPage": 83,
+        "length": 1
+      },
+      {
+        "startPage": 85,
+        "endPage": 86,
+        "length": 2
+      },
+      {
+        "startPage": 88,
+        "endPage": 92,
+        "length": 5
+      },
+      {
+        "startPage": 94,
+        "endPage": 94,
+        "length": 1
+      },
+      {
+        "startPage": 96,
+        "endPage": 97,
+        "length": 2
+      },
+      {
+        "startPage": 99,
+        "endPage": 101,
+        "length": 3
+      },
+      {
+        "startPage": 103,
+        "endPage": 104,
+        "length": 2
+      },
+      {
+        "startPage": 106,
+        "endPage": 108,
+        "length": 3
+      },
+      {
+        "startPage": 110,
+        "endPage": 111,
+        "length": 2
+      },
+      {
+        "startPage": 113,
+        "endPage": 114,
+        "length": 2
+      },
+      {
+        "startPage": 116,
+        "endPage": 117,
+        "length": 2
+      },
+      {
+        "startPage": 119,
+        "endPage": 121,
+        "length": 3
+      },
+      {
+        "startPage": 123,
+        "endPage": 125,
+        "length": 3
+      },
+      {
+        "startPage": 127,
+        "endPage": 130,
+        "length": 4
+      },
+      {
+        "startPage": 132,
+        "endPage": 133,
+        "length": 2
+      },
+      {
+        "startPage": 135,
+        "endPage": 136,
+        "length": 2
+      },
+      {
+        "startPage": 138,
+        "endPage": 139,
+        "length": 2
+      },
+      {
+        "startPage": 141,
+        "endPage": 142,
+        "length": 2
+      },
+      {
+        "startPage": 144,
+        "endPage": 145,
+        "length": 2
+      },
+      {
+        "startPage": 147,
+        "endPage": 148,
+        "length": 2
+      },
+      {
+        "startPage": 150,
+        "endPage": 151,
+        "length": 2
+      },
+      {
+        "startPage": 153,
+        "endPage": 155,
+        "length": 3
+      },
+      {
+        "startPage": 158,
+        "endPage": 158,
+        "length": 1
+      },
+      {
+        "startPage": 160,
+        "endPage": 161,
+        "length": 2
+      },
+      {
+        "startPage": 163,
+        "endPage": 180,
+        "length": 18
+      },
+      {
+        "startPage": 183,
+        "endPage": 184,
+        "length": 2
+      },
+      {
+        "startPage": 195,
+        "endPage": 198,
+        "length": 4
+      },
+      {
+        "startPage": 200,
+        "endPage": 225,
+        "length": 26
+      },
+      {
+        "startPage": 228,
+        "endPage": 244,
+        "length": 17
+      },
+      {
+        "startPage": 246,
+        "endPage": 256,
+        "length": 11
+      },
+      {
+        "startPage": 258,
+        "endPage": 258,
+        "length": 1
+      },
+      {
+        "startPage": 262,
+        "endPage": 268,
+        "length": 7
+      },
+      {
+        "startPage": 270,
+        "endPage": 272,
+        "length": 3
+      },
+      {
+        "startPage": 274,
+        "endPage": 300,
+        "length": 27
+      },
+      {
+        "startPage": 305,
+        "endPage": 309,
+        "length": 5
+      },
+      {
+        "startPage": 314,
+        "endPage": 321,
+        "length": 8
+      },
+      {
+        "startPage": 323,
+        "endPage": 327,
+        "length": 5
+      }
+    ],
+    "MAX_CONSECUTIVE_TEXT_PAGES": 27,
+    "BODY_MAX_CONSECUTIVE_TEXT_PAGES": 27,
+    "WORDS_PER_TEXT_PAGE_MEAN": 308.33,
+    "WORDS_PER_TEXT_PAGE_MEDIAN": 336,
+    "PAGE_FILL_MEAN": 0.8799,
+    "UNDERFILLED_PAGES_LT_60_PERCENT": 37,
+    "OVERFLOW_PAGES": 0,
+    "UNUSED_VALID_HISTORY_ASSETS": [
+      "Prólogo — A velha e a Fresta",
+      "O Grande Cristal — Antes Que Houvesse Dois Mundos",
+      "A escrita contínua",
+      "PARTE IV — MEMÓRIA, PEDR’ALMA E FÉ",
+      "O Mapa em Duas Camadas",
+      "Geografia da Escuridão: Vale de Thur-Daer",
+      "Bestiário do Cristal Partido",
+      "Drakos — a forma dracônica que não é Povo",
+      "COMBATE E GRADE ORTOGONAL",
+      "Bestiário do Cristal Partido",
+      "Drakos — a forma dracônica que não é Povo",
+      "Devorador Psíquico Cefalóide",
+      "MANUAL DO MUNDO",
+      "O Grande Cristal — Antes Que Houvesse Dois Mundos",
+      "PARTE II — O CINTURÃO DAS FRESTAS",
+      "Geografia da Escuridão: Vale de Thur-Daer",
+      "Tensões Regionais: Aelvari, Kragor, Draken e Nomos"
+    ],
+    "IMAGES_USED": [
+      {
+        "heading": "PARTE I — O MUNDO PARTIDO",
+        "sha256": "1adb4f5e12616958d1cd8ad886bc97c29c882608b8a02c5327b5e8c5245bd9ff"
+      },
+      {
+        "heading": "Manesh — O Mundo da Luz",
+        "sha256": "c7eafef9733c050d1319017394fd4fc2d16540713519e46c1da7c066caaa1f89"
+      },
+      {
+        "heading": "Thuvel — O Mundo da Escuridão",
+        "sha256": "ee09524034dd435e0ee777741e2c06e0fa883e3a182cdbdab413c095a17a0c1e"
+      },
+      {
+        "heading": "Luz, Escuridão e Sombra",
+        "sha256": "5edb45520acced383e4e2cfdabf04842d2ec7be4fe71d211205c32a542516d1b"
+      },
+      {
+        "heading": "Mirveth — Uma Pessoa Inteira",
+        "sha256": "b842eed499a951a237fb73e662ce33cc932983ef803d60ae90056fbb02cdba6d"
+      },
+      {
+        "heading": "Vethari — Relação Sem Apagamento",
+        "sha256": "6f860801931a72cc3391bba87398bf8cae5003ff66a266729cf8d51e7a58cbd0"
+      },
+      {
+        "heading": "Pedr’alma",
+        "sha256": "d300db9458c83144403fb6e628b77eb19854ffbffde3d4315247d8175161c4d2"
+      },
+      {
+        "heading": "Lar · Cidade · Companhia",
+        "sha256": "685cf35083aad7d4cd7c487a957f77991f7149f645bc25e52727704343e84b35"
+      },
+      {
+        "heading": "História do Mundo Partido",
+        "sha256": "38cbbd6b7bc1482595125b67d0c436ea87b1791ca1c7e7ebd3f6ff60def8c362"
+      },
+      {
+        "heading": "As primeiras frestas controladas",
+        "sha256": "3bc9478999faa5847675f6965caf3111dbb5eebbe90327875e93ae52445fd55c"
+      },
+      {
+        "heading": "Kethrell e a doutrina da recomposição",
+        "sha256": "5b1ff7223133b71e6309363fb7dbddfdf54e19c63596989455b1aaaa86a658f2"
+      },
+      {
+        "heading": "Os Outros",
+        "sha256": "a0576c36225a182e39d4707724c306669f2bb8344a3c04a45895645931d228ed"
+      },
+      {
+        "heading": "Daeren",
+        "sha256": "3e1c215951a49b6cd3134da80764c34ed25e7cd0e7ec3fe984f843bdc123f3f8"
+      },
+      {
+        "heading": "A profecia de Thaeraen",
+        "sha256": "4af9ac8918226535592b2d562d4c36cf62bb5ae77c648bfabfb8318ce6d3d161"
+      },
+      {
+        "heading": "PARTE II — O CINTURÃO DAS FRESTAS",
+        "sha256": "834fdd86d54569776d899e91e57c35ab7ffdc8a3cb81f96c4bd7b7a9f6a02162"
+      },
+      {
+        "heading": "PARTE III — POVOS, COMUNIDADES E CAMINHOS",
+        "sha256": "963acd32953691bb3415ceaf1b3bdfe94d04fb95f5dd448df1366d1269e0584e"
+      },
+      {
+        "heading": "A Fenda de Kethrell",
+        "sha256": "d76f091db2c482bc1815b3265334406c2bc0edcb92acc854529eb1f8e042c58f"
+      },
+      {
+        "heading": "Geografia da Luz: Planalto de Silmari",
+        "sha256": "28ba1d31b8dea528348bbb3272d5a43aefeb0471c736c6c876f5c89268ab5380"
+      },
+      {
+        "heading": "Rotas Oficiais",
+        "sha256": "a77fe74196e4b4a919c4967e5a095cf1137ee54254050ef5194ea42d6cab003e"
+      },
+      {
+        "heading": "Rotas Clandestinas e Comércio",
+        "sha256": "913c9bd89ab9d50de1cac78ec572b0503ec1cae901ffed27c7985497cf8f954d"
+      },
+      {
+        "heading": "O Estado Político Atual",
+        "sha256": "59c58b32ecc54aea86f4a124186d407e9fe4a0bb28a612d01fb78a22a13d726b"
+      },
+      {
+        "heading": "Tensões Regionais: Aelvari, Kragor, Draken e Nomos",
+        "sha256": "6fa1efc7d9ea2ae54647ce44a7a40da13bf18a6df83bc2639adb877ccd7ecc2a"
+      },
+      {
+        "heading": "AELVARI",
+        "sha256": "6fa1efc7d9ea2ae54647ce44a7a40da13bf18a6df83bc2639adb877ccd7ecc2a"
+      },
+      {
+        "heading": "KRAGOR",
+        "sha256": "cc644573abc528fd1b8cdcc44e4f2100600ad57704d67aaf7e0aacf73a0e6fcf"
+      },
+      {
+        "heading": "DRAKEN",
+        "sha256": "c6ff7488e4354cceb034963078ab6dcf9d5dfddb5694c72ac68072dc148cbfde"
+      },
+      {
+        "heading": "NOMOS",
+        "sha256": "28b2817625d51c16e4a48fdd05fe9c4660780db1c214c507d8140a8e5467a807"
+      },
+      {
+        "heading": "LIVRES",
+        "sha256": "0519577d1a7b9d23e53aadb82af710870323f108b26a9922a9e144a9c80086b4"
+      },
+      {
+        "heading": "DÓREOS",
+        "sha256": "24d42dd52ca92ecd9bc4fcb6395f2142e5689426ccff8efe7f3ab094ae116f51"
+      },
+      {
+        "heading": "TERIANTES",
+        "sha256": "6a0df00c4307ab9ebc8ed361ffab6d36ab25f35ac8cdc2a492b1aeb76504192e"
+      },
+      {
+        "heading": "NIMARI",
+        "sha256": "b419d2d44da95ca8657e6a1e3f37c137e32ccd0cfff8df02e82c82e8d8bd9ca7"
+      },
+      {
+        "heading": "VITRÁLIOS",
+        "sha256": "98fc176aea334ba1411562da36db08bbd19960781020c6db673d30857b1b3bd7"
+      },
+      {
+        "heading": "OITO MANEIRAS DE ESCOLHER",
+        "sha256": "cc91c31596276e5986f84f05a6268382c4627da52d93850e1add2e860a2ff6c6"
+      },
+      {
+        "heading": "Definição cultural de Pedr’alma",
+        "sha256": "92ef5b4f76a8253dbbc34a35d0a903597167b80e060c55b28fe2ad35c653c6c1"
+      },
+      {
+        "heading": "Pedra, símbolo e identidade",
+        "sha256": "d300db9458c83144403fb6e628b77eb19854ffbffde3d4315247d8175161c4d2"
+      },
+      {
+        "heading": "Pedr’almas familiares",
+        "sha256": "685cf35083aad7d4cd7c487a957f77991f7149f645bc25e52727704343e84b35"
+      },
+      {
+        "heading": "Pedr’almas de companhia",
+        "sha256": "39c991c5d4512515a10f41b2f803b0c190d3c58453883583513c6bcc8e8f8e4b"
+      },
+      {
+        "heading": "A pergunta que atravessa a passagem",
+        "sha256": "528329ec8fe80fb1ba7698f2f981f3e0447e707799d6964ce9cfce0b4b5eb100"
+      },
+      {
+        "heading": "PARTE III — POVOS, OFÍCIOS E COMUNIDADES VIVAS",
+        "sha256": "963acd32953691bb3415ceaf1b3bdfe94d04fb95f5dd448df1366d1269e0584e"
+      },
+      {
+        "heading": "PARTE IV — VELARIM",
+        "sha256": "d6a4a389c6d9978e498994cce94b9925f0fe837e0f9e1b0c76314b028f19a58e"
+      },
+      {
+        "heading": "PARTE V — JOGANDO KALLISTIS",
+        "sha256": "9ec600bd640991f515a56df86ce38bca8135b83bae8a095db0e7b77bd44fd529"
+      },
+      {
+        "heading": "PARTE VI — CONDUZINDO KALLISTIS",
+        "sha256": "a7ed1f3058911beb61e53614ba2d02c42c7af76fa43a6922ab3b6138e07d3103"
+      },
+      {
+        "heading": "PARTE V — VELARIM",
+        "sha256": "d6a4a389c6d9978e498994cce94b9925f0fe837e0f9e1b0c76314b028f19a58e"
+      },
+      {
+        "heading": "PARTE VI — JOGANDO KALLISTIS",
+        "sha256": "9ec600bd640991f515a56df86ce38bca8135b83bae8a095db0e7b77bd44fd529"
+      },
+      {
+        "heading": "PARTE VII — CONDUZINDO KALLISTIS",
+        "sha256": "a7ed1f3058911beb61e53614ba2d02c42c7af76fa43a6922ab3b6138e07d3103"
+      },
+      {
+        "heading": "O QUE É VELARIM",
+        "sha256": "d6a4a389c6d9978e498994cce94b9925f0fe837e0f9e1b0c76314b028f19a58e"
+      },
+      {
+        "heading": "Pedr’alma no uso de Velarim",
+        "sha256": "39c991c5d4512515a10f41b2f803b0c190d3c58453883583513c6bcc8e8f8e4b"
+      },
+      {
+        "heading": "Dragão Cristalino Colossal",
+        "sha256": "e85da577e91287647e97e2dbd00b3e54e0286c84baf9478e71e2f494764eb796"
+      },
+      {
+        "heading": "Tartaruga-Fortaleza",
+        "sha256": "6f46eb97e78fc9adf637a069ee2e66fdfad22faf93726f72d0b743c6fa3a08d8"
+      },
+      {
+        "heading": "Leviatã dos Veios",
+        "sha256": "e3fd4744e03d67c218f059f8fdab2a5ac568b8214fea95dd43cfd339acd606e6"
+      },
+      {
+        "heading": "Árvore-Mãe Errante",
+        "sha256": "cb023b49e19ac3d612e0fc86fa10fa2dc33be06cea94d13e602ffe4579316420"
+      },
+      {
+        "heading": "Estilhaço Vitrálio Instável",
+        "sha256": "07f9124754874628aed8d557db31108627ff467131b54b1e211c606f41c8495f"
+      },
+      {
+        "heading": "Corvo de Fresta",
+        "sha256": "a688afcd178175d4a400d5da15faf235ad36f578c1102e07666e0cd937cb9d1d"
+      },
+      {
+        "heading": "Filhote de Tormenta",
+        "sha256": "0a96681692e4c8a671ad514567a046d5d36345526443541fb8b3f6856789649f"
+      },
+      {
+        "heading": "Autômato de Ponte Descontrolado",
+        "sha256": "1cfec7343790bd24f036324fab00a9ba7eaecdb208c302809c16670eb5728813"
+      },
+      {
+        "heading": "Eco Corrompido",
+        "sha256": "77c23e25c9e6fecae4f614a6b1a7e8c52aa067c7fa65b478a46ee8e3dfc1f8b0"
+      },
+      {
+        "heading": "Serpente do Leito Escrito",
+        "sha256": "f7c8227efb65d92066179a34382e8501a56785d8cfc326e9628bba8bde828cb3"
+      },
+      {
+        "heading": "Cão-Leão das Brasas Errantes",
+        "sha256": "e3a2d9e714c732911783422405c50c0b18ae0589ae70004ad8cde4a7f300d861"
+      },
+      {
+        "heading": "Pato de Pressão Ressonante",
+        "sha256": "019af1d209c97999b979efdc1f55621fc9515623a86866f86eb0ee7ffc6d2e6c"
+      },
+      {
+        "heading": "Roedor dos Veios Fulminantes",
+        "sha256": "781901a8b18f6cbb8ee2602f3d63e2061dba764f5f28f1e44a2470f67e340f61"
+      },
+      {
+        "heading": "Devorador Psíquico Cefalóide",
+        "sha256": "88cf1901d052fe61f09a4bb1a1c70c0b25f5c306d0cfdec90bbb743161f5b838"
+      },
+      {
+        "heading": "Guardião",
+        "sha256": "3ade014e079c5ac6e31851a002986adc7052b041ee6f1ed7ac0df3c8201af9eb"
+      },
+      {
+        "heading": "Duelista",
+        "sha256": "cc91c31596276e5986f84f05a6268382c4627da52d93850e1add2e860a2ff6c6"
+      },
+      {
+        "heading": "Atirador",
+        "sha256": "fb9862098d3d3b404eef3ac5dc156ae8b03121340cd2a74c6efda4a1319badf1"
+      },
+      {
+        "heading": "Tecelão",
+        "sha256": "25d04251a03b61699eac808ee6255a77be8de6d56a6edfe0e9aa5695c79857df"
+      },
+      {
+        "heading": "Curador",
+        "sha256": "90dc653b9a224d2b77bc06e3ec29e0d4e3ea381b2497e59c8e78cba311abf307"
+      },
+      {
+        "heading": "Evocador",
+        "sha256": "9b091877794b4d0e2d701cb6a744871387a53d0726a99ec462020ca81ee5b9f5"
+      },
+      {
+        "heading": "Artífice",
+        "sha256": "8cb70416d2c77829d258f75724febbf787605df0f0e89cb6665609c810c0a6a2"
+      },
+      {
+        "heading": "Batedor",
+        "sha256": "a6060bfcb22cb362f3f4fda523f5d85e5f47576c474bdfc1a327891393776769"
+      },
+      {
+        "heading": "Rodada",
+        "sha256": "0839deb188f3d040a5b56b7439a7ac975dd17bbd7f1cdefe37c5d4e9041bd4f4"
+      },
+      {
+        "heading": "Dano e potência",
+        "sha256": "9e4d98ca888057fa663d80e50cd4ed9b0dffa362924178a029d6c2fa28418cf4"
+      },
+      {
+        "heading": "APÊNDICES",
+        "sha256": "c2d881b645501b8344e59efa461df8f6f1f37208ab9b48ab767d33c3f284f7b3"
+      },
+      {
+        "heading": "AELVARI",
+        "sha256": "6fa1efc7d9ea2ae54647ce44a7a40da13bf18a6df83bc2639adb877ccd7ecc2a"
+      },
+      {
+        "heading": "KRAGOR",
+        "sha256": "cc644573abc528fd1b8cdcc44e4f2100600ad57704d67aaf7e0aacf73a0e6fcf"
+      },
+      {
+        "heading": "DRAKEN",
+        "sha256": "c6ff7488e4354cceb034963078ab6dcf9d5dfddb5694c72ac68072dc148cbfde"
+      },
+      {
+        "heading": "NOMOS",
+        "sha256": "28b2817625d51c16e4a48fdd05fe9c4660780db1c214c507d8140a8e5467a807"
+      },
+      {
+        "heading": "LIVRES",
+        "sha256": "0519577d1a7b9d23e53aadb82af710870323f108b26a9922a9e144a9c80086b4"
+      },
+      {
+        "heading": "DÓREOS",
+        "sha256": "24d42dd52ca92ecd9bc4fcb6395f2142e5689426ccff8efe7f3ab094ae116f51"
+      },
+      {
+        "heading": "TERIANTES",
+        "sha256": "6a0df00c4307ab9ebc8ed361ffab6d36ab25f35ac8cdc2a492b1aeb76504192e"
+      },
+      {
+        "heading": "NIMARI",
+        "sha256": "b419d2d44da95ca8657e6a1e3f37c137e32ccd0cfff8df02e82c82e8d8bd9ca7"
+      },
+      {
+        "heading": "VITRÁLIOS",
+        "sha256": "98fc176aea334ba1411562da36db08bbd19960781020c6db673d30857b1b3bd7"
+      },
+      {
+        "heading": "Guardião",
+        "sha256": "3ade014e079c5ac6e31851a002986adc7052b041ee6f1ed7ac0df3c8201af9eb"
+      },
+      {
+        "heading": "Duelista",
+        "sha256": "cc91c31596276e5986f84f05a6268382c4627da52d93850e1add2e860a2ff6c6"
+      },
+      {
+        "heading": "Atirador",
+        "sha256": "fb9862098d3d3b404eef3ac5dc156ae8b03121340cd2a74c6efda4a1319badf1"
+      },
+      {
+        "heading": "Tecelão",
+        "sha256": "25d04251a03b61699eac808ee6255a77be8de6d56a6edfe0e9aa5695c79857df"
+      },
+      {
+        "heading": "Curador",
+        "sha256": "90dc653b9a224d2b77bc06e3ec29e0d4e3ea381b2497e59c8e78cba311abf307"
+      },
+      {
+        "heading": "Evocador",
+        "sha256": "9b091877794b4d0e2d701cb6a744871387a53d0726a99ec462020ca81ee5b9f5"
+      },
+      {
+        "heading": "Artífice",
+        "sha256": "8cb70416d2c77829d258f75724febbf787605df0f0e89cb6665609c810c0a6a2"
+      },
+      {
+        "heading": "Batedor",
+        "sha256": "a6060bfcb22cb362f3f4fda523f5d85e5f47576c474bdfc1a327891393776769"
+      },
+      {
+        "heading": "Dragão Cristalino Colossal",
+        "sha256": "e85da577e91287647e97e2dbd00b3e54e0286c84baf9478e71e2f494764eb796"
+      },
+      {
+        "heading": "Leviatã dos Veios",
+        "sha256": "e3fd4744e03d67c218f059f8fdab2a5ac568b8214fea95dd43cfd339acd606e6"
+      },
+      {
+        "heading": "Árvore-Mãe Errante",
+        "sha256": "cb023b49e19ac3d612e0fc86fa10fa2dc33be06cea94d13e602ffe4579316420"
+      },
+      {
+        "heading": "Leviatã dos Veios",
+        "sha256": "e3fd4744e03d67c218f059f8fdab2a5ac568b8214fea95dd43cfd339acd606e6"
+      },
+      {
+        "heading": "Autômato de Ponte Descontrolado",
+        "sha256": "1cfec7343790bd24f036324fab00a9ba7eaecdb208c302809c16670eb5728813"
+      },
+      {
+        "heading": "KALLISTIS",
+        "sha256": "31c54d2334da91e7dbcfc1c030509a04577b055cc25eda057d2c54f05dab6ec9"
+      },
+      {
+        "heading": "Expediente",
+        "sha256": "e13a90c6fa9fb0809a715af416f6a9f3afcd531d6e81874077493dfc433b24e2"
+      },
+      {
+        "heading": "Prólogo — A velha e a Fresta",
+        "sha256": "e1db36db28c181e1e6bfc19b3a6cf9f558925ffb5b4457c1cb049f35de84e695"
+      },
+      {
+        "heading": "PARTE I — O MUNDO PARTIDO",
+        "sha256": "403c9be0f92c8e129dbd69afad68d6ab6ac634e12450cd5bc9a5230059d2ef1b"
+      },
+      {
+        "heading": "O Cinturão das Frestas",
+        "sha256": "cf8db9e23c86b52ffcba873eb93bfc4111a0005a973ef4589d2436a9edde467d"
+      },
+      {
+        "heading": "O Mapa em Duas Camadas",
+        "sha256": "f895f8161e659c07b67a71e20a3bac6b9452e315654048ecfe0d889c14dfcb80"
+      },
+      {
+        "heading": "Distribuição dos Povos",
+        "sha256": "963acd32953691bb3415ceaf1b3bdfe94d04fb95f5dd448df1366d1269e0584e"
+      }
+    ],
+    "IMAGES_UNUSED": [
+      "Prólogo — A velha e a Fresta",
+      "O Grande Cristal — Antes Que Houvesse Dois Mundos",
+      "A escrita contínua",
+      "PARTE IV — MEMÓRIA, PEDR’ALMA E FÉ",
+      "O Mapa em Duas Camadas",
+      "Geografia da Escuridão: Vale de Thur-Daer",
+      "Bestiário do Cristal Partido",
+      "Drakos — a forma dracônica que não é Povo",
+      "COMBATE E GRADE ORTOGONAL",
+      "Bestiário do Cristal Partido",
+      "Drakos — a forma dracônica que não é Povo",
+      "Devorador Psíquico Cefalóide",
+      "MANUAL DO MUNDO",
+      "O Grande Cristal — Antes Que Houvesse Dois Mundos",
+      "PARTE II — O CINTURÃO DAS FRESTAS",
+      "Geografia da Escuridão: Vale de Thur-Daer",
+      "Tensões Regionais: Aelvari, Kragor, Draken e Nomos"
+    ],
+    "USED_HISTORY_ASSETS": [
+      {
+        "heading": "PARTE I — O MUNDO PARTIDO",
+        "sha256": "1adb4f5e12616958d1cd8ad886bc97c29c882608b8a02c5327b5e8c5245bd9ff"
+      },
+      {
+        "heading": "Manesh — O Mundo da Luz",
+        "sha256": "c7eafef9733c050d1319017394fd4fc2d16540713519e46c1da7c066caaa1f89"
+      },
+      {
+        "heading": "Thuvel — O Mundo da Escuridão",
+        "sha256": "ee09524034dd435e0ee777741e2c06e0fa883e3a182cdbdab413c095a17a0c1e"
+      },
+      {
+        "heading": "Luz, Escuridão e Sombra",
+        "sha256": "5edb45520acced383e4e2cfdabf04842d2ec7be4fe71d211205c32a542516d1b"
+      },
+      {
+        "heading": "Mirveth — Uma Pessoa Inteira",
+        "sha256": "b842eed499a951a237fb73e662ce33cc932983ef803d60ae90056fbb02cdba6d"
+      },
+      {
+        "heading": "Vethari — Relação Sem Apagamento",
+        "sha256": "6f860801931a72cc3391bba87398bf8cae5003ff66a266729cf8d51e7a58cbd0"
+      },
+      {
+        "heading": "Pedr’alma",
+        "sha256": "d300db9458c83144403fb6e628b77eb19854ffbffde3d4315247d8175161c4d2"
+      },
+      {
+        "heading": "Lar · Cidade · Companhia",
+        "sha256": "685cf35083aad7d4cd7c487a957f77991f7149f645bc25e52727704343e84b35"
+      },
+      {
+        "heading": "História do Mundo Partido",
+        "sha256": "38cbbd6b7bc1482595125b67d0c436ea87b1791ca1c7e7ebd3f6ff60def8c362"
+      },
+      {
+        "heading": "As primeiras frestas controladas",
+        "sha256": "3bc9478999faa5847675f6965caf3111dbb5eebbe90327875e93ae52445fd55c"
+      },
+      {
+        "heading": "Kethrell e a doutrina da recomposição",
+        "sha256": "5b1ff7223133b71e6309363fb7dbddfdf54e19c63596989455b1aaaa86a658f2"
+      },
+      {
+        "heading": "Os Outros",
+        "sha256": "a0576c36225a182e39d4707724c306669f2bb8344a3c04a45895645931d228ed"
+      },
+      {
+        "heading": "Daeren",
+        "sha256": "3e1c215951a49b6cd3134da80764c34ed25e7cd0e7ec3fe984f843bdc123f3f8"
+      },
+      {
+        "heading": "A profecia de Thaeraen",
+        "sha256": "4af9ac8918226535592b2d562d4c36cf62bb5ae77c648bfabfb8318ce6d3d161"
+      },
+      {
+        "heading": "PARTE II — O CINTURÃO DAS FRESTAS",
+        "sha256": "834fdd86d54569776d899e91e57c35ab7ffdc8a3cb81f96c4bd7b7a9f6a02162"
+      },
+      {
+        "heading": "PARTE III — POVOS, COMUNIDADES E CAMINHOS",
+        "sha256": "963acd32953691bb3415ceaf1b3bdfe94d04fb95f5dd448df1366d1269e0584e"
+      },
+      {
+        "heading": "A Fenda de Kethrell",
+        "sha256": "d76f091db2c482bc1815b3265334406c2bc0edcb92acc854529eb1f8e042c58f"
+      },
+      {
+        "heading": "Geografia da Luz: Planalto de Silmari",
+        "sha256": "28ba1d31b8dea528348bbb3272d5a43aefeb0471c736c6c876f5c89268ab5380"
+      },
+      {
+        "heading": "Rotas Oficiais",
+        "sha256": "a77fe74196e4b4a919c4967e5a095cf1137ee54254050ef5194ea42d6cab003e"
+      },
+      {
+        "heading": "Rotas Clandestinas e Comércio",
+        "sha256": "913c9bd89ab9d50de1cac78ec572b0503ec1cae901ffed27c7985497cf8f954d"
+      },
+      {
+        "heading": "O Estado Político Atual",
+        "sha256": "59c58b32ecc54aea86f4a124186d407e9fe4a0bb28a612d01fb78a22a13d726b"
+      },
+      {
+        "heading": "Tensões Regionais: Aelvari, Kragor, Draken e Nomos",
+        "sha256": "6fa1efc7d9ea2ae54647ce44a7a40da13bf18a6df83bc2639adb877ccd7ecc2a"
+      },
+      {
+        "heading": "AELVARI",
+        "sha256": "6fa1efc7d9ea2ae54647ce44a7a40da13bf18a6df83bc2639adb877ccd7ecc2a"
+      },
+      {
+        "heading": "KRAGOR",
+        "sha256": "cc644573abc528fd1b8cdcc44e4f2100600ad57704d67aaf7e0aacf73a0e6fcf"
+      },
+      {
+        "heading": "DRAKEN",
+        "sha256": "c6ff7488e4354cceb034963078ab6dcf9d5dfddb5694c72ac68072dc148cbfde"
+      },
+      {
+        "heading": "NOMOS",
+        "sha256": "28b2817625d51c16e4a48fdd05fe9c4660780db1c214c507d8140a8e5467a807"
+      },
+      {
+        "heading": "LIVRES",
+        "sha256": "0519577d1a7b9d23e53aadb82af710870323f108b26a9922a9e144a9c80086b4"
+      },
+      {
+        "heading": "DÓREOS",
+        "sha256": "24d42dd52ca92ecd9bc4fcb6395f2142e5689426ccff8efe7f3ab094ae116f51"
+      },
+      {
+        "heading": "TERIANTES",
+        "sha256": "6a0df00c4307ab9ebc8ed361ffab6d36ab25f35ac8cdc2a492b1aeb76504192e"
+      },
+      {
+        "heading": "NIMARI",
+        "sha256": "b419d2d44da95ca8657e6a1e3f37c137e32ccd0cfff8df02e82c82e8d8bd9ca7"
+      },
+      {
+        "heading": "VITRÁLIOS",
+        "sha256": "98fc176aea334ba1411562da36db08bbd19960781020c6db673d30857b1b3bd7"
+      },
+      {
+        "heading": "OITO MANEIRAS DE ESCOLHER",
+        "sha256": "cc91c31596276e5986f84f05a6268382c4627da52d93850e1add2e860a2ff6c6"
+      },
+      {
+        "heading": "Definição cultural de Pedr’alma",
+        "sha256": "92ef5b4f76a8253dbbc34a35d0a903597167b80e060c55b28fe2ad35c653c6c1"
+      },
+      {
+        "heading": "Pedra, símbolo e identidade",
+        "sha256": "d300db9458c83144403fb6e628b77eb19854ffbffde3d4315247d8175161c4d2"
+      },
+      {
+        "heading": "Pedr’almas familiares",
+        "sha256": "685cf35083aad7d4cd7c487a957f77991f7149f645bc25e52727704343e84b35"
+      },
+      {
+        "heading": "Pedr’almas de companhia",
+        "sha256": "39c991c5d4512515a10f41b2f803b0c190d3c58453883583513c6bcc8e8f8e4b"
+      },
+      {
+        "heading": "A pergunta que atravessa a passagem",
+        "sha256": "528329ec8fe80fb1ba7698f2f981f3e0447e707799d6964ce9cfce0b4b5eb100"
+      },
+      {
+        "heading": "PARTE III — POVOS, OFÍCIOS E COMUNIDADES VIVAS",
+        "sha256": "963acd32953691bb3415ceaf1b3bdfe94d04fb95f5dd448df1366d1269e0584e"
+      },
+      {
+        "heading": "PARTE IV — VELARIM",
+        "sha256": "d6a4a389c6d9978e498994cce94b9925f0fe837e0f9e1b0c76314b028f19a58e"
+      },
+      {
+        "heading": "PARTE V — JOGANDO KALLISTIS",
+        "sha256": "9ec600bd640991f515a56df86ce38bca8135b83bae8a095db0e7b77bd44fd529"
+      },
+      {
+        "heading": "PARTE VI — CONDUZINDO KALLISTIS",
+        "sha256": "a7ed1f3058911beb61e53614ba2d02c42c7af76fa43a6922ab3b6138e07d3103"
+      },
+      {
+        "heading": "PARTE V — VELARIM",
+        "sha256": "d6a4a389c6d9978e498994cce94b9925f0fe837e0f9e1b0c76314b028f19a58e"
+      },
+      {
+        "heading": "PARTE VI — JOGANDO KALLISTIS",
+        "sha256": "9ec600bd640991f515a56df86ce38bca8135b83bae8a095db0e7b77bd44fd529"
+      },
+      {
+        "heading": "PARTE VII — CONDUZINDO KALLISTIS",
+        "sha256": "a7ed1f3058911beb61e53614ba2d02c42c7af76fa43a6922ab3b6138e07d3103"
+      },
+      {
+        "heading": "O QUE É VELARIM",
+        "sha256": "d6a4a389c6d9978e498994cce94b9925f0fe837e0f9e1b0c76314b028f19a58e"
+      },
+      {
+        "heading": "Pedr’alma no uso de Velarim",
+        "sha256": "39c991c5d4512515a10f41b2f803b0c190d3c58453883583513c6bcc8e8f8e4b"
+      },
+      {
+        "heading": "Dragão Cristalino Colossal",
+        "sha256": "e85da577e91287647e97e2dbd00b3e54e0286c84baf9478e71e2f494764eb796"
+      },
+      {
+        "heading": "Tartaruga-Fortaleza",
+        "sha256": "6f46eb97e78fc9adf637a069ee2e66fdfad22faf93726f72d0b743c6fa3a08d8"
+      },
+      {
+        "heading": "Leviatã dos Veios",
+        "sha256": "e3fd4744e03d67c218f059f8fdab2a5ac568b8214fea95dd43cfd339acd606e6"
+      },
+      {
+        "heading": "Árvore-Mãe Errante",
+        "sha256": "cb023b49e19ac3d612e0fc86fa10fa2dc33be06cea94d13e602ffe4579316420"
+      },
+      {
+        "heading": "Estilhaço Vitrálio Instável",
+        "sha256": "07f9124754874628aed8d557db31108627ff467131b54b1e211c606f41c8495f"
+      },
+      {
+        "heading": "Corvo de Fresta",
+        "sha256": "a688afcd178175d4a400d5da15faf235ad36f578c1102e07666e0cd937cb9d1d"
+      },
+      {
+        "heading": "Filhote de Tormenta",
+        "sha256": "0a96681692e4c8a671ad514567a046d5d36345526443541fb8b3f6856789649f"
+      },
+      {
+        "heading": "Autômato de Ponte Descontrolado",
+        "sha256": "1cfec7343790bd24f036324fab00a9ba7eaecdb208c302809c16670eb5728813"
+      },
+      {
+        "heading": "Eco Corrompido",
+        "sha256": "77c23e25c9e6fecae4f614a6b1a7e8c52aa067c7fa65b478a46ee8e3dfc1f8b0"
+      },
+      {
+        "heading": "Serpente do Leito Escrito",
+        "sha256": "f7c8227efb65d92066179a34382e8501a56785d8cfc326e9628bba8bde828cb3"
+      },
+      {
+        "heading": "Cão-Leão das Brasas Errantes",
+        "sha256": "e3a2d9e714c732911783422405c50c0b18ae0589ae70004ad8cde4a7f300d861"
+      },
+      {
+        "heading": "Pato de Pressão Ressonante",
+        "sha256": "019af1d209c97999b979efdc1f55621fc9515623a86866f86eb0ee7ffc6d2e6c"
+      },
+      {
+        "heading": "Roedor dos Veios Fulminantes",
+        "sha256": "781901a8b18f6cbb8ee2602f3d63e2061dba764f5f28f1e44a2470f67e340f61"
+      },
+      {
+        "heading": "Devorador Psíquico Cefalóide",
+        "sha256": "88cf1901d052fe61f09a4bb1a1c70c0b25f5c306d0cfdec90bbb743161f5b838"
+      },
+      {
+        "heading": "Guardião",
+        "sha256": "3ade014e079c5ac6e31851a002986adc7052b041ee6f1ed7ac0df3c8201af9eb"
+      },
+      {
+        "heading": "Duelista",
+        "sha256": "cc91c31596276e5986f84f05a6268382c4627da52d93850e1add2e860a2ff6c6"
+      },
+      {
+        "heading": "Atirador",
+        "sha256": "fb9862098d3d3b404eef3ac5dc156ae8b03121340cd2a74c6efda4a1319badf1"
+      },
+      {
+        "heading": "Tecelão",
+        "sha256": "25d04251a03b61699eac808ee6255a77be8de6d56a6edfe0e9aa5695c79857df"
+      },
+      {
+        "heading": "Curador",
+        "sha256": "90dc653b9a224d2b77bc06e3ec29e0d4e3ea381b2497e59c8e78cba311abf307"
+      },
+      {
+        "heading": "Evocador",
+        "sha256": "9b091877794b4d0e2d701cb6a744871387a53d0726a99ec462020ca81ee5b9f5"
+      },
+      {
+        "heading": "Artífice",
+        "sha256": "8cb70416d2c77829d258f75724febbf787605df0f0e89cb6665609c810c0a6a2"
+      },
+      {
+        "heading": "Batedor",
+        "sha256": "a6060bfcb22cb362f3f4fda523f5d85e5f47576c474bdfc1a327891393776769"
+      },
+      {
+        "heading": "Rodada",
+        "sha256": "0839deb188f3d040a5b56b7439a7ac975dd17bbd7f1cdefe37c5d4e9041bd4f4"
+      },
+      {
+        "heading": "Dano e potência",
+        "sha256": "9e4d98ca888057fa663d80e50cd4ed9b0dffa362924178a029d6c2fa28418cf4"
+      },
+      {
+        "heading": "APÊNDICES",
+        "sha256": "c2d881b645501b8344e59efa461df8f6f1f37208ab9b48ab767d33c3f284f7b3"
+      },
+      {
+        "heading": "AELVARI",
+        "sha256": "6fa1efc7d9ea2ae54647ce44a7a40da13bf18a6df83bc2639adb877ccd7ecc2a"
+      },
+      {
+        "heading": "KRAGOR",
+        "sha256": "cc644573abc528fd1b8cdcc44e4f2100600ad57704d67aaf7e0aacf73a0e6fcf"
+      },
+      {
+        "heading": "DRAKEN",
+        "sha256": "c6ff7488e4354cceb034963078ab6dcf9d5dfddb5694c72ac68072dc148cbfde"
+      },
+      {
+        "heading": "NOMOS",
+        "sha256": "28b2817625d51c16e4a48fdd05fe9c4660780db1c214c507d8140a8e5467a807"
+      },
+      {
+        "heading": "LIVRES",
+        "sha256": "0519577d1a7b9d23e53aadb82af710870323f108b26a9922a9e144a9c80086b4"
+      },
+      {
+        "heading": "DÓREOS",
+        "sha256": "24d42dd52ca92ecd9bc4fcb6395f2142e5689426ccff8efe7f3ab094ae116f51"
+      },
+      {
+        "heading": "TERIANTES",
+        "sha256": "6a0df00c4307ab9ebc8ed361ffab6d36ab25f35ac8cdc2a492b1aeb76504192e"
+      },
+      {
+        "heading": "NIMARI",
+        "sha256": "b419d2d44da95ca8657e6a1e3f37c137e32ccd0cfff8df02e82c82e8d8bd9ca7"
+      },
+      {
+        "heading": "VITRÁLIOS",
+        "sha256": "98fc176aea334ba1411562da36db08bbd19960781020c6db673d30857b1b3bd7"
+      },
+      {
+        "heading": "Guardião",
+        "sha256": "3ade014e079c5ac6e31851a002986adc7052b041ee6f1ed7ac0df3c8201af9eb"
+      },
+      {
+        "heading": "Duelista",
+        "sha256": "cc91c31596276e5986f84f05a6268382c4627da52d93850e1add2e860a2ff6c6"
+      },
+      {
+        "heading": "Atirador",
+        "sha256": "fb9862098d3d3b404eef3ac5dc156ae8b03121340cd2a74c6efda4a1319badf1"
+      },
+      {
+        "heading": "Tecelão",
+        "sha256": "25d04251a03b61699eac808ee6255a77be8de6d56a6edfe0e9aa5695c79857df"
+      },
+      {
+        "heading": "Curador",
+        "sha256": "90dc653b9a224d2b77bc06e3ec29e0d4e3ea381b2497e59c8e78cba311abf307"
+      },
+      {
+        "heading": "Evocador",
+        "sha256": "9b091877794b4d0e2d701cb6a744871387a53d0726a99ec462020ca81ee5b9f5"
+      },
+      {
+        "heading": "Artífice",
+        "sha256": "8cb70416d2c77829d258f75724febbf787605df0f0e89cb6665609c810c0a6a2"
+      },
+      {
+        "heading": "Batedor",
+        "sha256": "a6060bfcb22cb362f3f4fda523f5d85e5f47576c474bdfc1a327891393776769"
+      },
+      {
+        "heading": "Dragão Cristalino Colossal",
+        "sha256": "e85da577e91287647e97e2dbd00b3e54e0286c84baf9478e71e2f494764eb796"
+      },
+      {
+        "heading": "Leviatã dos Veios",
+        "sha256": "e3fd4744e03d67c218f059f8fdab2a5ac568b8214fea95dd43cfd339acd606e6"
+      },
+      {
+        "heading": "Árvore-Mãe Errante",
+        "sha256": "cb023b49e19ac3d612e0fc86fa10fa2dc33be06cea94d13e602ffe4579316420"
+      },
+      {
+        "heading": "Leviatã dos Veios",
+        "sha256": "e3fd4744e03d67c218f059f8fdab2a5ac568b8214fea95dd43cfd339acd606e6"
+      },
+      {
+        "heading": "Autômato de Ponte Descontrolado",
+        "sha256": "1cfec7343790bd24f036324fab00a9ba7eaecdb208c302809c16670eb5728813"
+      },
+      {
+        "heading": "KALLISTIS",
+        "sha256": "31c54d2334da91e7dbcfc1c030509a04577b055cc25eda057d2c54f05dab6ec9"
+      },
+      {
+        "heading": "Expediente",
+        "sha256": "e13a90c6fa9fb0809a715af416f6a9f3afcd531d6e81874077493dfc433b24e2"
+      },
+      {
+        "heading": "Prólogo — A velha e a Fresta",
+        "sha256": "e1db36db28c181e1e6bfc19b3a6cf9f558925ffb5b4457c1cb049f35de84e695"
+      },
+      {
+        "heading": "PARTE I — O MUNDO PARTIDO",
+        "sha256": "403c9be0f92c8e129dbd69afad68d6ab6ac634e12450cd5bc9a5230059d2ef1b"
+      },
+      {
+        "heading": "O Cinturão das Frestas",
+        "sha256": "cf8db9e23c86b52ffcba873eb93bfc4111a0005a973ef4589d2436a9edde467d"
+      },
+      {
+        "heading": "O Mapa em Duas Camadas",
+        "sha256": "f895f8161e659c07b67a71e20a3bac6b9452e315654048ecfe0d889c14dfcb80"
+      },
+      {
+        "heading": "Distribuição dos Povos",
+        "sha256": "963acd32953691bb3415ceaf1b3bdfe94d04fb95f5dd448df1366d1269e0584e"
+      }
+    ],
+    "USED_HISTORY_ASSET_SHA_COUNT": 100,
+    "USED_HISTORY_ASSET_SHA_UNIQUE": 67,
+    "PROJECTED_BOOK_PAGES_TEXTUAL": 290.28,
+    "PROJECTED_BOOK_PAGES_CURRENT": 332.94,
+    "PROJECTED_BOOK_PAGES_DENSE": 266.38,
+    "VERTICAL_SPACE_TEXT_PERCENT": 67.29,
+    "VERTICAL_SPACE_BLOCK_GAPS_PERCENT": 8.75,
+    "VERTICAL_SPACE_HEADINGS_PERCENT": 10.54,
+    "VERTICAL_SPACE_IMAGES_PERCENT": 16.14,
+    "SOFT_MAX_TEXT_RUN": 5,
+    "HARD_MAX_TEXT_RUN": 7,
+    "SOURCE_BLOCK_TEXT_MISMATCHES": 95,
+    "SOURCE_WORDS_LOST": 95,
+    "SOURCE_WORDS_ADDED": 0,
+    "DUPLICATE_FRAGMENT_OCCURRENCES": 0,
+    "FRAGMENT_SEQUENCE_ERRORS": 0,
+    "MANUSCRIPT_TEXT_CHANGED": 1,
+    "MANUSCRIPT_BLOCKS_LOST": 0,
+    "MANUSCRIPT_BLOCKS_DUPLICATED": 0,
+    "PAGE_OVERFLOW": 0,
+    "OVERFLOW_PAGE_NUMBERS": [],
+    "OVERFLOW_PAGE_DETAILS": [],
+    "ORPHAN_HEADINGS": 0,
+    "BROKEN_TABLE_ROWS": 0,
+    "SOURCE_ORDER_CHANGED": 0,
+    "ASSETS_MODIFIED": 0,
+    "ORIGINAL_PROJECT_OVERWRITTEN": 0,
+    "INVALID_IMAGE_PLACEMENTS": 0,
+    "SEMANTIC_IMAGE_PLACEMENTS": [
+      {
+        "page": 4,
+        "asset": "/assets/branding/KALLISTIS_wordmark_master.jpg",
+        "semanticAnchor": "KALLISTIS",
+        "allowedHeadingIds": [
+          "src-2d3461b924d689ec6432"
+        ],
+        "allowedWindow": null,
+        "actualH2": "KALLISTIS",
+        "actualHeadingIds": [
+          "src-2d3461b924d689ec6432"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 5,
+        "asset": "/assets/branding/KALLISTIS_symbol_master.jpg",
+        "semanticAnchor": "Expediente",
+        "allowedHeadingIds": [
+          "src-c5383a74025eac9e4c0f"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Expediente",
+        "actualHeadingIds": [
+          "src-2d3461b924d689ec6432",
+          "src-c5383a74025eac9e4c0f"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 9,
+        "asset": "/assets/handoff/approved/p004_velha_e_fresta_pb.png",
+        "semanticAnchor": "Prólogo — A velha e a Fresta",
+        "allowedHeadingIds": [
+          "src-e4b26773a59ef7fe611f"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Prólogo — A velha e a Fresta",
+        "actualHeadingIds": [
+          "src-2d3461b924d689ec6432",
+          "src-e4b26773a59ef7fe611f"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 10,
+        "asset": "/assets/handoff/approved/p005_cristal_partido_pb.png",
+        "semanticAnchor": "PARTE I — O MUNDO PARTIDO",
+        "allowedHeadingIds": [
+          "src-1661769aa28ec7035ee8"
+        ],
+        "allowedWindow": null,
+        "actualH2": "PARTE I — O MUNDO PARTIDO",
+        "actualHeadingIds": [
+          "src-1661769aa28ec7035ee8"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 11,
+        "asset": "/assets/v1.5-acervo/c7eafef9733c050d13190173.png",
+        "semanticAnchor": "Manesh — O Mundo da Luz",
+        "allowedHeadingIds": [
+          "src-6e0709ffc991e9102f10"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "Manesh — O Mundo da Luz",
+        "actualHeadingIds": [
+          "src-1661769aa28ec7035ee8",
+          "src-6e0709ffc991e9102f10"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 12,
+        "asset": "/assets/v1.5-acervo/ee09524034dd435e0ee77774.png",
+        "semanticAnchor": "Thuvel — O Mundo da Escuridão",
+        "allowedHeadingIds": [
+          "src-7c409440f7efecc72d0f"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "Thuvel — O Mundo da Escuridão",
+        "actualHeadingIds": [
+          "src-1661769aa28ec7035ee8",
+          "src-7c409440f7efecc72d0f"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 13,
+        "asset": "/assets/handoff/approved/p008_009_luz_escuridao_sombra_pb.png",
+        "semanticAnchor": "Luz, Escuridão e Sombra / Kav",
+        "allowedHeadingIds": [
+          "src-bdc80ce070831fefd080",
+          "src-fa25dfa25b3a0db7a8e4"
+        ],
+        "allowedWindow": "ALLOWED_H2S",
+        "actualH2": "Luz, Escuridão e Sombra",
+        "actualHeadingIds": [
+          "src-1661769aa28ec7035ee8",
+          "src-bdc80ce070831fefd080"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 14,
+        "asset": "/assets/handoff/approved/p008_009_luz_escuridao_sombra_pb.png",
+        "semanticAnchor": "Luz, Escuridão e Sombra / Kav",
+        "allowedHeadingIds": [
+          "src-bdc80ce070831fefd080",
+          "src-fa25dfa25b3a0db7a8e4"
+        ],
+        "allowedWindow": "ALLOWED_H2S",
+        "actualH2": "Kav — Sombra É Corrupção, Não Escuridão",
+        "actualHeadingIds": [
+          "src-1661769aa28ec7035ee8",
+          "src-fa25dfa25b3a0db7a8e4"
+        ],
+        "semanticStatus": "ALLOWED_ADJACENT"
+      },
+      {
+        "page": 16,
+        "asset": "/assets/v1.5-acervo/b842eed499a951a237fb73e6.png",
+        "semanticAnchor": "Mirveth",
+        "allowedHeadingIds": [
+          "src-5f9381a450443130e5cb"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "Mirveth — Uma Pessoa Inteira",
+        "actualHeadingIds": [
+          "src-1661769aa28ec7035ee8",
+          "src-5f9381a450443130e5cb"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 17,
+        "asset": "/assets/handoff/approved/p012_mirveth_thuvel_pb.png",
+        "semanticAnchor": "Vethari / contraponto Mirveth",
+        "allowedHeadingIds": [
+          "src-1f3711bdd1b9409fbffc"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "Vethari — Relação Sem Apagamento",
+        "actualHeadingIds": [
+          "src-1661769aa28ec7035ee8",
+          "src-1f3711bdd1b9409fbffc"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 18,
+        "asset": "/assets/handoff/approved/p017_dois_mundos_fratura_pb.png",
+        "semanticAnchor": "História do Mundo Partido / Dupla Herança / Fratura",
+        "allowedHeadingIds": [
+          "src-bdaa610e9d4daa0fe6d5"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "História do Mundo Partido",
+        "actualHeadingIds": [
+          "src-1661769aa28ec7035ee8",
+          "src-bdaa610e9d4daa0fe6d5"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 32,
+        "asset": "/assets/v1.5-acervo/1adb4f5e12616958d1cd8ad8.png",
+        "semanticAnchor": "PARTE I — O MUNDO PARTIDO",
+        "allowedHeadingIds": [
+          "src-1661769aa28ec7035ee8"
+        ],
+        "allowedWindow": "SAME_H1",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-1661769aa28ec7035ee8",
+          "src-48f91f7868ab5b3bb54d",
+          "src-05cf9f05fc931e2d23dd",
+          "src-b24047020b5169e2f306"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 35,
+        "asset": "/assets/v1.5-acervo/1adb4f5e12616958d1cd8ad8.png",
+        "semanticAnchor": "PARTE I — O MUNDO PARTIDO",
+        "allowedHeadingIds": [
+          "src-1661769aa28ec7035ee8"
+        ],
+        "allowedWindow": "SAME_H1",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-1661769aa28ec7035ee8",
+          "src-48f91f7868ab5b3bb54d",
+          "src-957a0d30380c82788487",
+          "src-99dfff231639a0cab461"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 37,
+        "asset": "/assets/handoff/approved/p020_primeiras_frestas_pb.jpg",
+        "semanticAnchor": "primeiras Frestas",
+        "allowedHeadingIds": [
+          "src-cc1b0622c2e74218845e"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-1661769aa28ec7035ee8",
+          "src-48f91f7868ab5b3bb54d",
+          "src-b7786698fd45b203b80b",
+          "src-cc1b0622c2e74218845e"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 39,
+        "asset": "/assets/handoff/approved/p021_022_kethrell_faccao_cientifica_pb.jpg",
+        "semanticAnchor": "Restauração Científica / Kethrell",
+        "allowedHeadingIds": [
+          "src-c36e71331d3cc62a5d1f"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-1661769aa28ec7035ee8",
+          "src-48f91f7868ab5b3bb54d",
+          "src-3b482b6e4e9cad6d96c3",
+          "src-c36e71331d3cc62a5d1f"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 41,
+        "asset": "/assets/handoff/approved/p024_025_outros_lightbringers_pb.jpg",
+        "semanticAnchor": "Os Outros / Lightbringers",
+        "allowedHeadingIds": [
+          "src-aaa1949e8fd27396295c",
+          "src-c954ffc4d65fc7f825f4"
+        ],
+        "allowedWindow": "ALLOWED_HEADINGS",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-1661769aa28ec7035ee8",
+          "src-48f91f7868ab5b3bb54d",
+          "src-3b482b6e4e9cad6d96c3",
+          "src-aaa1949e8fd27396295c"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 43,
+        "asset": "/assets/handoff/approved/p024_025_outros_lightbringers_pb.jpg",
+        "semanticAnchor": "Os Outros / Lightbringers",
+        "allowedHeadingIds": [
+          "src-aaa1949e8fd27396295c",
+          "src-c954ffc4d65fc7f825f4"
+        ],
+        "allowedWindow": "ALLOWED_HEADINGS",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-1661769aa28ec7035ee8",
+          "src-48f91f7868ab5b3bb54d",
+          "src-3b482b6e4e9cad6d96c3",
+          "src-c954ffc4d65fc7f825f4"
+        ],
+        "semanticStatus": "ALLOWED_ADJACENT"
+      },
+      {
+        "page": 48,
+        "asset": "/assets/handoff/approved/p026_027_daeren_thavin_isenna_pb.jpg",
+        "semanticAnchor": "Daeren / Thavin / Isenna",
+        "allowedHeadingIds": [
+          "src-6a91386c6d1389f0f758",
+          "src-9d8f3f970902b804fed3",
+          "src-6cb26543c2093539c00a"
+        ],
+        "allowedWindow": "ALLOWED_HEADINGS",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-1661769aa28ec7035ee8",
+          "src-48f91f7868ab5b3bb54d",
+          "src-9edb47ed96cac0bf4de4",
+          "src-6a91386c6d1389f0f758"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 49,
+        "asset": "/assets/handoff/approved/p026_027_daeren_thavin_isenna_pb.jpg",
+        "semanticAnchor": "Daeren / Thavin / Isenna",
+        "allowedHeadingIds": [
+          "src-6a91386c6d1389f0f758",
+          "src-9d8f3f970902b804fed3",
+          "src-6cb26543c2093539c00a"
+        ],
+        "allowedWindow": "ALLOWED_HEADINGS",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-1661769aa28ec7035ee8",
+          "src-48f91f7868ab5b3bb54d",
+          "src-9edb47ed96cac0bf4de4",
+          "src-9d8f3f970902b804fed3"
+        ],
+        "semanticStatus": "ALLOWED_ADJACENT"
+      },
+      {
+        "page": 51,
+        "asset": "/assets/handoff/approved/p026_027_daeren_thavin_isenna_pb.jpg",
+        "semanticAnchor": "Daeren / Thavin / Isenna",
+        "allowedHeadingIds": [
+          "src-6a91386c6d1389f0f758",
+          "src-9d8f3f970902b804fed3",
+          "src-6cb26543c2093539c00a"
+        ],
+        "allowedWindow": "ALLOWED_HEADINGS",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-1661769aa28ec7035ee8",
+          "src-48f91f7868ab5b3bb54d",
+          "src-9edb47ed96cac0bf4de4",
+          "src-6cb26543c2093539c00a"
+        ],
+        "semanticStatus": "ALLOWED_ADJACENT"
+      },
+      {
+        "page": 53,
+        "asset": "/assets/handoff/approved/p028_029_thaeraen_tempo_escolha_pb.jpeg",
+        "semanticAnchor": "Thaeraen / Tempo da Escolha",
+        "allowedHeadingIds": [
+          "src-490fc9a21a3724ed5c08"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "A história em Marcos",
+        "actualHeadingIds": [
+          "src-1661769aa28ec7035ee8",
+          "src-48f91f7868ab5b3bb54d",
+          "src-9edb47ed96cac0bf4de4",
+          "src-490fc9a21a3724ed5c08"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 61,
+        "asset": "/assets/v1.5-acervo/834fdd86d54569776d899e91.png",
+        "semanticAnchor": "Cinturão das Frestas",
+        "allowedHeadingIds": [
+          "src-0fd3dc73ce239e62a81c"
+        ],
+        "allowedWindow": "SAME_H1",
+        "actualH2": "PARTE II — O CINTURÃO DAS FRESTAS",
+        "actualHeadingIds": [
+          "src-0fd3dc73ce239e62a81c"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 62,
+        "asset": "/assets/partes/mapa-geral-cinturao-spread.png",
+        "semanticAnchor": "O Cinturão das Frestas",
+        "allowedHeadingIds": [
+          "src-5a9a85101ebf921bfb63"
+        ],
+        "allowedWindow": null,
+        "actualH2": "O Cinturão das Frestas",
+        "actualHeadingIds": [
+          "src-0fd3dc73ce239e62a81c",
+          "src-5a9a85101ebf921bfb63"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 63,
+        "asset": "/assets/partes/mapa-duas-camadas.png",
+        "semanticAnchor": "O Mapa em Duas Camadas",
+        "allowedHeadingIds": [
+          "src-35d95d8448924dcbf476"
+        ],
+        "allowedWindow": null,
+        "actualH2": "O Mapa em Duas Camadas",
+        "actualHeadingIds": [
+          "src-0fd3dc73ce239e62a81c",
+          "src-35d95d8448924dcbf476"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 65,
+        "asset": "/assets/partes/fenda-kethrell.png",
+        "semanticAnchor": "Fenda de Kethrell",
+        "allowedHeadingIds": [
+          "src-4bf2adeed85fad3c9efe"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "A Fenda de Kethrell",
+        "actualHeadingIds": [
+          "src-0fd3dc73ce239e62a81c",
+          "src-4bf2adeed85fad3c9efe"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 68,
+        "asset": "/assets/v1.5-acervo/28ba1d31b8dea528348bbb32.png",
+        "semanticAnchor": "Planalto de Silmari",
+        "allowedHeadingIds": [
+          "src-a4df5cd6288e4be2babd"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "Geografia da Luz: Planalto de Silmari",
+        "actualHeadingIds": [
+          "src-0fd3dc73ce239e62a81c",
+          "src-a4df5cd6288e4be2babd"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 79,
+        "asset": "/assets/v1.5-acervo/distribuicao-povos.png",
+        "semanticAnchor": "Distribuição dos Povos",
+        "allowedHeadingIds": [
+          "src-8dce1b260d8f78eab4e4"
+        ],
+        "allowedWindow": null,
+        "actualH2": "Distribuição dos Povos",
+        "actualHeadingIds": [
+          "src-0fd3dc73ce239e62a81c",
+          "src-8dce1b260d8f78eab4e4"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 82,
+        "asset": "/assets/partes/rotas-oficiais.png",
+        "semanticAnchor": "Rotas Oficiais",
+        "allowedHeadingIds": [
+          "src-7458141d0f3e62e6b4d6"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "Rotas Oficiais",
+        "actualHeadingIds": [
+          "src-0fd3dc73ce239e62a81c",
+          "src-7458141d0f3e62e6b4d6"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 84,
+        "asset": "/assets/partes/rotas-clandestinas.png",
+        "semanticAnchor": "Rotas Clandestinas e Comércio",
+        "allowedHeadingIds": [
+          "src-34c729e6267ec726e3bd"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "Rotas Clandestinas e Comércio",
+        "actualHeadingIds": [
+          "src-0fd3dc73ce239e62a81c",
+          "src-34c729e6267ec726e3bd"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 87,
+        "asset": "/assets/partes/estado-politico.jpg",
+        "semanticAnchor": "Estado Político Atual",
+        "allowedHeadingIds": [
+          "src-4b8ca111fa5fdc405ddb"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "O Estado Político Atual",
+        "actualHeadingIds": [
+          "src-0fd3dc73ce239e62a81c",
+          "src-4b8ca111fa5fdc405ddb"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 93,
+        "asset": "/assets/v1.5-acervo/963acd32953691bb3415ceaf.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-c69f8b5767226f98c7db"
+        ],
+        "allowedWindow": null,
+        "actualH2": "MOVIMENTO A — POVOS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-00ab7cbc5b48b46d2a5c",
+          "src-e68c2d4abb43c0ad43ea",
+          "src-8049f29c26d9f2f7d8a7"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 95,
+        "asset": "/assets/v1.5-acervo/6fa1efc7d9ea2ae54647ce44.png",
+        "semanticAnchor": "Povo Aelvari",
+        "allowedHeadingIds": [
+          "src-9cfb1552bee369e18f6e"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO A — POVOS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-00ab7cbc5b48b46d2a5c",
+          "src-9cfb1552bee369e18f6e"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 98,
+        "asset": "/assets/v1.5-acervo/cc644573abc528fd1b8cdcc4.png",
+        "semanticAnchor": "Povo Kragor",
+        "allowedHeadingIds": [
+          "src-534b361033697073cf32"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO A — POVOS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-00ab7cbc5b48b46d2a5c",
+          "src-534b361033697073cf32"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 102,
+        "asset": "/assets/v1.5-acervo/c6ff7488e4354cceb0349630.png",
+        "semanticAnchor": "Povo Draken",
+        "allowedHeadingIds": [
+          "src-6cfa5c96bcd7ac2706c2"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO A — POVOS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-00ab7cbc5b48b46d2a5c",
+          "src-6cfa5c96bcd7ac2706c2"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 105,
+        "asset": "/assets/v1.5-acervo/28b2817625d51c16e4a48fdd.png",
+        "semanticAnchor": "Povo Nomos",
+        "allowedHeadingIds": [
+          "src-ea2e09740547064a35c4"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO A — POVOS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-00ab7cbc5b48b46d2a5c",
+          "src-ea2e09740547064a35c4"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 109,
+        "asset": "/assets/v1.5-acervo/0519577d1a7b9d23e53aadb8.png",
+        "semanticAnchor": "Povo Livres",
+        "allowedHeadingIds": [
+          "src-a4f84749364b4f54d7d1"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO A — POVOS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-00ab7cbc5b48b46d2a5c",
+          "src-a4f84749364b4f54d7d1"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 112,
+        "asset": "/assets/v1.5-acervo/24d42dd52ca92ecd9bc4fcb6.png",
+        "semanticAnchor": "Povo Dóreos",
+        "allowedHeadingIds": [
+          "src-b4f97d7b76a87de8abf5"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO A — POVOS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-00ab7cbc5b48b46d2a5c",
+          "src-b4f97d7b76a87de8abf5"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 115,
+        "asset": "/assets/v1.5-acervo/6a0df00c4307ab9ebc8ed361.png",
+        "semanticAnchor": "Povo Teriantes",
+        "allowedHeadingIds": [
+          "src-dbf7d5386318e7114195"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO A — POVOS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-00ab7cbc5b48b46d2a5c",
+          "src-dbf7d5386318e7114195"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 118,
+        "asset": "/assets/v1.5-acervo/b419d2d44da95ca8657e6a1e.png",
+        "semanticAnchor": "Povo Nimari",
+        "allowedHeadingIds": [
+          "src-b80727976c79d0f5d35c"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO A — POVOS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-00ab7cbc5b48b46d2a5c",
+          "src-b80727976c79d0f5d35c"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 122,
+        "asset": "/assets/v1.5-acervo/98fc176aea334ba1411562da.png",
+        "semanticAnchor": "Povo Vitrálios",
+        "allowedHeadingIds": [
+          "src-801e3f32948acab563b2"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO A — POVOS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-00ab7cbc5b48b46d2a5c",
+          "src-801e3f32948acab563b2"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 126,
+        "asset": "/assets/v1.5-acervo/cc91c31596276e5986f84f05.png",
+        "semanticAnchor": "Ofícios e escolhas",
+        "allowedHeadingIds": [
+          "src-e538bf6230c54920bca2"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "MOVIMENTO B — OFÍCIOS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-6c1bca6affdcc0ab776c",
+          "src-e538bf6230c54920bca2"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 131,
+        "asset": "/assets/v1.5-acervo/3ade014e079c5ac6e31851a0.png",
+        "semanticAnchor": "Ofício Guardião",
+        "allowedHeadingIds": [
+          "src-93da6bed32f2be2ee4b6"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO B — OFÍCIOS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-6c1bca6affdcc0ab776c",
+          "src-93da6bed32f2be2ee4b6"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 134,
+        "asset": "/assets/v1.5-acervo/cc91c31596276e5986f84f05.png",
+        "semanticAnchor": "Ofício Duelista",
+        "allowedHeadingIds": [
+          "src-00da50c48c0bff66f97b"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO B — OFÍCIOS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-6c1bca6affdcc0ab776c",
+          "src-00da50c48c0bff66f97b"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 137,
+        "asset": "/assets/v1.5-acervo/fb9862098d3d3b404eef3ac5.png",
+        "semanticAnchor": "Ofício Atirador",
+        "allowedHeadingIds": [
+          "src-f8c89d73b73f40f51c5b"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO B — OFÍCIOS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-6c1bca6affdcc0ab776c",
+          "src-f8c89d73b73f40f51c5b"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 140,
+        "asset": "/assets/v1.5-acervo/25d04251a03b61699eac808e.png",
+        "semanticAnchor": "Ofício Tecelão",
+        "allowedHeadingIds": [
+          "src-7a890038a2cc380083ab"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO B — OFÍCIOS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-6c1bca6affdcc0ab776c",
+          "src-7a890038a2cc380083ab"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 143,
+        "asset": "/assets/v1.5-acervo/90dc653b9a224d2b77bc06e3.png",
+        "semanticAnchor": "Ofício Curador",
+        "allowedHeadingIds": [
+          "src-d5cb5c70052afb98a9f0"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO B — OFÍCIOS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-6c1bca6affdcc0ab776c",
+          "src-d5cb5c70052afb98a9f0"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 146,
+        "asset": "/assets/v1.5-acervo/9b091877794b4d0e2d701cb6.png",
+        "semanticAnchor": "Ofício Evocador",
+        "allowedHeadingIds": [
+          "src-bc622f5b4c7ef7e83862"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO B — OFÍCIOS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-6c1bca6affdcc0ab776c",
+          "src-bc622f5b4c7ef7e83862"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 149,
+        "asset": "/assets/v1.5-acervo/8cb70416d2c77829d258f757.png",
+        "semanticAnchor": "Ofício Artífice",
+        "allowedHeadingIds": [
+          "src-33e1324a8f1d21f90074"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO B — OFÍCIOS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-6c1bca6affdcc0ab776c",
+          "src-33e1324a8f1d21f90074"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 152,
+        "asset": "/assets/v1.5-acervo/a6060bfcb22cb362f3f4fda5.png",
+        "semanticAnchor": "Ofício Batedor",
+        "allowedHeadingIds": [
+          "src-bf3bb3f7b8dcf765d60d"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "MOVIMENTO B — OFÍCIOS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-6c1bca6affdcc0ab776c",
+          "src-bf3bb3f7b8dcf765d60d"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 156,
+        "asset": "/assets/handoff/approved/p013_pedralma_monolito_pb.png",
+        "semanticAnchor": "Pedr’alma",
+        "allowedHeadingIds": [
+          "src-b588296443843d616389"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "MOVIMENTO C — COMUNIDADES VIVAS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-a216dce7eaa40d3a2972",
+          "src-b588296443843d616389"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 157,
+        "asset": "/assets/handoff/approved/p014_pedralma_escalas_pb.png",
+        "semanticAnchor": "Lar · Cidade · Companhia",
+        "allowedHeadingIds": [
+          "src-18c247950087adf4571e"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "MOVIMENTO C — COMUNIDADES VIVAS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-a216dce7eaa40d3a2972",
+          "src-18c247950087adf4571e"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 159,
+        "asset": "/assets/partes/pedralma-monumental.png",
+        "semanticAnchor": "Definição cultural de Pedr’alma",
+        "allowedHeadingIds": [
+          "src-bb6aff4bdde7ea901c4c"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "MOVIMENTO C — COMUNIDADES VIVAS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-a216dce7eaa40d3a2972",
+          "src-bb6aff4bdde7ea901c4c"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 162,
+        "asset": "/assets/partes/pedralma-velarim.png",
+        "semanticAnchor": "Pedr’almas de companhia",
+        "allowedHeadingIds": [
+          "src-4297134dd3d9517dd90b"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "MOVIMENTO C — COMUNIDADES VIVAS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-a216dce7eaa40d3a2972",
+          "src-4297134dd3d9517dd90b"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 181,
+        "asset": "/assets/partes/encerramento-final.png",
+        "semanticAnchor": "encerramento da Parte IV",
+        "allowedHeadingIds": [
+          "src-9a581aaf66d4d714100b"
+        ],
+        "allowedWindow": "SAME_H2",
+        "actualH2": "MOVIMENTO C — COMUNIDADES VIVAS",
+        "actualHeadingIds": [
+          "src-c69f8b5767226f98c7db",
+          "src-a216dce7eaa40d3a2972",
+          "src-9a581aaf66d4d714100b"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 182,
+        "asset": "/assets/v1.5-acervo/d6a4a389c6d9978e498994cc.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-c0c149ba880851b90856"
+        ],
+        "allowedWindow": null,
+        "actualH2": "PARTE IV — VELARIM",
+        "actualHeadingIds": [
+          "src-c0c149ba880851b90856"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 199,
+        "asset": "/assets/v1.5-acervo/9ec600bd640991f515a56df8.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-b149b6252a347ca57f8d"
+        ],
+        "allowedWindow": null,
+        "actualH2": "PARTE V — JOGANDO KALLISTIS",
+        "actualHeadingIds": [
+          "src-b149b6252a347ca57f8d"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 226,
+        "asset": "/assets/complete/diagrams/economia-acao.svg",
+        "semanticAnchor": "Rodada",
+        "allowedHeadingIds": [
+          "src-37090bd1df005a3f849a"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "Combate e grade ortogonal",
+        "actualHeadingIds": [
+          "src-b149b6252a347ca57f8d",
+          "src-9ae2a557cff4efa62cf8",
+          "src-37090bd1df005a3f849a"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 227,
+        "asset": "/assets/complete/diagrams/fluxo-dano.svg",
+        "semanticAnchor": "Dano e potência",
+        "allowedHeadingIds": [
+          "src-440894e4bf8288223b44"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "Combate e grade ortogonal",
+        "actualHeadingIds": [
+          "src-b149b6252a347ca57f8d",
+          "src-9ae2a557cff4efa62cf8",
+          "src-440894e4bf8288223b44"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 245,
+        "asset": "/assets/v1.5-acervo/a7ed1f3058911beb61e53614.png",
+        "semanticAnchor": null,
+        "allowedHeadingIds": [
+          "src-629dd1fbf1c4e9542376"
+        ],
+        "allowedWindow": null,
+        "actualH2": "PARTE VI — CONDUZINDO KALLISTIS",
+        "actualHeadingIds": [
+          "src-629dd1fbf1c4e9542376"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 257,
+        "asset": "/assets/v1.5-acervo/07f9124754874628aed8d557.png",
+        "semanticAnchor": "Estilhaço Vitrálio Instável",
+        "allowedHeadingIds": [
+          "src-7206ae9a47da507385a9"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "ANTAGONISTAS E ENCONTROS",
+        "actualHeadingIds": [
+          "src-629dd1fbf1c4e9542376",
+          "src-e1838494928a80cce849",
+          "src-96fcfd174334bca34f2d",
+          "src-7206ae9a47da507385a9"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 259,
+        "asset": "/assets/v1.5-acervo/a688afcd178175d4a400d5da.png",
+        "semanticAnchor": "Corvo de Fresta",
+        "allowedHeadingIds": [
+          "src-5bf42dc542478fa6c953"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "ANTAGONISTAS E ENCONTROS",
+        "actualHeadingIds": [
+          "src-629dd1fbf1c4e9542376",
+          "src-e1838494928a80cce849",
+          "src-96fcfd174334bca34f2d",
+          "src-5bf42dc542478fa6c953"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 260,
+        "asset": "/assets/v1.5-acervo/0a96681692e4c8a671ad5145.png",
+        "semanticAnchor": "Filhote de Tormenta",
+        "allowedHeadingIds": [
+          "src-c925336b7dd26e817e3a"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "ANTAGONISTAS E ENCONTROS",
+        "actualHeadingIds": [
+          "src-629dd1fbf1c4e9542376",
+          "src-e1838494928a80cce849",
+          "src-96fcfd174334bca34f2d",
+          "src-c925336b7dd26e817e3a"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 261,
+        "asset": "/assets/v1.5-acervo/1cfec7343790bd24f036324f.png",
+        "semanticAnchor": "Autômato de Ponte Descontrolado",
+        "allowedHeadingIds": [
+          "src-0cb7ee9047644c6db114"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "ANTAGONISTAS E ENCONTROS",
+        "actualHeadingIds": [
+          "src-629dd1fbf1c4e9542376",
+          "src-e1838494928a80cce849",
+          "src-96fcfd174334bca34f2d",
+          "src-0cb7ee9047644c6db114"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 269,
+        "asset": "/assets/v1.5-acervo/77c23e25c9e6fecae4f614a6.png",
+        "semanticAnchor": "Eco Corrompido",
+        "allowedHeadingIds": [
+          "src-d3577bb6aa4905e433b4"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "ANTAGONISTAS E ENCONTROS",
+        "actualHeadingIds": [
+          "src-629dd1fbf1c4e9542376",
+          "src-e1838494928a80cce849",
+          "src-c6bf19451430501e0b64",
+          "src-d3577bb6aa4905e433b4"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 273,
+        "asset": "/assets/complete/bestiary/serpente.png",
+        "semanticAnchor": "Serpente do Leito Escrito",
+        "allowedHeadingIds": [
+          "src-41e3caf36f458469b0a8"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "ANTAGONISTAS E ENCONTROS",
+        "actualHeadingIds": [
+          "src-629dd1fbf1c4e9542376",
+          "src-e1838494928a80cce849",
+          "src-c6bf19451430501e0b64",
+          "src-41e3caf36f458469b0a8"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 301,
+        "asset": "/assets/v1.5-acervo/e85da577e91287647e97e2db.png",
+        "semanticAnchor": "Dragão Cristalino Colossal",
+        "allowedHeadingIds": [
+          "src-3b931f72edefbf30cc4c"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "ANTAGONISTAS E ENCONTROS",
+        "actualHeadingIds": [
+          "src-629dd1fbf1c4e9542376",
+          "src-e1838494928a80cce849",
+          "src-feed7d7f32ebd531d1bf",
+          "src-cc24d1a81b8b2f61ccc0",
+          "src-3b931f72edefbf30cc4c"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 302,
+        "asset": "/assets/v1.5-acervo/6f46eb97e78fc9adf637a069.png",
+        "semanticAnchor": "Tartaruga-Fortaleza",
+        "allowedHeadingIds": [
+          "src-7eb4d6f8f95d90d102ce"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "ANTAGONISTAS E ENCONTROS",
+        "actualHeadingIds": [
+          "src-629dd1fbf1c4e9542376",
+          "src-e1838494928a80cce849",
+          "src-feed7d7f32ebd531d1bf",
+          "src-cc24d1a81b8b2f61ccc0",
+          "src-7eb4d6f8f95d90d102ce"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 303,
+        "asset": "/assets/v1.5-acervo/e3fd4744e03d67c218f059f8.png",
+        "semanticAnchor": "Leviatã dos Veios",
+        "allowedHeadingIds": [
+          "src-edfc76d49d6f76c5d674"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "ANTAGONISTAS E ENCONTROS",
+        "actualHeadingIds": [
+          "src-629dd1fbf1c4e9542376",
+          "src-e1838494928a80cce849",
+          "src-feed7d7f32ebd531d1bf",
+          "src-cc24d1a81b8b2f61ccc0",
+          "src-edfc76d49d6f76c5d674"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 304,
+        "asset": "/assets/v1.5-acervo/cb023b49e19ac3d612e0fc86.png",
+        "semanticAnchor": "Árvore-Mãe Errante",
+        "allowedHeadingIds": [
+          "src-b3b0c420eeaca6953b02"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "ANTAGONISTAS E ENCONTROS",
+        "actualHeadingIds": [
+          "src-629dd1fbf1c4e9542376",
+          "src-e1838494928a80cce849",
+          "src-feed7d7f32ebd531d1bf",
+          "src-cc24d1a81b8b2f61ccc0",
+          "src-b3b0c420eeaca6953b02"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 310,
+        "asset": "/assets/complete/bestiary/cao-leao.png",
+        "semanticAnchor": "Cão-Leão das Brasas Errantes",
+        "allowedHeadingIds": [
+          "src-3085a1942c52cbcebb16"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "ANTAGONISTAS E ENCONTROS",
+        "actualHeadingIds": [
+          "src-629dd1fbf1c4e9542376",
+          "src-e1838494928a80cce849",
+          "src-feed7d7f32ebd531d1bf",
+          "src-6f31d86fc51dd67bc5eb",
+          "src-3085a1942c52cbcebb16"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 311,
+        "asset": "/assets/complete/bestiary/pato.png",
+        "semanticAnchor": "Pato de Pressão Ressonante",
+        "allowedHeadingIds": [
+          "src-4945f4cdf7efc8306de6"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "ANTAGONISTAS E ENCONTROS",
+        "actualHeadingIds": [
+          "src-629dd1fbf1c4e9542376",
+          "src-e1838494928a80cce849",
+          "src-feed7d7f32ebd531d1bf",
+          "src-6f31d86fc51dd67bc5eb",
+          "src-4945f4cdf7efc8306de6"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 312,
+        "asset": "/assets/complete/bestiary/roedor.png",
+        "semanticAnchor": "Roedor dos Veios Fulminantes",
+        "allowedHeadingIds": [
+          "src-473f438a1c50d5d67b4e"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "ANTAGONISTAS E ENCONTROS",
+        "actualHeadingIds": [
+          "src-629dd1fbf1c4e9542376",
+          "src-e1838494928a80cce849",
+          "src-feed7d7f32ebd531d1bf",
+          "src-6f31d86fc51dd67bc5eb",
+          "src-473f438a1c50d5d67b4e"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 313,
+        "asset": "/assets/complete/bestiary/devorador.png",
+        "semanticAnchor": "Devorador Psíquico Cefalóide",
+        "allowedHeadingIds": [
+          "src-fb3748ac308c32f1a413"
+        ],
+        "allowedWindow": "SAME_HEADING_SUBTREE",
+        "actualH2": "ANTAGONISTAS E ENCONTROS",
+        "actualHeadingIds": [
+          "src-629dd1fbf1c4e9542376",
+          "src-e1838494928a80cce849",
+          "src-feed7d7f32ebd531d1bf",
+          "src-6f31d86fc51dd67bc5eb",
+          "src-fb3748ac308c32f1a413"
+        ],
+        "semanticStatus": "EXACT"
+      },
+      {
+        "page": 322,
+        "asset": "/assets/complete/support/apendices/simbolos-oficios-referencia.png",
+        "semanticAnchor": "Apêndices",
+        "allowedHeadingIds": [
+          "src-9d7f73bd1edfb3095566"
+        ],
+        "allowedWindow": "SAME_H1",
+        "actualH2": "APÊNDICES",
+        "actualHeadingIds": [
+          "src-9d7f73bd1edfb3095566"
+        ],
+        "semanticStatus": "EXACT"
+      }
+    ],
+    "SOURCE_TEXT_MISMATCH_DETAILS": [
+      {
+        "sourceBlockId": "src-166c0d288d651ad6bcc2",
+        "sourceStartLine": 2006,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-61ba8019c6c259980189",
+        "sourceStartLine": 2096,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-66e2eee3369df7b19ad3",
+        "sourceStartLine": 2174,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-4f2275e96d92b7125dcf",
+        "sourceStartLine": 2266,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-38527925524b62179fbb",
+        "sourceStartLine": 2340,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-7205618f23d7cfe56d82",
+        "sourceStartLine": 2418,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-f18cdd1486042af0125e",
+        "sourceStartLine": 2492,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-01d869a8c2f64b37184e",
+        "sourceStartLine": 2574,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-754da5c9b2092dc7c064",
+        "sourceStartLine": 2658,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-71c7aba473eca9daab3b",
+        "sourceStartLine": 2863,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-3668fbb9c5144e05bc5e",
+        "sourceStartLine": 2937,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-ee7ae4725de0b15ae656",
+        "sourceStartLine": 3009,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-e7aed45e83386148f9fc",
+        "sourceStartLine": 3081,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-0b27e29f11f7ba4bb470",
+        "sourceStartLine": 3166,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-640694c1d215abe4a51e",
+        "sourceStartLine": 3240,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-a44b1ef771866d1deb1a",
+        "sourceStartLine": 3315,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-501414fb3f8fd5f3df8a",
+        "sourceStartLine": 3387,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-461c395ac28a47bf135f",
+        "sourceStartLine": 4061,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-f68e88692107e7aab396",
+        "sourceStartLine": 4115,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-b74c07dd74df24ca20d5",
+        "sourceStartLine": 4142,
+        "expected": "VGL-001",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-5c0d7f5fee2f7e9786b5",
+        "sourceStartLine": 4146,
+        "expected": "VGL-002",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-eeeb7e40b3b36770613b",
+        "sourceStartLine": 4150,
+        "expected": "VGL-003",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-1832b2b0d23063cdb99c",
+        "sourceStartLine": 4154,
+        "expected": "VGL-004",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-3651f88383ec54d51045",
+        "sourceStartLine": 4158,
+        "expected": "VGL-005",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-3e0de3d8a063e252437a",
+        "sourceStartLine": 4162,
+        "expected": "VGL-006",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-ddf7ede1e6c600b309a2",
+        "sourceStartLine": 4166,
+        "expected": "VGL-007",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-6168ff80ce76c03b15b1",
+        "sourceStartLine": 4170,
+        "expected": "VGL-008",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-137a4dcf697c15358e87",
+        "sourceStartLine": 4174,
+        "expected": "VGL-009",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-da99d384e09f3dcc7cd8",
+        "sourceStartLine": 4178,
+        "expected": "VGL-010",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-d374dd42e5dedf2e95a2",
+        "sourceStartLine": 4182,
+        "expected": "VGL-011",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-0bedb72c7b001d4a1df7",
+        "sourceStartLine": 4186,
+        "expected": "VGL-012",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-79e7333a71bcb84d77ea",
+        "sourceStartLine": 4190,
+        "expected": "VGL-013",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-c52ab733a315e7ea7e4c",
+        "sourceStartLine": 4194,
+        "expected": "VGL-014",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-a0cca633d3dc1564a026",
+        "sourceStartLine": 4198,
+        "expected": "VGL-015",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-ea292b15ff892adc6493",
+        "sourceStartLine": 4202,
+        "expected": "VGL-016",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-c81206f4b730f357b628",
+        "sourceStartLine": 4206,
+        "expected": "VGL-017",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-515d71ed48c164466e30",
+        "sourceStartLine": 4210,
+        "expected": "VGL-018",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-9a668ce945a9ad83ef42",
+        "sourceStartLine": 4214,
+        "expected": "VGL-019",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-6cec7e4be30acd7d23dc",
+        "sourceStartLine": 4218,
+        "expected": "VGL-020",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-8b6b0a8d814be4cc24f3",
+        "sourceStartLine": 4222,
+        "expected": "VGL-021",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-b313a4d4bf0cf2c92364",
+        "sourceStartLine": 4226,
+        "expected": "VGL-022",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-8c67c5e01fa54b27d1e8",
+        "sourceStartLine": 4230,
+        "expected": "VGL-023",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-5792714d0be8b16154d8",
+        "sourceStartLine": 4234,
+        "expected": "VGL-024",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-c33ead21a702ec0ac617",
+        "sourceStartLine": 4238,
+        "expected": "VGL-025",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-3abf1193de951b9c9985",
+        "sourceStartLine": 4242,
+        "expected": "VGL-026",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-e10a8bb23dc7b34bc119",
+        "sourceStartLine": 4246,
+        "expected": "VGL-027",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-efc11ed1d4810a47fee6",
+        "sourceStartLine": 4250,
+        "expected": "VGL-028",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-74c7d4674088264b3070",
+        "sourceStartLine": 4254,
+        "expected": "VGL-029",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-756b0b72d591b2e7188c",
+        "sourceStartLine": 4258,
+        "expected": "VGL-030",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-e7d13d194e489752ddaa",
+        "sourceStartLine": 4262,
+        "expected": "VGL-031",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-cf97122a7f408270b020",
+        "sourceStartLine": 4266,
+        "expected": "VGL-032",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-fd587b42294ffedd2111",
+        "sourceStartLine": 4270,
+        "expected": "VGL-033",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-2abe2466eeaaa03b1705",
+        "sourceStartLine": 4274,
+        "expected": "VGL-034",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-11b76034ed356b9712e3",
+        "sourceStartLine": 4278,
+        "expected": "VGL-035",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-b8b77eb9610c0b2f826c",
+        "sourceStartLine": 4282,
+        "expected": "VGL-036",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-38eb138cd6b212c7901e",
+        "sourceStartLine": 4286,
+        "expected": "VGL-037",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-fab980c98fd11b973ce6",
+        "sourceStartLine": 4290,
+        "expected": "VGL-038",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-dc5d38783e1222fa758f",
+        "sourceStartLine": 4294,
+        "expected": "VGL-039",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-5fe4d04608cd0af42d24",
+        "sourceStartLine": 4298,
+        "expected": "VGL-040",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-4e6a49e4aa5e2d4b84ef",
+        "sourceStartLine": 4302,
+        "expected": "VGL-041",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-48df162894dd1272e14c",
+        "sourceStartLine": 4306,
+        "expected": "VGL-042",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-a340ec79814cfcdd3b8e",
+        "sourceStartLine": 4310,
+        "expected": "VGL-043",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-453721a17ba44d44858f",
+        "sourceStartLine": 4314,
+        "expected": "VGL-044",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-63151413cc9487ac6cad",
+        "sourceStartLine": 4318,
+        "expected": "VGL-045",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-b9432e4b1c17b72b5c6f",
+        "sourceStartLine": 4322,
+        "expected": "VGL-046",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-38e270fa267771602f06",
+        "sourceStartLine": 4326,
+        "expected": "VGL-047",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-0a491465837511c7aedb",
+        "sourceStartLine": 4330,
+        "expected": "VGL-048",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-1eeda2c95d304e4f14e7",
+        "sourceStartLine": 4334,
+        "expected": "VGL-049",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-25bb5769d0290c95da2f",
+        "sourceStartLine": 4338,
+        "expected": "VGL-050",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-3eb9d34cd3ce84e67a92",
+        "sourceStartLine": 4342,
+        "expected": "VGL-051",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-0aa8baa9a597d1932455",
+        "sourceStartLine": 4346,
+        "expected": "VGL-052",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-6b4fea36d73c9cce977f",
+        "sourceStartLine": 4350,
+        "expected": "VGL-053",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-75949f830805a80dbe95",
+        "sourceStartLine": 4354,
+        "expected": "VGL-054",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-e7c3980997e603f7af4e",
+        "sourceStartLine": 4358,
+        "expected": "VGL-055",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-c2182d790a0b3984abdc",
+        "sourceStartLine": 4362,
+        "expected": "VGL-056",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-f2c32e2597619058e026",
+        "sourceStartLine": 4366,
+        "expected": "VGL-057",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-6af04e50afb06f787613",
+        "sourceStartLine": 4370,
+        "expected": "VGL-058",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-6aba7d904014e2907fe8",
+        "sourceStartLine": 4374,
+        "expected": "VGL-059",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-a740ec654055eca3e1a4",
+        "sourceStartLine": 4378,
+        "expected": "VGL-060",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-9dfd0f19c080d9bd8d48",
+        "sourceStartLine": 4382,
+        "expected": "VGL-061",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-cdab025d79dc7f802c0d",
+        "sourceStartLine": 4386,
+        "expected": "VGL-062",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-04d48def0b16ae3a9e1b",
+        "sourceStartLine": 4389,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-7c77a7f76336a7635c65",
+        "sourceStartLine": 4450,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-90c2764f9f66f993179b",
+        "sourceStartLine": 4466,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-fd652c739f344af40cbd",
+        "sourceStartLine": 4501,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-444d71baa9d739658e20",
+        "sourceStartLine": 4535,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-f89a47c6dca2560f984e",
+        "sourceStartLine": 4553,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-6ecdab7b9d600f0be450",
+        "sourceStartLine": 6556,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-f0048fdbea4ba1ba5781",
+        "sourceStartLine": 6737,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-2e1c700d6cf76c1baf9e",
+        "sourceStartLine": 6847,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-cb78ca998790e5cff291",
+        "sourceStartLine": 10287,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-38cdea4fbc881db8dd73",
+        "sourceStartLine": 10381,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-100023016f0c6edf424d",
+        "sourceStartLine": 10501,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-5882428810bc15faec4e",
+        "sourceStartLine": 10539,
+        "expected": "---",
+        "actual": ""
+      },
+      {
+        "sourceBlockId": "src-9168b1e8e7e47c5c5e73",
+        "sourceStartLine": 10789,
+        "expected": "---",
+        "actual": ""
+      }
+    ],
+    "MANUSCRIPT_BLOCKS_TOTAL": 4685,
+    "MANUSCRIPT_BLOCKS_MATERIALIZED": 4685,
+    "TARGET_PAGE_COUNT_MISMATCH": 0,
+    "PRODUCTION_PROFILE": "PUBLIC_BOOK",
+    "PUBLIC_BOOK_TARGET_PAGES": null,
+    "PAGE_COUNT_DIFFERENCE": null,
+    "CONTRACT_HEADING_INCLUDED": 0,
+    "EDITORIAL_MANIFEST": "/home/tonyus-dev/Portifolio/kallistis-book/book_maker/public/editorial-asset-manifest.json",
+    "EDITORIAL_PLAN_ASSIGNMENTS": 12,
+    "EDITORIAL_PLAN_IMAGES_USED": 137,
+    "EDITORIAL_PLAN_UNUSED_APPROVED_ASSETS": 126,
+    "EDITORIAL_PLAN_PENDING_ASSETS": 288,
+    "FULL_ART_PAGES_AUTO_CREATED": 0,
+    "V15_ACERVO_ASSETS_MATERIALIZED": 0,
+    "V15_ACERVO_INVENTORY": "/home/tonyus-dev/Portifolio/kallistis-book/book_maker/drive-image-inventory.json",
+    "V15_ACERVO_DISPOSITION": "/home/tonyus-dev/Portifolio/kallistis-book/book_maker/drive-image-disposition.csv",
+    "MEASURED_TAIL_CONTINUATIONS": 1
+  }
+}

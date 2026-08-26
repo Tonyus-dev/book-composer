@@ -1,0 +1,41 @@
+{
+  "verdict": "PASS",
+  "baseline": "V4_BEFORE_SURGICAL_FIX",
+  "projectSavedBeforePrint": true,
+  "pageCountBefore": 327,
+  "pageCountAfter": 326,
+  "visibleHtmlComments": 0,
+  "rawMarkdownAsterisks": 0,
+  "rawMarkdownBackticks": 0,
+  "rawMarkdownHeadingMarkers": 0,
+  "rawEscapedPlusMinus": 0,
+  "accidentalEmptyPages": 0,
+  "reflowAnomaliesRemaining": 0,
+  "page227DiagramOverflow": 0,
+  "damageFormulaCanonical": true,
+  "damageFormulaConflicts": 0,
+  "potenteCorpoPresent": true,
+  "glyphsExpected": 62,
+  "glyphsRendered": 62,
+  "glyphBase64Text": 0,
+  "tocTargetMismatches": 0,
+  "lowPpiAssetsReplaced": 0,
+  "lowPpiRemains": [1, 5, 10, 13, 14, 37, 39, 41, 43, 48, 49, 51, 61, 157, 182, 199, 245],
+  "miNamMiRaarOccurrences": 1,
+  "miNamMiRaarDedicatedFinalPage": true,
+  "pdfOpenable": true,
+  "pageSize": "140x210mm",
+  "fontsEmbedded": true,
+  "runningHeaderKallistisDuplicated": 0,
+  "preflight": {
+    "errors": 0,
+    "warnings": 459,
+    "infos": 202
+  },
+  "printBleedFinalizationPending": true,
+  "notes": [
+    "Os avisos restantes são viúvas tipográficas e paridade editorial; não há erros de preflight nem destinos de TOC divergentes.",
+    "Os assets de baixa resolução não possuíam versão superior do mesmo asset no acervo local; nenhum upscale ou recuratização foi feito.",
+    "A fonte canônica não foi modificada."
+  ]
+}

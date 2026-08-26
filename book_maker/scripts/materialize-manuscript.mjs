@@ -63,6 +63,7 @@ const LEGACY_REFERENCE_SCRIPT = path.join(ROOT, "scripts", "build-p001-p030.mjs"
 const DEFAULT_OUTPUT = path.join(ROOT, "projects", "kallistis-materializado-partes-i-ii-missao-01.json");
 const DEFAULT_MANIFEST = path.join(ROOT, "public", "editorial-asset-manifest.json");
 const EXPECTED_MANUSCRIPT_SHA256 =
+  process.env.KALLISTIS_EXPECTED_MANUSCRIPT_SHA256 ??
   "5427818b44f08ba00cc74f8635172b44952ded4eb948589d22016e4272990d83";
 const APPROVED_COVER_SRC = "/assets/cover/kallistis-capa-aprovada-final.png";
 const APPROVED_COVER_SHA256 =
@@ -1980,6 +1981,8 @@ function parseArgs(argv) {
     manifest: DEFAULT_MANIFEST,
     profile: "PUBLIC_BOOK",
     pilot: false,
+    blockId: null,
+    selectOnly: false,
   };
   for (let i = 0; i < argv.length; i += 1) {
     if (argv[i] === "--scope") args.scope = String(argv[++i] ?? "HISTORIA").toUpperCase();
@@ -1990,8 +1993,10 @@ function parseArgs(argv) {
     if (argv[i] === "--manifest") args.manifest = path.resolve(String(argv[++i] ?? DEFAULT_MANIFEST));
     if (argv[i] === "--profile") args.profile = String(argv[++i] ?? "PUBLIC_BOOK").toUpperCase();
     if (argv[i] === "--pilot") args.pilot = true;
+    if (argv[i] === "--block") args.blockId = String(argv[++i] ?? "");
+    if (argv[i] === "--select-only") args.selectOnly = true;
   }
-  if (!["HISTORIA", "MUNDO", "REGRAS", "PARTES_I_II", "PARTES_I_IV", "COMPLETO", "ALL"].includes(args.scope)) {
+  if (!["HISTORIA", "MUNDO", "REGRAS", "PARTES_I_II", "PARTE_III", "PARTES_I_IV", "COMPLETO", "ALL"].includes(args.scope)) {
     throw new Error(`Scope inválido: ${args.scope}`);
   }
   if (!PRODUCTION_PROFILES.includes(args.profile)) throw new Error(`Perfil inválido: ${args.profile}`);
@@ -2053,10 +2058,12 @@ function parseScopeLines(lines, scope) {
     .filter(({ line }) => /^#\s+/u.test(line));
   const partII = h1.find(({ line }) => /^#\s+PARTE II\b/u.test(line))?.line;
   const partIII = h1.find(({ line }) => /^#\s+PARTE III\b/u.test(line))?.line;
+  const partIV = h1.find(({ line }) => /^#\s+PARTE IV\b/u.test(line))?.line;
   const partV = h1.find(({ line }) => /^#\s+PARTE V\b/u.test(line))?.line;
   const partVI = h1.find(({ line }) => /^#\s+PARTE VI\b/u.test(line))?.line;
   const partIIIndex = partII ? lines.indexOf(partII) : -1;
   const partIIIIndex = partIII ? lines.indexOf(partIII) : -1;
+  const partIVIndex = partIV ? lines.indexOf(partIV) : -1;
   const partVIIndex = partVI ? lines.indexOf(partVI) : -1;
   const partVIndex = partV ? lines.indexOf(partV) : -1;
   const bounds = {
@@ -2064,6 +2071,7 @@ function parseScopeLines(lines, scope) {
     // Mission 01 is deliberately closed before the next H1. This keeps the
     // materialized source window deterministic and prevents Part III leakage.
     PARTES_I_II: [0, partIIIIndex >= 0 ? partIIIIndex : lines.length],
+    PARTE_III: [partIIIIndex >= 0 ? partIIIIndex : 0, partIVIndex >= 0 ? partIVIndex : lines.length],
     MUNDO: [partIIIndex >= 0 ? partIIIndex : 0, partVIIndex >= 0 ? partVIIndex : lines.length],
     REGRAS: [partVIIndex >= 0 ? partVIIndex : 0, lines.length],
     PARTES_I_IV: [0, partVIndex >= 0 ? partVIndex : lines.length],
@@ -2175,6 +2183,25 @@ function parseMarkdown(markdown, scope) {
         i += 1;
       }
       add("list", listLines, start);
+      continue;
+    }
+
+    const markdownImage = line.match(/^!\[([^\]]*)\]\(([^)]+)\)\s*$/u);
+    if (markdownImage) {
+      add("image", [line], i, { alt: markdownImage[1], src: markdownImage[2] });
+      i += 1;
+      continue;
+    }
+
+    /* The v3.1 freeze carries the 62 canonical Velarim glyphs as standalone
+       HTML <img> records. Treat those records as native image blocks instead
+       of flowing their base64 payload through a paragraph, which would make
+       the paragraph horizontally unbounded in /print. */
+    if (/^\s*<img\b[^>]*>\s*$/iu.test(line)) {
+      const image = line.match(/\bsrc=["']([^"']+)["']/iu)?.[1];
+      if (!image) throw new Error(`Imagem HTML sem src na linha ${selected.start + i + 1}`);
+      add("image", [line], i, { src: image, alt: "Glifo canônico de Velarim" });
+      i += 1;
       continue;
     }
 
@@ -2523,7 +2550,7 @@ function tableBlockFromSource(source, bodyRows = null, continuationIndex = 0) {
     (heading) => heading.text === "Cronologia consolidada por Marcos",
   );
   const cleanCell = (content) => stripMarkdown(content);
-  const headerCells = (source.tableLines?.[0] ? splitTableRow(source.tableLines[0]) : []).map(
+  let headerCells = (source.tableLines?.[0] ? splitTableRow(source.tableLines[0]) : []).map(
     (content, index) => ({
       id: blockId(source, `th-${index + 1}`),
       content: cleanCell(content),
@@ -2532,7 +2559,22 @@ function tableBlockFromSource(source, bodyRows = null, continuationIndex = 0) {
   const rawRows = (source.tableLines ?? [])
     .slice(2)
     .map((line) => splitTableRow(line).map(cleanCell));
-  const rows = bodyRows ?? rawRows;
+  let rows = bodyRows ?? rawRows;
+  const isPeopleIndex = isPeopleMechanicalIndexTable(source);
+  if (isPeopleIndex && continuationIndex === 0) {
+    const originalHeader = headerCells;
+    rows = rows.map((cells) => [
+      cells[0] ?? "",
+      [1, 2, 3, 4].map((index) => cells[index] ?? "").join("\n"),
+    ]);
+    headerCells = [
+      { id: blockId(source, "th-1"), content: originalHeader[0]?.content ?? "Registro" },
+      {
+        id: blockId(source, "th-2"),
+        content: [1, 2, 3, 4].map((index) => originalHeader[index]?.content ?? "").join(" "),
+      },
+    ];
+  }
   const header = { id: blockId(source, "header"), kind: "header", cells: headerCells };
   const body = rows.map((cells, rowIndex) => ({
     id: blockId(source, `r-${continuationIndex}-${rowIndex + 1}`),
@@ -2560,6 +2602,10 @@ function tableBlockFromSource(source, bodyRows = null, continuationIndex = 0) {
   if (isDenseMissionTable(source)) {
     columnWeights = [1.15, 1.45, 3, 3.4].slice(0, headerCells.length);
   }
+  const isTechniqueCatalog = isTechniqueCatalogTable(source);
+  if (isTechniqueCatalog) {
+    columnWeights = [2.3, 0.8, 2.2, 4.7].slice(0, headerCells.length);
+  }
   const weightTotal = columnWeights.reduce((sum, weight) => sum + weight, 0) || 1;
   return {
     id: continuationIndex ? blockId(source, `fragment-${continuationIndex + 1}`) : blockId(source),
@@ -2575,6 +2621,8 @@ function tableBlockFromSource(source, bodyRows = null, continuationIndex = 0) {
     repeatHeader: true,
     allowPageBreak: true,
     compact: !isDenseMissionTable(source),
+    ...(isTechniqueCatalog ? { editorialType: "TECHNIQUE_CATALOG_TABLE" } : {}),
+    ...(isPeopleIndex ? { editorialType: "PEOPLE_MECHANICAL_INDEX_TABLE" } : {}),
     ...(isChronology
       ? {
           stylePresetId: "kallistis-chronology",
@@ -2603,6 +2651,17 @@ function tableBlockFromSource(source, bodyRows = null, continuationIndex = 0) {
           },
         }
       : {}),
+    ...(isTechniqueCatalog
+      ? {
+          style: {
+            borderMode: "horizontal",
+            cellPaddingX: "1.1mm",
+            cellPaddingY: "1.1mm",
+            fontSize: "7.5pt",
+            lineHeight: 1.2,
+          },
+        }
+      : {}),
     ...(continuationIndex
       ? { continuationOf: source.id, continuationIndex, continuationHeader: [header] }
       : {}),
@@ -2615,6 +2674,33 @@ function isDenseMissionTable(source) {
     source?.type === "table" &&
     /\*\*Povo\*\*/u.test(source.tableLines?.[0] ?? "") &&
     (source.tableLines?.[0]?.split("|").length ?? 0) >= 5
+  );
+}
+
+function normalizedTableHeader(source) {
+  return (source?.tableLines?.[0] ?? "")
+    .split("|")
+    .map((cell) => stripMarkdown(cell).normalize("NFC").replace(/\s+/gu, " ").trim())
+    .filter(Boolean);
+}
+
+function isPeopleMechanicalIndexTable(source) {
+  return JSON.stringify(normalizedTableHeader(source)) ===
+    JSON.stringify(["Povo", "Traço", "Dom", "Heranças", "Dissonância"]);
+}
+
+function isTechniqueCatalogTable(source) {
+  if (source?.type !== "table") return false;
+  const header = (source.tableLines?.[0] ?? "")
+    .split("|")
+    .map((cell) => stripMarkdown(cell).toLocaleLowerCase("pt-BR").trim())
+    .filter(Boolean);
+  return (
+    header.length === 4 &&
+    header[0] === "técnica" &&
+    header[1] === "nível" &&
+    header[2] === "custo e limite" &&
+    header[3] === "efeito"
   );
 }
 
@@ -2636,6 +2722,23 @@ function sourceToBlock(source) {
       role: "body",
       content: source.raw.split("\n").join(" ").trim(),
       align: "justify",
+      materialization,
+    };
+  }
+  if (source.type === "image") {
+    return {
+      id: blockId(source),
+      type: "image",
+      src: source.src,
+      alt: source.alt,
+      position: "top",
+      fit: "contain",
+      /* Keep canonical glyphs subordinate to the page: 22mm is below 1/7
+         of the 160mm-ish usable text height and does not become a hero art. */
+      width: "22mm",
+      height: "22mm",
+      frameAspectRatio: 1,
+      layoutRole: "INLINE_CANONICAL_GLYPH",
       materialization,
     };
   }
@@ -2870,6 +2973,9 @@ function compositionForSource(source, asset = null, ordinal = 1) {
   }
   if (source.text === "Cronologia consolidada por Marcos") {
     return { family: "TEXT_FEATURE", template: "table_page", variant: "default" };
+  }
+  if (isTechniqueCatalogTable(source)) {
+    return { family: "TECHNIQUE_CATALOG_TABLE", template: "table_page", variant: "default" };
   }
   if (isDenseMissionTable(source)) {
     return { family: "TEXT_FEATURE", template: "table_page", variant: "default" };
@@ -4724,7 +4830,17 @@ async function main() {
       `COVER_ASSET=INCIDENT: SHA-256 recebido ${approvedCoverSha256}; esperado ${APPROVED_COVER_SHA256}`,
     );
   }
-  if (!catalog.includes("## 28. Cobertura editorial capítulo a capítulo — REV1"))
+  const freezePackageInput = args.manuscript.endsWith(
+    "KALLISTIS_MANUSCRITO_FONTE_UNICA_v3.1_FREEZE.md",
+  );
+  const cleanRebuildInput = args.manuscript.endsWith(
+    "KALLISTIS_MANUSCRITO_V4_NORMALIZADO.md",
+  );
+  if (
+    !freezePackageInput &&
+    !cleanRebuildInput &&
+    !catalog.includes("## 28. Cobertura editorial capítulo a capítulo — REV1")
+  )
     throw new Error("Catálogo REV1 §28 ausente");
   const isContinuation = args.scope === "PARTES_I_IV" || args.scope === "COMPLETO";
   const isIntegral = args.scope === "COMPLETO";
@@ -4756,8 +4872,26 @@ async function main() {
   const allSourceBlocks = bindSemanticAssets(
     scopedBlocks,
   );
-  const sourceBlocks = args.pilot ? selectPilotBlocks(allSourceBlocks) : allSourceBlocks;
+  const sourceBlocks = (args.pilot ? selectPilotBlocks(allSourceBlocks) : allSourceBlocks).filter(
+    (source) => !args.blockId || source.id === args.blockId,
+  );
   if (!sourceBlocks.length) throw new Error(`Nenhum bloco encontrado para ${args.scope}`);
+  if (args.selectOnly) {
+    const selectedSections = [...new Set(sourceBlocks.map((source) => source.sectionH1).filter(Boolean))];
+    console.log(JSON.stringify({
+      scope: args.scope,
+      sourceBlocksSelected: sourceBlocks.length,
+      firstBlock: sourceBlocks[0]?.id ?? null,
+      firstSection: sourceBlocks[0]?.sectionH1 ?? null,
+      lastBlock: sourceBlocks.at(-1)?.id ?? null,
+      lastSection: sourceBlocks.at(-1)?.sectionH1 ?? null,
+      selectedSections,
+      containsPartIV: selectedSections.some((section) => /^PARTE IV\b/u.test(section ?? "")),
+      sourceStartLine: sourceBlocks[0]?.sourceStartLine ?? null,
+      sourceEndLine: sourceBlocks.at(-1)?.sourceEndLine ?? null,
+    }, null, 2));
+    return;
+  }
   const manuscriptTotalWords = markdown.trim().split(/\s+/u).filter(Boolean).length;
 
   const baseBook = JSON.parse(baseRaw);
@@ -5005,16 +5139,32 @@ async function main() {
         ),
       })),
     );
+    const selectedSourceIds = new Set(sourceBlocks.map((source) => source.id));
+    const localPageIndexes = args.blockId
+      ? book.pages.flatMap((page, index) =>
+          page.blocks.some((block) =>
+            selectedSourceIds.has(block.materialization?.sourceBlockId ?? block.id),
+          )
+            ? [index]
+            : [],
+        )
+      : book.pages.map((_, index) => index);
+    const diagnosticBook = args.blockId
+      ? { ...book, pages: localPageIndexes.map((index) => book.pages[index]) }
+      : book;
+    const diagnosticMeasurements = args.blockId
+      ? localPageIndexes.map((index) => finalMeasurements[index]).filter(Boolean)
+      : finalMeasurements;
     const invariants = validateMaterialization(
-      book,
+      diagnosticBook,
       sourceBlocks,
       originalHash,
       args.output,
-      finalMeasurements,
+      diagnosticMeasurements,
       currentAssetHashes,
     );
     const diagnostics = {
-      ...stats(book, finalMeasurements, sourceBlocks, manuscriptTotalWords),
+      ...stats(diagnosticBook, diagnosticMeasurements, sourceBlocks, manuscriptTotalWords),
       ...invariants,
       PRODUCTION_PROFILE: args.profile,
       PUBLIC_BOOK_TARGET_PAGES:
@@ -5024,11 +5174,13 @@ async function main() {
           ? book.pages.length - PAGINATION_POLICY.targetBookPages
           : null,
       CONTRACT_HEADING_INCLUDED: book.pages.some((page) =>
-        page.blocks.some(
-          (block) =>
-            (block.type === "heading" && block.text === BOOKMAKER_CONTRACT_HEADING) ||
-            (block.materialization?.sourceRaw ?? "").includes(BOOKMAKER_CONTRACT_HEADING),
-        ),
+        (args.blockId ? diagnosticBook : book).pages.some((page) =>
+          page.blocks.some(
+            (block) =>
+              (block.type === "heading" && block.text === BOOKMAKER_CONTRACT_HEADING) ||
+              (block.materialization?.sourceRaw ?? "").includes(BOOKMAKER_CONTRACT_HEADING),
+          ),
+        )
       )
         ? 1
         : 0,
@@ -5040,7 +5192,7 @@ async function main() {
       ),
       EDITORIAL_PLAN_UNUSED_APPROVED_ASSETS: editorialPlan.unusedApprovedAssets.length,
       EDITORIAL_PLAN_PENDING_ASSETS: editorialPlan.pendingAssets.length,
-      FULL_ART_PAGES_AUTO_CREATED: book.pages.filter(
+      FULL_ART_PAGES_AUTO_CREATED: diagnosticBook.pages.filter(
         (page) =>
           page.materialization?.autoGenerated &&
           page.template === "full_art" &&
@@ -5107,8 +5259,13 @@ async function main() {
     const compositionFamiliesUsed = Object.values(diagnostics.COMPOSITION_FAMILY_COUNTS).filter(
       (count) => count > 0,
     ).length;
-    const minimumCompositionFamilies = args.profile === "PUBLIC_BOOK" ? 3 : 1;
+    const minimumCompositionFamilies = args.blockId
+      ? 1
+      : args.profile === "PUBLIC_BOOK"
+        ? 3
+        : 1;
     const historyGatePassed =
+      args.blockId ||
       !isContinuation ||
       (diagnostics.PREEXISTING_PAGES_PRESERVED ===
         `${preexistingPageCount}/${preexistingPageCount}` &&

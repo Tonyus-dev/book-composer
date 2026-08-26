@@ -1,0 +1,64 @@
+{
+  "artifact": "KALLISTIS — MANUAL DO MUNDO",
+  "version": "v4_REBUILD",
+  "status": "PASS_COM_RESSALVAS",
+  "generatedAt": "2026-08-24T03:30:43.183Z",
+  "source": {
+    "canonicalSha256": "0388e4238593471dd8a19ae387c9ff67099a948d08e2a74212e78a0381aa3ebe",
+    "normalizedSha256": "727a63583bb9c42d09dc2d49a4d241e7cf139fa3229add9184640f8bc76147b0",
+    "normalizedBase64MaterializedOccurrences": 0,
+    "canonicalSourcePreserved": true
+  },
+  "materialization": {
+    "pages": 327,
+    "imageBlocks": 137,
+    "glyphBlocks": 62,
+    "glyphSize": [
+      "22mm x 22mm"
+    ],
+    "base64InProjectJson": false,
+    "missingAssetReferences": [],
+    "overflowPages": 0
+  },
+  "pdf": {
+    "path": "dist/export/KALLISTIS_MANUAL_DO_MUNDO_v4_PROVA.pdf",
+    "sha256": "cab9ba627f8c477d941b3ad61140cd48d3bc7907e67dfcbc774416a377b64822",
+    "pages": 327,
+    "pageSize": "396.96 x 595.92 pts",
+    "preflightErrors": 0,
+    "preflightWarnings": 514,
+    "preflightInfos": 203
+  },
+  "visualProof": {
+    "targetedPages": [
+      1,
+      62,
+      63,
+      80,
+      82,
+      84,
+      94,
+      118,
+      126,
+      185,
+      186,
+      190,
+      194,
+      222,
+      246,
+      296,
+      322,
+      327
+    ],
+    "glyphPages": [
+      186,
+      190
+    ],
+    "result": "REVIEWED"
+  },
+  "caveats": [
+    "O relatório legado do materializador compara a fonte normalizada com a fonte congelada e registra SOURCE_TEXT_MISMATCH por causa da externalização técnica dos glifos; o manuscrito canônico original não foi alterado.",
+    "O preflight não tem erros, mas contém avisos de destino do TOC e viúvas tipográficas.",
+    "A exportação usa o trim existente de 140 x 210 mm, igual ao PDF de referência; não materializa uma página física de 150 x 220 mm."
+  ]
+}

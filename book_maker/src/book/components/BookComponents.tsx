@@ -163,6 +163,10 @@ export function PullQuote({ block }: { block: QuoteBlock }) {
 
 export function BookTable({ block }: { block: TableBlock }) {
   const table = normalizeTableBlock(block);
+  const isTechniqueCatalog =
+    table.columns.length === 4 &&
+    table.columns.map((column) => (column.label ?? "").trim().toLocaleLowerCase("pt-BR")).join("|") ===
+      "técnica|nível|custo e limite|efeito";
   const style = table.style ?? {};
   const headerRows = table.continuationHeader ?? tableHeaderRows(table);
   const bodyRows = table.rows.filter((row) => row.kind !== "header" && row.kind !== "footer");
@@ -237,7 +241,15 @@ export function BookTable({ block }: { block: TableBlock }) {
       data-continuation-of={table.continuationOf}
     >
       <table
-        className={`k-table${table.compact ? " k-table--compact" : ""}`}
+        className={`k-table${table.compact ? " k-table--compact" : ""}${
+          ((table as TableBlock & { editorialType?: string }).editorialType ===
+            "TECHNIQUE_CATALOG_TABLE" || isTechniqueCatalog)
+            ? " k-table--technique-catalog"
+            : (table as TableBlock & { editorialType?: string }).editorialType ===
+                "PEOPLE_MECHANICAL_INDEX_TABLE"
+              ? " k-table--dense-records"
+              : ""
+        }`}
         style={tableStyle}
         data-table-border={style.borderMode ?? "horizontal"}
         data-table-zebra={style.zebra ? "true" : "false"}
