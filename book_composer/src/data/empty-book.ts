@@ -1,5 +1,5 @@
 /**
- * Book Maker — projeto vazio genérico.
+ * BOOK-COMPOSER — projeto vazio genérico.
  *
  * Este é o estado inicial padrão do editor. NÃO importa nenhum projeto
  * específico (ex.: KALLISTIS). Cada novo projeto deve começar daqui e

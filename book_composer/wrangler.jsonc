@@ -1,21 +1,21 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "kallistis-book-builder",
+  "name": "book-composer",
   "compatibility_date": "2026-08-08",
   "vars": {
-    "APP_VERSION": "book-maker-release-candidate",
+    "APP_VERSION": "book-composer-release-candidate",
   },
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "kallistis-book-builder-prod",
+      "database_name": "book-composer-d1",
       "database_id": "a0eb47e3-9ebf-49d5-8e07-ee94ade8bbfe",
     },
   ],
   "r2_buckets": [
     {
       "binding": "R2_ASSETS",
-      "bucket_name": "kallistis-book-assets",
+      "bucket_name": "book-composer-r2",
     },
   ],
 }

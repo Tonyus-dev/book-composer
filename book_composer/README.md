@@ -1,14 +1,14 @@
-# Book Maker
+# BOOK-COMPOSER
 
 Editor / diagramador genérico de livros. KALLISTIS é um projeto de validação (template + stress test), não o produto.
 
-O Book Maker nasceu durante a produção de **KALLISTIS — Manual do Mundo**, que continua sendo o melhor stress test do engine (423 páginas, 140×210 mm, tipografia proprietária). Mas o produto é deliberadamente genérico: qualquer livro — romance, RPG, suplemento, manual técnico, didático, catálogo, zine, obra personalizada — pode existir no Book Maker.
+O BOOK-COMPOSER nasceu durante a produção de **KALLISTIS — Manual do Mundo**, que continua sendo o melhor stress test do engine (423 páginas, 140×210 mm, tipografia proprietária). Mas o produto é deliberadamente genérico: qualquer livro — romance, RPG, suplemento, manual técnico, didático, catálogo, zine, obra personalizada — pode existir no BOOK-COMPOSER.
 
 <!-- TODO public clone: add a sanitized current screenshot of the editor. -->
 
 ## O que é
 
-O Book Maker combina materialização automatizada, templates editoriais, edição manual visual, preflight e exportação de projetos portáteis. O editor trabalha sobre um modelo `Book` serializável e renderiza a mesma estrutura no canvas, no modo de impressão e na exportação PDF.
+O BOOK-COMPOSER combina materialização automatizada, templates editoriais, edição manual visual, preflight e exportação de projetos portáteis. O editor trabalha sobre um modelo `Book` serializável e renderiza a mesma estrutura no canvas, no modo de impressão e na exportação PDF.
 
 O formato físico (A5, A4, Letter, 6×9", 140×210 mm ou personalizado), margens, sangria, fontes e paleta são decisões do projeto, não do engine. O engine é neutro; KALLISTIS é um dos projetos que vivem dentro dele.
 
@@ -16,13 +16,13 @@ Ele não é um CMS genérico, um editor de texto comum ou um clone visual de out
 
 ## Por que ele existe
 
-Livros estruturados repetem tarefas que podem ser automatizadas, mas decisões de hierarquia, ritmo, imagem e composição ainda precisam de julgamento humano. O Book Maker faz a parte repetitiva e deixa o ajuste editorial final visível e direto no canvas.
+Livros estruturados repetem tarefas que podem ser automatizadas, mas decisões de hierarquia, ritmo, imagem e composição ainda precisam de julgamento humano. O BOOK-COMPOSER faz a parte repetitiva e deixa o ajuste editorial final visível e direto no canvas.
 
 A ferramenta é genérica por construção: cada projeto define o seu próprio formato, identidade e cadência. KALLISTIS é o stress test mais exigente que rodamos (423 páginas, 140×210 mm, tipografia proprietária), mas não é o que define a régua do produto.
 
 ## Estado atual
 
-Ferramenta funcional em desenvolvimento ativo, agora desacoplada de KALLISTIS como produto. KALLISTIS continua sendo o melhor stress test do engine (423 páginas, 140×210 mm) e vive dentro do Book Maker como um projeto de exemplo/template. Build e testes automatizados são importantes, mas não substituem a validação manual do editor, do preflight e da saída impressa.
+Ferramenta funcional em desenvolvimento ativo, agora desacoplada de KALLISTIS como produto. KALLISTIS continua sendo o melhor stress test do engine (423 páginas, 140×210 mm) e vive dentro do BOOK-COMPOSER como um projeto de exemplo/template. Build e testes automatizados são importantes, mas não substituem a validação manual do editor, do preflight e da saída impressa.
 
 ### Gates pós-pivô genérico (smoke real provado)
 
@@ -261,9 +261,23 @@ O próximo passo de distribuição é preparar um clone público sanitizado, com
 
 Melhorias de edição continuam sendo guiadas por problemas observados no fluxo real, não por uma porcentagem ideal de templates ou por redesign amplo.
 
+## Identidade
+
+O BOOK-COMPOSER é a evolução genérica do que era conhecido como "KALLISTIS Book Maker". A renomeação aconteceu após o pivô genérico (commit `f7a7bd1`) e o bugfix de Work File (`6310292`):
+
+- Nome do produto (UI, títulos de página, README): `BOOK-COMPOSER`
+- `package.json` name: `book-composer`
+- `wrangler.jsonc` name + D1/R2 names: `book-composer-d1`, `book-composer-r2`
+- Folder local: `book_composer/`
+- Launcher: `scripts/abrir-kallistis-book-maker.sh` (mantido por compat com instalação local; novo nome a definir quando o repo público for criado)
+- Repositório GitHub: ainda `Tonyus-dev/kallistis-book` — renomeação fica para outra missão coordenada com a publicação do clone público sanitizado
+- Storage keys locais (`kallistis.book-builder.*`): preservados para compat de leitura; leituras antigas continuam funcionando
+
+KALLISTIS continua sendo tratado como um projeto dentro do BOOK-COMPOSER, não como o produto.
+
 ## Origem do projeto
 
-O Book Maker foi criado para atender a produção de **KALLISTIS — Manual do Mundo**. KALLISTIS explica a origem e o primeiro corpus editorial usado como stress test; o produto documentado aqui é uma ferramenta de composição genérica que não depende mais de KALLISTIS para funcionar.
+O BOOK-COMPOSER foi criado para atender a produção de **KALLISTIS — Manual do Mundo**. KALLISTIS explica a origem e o primeiro corpus editorial usado como stress test; o produto documentado aqui é uma ferramenta de composição genérica que não depende mais de KALLISTIS para funcionar.
 
 ## Futuro repositório público
 

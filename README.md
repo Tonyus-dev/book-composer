@@ -1,10 +1,10 @@
-# Book Maker
+# BOOK-COMPOSER
 
 ### Editor / diagramador genérico de livros. KALLISTIS é um projeto de validação, não o produto.
 
 ---
 
-Book Maker é um editor visual local-first para composição editorial
+BOOK-COMPOSER é um editor visual local-first para composição editorial
 estruturada, com pipeline determinístico de PDF e modelo de livro
 serializável. Foi desenhado para levar um livro estruturado do
 manuscrito digitado a um arquivo pronto para impressão que respeita o
@@ -139,7 +139,7 @@ entra quando o usuário escolhe o template/projeto KALLISTIS.
 ## Quick start
 
 ```bash
-cd book_maker
+cd book_composer
 bun install --frozen-lockfile
 bun run dev -- --host 127.0.0.1 --port 4185
 ```
@@ -213,7 +213,7 @@ despromovido de "default" para "um dos projetos".
 ```
 kallistis-book/
 ├── README.md            ← este arquivo
-└── book_maker/
+└── book_composer/
     ├── README.md        ← guia de instalação / dev / build
     ├── src/
     │   ├── book/        ← modelo editorial + renderer + templates

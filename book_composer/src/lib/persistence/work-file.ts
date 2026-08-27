@@ -169,7 +169,7 @@ export async function saveBoundBookToWorkFile(book: Book): Promise<boolean> {
 
 /**
  * Grava o snapshot atual no arquivo escolhido pelo usuário. O handle fica
- * associado ao Book Maker para que os próximos cliques em Salvar reutilizem
+ * associado ao BOOK-COMPOSER para que os próximos cliques em Salvar reutilizem
  * exatamente o mesmo arquivo.
  *
  * `suggestedName` é derivado do `book.meta.title` (genérico); o caller pode
@@ -192,7 +192,7 @@ export async function saveBookToWorkFile(book: Book, suggestedName?: string): Pr
   if (!handle || !(await ensureWritePermission(handle))) {
     handle = await picker({
       suggestedName: finalSuggested,
-      types: [{ description: "Projeto Book Maker", accept: { "application/json": [".json"] } }],
+      types: [{ description: "Projeto BOOK-COMPOSER", accept: { "application/json": [".json"] } }],
     });
     if (!(await ensureWritePermission(handle))) {
       throw new Error("Permissão de escrita não concedida para o arquivo de trabalho.");

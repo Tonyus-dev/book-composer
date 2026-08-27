@@ -7,7 +7,7 @@
  *   - /home/tonyus-dev/Downloads/kallistis_pages_001_030.json
  *
  * Saída:
- *   - book_maker/projects/kallistis-livro-basico.json
+ *   - book_composer/projects/kallistis-livro-basico.json
  *
  * Regras duras (do prompt e do handoff):
  *   - Texto marcado como "TEXTO FINAL — NÃO REESCREVER" é byte-equivalente.

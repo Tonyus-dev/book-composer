@@ -41,7 +41,7 @@ function LoginPage() {
         onSubmit={submit}
         className="w-full max-w-sm border border-[#17140f33] bg-[#fffdf8] p-8 shadow-xl"
       >
-        <p className="text-[11px] font-semibold tracking-[0.24em] uppercase">Book Maker</p>
+        <p className="text-[11px] font-semibold tracking-[0.24em] uppercase">BOOK-COMPOSER</p>
         <h1 className="mt-3 text-2xl font-semibold">Acesso editorial</h1>
         <p className="mt-2 text-sm text-[#6b6459]">Acesso privado do proprietário editorial.</p>
         <label className="mt-6 block text-xs font-medium" htmlFor="owner-password">

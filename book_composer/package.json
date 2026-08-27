@@ -1,5 +1,5 @@
 {
-  "name": "kallistis-book-builder",
+  "name": "book-composer",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -16,7 +16,7 @@
     "worker:dev": "vite build && wrangler dev --config .output/server/wrangler.json --local",
     "worker:dry-run": "vite build && wrangler deploy --config .output/server/wrangler.json --dry-run",
     "dev:cloud": "vite build && wrangler dev --config .output/server/wrangler.json --local",
-    "db:migrate": "wrangler d1 migrations apply kallistis-book-builder-prod --remote --config wrangler.jsonc",
+    "db:migrate": "wrangler d1 migrations apply book-composer-d1 --remote --config wrangler.jsonc",
     "test": "bun run test:table && bun run test:authoring && bun run test:sheet && bun run test:image",
     "test:e2e": "playwright test",
     "export:pdf": "node scripts/export-pdf.mjs",

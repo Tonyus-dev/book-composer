@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=KALLISTIS Book Maker
-Comment=Abrir o editor editorial do KALLISTIS
-Exec=/home/tonyus-dev/Portifolio/kallistis-book/book_maker/scripts/abrir-kallistis-book-maker.sh
-Icon=/home/tonyus-dev/Portifolio/kallistis-book/book_maker/public/kallistis-favicon.svg
-Terminal=false
-Categories=Office;Publishing;

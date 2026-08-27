@@ -16,7 +16,7 @@ fi
 
 if ! curl --silent --fail --max-time 1 "$URL" >/dev/null 2>&1; then
   nohup "$BUN_BIN" run dev -- --host 127.0.0.1 --port "$PORT" \
-    >"${TMPDIR:-/tmp}/kallistis-book-maker.log" 2>&1 &
+    >"${TMPDIR:-/tmp}/book-composer.log" 2>&1 &
   for _ in $(seq 1 30); do
     curl --silent --fail --max-time 1 "$URL" >/dev/null 2>&1 && break
     sleep 1

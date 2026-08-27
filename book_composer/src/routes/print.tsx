@@ -9,9 +9,9 @@ import { buildReport } from "../lib/preflight/report";
 import { measureIssues } from "../lib/preflight/measure";
 import { emptyBook } from "../data/empty-book";
 
-const title = "Book Maker — impressão";
+const title = "BOOK-COMPOSER — impressão";
 const description =
-  "Rota de impressão genérica do Book Maker: renderiza apenas páginas do livro ativo, sem interface de editor.";
+  "Rota de impressão genérica do BOOK-COMPOSER: renderiza apenas páginas do livro ativo, sem interface de editor.";
 
 export const Route = createFileRoute("/print")({
   validateSearch: (search: Record<string, unknown>): { src?: string; autoprint?: boolean } => ({

@@ -340,7 +340,7 @@ export function semanticRecipeFromPage(
   };
 }
 
-/** Sete composições iniciais reutilizáveis do Book Maker. Conteúdo nasce vazio. */
+/** Sete composições iniciais reutilizáveis do BOOK-COMPOSER. Conteúdo nasce vazio. */
 export function createPaginationPresets(): BookRecipe[] {
   const settings = (columns: 1 | 2 = 1): Page["settings"] => ({
     header: false,

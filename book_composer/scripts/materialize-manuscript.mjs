@@ -1781,7 +1781,7 @@ async function applyV2CuratedAssets() {
     let sourcePath;
     let usedFallback = false;
     // Resolve canonical_repo against ROOT if it's a relative path
-    // (canonical_repo is policy-relative: paths under book_maker/...).
+    // (canonical_repo is policy-relative: paths under book_composer/...).
     let canonicalResolved = null;
     if (record.canonical_repo) {
       canonicalResolved = path.isAbsolute(record.canonical_repo)

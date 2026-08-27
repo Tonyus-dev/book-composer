@@ -540,7 +540,7 @@ export function Toolbar() {
       <header className="k-editor-toolbar flex flex-wrap items-center gap-x-3 gap-y-2 border-b border-border bg-card px-3 py-2">
         <div className="flex min-w-[220px] items-center gap-3">
           <span className="text-[13px] font-semibold tracking-[0.2em] text-foreground uppercase">
-            Kallistis Book Maker
+            BOOK-COMPOSER
           </span>
           <span className="h-5 w-px bg-border" aria-hidden="true" />
           <div className="min-w-0 leading-tight">

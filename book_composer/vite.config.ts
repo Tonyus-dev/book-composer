@@ -24,7 +24,7 @@ export default defineConfig({
   },
   /* INC-1: expõe o sidecar canônico projects/ como asset estático no output
      do build (Nitro copia para .output/public/projects/). Fonte canônica
-     continua sendo book_maker/projects/kallistis-production-plan.json.
+     continua sendo book_composer/projects/kallistis-production-plan.json.
      maxAge=0 desabilita Cache-Control imutável porque o sidecar é versionado
      e pode mudar entre deploys; a UI já usa cache: "no-store" no fetch.
      O cast `as never` contorna o tipo restrito de LovableViteTanstackOptions

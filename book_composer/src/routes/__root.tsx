@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Book Maker" },
+      { title: "BOOK-COMPOSER" },
       {
         name: "description",
         content: "Editor genérico de livros: componha, revise e exporte qualquer obra em PDF 1:1.",
       },
-      { name: "author", content: "Book Maker" },
+      { name: "author", content: "BOOK-COMPOSER" },
       { name: "theme-color", content: "#1E3545" },
-      { property: "og:title", content: "Book Maker" },
+      { property: "og:title", content: "BOOK-COMPOSER" },
       {
         property: "og:description",
         content: "Composição editorial e exportação de PDF 1:1 para qualquer livro.",

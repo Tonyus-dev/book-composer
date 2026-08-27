@@ -198,7 +198,7 @@ function githubHeaders(token: string): HeadersInit {
     accept: "application/vnd.github+json",
     authorization: `Bearer ${token}`,
     "x-github-api-version": "2022-11-28",
-    "user-agent": "kallistis-book-maker",
+    "user-agent": "book-composer",
   };
 }
 
@@ -520,7 +520,7 @@ async function exportFromSnapshot(request: Request): Promise<Response> {
   );
   await fs.writeFile(snapshotPath, JSON.stringify(book), "utf8");
 
-  // Resolve o script relativo ao working directory (vite dev roda em book_maker/)
+  // Resolve o script relativo ao working directory (vite dev roda em book_composer/)
   const scriptPath = path.resolve(process.cwd(), "scripts", "export-pdf.mjs");
   const child = spawn("node", [scriptPath, "--in", snapshotPath, "--out", outputPath], {
     stdio: ["ignore", "pipe", "pipe"],
@@ -536,20 +536,14 @@ async function exportFromSnapshot(request: Request): Promise<Response> {
   });
   if (exitCode !== 0) {
     await fs.unlink(snapshotPath).catch(() => undefined);
-    return json(
-      { ok: false, error: "export_failed", exitCode, stderrTail },
-      500,
-    );
+    return json({ ok: false, error: "export_failed", exitCode, stderrTail }, 500);
   }
   let pdfBytes: Buffer;
   try {
     pdfBytes = await fs.readFile(outputPath);
   } catch (error) {
     await fs.unlink(snapshotPath).catch(() => undefined);
-    return json(
-      { ok: false, error: "pdf_not_found", message: String(error) },
-      500,
-    );
+    return json({ ok: false, error: "pdf_not_found", message: String(error) }, 500);
   }
   // Cleanup tmp files (best-effort)
   await fs.unlink(snapshotPath).catch(() => undefined);
@@ -633,7 +627,7 @@ export async function handleApiRequest(
       return serveImportedAsset(request, env);
     return json({ ok: false, error: "not_found" }, 404);
   } catch (error) {
-    console.error("[book-maker-api] request failed", error);
+    console.error("[book-composer-api] request failed", error);
     return json({ ok: false, error: "internal_error" }, 500);
   }
 }
