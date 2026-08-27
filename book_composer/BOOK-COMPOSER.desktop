@@ -2,7 +2,7 @@
 Type=Application
 Name=BOOK-COMPOSER
 Comment=Editor / diagramador genérico de livros (ex-KALLISTIS Book Maker)
-Exec=/home/tonyus-dev/Portifolio/kallistis-book/book_composer/scripts/abrir-kallistis-book-maker.sh
+Exec=/home/tonyus-dev/Portifolio/kallistis-book/book_composer/scripts/abrir-book-composer.sh
 Icon=/home/tonyus-dev/Portifolio/kallistis-book/book_composer/public/kallistis-favicon.svg
 Terminal=false
 Categories=Office;Publishing;
