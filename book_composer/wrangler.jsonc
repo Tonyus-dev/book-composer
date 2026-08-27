@@ -5,17 +5,4 @@
   "vars": {
     "APP_VERSION": "book-composer-release-candidate",
   },
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "book-composer-d1",
-      "database_id": "a0eb47e3-9ebf-49d5-8e07-ee94ade8bbfe",
-    },
-  ],
-  "r2_buckets": [
-    {
-      "binding": "R2_ASSETS",
-      "bucket_name": "book-composer-r2",
-    },
-  ],
 }
