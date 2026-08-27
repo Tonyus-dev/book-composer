@@ -22,6 +22,10 @@ test-results/
 .wrangler/
 .dev.vars
 
+# Vite cache
+.vite/
+.vite-cache/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
