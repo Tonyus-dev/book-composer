@@ -1,142 +1,138 @@
-# KALLISTIS Book Maker
+# Book Maker
 
-### Local-first editorial production for complex illustrated books.
-
----
-
-KALLISTIS Book Maker is the editorial production tool that materializes the
-**KALLISTIS — Manual do Mundo (Reconstrução)** book. It is a visual editor
-plus a deterministic PDF pipeline, designed to take a structured editorial
-model from typed manuscript to a print-ready file that matches the trim of
-the final book, page by page.
-
-The tool covers the full editorial loop:
-
-- **Composição** — pages, blocks, templates, scale, columns, baseline grid.
-- **Edição visual** — drag, multi-select, undo/redo, properties, snapping.
-- **Persistência** — autosave to localStorage and File System Access API,
-  with IndexedDB for binary assets.
-- **Preflight** — runtime diagnostics that catch missing assets, overflow,
-  and hidden content before export.
-- **PDF de produção** — a real production pipeline (Playwright + pdfunite
-  + Ghostscript) that produces the optimized PDF used for print.
-
-The optimized output is intentionally a **production-ready book**, not a
-preview snapshot. A green build is necessary but not sufficient: the only
-gate that matters is editing through the UI, saving, reloading, exporting
-the current state, and inspecting the final PDF.
+### Editor / diagramador genérico de livros. KALLISTIS é um projeto de validação, não o produto.
 
 ---
 
-## Production status
+Book Maker é um editor visual local-first para composição editorial
+estruturada, com pipeline determinístico de PDF e modelo de livro
+serializável. Foi desenhado para levar um livro estruturado do
+manuscrito digitado a um arquivo pronto para impressão que respeita o
+trim físico definido pelo próprio projeto.
 
-| Gate | Status |
+O produto é deliberadamente genérico:
+
+- qualquer livro pode existir no Book Maker (romance, livro de RPG,
+  suplemento, manual técnico, livro didático, catálogo, zine, livro
+  ilustrado, documentação, obra personalizada);
+- o formato físico (A5, A4, Letter, 6×9", 140×210 mm ou personalizado),
+  as margens, a sangria, as fontes e a paleta são **decisões do projeto**,
+  não do engine;
+- KALLISTIS é apenas um dos projetos que vivem dentro do Book Maker.
+  Continua sendo o melhor stress test do engine (423 páginas, 140×210 mm),
+  mas não define a arquitetura.
+
+A régua de produto:
+
+> **O Book Maker deve conseguir criar um livro completamente novo,
+> não-KALLISTIS, em formato diferente, editá-lo, salvá-lo, reabri-lo e
+> gerar um PDF real — sem carregar nenhuma característica de KALLISTIS.**
+
+---
+
+## Estado atual
+
+| Capacidade | Status |
 | --- | --- |
-| Local editorial production | PASS |
-| Editor → persistence → optimized PDF | PASS |
-| Canonical book | 423 pages |
-| Trim | 140 × 210 mm |
-| Preflight errors | 0 |
-| Optimized PDF | ~32 MiB |
-| Build | PASS |
-| Lint | PASS |
-| Typecheck | PASS |
-
-Cloud optimized export is **unsupported by design**. The Node-only export
-endpoint (`POST /api/export-from-snapshot`) detects non-Node runtimes and
-returns 503. Production-time CI is expected to run on a worker with Node
-and use `npm run export:pdf -- --in <arquivo>` directly. This is a product
-decision, not a defect of the local workflow.
+| Engine genérico (KALLISTIS desacoplado) | PASS |
+| LIVRO TESTE genérico A4 — criar, editar, salvar, reabrir, /print, PDF | PASS |
+| KALLISTIS 423 p — abrir, editar, salvar, reabrir, /print, PDF 140×210 | PASS |
+| Work File real (Salvar como + Salvar + reabertura via IndexedDB) | PASS |
+| `/print` autocontido quanto ao tamanho (sem width/height explícitos) | PASS |
+| AssetBrowser sem duplicate-key warnings | PASS |
+| Build / Typecheck / Lint focal | PASS |
+| Erros fatais de browser | 0 |
 
 ---
 
-## Product principle
+## Régua de produto (atualizada pós-pivô)
 
-> **Build green ≠ production-ready book.**
+| Capacidade | Requisito |
+| --- | --- |
+| **Novo livro** | Criar projeto vazio sem depender de KALLISTIS |
+| **Abrir livro** | Abrir qualquer projeto válido |
+| **Salvar** | Arquivo de trabalho real (File System Access API) |
+| **Formato** | Dimensões configuráveis por projeto |
+| **Paginação** | Número dinâmico de páginas (1, 32, 96, 316, 423, 800+) |
+| **Conteúdo** | Texto, imagem, tabela, formas, sheets, etc. |
+| **Assets** | Biblioteca pertencente ao projeto |
+| **Estilos** | Definidos pelo projeto/template |
+| **Identidade** | Nenhuma identidade KALLISTIS obrigatória |
+| **Print** | Derivado das configurações do documento |
+| **PDF** | Mesmo tamanho físico configurado no projeto |
 
-The real gate is end-to-end:
+### Teste-gate definitivo
 
-```
-edit
- → save
- → reload
- → export current state
- → inspect final PDF
-```
+> Criar um livro completamente novo, não-KALLISTIS, em outro formato,
+> editá-lo, salvá-lo, reabri-lo e gerar um PDF real, sem quebrar o
+> projeto KALLISTIS que já funciona.
 
-If the final PDF opens, renders the right trim, and contains the exact
-state that was on screen, the build is production-ready. Anything less
-is a preview.
-
----
-
-## Architecture
-
-```
-Manuscript / Project
-        │
-        ▼
-       Book
-        │
-        ▼
-   Visual Editor
-        │
-        ▼
-     Autosave
-   (localStorage + IndexedDB)
-        │
-        ▼
- Current Snapshot
-        │
-        ▼
- POST /api/export-from-snapshot      (Node-only)
-        │
-        ▼
-   scripts/export-pdf.mjs
-        │
-        ▼
-   Playwright  (Chromium, print CSS, 140×210 mm)
-        │
-        ▼
-     pdfunite  (50-page chunks → single PDF)
-        │
-        ▼
-   Ghostscript  (-dPDFSETTINGS=/printer)
-        │
-        ▼
- Production PDF  (~32 MiB, EB Garamond)
-```
+Esse fluxo foi provado em smoke real no commit `6310292` — LIVRO TESTE
+A4 12 páginas + KALLISTIS 423 páginas coexistindo sem acoplamento.
 
 ---
 
-## Features
+## Arquitetura (genérica)
 
-📖 **Editor**
+```
+BOOK MAKER
+│
+├── ENGINE GENÉRICO
+│   ├── páginas / blocos / spreads
+│   ├── assets
+│   ├── tipografia
+│   ├── estilos
+│   ├── layers
+│   ├── tabelas
+│   ├── guides / smart guides / réguas
+│   ├── undo/redo
+│   ├── persistência (localStorage + IndexedDB + File System Access API)
+│   └── exportação (/print + PDF)
+│
+├── PROJETO (decisões do livro)
+│   ├── metadata (título, autor, editora, idioma)
+│   ├── document (pageWidth, pageHeight, unit, orientation, bleed, margins)
+│   ├── typography (fonts, paragraphStyles, headingStyles)
+│   ├── appearance (palette, background, defaults)
+│   ├── assets (project-owned)
+│   ├── pages (blocks/elements)
+│   └── export configuration
+│
+└── PRESETS / TEMPLATES
+    ├── Romance
+    ├── RPG
+    ├── Manual técnico
+    ├── A5 / A4 / Letter / 6×9" / personalizado
+    └── projetos personalizados (incluindo KALLISTIS como template)
+```
 
-- Composition by page and spread
-- Block types: title, text, image, quote, box, table, divider, caption,
-  form, sheet, shapes, lockup, TOC
-- Drag, multi-select, undo/redo with keyboard shortcuts
-- Properties panel for type-specific settings
-- Smart guides, snap-to-grid, ruler readout
-- Overlays: rulers, margins, bleed, safe area, columns, baseline
+KALLISTIS vive **apenas** no terceiro nível. O engine não conhece
+KALLISTIS. O `DEFAULT_TOKENS` é A4 neutro (210×297mm), a paleta base é
+cinza, a fonte display é Georgia, a fonte funcional é system-ui. KALLISTIS
+entra quando o usuário escolhe o template/projeto KALLISTIS.
 
-⚙️ **Persistence**
+---
 
-- Autosave to `localStorage` keyed by project
-- Binary assets externalized to IndexedDB
-- File System Access API for save-in-place to a working file
-- Portable JSON export with inline assets
-- Multi-project library on the same machine
+## O que o engine faz (e o que ele NÃO faz)
 
-🖨️ **Production**
+### O engine faz
 
-- Preflight diagnostics (errors, warnings, info)
-- Two export paths:
-  - **Browser preview** — `Gerar PDF` (Chromium print dialog)
-  - **Production** — `Exportar PDF Otimizado` (Playwright + pdfunite + Ghostscript)
-- EB Garamond typography, 1 mm grid, 140 × 210 mm trim
-- Print-ready PDF, ~32 MiB for 423 pages
+- **Composição**: páginas, blocos, templates, escala, colunas, baseline grid.
+- **Edição visual**: drag, multi-select, undo/redo, properties, snapping.
+- **Persistência**: autosave localStorage, File System Access API (work
+  file), IndexedDB para assets binários, JSON portátil exportável.
+- **Preflight**: regras estáticas + medições de layout (overflow, assets
+  ausentes, resolução efetiva, ocorrências editoriais).
+- **PDF**: pipeline determinístico (Playwright + pdfunite + Ghostscript)
+  que respeita o `document.pageWidth × pageHeight` do projeto.
+
+### O engine NÃO faz
+
+- assumir que toda biblioteca de assets é KALLISTIS;
+- fixar trim de 140×210mm ou qualquer outro formato;
+- fixar fonte (EB Garamond era acoplamento histórico, agora removido);
+- hardcodar identidade visual (paleta roxa KALLISTIS removida da base);
+- fixar número de páginas — suporta 1, 32, 96, 316, 423, 800+.
 
 ---
 
@@ -144,147 +140,118 @@ Manuscript / Project
 
 ```bash
 cd book_maker
-npm install
-npm run dev
+bun install --frozen-lockfile
+bun run dev -- --host 127.0.0.1 --port 4185
 ```
 
-The editor opens at `http://127.0.0.1:5173` (or the next free port).
+O editor abre em `http://127.0.0.1:4185/`. A rota `/` é o editor; `/print`
+é a renderização limpa (sem UI de editor) usada para impressão e PDF.
 
-### Production export
+Criar um novo projeto: menu **Projeto � → Novo projeto → Novo livro**
+(Form: A4/A5/Letter/6×9"/140×210/personalizado; páginas iniciais
+configuráveis; título e autor).
 
-Inside the editor:
-
-1. **Salvar** — flush the current snapshot to localStorage / the working file.
-2. **Exportar PDF Otimizado** — sends the current snapshot to
-   `POST /api/export-from-snapshot`, which spawns the production pipeline.
-
-The PDF is downloaded as a binary blob. The route is **Node-only** by
-design; in a serverless deployment the optimized export runs in CI with:
-
-```bash
-npm run export:pdf -- --in projects/kallistis-manual-do-mundo-reconstrucao.json
-```
+Salvar:
+- **Salvar** — snapshot em localStorage + (se houver arquivo vinculado)
+  grava no arquivo de trabalho real via File System Access API.
+- **Salvar como…** — escolhe arquivo novo, vincula-o para Saves futuros.
+- **Exportar PDF Otimizado** — chama o pipeline de produção.
 
 ---
 
-## Editorial format
+## KALLISTIS — papel atual
 
-- **Canonical book**: 423 pages
-- **Trim**: 140 × 210 mm
-- **Interior font**: EB Garamond (Type 3 glyphs in the rendered PDF; see
-  "Known limitations" below)
+KALLISTIS é um projeto Book Maker real, completo, com 423 páginas em
+140×210mm, fonte EB Garamond, paleta proprietária e identidade visual
+definida. Continua sendo:
+
+- o **melhor stress test** do engine (projeto grande, trim incomum,
+  tipografia proprietária, layout editorial denso);
+- um **template/preset** instalável e válido;
+- uma **referência de regressão** para garantir que o motor não regride
+  para projetos grandes e complexos.
+
+Não é mais:
+- a identidade visual default do engine;
+- a fonte default do editor;
+- o caso de uso exclusivo;
+- o motivo pelo qual o produto existe.
+
+O JSON `projects/kallistis-manual-do-mundo-reconstrucao.json` continua
+sendo aceito pelo editor e renderizado corretamente — foi apenas
+despromovido de "default" para "um dos projetos".
 
 ---
 
 ## Stack
 
-**Application**
-
+**Aplicação**
 - TypeScript
 - React 19
 - TanStack Start / TanStack Router
 - Vite 8
-- Nitro (Node and Cloudflare adapters)
+- Nitro (Node e Cloudflare adapters)
 
-**Production pipeline**
-
+**Pipeline de produção (PDF)**
 - Playwright (Chromium)
 - pdfunite (poppler)
 - Ghostscript (`-dPDFSETTINGS=/printer`)
 
-**Persistence**
-
+**Persistência**
 - localStorage
 - IndexedDB
-- File System Access API
+- File System Access API (Chromium)
 
-**Infrastructure**
-
-- Cloudflare (Wrangler / D1 / R2) — used by the Cloudflare deployment
-  path. The optimized Node export is **not** a Cloudflare Worker and
-  does not run on the edge.
+**Infraestrutura**
+- Cloudflare (Wrangler / D1 / R2) — disponível para o adapter Cloudflare.
+  O pipeline de PDF otimizado roda em Node, não na edge, por design.
 
 ---
 
-## Local-first
-
-The optimized production workflow is intentionally local-first. It
-depends on:
-
-- Node.js (>= 20)
-- Filesystem temp space
-- Playwright (Chromium)
-- pdfunite
-- Ghostscript
-
-These are deliberately not part of the Cloudflare Worker runtime. The
-Cloudflare adapter handles a different role (project persistence, asset
-storage, owner-auth API) and is complementary infrastructure.
-
----
-
-## Known limitations
-
-**PDF text extraction is partial for some EB Garamond glyphs** after
-Ghostscript optimization. The `/printer` setting drops the `ToUnicode`
-CMap on Type 3 fonts, which is the documented behavior of Ghostscript
-across `/printer`, `/prepress`, and `/screen` settings.
-
-- Visual rendering: **valid**
-- Print rendering: **valid**
-- PDF opens correctly: **valid**
-- Programmatic text extraction: **partial**
-
-The fix is **not** to swap fonts and **not** to remove Ghostscript. The
-trade-off — ~90 % size reduction with no visible loss — is part of the
-production decision.
-
-The existing E2E suite covers functional flows; some fixtures are
-historically flaky and were left untouched in this freeze.
-
----
-
-## Repository layout
+## Repositório
 
 ```
-book_maker/
-├── src/
-│   ├── book/          ← editorial model, renderer, templates
-│   ├── editor/        ← canvas, panels, state
-│   ├── routes/        ← /, /print, /login
-│   ├── lib/           ← persistence, auth, assets
-│   └── server-api.ts  ← /api/export-from-snapshot, /api/health, owner API
-├── scripts/
-│   ├── export-pdf.mjs     ← production PDF pipeline
-│   ├── materialize-manuscript.mjs
-│   └── …
-├── projects/          ← canonical Book snapshots (.json)
-├── public/            ← cover, branding, asset manifest
-├── tests/e2e/         ← Playwright specs
-└── playwright.config.ts
+kallistis-book/
+├── README.md            ← este arquivo
+└── book_maker/
+    ├── README.md        ← guia de instalação / dev / build
+    ├── src/
+    │   ├── book/        ← modelo editorial + renderer + templates
+    │   ├── data/        ← emptyBook (genérico), canonicalBook (KALLISTIS preset)
+    │   ├── editor/      ← canvas, toolbar, painéis, store
+    │   ├── lib/         ← persistence, preflight, assets
+    │   └── routes/      ← /, /print, /login
+    ├── scripts/         ← export-pdf, materialize-manuscript, …
+    ├── projects/        ← snapshots serializáveis (.json) — KALLISTIS, velarim, etc.
+    ├── public/          ← manifesto editorial, favicon, assets locais
+    ├── tests/e2e/       ← specs Playwright
+    └── package.json
 ```
 
 ---
 
-## Development
+## Smoke real — gates que passaram
 
-```bash
-cd book_maker
+Cada um desses débitos foi provado por smoke real em Chromium
+(headless ou headed), com bytes físicos no filesystem:
 
-npm run dev          # vite dev server
-npm run build        # vite build (Nitro + Cloudflare adapters)
-npm run typecheck    # tsc --noEmit
-npm run lint         # eslint .
-npm run test         # unit tests (table, authoring, sheet, image)
-npm run test:e2e     # playwright test
-npm run export:pdf   # node scripts/export-pdf.mjs
-```
-
-Engine: **Node.js >= 20**.
+1. **Engine genérico** (`53d5feb`) — LIVRO TESTE A4 criado, editado,
+   salvo, PDF A4 real sem passar width/height ao page.pdf().
+2. **Work File real** (`b56dc4a` P1, `6310292`) — arquivo físico escrito
+   via Salvar como, segunda escrita atualizou MESMO arquivo via
+   handle vinculado em IndexedDB, reabertura via
+   `loadBoundBookFromWorkFile` preservou o estado, overwrite guard
+   intacto.
+3. **`/print` autocontido** (`b56dc4a` P2-A) — injeta `@page { size: <w> <h> }`
+   derivado dos tokens; PDF sai no formato exato do projeto
+   (210×297mm para A4, 140×210mm para KALLISTIS) sem o consumidor
+   precisar conhecer dimensões.
+4. **AssetBrowser sem duplicate keys** (`b56dc4a` P2-B) — deduplicação
+   do manifesto em render (177 entradas / 166 ids únicos → 0 warnings).
 
 ---
 
-## License
+## Licença
 
-Internal. Reproduction of the KALLISTIS content is governed by the
-project's editorial license.
+A definir antes da publicação do clone público sanitizado. Nenhuma
+licença permissiva é concedida por este README.

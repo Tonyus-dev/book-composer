@@ -1,12 +1,16 @@
-# KALLISTIS Book Maker
+# Book Maker
 
-Ferramenta editorial visual para materializar, compor, revisar e preparar livros estruturados para publicação. O projeto nasceu durante a produção de **KALLISTIS — Manual do Mundo**, que continua sendo seu caso de uso original.
+Editor / diagramador genérico de livros. KALLISTIS é um projeto de validação (template + stress test), não o produto.
+
+O Book Maker nasceu durante a produção de **KALLISTIS — Manual do Mundo**, que continua sendo o melhor stress test do engine (423 páginas, 140×210 mm, tipografia proprietária). Mas o produto é deliberadamente genérico: qualquer livro — romance, RPG, suplemento, manual técnico, didático, catálogo, zine, obra personalizada — pode existir no Book Maker.
 
 <!-- TODO public clone: add a sanitized current screenshot of the editor. -->
 
 ## O que é
 
-O KALLISTIS Book Maker combina materialização automatizada, templates editoriais, edição manual visual, preflight e exportação de projetos portáteis. O editor trabalha sobre um modelo `Book` serializável e renderiza a mesma estrutura no canvas, no modo de impressão e na exportação PDF.
+O Book Maker combina materialização automatizada, templates editoriais, edição manual visual, preflight e exportação de projetos portáteis. O editor trabalha sobre um modelo `Book` serializável e renderiza a mesma estrutura no canvas, no modo de impressão e na exportação PDF.
+
+O formato físico (A5, A4, Letter, 6×9", 140×210 mm ou personalizado), margens, sangria, fontes e paleta são decisões do projeto, não do engine. O engine é neutro; KALLISTIS é um dos projetos que vivem dentro dele.
 
 Ele não é um CMS genérico, um editor de texto comum ou um clone visual de outra ferramenta. É uma bancada editorial orientada à composição de livros.
 
@@ -14,9 +18,22 @@ Ele não é um CMS genérico, um editor de texto comum ou um clone visual de out
 
 Livros estruturados repetem tarefas que podem ser automatizadas, mas decisões de hierarquia, ritmo, imagem e composição ainda precisam de julgamento humano. O Book Maker faz a parte repetitiva e deixa o ajuste editorial final visível e direto no canvas.
 
+A ferramenta é genérica por construção: cada projeto define o seu próprio formato, identidade e cadência. KALLISTIS é o stress test mais exigente que rodamos (423 páginas, 140×210 mm, tipografia proprietária), mas não é o que define a régua do produto.
+
 ## Estado atual
 
-Ferramenta funcional em desenvolvimento ativo, utilizada na produção editorial de KALLISTIS e ainda em evolução. Build e testes automatizados são importantes, mas não substituem a validação manual do editor, do preflight e da saída impressa.
+Ferramenta funcional em desenvolvimento ativo, agora desacoplada de KALLISTIS como produto. KALLISTIS continua sendo o melhor stress test do engine (423 páginas, 140×210 mm) e vive dentro do Book Maker como um projeto de exemplo/template. Build e testes automatizados são importantes, mas não substituem a validação manual do editor, do preflight e da saída impressa.
+
+### Gates pós-pivô genérico (smoke real provado)
+
+| Gate | Status | Commit |
+| --- | --- | --- |
+| Engine desacoplado de KALLISTIS (DEFAULT_TOKENS, /print, verso header, paleta base, presets de tabela, ficha) | PASS | `53d5feb` |
+| Work File real (File System Access API + IndexedDB handle + reabertura via `loadBoundBookFromWorkFile`) | PASS | `b56dc4a`, `6310292` |
+| `/print` autocontido quanto ao tamanho (`@page { size }` derivado dos tokens; PDF sai no formato do projeto sem width/height explícitos) | PASS | `b56dc4a` |
+| AssetBrowser sem duplicate-key warnings (deduplicação de manifesto em render) | PASS | `b56dc4a` |
+| LIVRO TESTE A4 12 p — criar, editar, salvar, reabrir, /print, PDF A4 real | PASS | smoke |
+| KALLISTIS 423 p — abrir, editar, salvar, reabrir, /print, PDF 140×210 | PASS | regressão |
 
 ## Principais recursos
 
@@ -246,7 +263,7 @@ Melhorias de edição continuam sendo guiadas por problemas observados no fluxo 
 
 ## Origem do projeto
 
-O Book Maker foi criado para atender a produção de **KALLISTIS — Manual do Mundo**. KALLISTIS explica a origem e o primeiro corpus editorial; o produto documentado aqui é a ferramenta de composição.
+O Book Maker foi criado para atender a produção de **KALLISTIS — Manual do Mundo**. KALLISTIS explica a origem e o primeiro corpus editorial usado como stress test; o produto documentado aqui é uma ferramenta de composição genérica que não depende mais de KALLISTIS para funcionar.
 
 ## Futuro repositório público
 
