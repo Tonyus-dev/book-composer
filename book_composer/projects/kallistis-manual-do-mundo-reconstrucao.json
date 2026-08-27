@@ -6,7 +6,9 @@
     "author": "Antônio de Oliveira",
     "imprint": "Nomos Ludens",
     "edition": "v1.5 candidata — prova privada",
-    "firstFolio": 1
+    "firstFolio": 1,
+    "pageCount": 424,
+    "updatedAt": "2026-08-27T03:29:32.667Z"
   },
   "tokens": {
     "pageWidth": "140mm",
@@ -42969,6 +42971,217 @@
         "wordCount": 120,
         "pageFillRatio": 0.9965073529411764
       }
+    },
+    {
+      "id": "src-d8146e4951f3c650",
+      "template": "chapter_opening",
+      "variant": "quadrant-image",
+      "editorialComposition": "OFICIO_CULTURAL_OPENING",
+      "editorialFamily": "NARRATIVE",
+      "part": "PARTE III — POVOS, OFÍCIOS E COMUNIDADES VIVAS",
+      "chapter": "MOVIMENTO B — OFÍCIOS",
+      "title": "MOVIMENTO B — OFÍCIOS",
+      "settings": {
+        "header": true,
+        "footer": false,
+        "pageNumber": true,
+        "columns": 1,
+        "background": "paper",
+        "fullBleed": false
+      },
+      "blocks": [
+        {
+          "id": "src-71e3feea0a1bf0c4",
+          "type": "heading",
+          "level": 3,
+          "text": "SATIRISTA",
+          "materialization": {
+            "generatedBy": "kallistis-materializer",
+            "materializationVersion": 5,
+            "scope": "ALL",
+            "sourceBlockId": "src-71e3feea0a1bf0c4",
+            "sourceStartLine": 3400,
+            "sourceEndLine": 3400,
+            "sourceRaw": "### SATIRISTA",
+            "sourceType": "heading",
+            "sourceFragmentIndex": 0,
+            "sourceFragmentCount": 1,
+            "wordCount": 1
+          }
+        },
+        {
+          "id": "src-655a33a5bf857712",
+          "type": "image",
+          "src": "/assets/complete/offices/satirista.png",
+          "alt": "Satirista — Ofício oficial",
+          "position": "flow",
+          "fullBleed": false,
+          "fit": "contain",
+          "objectX": 50,
+          "objectY": 50,
+          "frameAspectRatio": 0.667,
+          "layoutRole": "QUADRANT_IMAGE",
+          "quadrant": "top-left",
+          "width": "50%",
+          "height": "84mm",
+          "materialization": {
+            "generatedBy": "kallistis-materializer",
+            "materializationVersion": 5,
+            "scope": "ALL",
+            "generated": true,
+            "assetSourceBlockId": "src-71e3feea0a1bf0c4",
+            "assetStatus": "COVERED_HIGH",
+            "assetCatalogReference": "VERSÃO_ULTIMATE satirista.png",
+            "semanticAnchor": "Ofício Satirista",
+            "allowedHeadingIds": [
+              "src-71e3feea0a1bf0c4"
+            ],
+            "allowedWindow": "SAME_HEADING_SUBTREE",
+            "semanticAnchorHeadingId": "src-71e3feea0a1bf0c4",
+            "layoutRole": "QUADRANT_IMAGE",
+            "quadrant": "top-left"
+          }
+        },
+        {
+          "id": "src-806f9595fe017eea",
+          "type": "heading",
+          "level": 4,
+          "text": "O Bobo de KALLISTIS",
+          "materialization": {
+            "generatedBy": "kallistis-materializer",
+            "materializationVersion": 5,
+            "scope": "ALL",
+            "sourceBlockId": "src-806f9595fe017eea",
+            "sourceStartLine": 3402,
+            "sourceEndLine": 3402,
+            "sourceRaw": "### O Bobo de KALLISTIS",
+            "sourceType": "heading",
+            "sourceFragmentIndex": 0,
+            "sourceFragmentCount": 1,
+            "wordCount": 4
+          }
+        },
+        {
+          "id": "src-31b1e4bf0832bee5",
+          "type": "text",
+          "role": "body",
+          "content": "**Um Bobo não é alguém sem poder. É alguém que escolheu guardar em vez de governar — e por isso não pode ser ignorado.**",
+          "align": "justify",
+          "materialization": {
+            "generatedBy": "kallistis-materializer",
+            "materializationVersion": 5,
+            "scope": "ALL",
+            "sourceBlockId": "src-31b1e4bf0832bee5",
+            "sourceStartLine": 3404,
+            "sourceEndLine": 3404,
+            "sourceRaw": "O Satirista é o Bobo de KALLISTIS.",
+            "sourceType": "text",
+            "sourceFragmentIndex": 0,
+            "sourceFragmentCount": 1,
+            "wordCount": 8
+          }
+        },
+        {
+          "id": "src-e620aac00e90fdc6",
+          "type": "text",
+          "role": "body",
+          "content": "O Satirista aprende, antes de tudo, a habitar o intervalo entre a regra e a exceção. Antes de dominar a música, a máscara ou o truque, precisa entender a distância entre uma palavra dita em segurança e uma verdade capaz de incendiar um salão. Seu Ofício não sustenta as regras da comunidade — sustenta o que ainda une as pessoas quando as regras já falharam. Guarda para si, não por ganância, mas porque sabe que certas memórias morrem no instante em que são entregues às instituições.",
+          "align": "justify",
+          "materialization": {
+            "generatedBy": "kallistis-materializer",
+            "materializationVersion": 5,
+            "scope": "ALL",
+            "sourceBlockId": "src-e620aac00e90fdc6",
+            "sourceStartLine": 3404,
+            "sourceEndLine": 3410,
+            "sourceRaw": "O Satirista é o Bobo de KALLISTIS.",
+            "sourceType": "text",
+            "sourceFragmentIndex": 0,
+            "sourceFragmentCount": 1,
+            "wordCount": 56
+          }
+        },
+        {
+          "id": "src-800f80c94ead4396",
+          "type": "text",
+          "role": "body",
+          "content": "**Chave.** Pode ser um instrumento, uma máscara, um verso, uma cicatriz, um nome — qualquer objeto que carregue uma história impossível de esquecer. Importa menos a forma que a memória presa a ela: uma máscara qualquer é só disfarce; uma máscara guardada pode conter a identidade de alguém que precisou desaparecer. Perder a Chave não apaga o Ofício, mas pode forçar o Satirista a descobrir se protegia uma lembrança — ou só o privilégio de ser o único a possuí-la.",
+          "align": "justify",
+          "materialization": {
+            "generatedBy": "kallistis-materializer",
+            "materializationVersion": 5,
+            "scope": "ALL",
+            "sourceBlockId": "src-800f80c94ead4396",
+            "sourceStartLine": 3412,
+            "sourceEndLine": 3412,
+            "sourceRaw": "**Chave.** Pode ser um instrumento, uma máscara, um verso, uma cicatriz, um nome — qualquer objeto que carregue uma história impossível de esquecer.",
+            "sourceType": "text",
+            "sourceFragmentIndex": 0,
+            "sourceFragmentCount": 1,
+            "wordCount": 52
+          }
+        },
+        {
+          "id": "src-2ca80bc3cc247081",
+          "type": "text",
+          "role": "body",
+          "content": "**Trilha.** No início, aprende a chamar atenção, provocar riso e esconder uma verdade dentro de uma piada. Depois, aprende a desarmar autoridades, inverter sentenças e dizer o que ninguém mais ousaria dizer sem ser destruído por isso. Sua licença é a do Bobo da Corte: pode tocar no rei, ridicularizar o juiz, apontar a contradição do santo — desde que aceite arcar com as consequências de ser compreendido. Não vence uma sentença pela força; procura a fresta na linguagem. Uma condenação pode virar saída. A corrupção do Satirista começa quando o riso deixa de abrir espaço para a verdade e passa a destruí-la.",
+          "align": "justify",
+          "materialization": {
+            "generatedBy": "kallistis-materializer",
+            "materializationVersion": 5,
+            "scope": "ALL",
+            "sourceBlockId": "src-2ca80bc3cc247081",
+            "sourceStartLine": 3414,
+            "sourceEndLine": 3434,
+            "sourceRaw": "**Trilha.** No início, aprende a chamar atenção...",
+            "sourceType": "text",
+            "sourceFragmentIndex": 0,
+            "sourceFragmentCount": 1,
+            "wordCount": 96
+          }
+        },
+        {
+          "id": "src-e962e0147f27be4c",
+          "type": "text",
+          "role": "body",
+          "content": "**Corpo e desejo.** Para o Satirista, o corpo também é memória. Toque, prazer, desejo, vergonha, cicatriz, fome, cheiro, intimidade — formas de experiência que as instituições insistem em controlar ou apagar. A luxúria não é apenas sedução: é presença corporal, liberdade do desejo, vulnerabilidade, a afirmação de que o corpo ainda pertence a quem o habita. Ele provoca, seduz, desafia — mas nunca transforma desejo em licença para ignorar a vontade alheia.",
+          "align": "justify",
+          "materialization": {
+            "generatedBy": "kallistis-materializer",
+            "materializationVersion": 5,
+            "scope": "ALL",
+            "sourceBlockId": "src-e962e0147f27be4c",
+            "sourceStartLine": 3418,
+            "sourceEndLine": 3418,
+            "sourceRaw": "**Corpo e desejo.** Para o Satirista, o corpo também é memória.",
+            "sourceType": "text",
+            "sourceFragmentIndex": 0,
+            "sourceFragmentCount": 1,
+            "wordCount": 50
+          }
+        },
+        {
+          "id": "src-3d534736b2d4d504",
+          "type": "text",
+          "role": "body",
+          "content": "A corrupção do Satirista começa quando o riso deixa de abrir espaço para a verdade e passa a destruí-la. O guardião das memórias vira dono delas; o espírito livre transforma todo vínculo em prisão.",
+          "align": "justify",
+          "materialization": {
+            "generatedBy": "kallistis-materializer",
+            "materializationVersion": 5,
+            "scope": "ALL",
+            "sourceBlockId": "src-3d534736b2d4d504",
+            "sourceStartLine": 3430,
+            "sourceEndLine": 3430,
+            "sourceRaw": "A corrupção do Satirista começa quando o riso deixa de abrir espaço para a verdade.",
+            "sourceType": "text",
+            "sourceFragmentIndex": 0,
+            "sourceFragmentCount": 1,
+            "wordCount": 28
+          }
+        }
+      ]
     },
     {
       "id": "all-page-0160",
